@@ -21,7 +21,7 @@ permalink: /news/
 ## Openings ##
 
 Various positions including graduate, undergraduate interships, and postdoctoral positions are available. All of the positions are fully funded by Government research projects.
-Currently (as of 2018 July), Materials Mechanical Lab at CWNU are involved in three research projects funded by Korea Goverment - find more details about the projects [here]({{ site.baseurl }}{% link projects.md %}).
+Currently (as of 2021), Materials Mechanical Lab at CWNU are involved in three research projects funded by Korea Goverment - find more details about the projects [here]({{ site.baseurl }}{% link projects.md %}).
 If you are interested in, please [contact us](mailto:yjeong@changwon.ac.kr).
 
 -----------------------------
