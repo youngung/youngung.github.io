@@ -13,6 +13,9 @@ permalink: /usefultips/
 
 ---------------------------
 
+[Online Jupyter notebook]({% link https://cocalc.com/doc/jupyter-notebook.html%})
+
+
 ## install Ubuntu bash shell on Windows 10
 
  Ubuntu linux를 Windows 10에 설치하여 사용할 수 있다.
