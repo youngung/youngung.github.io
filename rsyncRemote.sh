@@ -25,4 +25,4 @@
 rsync -v ~/OneDrive\ -\ changwon.ac.kr/Lectures/2021-2/소성가공학/slides_without_movies/*.pdf lecturenotes/MetalForming/
 
 # bash update.sh
-# git commit -am 'Lecture note updates'&&git push github master
+git commit -am 'Lecture note updates'&&git push github master
