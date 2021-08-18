@@ -14,14 +14,15 @@
 #rsync -PaHAv --numeric-ids ~/OneDrive\ -\ changwon.ac.kr/Lectures/2018Spring/MSE/*.pdf lecturenotes/MSE/
 
 ## 2019-Fall
-rsync -v ~/OneDrive\ -\ changwon.ac.kr/Lectures/2019-2/mechmse/*.pdf lecturenotes/MechMSE/              ## 기계재료개론rrs
-rsync -v ~/OneDrive\ -\ changwon.ac.kr/Lectures/2019-2/metalforming/*.pdf lecturenotes/MetalForming/
-rsync -v ~/OneDrive\ -\ changwon.ac.kr/Lectures/2019-2/VPSC-theory/*.pdf lecturenotes/vpsc
+# rsync -v ~/OneDrive\ -\ changwon.ac.kr/Lectures/2019-2/mechmse/*.pdf lecturenotes/MechMSE/              ## 기계재료개론rrs
+# rsync -v ~/OneDrive\ -\ changwon.ac.kr/Lectures/2019-2/metalforming/*.pdf lecturenotes/MetalForming/
+# rsync -v ~/OneDrive\ -\ changwon.ac.kr/Lectures/2019-2/VPSC-theory/*.pdf lecturenotes/vpsc
+# rsync -v ~/OneDrive\ -\ changwon.ac.kr/Lectures/2020-1/전산소성가공이론1/*/*.pdf lecturenotes/computationalmechanics1
+# rsync -v ~/OneDrive\ -\ changwon.ac.kr/Lectures/2020-1/전산소성가공이론2/*/*.pdf lecturenotes/computationalmechanics2
 
 
-rsync -v ~/OneDrive\ -\ changwon.ac.kr/Lectures/2020-1/전산소성가공이론1/*/*.pdf lecturenotes/computationalmechanics1
-
-rsync -v ~/OneDrive\ -\ changwon.ac.kr/Lectures/2020-1/전산소성가공이론2/*/*.pdf lecturenotes/computationalmechanics2
+## 2021-Fall
+rsync -v ~/OneDrive\ -\ changwon.ac.kr/Lectures/2021-2/소성가공학/slides_without_movies/*.pdf lecturenotes/MetalForming/
 
 # bash update.sh
 # git commit -am 'Lecture note updates'&&git push github master

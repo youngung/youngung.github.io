@@ -8,9 +8,11 @@ permalink: /metalforming/
 
 아래에 링크에서 강의 슬라이드를 다운 받으세요.
 
+<!--
+
 1. Orientation and Introduction: [lecture notes]({% link /lecturenotes/MetalForming/01_Intro_MF.pdf %})
 
-2. Basics on Stress and Strain quantities: [lecture notes]({% link /lecturenotes/MetalForming/02_StressStrain_basics_MF.pdf %})
+ 2. Basics on Stress and Strain quantities: [lecture notes]({% link /lecturenotes/MetalForming/02_StressStrain_basics_MF.pdf %})
 
 3. Stress tensor: [lecture notes]({% link /lecturenotes/MetalForming/03_StressTensor_MF.pdf %})
 
@@ -37,6 +39,7 @@ permalink: /metalforming/
 10. Instability: [lecture notes]({% link /lecturenotes/MetalForming/09_Instability_MF.pdf %})
 
 11. Strain Rate and Temperature: [lecture notes]({% link /lecturenotes/MetalForming/10_StrainRateTemperature_MF.pdf %})
+-->
 
 
 --------------------------
