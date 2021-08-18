@@ -13,7 +13,7 @@ permalink: /usefultips/
 
 ---------------------------
 
-[Online Jupyter notebook]({% link https://cocalc.com/doc/jupyter-notebook.html%})
+[Online Jupyter notebook](https://cocalc.com/doc/jupyter-notebook.html)
 
 
 ## install Ubuntu bash shell on Windows 10
