@@ -10,11 +10,17 @@ permalink: /metalforming/
 
 1. [Orientations]({% link /lecturenotes/MetalForming/a_Intro_MF.pdf %})
 
+2. [Common Forming Processes 01]({% link /lecturenotes/MetalForming/b_Common_Forming_Processes_01.pdf %})
+
+3. [Common Forming Processes 02]({% link /lecturenotes/MetalForming/c_Common_Forming_Processes_02.pdf %})
+
+4. [Mathematics required to study elasticity / plasticity]({% link /lecturenotes/MetalForming/d_math.pdf %})
+
 <!--
 
 1. Orientation and Introduction: [lecture notes]({% link /lecturenotes/MetalForming/01_Intro_MF.pdf %})
 
- 2. Basics on Stress and Strain quantities: [lecture notes]({% link /lecturenotes/MetalForming/02_StressStrain_basics_MF.pdf %})
+2. Basics on Stress and Strain quantities: [lecture notes]({% link /lecturenotes/MetalForming/02_StressStrain_basics_MF.pdf %})
 
 3. Stress tensor: [lecture notes]({% link /lecturenotes/MetalForming/03_StressTensor_MF.pdf %})
 
