@@ -6,6 +6,19 @@ permalink: /teaching/
 
 
 ----------------------------
+
+
+
+## 2021-2학기
+- [소성가공(MSA0026)]({% link metalforming.md %})
+
+
+
+
+
+
+
+<!--
 ## 2020-1학기
 
 - [소성가공이론]({% link ComputationalMechanics1.md %})
@@ -19,7 +32,7 @@ permalink: /teaching/
 
 
 
-<!--
+
 [2019년 기계재료개론 중간고사 성적]
 <img src='/dat/notification/2019/mse_mid.png'>
 [2019년 소성가공 중간고사 성적]
