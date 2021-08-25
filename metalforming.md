@@ -13,6 +13,8 @@ permalink: /metalforming/
 
 3. [Common Forming Processes 02]({% link /lecturenotes/MetalForming/c_Common_Forming_Processes_02.pdf %})
 
+4. [Basics in stress and strain ]({% link /lecturenotes/MetalForming/2021_04_StressStrain_basics.pdf %})
+
 <!--
 
 4. [Mathematics required to study elasticity / plasticity]({% link /lecturenotes/MetalForming/d_math.pdf %})
