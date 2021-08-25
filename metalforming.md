@@ -7,14 +7,16 @@ permalink: /metalforming/
 
 
 아래에 링크에서 강의 슬라이드를 다운 받으세요.
-
 1. [Orientations]({% link /lecturenotes/MetalForming/a_Intro_MF.pdf %})
+
+<!-- 1. [Orientations]({% link /lecturenotes/MetalForming/a_Intro_MF.pdf %})
 
 2. [Common Forming Processes 01]({% link /lecturenotes/MetalForming/b_Common_Forming_Processes_01.pdf %})
 
 3. [Common Forming Processes 02]({% link /lecturenotes/MetalForming/c_Common_Forming_Processes_02.pdf %})
 
 4. [Mathematics required to study elasticity / plasticity]({% link /lecturenotes/MetalForming/d_math.pdf %})
+-->
 
 <!--
 
