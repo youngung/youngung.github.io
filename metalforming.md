@@ -15,6 +15,10 @@ permalink: /metalforming/
 
 4. [Basics in stress and strain ]({% link /lecturenotes/MetalForming/2021_04_StressStrain_basics.pdf %})
 
+5. [Vectors and Matrices]({% link /lecturenotes/MetalForming/2021_05_vectors_matrices.pdf %})
+
+5
+
 <!--
 
 4. [Mathematics required to study elasticity / plasticity]({% link /lecturenotes/MetalForming/d_math.pdf %})
