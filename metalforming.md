@@ -17,7 +17,8 @@ permalink: /metalforming/
 
 5. [Vectors and Matrices]({% link /lecturenotes/MetalForming/2021_05_vectors_matrices.pdf %})
 
-5
+6. [Displacement]({% link /lecturenotes/MetalForming/2021_05_vectors_matrices.pdf %})
+
 
 <!--
 
