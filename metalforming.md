@@ -17,7 +17,13 @@ permalink: /metalforming/
 
 5. [Vectors and Matrices]({% link /lecturenotes/MetalForming/2021_05_vectors_matrices.pdf %})
 
-6. [Displacement]({% link /lecturenotes/MetalForming/2021_05_vectors_matrices.pdf %})
+6. [Displacement]({% link /lecturenotes/MetalForming/2021_06_displacement_and_strain.pdf %})
+
+7. [Force and Stress]({% link /lecturenotes/MetalForming/2021_07a_force_and_stress.pdf %})
+
+8. [Elasticity]({% link /lecturenotes/MetalForming/2021_08_elasticity.pdf %})
+
+9. [Elasto-plasticity (scalar)]({% link /lecturenotes/MetalForming/2021_09a_elasto-plasticity_scalar.pdf %})
 
 
 <!--
