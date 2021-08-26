@@ -25,6 +25,8 @@ permalink: /metalforming/
 
 9. [Elasto-plasticity (scalar)]({% link /lecturenotes/MetalForming/2021_09a_elasto-plasticity_scalar.pdf %})
 
+10. [Elasto-plasticity (tensor)]({% link /lecturenotes/MetalForming/2021_09b_elasto-plasticity_tensors.pdf %})
+
 
 <!--
 
