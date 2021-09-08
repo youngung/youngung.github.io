@@ -13,7 +13,11 @@ permalink: /metalforming/
 
 3. [Common Forming Processes 02]({% link /lecturenotes/MetalForming/c_Common_Forming_Processes_02.pdf %})
 
-4. [Basics in stress and strain ]({% link /lecturenotes/MetalForming/2021_04_StressStrain_basics.pdf %})
+4. Basics in stress and strain
+
+   4-1. [Basics in stress and strain 01]({% link /lecturenotes/MetalForming/2021_04_StressStrain_basics_01.pdf %})
+
+<!-- 4-1. [Basics in stress and strain ]({% link /lecturenotes/MetalForming/2021_04_StressStrain_basics.pdf %}) -->
 
 5. [Vectors and Matrices]({% link /lecturenotes/MetalForming/2021_05_vectors_matrices.pdf %})
 
