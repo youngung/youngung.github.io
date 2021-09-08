@@ -25,8 +25,6 @@ permalink: /metalforming/
 
    4-5. [Basics in stress and strain 05]({% link /lecturenotes/MetalForming/2021_04_StressStrain_basics_05.pdf %})
 
-<!-- 4-1. [Basics in stress and strain ]({% link /lecturenotes/MetalForming/2021_04_StressStrain_basics.pdf %}) -->
-
 5. Vectors and Matrices
 
    5-1. [Vectors and Matrices 01]({% link /lecturenotes/MetalForming/2021_05_vectors_matrices_01.pdf %})
