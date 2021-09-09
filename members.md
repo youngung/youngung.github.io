@@ -24,6 +24,8 @@ Find more about me [here]({% link youngung.md %})
 - 주무영, 석사
 - 박진화, 석사
 - 전보혜, 석사
+
+## Undergraduates
 - 서준영, 학사
 - 배부건, 학사
 
