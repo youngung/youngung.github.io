@@ -13,9 +13,31 @@ permalink: /metalforming/
 
 3. [Common Forming Processes 02]({% link /lecturenotes/MetalForming/c_Common_Forming_Processes_02.pdf %})
 
-4. [Basics in stress and strain ]({% link /lecturenotes/MetalForming/2021_04_StressStrain_basics.pdf %})
+4. Basics in stress and strain
 
-5. [Vectors and Matrices]({% link /lecturenotes/MetalForming/2021_05_vectors_matrices.pdf %})
+   4-1. [Basics in stress and strain 01]({% link /lecturenotes/MetalForming/2021_04_StressStrain_basics_01.pdf %})
+
+   4-2. [Basics in stress and strain 02]({% link /lecturenotes/MetalForming/2021_04_StressStrain_basics_02.pdf %})
+
+   4-3. [Basics in stress and strain 03]({% link /lecturenotes/MetalForming/2021_04_StressStrain_basics_03.pdf %})
+
+   4-4. [Basics in stress and strain 04]({% link /lecturenotes/MetalForming/2021_04_StressStrain_basics_04.pdf %})
+
+   4-5. [Basics in stress and strain 05]({% link /lecturenotes/MetalForming/2021_04_StressStrain_basics_05.pdf %})
+
+5. Vectors and Matrices
+
+   5-1. [Vectors and Matrices 01]({% link /lecturenotes/MetalForming/2021_05_vectors_matrices_01.pdf %})
+
+   5-2. [Vectors and Matrices 02]({% link /lecturenotes/MetalForming/2021_05_vectors_matrices_02.pdf %})
+
+   5-3. [Vectors and Matrices 03]({% link /lecturenotes/MetalForming/2021_05_vectors_matrices_03.pdf %})
+
+   5-4. [Vectors and Matrices 04]({% link /lecturenotes/MetalForming/2021_05_vectors_matrices_04.pdf %})
+
+   5-5. [Vectors and Matrices 05]({% link /lecturenotes/MetalForming/2021_05_vectors_matrices_05.pdf %})
+
+   5-6. [Vectors and Matrices 06]({% link /lecturenotes/MetalForming/2021_05_vectors_matrices_06.pdf %})
 
 6. [Displacement and Strain]({% link /lecturenotes/MetalForming/2021_06_displacement_and_strain.pdf %})
 

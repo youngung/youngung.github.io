@@ -10,7 +10,7 @@ permalink: /members/
 
 - **Youngung Jeong** (정영웅), PhD
 
-Assistant professor, Materials Science and Engineering, Changwon National Univeristy
+Associate professor, Materials Science and Engineering, Changwon National Univeristy
 
 부교수, 창원대학교 신소재공학부
 
@@ -22,9 +22,8 @@ Find more about me [here]({% link youngung.md %})
 ### Graduates
 - 이재성, 박사과정
 - 전보혜, 박사과정
+## Undergraduates
 - 배부건, 학부 4학년
-
-### past members.
 <!--
 - 주무영, 석사      (재료연구원)
 - 박진화, 석사      (재료연구원)
@@ -37,4 +36,4 @@ Find more about me [here]({% link youngung.md %})
 - 조현빈, 학부 4학년 (부경대학교, 세아특수강)
 - 조은지, 학부 4학년
 - 한민우, 학부 4학년
-	 -->
+-->
