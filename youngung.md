@@ -67,7 +67,7 @@ Mar. 2017 - Present
 
 - **List of selected publications**
 
-1. **Y. Jeong**, B. Jeon, C. N. Tome _Finite element analysis using an incremental elasto-visco-plastic self-consistent polycrystal model: FE simulations on Zr and low-carbon steel subjected to bending, stress-relaxation, and unloading_,    International Journal of Plasticity, (accepted)
+1. **Y. Jeong**, B. Jeon, C. N. Tome [_Finite element analysis using an incremental elasto-visco-plastic self-consistent polycrystal model: FE simulations on Zr and low-carbon steel subjected to bending, stress-relaxation, and unloading_](https://doi.org/10.1016/j.ijplas.2021.103110), International Journal of Plasticity Vol 147, 2021
 
 2. **Y. Jeong**, C. N. Tome [_An efficient elasto-visco-plastic self-consistent formulation: Application to steel subjected to loading path changes_](https://doi.org/10.1016/j.ijplas.2020.102812),  International Journal of Plasticity Vol 135, 2020
 
