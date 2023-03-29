@@ -3,10 +3,15 @@ layout: page
 title: Projects
 permalink: /projects/
 ---
+## 5. 연구재단 중견
+
+- 2023.03 - 2027.02
+
+- [한국연구재단](http://www.nrf.re.kr/) <img src='/images/nrf.jpg' width='100'>
 
 ## 4. 연구재단 개인기초
 
-- 2020.06 - 2022.12
+- 2020.06 - 2023.02
 
 - 이공학개인기초연구[기본], [한국연구재단](http://www.nrf.re.kr/) <img src='/images/nrf.jpg' width='100'>
 - 연간 5천만원
