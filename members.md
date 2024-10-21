@@ -24,8 +24,6 @@ Find recent papers [here]({% link pubs.md %})
 - 이재성, 박사과정
 - 전보혜, 박사과정
 
-<!-- ### Undergraduates -- >
-
 ### 졸업생
 주무영, 석사 (SNT Dynamics)
 박진화, 석사 (세라믹기술원/박사진학)
