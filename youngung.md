@@ -63,28 +63,29 @@ Dec. 2016 - Feb. 2017
 
 Mar. 2017 - Present
 
--------------
+-------------------------------------
 
 - **List of selected publications**
 
 1. **Y. Jeong**, C. N. Tome [_Thermal ratcheting of uranium simulated by a thermo-elasto-visco-plastic self-consistent polycrystal model_](https://doi.org/10.1016/j.jnucmat.2024.155159}), Journal of Nuclear Materials Vol 597, 2024
 
-2. **Y. Jeong**, B. Jeon, C. N. Tome [_Finite element analysis using an incremental elasto-visco-plastic self-consistent polycrystal model: FE simulations on Zr and low-carbon steel subjected to bending, stress-relaxation, and unloading_](https://doi.org/10.1016/j.ijplas.2021.103110), International Journal of Plasticity Vol 147, 2021
+2. J. Lee, D. Steglich, **Y. Jeong**  [Crystal plasticity finite element simulations on extruded Mg-10Gd rod with texture gradient](https://doi.org/10.1016/j.jma.2024.08.009), Journal of Magnesium and Alloys, 2024
 
-3. **Y. Jeong**, C. N. Tome [_An efficient elasto-visco-plastic self-consistent formulation: Application to steel subjected to loading path changes_](https://doi.org/10.1016/j.ijplas.2020.102812),  International Journal of Plasticity Vol 135, 2020
+3. B. Jeon, S.-Y. Lee, J. Lee, **Y. Jeong**   [Direct application of elasto-viscoplastic self-consistent crystal plasticity model to U-draw bending and springback of dual-phase high strength steel](https://doi.org/10.1016/j.ijplas.2024.104098), International Journal of Plasticity, 2024
 
-4. **Y. Jeong**, D Steglich [_Modelling-assisted description of anisotropic edge failure in magnesium sheet alloy under mixed-mode loading_](https://doi.org/10.1016/j.ijmecsci.2020.105680), International Journal of Mechanical Sciences Vol 181, 2020
+4. M. Joo, M.-S. Wi, S.-Y. Yoon, S.-Y. Lee, F. Barlat, C N. Tome, B. Jeon, **Y. Jeong** [A crystal plasticity finite element analysis on the effect of prestrain on springback](https://doi.org/10.1016/j.ijmecsci.2022.107796),  International Journal of Mechanical Sciences, 2023
 
-5. **Y. Jeong**, C. N. Tome [_Extension of the VPSC model to account for elasto-visco-plastic behavior using a perturbed viscoplastic approach_](https://doi.org/10.1088/1361-651X/ab4b66), Modelling and Simulation in Materials Science and Engineering Vol 27 085013, 2019
+5. **Y. Jeong**, B. Jeon, C. N. Tome [_Finite element analysis using an incremental elasto-visco-plastic self-consistent polycrystal model: FE simulations on Zr and low-carbon steel subjected to bending, stress-relaxation, and unloading_](https://doi.org/10.1016/j.ijplas.2021.103110), International Journal of Plasticity Vol 147, 2021
 
-6. **Y. Jeong**, F. Barlat, C. N. Tome, W. Wen [_A comparative study between micro- and macro-mechanical constitutive models developed for complex loading scenarios_](http://dx.doi.org/10.1016/j.ijplas.2016.07.015), International Journal of Plasticity Vol 93 p212-228, 2017
+6. **Y. Jeong**, C. N. Tome [_An efficient elasto-visco-plastic self-consistent formulation: Application to steel subjected to loading path changes_](https://doi.org/10.1016/j.ijplas.2020.102812),  International Journal of Plasticity Vol 135, 2020
 
-7. **Y. Jeong**, T. Gnaeupel-Herold, M. Iadicola, A. Creuziger [_Uncertainty in flow stress measurements using X-ray diffraction for sheet metals subjected to large plastic deformations_](https://doi.org/10.1107/S1600576716013662), Journal of Applied Crystallography Vol 49 p1991-2004, 2016
+7. **Y. Jeong**, D Steglich [_Modelling-assisted description of anisotropic edge failure in magnesium sheet alloy under mixed-mode loading_](https://doi.org/10.1016/j.ijmecsci.2020.105680), International Journal of Mechanical Sciences Vol 181, 2020
 
-8. D. Steglich, **Y. Jeong**, [_Texture-based forming limit prediction for Mg sheet alloys ZE10 and AZ31_](http://dx.doi.org/10.1016/j.ijmecsci.2016.08.013), International Journal of Mechanical Sciences Vol 117 p102-114, 2016
+8. **Y. Jeong**, F. Barlat, C. N. Tome, W. Wen [_A comparative study between micro- and macro-mechanical constitutive models developed for complex loading scenarios_](http://dx.doi.org/10.1016/j.ijplas.2016.07.015), International Journal of Plasticity Vol 93 p212-228, 2017
 
-9. **Y. Jeong**, T. Gnaeupel-Herold, F. Barlat, M. Iadicola, A. Creuziger, M.-G. Lee, [_Evaluation of biaxial flow stress based on Elasto-Viscoplastic Self-Consistent analysis of X-ray Diffraction Measurements_](http://dx.doi.org/10.1016/j.ijplas.2014.06.009), International Journal of Plasticity Vol 66 p103-118, 2015
+9. D. Steglich, **Y. Jeong**, [_Texture-based forming limit prediction for Mg sheet alloys ZE10 and AZ31_](http://dx.doi.org/10.1016/j.ijmecsci.2016.08.013), International Journal of Mechanical Sciences Vol 117 p102-114, 2016
 
+10. **Y. Jeong**, T. Gnaeupel-Herold, F. Barlat, M. Iadicola, A. Creuziger, M.-G. Lee, [_Evaluation of biaxial flow stress based on Elasto-Viscoplastic Self-Consistent analysis of X-ray Diffraction Measurements_](http://dx.doi.org/10.1016/j.ijplas.2014.06.009), International Journal of Plasticity Vol 66 p103-118, 2015
 
 -------------
 - **CV**

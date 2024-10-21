@@ -16,12 +16,19 @@ Associate professor, Materials Science and Engineering, Changwon National Univer
 
 <div itemscope itemtype="https://schema.org/Person"><a itemprop="sameAs" content="https://orcid.org/0000-0001-6496-8115" href="https://orcid.org/0000-0001-6496-8115" target="orcid.widget" rel="noopener noreferrer" style="vertical-align:top;"><img src="https://orcid.org/sites/default/files/images/orcid_16x16.png" style="width:1em;margin-right:.5em;" alt="ORCID iD icon">orcid.org/0000-0001-6496-8115</a></div>
 Find more about me [here]({% link youngung.md %})
+Find recent papers [here]({% link pubs.md %})
 
 [Google Scholar](https://scholar.google.com/citations?user=ANercDoAAAAJ&hl=en)
 
 ### Graduates
 - 이재성, 박사과정
 - 전보혜, 박사과정
+
+### Undergraduates
+
+### Alumni
+주무영, 석사 (SNT Dynamics)
+박진화, 석사 (세라믹기술원/박사진학)
 
 <!--
 ## Undergraduates
@@ -30,7 +37,7 @@ Find more about me [here]({% link youngung.md %})
 
 <!-- - 홍동균, 학부 4학년
 - 배부건, 학부 4학년
-- 신유록, 학부 3학년
+- 신유록, 학부 4학년
 -->
 
 <!-- <\!-- -->
