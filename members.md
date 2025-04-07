@@ -10,7 +10,7 @@ permalink: /members/
 
 - **Youngung Jeong** (정영웅), PhD
 
-Associate professor, Materials Science and Engineering, Changwon National Univeristy
+Associate professor, School of Materials Science and Engineering, Changwon National Univeristy
 
 부교수, 창원대학교 신소재공학부
 
@@ -23,6 +23,8 @@ Find recent papers [here]({% link pubs.md %})
 ### 대학원생
 - 이재성, 박사과정
 - 전보혜, 박사과정
+- 강주홍, 석사과정
+- 정의찬, 석사과정
 
 ### 졸업생
 - 주무영, 석사 (SNT Dynamics)
