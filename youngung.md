@@ -14,7 +14,7 @@ title: Youngung Jeong
 <!-- [Emacs](https://www.gnu.org/software/emacs/) <img src='/images/emacs.png' width='30'> is my favorite editor and I write equations using [LaTeX](https://www.latex-project.org). <img src='/images/latex-project-logo.svg' width='120'> -->
 
 -------------
-- **Eduation**
+- **Education**
 
 #### PhD
 
