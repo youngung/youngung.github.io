@@ -22,6 +22,10 @@ permalink: /mse_intro/
 7. Phase Diagrams: [lecture notes]({% link /lecturenotes/MSE/lecture7_Phase_Diagrams.pdf %})
 -->
 
+아래에 링크에서 강의 슬라이드를 다운 받으세요.
+
+5. Imperfection: [lecture notes]({% link /lecturenotes/MSE/lecture5_Imperfections.pdf %})
+
 ### 교재:
 
 ** 재료과학과 공학 **

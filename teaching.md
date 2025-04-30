@@ -9,9 +9,12 @@ permalink: /teaching/
 
 
 
-## 2022-1학기
-- [이동현상(MSA0013)]({% link transportphenomena.md %})
-- [기계재료공학(MFA9009)]({% link mseii.md %})
+## 2025-1학기
+- [메카트로닉스 재료개론]({% link mse_intro.md %})
+
+<!-- - [이동현상(MSA0013)]({% link transportphenomena.md %}) -->
+<!-- - [기계재료공학(MFA9009)]({% link mseii.md %}) -->
+
 
 
 <!-- ## 2021-2학기 -->
@@ -87,7 +90,7 @@ permalink: /teaching/
 
 <!--
 ----------------------------
-- [메카트로닉스 재료개론]({% link mse_intro.md %})
+
 
 ### 2학기
 
