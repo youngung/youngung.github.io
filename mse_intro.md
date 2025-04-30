@@ -26,6 +26,10 @@ permalink: /mse_intro/
 
 5. Imperfection: [lecture notes]({% link /lecturenotes/MSE/lecture5_Imperfections.pdf %})
 
+6. Diffusion: [lecture notes]({% link /lecturenotes/MSE/lecture6_Diffusion.pdf %})
+
+7. Phase Diagrams: [lecture notes]({% link /lecturenotes/MSE/lecture7_Phase_Diagrams.pdf %})
+
 ### 교재:
 
 ** 재료과학과 공학 **
