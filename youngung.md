@@ -90,4 +90,5 @@ Mar. 2017 - Present
 -------------
 - **CV**
 
-  Find my CV [here](/images/cv.pdf).
+  <!-- Find my CV [here](/images/cv.pdf). -->
+  Find my CV [here](/images/cv_latex.pdf).
