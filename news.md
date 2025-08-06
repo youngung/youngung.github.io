@@ -17,14 +17,14 @@ permalink: /news/
 그외에도 금속의 기계적 특성과 관련한 다양한 연구를 계획중입니다.
 관심있는 분들의 참여를 바랍니다.
 
------------------------------
-## Openings ##
+<!-- ----------------------------- -->
+<!-- ## Openings ## -->
 
-Various positions including graduate, undergraduate interships, and postdoctoral positions are available. All of the positions are fully funded by Government research projects.
-Currently (as of 2021), Materials Mechanical Lab at CWNU are involved in three research projects funded by Korea Goverment - find more details about the projects [here]({{ site.baseurl }}{% link projects.md %}).
-If you are interested in, please [contact us](mailto:yjeong@changwon.ac.kr).
+<!-- Various positions including graduate, undergraduate interships, and postdoctoral positions are available. All of the positions are fully funded by Government research projects. -->
+<!-- Currently (as of 2021), Materials Mechanical Lab at CWNU are involved in three research projects funded by Korea Goverment - find more details about the projects [here]({{ site.baseurl }}{% link projects.md %}). -->
+<!-- If you are interested in, please [contact us](mailto:yjeong@changwon.ac.kr). -->
 
------------------------------
+<!-- ----------------------------- -->
 
 <!--
 ### * POST-DOC (or fully funded PhD studentship) positions
