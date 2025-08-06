@@ -1,14 +1,15 @@
 ---
 layout: post
-title: NUMISHEET 학회 참석 및 발표
+title: 2025 July, NUMISHEET 학회 참석 및 발표
 ---
 
 2025년 7월 5일부터 7월 11일까지, 독일 뮌헌에서 개최된 NUMISHEET 학회에 참석하고 왔습니다.
 
-우선 제 연구 발표를 운이 좋게 좋은 시간대에 진행했습니다.
+운이 좋게도 제 연구 발표를 매우 좋은 시간대에 진행했습니다. 지도교수님 시간인데
+프랑스에 여러 파업으로 인해 비행시간이 많이 지연되어 저랑 시간을 바꿨거든요.
 ![내발표](/images/images_post/20250707-numisheet03.jpeg)
 
-Farhang Pourboghrat 교수님 기념 심포지엄 참석자들과 함께 저녁식사 전의 모습입니다...
+Farhang Pourboghrat 교수님 기념 심포지엄 참석자들과 함께 저녁식사 전의 모습입니다.
 ![Farhang](/images/images_post/20250707-numisheet04.jpeg)
 
 박사과정 학생들 그리고 봉교수님과 기념 사진 촬영하고...
