@@ -94,5 +94,151 @@ permalink:
         \phi(x_i)=\frac{1}{1+e^{-x_i}}
         $$
       * 예시: Rectified linear unit (ReLU)
-
+        $$
+        \phi(x_i)=\frac{x+|x|}{2}
+        $$
 ## 수업 06-2 (Eigen value)
+  - 개념
+    + 고유값(eigen value): 행렬(특히 선형변환)을 적용했을 때, 크기만 변하고 방향은 변하지 않는 벡터의 크기 변화 비율.
+    + 고유벡터(eigen vector): 그 “변하지 않는 방향”을 가지는 벡터.
+    + 수식:
+      $$
+      \boldsymbol A\cdot \boldsymbol v = \lambda \boldsymbol v
+      $$
+      를 만족시키는 스칼라 $$\lambda$$ 값을 고유값이라 한다.
+
+      위 관계를 만족시키는 고유값 세개가 각각 $$\lambda_1,\lambda_2,\lambda_3$$라면
+
+      $$\lambda_1\boldsymbol v,\lambda_2\boldsymbol v,\lambda_3\boldsymbol v$$
+      를 고유 벡터라 한다.
+  - 예시
+    + 2차원 예시01
+      $$
+      \begin{bmatrix}
+      A_{11}&A_{12}\\
+      A_{21}&A_{22}
+      \end{bmatrix}
+      \begin{bmatrix}
+      v_1\\
+      v_2
+      \end{bmatrix}
+      =
+      \lambda
+      \begin{bmatrix}
+      v_1\\
+      v_2
+      \end{bmatrix}
+      $$
+
+      $$
+      A_{11}v_1+A_{12}v_2=\lambda v_1\ \ \ \ (1)
+      \newline
+      A_{21}v_1+A_{22}v_2=\lambda v_2\ \ \ \ (2)
+      \newline
+      $$
+      (1)식을 고치면,
+      $$
+      (A_{11}-\lambda)v_1=-A_{12}v_2
+      \newline
+      $$
+      따라서
+      $$
+      v_1=\frac{-A_{12}}{A_{11}-\lambda}v_2
+      $$
+      (2)에 대입하면
+      $$
+      \frac{-A_{21}A_{12}}{A_{11}-\lambda}v_2+A_{22}v_2=\lambda v_2\ \ \ \ (3)
+      $$
+
+      (3)의
+      $$
+      v_2=0
+      $$
+      인 해는 trivial. 이걸 제외하면,
+
+      $$
+      \frac{-A_{21}A_{12}}{A_{11}-\lambda}+A_{22}=\lambda
+      $$
+      정리하면
+      $$
+      -A_{21}A_{12}+A_{22}(A_{11}-\lambda)=\lambda(A_{11}-\lambda)
+      $$
+
+      위는 $\lambda$에 대한 2차 방정식이며
+
+      $$
+      \lambda^2-(A_{11}-A_{22})\lambda-A_{21}A_{12}+A_{22}A_{11}=0
+      $$
+    + 2차원 예시02
+      $$
+      \boldsymbol A\cdot \boldsymbol v = \lambda \boldsymbol v
+      \ \ \
+      \rightarrow
+      \ \ \
+      (\boldsymbol A-\lambda\boldsymbol I)\cdot v=0
+      $$
+
+      $$
+      \boldsymbol A =
+      \begin{bmatrix}
+      A_{11}& A_{12}\\
+      A_{21}& A_{22}
+      \end{bmatrix}
+      $$
+      그리고
+      $$
+      \boldsymbol I =
+      \begin{bmatrix}
+      1& 0\\
+      0& 1
+      \end{bmatrix}
+      $$
+
+      고유값 $\lambda$는 아래와 같이 구해진다.
+      $$
+      \det(\boldsymbol A-\lambda\boldsymbol I)=0
+      $$
+
+
+      ```python
+      import numpy as np
+      def eig2x2(A):
+          a=A[0,0]
+          b=A[0,1]
+          c=A[1,0]
+          d=A[1,1]
+          tr = a + d
+          det = a*d - b*c
+          disc = tr*tr - 4*det
+          lam1 = (tr + np.sqrt(disc)) / 2
+          lam2 = (tr - np.sqrt(disc)) / 2
+          return lam1, lam2
+
+      A = np.array([[3,2],[2,1]], dtype=float)
+      lam1, lam2 = eig2x2(A)
+      print("manual:", lam1, lam2)
+      print("numpy :", np.linalg.eigvals(A))
+      ```
+
+    - 예시
+      주어진 [파일](data/matrix_03.txt)의 매트릭스의 값들을 활용해서 각 파일에서 고유값들을 구해서
+      출력하시오.
+      ```python
+      import numpy as np
+      def eig2x2(A):
+          a=A[0,0]
+          b=A[0,1]
+          c=A[1,0]
+          d=A[1,1]
+          tr = a + d
+          det = a*d - b*c
+          disc = tr*tr - 4*det
+          lam1 = (tr + np.sqrt(disc)) / 2
+          lam2 = (tr - np.sqrt(disc)) / 2
+          return lam1, lam2
+      d=np.loadtxt('../data/matrix_03.txt',skiprows=1)
+      for i, mat2x2 in enumerate(d):
+          mat=mat2x2.reshape(2,2)
+          print(eig2x2(mat)) ## nan 은 어던 경우인가?
+      ```
+

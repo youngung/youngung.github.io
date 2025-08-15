@@ -11,7 +11,7 @@ permalink:
     + Determination, Eigen value 등을 계산할 수 있다.
 ## 수업 05-1
   - 벡터의 내적
-    $\boldsymbol a \cdot \boldsymbol b=a_1b_1+a_2b_2+a_3b_3=\sum_i^3a_ib_i$
+    $$\boldsymbol a \cdot \boldsymbol b=a_1b_1+a_2b_2+a_3b_3=\sum_i^3a_ib_i$$
     List, len, range를 활용한다면 아래와 같이 표현 가능
     ```python
     a=[1,2,3]
