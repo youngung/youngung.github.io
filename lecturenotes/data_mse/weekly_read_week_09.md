@@ -5,3 +5,5 @@ permalink:
 ---
 <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
 9 (Matplotlib 02)
+## 수업 05-1
+## 수업 05-2

@@ -5,3 +5,5 @@ permalink:
 ---
 <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
 7 (중간고사)
+## 수업 05-1
+## 수업 05-2

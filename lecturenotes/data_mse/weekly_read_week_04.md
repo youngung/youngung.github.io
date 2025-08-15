@@ -107,3 +107,40 @@ permalink:
     print(arr[1, :])  # 2행 전체 → [4 5 6]
     print(arr[:, 1])  # 모든 행의 2열 → [2 5]
     ```
+  - 예제: 데이터 파일
+    Use data in here [matrix_01.txt](data/matrix_01.txt)
+    ```python
+    import numpy as np
+
+    # 공백 구분 텍스트 불러오기
+    matrix = np.loadtxt("matrix.txt")
+
+    print("불러온 행렬:")
+    print(matrix)
+
+    print("shape:", matrix.shape)   # (3, 3)
+    print("dtype:", matrix.dtype)   # ?
+    ```
+  - 예제: csv file
+    Use data in here [matrix_01.csv](data/matrix_01.csv)
+    ```python
+    import numpy as np
+
+    # 공백 구분 텍스트 불러오기
+    matrix = np.loadtxt("matrix.txt")
+
+    print("불러온 행렬:")
+    print(matrix)
+
+    print("shape:", matrix.shape)   # (3, 3)
+    print("dtype:", matrix.dtype)   # ?
+    ```
+  - 예제: 저장하기
+    ```python
+    # 행렬 저장하기 (공백 구분)
+    matrix = np.array([[1, 2, 3], [4, 5, 6], [7, 8, 9]])
+    np.savetxt("save_matrix.txt", matrix, fmt="%.2f")
+
+    # CSV로 저장
+    np.savetxt("save_matrix.csv", matrix, delimiter=",", fmt="%d")
+    ```

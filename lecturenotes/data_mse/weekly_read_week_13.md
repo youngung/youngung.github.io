@@ -5,6 +5,8 @@ permalink:
 ---
 <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
 13 (내삽과 외삽, 선형회귀)
+## 수업 13-1
+## 수업 13-2
  - 실습 예시
     * 금속 합금 조성 (Cu %) vs 전기 전도도
 ```python
