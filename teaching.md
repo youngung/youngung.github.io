@@ -1,16 +1,19 @@
 ---
 layout: page
 title: Teaching
-permalink: /teaching/
+permalink:
 ---
 
 
 ----------------------------
 
+[data mse]({% link lecturenotes/data_mse/data_mse.md %})
 
 
-## 2025-1학기
-- [메카트로닉스 재료개론]({% link mse_intro.md %})
+<!-- ## 2025-1학기 -->
+<!-- - [메카트로닉스 재료개론]({% link mse_intro.md %}) -->
+
+
 
 <!-- - [이동현상(MSA0013)]({% link transportphenomena.md %}) -->
 <!-- - [기계재료공학(MFA9009)]({% link mseii.md %}) -->
@@ -102,10 +105,10 @@ permalink: /teaching/
 
 <!-- - [금속유동해석특론]({% link metalplasticity.md %}) -->
 
-----------------------------
+<!-- ---------------------------- -->
 
-### 기타 교과목
+<!-- ### 기타 교과목 -->
 
-#### [전산재료과학 (Computational Materials Science)]({% link cmse.md %})
+<!-- #### [전산재료과학 (Computational Materials Science)]({% link cmse.md %}) -->
 
 ----------------------------
