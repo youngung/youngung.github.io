@@ -6,112 +6,120 @@ permalink:
 <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
 2 (자료구조, 제어, 반복)
  - 목표
-  + List, Tuple, Dictionary, set
-  + 조건문과 (conditions), 반복문 (loop) 이해
+   + List, Tuple, Dictionary, set
+   + 조건문과 (conditions), 반복문 (loop) 이해
 ## 수업 02-1
- - list, tuple, dictionary 생성/수정/조회
-  + List
-     * 특징:
-       + 수정 가능(mutable): 추가, 삭제, 변경 가능
-       + 중복 허용
-       + 순서 있음 (ordered)
-       + 여러 자료형 혼합해서 저장 가능
-     * 리스트 생성 - 대괄호 사용 ```[]```
-       ```python
-       elements = ["H", "He", "Li", "Be"]
-       ```
-     * 요소 접근 (인덱싱; indexing); 0에서 부터 시작
-       ```python
-       print(elements[0])   # H
-       ```
-     * 요소 변경
-       ```python
-       elements[1] = "Helium"
-       print(elements)     #elements = ["H", "Helium", "Li", "Be"]
-       ```
-     * 요소 추가 / 삭제
-       ```python
-       elements.append("B")   #elements = ["H", "Helium", "Li", "Be", "B"]
-       elements.remove("Li")  #elements = ["H", "Helium", "Be", "B"]
-       ```
-     * 중복 허용
-       ```python
-       elements = ['H','He','H']
-       print(elements)
-       ```
-     * 여러 자료형 혼합
-       ```python
-       myList=['H',203,2.3,['H','He']]
-       myMatrix=[[1,2,3],[4,5,6],[7,8,9]] ##중첩된 리스트
-       ```
-     * 언패킹 (unpacking)
-       ```python
-       a,b,c,d=[1,3,4,5]
-       ```
-
-  + tuple
-     * 특징
-       + 수정 불가능 (immutable); 한번 만들어지면 이후 변경 불가능
-       + 중복 허용
-       + 순서 있음
-       + 여러 자료형 혼합해서 저장 가능
-     * 튜플 생성 - 소괄호 ```()``` 사용
-       ```python
-       colors = ("red", "green", "blue")
-       # 요소 접근
-       print(colors[1])   # green
-
-       # 변경 불가 → 아래 코드는 오류 발생
-       # colors[1] = "yellow"
-
-       # 튜플 언패킹
-       r, g, b = colors
-       print(r, g, b)     # red green blue
-       ```
-  + set
-    * 특징
-      + 중복제거: 같은 값이 입력되어도 하나만 남게 됨
-      + 순서없음
-      + 인덱싱 불가: list나 tuple과 다름
-      + 수정 가능 (mutable)
-      + 원소의 타입에 제한 **있음**:
-      + 실습1: 생성
+  - list, tuple, dictionary 생성/수정/조회
+    +  List
+      * 특징:
+        + 수정 가능(mutable): 추가, 삭제, 변경 가능
+        + 중복 허용
+        + 순서 있음 (ordered)
+        + 여러 자료형 혼합해서 저장 가능
+      * 리스트 생성 - 대괄호 사용 ```[]```
         ```python
-        # 중괄호 {} 사용
-        s1 = {1, 2, 3}
-        print(s1)  # {1, 2, 3}
-
-        # set() 함수 사용
-        s2 = set([1, 2, 2, 3])
-        print(s2)  # {1, 2, 3} (중복 제거)
-
-        # 빈 set 생성 시는 set()만 가능
-        empty_set = set()
-        print(empty_set)  # set()
+        elements = ["H", "He", "Li", "Be"]
         ```
-      + 실습2: 변경
+      * 요소 접근 (인덱싱; indexing); 0에서 부터 시작
         ```python
-        s = {1, 2, 3}
-
-        # 추가
-        s.add(4)           # {1, 2, 3, 4}
-        s.update([5, 6])   # {1, 2, 3, 4, 5, 6} (여러 개 추가)
-
-        # 삭제
-        s.remove(3)        # {1, 2, 4, 5, 6} (없는 값 제거 시 오류 발생)
-        s.discard(10)      # 없는 값 제거해도 오류 없음
-        s.pop()            # 임의의 값 제거 후 반환 (순서 없으니 랜덤)
+        print(elements[0])   # H
         ```
+      * 요소 변경
+        ```python
+        elements[1] = "Helium"
+        print(elements)     #elements = ["H", "Helium", "Li", "Be"]
+        ```
+      * 요소 추가 / 삭제
+        ```python
+        elements.append("B")   #elements = ["H", "Helium", "Li", "Be", "B"]
+        elements.remove("Li")  #elements = ["H", "Helium", "Be", "B"]
+        ```
+      * 중복 허용
+        ```python
+        elements = ['H','He','H']
+        print(elements)
+         ```
+      * 여러 자료형 혼합
+        ```python
+        myList=['H',203,2.3,['H','He']]
+        myMatrix=[[1,2,3],[4,5,6],[7,8,9]] ##중첩된 리스트
+        ```
+      * 언패킹 (unpacking)
+        ```python
+        a,b,c,d=[1,3,4,5]
+        ```
+    + tuple
+      * 특징
+        + 수정 불가능 (immutable); 한번 만들어지면 이후 변경 불가능
+        + 중복 허용
+         + 순서 있음
+         + 여러 자료형 혼합해서 저장 가능
+      * 튜플 생성 - 소괄호 ```()``` 사용
+        ```python
+         colors = ("red", "green", "blue")
+         # 요소 접근
+         print(colors[1])   # green
 
-  + ```len``` built-in function중 하나
-    ```python
-    a=[3,4,5,'a','b']
-    len(a) # 정수 5
-    ```
-  - List slicing
-  - 1족 원소 기호를 순서대로 포함한 리스트 만들기 (수소, 리튬, 나트륨, 칼륨, 루비듐, 세슘, 프랑슘)
-  - 실습 예시
-    * Calister 예제 2.1)
+         # 변경 불가 → 아래 코드는 오류 발생
+         # colors[1] = "yellow"
+
+         # 튜플 언패킹
+         r, g, b = colors
+         print(r, g, b)     # red green blue
+         ```
+    + set
+      * 특징
+        + 중복제거: 같은 값이 입력되어도 하나만 남게 됨
+        + 순서없음
+        + 인덱싱 불가: list나 tuple과 다름
+        + 수정 가능 (mutable)
+        + 원소의 타입에 제한 **있음**:
+      * 실습
+        + 실습1: 생성
+          ```python
+          # 중괄호 {} 사용
+          s1 = {1, 2, 3}
+          print(s1)  # {1, 2, 3}
+
+          # set() 함수 사용
+          s2 = set([1, 2, 2, 3])
+          print(s2)  # {1, 2, 3} (중복 제거)
+
+          # 빈 set 생성 시는 set()만 가능
+          empty_set = set()
+          print(empty_set)  # set()
+          ```
+        + 실습2: 변경
+          ```python
+          s = {1, 2, 3}
+
+          # 추가
+          s.add(4)           # {1, 2, 3, 4}
+          s.update([5, 6])   # {1, 2, 3, 4, 5, 6} (여러 개 추가)
+
+          # 삭제
+          s.remove(3)        # {1, 2, 4, 5, 6} (없는 값 제거 시 오류 발생)
+          s.discard(10)      # 없는 값 제거해도 오류 없음
+          s.pop()            # 임의의 값 제거 후 반환 (순서 없으니 랜덤)
+          ```
+
+    +  Misc.
+      * ```len``` built-in function중 하나
+        ```python
+        a=[3,4,5,'a','b']
+        len(a) # 정수 5
+        ```
+      * List slicing
+        ```python
+        a=[0,1,2,3,4,5]
+        # format
+        # a[begin:end:step]; end-begin = len(a)
+        a[::] # == a[0:6:1] ## default
+        a[1::2] # == a[1:6:2]
+        ```
+      * 실습
+        - 1족 원소 기호를 순서대로 포함한 리스트 만들기 (수소, 리튬, 나트륨, 칼륨, 루비듐, 세슘, 프랑슘)
+        - Calister 예제 2.1)
         ```python
         #세륨의 동위원소는 4가지 존재한다:
         # 각 동위원소의 분율은 아래와 같다.
@@ -123,7 +131,6 @@ permalink:
         ## average
         print(avg)
         ```
-
 
 ## 수업 02-2
  - ```if```, ```elif```, ```else``` 조건문 이해
