@@ -13,17 +13,17 @@ permalink:
     + Python에서 파일을 다룰 때는 ```open()``` 함수
     + 파일 모드
       * 모드
-        'r' : read
-        'w' : write
-        ~~'a' : append~~
-        ~~'b' : binary~~
-        ~~'+' : read & write~~
+        - 'r' : read
+        - 'w' : write
+        - ~~'a' : append~~
+        - ~~'b' : binary~~
+        - ~~'+' : read & write~~
     + 예시 (텍스트 파일 쓰기)
       ```python
       # 파일 쓰기
-      with open("example.txt", "w", encoding="utf-8") as f:
-      f.write("안녕하세요!\n")
-      f.write("파일 I/O 예제입니다.\n")
+      with open("example.txt", "w" encoding="utf-8") as f:
+        f.write("안녕하세요!\n")
+        f.write("파일 I/O 예제입니다.\n")
       ```
     + 예시 (텍스트 파일 읽기)
       ```python
@@ -97,8 +97,11 @@ permalink:
     print(a ** 2)  # [1 4 9]    (제곱)
     ```
   - Indexing & slicing
-    ```
+    ```python
     arr = np.array([[1, 2, 3], [4, 5, 6]])
+    # nested 배열의 각 축을 '행'(가로)과 '열'(세로)이라 하면
+    # arr = [  1  2  3 ] # 첫번째 가로
+    #.         4  5  6   # 두번째 가로
 
     print(arr[0, 0])  # 1행 1열 → 1
     print(arr[1, :])  # 2행 전체 → [4 5 6]
