@@ -4,13 +4,14 @@ title: DATA MSE week 06
 permalink:
 ---
 <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
-6 (NumPy 03 - ANN, Eigen value)
+# Week 6 (NumPy 03 - ANN, Eigen value)
 ## 수업 06-1 (ANN, Activation)
   - Basic structure of Artificial Neural Network
     + 행렬곱과 더하기 조합. 아래 수식은 실제로 Artifical Neutral Network(ANN)에서 널리 활용되는 형태의 연산이다.
       $$
       \boldsymbol y=\boldsymbol W\cdot \boldsymbol x + \boldsymbol b
-      \newline
+      $$
+      $$
       y_i=\bigg(\sum_j^mW_{ij}x_j\bigg)+b_i=W_{ij}x_j+b_i \text{ with } i=1,2, ..., n
       $$
 
@@ -76,13 +77,15 @@ permalink:
       * Binary step
         $$
         \phi(x_i)=0 \text{ if } x_i<0
-        \newline
+        $$
+        $$
         \phi(x_i)=1 \text{ if } x_i\geq0
         $$
 
         ```python
         def act_func_binary(x):
           """
+          Binary function as the activation function for neuron
           """
           flg=x>=0
           y=np.zeros(x.shape)
@@ -132,14 +135,13 @@ permalink:
 
       $$
       A_{11}v_1+A_{12}v_2=\lambda v_1\ \ \ \ (1)
-      \newline
+      $$
+      $$
       A_{21}v_1+A_{22}v_2=\lambda v_2\ \ \ \ (2)
-      \newline
       $$
       (1)식을 고치면,
       $$
       (A_{11}-\lambda)v_1=-A_{12}v_2
-      \newline
       $$
       따라서
       $$
@@ -241,4 +243,3 @@ permalink:
           mat=mat2x2.reshape(2,2)
           print(eig2x2(mat)) ## nan 은 어던 경우인가?
       ```
-

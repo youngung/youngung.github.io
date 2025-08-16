@@ -4,7 +4,7 @@ title: DATA MSE week 03
 permalink:
 ---
 <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
-3 (함수, class, module; **import** )
+# Week 3 (함수, class, module; **import** )
  - 목표
   + 함수와 클래스, 그리고 모듈의 이해
   + 함수를 만들어, 모듈화 시키고 CLI에서 실행할 수 있다.
@@ -46,6 +46,38 @@ permalink:
     myAl.add_density(2.70)
     myAl.add_structure('FCC')
     ```
+  - ```getattr``` built-in 함수
+    + 기본문법
+      ```python
+      getattr(object, name[, default])
+      ```
+      - object : 속성을 가져올 대상 객체
+      - name : 속성 이름 (문자열로 지정)
+      - default (선택적) : 해당 속성이 없을 경우 반환할 기본값 (없으면 AttributeError 발생)
+    + 예제
+      ```python
+      class Alloy:
+        def __init__(self, name, tensile_strength, ductility, density):
+            self.name = name
+            self.tensile_strength = tensile_strength  # MPa
+            self.ductility = ductility                # %
+            self.density = density                    # g/cm^3
+
+      # 합금 데이터
+      a1 = Alloy("Ni-Cu", 450, 35, 8.9)
+      a2 = Alloy("Al-Mg", 320, 25, 2.7)
+      a3 = Alloy("Ti-6Al-4V", 900, 14, 4.4)
+
+      alloys = [a1, a2, a3]
+
+      # 동적으로 특정 물성(property)을 가져오기
+      property_to_check = "tensile_strength"  # 여기만 바꾸면 됨
+
+      for alloy in alloys:
+          value = getattr(alloy, property_to_check, "N/A")
+          print(f"{alloy.name}: {property_to_check} = {value}")
+      ```
+
 
  - 여러 함수 만들어 보기
    + 위치 인자 (*args); tuple
@@ -99,7 +131,7 @@ permalink:
 
      - (Windows 환경 예시)
      ```sh
-     c:\users\user\repo\mse> python ex02.py a b c 1 2 3
+     c:\users\user\repo\mse> python ex02.py a b c 1 23
      ```
      - (MacOS/Linux 환경 예시)
      ```sh

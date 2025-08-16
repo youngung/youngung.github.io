@@ -4,15 +4,31 @@ title: DATA MSE week 05
 permalink:
 ---
 <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
-5 (NumPy 02 - 배열 연산(산술, 내적, 외적), 브로드캐스팅, 그외 기타 함수)
+# Week 5 (NumPy 02 - 배열 연산(산술, 내적, 외적), 브로드캐스팅, 그 외 기타 함수)
   - 목표
     + 벡터/행렬 연산을 할 수 있다.
     + 브로드 캐스팅을 이해한다.
     + Determination, Eigen value 등을 계산할 수 있다.
 ## 수업 05-1
+  - 벡터의 크기
+    벡터
+    $$
+    \boldsymbol a
+    $$
+    의 크기는
+    $$
+    |\boldsymbol a|=\sqrt{a_1^2+a_2^2+a_3^2}=\sqrt{\sum_i^3a_i^2}
+    $$
   - 벡터의 내적
-    $$\boldsymbol a \cdot \boldsymbol b=a_1b_1+a_2b_2+a_3b_3=\sum_i^3a_ib_i$$
-    List, len, range를 활용한다면 아래와 같이 표현 가능
+    $$
+    \boldsymbol a \cdot \boldsymbol b=a_1b_1+a_2b_2+a_3b_3=\sum_i^3a_ib_i
+    $$
+    혹은 아래와 같이 두 벡터 사이의 끼인 각 $\theta$ 를 활용해 표현할 수 있다.
+    $$
+    \boldsymbol a \cdot \boldsymbol b=|\boldsymbol a||\boldsymbol b|\cos\theta
+    $$
+    ```List```, ```len```, ```range```, ~~```enumerate```~~를 활용하여
+    아래와 같이 표현 가능
     ```python
     a=[1,2,3]
     b=[4,5,6]
@@ -29,7 +45,6 @@ permalink:
     dotprod=0.
     for i in range(3):
       dotprod+=a[i]*b[i]
-      ## 위를 `dotprod+=a[i]*b[i]`로 줄여서 표현 가능
     ```
   - 행렬간의 dot product
 
@@ -53,19 +68,25 @@ permalink:
     print(np.dot(A, B))   # 동일
     ```
 
-    두 2x2 행렬 $\boldsymbol A$와 $\boldsymbol B$의 곱 결과가 또 다른 2x2행렬 $\boldsymbol C$라면
+    두 2x2 행렬
+    $$\boldsymbol A$$
+    와
+    $$\boldsymbol B$$
+    의 곱 결과가 또 다른 2x2행렬 $$\boldsymbol C$$
+    이라면
     $$
     \boldsymbol A\cdot\boldsymbol B = \boldsymbol C
     $$
-    이를 **index**를 활용한 방식으로 표현가능하다.
+    와 같이 표현할 수 있다. 이를 **index**를 활용한 방식으로 아래와 같이 표기 가능하다.
     $$
     \sum_k^3A_{ik}B_{kj}=C_{ij}, \text{ for } i=1,2,3.
     $$
   - 외적
     $$
     \boldsymbol c = \boldsymbol a \times \boldsymbol b
-    \newline
-    c_i=\epsilon_{ijk}a_jb  _k
+    $$
+    $$
+    c_i=\epsilon_{ijk}a_jb_k
     $$
 
     ```python
@@ -152,15 +173,72 @@ permalink:
       a=np.array([1,2,3])
       b=c*a ## broadcasting
       ```
+    + 단위 벡터 (unit)
+      벡터
+      $$\boldsymbol a$$
+      의 크기가 1 이라면, 벡터
+      $$\boldsymbol a$$
+      를 단위 벡터라 부른다.
+      * 주어진 한 벡터
+        $$
+        \boldsymbol a
+        $$
+        의 단위 벡터를
+        $$
+        \bar{\boldsymbol a}
+        $$
+        라 할 때 아래와 같이 그 관계가 표현될 수 있다.
+        $$
+        \bar{\boldsymbol a}=\frac{\boldsymbol a}{|\boldsymbol a|}
+        $$
+        혹은 인덱스를 활용해 아래와 같이 표현된다.
+        $$
+        \bar{a}_i=\frac{a_i}{\sqrt{a_1^2+a_2^2+a_3^2}}
+        $$
+      * 예시:
+        주어진 벡터
+        $$\boldsymbol a$$
+        와 방향은 같으나 크기가 1인 단위 벡터를 구하시오.
+        ```python
+        a=[3,4,5]
+        magnitude=0. ## 벡터 크기
+        for i in range(len(a)):
+          magnitude+=a[i]**2
+        magnitude=magnitude**0.5 ## sqrt(a)
+        for i in range(len(a)):
+          a[i]=a[i]/mag
+        print(bar_a)
+        ```
+        위를 Numpy를 활용하면
+        ```python
+        import numpy as np
+        old_a=np.array([3,4,5])
+        new_a=old_a**2
+        mag=np.sqrt(new_a.sum())
+        bar_a=old_a/mag
+        print(bar_a)
+        ```
+        혹은 더욱 축약한다면
+        ```python
+        import nump as np
+        old_a=np.array([3,4,5])
+        bar_a=old_a/np.sqrt((old_a**2).sum())
+        print(bar_a)
+        ```
+
     + 벡터 내적
       $$
       \boldsymbol a \cdot \boldsymbol b = \sum_i^3 a_ib_i=c
       $$
-      위를 Einstein summation convention으로 표기하면
+      위를 [Einstein summation convention](https://ko.wikipedia.org/wiki/아인슈타인_표기법)으로 표기하면
       $$
       \boldsymbol a \cdot \boldsymbol b = a_ib_i=c
       $$
-      summation 기호($\sum$)가 생략되어 있음에 주목하시오.
+      summation 기호
+      $$
+      \sum
+      $$
+      가 생략되어 있음에 주목하시오.
 
       ```python
       ## Numpy없이 구현
@@ -169,21 +247,24 @@ permalink:
       c=0.
       for i in range(3):
         c+=a[i]*b[i]
-
+      print(c)
       ## Numpy로 구현
       a=np.array([1,2,3])
       b=np.array([4,5,6])
       c=a*b  ## element-wise operation되는 것을 유념하라.
              ## 즉 c=np.array([a[0]*b[0],a[1]*b[1],a[2]*b[2]])
       c=c.sum()
+      print(c)
 
       #혹은 마지막 두 줄을 줄여서 아래와 같은 한줄의 명령어로 바꿀 수 있겠다.
       c=(a*b).sum()
+      print(c)
       ```
     + 행렬 벡터 곱
       $$
       \boldsymbol c = \boldsymbol A \cdot \boldsymbol v
-      \newline
+      $$
+      $$
       c_i = \sum_j^3A_{ij}v_j \ \text{ for } i=1,2,3
       $$
       위를 Einstein summation convention으로 표기하면
@@ -193,7 +274,8 @@ permalink:
     + 행렬 곱 (single dot)
       $$
       \boldsymbol C = \boldsymbol A\cdot \boldsymbol B
-      \newline
+      $$
+      $$
       C_{ij} = \sum_k^3 A_{ik}B_{kj} \text{ for } (i,j) \text{ of } (1,1), (1,2), ... , (3,2), (3,3)
       $$
 
@@ -210,7 +292,7 @@ permalink:
             C[i][j]+=A[i][k]*B[k][j]
       ```
 
-      NumPy를 활용한다면?
+      ```numpy```를 활용한다면?
       ```python
       import numpy as np
       A=np.array([[1,2,3],[4,5,6],[7,8,9]])
@@ -231,7 +313,8 @@ permalink:
     + 행렬 곱 (double dot)
       $$
       c=\boldsymbol A : \boldsymbol B
-      \newline
+      $$
+      $$
       c=\sum_i\sum_jA_{ij}B_{ij}=\sum_j\sum_iA_{ij}B_{ij}=\sum_j\sum_iB_{ij}A_{ij}=\sum_i\sum_jB_{ij}A_{ij}
       $$
 
@@ -275,4 +358,3 @@ permalink:
         for j in range(3): # j is inner
           c+=A[i,j]*B[i,j]
       ```
-

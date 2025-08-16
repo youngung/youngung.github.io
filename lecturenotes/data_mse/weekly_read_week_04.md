@@ -4,7 +4,7 @@ title: DATA MSE week 04
 permalink:
 ---
 <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
-4 (file IO / NumPy 01 - 기초 배열(array) 이해)
+# Week 4 (file IO / NumPy 01 - 기초 배열(array) 이해)
   - 목표
   - 파일을 활용해 데이터 input/output의 활용 가능하다.
   - NumPy 기초를 이해한다.
@@ -33,7 +33,12 @@ permalink:
       for line in lines:
         print(line.strip())  # strip() → 줄바꿈 제거
       ```
-## 수업 04-1 및 04-2
+    + 예시 (성적 처리)
+
+      다음 [파일](data/score_record_2017_MF_final_analysis.txt)을 읽고
+      평균, 표준 편차, 그리고 최고점과 최저점을 받은 학생 번호를 찾는 파이썬 프로그램을
+      만들어 보자.
+## 수업 04-2
   - 개념
     + [Numpy](www.numpy.org)는 고성능 수치 계산을 위한 library
   - 설치 (인터넷 연결 필요)

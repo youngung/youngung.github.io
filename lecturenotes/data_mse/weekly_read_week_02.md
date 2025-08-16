@@ -4,7 +4,7 @@ title: DATA MSE week 02
 permalink:
 ---
 <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
-2 (자료구조, 제어, 반복)
+# Week 2 (자료구조, 제어, 반복)
  - 목표
    + List, Tuple, Dictionary, set
    + 조건문과 (conditions), 반복문 (loop) 이해

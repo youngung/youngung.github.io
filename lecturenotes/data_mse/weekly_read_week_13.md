@@ -4,7 +4,7 @@ title: DATA MSE week 13
 permalink:
 ---
 <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
-13 (내삽과 외삽, 선형회귀)
+# Week 13 (내삽과 외삽, 선형회귀)
 ## 수업 13-1
 ## 수업 13-2
  - 실습 예시

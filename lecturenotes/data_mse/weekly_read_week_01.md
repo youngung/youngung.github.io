@@ -4,7 +4,7 @@ title: DATA MSE week 01
 permalink:
 ---
 <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
-1 (개요, 설치, 변수 및 연산자) -
+# Week 1 (개요, 설치, 변수 및 연산자) -
 ## 수업 01-1
  - 목표
    + 수업 개요 및 진행, 규칙 설명
