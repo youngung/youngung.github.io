@@ -1,10 +1,27 @@
 ---
 layout: page
 title:
-permalink:
+permalink: dataMSE
 ---
 
-# 데이터 재료과학
+
+<!-- KaTeX requires the use of the HTML5 doctype. Without it, KaTeX may not render properly -->
+<html>
+  <head>
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/katex.min.css" integrity="sha384-5TcZemv2l/9On385z///+d7MSYlvIEw9FuZTIdZ14vJLqWphw7e7ZPuOiCHJcFCP" crossorigin="anonymous">
+
+	<!-- The loading of KaTeX is deferred to speed up page rendering -->
+	<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/katex.min.js" integrity="sha384-cMkvdD8LoxVzGF/RPUKAcvmm49FQ0oxwDF3BGKtDXcEc+T1b2N+teh/OJfpU0jr6" crossorigin="anonymous"></script>
+
+	<!-- To automatically render math in text elements, include the auto-render extension: -->
+	<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/contrib/auto-render.min.js" integrity="sha384-hCXGrW6PitJEwbkoStFjeJxv+fSOOQKOPbJxSfM6G5sWZjAyWhXiTIIAmQqnlLlh" crossorigin="anonymous"
+		onload="renderMathInElement(document.body);"></script>
+  </head>
+  ...
+</html>
+
+
+# **데이터 재료과학**
 - 국립창원대학교 재료금속공학과
   * [이메일](mailto:yjeong@changwon.ac.kr)
   * [웹페이지](https://youngung.github.io)
@@ -18,14 +35,15 @@ permalink:
   * 구글 계정을 활용해서 [Google Colab](https://colab.google)과
 	[Google Drive](https://drive.google.com/)을 결함한 형태로 Cloud service를
 	활용해서, 인터넷 연결된 웹브라우저를 활용해서 실습 가능하나 추천하진 않음.
-# 수업 목표
+
+# **수업 목표**
  - 최신 데이터 기반의 툴의 기초적 활용을 익힘 ([Python](www.python.org),
    [Jupyter](www.jupyter.org) 등)
  - 이를 활용해 재료공학 기초 문제 해결을 위해 활용 경험
  - 기초적 이해를 바탕으로, 재료공학 실전 문제 해결에 응용 경험
  - 나아가 더욱 어려운 문제 해결을 위한 필요 지식 습득
 
-# 주차별 내용
+# **주차별 내용**
 # Week1 (수업 소개, 규칙, 평가 방법, 실습 환경 소개)
 ## 수업 01-1
 ### 01-1-1 목표

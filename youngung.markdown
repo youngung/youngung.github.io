@@ -1,6 +1,7 @@
 ---
 layout: page
-title: Youngung Jeong
+title:
+permanlink:
 ---
 
 <!-- I'm an assistant professor at [Changwon National University](http://changwon.ac.kr) <img src='/images/cwnu.png' width='80' >. -->
