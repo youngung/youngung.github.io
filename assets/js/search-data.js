@@ -72,9 +72,9 @@ ninja.data = [{
               handler: () => {
                 window.location.href = "/blog/";
               },
-            },{id: "post-2025-aug-8",
+            },{id: "post-nist-교환-학생-소식",
         
-          title: "2025 Aug 8",
+          title: "NIST 교환 학생 소식",
         
         description: "",
         section: "Posts",
@@ -92,28 +92,6 @@ ninja.data = [{
         handler: () => {
           
             window.location.href = "/blog/2025/numisheet/";
-          
-        },
-      },{id: "post-a-post-with-plotly-js",
-        
-          title: "a post with plotly.js",
-        
-        description: "this is what included plotly.js code could look like",
-        section: "Posts",
-        handler: () => {
-          
-            window.location.href = "/blog/2025/plotly/";
-          
-        },
-      },{id: "post-a-post-with-image-galleries",
-        
-          title: "a post with image galleries",
-        
-        description: "this is what included image galleries could look like",
-        section: "Posts",
-        handler: () => {
-          
-            window.location.href = "/blog/2024/photo-gallery/";
           
         },
       },{id: "post-2024-july-lanl-방문",
@@ -336,17 +314,6 @@ ninja.data = [{
             window.location.href = "/blog/2023/tables/";
           
         },
-      },{id: "post-a-post-with-table-of-contents",
-        
-          title: "a post with table of contents",
-        
-        description: "an example of a blog post with table of contents",
-        section: "Posts",
-        handler: () => {
-          
-            window.location.href = "/blog/2023/table-of-contents/";
-          
-        },
       },{id: "post-a-post-with-giscus-comments",
         
           title: "a post with giscus comments",
@@ -389,6 +356,28 @@ ninja.data = [{
         handler: () => {
           
             window.location.href = "/blog/2021/distill/";
+          
+        },
+      },{id: "post-a-post-with-image-galleries",
+        
+          title: "a post with image galleries",
+        
+        description: "this is what included image galleries could look like",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2020/photo-gallery/";
+          
+        },
+      },{id: "post-a-post-with-plotly-js",
+        
+          title: "a post with plotly.js",
+        
+        description: "this is what included plotly.js code could look like",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2020/plotly/";
           
         },
       },{id: "post-집합조직-확산사업-워크샵-참석-및-강연",
