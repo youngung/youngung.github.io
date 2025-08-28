@@ -2,7 +2,7 @@
 layout: page
 title: lectures
 permalink: /lectures/
-description: 강의자료
+description: 강의자료 collection
 nav: true
 nav_order: 3
 horizontal: false
@@ -10,9 +10,13 @@ horizontal: false
 
 
 {% for lecture in site.lectures %}
-  <h2>
+  <h1>
 	<a href="{{ lecture.url }}">
 	  * {{ lecture.title }}
 	</a>
-  </h2>
+	<h3>
+		대상: {{lecture.target}}
+		필요 선수과목: {{lecture.prerequisite}}
+	</h3>
+  </h1>
 {% endfor %}

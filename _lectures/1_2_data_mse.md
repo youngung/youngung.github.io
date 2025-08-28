@@ -2,7 +2,9 @@
 layout: page
 title: 데이터 재료과학
 description:  데이터 분석/해석 및 시각화(그래프) 등 기초 컴퓨터 활용 능력
+target: 1학년 2학기
 permalink:
+prerequisite: 재료공학개론1
 ---
 
 
