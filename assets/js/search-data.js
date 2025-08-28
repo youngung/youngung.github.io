@@ -526,7 +526,10 @@ ninja.data = [{
           description: "",
           section: "Lectures",handler: () => {
               window.location.href = "/lectures/3_1_metal_plasticity/";
-            },},{id: "news-홈페이지를-개편하고-있습니다-sparkles-smile",
+            },},{id: "news-정의찬-학생이-석사과정연구장려금지원사업에-선정되었습니다",
+          title: '정의찬 학생이 석사과정연구장려금지원사업에 선정되었습니다.',
+          description: "",
+          section: "News",},{id: "news-홈페이지를-개편하고-있습니다-sparkles-smile",
           title: '홈페이지를 개편하고 있습니다 :sparkles: :smile:',
           description: "",
           section: "News",},{id: "projects-개인연구-중견",
