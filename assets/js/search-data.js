@@ -527,6 +527,16 @@ ninja.data = [{
           description: "재료공학도를 위한 수치해석",
           section: "Lectures",handler: () => {
               window.location.href = "/lectures/2_1_numerical_analysis/";
+            },},{id: "lectures-이동현상",
+          title: '이동현상',
+          description: "",
+          section: "Lectures",handler: () => {
+              window.location.href = "/lectures/2_2_transport/";
+            },},{id: "lectures-소성가공",
+          title: '소성가공',
+          description: "",
+          section: "Lectures",handler: () => {
+              window.location.href = "/lectures/3_1_metal_plasticity/";
             },},{id: "news-홈페이지를-개편하고-있습니다-sparkles-smile",
           title: '홈페이지를 개편하고 있습니다 :sparkles: :smile:',
           description: "",
