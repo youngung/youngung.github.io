@@ -3,16 +3,16 @@
     "name": "Youngung Jeong",
     "label": "",
     "image": "",
-    "email": "",
-    "phone": "",
-    "url": "",
+    "email": "yjeong@changwon.ac.kr",
+    "phone": "+82-055-213-3694",
+    "url": "https://youngung.github.io",
     "summary": "",
     "location": {
-      "address": "",
-      "postalCode": "",
-      "city": "",
-      "countryCode": "",
-      "region": ""
+      "address": "20 Changwondaehak-Ro",
+      "postalCode": "51140",
+      "city": "Changwon",
+      "countryCode": "KOR",
+      "region": "Gyeongnam"
     },
     "profiles": [
       {
@@ -28,7 +28,7 @@
       "position": "Associate professor",
       "url": "https://www.changwon.ac.kr",
       "startDate": "2017-03-1",
-      "endDate": "present",
+      "endDate": "",
       "summary": ""
     }
   ],
@@ -37,7 +37,10 @@
       "institution": "Graduate Institute of Ferrous Technology, POSTECH",
       "location": "Pohang, Korea",
       "url": "",
-      "area": "Metal Forming",
+      "area": [
+        "Metal Forming",
+        "Crystal Plasticity"
+      ],
       "studyType": "PhD",
       "startDate": "2010-03-01",
       "endDate": "2014-02-28"
@@ -68,22 +71,20 @@
   ],
   "skills": [
     {
-      "name": "Physics",
       "level": "Master",
       "icon": "fa-solid fa-hashtag",
       "keywords": [
-        "Quantum Mechanics",
-        "Quantum Computing",
-        "Quantum Information",
-        "Quantum Cryptography",
-        "Quantum Communication",
-        "Quantum Teleportation"
+        "Crystal Plasticity",
+        "Metal Forming",
+        "Texture",
+        "Anisotropy",
+        "Residual Stress"
       ]
     }
   ],
   "languages": [
     {
-      "language": "German",
+      "language": "Korean",
       "fluency": "Native speaker",
       "icon": ""
     },
@@ -95,37 +96,23 @@
   ],
   "interests": [
     {
-      "name": "Physics",
+      "name": "Constitutive modeling",
       "icon": "fa-solid fa-tag",
       "keywords": [
-        "Quantum Mechanics",
-        "Quantum Computing",
-        "Quantum Information",
-        "Quantum Cryptography",
-        "Quantum Communication",
-        "Quantum Teleportation"
+        "elasticity",
+        "plasticity",
+        "viscosity",
+        "anisotropy"
       ]
-    }
-  ],
-  "references": [
-    {
-      "name": "Professor John Doe",
-      "icon": "fa-solid fa-laptop",
-      "reference": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam condimentum, diam quis convallis euismod, arcu mi ullamcorper lorem, a vestibulum nunc magna at sem. Sed in risus ac felis varius blandit. D"
-    },
-    {
-      "name": "Professor John Doe",
-      "icon": "fa-solid fa-thumbtack",
-      "reference": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam condimentum, diam quis convallis euismod, arcu mi ullamcorper lorem, a vestibulum nunc magna at sem. Sed in risus ac felis varius blandit. D"
     }
   ],
   "projects": [
     {
-      "name": "Quantum Computing",
-      "summary": "Quantum computing is the use of quantum-mechanical phenomena such as superposition and entanglement to perform computation. Computers that perform quantum computations are known as quantum computers.",
+      "name": "",
+      "summary": "",
       "highlights": ["Quantum Teleportation", "Quantum Cryptography"],
-      "startDate": "2018-01-01",
-      "endDate": "2018-01-01",
+      "startDate": "",
+      "endDate": "",
       "url": "https://example.com"
     }
   ]
