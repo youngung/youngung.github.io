@@ -152,6 +152,7 @@ collections:
   projects:
     output: true
   lectures:
+    output: true
 
 
 # -----------------------------------------------------------------------------
