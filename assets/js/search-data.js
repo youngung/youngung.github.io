@@ -325,9 +325,9 @@ ninja.data = [{
             window.location.href = "/blog/2022/giscus-comments/";
           
         },
-      },{id: "post-u-draw-bending-c-rail-fea-with-devpsc-fe",
+      },{id: "post-u-draw-bending-c-rail-fea-with-delta-evpsc-fe",
         
-          title: "U-draw bending, C-rail FEA with dEVPSC-FE",
+          title: "U-draw bending, C-rail FEA with $\Delta$EVPSC-FE",
         
         description: "",
         section: "Posts",
