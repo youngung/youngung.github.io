@@ -23,6 +23,13 @@ ninja.data = [{
           handler: () => {
             window.location.href = "/publications/";
           },
+        },{id: "nav-lectures",
+          title: "lectures",
+          description: "강의자료",
+          section: "Navigation",
+          handler: () => {
+            window.location.href = "/lectures/";
+          },
         },{id: "nav-projects",
           title: "projects",
           description: "A growing collection of your cool projects.",
@@ -39,7 +46,7 @@ ninja.data = [{
           },
         },{id: "nav-cv",
           title: "cv",
-          description: "This is a description of the page. You can modify it in &#39;_pages/cv.md&#39;. You can also change or remove the top pdf download button.",
+          description: "Youngung Jeong&#39;s CV",
           section: "Navigation",
           handler: () => {
             window.location.href = "/cv/";
@@ -594,6 +601,11 @@ ninja.data = [{
           description: "",
           section: "Books",handler: () => {
               window.location.href = "/books/the_godfather/";
+            },},{id: "lectures-데이터-재료과학",
+          title: '데이터 재료과학',
+          description: "데이터 분석/해석 및 시각화(그래프) 등 기초 컴퓨터 활용 능력",
+          section: "Lectures",handler: () => {
+              window.location.href = "/lectures/1_2_data_mse/";
             },},{id: "news-a-long-announcement-with-details",
           title: 'A long announcement with details',
           description: "",
