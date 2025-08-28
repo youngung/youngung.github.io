@@ -151,6 +151,8 @@ collections:
     output: true
   projects:
     output: true
+  lectures:
+
 
 # -----------------------------------------------------------------------------
 # Jekyll settings
