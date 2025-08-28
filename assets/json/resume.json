@@ -24,26 +24,23 @@
   },
   "work": [
     {
-      "name": "",
-      "position": "",
+      "name": "Changwon National University",
+      "position": "Associate professor",
       "url": "https://www.changwon.ac.kr",
       "startDate": "2017-03-1",
       "endDate": "present",
-      "summary": "",
-      "highlights": ["Relativity"]
+      "summary": ""
     }
   ],
   "education": [
     {
-      "institution": "University of Zurich, Zurich, Switzerland",
-      "location": "Zurich, Switzerland",
-      "url": "https://www.uzh.ch/",
-      "area": "Software Development",
+      "institution": "Graduate Institute of Ferrous Technology, POSTECH",
+      "location": "Pohang, Korea",
+      "url": "",
+      "area": "Metal Forming",
       "studyType": "PhD",
-      "startDate": "1905-01-01",
-      "endDate": "1905-01-01",
-      "score": "10",
-      "courses": ["Theory of Relativity"]
+      "startDate": "2010-03-01",
+      "endDate": "2014-02-28"
     }
   ],
   "publications": [
