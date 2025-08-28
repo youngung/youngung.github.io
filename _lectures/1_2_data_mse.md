@@ -46,6 +46,7 @@ toc:
    + 수업 개요 소개
    + 수업 진행 방식 및 규칙 설명
    + 수업 평가 소개
+   + 영어 / 기호 자판 익숙해지기
 
 ### 01-1-2 Orientation
    + 재료공학 전공자에게 필요한 데이터 분석, IO, 해석 및 시각화 (그래프) 등 기초 컴퓨터
@@ -89,7 +90,12 @@ toc:
 	  * 친구/가족에게 빌리세요. 없다면 학교에서 대여도 합니다 - [링크](https://chains.changwon.ac.kr/nonstop/lend/sub.php?group_code=e0000010&subgroup_code=es000043)
 		- 그외 기타 사정으로 수업을 듣고 싶으나 노트북 준비가 어렵다면
 	 교수에게 상담 요청하시오.
-* 영문 키보드 반드시 숙지 필요 (영타가 느리면 그만큼 학습이 느려집니다.)
+* 영문 키보드 반드시 숙지 필요
+  - 영타가 느리면 그만큼 학습이 느려집니다.
+  - 예시로 주어지는 코드를 모두 직접 입력해봐야 합니다.
+  - 영타 키보드 익히기: [링크](https://typing.works).
+  - 1분에 300타 정도의 속도는 나와야 하지 않겠어요?
+
 * 각종 기호들 위치 익히기! 평소에 쓰지 않은 다양한 부호가 컴퓨터에 있습니다.
  위치와 생김새, 이름을 익혀야 하겠습니다.
   - `: accent
@@ -121,9 +127,9 @@ toc:
 	   좋으나 시험에서는 활용 불가!
   - 왜 ChatGPT를 시험에 못 쓰게 하냐면, ChatGPT가 실수하는 것을 알아내고 고칠 수 있는 능력
 	   을 갖추지 못하면...
-* 교수자가 사용하는 도구들: MacOS, MS VScode, 기본 terminal, Jupyter notebook ...
+* 교수자가 사용하는 도구들: MacOS, MS VScode, 기본 terminal, JuPyter notebook, Google Colab ...
 	 * 하지만, 실습은 Windows, MacOS, Linux .. 등 어디서든 가능합니다.
-	 * [Google colab](https://colab.google)에서는 인터넷 연결만 되어 있다면 Jupyter notebook 실습 가능합니다.
+	 * [Google colab](https://colab.google)에서는 인터넷 연결만 되어 있다면 JuPyter notebook 실습 가능합니다.
 	 * 수업 중간에 인터넷을 통해 몇몇 Python 패키지를 설치해야 할 수도 있으므로, 교내 와이파이 접속 가능해야 함.
 
 ### 01-1-4 평가 방법
@@ -144,8 +150,8 @@ toc:
   * 키보드 기호들의 위치 숙지 필요.
   * 교내 인터넷 접속 사전에 해보기.
   * [Google colab](https://colab.google)에서 Notebook 만들어 실습해보기.
-  * [Google colab](https://colab.google)활용한다면 ipad나 갤럭시 탭으로도 실습 가능할 법 합니다.
-	하지만 여러 이유로 추천하지 않으며, 컴퓨터 활용을 추천합니다.
+  * [Google colab](https://colab.google)활용한다면 아이패드나 갤럭시 탭, 심지어는 핸드폰(?)으로도 실습 가능할 겁니다.
+	하지만 여러 이유로 컴퓨터가 아닌 기기는 추천하지 않습니다.
 
 ## 수업 01-2
 
@@ -159,10 +165,10 @@ toc:
 
 ### 01-2-2 내용
 
-  * Jupyter notebook 간단한 키조작 가능
+  * JuPyter notebook 간단한 키조작 가능
   * 셀(cell) 만들기, 지우기, 입력, 이동(navigation)
 	+ 코드 셀
-	+ Markdown 셀
+	+ markdown 셀
   * 주석(comment)과 명령문(statement) 구분하기
   * 변수 선언과 자료형 (```int```, ```float```, ```str```, ```bool```) 이해하기
   * 연산자 이해하기
