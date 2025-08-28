@@ -14,9 +14,11 @@ horizontal: false
 	<a href="{{ lecture.url }}">
 	  * {{ lecture.title }}
 	</a>
-	<h3>
+	<h6>
 		대상: {{lecture.target}}
+	</h6>
+	<h6>
 		필요 선수과목: {{lecture.prerequisite}}
-	</h3>
+	</h6>
   </h1>
 {% endfor %}
