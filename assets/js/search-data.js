@@ -25,7 +25,7 @@ ninja.data = [{
           },
         },{id: "nav-lectures",
           title: "lectures",
-          description: "강의자료",
+          description: "강의자료 collection",
           section: "Navigation",
           handler: () => {
             window.location.href = "/lectures/";
@@ -606,6 +606,11 @@ ninja.data = [{
           description: "데이터 분석/해석 및 시각화(그래프) 등 기초 컴퓨터 활용 능력",
           section: "Lectures",handler: () => {
               window.location.href = "/lectures/1_2_data_mse/";
+            },},{id: "lectures-수치해석",
+          title: '수치해석',
+          description: "재료공학도를 위한 수치해석",
+          section: "Lectures",handler: () => {
+              window.location.href = "/lectures/2_1_numerical_analysis/";
             },},{id: "news-a-long-announcement-with-details",
           title: 'A long announcement with details',
           description: "",
