@@ -529,7 +529,12 @@ ninja.data = [{
             },},{id: "news-홈페이지를-개편하고-있습니다-sparkles-smile",
           title: '홈페이지를 개편하고 있습니다 :sparkles: :smile:',
           description: "",
-          section: "News",},{
+          section: "News",},{id: "projects-개인연구-중견",
+          title: '개인연구(중견)',
+          description: "",
+          section: "Projects",handler: () => {
+              window.location.href = "/projects/midcarrier/";
+            },},{
         id: 'social-email',
         title: 'email',
         section: 'Socials',
