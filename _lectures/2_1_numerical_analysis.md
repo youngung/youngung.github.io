@@ -5,10 +5,17 @@ description: 재료공학도를 위한 수치해석
 target: 2학년 1학기
 permalink:
 prerequisite: 재료공학개론1, 데이터 재료과학
+toc:
+  sidebar: left
 ---
 
+```yml
+toc:
+  beginning: true
+  sidebar: left
+```
 
-# **수치해석**
+# Orientation
 - 국립창원대학교 재료금속공학과
   * [이메일](mailto:yjeong@changwon.ac.kr)
   * [웹페이지](https://youngung.github.io)
@@ -20,10 +27,9 @@ prerequisite: 재료공학개론1, 데이터 재료과학
 	[Google Drive](https://drive.google.com/)을 결함한 형태로 Cloud service를
 	활용해서, 인터넷 연결된 웹브라우저를 활용해서 실습 가능하나 추천하진 않음.
 
-# **수업 목표**
+# 수업 목표
  - 기초 수치해석을 이해하고, Python 등의 프로그램을 활용해 수치해석에 활요할 수 있다.
 
-# **주차별 내용**
 # Week1
 ## 수업 01-1 (오리엔테이션)
   + 대상

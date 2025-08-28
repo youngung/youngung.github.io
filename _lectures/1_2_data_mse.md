@@ -5,10 +5,18 @@ description:  데이터 분석/해석 및 시각화(그래프) 등 기초 컴퓨
 target: 1학년 2학기
 permalink:
 prerequisite: 재료공학개론1
+toc:
+  sidebar: left
 ---
 
+```yml
+toc:
+  beginning: true
+  sidebar: left
+```
 
-# **데이터 재료과학**
+
+# Orientation
 - 국립창원대학교 재료금속공학과
   * [이메일](mailto:yjeong@changwon.ac.kr)
   * [웹페이지](https://youngung.github.io)
@@ -23,14 +31,12 @@ prerequisite: 재료공학개론1
 	[Google Drive](https://drive.google.com/)을 결함한 형태로 Cloud service를
 	활용해서, 인터넷 연결된 웹브라우저를 활용해서 실습 가능하나 추천하진 않음.
 
-# **수업 목표**
+# 수업 목표
  - 최신 데이터 기반의 툴의 기초적 활용을 익힘 ([Python](www.python.org),
    [Jupyter](www.jupyter.org) 등)
  - 이를 활용해 재료공학 기초 문제 해결을 위해 활용 경험
  - 기초적 이해를 바탕으로, 재료공학 실전 문제 해결에 응용 경험
  - 나아가 더욱 어려운 문제 해결을 위한 필요 지식 습득
-
-# **주차별 내용**
 
 # Week1 (수업 소개, 규칙, 평가 방법, 실습 환경 소개)
 
