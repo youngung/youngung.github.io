@@ -527,15 +527,7 @@ ninja.data = [{
           description: "재료공학도를 위한 수치해석",
           section: "Lectures",handler: () => {
               window.location.href = "/lectures/2_1_numerical_analysis/";
-            },},{id: "news-a-long-announcement-with-details",
-          title: 'A long announcement with details',
-          description: "",
-          section: "News",handler: () => {
-              window.location.href = "/news/announcement_2/";
-            },},{id: "news-a-simple-inline-announcement-with-markdown-emoji-sparkles-smile",
-          title: 'A simple inline announcement with Markdown emoji! :sparkles: :smile:',
-          description: "",
-          section: "News",},{id: "news-홈페이지를-개편하고-있습니다-sparkles-smile",
+            },},{id: "news-홈페이지를-개편하고-있습니다-sparkles-smile",
           title: '홈페이지를 개편하고 있습니다 :sparkles: :smile:',
           description: "",
           section: "News",},{id: "projects-project-1",
