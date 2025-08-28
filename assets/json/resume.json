@@ -16,9 +16,9 @@
     },
     "profiles": [
       {
-        "network": "",
-        "username": "",
-        "url": ""
+	"network": "",
+	"username": "",
+	"url": ""
       }
     ]
   },
@@ -37,13 +37,25 @@
       "institution": "Graduate Institute of Ferrous Technology, POSTECH",
       "location": "Pohang, Korea",
       "url": "",
-      "area": [
-        "Metal Forming",
-        "Crystal Plasticity"
-      ],
       "studyType": "PhD",
       "startDate": "2010-03-01",
       "endDate": "2014-02-28"
+    },
+    {
+      "institution": "Graduate Institute of Ferrous Technology, POSTECH",
+      "location": "Pohang, Korea",
+      "url": "",
+      "studyType": "MS",
+      "startDate": "2008-03-01",
+      "endDate": "2010-02-28"
+    },
+    {
+      "institution": "Hangyang University",
+      "location": "Seoul, Korea",
+      "url": "",
+      "studyType": "BS",
+      "startDate": "2001-03-01",
+      "endDate": "2008-02-28"
     }
   ],
   "publications": [
@@ -74,11 +86,11 @@
       "level": "Master",
       "icon": "fa-solid fa-hashtag",
       "keywords": [
-        "Crystal Plasticity",
-        "Metal Forming",
-        "Texture",
-        "Anisotropy",
-        "Residual Stress"
+	"Crystal Plasticity",
+	"Metal Forming",
+	"Texture",
+	"Anisotropy",
+	"Residual Stress"
       ]
     }
   ],
@@ -99,10 +111,10 @@
       "name": "Constitutive modeling",
       "icon": "fa-solid fa-tag",
       "keywords": [
-        "elasticity",
-        "plasticity",
-        "viscosity",
-        "anisotropy"
+	"elasticity",
+	"plasticity",
+	"viscosity",
+	"anisotropy"
       ]
     }
   ],
