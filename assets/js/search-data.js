@@ -369,17 +369,6 @@ ninja.data = [{
             window.location.href = "/blog/2022/dEVPSC-FE-Udraw/";
           
         },
-      },{id: "post-a-post-with-redirect",
-        
-          title: "a post with redirect",
-        
-        description: "you can also redirect to assets like pdf",
-        section: "Posts",
-        handler: () => {
-          
-            window.location.href = "/assets/pdf/example_pdf.pdf";
-          
-        },
       },{id: "post-a-post-with-diagrams",
         
           title: "a post with diagrams",
@@ -400,17 +389,6 @@ ninja.data = [{
         handler: () => {
           
             window.location.href = "/blog/2021/distill/";
-          
-        },
-      },{id: "post-a-post-with-twitter",
-        
-          title: "a post with twitter",
-        
-        description: "an example of a blog post with twitter",
-        section: "Posts",
-        handler: () => {
-          
-            window.location.href = "/blog/2020/twitter/";
           
         },
       },{id: "post-집합조직-확산사업-워크샵-참석-및-강연",
@@ -532,61 +510,6 @@ ninja.data = [{
         handler: () => {
           
             window.location.href = "/blog/2017/first-summer-break/";
-          
-        },
-      },{id: "post-a-post-with-disqus-comments",
-        
-          title: "a post with disqus comments",
-        
-        description: "an example of a blog post with disqus comments",
-        section: "Posts",
-        handler: () => {
-          
-            window.location.href = "/blog/2015/disqus-comments/";
-          
-        },
-      },{id: "post-a-post-with-math",
-        
-          title: "a post with math",
-        
-        description: "an example of a blog post with some math",
-        section: "Posts",
-        handler: () => {
-          
-            window.location.href = "/blog/2015/math/";
-          
-        },
-      },{id: "post-a-post-with-code",
-        
-          title: "a post with code",
-        
-        description: "an example of a blog post with some code",
-        section: "Posts",
-        handler: () => {
-          
-            window.location.href = "/blog/2015/code/";
-          
-        },
-      },{id: "post-a-post-with-images",
-        
-          title: "a post with images",
-        
-        description: "this is what included images could look like",
-        section: "Posts",
-        handler: () => {
-          
-            window.location.href = "/blog/2015/images/";
-          
-        },
-      },{id: "post-a-post-with-formatting-and-links",
-        
-          title: "a post with formatting and links",
-        
-        description: "march &amp; april, looking forward to summer",
-        section: "Posts",
-        handler: () => {
-          
-            window.location.href = "/blog/2015/formatting-and-links/";
           
         },
       },{id: "books-the-godfather",
