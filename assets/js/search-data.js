@@ -72,7 +72,29 @@ ninja.data = [{
               handler: () => {
                 window.location.href = "/blog/";
               },
-            },{id: "post-a-post-with-plotly-js",
+            },{id: "post-2025-aug-8",
+        
+          title: "2025 Aug 8",
+        
+        description: "",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2025/NIST_JSL/";
+          
+        },
+      },{id: "post-2025-july-numisheet-학회-참석-및-발표",
+        
+          title: "2025 July, NUMISHEET 학회 참석 및 발표",
+        
+        description: "",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2025/numisheet/";
+          
+        },
+      },{id: "post-a-post-with-plotly-js",
         
           title: "a post with plotly.js",
         
@@ -92,6 +114,17 @@ ninja.data = [{
         handler: () => {
           
             window.location.href = "/blog/2024/photo-gallery/";
+          
+        },
+      },{id: "post-2024-july-lanl-방문",
+        
+          title: "2024 July, LANL 방문",
+        
+        description: "",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2024/LANL-visit/";
           
         },
       },{id: "post-google-gemini-updates-flash-1-5-gemma-2-and-project-astra",
@@ -226,6 +259,17 @@ ninja.data = [{
             window.location.href = "/blog/2023/tikzjax/";
           
         },
+      },{id: "post-2023-september-ictp",
+        
+          title: "2023 September ICTP",
+        
+        description: "",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2023/ictp/";
+          
+        },
       },{id: "post-a-post-with-bibliography",
         
           title: "a post with bibliography",
@@ -325,6 +369,17 @@ ninja.data = [{
             window.location.href = "/blog/2022/giscus-comments/";
           
         },
+      },{id: "post-u-draw-bending-c-rail-fea-with-devpsc-fe",
+        
+          title: "U-draw bending, C-rail FEA with dEVPSC-FE",
+        
+        description: "",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2022/dEVPSC-FE-Udraw/";
+          
+        },
       },{id: "post-displaying-external-posts-on-your-al-folio-blog",
         
           title: 'Displaying External Posts on Your al-folio Blog <svg width="1.2rem" height="1.2rem" top=".5rem" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg"><path d="M17 13.5v6H5v-12h6m3-3h6v6m0-6-9 9" class="icon_svg-stroke" stroke="#999" stroke-width="1.5" fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round"></path></svg>',
@@ -378,6 +433,127 @@ ninja.data = [{
         handler: () => {
           
             window.location.href = "/blog/2020/twitter/";
+          
+        },
+      },{id: "post-집합조직-확산사업-워크샵-참석-및-강연",
+        
+          title: "집합조직 확산사업 워크샵 참석 및 강연",
+        
+        description: "",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2018/textureworkshop/";
+          
+        },
+      },{id: "post-numisheet-2018",
+        
+          title: "Numisheet 2018",
+        
+        description: "",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2018/Numisheet2018/";
+          
+        },
+      },{id: "post-dr-carlos-tome-visits-mml-cwnu",
+        
+          title: "Dr. Carlos Tome visits MML@CWNU",
+        
+        description: "",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2018/Carlos/";
+          
+        },
+      },{id: "post-guests-from-kmutnb",
+        
+          title: "Guests from KMUTNB",
+        
+        description: "",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2018/Thai/";
+          
+        },
+      },{id: "post-전산재료과학-모임",
+        
+          title: "전산재료과학 모임",
+        
+        description: "",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2018/meeting/";
+          
+        },
+      },{id: "post-korea-japan-neutron-user-meeting",
+        
+          title: "Korea-Japan Neutron User Meeting",
+        
+        description: "",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2018/KJ/";
+          
+        },
+      },{id: "post-final-성적-공지",
+        
+          title: "Final 성적 공지",
+        
+        description: "",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2018/Notice/";
+          
+        },
+      },{id: "post-학회-참석",
+        
+          title: "학회 참석",
+        
+        description: "",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2017/KIMM/";
+          
+        },
+      },{id: "post-새-구성원",
+        
+          title: "새 구성원",
+        
+        description: "",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2017/Newmembers/";
+          
+        },
+      },{id: "post-iddrg-2017-참석-및-freiberg-방문",
+        
+          title: "IDDRG 2017 참석 및 Freiberg 방문",
+        
+        description: "",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2017/Germany/";
+          
+        },
+      },{id: "post-첫여름방학",
+        
+          title: "첫여름방학",
+        
+        description: "",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2017/first-summer-break/";
           
         },
       },{id: "post-a-post-with-disqus-comments",
