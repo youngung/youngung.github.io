@@ -143,7 +143,7 @@ third([학생 시연/실습]) ==> fourth([수업후 개념 복습])
   - <: left bracket
   - \>: right bracket
 * 수업 시간 예제 반드시 스스로 해보기
-  - 스스로 공부할 때, 혹은 예제를 풀 때 [ChatGPT](chatgpt.com)에 도움을 받는 건
+  - 스스로 공부할 때, 혹은 예제를 풀 때 [ChatGPT](https://chatgpt.com)에 도움을 받는 건
 	   좋으나 시험에서는 활용 불가!
   - 왜 ChatGPT를 시험에 못 쓰게 하냐면, ChatGPT가 실수하는 것을 알아내고 고칠 수 있는 능력
 	   을 갖추지 못하면...
