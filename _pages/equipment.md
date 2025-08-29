@@ -9,7 +9,9 @@ horizontal: false
 horizontal: false
 ---
 
-{% for tool in site.equipment %}
+{% assign sorted_items = site.equipment | sort:"importance" %}
+
+{% for tool in sorted_items %}
   * {{ tool.title }}:
 	 - 구매시기  : {{ tool.purchased_year }}
 	 - 주요 spec : {{ tool.spec }}

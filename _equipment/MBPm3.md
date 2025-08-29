@@ -3,7 +3,7 @@ layout: page
 title: MacBook Pro M3
 description:
 img:
-importance: 4
+importance: 5
 category: work
 related_publications: true
 purchased_year: 2024

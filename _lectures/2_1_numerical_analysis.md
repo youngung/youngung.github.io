@@ -511,7 +511,7 @@ toc:
   + 해석적 풀이가 가능한 경우
 	- 1차, 2차 방정식: 공식 존재
 
-	  $$ax^2+bx+c=0$$ 의 근의 공식
+	  $a x^{2} + b x + c = 0 $의 근의 공식
 
 	  $$x=\frac{-b\pm\sqrt{b^2-4ac}}{2a}$$
 
@@ -563,10 +563,15 @@ toc:
 		   함수값의 부호가 다르면, 그 사이에 반드시 해가 있다.
 		   (중간값 정리, Intermediate Value Theorem)
 		- 즉, [a, b] 구간에서 근이 있음을 알면 구간을 절반으로 줄여가며 해를 찾는 방법
-		   ![bisection_image_wikipedia](https://upload.wikimedia.org/wikipedia/commons/c/c2/Bisection_method.png)
 
-	  * 알고리듬:
-		- 시작 구간 $$[a,b]$$ 선택:
+<!-- 		   ![bisection_image_wikipedia](https://upload.wikimedia.org/wikipedia/commons/c/c2/Bisection_method.png)
+ -->
+
+		<img src="https://upload.wikimedia.org/wikipedia/commons/c/c2/Bisection_method.png" alt="drawing" width="400"/>
+
+* 알고리듬:
+
+- 시작 구간 $$[a,b]$$ 선택:
 
 		  $$f(a)×f(b)<0$$
 
@@ -791,13 +796,11 @@ toc:
 
 	+ 주어진 알고리듬은 아래와 같다.
 
-	  $$
-	  x_{n+1}=x_n-\frac{x_n^2-3}{2x_n}
-	  $$
+	  $$x_{n+1}=x_{n} - \frac{x_n^{2}-3}{2x_{n}}$$
 
   + 예제
 
-	방정식 $$x^4=2$$를 풀어보자.
+	방정식 $$x^{4}=2$$를 풀어보자.
 
 	+ 주어진 알고리듬은 아래와 같다.
 
