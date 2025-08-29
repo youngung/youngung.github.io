@@ -1243,7 +1243,7 @@ def f(a=3,b=5,c,d):
   ```
 
 + 예시3. (성적 처리)
-  다음 [파일](/lecturenotes/data_mse/data/score_record_2017_MF_final_analysis.txt)
+  다음 [파일](/assets/dat_files/lectures/1_2_data_mse/score_record_2017_MF_final_analysis.txt)
   을 읽고 평균, 표준 편차, 그리고 최고점과 최저점을 받은 학생 번호를 찾는
   파이썬 프로그램을 만들어 보자.
 
@@ -1288,7 +1288,7 @@ def f(a=3,b=5,c,d):
   활용 가능한 Pythonn module을 만들자.
 
 + 예시5. (모든 파일의 이름 바꾸기)
-  다음 [압축파일](/lecturenotes/data_mse/data/tensile_test_results.zip)을 풀어서 살펴보자.
+  다음 [압축파일](/assets/dat_files/lectures/1_2_data_mse/tensile_test_results.zip)을 풀어서 살펴보자.
   여기서 파일 이름에서 'WZ'를 모두 'EX'로 바꾸고 싶다. 어떻게 해야할까?
   ```dos
   c:\users\user> ren 00_DD_WZ_01.csv 00_DD_EX_01.csv
@@ -1440,7 +1440,7 @@ def f(a=3,b=5,c,d):
 	```
 
   - 예제: 데이터 파일
-	Use data in here [matrix_01.txt](data/matrix_01.txt)
+	Use data in here [matrix_01.txt](/assets/dat_files/lectures/1_2_data_mse/matrix_01.txt)
 
 	```python
 	import numpy as np
@@ -1456,7 +1456,7 @@ def f(a=3,b=5,c,d):
 	```
 
   - 예제: csv file
-	Use data in here [matrix_01.csv](data/matrix_01.csv)
+	Use data in here [matrix_01.csv](/assets/dat_files/lectures/1_2_data_mse/matrix_01.csv)
 
 	```python
 	import numpy as np
@@ -2295,7 +2295,7 @@ def f(a=3,b=5,c,d):
   ```
 
 + 예시
-  주어진 [파일](data/matrix_03.txt)의 매트릭스의 값들을 활용해서 각 파일에서 고유값들을 구해서
+  주어진 [파일](/assets/dat_files/lectures/1_2_data_mse/matrix_03.txt)의 매트릭스의 값들을 활용해서 각 파일에서 고유값들을 구해서
   출력하시오.
   ```python
   import numpy as np
@@ -2562,7 +2562,7 @@ def f(a=3,b=5,c,d):
 	  $$
 
 	- Stress vs. strain curve 그리기
-	  다음 [압축파일](/lecturenotes/data_mse/data/tensile_test_results.zip)을 풀어서, 파일 하나를
+	  다음 [압축파일](/assets/dat_files/lectures/1_2_data_mse/tensile_test_results.zip)을 풀어서, 파일 하나를
 	  살펴보자 - 예를 들어 ```00_DD_WZ_01.csv```
 	  위 데이터 파일을 활용해
 	  1. 폭: 6.04 mm, 두께 2.99 mm 인걸 확인하고,
@@ -2580,8 +2580,8 @@ def f(a=3,b=5,c,d):
 
 ## 수업 09-1 (Force vs. displ 데이터 -> 응력 선도)
 
-- 실습을 위해 필요한 다음 [calibration1](/lecturenotes/data_mse/data/calibration1.txt),
-[calibration2](/lecturenotes/data_mse/data/calibration2.txt)
+- 실습을 위해 필요한 다음 [calibration1](/assets/dat_files/lectures/1_2_data_mse/calibration1.txt),
+[calibration2](/assets/dat_files/lectures/1_2_data_mse/calibration2.txt)
 파일을 다운로드 받자.
 - 첫번째 calibration file은 변위 측정 장치에서 측정된 voltage 변화를 mm 단위의 변위로 '변환'해준다.
 - 두번째 calibration file은 로드셀 (load)장치에서 측정된 voltage 변화를 kN 단위의 힘으로 '변환'해준다.
@@ -2688,7 +2688,7 @@ def f(a=3,b=5,c,d):
   # log (a) 그리고 log (b)로부터 a, b값을 역산(거꾸로 계산) 해보자.
   ```
 - 복잡한 형태의 데이터 파일의 경우를 생각해보자.
-  이미 calibration된 이후 얻어진 [힘/변위 데이터](/lecturenotes/data_mse/data/force_vs_displ.txt)를
+  이미 calibration된 이후 얻어진 [힘/변위 데이터](/assets/dat_files/lectures/1_2_data_mse/force_vs_displ.txt)를
   살펴보고, 분석해보자.
 
   ```python
@@ -2934,7 +2934,7 @@ def f(a=3,b=5,c,d):
 
 # Week10 (Matplotlib + Hall-petch equations, Creep data)
 ## 수업 10-1 (Creep data)
-  - SN curve 데이터 파일 [SN_curve.txt](/lecturenotes/data_mse/data/SN_curve.txt)을 다운받아서
+  - SN curve 데이터 파일 [SN_curve.txt](/assets/dat_files/lectures/1_2_data_mse/SN_curve.txt)을 다운받아서
 	아래 예측 모형에 걸맞는 값들을 구해보자.
 
 	$$
@@ -2954,7 +2954,7 @@ def f(a=3,b=5,c,d):
 	$$
 
 
-  - Creep 데이터 파일 [creep.txt](/lecturenotes/data_mse/data/creep.txt)을 다운받아서
+  - Creep 데이터 파일 [creep.txt](/assets/dat_files/lectures/1_2_data_mse/creep.txt)을 다운받아서
 	아래 예측 모형에 걸맞는 값들을 구해보자.
 
 	$$
@@ -3303,9 +3303,9 @@ def f(a=3,b=5,c,d):
 	```
 
 - 실제 미세조직 사진 활용 실습
-	+ 아래 사진을 [여기](data/dualphase_sem.png) 눌러서 다운 받자
+	+ 아래 사진을 [여기](/assets/dat_files/lectures/1_2_data_mse/dualphase_sem.png) 눌러서 다운 받자
 
-	![imag](data/dualphase_sem.png)
+	![imag](/assets/dat_files/lectures/1_2_data_mse/dualphase_sem.png)
 
 	```python
 	from PIL import Image
@@ -3365,15 +3365,16 @@ def f(a=3,b=5,c,d):
   위에서 다뤘던 내용을 익혀 적용하고, 이를 바탕으로 이 시편에서의 ferrite와 martensite
   분율을 고르시오.
 
-	![imag](data/centercenter.png)
-	![imag](data/edgecenter.png)
-	![imag](data/edgeedge.png)
+	![imag](/assets/dat_files/lectures/1_2_data_mse/centercenter.png)
+    ![imag](/assets/dat_files/lectures/1_2_data_mse/edgecenter.png)
+    ![imag](/assets/dat_files/lectures/1_2_data_mse/edgeedge.png)
 
 	* 위 SEM 사진을 다음 링크를 활용해 다운 받자:
 
-	[사진1](data/centercenter.png)
-	[사진2](data/edgecenter.png)
-	[사진3](data/edgeedge.png)
+	[imag1](/assets/dat_files/lectures/1_2_data_mse/centercenter.png)
+    [imag2](/assets/dat_files/lectures/1_2_data_mse/edgecenter.png)
+    [imag3](/assets/dat_files/lectures/1_2_data_mse/edgeedge.png)
+
 
 ## 수업 12-2
 - 수업 12-1 내용을 Argparse를 활용해 CLI 프로그램으로 작성해보자.

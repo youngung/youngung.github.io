@@ -9,12 +9,6 @@ toc:
   sidebar: left
 ---
 
-```yml
-toc:
-  beginning: true
-  sidebar: left
-```
-
 # Orientation
 - 국립창원대학교 재료금속공학과
   * [이메일](mailto:yjeong@changwon.ac.kr)
@@ -35,7 +29,7 @@ toc:
   + 대상
 	* 국립창원대학교 재료금속공학과 2학년 학생
 	* 수치해석은 **전공필수** 교과로써 반드시 이수하여야만 졸업 가능
-	* 수업을 원활히 이해하기 위해서는 [**mse_data**](https://youngung.github.io/lecturenotes/data_mse/data_mse/) 강의를 선수강할 필요 있음
+	* 수업을 원활히 이해하기 위해서는 **mse_data** 강의를 선수강할 필요 있음
   + 준비물
 	* 강의자료는 [여기](https://youngung.github.io/teaching)에서 찾을 수 있음
 	* 개인용 컴퓨터
@@ -709,7 +703,7 @@ toc:
   + 아래 그림의 알고리듬을 반복.
 
 
-	![imag](data/nr.gif)
+	![imag](/assets/dat_files/lectures/2_1_numerical_analysis/nr.gif)
 
   + 예제
 
@@ -2628,7 +2622,7 @@ toc:
 	```
 
 - 아래 그림을 보고 어떠한 일이 일어나고 있는지 이해해보자.
-   ![imag](data/mvNR.gif)
+   ![imag](/assets/dat_files/lectures/2_1_numerical_analysis/mvNR.gif)
 
 # Week9, (NR method in case you don't know the derivative).
 ## 수업 09-1 (1D NR without knowing the derivative)
