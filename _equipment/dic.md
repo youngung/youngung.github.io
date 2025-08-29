@@ -1,6 +1,6 @@
 ---
 layout: page
-title: DIC
+title: DIC (Aramis 3D)
 description:
 img: /assets/img/equipment/dic.jpg
 importance: 2
