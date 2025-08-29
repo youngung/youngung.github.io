@@ -23,6 +23,13 @@ ninja.data = [{
           handler: () => {
             window.location.href = "/publications/";
           },
+        },{id: "nav-equipment",
+          title: "equipment",
+          description: "",
+          section: "Navigation",
+          handler: () => {
+            window.location.href = "/equipment/";
+          },
         },{id: "nav-lectures",
           title: "lectures",
           description: "강의자료 collection",
@@ -492,6 +499,41 @@ ninja.data = [{
           description: "",
           section: "Books",handler: () => {
               window.location.href = "/books/the_godfather/";
+            },},{id: "equipment-macbook-pro-m3",
+          title: 'MacBook Pro M3',
+          description: "",
+          section: "Equipment",handler: () => {
+              window.location.href = "/equipment/MBPm3/";
+            },},{id: "equipment-abaqus",
+          title: 'ABAQUS',
+          description: "",
+          section: "Equipment",handler: () => {
+              window.location.href = "/equipment/abaqus/";
+            },},{id: "equipment-dic",
+          title: 'DIC',
+          description: "",
+          section: "Equipment",handler: () => {
+              window.location.href = "/equipment/dic/";
+            },},{id: "equipment-imac-pro",
+          title: 'iMac Pro',
+          description: "",
+          section: "Equipment",handler: () => {
+              window.location.href = "/equipment/iMP/";
+            },},{id: "equipment-tensile-tester",
+          title: 'tensile tester',
+          description: "",
+          section: "Equipment",handler: () => {
+              window.location.href = "/equipment/tensile/";
+            },},{id: "equipment-windows-workstation",
+          title: 'Windows workstation',
+          description: "",
+          section: "Equipment",handler: () => {
+              window.location.href = "/equipment/win19/";
+            },},{id: "equipment-windows-workstation",
+          title: 'Windows workstation',
+          description: "",
+          section: "Equipment",handler: () => {
+              window.location.href = "/equipment/win21/";
             },},{id: "lectures-데이터-재료과학",
           title: '데이터 재료과학',
           description: "데이터 분석/해석 및 시각화(그래프) 등 기초 컴퓨터 활용 능력",
