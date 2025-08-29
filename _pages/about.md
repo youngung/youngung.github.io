@@ -28,4 +28,4 @@ latest_posts:
 ---
 
 
-[국립창원대학교](www.changwon.ac.kr) [재료금속공학과](https://www.changwon.ac.kr/msm/main.do) 재료역학 실험실 홈페이지 입니다.
+[국립창원대학교](https://www.changwon.ac.kr) [재료금속공학과](https://www.changwon.ac.kr/msm/main.do) 재료역학 실험실 홈페이지 입니다.

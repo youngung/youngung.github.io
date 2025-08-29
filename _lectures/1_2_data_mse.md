@@ -24,22 +24,22 @@ hidden: true
 
 - 분석 및 해석 기술의 발달로 다량의 데이터들이 생성되고 있습니다. 날로 재료공학 전공자에게 데이터 해석 및 분석 능력의 중요성이 높아지고 있습니다. 본 수업을 통해, 기초적인 데이터 분석/해석 및 시각화(그래프)를 위해 필요한 다양한 툴들을 익히고, 재료공학적 문제에 활용하는 경험을 갖길 바랍니다.
 
-- 관련 분야에서 가장 널리 활용되는 [Python](www.python.org) 언어를 활용하고, [JuPyter](www.jupyter.org) 환경을 활용하겠습니다.
+- 관련 분야에서 가장 널리 활용되는 [Python](https://python.org) 언어를 활용하고, [JuPyter](https://jupyter.org) 환경을 활용하겠습니다.
 
-- 교수자는 Apple사의 MacOS 컴퓨터를 활용해 MS사의 [VScode](https://code.visualstudio.com)내의 [JuPyter](www.jupyter.org) 활용할 계획이며, 강의자료는 본 웹페이지를 활용할 계획입니다. 저의 시연/실습 환경과 무관하게, Windows, MacOS, Linux 등 다양한 컴퓨터 환경에서 실습 가능합니다. 다만, 실습이 가능한 환경으로 개별 학생들의 환경을 세팅하는 것은 각자의 몫입니다. 다만 필요하다면 수업 전후에 도움을 줄 수 있습니다.
+- 교수자는 Apple사의 MacOS 컴퓨터를 활용해 MS사의 [VScode](https://code.visualstudio.com)내의 [JuPyter](https://jupyter.org) 활용할 계획이며, 강의자료는 본 웹페이지를 활용할 계획입니다. 저의 시연/실습 환경과 무관하게, Windows, MacOS, Linux 등 다양한 컴퓨터 환경에서 실습 가능합니다. 다만, 실습이 가능한 환경으로 개별 학생들의 환경을 세팅하는 것은 각자의 몫입니다. 다만 필요하다면 수업 전후에 도움을 줄 수 있습니다.
 
 - [구글](https://google.com) 계정을 활용해서 [Google Colab](https://colab.google)와	[Google Drive](https://drive.google.com/)를 함께 활용해서 실습 가능합니다. 인터넷 연결된 웹브라우저를 활용해서 실습 가능하나 추천하는 환경은 아닙니다. 이 경우 환경 세팅이 비교적 수월하겠으나, 인터넷 접속이 유지되어야 하고 계산 속도가 다소 느릴 수 있습니다.
 
-  (optional) 스스로 프로그램을 작성하고, 더욱 세밀하게 관리하고 싶다면 [git](https://ko.wikipedia.org/wiki/깃_(소프트웨어))을 배우고, 나아가 [GitHub](www.github.com) 계정을 만들고 결합하길 권합니다.
+  (optional) 스스로 프로그램을 작성하고, 더욱 세밀하게 관리하고 싶다면 [git](https://ko.wikipedia.org/wiki/깃_(소프트웨어))을 배우고, 나아가 [GitHub](https://github.com) 계정을 만들고 결합하길 권합니다.
 
 ## 수업 목표
 
  - 기초 파이썬 활용 능력 익힘
  - 최신 데이터 해석/분석 툴의 기초적 활용법을 익힘
-   * [Python](www.python.org)
-   * [JuPyter](www.jupyter.org)
-   * [NumPy](www.numpy.org)
-   * [matplotlib](www.matplotlib.org)
+   * [Python](https://python.org)
+   * [JuPyter](https://jupyter.org)
+   * [NumPy](https://numpy.org)
+   * [matplotlib](https://matplotlib.org)
 
  - 이를 활용해 재료공학 기초 문제 해결을 위해 활용 경험
 
@@ -174,7 +174,7 @@ pie title 평가 방법
 + 오늘의 과제
 
   * 파이썬 설치 및 환경 설정 완성 (Python 3.12, JuPyter, VS code, pip)
-  * [YouTube](www.youtube.com)에서 간단한 Python tutorial 영상 찾아서 보고 따라해보기.
+  * [YouTube](https://youtube.com)에서 간단한 Python tutorial 영상 찾아서 보고 따라해보기.
   * 영문타자 익히기 - [여기](http://typing.works)서 연습해보세요.
   * 키보드 기호들의 위치 숙지 필요.
   * 교내 인터넷 접속 사전에 해보기.
@@ -1401,7 +1401,7 @@ def f(a=3,b=5,c,d):
 	```
 ## 수업 04-2 (NumPy 기초)
   - 개념
-	+ [NumPy](www.numpy.org)는 고성능 수치 계산을 위한 library
+	+ [NumPy](https://numpy.org)는 고성능 수치 계산을 위한 library
 	+ 공식 사이트에서 더욱 상세히 배울 수 있음: [링크](https://numpy.org/devdocs/user/quickstart.html)
   - 설치 (인터넷 연결 필요)
 	```sh
@@ -2546,7 +2546,7 @@ def f(a=3,b=5,c,d):
   + 파일로부터 데이터를 불러오고, 이를 graph로 바꿀 수 있다.
 
 ## 수업 08-1
-  + [Matplotlib](www.matplotlib.org): Python에서 데이터를 시각화하는 가장 널리 쓰이는 라이브러리.
+  + [Matplotlib](https://matplotlib.org): Python에서 데이터를 시각화하는 가장 널리 쓰이는 라이브러리.
   + 주로 사용되는 인터페이스: pyplot 모듈
 	- plt interface
 

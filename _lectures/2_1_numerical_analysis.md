@@ -14,8 +14,8 @@ toc:
   * [이메일](mailto:yjeong@changwon.ac.kr)
   * [웹페이지](https://youngung.github.io)
 - 실습 환경
-  * [VScode](https://code.visualstudio.com) + [Jupyter](www.jupyter.org)
-  * [GitHub](www.github.com) 계정을 만들고 결합하길 권함.
+  * [VScode](https://code.visualstudio.com) + [Jupyter](https://jupyter.org)
+  * [GitHub](https://github.com) 계정을 만들고 결합하길 권함.
   * Windows, MacOS, Linux 등 다양한 컴퓨터 환경에서 실습 가능함.
   * 구글 계정을 활용해서 [Google Colab](https://colab.google)과
 	[Google Drive](https://drive.google.com/)을 결함한 형태로 Cloud service를
