@@ -509,8 +509,8 @@ ninja.data = [{
           description: "",
           section: "Equipment",handler: () => {
               window.location.href = "/equipment/abaqus/";
-            },},{id: "equipment-dic",
-          title: 'DIC',
+            },},{id: "equipment-dic-aramis-3d",
+          title: 'DIC (Aramis 3D)',
           description: "",
           section: "Equipment",handler: () => {
               window.location.href = "/equipment/dic/";
