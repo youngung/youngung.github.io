@@ -7,67 +7,87 @@ permalink:
 prerequisite: 재료공학개론1
 toc:
   sidebar: left
+mermaid:
+  enabled: true
+  zoomable: true
+hidden: true
 ---
 
-```yml
-toc:
-  beginning: true
-  sidebar: left
-```
-
-
 # Orientation
-- 국립창원대학교 재료금속공학과
-  * [이메일](mailto:yjeong@changwon.ac.kr)
-  * [웹페이지](https://youngung.github.io)
-- 재료공학 전공자에게 필요한 데이터 분석/해석 및 시각화(그래프) 등 기초 컴퓨터 활용 능력을
-  길러주기 위한 교과목.
-- [Python](www.python.org) 언어를 활용하고, [Jupyter](www.jupyter.org)
-- 실습 환경
-  * [VScode](https://code.visualstudio.com) + [Jupyter](www.jupyter.org)
-  * [GitHub](www.github.com) 계정을 만들고 결합하길 권함.
-  * Windows, MacOS, Linux 등 다양한 컴퓨터 환경에서 실습 가능함.
-  * 구글 계정을 활용해서 [Google Colab](https://colab.google)과
-	[Google Drive](https://drive.google.com/)을 결함한 형태로 Cloud service를
-	활용해서, 인터넷 연결된 웹브라우저를 활용해서 실습 가능하나 추천하진 않음.
 
-# 수업 목표
- - 최신 데이터 기반의 툴의 기초적 활용을 익힘 ([Python](www.python.org),
-   [Jupyter](www.jupyter.org) 등)
+## 수업 소개
+
+- 정영웅, [국립창원대학교](https://changwon.ac.kr) 재료금속공학과, :kr:
+  * :mailbox: [이메일](mailto:yjeong@changwon.ac.kr)
+  * :page_with_curl: [웹페이지](https://youngung.github.io)
+  * :alarm_clock: 수업 시간: (추후 공지)
+
+- 분석 및 해석 기술의 발달로 다량의 데이터들이 생성되고 있습니다. 날로 재료공학 전공자에게 데이터 해석 및 분석 능력의 중요성이 높아지고 있습니다. 본 수업을 통해, 기초적인 데이터 분석/해석 및 시각화(그래프)를 위해 필요한 다양한 툴들을 익히고, 재료공학적 문제에 활용하는 경험을 갖길 바랍니다.
+
+- 관련 분야에서 가장 널리 활용되는 [Python](www.python.org) 언어를 활용하고, [JuPyter](www.jupyter.org) 환경을 활용하겠습니다.
+
+- 교수자는 Apple사의 MacOS 컴퓨터를 활용해 MS사의 [VScode](https://code.visualstudio.com)내의 [JuPyter](www.jupyter.org) 활용할 계획이며, 강의자료는 본 웹페이지를 활용할 계획입니다. 저의 시연/실습 환경과 무관하게, Windows, MacOS, Linux 등 다양한 컴퓨터 환경에서 실습 가능합니다. 다만, 실습이 가능한 환경으로 개별 학생들의 환경을 세팅하는 것은 각자의 몫입니다. 다만 필요하다면 수업 전후에 도움을 줄 수 있습니다.
+
+- [구글](https://google.com) 계정을 활용해서 [Google Colab](https://colab.google)와	[Google Drive](https://drive.google.com/)를 함께 활용해서 실습 가능합니다. 인터넷 연결된 웹브라우저를 활용해서 실습 가능하나 추천하는 환경은 아닙니다. 이 경우 환경 세팅이 비교적 수월하겠으나, 인터넷 접속이 유지되어야 하고 계산 속도가 다소 느릴 수 있습니다.
+
+  (optional) 스스로 프로그램을 작성하고, 더욱 세밀하게 관리하고 싶다면 [git](https://ko.wikipedia.org/wiki/깃_(소프트웨어))을 배우고, 나아가 [GitHub](www.github.com) 계정을 만들고 결합하길 권합니다.
+
+## 수업 목표
+
+ - 기초 파이썬 활용 능력 익힘
+ - 최신 데이터 해석/분석 툴의 기초적 활용법을 익힘
+   * [Python](www.python.org)
+   * [JuPyter](www.jupyter.org)
+   * [NumPy](www.numpy.org)
+   * [matplotlib](www.matplotlib.org)
+
  - 이를 활용해 재료공학 기초 문제 해결을 위해 활용 경험
- - 기초적 이해를 바탕으로, 재료공학 실전 문제 해결에 응용 경험
- - 나아가 더욱 어려운 문제 해결을 위한 필요 지식 습득
 
+ - 기초적 이해를 바탕으로, 재료공학 실전 문제 해결에 응용 경험
+
+ - 나아가 더욱 어려운 문제를 **스스로** 해결하기 위해 필요한 배경 지식 습득
+
+
+
+-----------------------------
 # Week1 (수업 소개, 규칙, 평가 방법, 실습 환경 소개)
 
 ## 수업 01-1
 
 ### 01-1-1 목표
-   + 수업 개요 소개
-   + 수업 진행 방식 및 규칙 설명
-   + 수업 평가 소개
-   + 영어 / 기호 자판 익숙해지기
++ 수업 개요 소개
++ 수업 진행 방식 및 규칙 설명
++ 수업 평가 소개
++ 영어 / 기호 자판 익숙해지기
 
 ### 01-1-2 Orientation
-   + 재료공학 전공자에게 필요한 데이터 분석, IO, 해석 및 시각화 (그래프) 등 기초 컴퓨터
-	 활용 능력을 길러주기 위한 강의
-   + **전공 선택**이나, 이후 개설될 **수치해석**, **이동현상**, **기초 전산역학** 등의
++ 재료공학 전공자에게 필요한 데이터 분석, IO, 해석 및 시각화 (그래프) 등 기초 컴퓨터	 활용 능력을 길러주기 위한 강의
++ **전공 선택**이나, 이후 개설될 **수치해석**, **이동현상**, **기초 전산역학** 등의
 	교과과정의 이해를 위해서 선수강하길 권함.
 
 ### 01-1-3 수업 내용 소개
 
-#### 강의 자료
+#### 강의 자료 및 수업 진행 방식
 
 1. 강의 자료는 [markdown](https://ko.wikipedia.org/wiki/마크다운) 파일로
-	작성되어, 교수자 홈페이지에 게시됨
-2. 강의 자료를 [VScode](https://code.visualstudio.com)의 ```미리보기```(preview)
-	기능을 이용해 깔끔하게 살펴볼 수 있음
-3. 설명, 교수자가 혼자 혹은 학생과 같이 실습 / 학생 혼자서 실습 / 스스로 예제 복습
-4. 강의 자료에 실습 가능한 **Python** 코드 snippet은 아래와 같은 박스로 표기됨.
+	작성되어, [홈페이지에](https://youngung.github.io)내의 ```lectures``` 메뉴 게시물.
+2. 강의 자료를 [VScode](https://code.visualstudio.com)의 ```미리보기```(preview)로 살펴볼 수 있습니다. Web으로 바로 살펴봐도 상관없습니다.
+3. 수업 시간에 필요한 개념에 대해 설명하고, 교수자가 필요한 시연을 보입니다. 이후 수강생들과 함께 실습하거나, 혹은 학생들이 **스스로** 그리고 **혼자서** 차근히 해봅니다.
+4. 강의 자료에 실습 가능한 **Python** 코드 snippet은 아래와 같은 박스로 표기됩니다.
 
   ```python
   print('Hello, world')
   ```
+5. 때에 따라서, 기존에 입력한 코드가 이미 기 실행되어야지만 제대로 작동하는 경우가 있으니, 수업의 진행을 잘 따라오길 바랍니다.
+6. 수업 시간에 배운 내용을 반드시 스스로 '반복'해서 실습해봐야 합니다. 그리고 수업 시간내 내어준 예제를 혼자서 해보는 경험이 필요합니다.
+
+
+```mermaid
+graph LR
+first([개념 설명]) ==> second([교수자 시연]) ==>
+third([학생 시연/실습]) ==> fourth([수업후 개념 복습])
+==> fifth([수업 후 스스로 혼자 연습])  ==> first
+```
 
 #### 실습 / 코딩
 
@@ -141,6 +161,15 @@ toc:
   * 중요한 원리 이해 필요.
   * 수업시간 다룬 예제들 중심으로 이해 필요.
   * 고득점을 원한다면 변형된 예제들까지 이해하고 적용/응용 가능해야함.
+  * 평가
+
+```mermaid
+pie title 평가 방법
+    "출석" : 40
+    "중간고사" : 20
+    "기말고사" : 20
+    "태도" : 20
+```
 
 + 오늘의 과제
 
@@ -209,11 +238,12 @@ toc:
 
    * [pip](https://pypi.org/project/pip/) 활용하여 아래 패키지 설치
 	 + [NumPy](https://numpy.org)
-	 + [Scipy](https://scipy.org)
+	 + [SciPy](https://scipy.org)
 	 + [matplotlib](https://matplotlib.org)
-	 + [Jupyter](https://jupyter.org)
+	 + [JuPyter](https://jupyter.org)
    * 위 package가 설치된 directory 찾아 보기
-   * Windows 환경변수 살펴보기, Zsh, Bash 등 dotfile 살펴보기
+   * (Windows) 환경변수 살펴보기
+   * (Linux/macOS), zsh, bash 등 dotfile 살펴보기
 
 ### 01-2-5 실습 예시 2
 
@@ -222,11 +252,9 @@ toc:
 
 	 + 25 cm는 몇 inch인가?
 
-		$$
-		25 \text{ cm} \times \frac{0.393 \text{ inch}}{1 \text{ cm}}=25 \text{ cm} \times \frac{0.393 \bcancel{\text{ inch}}}{1 \bcancel{\text{cm}}}
-		\newline
-		=25 \text{ cm} \times 0.393= 9.825 \text{ cm}.
-		$$
+		$$25 \text{ cm} \times \frac{0.393 \text{ inch}}{1 \text{ cm}}=25 \text{ cm} \times \frac{0.393 \bcancel{\text{ inch}}}{1 \bcancel{\text{cm}}}$$
+
+		$$=25 \text{ cm} \times 0.393= 9.825 \text{ cm}.$$
 
 	 + 170 cm는 몇 inch인가?
 
@@ -288,7 +316,7 @@ toc:
 
 	 $$\frac{w^{^{136}Ce}f^{^{136}Ce}+w^{^{138}Ce}f^{^{138}Ce}+w^{^{140}Ce}f^{^{140}Ce}+w^{^{142}Ce}f^{^{142}Ce}}{f^{^{136}Ce}+f^{^{138}Ce}+f^{^{140}Ce}+f^{^{142}Ce}}$$
 
-
+-----------------------
 # Week2 (자료구조, 제어, 반복)
 
  - 목표
@@ -455,6 +483,20 @@ toc:
 	Fe.update(CTE=12e-6)
 	```
 
+
+<!-- * 정리
+
+	| 특징          | List (리스트)                         | Tuple (튜플)              | Dictionary (딕셔너리)              |
+	|--------------|--------------------------------------|-------------------------|-----------------------------------|
+	| 선언 방식      | `my_list = [1, 2, 3]`                | `my_tuple = (1, 2, 3)`  | `my_dict = {"a": 1, "b": 2}`      |
+	| 변경 가능성     | ✅ 변경 가능 (mutable)                 | ❌ 변경 불가 (immutable)  | ✅ 값(value) 변경 가능 (muable)       |
+	| 인덱싱/슬라이싱  | ✅ 지원                               | ✅ 지원                  | ❌ key를 통한 접근만 가능               |
+	| 데이터 순서     | ✅ 순서 유지 (Python 3.7+ 보장)         | ✅ 순서 유지              | ✅ 순서 유지 (Python 3.7+ 보장)        |
+	| 중복 허용      | ✅ 허용                               | ✅ 허용                  | ❌ key는 중복 불가 (value는 가능)       |
+	| 사용 목적      | 여러 데이터를 순차적으로 저장/관리            | 고정된 데이터를 안전하게 저장 | key-value 구조로 빠른 탐색 및 매핑       |
+	| 대표 메서드     | `append`, `extend`, `remove`, `sort` | 없음 (불변이므로)          | `keys`, `values`, `items`, `update`|
+ -->
+
 #### 02-1-6.  Misc.
 
 * ```len``` built-in function중 하나
@@ -488,30 +530,50 @@ toc:
   print(avg)
   ```
 
+
+-----------------------
 ## 수업 02-2
 
 ### 02-2-1. ```if```, ```elif```, ```else``` 조건문 이해
 
   * 기본 구조 / 형식
+	```python
+	if 조건식1:
+		<명령문a>
+		<명령문b>
+	elif 조건식2:
+		<명령문c>
+		<명령문d>
+	else:
+		<명령문e>
+		<명령문f>
+	<명령문g>
+	<명령문h>
+	<.....>
+	```
 
-  ```python
-  if 조건식:
-	  <실행할 명령문1>
-	  <실행할 명령문2>
-	  <...>
-  elif 다른조건식:
-	  <실행할 명령문1>
-	  <실행할 명령문2>
-	  <...>
-  else:
-	  <실행할 명령문1>
-	  <실행할 명령문2>
-	  <...>
-  ```
+	```mermaid
+	flowchart LR
+		A[시작] --> B{조건식 1?}
+		B -- True --> B1[명령문 a] --> B2[명령문 b]
+		B -- False --> D{조건식 2?}
+
+		D -- True --> D1[명령문 c] --> D2[명령문 d]
+		D -- False --> E1[명령문 e] --> E2[명령문 f]
+
+
+		B2 --> F[명령문 g]
+		D2 --> F
+		E2 --> F
+
+		F --> G[명령문 h]
+	```
+
 
   * 주의
 	+ indent, dedent 에 주의!!
 	+ 콜론 기호 ':' 빼먹지 말 것!
+
 
   * 예시
 
@@ -541,6 +603,18 @@ toc:
 		<실행할 명령문1>
 		<실행할 명령문2>
 		<...>
+	```
+
+
+	```mermaid
+	flowchart TD
+		A[시작] --> B[반복가능 객체, iterable ]
+		B --> C[반복가능객체 속의 다음번 element]
+		C --> D{아직 남은 element가 있나?}
+		D -- True --> E[명령문 1] --> E2[명령문 2]
+		E2 --> C
+		D -- False --> F[Exit loop]
+		F --> G[Continue program]
 	```
 
 * 대표적으로 **순서가 있는 데이터 시쿼스**로는 List, Tuple, Dictionary 타입의 변수가 있다.
@@ -650,13 +724,12 @@ toc:
 
 * 예제5: 2의 제곱근 구하기.
 
-  * Algorithm
+  * Algorithm (점화식)
 
-	$$
-	x_{n+1}=x_n-\frac{(x_n)^2-2}{2x_n}
-	$$
+	$$x_{n+1}=x_n-\frac{(x_n)^2-2}{2x_n}$$
 
   * 파이썬으로 바꾸면
+
 	```python
 	x=11. ## initial guess
 	x=x-(x**2-2)/(2*x)
@@ -669,7 +742,7 @@ toc:
 	print(x)
 	```
 
-  * ```for``` loop를 활용하면 더 근사하게 표현가능하겠다.
+  * ```for``` loop를 활용하면 더 근사하게 표현 가능하겠다.
 
 	```python
 	x=11. ## initial guess
@@ -698,11 +771,9 @@ toc:
 
 * 예제 8(제곱근 구하기 일반화): a의 제곱근 구하기
 
-  * Algorithm
+  * Algorithm (점화식)
 
-	$$
-	x_{n+1}=x_n-\frac{(x_n)^2-a}{2x_n}
-	$$
+	$$	x_{n+1}=x_n-\frac{(x_n)^2-a}{2x_n}	$$
 
 	```python
 	a=30 # a에 다른 숫자를 넣어서 반복해보자.
@@ -734,7 +805,6 @@ toc:
 
 * 예시, 10진법 수를 이진법으로 바꾸는 파이썬 script를 작성해보자.
 
-
 # Week3 (함수, class, module, **import** )
 
 - 목표
@@ -757,14 +827,14 @@ toc:
 ```python
 
 def add(a, b): #함수의 이름이 'add', 입력은 a와 b
-	return a + b # 출력은 a+b
+   return a + b # 출력은 a+b
 ```
 
 + 예시2
 
 ```python
 def sayhi(): # 함수의 이름이 'sayhi', 입력과 출력 없음
-	print('Hi')
+   print('Hi')
 ```
 
 + 예시3
@@ -776,7 +846,7 @@ def func(a=3,b=5): # 함수의 이름이 'func', 입력 a와 b의 default가 있
   """
   return a+b
 
-print(func.__doc__)
+print(func.__doc__) ## docstring 출력
 print(help(func))
 print(help(help))
 ```
@@ -785,9 +855,9 @@ print(help(help))
 
 ```python
 def f(a=3,b=5,c,d):
-	print(a+b)
-	print(c+d)
-	return a*b*c*d
+   print(a+b)
+   print(c+d)
+   return a*b*c*d
 ```
 
 ### 03-1-2 built-in functions
@@ -929,6 +999,14 @@ def f(a=3,b=5,c,d):
 	return modulus * epsilon
   ```
 
+	+ 개념:
+
+	  수식을 Python함수로 만들려면, 각 물리량을 뜻하는 기호에 적당한 이름을 붙여 변수로 지정해야 겠다.  나는 앞의 예제에서, 우선 첫번째로, 함수의 이름을 `hooke`이라 지었다. 그리고 변형률을 저장할 변수를 그에 해당하는 기호 $\varepsilon$ (epsilon)을 말 그대로 `epsilon`이라 지었고, 탄성계수(elastic modulus)에서 `modulus`를 사용했다. 같은 함수를 아래와 같이 작성할 수 있고, 정확히 같은 기능을 수행한다. 하지만, 전혀 추천되지 않는 이름들을 사용했다. 프로그램이 작고 간단할 때는 큰 문제가 되지 않을 수 있으나, 점점 프로그램이 커지고 복잡해지면 이와 같은 너무 간단한 이름은 선언될 때 본디 뜻하던 변수를 기억하기 쉽지 않고, 실수를 범하게 쉽게 만든다.
+	  ```python
+	  def a(b,c):
+		return a*b
+	  ```
+
 + Engineering strain & true strain
 
   $$
@@ -952,6 +1030,7 @@ def f(a=3,b=5,c,d):
 	true_eps=math.log(1+engi_eps) ## log function with base of e.
 	return true_eps
   ```
+
 
 + 예시: 길이 변화를 주면 true strain을 계산하는 함수를 작성하시오.
 
@@ -1042,22 +1121,26 @@ def f(a=3,b=5,c,d):
 
   ```python
   # 아래 모듈을 작성 후 mymodule.py로 저장하자.
-  def add(a, b):
-	  return a + b
+  def add(valuea, valueb):
+	  return valuea + valueb
 
-  def multiply(a, b):
-	  return a * b
+  def multiply(valuea, valueb):
+	  return valuea * valueb
+
+  def power(valuea, valueb):
+	  return valuea ** valueb
   ```
 - 2. 그 다음 아래를 활용해 mymodule을 불러와 보자.
   ```python
   import mymodel
   mymodule.add(3,4)
   mymodule.multiply(3,4)
+  mymodule.power(3,4)
   ```
 - 3. etc
-  - 저장된 위치가 중요함
-  - 환경변수 (windows의 경우)
-  - 쉘 닷 파일 (.sh, .bash, .zsh 등등)
+  - 작성된 모듈이 저장된 위치가 중요합니다!
+  - 개개인이 활용하는 시스템:computer:의 환경변수 (windows의 경우)에 의해 행동이 달라질 수 있습니다.
+  - Linux/macOS의 경우에는 활용하는 shell의 닷 파일 (.sh, .bash, .zsh 등등)에서 지정된 $PATH 등의 변수에 의해 달라질 수 있습니다.
 
 #### 03-2-4. ex 02: CLI에서 arguments 받기
 - 1. 기초 모듈 작성
@@ -1100,7 +1183,7 @@ def f(a=3,b=5,c,d):
 	  ```
 	  그 다음 CLI에서 아래와 같이 명령문을 쳐보자.
 	  ```batch
-	  c:\users\user> python myprogram.py --help
+	  c:/users/user> python myprogram.py --help
 	  usage: main.py [-h]
 
 	  options:
@@ -1202,6 +1285,9 @@ def f(a=3,b=5,c,d):
 	  given y: 4
 	  x times y: 7
 	  ```
+#### 예제
+   - 주어진 정수에 대한 구구단을 출력하는 CLI용 프로그램 만들어 보자.
+
 
 # Week4 (file IO / NumPy 01 - 기초 배열(array) 이해)
 
@@ -3366,14 +3452,14 @@ def f(a=3,b=5,c,d):
   분율을 고르시오.
 
 	![imag](/assets/dat_files/lectures/1_2_data_mse/centercenter.png)
-    ![imag](/assets/dat_files/lectures/1_2_data_mse/edgecenter.png)
-    ![imag](/assets/dat_files/lectures/1_2_data_mse/edgeedge.png)
+	![imag](/assets/dat_files/lectures/1_2_data_mse/edgecenter.png)
+	![imag](/assets/dat_files/lectures/1_2_data_mse/edgeedge.png)
 
 	* 위 SEM 사진을 다음 링크를 활용해 다운 받자:
 
 	[imag1](/assets/dat_files/lectures/1_2_data_mse/centercenter.png)
-    [imag2](/assets/dat_files/lectures/1_2_data_mse/edgecenter.png)
-    [imag3](/assets/dat_files/lectures/1_2_data_mse/edgeedge.png)
+	[imag2](/assets/dat_files/lectures/1_2_data_mse/edgecenter.png)
+	[imag3](/assets/dat_files/lectures/1_2_data_mse/edgeedge.png)
 
 
 ## 수업 12-2
