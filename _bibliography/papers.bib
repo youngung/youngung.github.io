@@ -169,7 +169,27 @@
   pages={102812},
   year={2020},
   publisher={Pergamon},
-  selected={true}
+  selected={true},
+  abstract={A novel elasto-visco-plastic self-consistent (EVPSC)
+  formulation based on the scheme of the homogeneous effective medium is
+   presented. The constitutive behavior of a polycrystal is described as
+    that of an elasto-visco-plastic effective medium interacting with
+    grains treated as elasto-visco-plastic ellipsoidal inclusions. The
+    formulation is based on the definition of a unique
+    elasto-visco-plastic compliance, so avoiding the inconsistency
+    arising from assuming superimposed elastic and visco-plastic
+    interaction laws, as made in similar elasto-visco-plastic models.
+    In addition, the elasto-visco-plastic constitutive equation of
+    crystal and aggregate is formulated in terms of stress increments,
+    which leads naturally to a semi implicit solution scheme. The
+    superior numerical stability and computational efficiency of the new
+    incremental EVPSC model (denoted as $\Delta$EVPSC) are demonstrated
+    by applying the model to a 316L austenitic stainless steel and
+    comparing against other elasto-plastic models. The modeling
+    capability for predicting texture, stress-strain response, and
+    Bauschinger effect are demonstrated using a dislocation-density
+    based hardening law applied to low carbon (LC) steel subjected to
+    deformation histories that involve strain-path changes.}
 }
 
 @article{jeong2021finite,
@@ -181,7 +201,26 @@
   pages={103110},
   year={2021},
   publisher={Pergamon},
-  selected={true}
+  selected={true},
+  abstract={The EVPSC model is a general elasto-visco-plastic
+  self-consistent constitutive formalism based on a Homogeneous
+  Effective Medium (HEM) approach that accounts explicitly for
+  microstructural features such as slip, twinning, and crystallographic
+  texture. $\Delta$EVPSC is improved with respect to the original model
+  reported in (Jeong and Tomé, 2020) by introducing an intermediate
+  linearization scheme, which leads to better predictive accuracy of
+  intergranular stress and strain distributions in the polycrystal. The
+  $\Delta$EVPSC model is interfaced with a commercial finite element
+  solver Abaqus/standard as a user-defined material subroutine
+  (EVPSC-FE). EVPSC-FE shows superior numerical stability and, when
+  using parallel computation and 40 CPU core units, it reduces the
+  computation time by a factor 20 compared to using a single CPU core
+  unit for a structure consisting of 512 solid elements. The
+  $\Delta$EVPSC-FE model is applied to FE analyses of Zr and low-carbon
+  steel bars subjected to a sequence of bending, stress-relaxation, and
+  unloading. It is shown that the hereditary effect is responsible for
+  the spring-forward motion during the early stage of unloading, while
+  the elastic recovery mainly drives the subsequent spring-back.}
 }
 
 @article{lee2022situ,
@@ -217,7 +256,24 @@
   pages={107796},
   year={2023},
   publisher={Pergamon},
-  selected={true}
+  selected={true},
+  abstract={An incremental elasto-visco-plastic self-consistent
+  polycrystal model was directly interfaced with a finite element (FE)
+  code and applied to simulations of a mild steel sample subjected to
+  3-point-bending (3 PB). Emphasis is put in applying this strategy, for
+  the first time, to predict springback responses after various amounts
+  of prestrains. The crystallographic orientation distribution obtained
+  from an EBSD scan was used to assign the initial polycrystalline
+  aggregate for each FE integration point. The RGVB
+  dislocation-density-based hardening model was adopted as the
+  constitutive law, and the parameters were characterized by fitting
+  uniaxial tension and tension-compression flow stress curves. The
+  numerical reliability of the FE simulation results was evaluated via a
+  systematic numerical study in terms of the mesh size, the numbers of
+  grains sampled per each FE integration point and the cross-section
+  points. The model successfully predicts the effect of prestrain on the
+  springback, thus implying that the current modeling approach can be
+  directly applied to industrial forming and springback predictions.}
 }
 
 @article{kaushik2022reconstructing,
