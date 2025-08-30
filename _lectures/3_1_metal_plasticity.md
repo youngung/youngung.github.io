@@ -16,9 +16,11 @@ toc:
 ```
 
 # Orientation
+
 - 국립창원대학교 재료금속공학과
-  * [이메일](mailto:yjeong@changwon.ac.kr)
-  * [웹페이지](https://youngung.github.io)
+  - [이메일](mailto:yjeong@changwon.ac.kr)
+  - [웹페이지](https://youngung.github.io)
 
 # 수업 목표
- - 금속의 소성 변형 메커니즘을 이해한다.
+
+- 금속의 소성 변형 메커니즘을 이해한다.
