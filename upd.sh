@@ -1,2 +1,2 @@
-git commit -am "updates"
+git commit -m "updates"
 git push origin main
