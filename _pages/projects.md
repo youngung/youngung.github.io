@@ -10,5 +10,6 @@ horizontal: false
 ---
 
 {% for project in site.projects %}
-  * {{ project.title }}:   {{ project.begin }} ~ {{ project.end }}   **{{ project.funder }}**
-{% endfor %}
+
+- {{ project.title }}: {{ project.begin }} ~ {{ project.end }} **{{ project.funder }}**
+  {% endfor %}

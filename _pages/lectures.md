@@ -8,8 +8,8 @@ nav_order: 3
 horizontal: false
 ---
 
-
 {% for lecture in site.lectures %}
+
   <h1>
 	<a href="{{ lecture.url }}">
 	  * {{ lecture.title }}
