@@ -356,6 +356,61 @@ ninja.data = [{
           description: "",
           section: "Lectures",handler: () => {
               window.location.href = "/lectures/3_1_metal_plasticity/";
+            },},{id: "lectures-01w-intro-python",
+          title: '01w_intro_python',
+          description: "",
+          section: "Lectures",handler: () => {
+              window.location.href = "/lectures/ipynb/1_2_data_mse/01w_Intro_Python/";
+            },},{id: "lectures-02w-intro-python",
+          title: '02w_intro_python',
+          description: "",
+          section: "Lectures",handler: () => {
+              window.location.href = "/lectures/ipynb/1_2_data_mse/02w_Intro_Python/";
+            },},{id: "lectures-03w-function-class",
+          title: '03w_function_class',
+          description: "",
+          section: "Lectures",handler: () => {
+              window.location.href = "/lectures/ipynb/1_2_data_mse/03w_function_class/";
+            },},{id: "lectures-04w-file-input-output",
+          title: '04w_file_input_output',
+          description: "",
+          section: "Lectures",handler: () => {
+              window.location.href = "/lectures/ipynb/1_2_data_mse/04w_file_input_output/";
+            },},{id: "lectures-05w",
+          title: '05w_',
+          description: "",
+          section: "Lectures",handler: () => {
+              window.location.href = "/lectures/ipynb/1_2_data_mse/05w_/";
+            },},{id: "lectures-06w-eigenvalue",
+          title: '06w_eigenvalue',
+          description: "",
+          section: "Lectures",handler: () => {
+              window.location.href = "/lectures/ipynb/1_2_data_mse/06w_eigenvalue/";
+            },},{id: "lectures-08w-matplotlib",
+          title: '08w_matplotlib',
+          description: "",
+          section: "Lectures",handler: () => {
+              window.location.href = "/lectures/ipynb/1_2_data_mse/08w_matplotlib/";
+            },},{id: "lectures-09w-least-square",
+          title: '09w_least_square',
+          description: "",
+          section: "Lectures",handler: () => {
+              window.location.href = "/lectures/ipynb/1_2_data_mse/09w_least_square/";
+            },},{id: "lectures-10w-creep",
+          title: '10w_creep',
+          description: "",
+          section: "Lectures",handler: () => {
+              window.location.href = "/lectures/ipynb/1_2_data_mse/10w_Creep/";
+            },},{id: "lectures-11w-weight-fraction-conversion",
+          title: '11w_weight_fraction_conversion',
+          description: "",
+          section: "Lectures",handler: () => {
+              window.location.href = "/lectures/ipynb/1_2_data_mse/11w_weight_fraction_conversion/";
+            },},{id: "lectures-12w-matplotlib-sem",
+          title: '12w_matplotlib_sem',
+          description: "",
+          section: "Lectures",handler: () => {
+              window.location.href = "/lectures/ipynb/1_2_data_mse/12w_matplotlib_SEM/";
             },},{id: "news-정의찬-학생이-석사과정연구장려금지원사업-에-선정되었습니다-trophy",
           title: '정의찬 학생이 ‘석사과정연구장려금지원사업’에 선정되었습니다. :trophy:',
           description: "",
