@@ -2002,212 +2002,459 @@ def f(a=3,b=5,c,d):
   print(names[inds]) ## score에 따라 정렬된 배열
   ```
 
-## 수업 05-2
+## 수업 05-2 [아인슈타인 표기법](https://ko.wikipedia.org/wiki/아인슈타인_표기법)과 [np.einsum](https://numpy.org/doc/stable/reference/generated/numpy.einsum.html) 함수
 
-### 05-2-1 행렬과 벡터 연산의 Einstein summation 표기
+Reference: [https://rockt.ai/2018/04/30/einsum](https://rockt.ai/2018/04/30/einsum)
 
-+ 벡터 스케일링 (스칼라 곱)
+아인슈타인 표기법은, 벡터, 행렬, 텐서가 사용된 수학 수식에서, 중복된 기호와 합기호 $\sum$ 가 함께 나타나는 연산을 표기할 때, 합기호를 생략하는데 착안하여 복잡한 수식을 좀 더 간략하게 표기하는 방식이다.
+아래 수식에서 한 기호가 하나의 값을 표현할 때는 굵지 않은 글씨체로 ($a$), 만약 벡터와 같이 하나의 기호가 여러 값으로 이루어져 있을 때는 굵은 글씨체 ($\boldsymbol a$)로 표기하겠다.
 
-  $$
-  c\boldsymbol a=\boldsymbol b
-  $$
+### 05-2-1 다양한 행렬 그리고 벡터 연산과 Einstein 표기법
 
-  이를 index 표기법으로 나타내면
+#### 벡터 스케일링 (스칼라 곱)
+주어진 벡터 $\boldsymbol a$에 스칼라 $c$를 곱하면 또 다른 벡터 $\boldsymbol b$이 된다. 이는 아래와 같이 수식으로 표현가능하다.
 
-  $$
-  b_i=ca_i \text{ with } i=1,2,3
-  $$
+$$
+c\boldsymbol a=\boldsymbol b
+$$
 
-  ```python
-  ## List로 구현
-  c=0.3
-  a=[1,2,3]
-  b=[] # empty list
-  for i in range(3): ## iteration
-	b.append(c*a[i])
+이를 index 표기법으로 나타내면, 3차원 공간에서 각 벡터는 3성분을 지니므로, 아래 첨자 $_i$를 활용해 각 첨자를 구분할 수 있다. 즉 벡터 $\boldsymbol a$는 사실 $(a_1,a_2,a_3)$로 구분되는 세 성분으로 이루어져 있으며, 이는 벡터 $\boldsymbol b$도 마찬가지이다. 따라서 앞선 수식을 각 성분에 대해 나타낸다면, 각기 구분되는 세 수식 $b_1=ca_1$ 그리고 $b_2=ca_2$, 마지막으로 $b_3=ca_3$으로 대신할 수 있다. 그런데, 아무래도 이건 조금 번거로운 느낌이 든다. 아래와 같이 좀 더 간략하게 표기하는 게 좋겠다.
 
-  ## Numpy로 구현
-  c=0.3
-  a=np.array([1,2,3])
-  b=c*a ## broadcasting
-  ```
-+ 단위 벡터 (unit)
-  벡터 $$\boldsymbol a$$의 크기가 1 이라면 (즉 $$|\boldsymbol a=1|$$), 벡터
-  $$\boldsymbol a$$   를 단위 벡터(unit vector)라 부른다.
+$$
+b_i=ca_i \text{ with } i=1,2,3
+$$
 
-  * 주어진 한 벡터
+위를 Python의 List, 그리고 NumPy를 가지고 각기 표현할 수도 있겠다.
 
-	$$\boldsymbol a	$$의 단위 벡터를
-	$$\bar{\boldsymbol a}$$라 할 때 아래와 같이 그 관계가 표현될 수 있다.
+{% tabs vector %}
+{% tab vector List %}
+```python
+## List로 구현
+c=0.3
+a=[1,2,3]
+b=[] # empty list
+for i in range(3): ## iteration
+   b.append(c*a[i])
+```
+{% endtab %}
+{% tab vector range와 len 활용 %}
+```python
+## Range와 len의 조합을 활용해, 임의의 크기를 가진 list에 적용 가능
+c=0.3
+a=[1,2,3,4,5]
+b=[] # empty list
+for i in range(len(a)): ## iteration
+   b.append(c*a[i])
+```
+{% endtab %}
+{% tab vector NumPy %}
+```python
+## NumPy로 구현
+c=0.3
+a=np.array([1,2,3])
+b=c*a ## broadcasting (?!)
+```
+{% endtab %}
+{% endtabs %}
 
-	$$
-	\bar{\boldsymbol a}=\frac{\boldsymbol a}{|\boldsymbol a|}
-	$$
+#### 단위 벡터 (unit)
 
-	혹은 인덱스를 활용해 아래와 같이 표현된다.
+벡터 $\boldsymbol a$의 크기가 1 이라면 (즉 $|\boldsymbol a=1|$), 벡터 $\boldsymbol a$ 를 단위 벡터(unit vector)라 부른다. 즉 단위 벡터란, 크기가 1인 벡터를 뜻한다.
+주어진 한 벡터 $\boldsymbol a$의 단위 벡터를 $\bar{\boldsymbol a}$라 할 때, $\boldsymbol a$와 $\bar{\boldsymbol a}$의 관계를 다음과 같이 표현할 수 있다:
 
-	$$
-	\bar{a}_i=\frac{a_i}{\sqrt{a_1^2+a_2^2+a_3^2}}
-	$$
+$$
+\bar{\boldsymbol a}=\frac{\boldsymbol a}{|\boldsymbol a|}
+$$
 
-  * 예시:
-	주어진 벡터	$$\boldsymbol a$$와 방향은 같으나 크기가 1인 단위 벡터를 구하시오.
+앞서 스칼라곱에서 보았듯, 마찬가지로 개별 성분값들을 활용한 index표기법을 활용해 아래와 같이 표현할 수 있다.
 
-	```python
-	a=[3,4,5]
-	magnitude=0. ## 벡터 크기
-	for i in range(len(a)):
-	  magnitude+=a[i]**2
-	magnitude=magnitude**0.5 ## sqrt(a)
-	for i in range(len(a)):
-	  a[i]=a[i]/mag
-	print(bar_a)
-	```
+$$
+\bar{a}_i=\frac{a_i}{\sqrt{a_1^2+a_2^2+a_3^2}}
+$$
 
-	위를 Numpy를 활용하면
+위 수식도 사실은 $i$가 1, 혹은 2, 혹은 3인 세 경우에 각기 해당하는 수식을 의미한다. 즉 위는 아래 표기법과 같이
 
-	```python
-	import numpy as np
-	old_a=np.array([3,4,5])
-	new_a=old_a**2
-	mag=np.sqrt(new_a.sum())
-	bar_a=old_a/mag
-	print(bar_a)
-	```
+$$
+\bar{a}_i=\frac{a_i}{\sqrt{a_1^2+a_2^2+a_3^2}}, \text{ with } i=1,2,3
+$$
 
-	혹은 더욱 축약한다면
+의 $i=1,2,3$ 부분이 생략된 것이라 볼 수 있다. 정리하자면 아래 탭에 세가지 각기 다른 방식으로 표현된 수식들은 사실 모두 동일한 수식을 표현하고 있는 것이다.
 
-	```python
-	import nump as np
-	old_a=np.array([3,4,5])
-	bar_a=old_a/np.sqrt((old_a**2).sum())
-	print(bar_a)
-	```
+{% tabs 수식 %}
+{% tab 수식 굵은 글씨체 사용 %}
+$$
+\bar{\boldsymbol a}=\frac{\boldsymbol a}{|\boldsymbol a|}
+$$
+{% endtab %}
+{% tab 수식 with사용 %}
+$$
+\bar{a}_i=\frac{a_i}{\sqrt{a_1^2+a_2^2+a_3^2}}, \text{ with } i=1,2,3
+$$
+{% endtab %}
+{% tab 수식 with생략 %}
+$$
+\bar{a}_i=\frac{a_i}{\sqrt{a_1^2+a_2^2+a_3^2}}
+$$
+{% endtab %}
+{% tab 수식 생략없이 %}
+$$
+\bar{a}_1=\frac{a_1}{\sqrt{a_1^2+a_2^2+a_3^2}},
+\ \ \
+\bar{a}_2=\frac{a_2}{\sqrt{a_1^2+a_2^2+a_3^2}},
+\ \ \
+\bar{a}_3=\frac{a_3}{\sqrt{a_1^2+a_2^2+a_3^2}}
+$$
+{% endtab %}
+{% endtabs 수식 %}
+index를 활용하되 아무런 생략없이 표기된 경우(```생략없이```)와 비교했을 때, ```WITH생략```의 경우 얼마나 많이 수식에 활용된 표현이 축약될 수 있는지 비교해보자. 그리고 생략 되어 표기된 경우만 주어지더라도, 생략되지 않은 경우를 의미하는 바를 잘 파악할 수 있어야 하겠다. 굵은 글씨체로 표기된 경우가 가장 많이 생략된 표기법이나, index가 사용되지 않아 수식의 명확성이 높지 않을 수 있다. 마지막에 완전히 생략된 표기법은 Einstein 표기법을 이해하기 위한 기초가 된다.
 
-+ 벡터 내적
+#### 예시:
+주어진 벡터	$$\boldsymbol a$$와 방향은 같으나 크기가 1인 단위 벡터를 구하는 Python 예제를 살펴보자.
 
-  $$
-  \boldsymbol a \cdot \boldsymbol b = \sum_i^3 a_ib_i=c
-  $$
+{% tabs 단위벡터구하기 %}
+{% tab 단위벡터구하기 수식 %}
+$$
+\bar{a}_i=\frac{a_i}{\sqrt{a_1^2+a_2^2+a_3^2}}
+$$
+{% endtab %}
+{% tab 단위벡터구하기 List활용 %}
+```python
+a=[3,4,5]
+magnitude=0. ## 벡터 크기
+for i in range(len(a)):
+	magnitude+=a[i]**2
+magnitude=magnitude**0.5 ## sqrt(a)
+for i in range(len(a)):
+	a[i]=a[i]/mag
+print(bar_a)
+```
+{% endtab %}
+{% tab 단위벡터구하기 NumPy활용1 %}
+```python
+import numpy as np
+old_a=np.array([3,4,5])
+new_a=old_a**2
+mag=np.sqrt(new_a.sum())
+bar_a=old_a/mag
+print(bar_a)
+```
+{% endtab %}
+{% tab 단위벡터구하기 NumPy활용2 %}
+```python
+import nump as np
+old_a=np.array([3,4,5])
+bar_a=old_a/np.sqrt((old_a**2).sum())
+print(bar_a)
+```
+{% endtab %}
+{% endtabs %}
 
-  위를 [Einstein summation convention](https://ko.wikipedia.org/wiki/아인슈타인_표기법)으로 표기하면
+#### 예시: 반대방향 벡터
+한 벡터 $\boldsymbol a$와 크기가 같으나, 방향이 반대인 벡터를 $\boldsymbol b$라 한다면, 아래와 같은 결과를 얻는다.
+{% tabs 반대방향벡터 %}
+{% tab 반대방향벡터 굵은기호수식 %}
+$$
+\boldsymbol a = - \boldsymbol b
+$$
+{% endtab %}
+{% tab 반대방향벡터 index표기법 %}
+$$
+a_1 = -b_1,
+\ \ \
+a_2 = -b_2,
+\ \ \
+a_3 = -b_3
+$$
+{% endtab %}
+{% tab 반대방향벡터 index표기법과with %}
+$$
+a_i = -b_i, \text{ with } i=1,2,3
+$$
+{% endtab %}
+{% tab 반대방향벡터 index표기법과with생략 %}
+$$
+a_i = -b_i
+$$
+{% endtab %}
+{% tab 반대방향벡터 List %}
+```python
+a=[3,4,5]
+b=[0,0,0]
+for i in range(len(a)):
+	b[i]=-a[i]
+```
+{% endtab %}
+{% tab 반대방향벡터 NumPy %}
+```python
+a=np.array([3,4,5])
+b=-a
+```
+{% endtab %}
+{% endtabs %}
 
-  $$
-  \boldsymbol a \cdot \boldsymbol b = a_ib_i=c
-  $$
+#### 예시: 벡터의 합
+{% tabs 벡터합 %}
+{% tab 벡터합 굵은기호수식 %}
+$$
+\boldsymbol c =  \boldsymbol a + \boldsymbol b
+$$
+{% endtab %}
+{% tab 벡터합 index표기법 %}
+$$
+c_1 = a_1+b_1,
+\ \ \
+c_2 = a_2+b_2,
+\ \ \
+c_3 = a_3+b_3
+$$
+{% endtab %}
+{% tab 벡터합 index표기법과with %}
+$$
+c_i = a_i+b_i, \text{ with } i=1,2,3
+$$
+{% endtab %}
+{% tab 벡터합 index표기법과with생략 %}
+$$
+c_i =a_i + b_i
+$$
+{% endtab %}
+{% tab 벡터합 List %}
+```python
+a=[3,4,5]
+b=[3,-5,-2]
+c=[0,0,0]
+for i in range(len(a)):
+	c[i]=a[i]+b[i]
+```
+{% endtab %}
+{% tab 벡터합 NumPy %}
+```python
+a=np.array([3,4,5])
+b=np.array([3,-5,-2])
+c=a+b
+```
+{% endtab %}
+{% endtabs %}
 
-  summation 기호 $$\sum_i^3$$가 생략되어 있음에 주목하시오.
+#### 예시: 벡터의 차
+{% tabs 벡터차 %}
+{% tab 벡터차 굵은기호수식 %}
+$$
+\boldsymbol c =  \boldsymbol a - \boldsymbol b
+$$
+{% endtab %}
+{% tab 벡터차 index표기법 %}
+$$
+c_1 = a_1-b_1,
+\ \ \
+c_2 = a_2-b_2,
+\ \ \
+c_3 = a_3-b_3
+$$
+{% endtab %}
+{% tab 벡터차 index표기법과with %}
+$$
+c_i = a_i-b_i, \text{ with } i=1,2,3
+$$
+{% endtab %}
+{% tab 벡터차 index표기법과with생략 %}
+$$
+c_i =a_i - b_i
+$$
+{% endtab %}
+{% tab 벡터차 List %}
+```python
+a=[3,4,5]
+b=[3,-5,-2]
+c=[0,0,0]
+for i in range(len(a)):
+	c[i]=a[i]-b[i]
+```
+{% endtab %}
+{% tab 벡터차 NumPy %}
+```python
+a=np.array([3,4,5])
+b=np.array([3,-5,-2])
+c=a-b
+```
+{% endtab %}
+{% endtabs %}
 
-  * NumPy 없이 구현
+#### 내적 (inner dot)
+두 벡터간의 '내적'이라 일컫는 연산의 결과는 스칼라가 된다.
 
-  ```python
-  ## Numpy없이 구현
-  a=[1,2,3]
-  b=[4,5,6]
-  c=0.
-  for i in range(3):
-	c=c+a[i]*b[i]
-  print(c)
-  ```
+$$
+\boldsymbol a \cdot \boldsymbol b = \sum_i^3 a_ib_i=c
+$$
 
-  * $$\sum_i^n$$ 가 있을 때,
+위를 [Einstein summation convention](https://ko.wikipedia.org/wiki/아인슈타인_표기법)으로 표기하면
 
-  ```python
-  c=0.
-  for i in range(n):
-	c=c+ ...
-  ```
+$$
+\boldsymbol a \cdot \boldsymbol b = a_ib_i=c
+$$
 
-  형태로 Python코드로 구현가능함을 이해하자.
+Einstein 표기법에 따르면, 앞서 $\text{ with } i=1,2,3 $가 생략되었듯, summation 기호 $$\sum_i^3$$가 생략되어 표기된다. 정리하자면, 두 벡터간의 내적에서 '곱'이 나타난 경우, 곱셈의 대상이 되는 두 물리량의 인덱스가 동일하게 표기된다 (위 에서는 $i$). 중복된 인덱스 $i$가 나타나면 summation기호가 같이 표현되므로, 중복된 인덱스가 나타날 때, 필연적으로 summation이 수행됨을 예상할 수 있다. 이러한 생각이 summation기호를 생략하는데 이르게 된다.
+{% tabs 내적 %}
+{% tab 내적 List1 %}
+```python
+## Numpy없이 구현
+a=[1,2,3]
+b=[4,5,6]
+c=0.
+for i in range(3):
+   c=c+a[i]*b[i]
+print(c)
+```
+{% endtab %}
+{% tab 내적 List2 %}
+```python
+## Numpy없이 구현
+a=[1,2,3,5,2,1]
+b=[4,5,6,3,4,1]
+c=0.
+for i in range(len(a)):
+   c=c+a[i]*b[i]
+print(c)
+```
+{% endtab %}
+{% tab 내적 Numpy %}
+```python
+import numpy as np
+## Numpy로 구현
+a=np.array([1,2,3])
+b=np.array([4,5,6])
+c=a*b  ## element-wise operation되는 것을 유념하라.
+		## 즉 c=np.array([a[0]*b[0],a[1]*b[1],a[2]*b[2]])
+c=c.sum()
+print(c)
 
-  * NumPy의 broadcasting 활용하여 구현할 수도 있다.
+#혹은 마지막 두 줄을 줄여서 아래와 같은 한줄의 명령어로 바꿀 수 있겠다.
+c=(a*b).sum()
+print(c)
+```
+{% endtab %}
+{% endtabs %}
 
-  ```python
-  import numpy as np
-  ## Numpy로 구현
-  a=np.array([1,2,3])
-  b=np.array([4,5,6])
-  c=a*b  ## element-wise operation되는 것을 유념하라.
-		  ## 즉 c=np.array([a[0]*b[0],a[1]*b[1],a[2]*b[2]])
-  c=c.sum()
-  print(c)
+#### (nxn)행렬과 (n)벡터 곱
+행과 열이 각각 n인 행렬과 (즉 nxn행렬)과 n성분으로 구성된 벡터간의 곱
+$$
+\boldsymbol c = \boldsymbol A \cdot \boldsymbol v
+$$
+이 index를 활용해 다음과 같이 표기된다.
 
-  #혹은 마지막 두 줄을 줄여서 아래와 같은 한줄의 명령어로 바꿀 수 있겠다.
-  c=(a*b).sum()
-  print(c)
-  ```
+$$
+c_i = \sum_j^nA_{ij}v_j \ \text{ for } i=1,2,...,n
+$$
 
-+ n차 행렬과 벡터 곱
+위 결과를 정리하자면 아래와 같다.
 
-  $$
-  \boldsymbol c = \boldsymbol A \cdot \boldsymbol v
-  $$
+{% tabs 행렬벡터곱 %}
+{% tab 행렬벡터곱 einstein %}
+$$
+c_i=A_{ij}v_j
+$$
+{% endtab %}
 
-  $$
-  c_i = \sum_j^nA_{ij}v_j \ \text{ for } i=1,2,...,n
-  $$
+{% tab 행렬벡터곱 List활용코드 %}
+```python
+A=[[2,1],[3,1]]
+v=[3,1]
+n=2 # 2x2 행렬과 (2)차원 벡터라 가정하자면
+c=[0,0,0]
+for i in range(n): # 각 c[i]성분의 초기값을 0으로.
+   c[i]=0.
+   for j in range(n): # 생략된 summation 기호에 해당하는 loop
+      c[i]=c[i]+A[i][j]*v[j]
+print(c)
+```
+{% endtab %}
+{% tab 행렬벡터곱 NumPy1 %}
+```python
+A=np.array([[2,1],[3,1]])
+v=np.array([3,1])
+n=2 # 2x2 행렬과 (2)차원 벡터라 가정하자면
+c=np.array([0,0,0])
+for i in range(n): # 각 c[i]성분의 초기값을 0으로.
+   c[i]=0.
+   for j in range(n): # 생략된 summation 기호에 해당하는 loop
+      c[i]=c[i]+A[i,j]*v[j]
+print(c)
+```
+{% endtab %}
+{% tab 행렬벡터곱 NumPy2 %}
+```python
+A=np.array([[2,1],[3,1]])
+v=np.array([3,1])
+c=A@v
+print(c)
+```
+{% endtab %}
+{% endtabs %}
 
-  위를 Einstein summation convention으로 표기하면
 
-  $$
-  c_i=A_{ij}v_j
-  $$
+#### 행렬 곱1 (single dot)
 
-  ```python
-  for i in range(n): # 각 c[i]성분의 초기값을 0으로.
-	c[i]=0.
-	for j in range(n): # 생략된 summation 기호에 해당하는 loop
-	  c[i]=c[i]+A[i,j]*v[j]
-  ```
+두 행렬 $\boldsymbol A$와 $\boldsymbol B$의 곱이 아래와 같이 정의된다고 하자.
 
-+ 행렬 곱 (single dot)
+$$
+C_{ij} = \sum_k^3 A_{ik}B_{kj} \text{ for } (i,j) \text{ of } (1,1), (1,2), ... , (n,n-1), (n,n)
+$$
 
-  $$
-  \boldsymbol C = \boldsymbol A\cdot \boldsymbol B
-  $$
+아래 결과로 정리된다.
 
-  $$
-  C_{ij} = \sum_k^3 A_{ik}B_{kj} \text{ for } (i,j) \text{ of } (1,1), (1,2), ... , (n,n-1), (n,n)
-  $$
+{% tabs 행렬곱1 %}
 
-  NumPy를 사용하지 않는다면 아래와 같은 예시로 표현될 수 있겠다.
+{% tab 행렬곱1 LIST %}
+```python
+A=[[1,2,3],[4,5,6],[7,8,9]]
+B=[[3,2,1],[6,5,4],[9,8,7]]
+C=[]
+for i in range(3): # C행렬의 각 행을 초기화
+C.append([])
+for j in range(3): # C형렬 각 행에서의 j렬의 초기값에 0 대입
+	C[i].append(0)
+	for k in range(3): # sum_k^3에 해당하는 summation!
+	C[i][j]+=A[i][k]*B[k][j]
+```
+{% endtab %}
+{% tab 행렬곱1 NUMPY1 %}
+```python
+import numpy as np
+A=np.array([[1,2,3],[4,5,6],[7,8,9]])
+B=np.array([[3,2,1],[6,5,4],[9,8,7]])
+C=np.zeros((3,3)) ## 처음부터 0으로만 가득찬 3x3행렬 초기화
+for i in range(3):
+	for j in range(3):
+		for k in range(3):
+			## Nested-list와 달리 ',' 콤마 기호로
+			## 각 축의 index를 구분한다.
+			C[i,j]+=A[i,k]*B[k,j]
+print(C)
+```
+{% endtab %}
+{% tab 행렬곱1 NUMPY2 %}
+```python
+import numpy as np
+A=np.array([[1,2,3],[4,5,6],[7,8,9]])
+B=np.array([[3,2,1],[6,5,4],[9,8,7]])
+# 혹은 dot 활용하여
+C=np.dot(A,B)
+print(C)
+```
+{% endtab %}
+{% tab 행렬곱1 NUMPY3 %}
+```python
+import numpy as np
+A=np.array([[1,2,3],[4,5,6],[7,8,9]])
+B=np.array([[3,2,1],[6,5,4],[9,8,7]])
+# 혹은 더 줄여서 (python 3.5이상)
+C=A@B # dtype 이 float로 바뀜
+print(C)
+```
+{% endtab %}
+{% endtabs %}
 
-  ```python
-  A=[[1,2,3],[4,5,6],[7,8,9]]
-  B=[[3,2,1],[6,5,4],[9,8,7]]
-  C=[]
-  for i in range(3): # C행렬의 각 행을 초기화
-	C.append([])
-	for j in range(3): # C형렬 각 행에서의 j렬의 초기값에 0 대입
-	  C[i].append(0)
-	  for k in range(3): # sum_k^3에 해당하는 summation!
-		C[i][j]+=A[i][k]*B[k][j]
-  ```
-
-  ```NumPy```를 활용한다면?
-
-  ```python
-  import numpy as np
-  A=np.array([[1,2,3],[4,5,6],[7,8,9]])
-  B=np.array([[3,2,1],[6,5,4],[9,8,7]])
-  C=np.zeros((3,3)) ## 처음부터 0으로만 가득찬 3x3행렬 초기화
-  for i in range(3):
-	  for j in range(3):
-		  for k in range(3):
-			  ## Nested-list와 달리 ',' 콤마 기호로
-			  ## 각 축의 index를 구분한다.
-			  C[i,j]+=A[i,k]*B[k,j]
-  print(C)
-
-  # 혹은 dot 활용하여
-  C=np.dot(A,B)
-  print(C)
-  # 혹은 더 줄여서 (python 3.5이상)
-  C=A@B # dtype 이 float로 바뀜
-  print(C)
-  ```
-
-+ 행렬 곱 (double dot)
+#### 행렬 곱2 (double dot)
 
   $$
   c=\boldsymbol A : \boldsymbol B
@@ -2260,7 +2507,19 @@ def f(a=3,b=5,c,d):
 	  c+=A[i,j]*B[i,j]
   ```
 
+
+
+
+
+<br/><br/>
+<br/><br/>
+<br/><br/>
+<br/><br/>
+
+
+-----------------------------
 # Week6 (NumPy 03, Eigenvalue, ANN)
+
 
 ## 수업 06-1 (Eigenvalue)
 
@@ -2280,6 +2539,7 @@ def f(a=3,b=5,c,d):
   위 관계를 만족시키는 고유값 세개가 각각 $$\lambda_1,\lambda_2,\lambda_3$$라면
   $$\lambda_1\boldsymbol{v},\lambda_2\boldsymbol{v},\lambda_3\boldsymbol{v}$$
   를 고유 벡터라 한다.
+
 
 ### 06-1-2 선형 변환(linear transformation; linear map)
 
