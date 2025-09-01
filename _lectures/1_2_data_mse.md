@@ -11,67 +11,93 @@ mermaid:
   enabled: true
   zoomable: true
 hidden: true
+tabs: true
+tikzjax: true
 ---
+
+
+
+<!-- <details>
+  <summary>Click to reveal content</summary>
+  This is the hidden content that appears when the summary is clicked.
+  You can include more Markdown formatting here, such as:
+
+  - Lists
+
+  - **Bold text**
+
+  - *Italic text*
+
+</details>
+
+ -->
+
 
 # Orientation
 
 ## 수업 소개
 
 - 정영웅, [국립창원대학교](https://changwon.ac.kr) 재료금속공학과, :kr:
-  * :mailbox: [이메일](mailto:yjeong@changwon.ac.kr)
-  * :page_with_curl: [웹페이지](https://youngung.github.io)
-  * :alarm_clock: 수업 시간: (추후 공지)
+{% tabs contact %}
+	{% tab contact :door: %}
+	52호관 212호
+	{% endtab %}
 
-- 분석 및 해석 기술의 발달로 다량의 데이터들이 생성되고 있습니다. 날로 재료공학 전공자에게 데이터 해석 및 분석 능력의 중요성이 높아지고 있습니다. 본 수업을 통해, 기초적인 데이터 분석/해석 및 시각화(그래프)를 위해 필요한 다양한 툴들을 익히고, 재료공학적 문제에 활용하는 경험을 갖길 바랍니다.
+	{% tab contact :mailbox:  %}
+	yjeong@changwon.ac.kr
+	{% endtab %}
 
-- 관련 분야에서 가장 널리 활용되는 [Python](https://python.org) 언어를 활용하고, [JuPyter](https://jupyter.org) 환경을 활용하겠습니다.
+	{% tab contact :page_with_curl: %}
+	https://youngung.github.io
+	{% endtab %}
 
-- 교수자는 Apple사의 MacOS 컴퓨터를 활용해 MS사의 [VScode](https://code.visualstudio.com)내의 [JuPyter](https://jupyter.org) 활용할 계획이며, 강의자료는 본 웹페이지를 활용할 계획입니다. 저의 시연/실습 환경과 무관하게, Windows, MacOS, Linux 등 다양한 컴퓨터 환경에서 실습 가능합니다. 다만, 실습이 가능한 환경으로 개별 학생들의 환경을 세팅하는 것은 각자의 몫입니다. 다만 필요하다면 수업 전후에 도움을 줄 수 있습니다.
+	{% tab contact :phone: %}
+	055-213-3694
+	{% endtab %}
 
-- [구글](https://google.com) 계정을 활용해서 [Google Colab](https://colab.google)와	[Google Drive](https://drive.google.com/)를 함께 활용해서 실습 가능합니다. 인터넷 연결된 웹브라우저를 활용해서 실습 가능하나 추천하는 환경은 아닙니다. 이 경우 환경 세팅이 비교적 수월하겠으나, 인터넷 접속이 유지되어야 하고 계산 속도가 다소 느릴 수 있습니다.
+{% endtabs %}
 
-  (optional) 스스로 프로그램을 작성하고, 더욱 세밀하게 관리하고 싶다면 [git](https://ko.wikipedia.org/wiki/깃_(소프트웨어))을 배우고, 나아가 [GitHub](https://github.com) 계정을 만들고 결합하길 권합니다.
+- 분석 및 해석 기술의 발달로 다량의 데이터들이 생성되고 있다. 재료공학에서 데이터 해석 및 분석 능력의 중요성이 날로 높아지고 있다. 본 수업을 통해 학생들은 기초적인 데이터 분석/해석 및 시각화(그래프)를 위해 필요한 다양한 툴들을 익히고, 재료공학적 문제에 활용하는 경험을 하게된다.
 
-## 수업 목표
+- 관련 분야에서 가장 널리 활용되는 [Python](https://python.org) 언어를 활용하고, [JuPyter](https://jupyter.org) 환경을 활용하겠다.
 
- - 기초 파이썬 활용 능력 익힘
+- 재료공학 전공자에게 필요한 데이터 분석, IO, 해석 및 시각화 (그래프) 등 기초 컴퓨터활용 능력을 길러주기 위한 강의로 설계되었다. 본 교과목은 국립창원대학교 재료금속과 **전공 선택**교과이나, 이후 개설될 **수치해석**, **이동현상**, **기초 전산역학** 등의 교과과정의 이해를 위해서 선수강하길 권한다.
+
+- 교수자는 Apple사의 MacOS 컴퓨터를 활용해 MS사의 [VScode](https://code.visualstudio.com)내의 [JuPyter](https://jupyter.org) 활용할 계획이며, 강의자료는 본 웹페이지를 활용할 계획이다. 수업시간에 보여질 시연/실습 환경과 무관하게, Windows, MacOS, Linux 등 다양한 컴퓨터 환경에서 실습 가능하다. 다만, 실습이 가능한 환경으로 개별 학생들의 환경을 세팅하는 것은 각자의 몫이다. 필요하다면 수업 전후에 도움을 줄 수 있다.
+
+- [구글](https://google.com) 계정을 활용해서 [Google Colab](https://colab.google)와	[Google Drive](https://drive.google.com/)를 함께 활용해서 실습 가능하다. 인터넷 연결된 웹브라우저를 활용해서 실습 가능하나 추천하는 환경은 아니다. 이 경우 환경 세팅이 비교적 수월하겠으나, 인터넷 접속이 유지되어야 하고 계산 속도가 다소 느릴 수 있다.
+
+- (optional) 스스로 프로그램을 작성하고, 더욱 세밀하게 관리하고 싶다면 [git](https://ko.wikipedia.org/wiki/깃_(소프트웨어))을 배우고, 나아가 [GitHub](https://github.com) 계정을 만들고 결합하길 권한다.
+
+
+
+## 세부 수업 목표
+
+ - 수강자의 기초 파이썬 활용 능력 향상
  - 최신 데이터 해석/분석 툴의 기초적 활용법을 익힘
    * [Python](https://python.org)
    * [JuPyter](https://jupyter.org)
    * [NumPy](https://numpy.org)
    * [matplotlib](https://matplotlib.org)
-
  - 이를 활용해 재료공학 기초 문제 해결을 위해 활용 경험
-
  - 기초적 이해를 바탕으로, 재료공학 실전 문제 해결에 응용 경험
-
  - 나아가 더욱 어려운 문제를 **스스로** 해결하기 위해 필요한 배경 지식 습득
 
+
+<br/><br/>
+<br/><br/>
+<br/><br/>
+<br/><br/>
 
 
 -----------------------------
 # Week1 (수업 소개, 규칙, 평가 방법, 실습 환경 소개)
 
 ## 수업 01-1
+### 강의 자료 및 수업 진행 방식
 
-### 01-1-1 목표
-+ 수업 개요 소개
-+ 수업 진행 방식 및 규칙 설명
-+ 수업 평가 소개
-+ 영어 / 기호 자판 익숙해지기
-
-### 01-1-2 Orientation
-+ 재료공학 전공자에게 필요한 데이터 분석, IO, 해석 및 시각화 (그래프) 등 기초 컴퓨터	 활용 능력을 길러주기 위한 강의
-+ **전공 선택**이나, 이후 개설될 **수치해석**, **이동현상**, **기초 전산역학** 등의
-	교과과정의 이해를 위해서 선수강하길 권함.
-
-### 01-1-3 수업 내용 소개
-
-#### 강의 자료 및 수업 진행 방식
-
-1. 강의 자료는 [markdown](https://ko.wikipedia.org/wiki/마크다운) 파일로
-	작성되어, [홈페이지에](https://youngung.github.io)내의 ```lectures``` 메뉴 게시물.
-2. 강의 자료를 [VScode](https://code.visualstudio.com)의 ```미리보기```(preview)로 살펴볼 수 있습니다. Web으로 바로 살펴봐도 상관없습니다.
+1. 강의 자료는 [markdown](https://ko.wikipedia.org/wiki/마크다운) 파일로 작성되어, [홈페이지에](https://youngung.github.io)내의 ```lectures``` 메뉴 게시물을 활용한다. 게시물은 상시로 엡데이트가 될 수 있다. 홈페지 환경에서 'theme'을 바꿔 화이트/블랙 모드로 바꿀 수 있다.
+2. 반드시 인터넷 연결 환경을 활용하거나, 미리 수업 자료를 출력해와야 한다. (수업 태도/참여 점수 반영)
 3. 수업 시간에 필요한 개념에 대해 설명하고, 교수자가 필요한 시연을 보입니다. 이후 수강생들과 함께 실습하거나, 혹은 학생들이 **스스로** 그리고 **혼자서** 차근히 해봅니다.
 4. 강의 자료에 실습 가능한 **Python** 코드 snippet은 아래와 같은 박스로 표기됩니다.
 
@@ -111,8 +137,8 @@ third([학생 시연/실습]) ==> fourth([수업후 개념 복습])
 		- 그외 기타 사정으로 수업을 듣고 싶으나 노트북 준비가 어렵다면
 	 교수에게 상담 요청하시오.
 * 영문 키보드 반드시 숙지 필요
-  - 영타가 느리면 그만큼 학습이 느려집니다.
-  - 예시로 주어지는 코드를 모두 직접 입력해봐야 합니다.
+  - 영타가 느리면 그만큼 학습이 느려진다.
+  - 예시로 주어지는 코드를 모두 직접 입력해봐야 한다.
   - 영타 키보드 익히기: [링크](https://typing.works).
   - 1분에 300타 정도의 속도는 나와야 하지 않겠어요?
 
@@ -179,8 +205,9 @@ pie title 평가 방법
   * 키보드 기호들의 위치 숙지 필요.
   * 교내 인터넷 접속 사전에 해보기.
   * [Google colab](https://colab.google)에서 Notebook 만들어 실습해보기.
-  * [Google colab](https://colab.google)활용한다면 아이패드나 갤럭시 탭, 심지어는 핸드폰(?)으로도 실습 가능할 겁니다.
-	하지만 여러 이유로 컴퓨터가 아닌 기기는 추천하지 않습니다.
+  * [Google colab](https://colab.google)활용한다면 아이패드나 갤럭시 탭, 심지어는 핸드폰(?)으로도 실습 가능하다. 하지만 여러 이유로 컴퓨터가 아닌 기기는 추천하지 않는다
+  * [VScode dev](https://vscode.dev) 기능으로 remote 접속 가능하다.
+
 
 ## 수업 01-2
 
@@ -264,22 +291,41 @@ pie title 평가 방법
 
 ### 01-2-6 실습 예시 3
 
-   * 각도 degree 를 radian으로 바꾸기
+* 각도 degree 를 radian으로 바꾸기
 
-   * 섭씨(cent_deg)를 화씨(fahr_deg)로, 그리고 화씨(fahr_deg)를 섭씨(cent_deg)로 계산해보기.
+{% tabs ex3-1 %}
 
-		```python
-		## 예시
-		c = float(input("섭씨 온도: "))
-		f = c * 9/5 + 32
-		print(f"{c:.2f}C= {f:.2f}F")
-		```
+{% tab ex3-1 30도를 라디안으? %}
+```python
+deg2rad=3.141592/180.
+angle_in_degree = 30 ##
+angle_in_radian = angle_in_degree * deg2rad
+```
+{% endtab %}
 
-	 + 섭씨 25도는 화씨로 몇도인가?
+{% tab ex3-1 0.5 radian을 각도로? %}
+```python
+rad2deg=180/3.141592
+angle_in_radian = 0.5 ##
+angle_in_angle = angle_in_radian * rad2deg2
+```
+{% endtab %}
+{% endtabs %}
 
-	 + 화씨 35도는 섭씨 몇도인가?
 
-	 + 화씨 20도에 섭씨 -5도를 더하면 화씨와 섭씨로 각각 몇도인가?
+```python
+## 예시
+c = float(input("섭씨 온도: "))
+f = c * 9/5 + 32
+print(f"{c:.2f}C= {f:.2f}F")
+```
+
++ 섭씨 25도는 화씨로 몇도인가?
+
+
++ 화씨 35도는 섭씨 몇도인가?
+
++ 화씨 20도에 섭씨 -5도를 더하면 화씨와 섭씨로 각각 몇도인가?
 
 ### 01-2-7 실습 예시 4
 
@@ -316,7 +362,14 @@ pie title 평가 방법
 
 	 $$\frac{w^{^{136}Ce}f^{^{136}Ce}+w^{^{138}Ce}f^{^{138}Ce}+w^{^{140}Ce}f^{^{140}Ce}+w^{^{142}Ce}f^{^{142}Ce}}{f^{^{136}Ce}+f^{^{138}Ce}+f^{^{140}Ce}+f^{^{142}Ce}}$$
 
------------------------
+
+<br/><br/>
+<br/><br/>
+<br/><br/>
+<br/><br/>
+
+
+-----------------------------
 # Week2 (자료구조, 제어, 반복)
 
  - 목표
