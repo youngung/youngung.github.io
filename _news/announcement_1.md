@@ -5,4 +5,4 @@ inline: true
 related_posts: false
 ---
 
-홈페이지를 개편하고 있습니다. :sparkles: :sunglasses:
+홈페이지를 개편했습니다. :sparkles: :sunglasses:
