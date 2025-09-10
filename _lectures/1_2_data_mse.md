@@ -172,11 +172,10 @@ third([학생 시연/실습]) ==> fourth([수업후 개념 복습])
 - 출석과 결석 (출석 부를 때 없으면 결석, 수업 시작 30 분 이내 도착하면 이후 **지각**처리)
 
 - 중간/기말 평가
-
   - 중요한 원리 이해 필요.
   - 수업시간 다룬 예제들 중심으로 이해 필요.
   - 고득점을 원한다면 변형된 예제들까지 이해하고 적용/응용 가능해야함.
-  - 평가
+  - 평가 항목
 
 ```mermaid
 pie title 평가 방법
@@ -206,7 +205,6 @@ pie title 평가 방법
 - Hello, world
 - 실습 예시를 모두 이해하고 풀 수 있다.
 - 'Traceback'이해하고 대처할 수 있다: 실습간에 예상했던 대로 결과가 나오지 않고, 'Traceback' 이 포함된 메시지를 본다면 알려주세요.
-
 
 ### 01-2-2 내용
 
@@ -1602,8 +1600,6 @@ print(cnt)
 - [NumPy](https://numpy.org)는 파이썬 환경에서, 고성능 수치 계산을 위한 library이다. 사실 빠른 연산을 위해 최적화된 [C](https://www.c-language.org)나 [FORTRAN](https://fortran-lang.org) library를 활용한다.
 - 공식 사이트에서 더욱 상세히 배울 수 있다: [링크](https://numpy.org/devdocs/user/quickstart.html).
 
-<aside><p>This is a sidenote using aside tag.</p></aside>
-
 불행하게도, 많은 인터넷 자료가 그렇듯이, 문서가 영어로 작성되어 있다. 다행히도 최신 브라우저들은 번역 기능이 탑재되어 있으니 활용하면 좋겠다.
 
 앞서 List를 활용하여, math package를 함께 사용하면, 스칼라, 벡터, 행렬 등을 대상으로 다양한 수학적 연산을 수행할 수 있다. 하지만 Python의 built-in 기능으로는 빠른 수학적 연산처리가 어렵다. 이를 보완하고자 연산속도가 빠르면서도 다양한 수학적 기능을 도와주는 [NumPy](https://numpy.org)패키지가 개발되었다. NumPy설치를 위해서는 ```pip```를 활용할 수 있다. 인터넷이 연결된 컴퓨터의 CLI환경에서 다음과 같이 명령어를 입력하면 설치가 가능하다. 인터넷으로 연결된 시스템의 터미널에서 아래와 같이 입력하면 설치된다.
@@ -1912,20 +1908,22 @@ a[::5,::,::] #?
 
 
 - 예제: 저장하기
+<aside><p>%d 와 %f로 정수는 각각 정수와 실수 형식 저장에 쓰인다.</p></aside>
 
-  ```python
-  # 행렬 저장하기 (공백 구분)
-  matrix = np.array([[1, 2, 3], [4, 5, 6], [7, 8, 9]])
-  np.savetxt("save_matrix.txt", matrix, fmt="%.2f")
+```python
+# 행렬 저장하기 (공백 구분)
+matrix = np.array([[1, 2, 3], [4, 5, 6], [7, 8, 9]])
+np.savetxt("save_matrix.txt", matrix, fmt="%.2f")
 
-  # CSV로 저장
-  np.savetxt("save_matrix.csv", matrix, delimiter=",", fmt="%d")
-  ```
+# CSV로 저장
+np.savetxt("save_matrix.csv", matrix, delimiter=",", fmt="%d")
+```
 
 <br/><br/>
 <br/><br/>
 <br/><br/>
 <br/><br/>
+
 
 # Week5
 - NumPy 02 - 배열 연산(산술, 내적, 외적), 브로드캐스팅, 그 외 기타 함수
@@ -2045,6 +2043,7 @@ $$
 $$
 
 위를 `math`모듈과 그 모듈내의 `sqrt`, `acos`을 활용하여 아래와 같은 간단한 코드를 작성할 수 있다.
+<aside><p>sqrt는 square root, 즉 제곱근에서 따왔고 acos 함수는 arccosine, 즉 코사인 함수의 역함수, $\cos^{-1}$ 에서 따왔다. </p></aside>
 
 ```python
 def get_mag(v):
@@ -2085,7 +2084,9 @@ $$\boldsymbol{C}=\boldsymbol{A}\cdot\boldsymbol{B}$$
 
 이때, 앞선 행렬의 한 행의 요소와, 뒷따르는 행렬의 열 요소들이 각기 순서대로 곱해져서 새로운 행렬 $\boldsymbol{C}$를 이루게 되며, 그 방식이 아래 그림에 표기되어 있다.
 
-![imag](https://upload.wikimedia.org/wikipedia/commons/e/eb/Matrix_multiplication_diagram_2.svg)
+<p align="center">
+  <img src=https://upload.wikimedia.org/wikipedia/commons/e/eb/Matrix_multiplication_diagram_2.svg />
+</p>
 
 예를 아래 두 벡터의 곱의 예를 함께 살펴보자,
 
@@ -2351,7 +2352,7 @@ print(names[inds]) ## score에 따라 정렬된 배열
 
 Reference: [https://rockt.ai/2018/04/30/einsum](https://rockt.ai/2018/04/30/einsum)
 
-아인슈타인 표기법은, 벡터, 행렬, 텐서가 사용된 수학 수식에서, 중복된 기호와 합기호 $\sum$ 가 함께 나타나는 연산을 표기할 때, 합기호를 생략하는데 착안하여 복잡한 수식을 좀 더 간략하게 표기하는 방식이다.
+아인슈타인 표기법은, 벡터, 행렬, 텐서가 사용된 수학 수식에서, 중복된 기호와 합기호 $\sum$가 함께 나타나는 연산을 표기할 때, 합기호를 생략하는데 착안하여 복잡한 수식을 좀 더 간략하게 표기하는 방식이다.
 아래 수식에서 한 기호가 하나의 값을 표현할 때는 굵지 않은 글씨체로 ($a$), 만약 벡터와 같이 하나의 기호가 여러 값으로 이루어져 있을 때는 굵은 글씨체 ($\boldsymbol a$)로 표기하겠다.
 
 ### 05-2-1 다양한 행렬 그리고 벡터 연산과 Einstein 표기법
@@ -2408,6 +2409,45 @@ b=c*a ## broadcasting (?!)
 
 {% endtab %}
 {% endtabs %}
+
+
+#### 벡터의 크기
+
+벡터의 크기는 앞서 이미 다루었다. 한 벡터 $\boldsymbol a$의 크기는 $|\boldsymbol a|$라 표기하고, 이는 다음과 같이 정의된다.
+
+$$|\boldsymbol a|=\sqrt{\sum_i^3a_i^2}$$
+
+고전적인 아인슈타인 표기법은 위와 같이 하나의 물리량에 일반적으로 적용되진 않는다. 하지만 NumPy의 einsum 함수는 적용된다. 아래와 같이 먼저 벡터내의 요소의 거듭제곱으로 이루어진 벡터를 구할 수 있다. 벡터 $\boldsymbol a$가 가령 아래와 같다고 하자.
+$$\boldsymbol a= (2,3,4)
+$$
+
+```python
+import numpy as np
+a=np.array([2,3,4])
+```
+만약 2+3+4를 구하는게 목적이라면, 즉 $\sum_i a_i$가 목적이라면, 아래와 같이 수행할 수 있다.
+
+```python
+np.einsum('i->',a)
+```
+
+그런데 우리는 $\sum_ia_i^2$을 먼저 구해야 하겠다. 따라서 아래와 같이 약간 변화를 줄 수 있다.
+```python
+np.einsum('i->',a**2)
+```
+
+다음으로 이렇게 얻어진 값의 제곱근을 구해야 하므로 아래가 최종적으로 적절한 형식이 되겠다.
+
+```python
+np.sqrt(np.einsum('i->',a**2))
+```
+
+<aside><p>
+실은 NumPy의 선형대수(Linear Algebra) 함수 모듬을 활용하여 더욱 간략히 수행할 수 있다.
+
+```np.linalg.norm(a)```
+</p></aside>
+
 
 #### 단위 벡터 (unit)
 
@@ -2748,6 +2788,32 @@ print(c)
 ```
 
 {% endtab %}
+{% tab 내적 np.einsum %}
+
+```python
+import numpy as np
+## Numpy로 구현
+a=np.array([1,2,3])
+b=np.array([4,5,6])
+np.einsum('i,i->',a,b)
+```
+
+{% endtab %}
+{% tab 내적 etc %}
+
+```python
+import numpy as np
+## Numpy로 구현
+a=np.array([1,2,3])
+b=np.array([4,5,6])
+print(np.einsum('i,i->',a,b))
+print(a@b)
+print(np.dot(a,b))
+print(np.inner(a,b))
+print(np.sum(a*b))
+```
+
+{% endtab %}
 {% endtabs %}
 
 #### (nxn)행렬과 (n)벡터 곱
@@ -2811,6 +2877,16 @@ print(c)
 A=np.array([[2,1],[3,1]])
 v=np.array([3,1])
 c=A@v
+print(c)
+```
+
+{% endtab %}
+{% tab 행렬벡터곱 np.einsum %}
+
+```python
+A=np.array([[2,1],[3,1]])
+v=np.array([3,1])
+c=np.einsum('ij,j->i',A,v)
 print(c)
 ```
 
@@ -2884,6 +2960,16 @@ print(C)
 ```
 
 {% endtab %}
+{% tab 행렬곱1 NUMPY4 %}
+
+```python
+import numpy as np
+A=np.array([[1,2,3],[4,5,6],[7,8,9]])
+B=np.array([[3,2,1],[6,5,4],[9,8,7]])
+np.einsum('ik,kj->ij',A,B)
+```
+
+{% endtab %}
 {% endtabs %}
 
 #### 행렬 곱2 (double dot)
@@ -2904,30 +2990,30 @@ B=[[3,2,1],[6,5,4],[9,8,7]]
 ## 1
 c=0.
 for i in range(3): # i is outer
-	for j in range(3): # j is inner
+  for j in range(3): # j is inner
 	  c+=A[i][j]*B[i][j]
 print(c)
 ## 2, 안/바깥 for-loop 바뀜.
 c=0.
 for j in range(3): # j is outer
-	for i in range(3): # i is inner
-	  c+=A[i][j]*B[i][j]
+  for i in range(3): # i is inner
+    c+=A[i][j]*B[i][j]
 print(c)
 ## 3. 안/바깥 for-loop 바뀜, 그리고 A와 B의 순서 바뀜
 c=0.
 for j in range(3): # j is outer
-	for i in range(3): # i is inner
-	  c+=B[i][j]*A[i][j] # A[i][j] x B[i][j] 혹은 B[i][j] x A[i][j]
+  for i in range(3): # i is inner
+    c+=B[i][j]*A[i][j] # A[i][j] x B[i][j] 혹은 B[i][j] x A[i][j]
 print(c)
 ## 4. A와 B의 순서 바뀜
 c=0.
 for i in range(3): # i is outer
-	for j in range(3): # j is inner
-	  c+=B[i][j]*A[i][j] # A[i][j] x B[i][j] 혹은 B[i][j] x A[i][j]
+  for j in range(3): # j is inner
+    c+=B[i][j]*A[i][j] # A[i][j] x B[i][j] 혹은 B[i][j] x A[i][j]
 print(c)
 ```
 
-`NumPy`를 활용해서 표현해보자.
+`NumPy`를 활용해서 표현해보자. 아래 두 경우중에 더욱 마음에 드는 스타일이 있는가? 교수자는 개인적으로 후자의 스타일이 더 간략하면서도 직관적이라 마음에 든다.
 
 ```python
 A=np.array([[1,2,3],[4,5,6],[7,8,9]])
@@ -2935,9 +3021,45 @@ B=np.array([[3,2,1],[6,5,4],[9,8,7]])
 ##
 c=0.
 for i in range(3): # i is outer
-	for j in range(3): # j is inner
-	  c+=A[i,j]*B[i,j]
+  for j in range(3): # j is inner
+    c+=A[i,j]*B[i,j]
 ```
+
+
+```python
+A=np.array([[1,2,3],[4,5,6],[7,8,9]])
+B=np.array([[3,2,1],[6,5,4],[9,8,7]])
+c=np.einsum('ij,ij->',A,B)
+```
+
+
+## 예시
+- 10 x 3 x 12 행렬 $\boldsymbol A$와 12 x 3 x 8 행렬 $\boldsymbol B$의 곱의 결과가 10 x 8 행렬 $\boldsymbol C$고 아래와 같이 수행된다고 하자.
+$$ C_{ij}=\sum_{k=1}^3\sum_{l=1}^{12}A_{ikl}B_{lkj}$$
+
+{% tabs 행렬곱3차 %}
+{% tab 행렬곱3차 질문 %}
+Python으로 코드를 작성한 후, 예시로 제시된 정답과 비교해보자.
+{% endtab %}
+{% tab 행렬곱3차 정답예시1 %}
+```python
+C=np.zeros((10,8))
+for i in range(10):
+  for j in range(8):
+    for k in range(3):
+      for l in range(12):
+        C[i,j]=C[i,j]+A[i,k,l]*B[l,k,j]
+```
+{% endtab %}
+{% tab 행렬곱3차 정답예시2 %}
+```python
+C=np.einsum('ikl,lkj->ij',A,B)
+```
+{% endtab %}
+{% endtabs %}
+
+행렬의 축이 늘어나면 늘어날 수록, 정답 예시1과 같은 형태의 코드 스타일은 선호되지 않을 것이다. 여러 인공지능 기술에서 매우 차원이 높은 다수의 행렬들간의 복잡한 연산이 요구된다. 그럴 경우, Einstein summation 기법을 익히고 간략히 표현할 수 있을수록 유리할 것이다.
+
 
 <br/><br/>
 <br/><br/>
@@ -3142,6 +3264,9 @@ for i in range(3): # i is outer
 
 - `np.ling.eigen`활용 소개
 
+
+
+------------------------------
 ## 수업 06-2 (ANN, Activation)
 
 - 인공 신경망 (Artificial Neural Network)
@@ -3287,122 +3412,297 @@ for i in range(3): # i is outer
   - 선(line), 점(dot)으로 이루어진 그래프를 그릴 수 있다.
   - x축, y축의 label, tick, limits을 만들 수 있다.
   - linear scale, logscale을 만들고 이해할 수 있다.
+  - 3차원 그래프를 그릴 수 있다.
   - 파일로부터 데이터를 불러오고, 이를 graph로 바꿀 수 있다.
 
 ## 수업 08-1
 
-- [Matplotlib](https://matplotlib.org): Python에서 데이터를 시각화하는 가장 널리 쓰이는 라이브러리.
-- 주로 사용되는 인터페이스: pyplot 모듈
+[Matplotlib](https://matplotlib.org): Python 환경에서 데이터를 시각화하는데 가장 널리 쓰이는 라이브러리 중에 하나이다. MATLAB과 유사한 환경을 제공해주는 pyplot 모듈을 활용한 인터페이스가 널리쓰인다. 아래 예시들을 함께 살펴보자.
+```python
+import matplotlib.pyplot as plt
+import matplotlib.pyplot as plt
 
-  - plt interface
+x = [0, 1, 2, 3, 4]
+y = [0, 1, 4, 9, 16]
 
-    ```python
-    import matplotlib.pyplot as plt
-    import matplotlib.pyplot as plt
+plt.plot(x, y)          # 선 그래프
+plt.title("Basic Line Plot")
+plt.xlabel("X-axis")
+plt.ylabel("Y-axis")
+```
 
-    x = [0, 1, 2, 3, 4]
-    y = [0, 1, 4, 9, 16]
+- scatter plot
 
-    plt.plot(x, y)          # 선 그래프
-    plt.title("Basic Line Plot")
-    plt.xlabel("X-axis")
-    plt.ylabel("Y-axis")
-    ```
+```python
+x = [5, 7, 8, 7, 6, 9, 5, 4, 5, 6]
+y = [99, 86, 87, 88, 100, 86, 103, 87, 94, 78]
+plt.scatter(x, y, color='red')
+plt.title("Scatter Plot")
+```
 
-  - scatter plot
+각 데이터 세트 (선, 점 등)에 라벨을 부여하고, 이를 레전드(```legend```) 함수를 활용해 그래프를 꾸밀 수 있다.
 
-    ```python
-    x = [5, 7, 8, 7, 6, 9, 5, 4, 5, 6]
-    y = [99, 86, 87, 88, 100, 86, 103, 87, 94, 78]
-    plt.scatter(x, y, color='red')
-    plt.title("Scatter Plot")
-    ```
+```python
+plt.plot([1,2,3],[1,4,9], label=r'$y = x^2$')
+plt.plot([1,2,3],[1,2,3], label=r'$y = x$')
+plt.legend() ## legend
+```
 
-  - 그래프 꾸미기
+```plt.subplot```을 활용해서 행렬 행태의 그래프 모임을 그릴 수 있다.
 
-    ```python
-    plt.plot([1,2,3],[1,4,9], label=r'$y = x^2$')
-    plt.plot([1,2,3],[1,2,3], label=r'$y = x$')
-    plt.legend() ## legend
-    ```
+```python
+plt.subplot(1, 2, 1)  # 1행 2열 중 첫 번째
+plt.plot([1,2,3],[1,4,9])
+plt.title("Left")
 
-  - subplot
+plt.subplot(1, 2, 2)  # 두 번째
+plt.plot([1,2,3],[1,2,3])
+plt.title("Right")
+```
 
-    ```python
-    plt.subplot(1, 2, 1)  # 1행 2열 중 첫 번째
-    plt.plot([1,2,3],[1,4,9])
-    plt.title("Left")
+```plt```환경을 조금 더 상세히 살펴보면, 두개의 오브젝트 ```figure```와 ```axis```를 이해할 수 있다. ```figure```는 그림을 그리는 캔버스, ```axis```는 그래프가 시각화되는 좌표계라 볼 수 있다.
 
-    plt.subplot(1, 2, 2)  # 두 번째
-    plt.plot([1,2,3],[1,2,3])
-    plt.title("Right")
-    ```
+- Figure: 그래프 전체 "캔버스"
+- Axes: 실제 데이터가 그려지는 "좌표 영역"
 
-- Figure / axis objects
+따라서 한 Figure 안에 여러 개의 axes가 삽입될 수 있다. 아래 예제를 살펴보자.
 
-  Figure: 그래프 전체 "캔버스"
-  Axes: 실제 데이터가 그려지는 "좌표 영역"
-  (한 Figure 안에 여러 개의 Axes 가능: subplot)
+```python
+import matplotlib.pyplot as plt
 
-  ```python
-  import matplotlib.pyplot as plt
+# Figure(도화지), Axes(좌표 영역) 생성
+fig, ax = plt.subplots()
 
-  # Figure(도화지), Axes(좌표 영역) 생성
-  fig, ax = plt.subplots()
+x = [0, 1, 2, 3, 4]
+y = [0, 1, 4, 9, 16]
 
-  x = [0, 1, 2, 3, 4]
-  y = [0, 1, 4, 9, 16]
+# ax 객체를 활용해 데이터 플롯
+ax.plot(x, y, label="y = x^2", color="blue")
 
-  # ax 객체를 활용해 데이터 플롯
-  ax.plot(x, y, label="y = x^2", color="blue")
+# 그래프 꾸미기
+ax.set_title("Figure & Axes Example")
+ax.set_xlabel("X-axis")
+ax.set_ylabel("Y-axis")
+ax.legend()
+ax.grid(True)
 
-  # 그래프 꾸미기
-  ax.set_title("Figure & Axes Example")
-  ax.set_xlabel("X-axis")
-  ax.set_ylabel("Y-axis")
-  ax.legend()
-  ax.grid(True)
+plt.show()
+```
 
-  plt.show()
-  ```
+NumPy의 ```linspace```, ```logspace```등과 결합하면 여러 1D 그래프를 손쉽게 그릴 수 있다. 예를 들어 $y=x^2$을 $x\in[-10,10]$을 그리자면
 
-- 예제
+```python
+import numpy as np
+import matplotlib.pyplot as plt
+x=np.linspace(-10,10) # [-10,10] 범위내의 50 포인트
+y=x**2 ## NumPy의 element-wise operation을 기억하자.
+plt.plot(x,y)
+```
+결과를 살펴보자.
 
-  - 삼각함수를 그려보자.
+위 예제를 응용하여 아래 실습을 수행해보자. 범위 내의 아래 삼각함수를 그려보자.
 
-    $$
-    y=\cos(\theta)
-    $$
+예1.
 
-    $$
-    y=\sin(\theta)
-    $$
+$$
+y=\cos(\theta), \text{ with } \theta\in[-\pi,\pi]
+$$
 
-    $$
-    y=\tan(\theta)
-    $$
+예2.
 
-  - 반지름의 길이가 10인 원을 그려보자.
+$$
+y=\sin(\theta), \text{ with } \theta\in[-\pi,\pi]
+$$
 
-    $$
-    x^2+y^2=10^2
-    $$
+예3.
+$$
+y=\tan(\theta), \text{ with } \theta\in\big[-\frac{\pi}{2},\frac{\pi}{2}\big]
+$$
 
-  - 길이 변화에 따라서 나타나는 공칭 변형률과 진형병률 그래프 관계를 그리고 이를 비교해보자.
+- 반지름의 길이가 10인 원을 그려보자.
 
-    $$
-    \varepsilon=\ln(\epsilon+1)
-    $$
+$$
+x^2+y^2=10^2
+$$
 
-  - Stress vs. strain curve 그리기
-    다음 [압축파일](/assets/dat_files/lectures/1_2_data_mse/tensile_test_results.zip)을 풀어서, 파일 하나를
-    살펴보자 - 예를 들어 `00_DD_WZ_01.csv`
-    위 데이터 파일을 활용해
-    1.  폭: 6.04 mm, 두께 2.99 mm 인걸 확인하고,
-    2.  힘과 변위 칼럼을 활용해서 응력과 변형률을 구하자.
-    3.  그 다음 응력과 변형률 곡선을 Figure로 그려보자.
+- 길이 변화에 따라서 나타나는 공칭 변형률과 진형병률 그래프 관계를 그리고 이를 비교해보자.
 
-## 수업 08-2 (np.meshgrid, grid, contouring)
+$$
+\varepsilon=\ln(\epsilon+1)
+$$
+
+- Stress vs. strain curve 그리기
+다음 [압축파일](/assets/dat_files/lectures/1_2_data_mse/tensile_test_results.zip)을 풀어서, 파일 하나를
+살펴보자 - 예를 들어 `00_DD_WZ_01.csv`
+위 데이터 파일을 활용해
+1.  폭: 6.04 mm, 두께 2.99 mm 인걸 확인하고,
+2.  힘과 변위 칼럼을 활용해서 응력과 변형률을 구하자.
+3.  그 다음 응력과 변형률 곡선을 Figure로 그려보자.
+
+
+- 임의의 3차원 벡터 생성과 stereographic projection.
+
+cubic crystal structure내의 결정 방위 [h,k,l]에 해당하는 단위 벡터를 그려보자. Cubic crystal의 경우 Miller index $[uvw]$가 한 결정 방향이라면 그 방향에 해당하는 벡터 $\boldsymbol b$는 아래와 같이 구할 수 있다.
+$$
+\boldsymbol b = (b_1,b_2,b_3)=\bigg(\frac{h}{\sqrt{h^2+k^2+l^2}},\frac{h}{\sqrt{h^2+k^2+l^2}},\frac{h}{\sqrt{h^2+k^2+l^2}}\bigg)
+$$
+이를 계산하는 함수를 작성해보면
+```python
+def get_direct(uvw=np.array([1,1,0])):
+  """
+  Argument
+  --------
+  uvw: as in <ndarray> or <list>
+
+  Return
+  ------
+  """
+  ##
+  if type(uvw).__name__=='list':
+    uvw=np.array(uvw)
+
+  deno=(uvw**2).sum() # demoniator: 분모, numerator: 분자
+  deno=np.sqrt(deno)
+  return uvw/deno
+
+## 테스트 해보자.
+get_direct([1,1,0])
+get_direct([1,1,1])
+```
+
+꼭 List 타입으로 주는 방식이 싫다면 아래와 같은 형태도 괜찮은 대안이 될 수 있겠다.
+```python
+def get_direct(v1,v2,v3):
+  """
+  Argument
+  --------
+  v1,v2,v3
+
+  Return
+  ------
+  """
+  ##
+  uvw=np.array([v1,v2,v3])
+  deno=(uvw**2).sum() # demoniator: 분모, numerator: 분자
+  deno=np.sqrt(deno)
+  return uvw/deno
+```
+
+위 함수를 활용해 결정학적으로 같이 $[100],[010],[001],[\bar{1}00],[0\bar{1}0],[00\bar{1}]$을 3차원 그래프로 표현해보자. 3차원 점들을 표현하기 위해서는 3차원 axis가 필요하다. 이를 위해서 fig의 add_subplot 매소드에 'projection=3d' 파라미터를 입력하여 3차원 axis를 만들자. 그 다음, 앞서 생성한 점들을 'scatter'함수를 활용해 아래와 같이 표현해보자.
+```python
+%matplotlib widget
+fig=plt.figure()
+ax1=fig.add_subplot(111,projection='3d')
+vs=[[1,0,0],[0,1,0],[0,0,1],[-1,0,0],[0,-1,0],[0,0,-1]]
+for i, v in enumerate(vs):
+    uvw=get_direct2(*v)
+    ax1.scatter(*uvw,marker='o',color='k')
+```
+
+3차원 공간인지 사실 한눈에 살펴보기 어렵다. 따라서, 원점(0,0,0)에서부터 각 지점까지 화살표로 이어보는게 더 좋겠다. 화살표를 그리기 위해서 [```quiver```](https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.quiver.html)매소드를 활용하였다.
+```python
+%matplotlib widget
+import matplotlib.pyplot as plt
+fig=plt.figure()
+ax1=fig.add_subplot(111,projection='3d')
+vs=[[1,0,0],[0,1,0],[0,0,1],[-1,0,0],[0,-1,0],[0,0,-1]]
+orig=[0,0,0]
+for i, v in enumerate(vs):
+    uvw=get_direct2(*v)
+    ax1.scatter(*uvw,marker='o',color='k')
+    ax1.quiver(*orig,*uvw,arrow_length_ratio=0.2,color='r')
+```
+
+3차원 방향을 좀 더 명확히 살펴보기 위해, 반지름 1인 구(sphere)를 같이 그려보면 좋겠다. 이를 위해서는 [구면 좌표계(spherical coordinate system)](https://ko.wikipedia.org/wiki/구면좌표계)를 활용하면 더욱 쉽게 구를 그릴 수 있다. $(r,\theta,\phi)$의 좌표계에서 $r=1$로 고정하면, 반지름이 1인 구의 면에 해당한다. 아래 범위 내의 경우를 활용하면 되겠다.
+- $\theta=[0,\pi]$
+- $\phi=[0,2\pi]$
+
+주어진 구 좌표계는 다음과 같이 직교 좌표계 $(x,y,z)$로 아래와 같이 변환된다.
+
+- $x=r\times \sin\theta\cos\phi$
+- $y=r\times \sin\theta\sin\phi$
+- $z=r\cos\theta$
+
+[```np.mgrid```](https://numpy.org/doc/stable/reference/generated/numpy.mgrid.html)기능을 활용하면 쉽게 그리드를 만들 수 있다. np.linspace와 유사하나, 다차원으로 확장가능하며, grid를 만들기에 적합하다.
+
+```python
+import numpy as np
+theta,phi=np.mgrid[0:np.pi:10j,0:2*np.pi:10j]
+```
+위에 만들어진 theta와 phi를 직교좌표계로 바꾸면
+```python
+import numpy as np
+theta,phi=np.mgrid[0:np.pi:10j,0:2*np.pi:10j]
+r=1 # radius가 1이다.
+## 직교 좌표계로 아래와 같이 변환할 수 있다.
+x=r*np.sin(theta)*np.cos(phi)
+y=r*np.sin(theta)*np.sin(phi)
+z=r*np.cos(theta)
+```
+
+이제 grid된 x,y,z좌표와 matplotlib의 plot_wireframe을 활용해서 3D 구면을 그려보자.
+
+```python
+import numpy as np
+theta,phi=np.mgrid[0:np.pi:10j,0:2*np.pi:10j]
+r=1 # radius가 1이다.
+## 직교 좌표계로 아래와 같이 변환할 수 있다.
+x=r*np.sin(theta)*np.cos(phi)
+y=r*np.sin(theta)*np.sin(phi)
+z=r*np.cos(theta)
+
+fig = plt.figure()
+ax = fig.add_subplot(111, projection='3d')
+ax.plot_wireframe(x,y,z,alpha=0.2,lw=0.9) ## alpha: 투명도, lw: linewidth
+```
+
+나아가, 그 위에 앞서 구한 결정방향들을 올려보자.
+
+```python
+import numpy as np
+theta,phi=np.mgrid[0:np.pi:20j,0:2*np.pi:20j]
+r=1 # radius가 1이다.
+## 직교 좌표계로 아래와 같이 변환할 수 있다.
+x=r*np.sin(theta)*np.cos(phi)
+y=r*np.sin(theta)*np.sin(phi)
+z=r*np.cos(theta)
+
+fig = plt.figure()
+ax = fig.add_subplot(111, projection='3d')
+ax.plot_wireframe(x,y,z,alpha=0.2,lw=0.9)
+
+##
+vs=[[1,0,0],[0,1,0],[0,0,1],[-1,0,0],[0,-1,0],[0,0,-1]]
+orig=[0,0,0]
+for i, v in enumerate(vs):
+    uvw=get_direct2(*v)
+    ax.scatter(*uvw,marker='o',color='k')
+    ax.quiver(*orig,*v,arrow_length_ratio=0.2,color='r')
+```
+
+그런데 사실, 3차원으로 그린 그래프 툴이 개발되기 전에도 많은 재료공학자들이 3차원 정보를 표현해야만 했다. 그들은 3차원 정보를 2차원면에 표현하기 위해 stereographic projection법을 활용하였다.
+
+```python
+%matplotlib widget
+#%matplotlib inline
+fig=plt.figure()
+ax1=fig.add_subplot(111,projection='3d')
+vs=[[1,0,0],[0,1,0],[0,0,1],[-1,0,0],[0,-1,0],[0,0,-1]]
+orig=[0,0,0]
+for i, v in enumerate(vs):
+    uvw=get_direct2(*v)
+    ## quiver 메소드를 활용하였다.
+    ax1.quiver(*orig,*v,arrow_length_ratio=0.2,color='r')
+
+d=1.2
+ax1.set_xlim(-d,d)
+ax1.set_ylim(-d,d)
+ax1.set_zlim(-d,d)
+```
+
+## Crystal symmetry
+
+## 수업 08-2 (~~np.meshgrid~~, np.mgrid, grid, contouring)
 
 # Week9
 - Force vs. Disp curve 분석, 최소 자승법
@@ -3494,33 +3794,32 @@ for i in range(3): # i is outer
 
 - Hollomon Equation으로 바꿔본다.
 
-  $$
-  \sigma=k\varepsilon^n
-  $$
+$$
+\sigma=k\varepsilon^n
+$$
 
-  적절한 k값과 n값을 앞서 calibration sheet의 $$ a$$
-  그리고 $$ b $$  에 해당하는 값을 찾기 위해서는
-  $$\log$$ 함수의 활용이 유용하다.
+적절한 k값과 n값을 앞서 calibration sheet의 $ a$ 그리고 $ b $에 해당하는 값을 찾기 위해서는
+$\log$ 함수의 활용이 유용하다.
 
-  $$
-  \log\sigma=\log k + n\log \varepsilon
-  $$
+$$
+\log\sigma=\log k + n\log \varepsilon
+$$
 
-  밑(base)이 자연수(2.713...)인 로그 함수를 활용한다면
+밑(base)이 자연수(2.713...)인 로그 함수를 활용한다면
 
-  $$
-  \ln\sigma=\ln k+n\ln\varepsilon
-  $$
+$$
+ln\sigma=\ln{k}+n\ln\varepsilon
+$$
 
-  이를 활용해 적절한 $$k$$ 값 및 $$n$$ 값을 구해보자.
+이를 활용해 적절한 $k$ 값 및 $n$ 값을 구해보자.
 
-  ```python
-  # np.log 함수를 활용해 밑이 자연수인 로그 함수를 활용하자.
-  # np.log(sigma), np.log(epsilon)
-  # plt.plot 활용해 직선 그려보기
-  # a값 그리고 b값 찾기.
-  # log (a) 그리고 log (b)로부터 a, b값을 역산(거꾸로 계산) 해보자.
-  ```
+```python
+# np.log 함수를 활용해 밑이 자연수인 로그 함수를 활용하자.
+# np.log(sigma), np.log(epsilon)
+# plt.plot 활용해 직선 그려보기
+# a값 그리고 b값 찾기.
+# log (a) 그리고 log (b)로부터 a, b값을 역산(거꾸로 계산) 해보자.
+```
 
 - 복잡한 형태의 데이터 파일의 경우를 생각해보자.
   이미 calibration된 이후 얻어진 [힘/변위 데이터](/assets/dat_files/lectures/1_2_data_mse/force_vs_displ.txt)를
