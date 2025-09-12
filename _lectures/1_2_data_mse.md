@@ -14,6 +14,7 @@ toc:
 - name: Week3
 - name: Week4
 - name: Week5
+- name: Week6
 
 mermaid:
   enabled: true
@@ -86,7 +87,7 @@ In the order of preference:
 
 ### 강의 자료 및 수업 진행 방식
 
-1. 강의 자료는 [markdown](https://ko.wikipedia.org/wiki/마크다운) 파일로 작성되어, [홈페이지에](https://youngung.github.io)내의 `lectures` 메뉴 게시물을 활용한다. 게시물은 상시로 엡데이트가 될 수 있다. 홈페이지 환경에서 'theme'을 바꿔 화이트/블랙 모드로 바꿀 수 있다.
+1. 강의 자료는 [markdown](https://ko.wikipedia.org/wiki/마크다운) 파일로 작성되어, [홈페이지에](https://youngung.github.io)내의 `lectures` 메뉴 게시물을 활용한다. 게시물은 상시로 업데이트가 될 수 있다. 홈페이지 환경에서 'theme'을 바꿔 화이트/블랙 모드로 바꿀 수 있다.
 2. 반드시 인터넷 연결 환경을 활용하거나, 미리 수업 자료를 출력해와야 한다. (수업 태도/참여 점수 반영)
 3. 수업 시간에 필요한 개념에 대해 설명하고, 교수자가 필요한 시연을 보인다. 이후 수강생들과 함께 차근차근 실습하거나, 혹은 학생들이 **스스로** 그리고 **혼자서** 실습해보길 바란다. :pray:
 4. 강의 자료에 실습 가능한 **Python** 코드 snippet은 아래와 같은 박스로 표기된다.
@@ -127,7 +128,7 @@ third([학생 시연/실습]) ==> fourth([수업후 개념 복습])
 
   - 영타가 느리면 그만큼 학습이 느려진다.
   - 예시로 주어지는 코드를 모두 직접 입력해봐야 한다.
-  - 영타 키보드 익히기: [링크](https://typing.works).
+  - 키보드 익히기: 유용한 링크[1](https://typing.io), [2](https://www.typelit.io), [3](https://typing.works) ...
   - 1분에 300타 정도의 속도는 나와야 하지 않겠어요?
 
 - 각종 기호들 위치 익히기! 평소에 쓰지 않은 다양한 부호가 컴퓨터에 있습니다.
@@ -200,8 +201,9 @@ pie title 평가 방법
 
 ### 01-2-1 목표
 
-- 파이썬 설치 및 환경 설정 완성 (Python 3.12, JuPyter, VS code, pip)
+- 파이썬 설치 및 환경 설정 완성 (Python 3.12, [JuPyter](https://jupyter.org), [VS code](https://code.visualstudio.com), pip)
 - VS code에서 JuPyter 셋업 & 구동할 수 있다.
+   * 몇몇 유용한 extension을 설치하면 더욱 도움이 된다.
 - Hello, world
 - 실습 예시를 모두 이해하고 풀 수 있다.
 - 'Traceback'이해하고 대처할 수 있다: 실습간에 예상했던 대로 결과가 나오지 않고, 'Traceback' 이 포함된 메시지를 본다면 알려주세요.
@@ -3120,7 +3122,21 @@ C=np.einsum('ikl,lkj->ij',A,B)
 - 선형변환의 특성을 잘 반영하는 방향을 찾을 수 있다.
 - 아래의 행렬은 선형변환을 하며, 그 특성을 대표하는 두 방향을 빨간색으로 나타내었다.
 
-### 06-1-3 예시
+### 06-1-3
+고유값의 기하학적 의미를 파악해보자. 다음과 같은 행렬의 경우를 살펴보자. 다음의 여러 행렬들에 의한 벡터(점)의 변환을 살펴보자. 그리고 빨간 선과 (표기되어 있다면) 파란 선 위의 점들이 다른 점들과 어떠한 차이가 있는지 눈여겨 살펴보자.
+
+![eigen1](/assets/dat_files/lectures/1_2_data_mse/eigen_1.gif)
+![eigen2](/assets/dat_files/lectures/1_2_data_mse/eigen_2.gif)
+![eigen2](/assets/dat_files/lectures/1_2_data_mse/eigen_3.gif)
+
+위 세 경우와 달리, 아래 경우는 조금 특별하다. 특성값이 복소수
+$$\lambda_1=0.71+0.71i,$$
+그리고
+$$\lambda_2=0.71-0.71i$$
+임을 눈여겨 보자.
+![eigen3](/assets/dat_files/lectures/1_2_data_mse/eigen_4.gif)
+
+### 06-1-4 Eigenvalue, Eigenvector 구하기.
 
 - 2차원 예시01
 
@@ -3263,6 +3279,79 @@ C=np.einsum('ikl,lkj->ij',A,B)
   ```
 
 - `np.ling.eigen`활용 소개
+
+
+- 변형률
+
+역학에서 변위구배텐서(displacement gradient tensor) $\boldsymbol u$라는 물리량을 활용해, 변형 전 후의 위치변화를 다음과 같이 위치를 나타내는 벡터 변환으로 나타낸다.
+
+$$
+\boldsymbol v^{new}=\boldsymbol u \cdot \boldsymbol v^{old}
+$$
+
+이때, 변위구배텐서의 eigen value를 활용해 변형의 `량`을 가늠해볼 수 있다. 2차원 변위구배텐서의 특성값을 각각 $\lambda_1, \lambda_2$라 한다면, 경우에 따라 (회전이 거의 없다면) $\lambda_1-1$과 $\lambda_2-1$은 꽤 괜찮은 변형의 정도를 나타내는 지표가 될 수 있다. 여기서 1을 빼는 이유는 무엇일까?
+
+
+- 예시 Human vs. Zombie [ref](https://www.youtube.com/watch?v=i8FukKfMKCI)
+
+신분제가 공고하던 조선 시대에서도 [양반](https://en.wikipedia.org/wiki/Yangban)과 [노비](https://en.wikipedia.org/wiki/Nobi) 계층간의 변화가 일어나곤 했다 ([참고](https://product.kyobobook.co.kr/detail/S000001197638)). 매우 불안정했던 가상의 조선시대에 매년 역적으로 몰린 양반의 20%가 노비가 되고, 노비 중 10%가 큰 부를 쌓아 양반으로 신분상승을 했다고 가정하자.
+
+```mermaid
+stateDiagram-v2
+
+Yangban(YB) --> Nobi(NB) : 20%
+Nobi(NB) --> Yangban(YB): 10%
+
+```
+해가 거듭 될 수록 달라지는 양반(YB)과 노비(NB)의 상관 관계를 수식으로 표현하자면 아래와 같다.
+$$
+YB_{(n+1)} = 0.80 YB_{(n)} + 0.10 NB_{(n)}
+$$
+$$
+NB_{(n+1)} = 0.20 YB_{(n)} + 0.90 NB_{(n)}
+$$
+여기서 첨자 $_{n}$과 $_{n+1}$은 각각 직전 해, 그리고 다음해에 해당하는 노비와 양반을 가리킨다. 위 연립 방정식을 아래와 같이 행렬식으로 나타낼 수 있겠다.
+$$
+\begin{bmatrix}
+YB_{(n+1)} \\
+NB_{(n+1)}
+\end{bmatrix}
+=
+\begin{bmatrix}
+  0.90& 0.01 \\
+  0.02& 0.95
+ \end{bmatrix}
+
+\begin{bmatrix}
+YB_{(n)} \\
+NB_{(n)}
+\end{bmatrix}
+$$
+
+예들 들어, 양반과 노비의 인구수가 첫해($n=0$)에 100명 vs 100명 이었다고 가정하자. 그 다음해에는
+$$
+\begin{bmatrix}
+YB_{(1)} \\
+NB_{(1)}
+\end{bmatrix}
+=
+\begin{bmatrix}
+  0.99& 0.01 \\
+  0.02& 0.95
+ \end{bmatrix}
+
+\begin{bmatrix}
+100 \\
+100
+\end{bmatrix}
+=
+$$
+
+
+
+
+- 구글(Google)의 Page ranking system: [ref](https://pi.math.cornell.edu/~mec/Winter2009/RalucaRemus/Lecture3/lecture3.html)
+
 
 
 
