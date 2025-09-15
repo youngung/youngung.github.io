@@ -19,6 +19,7 @@ toc:
 mermaid:
   enabled: true
   zoomable: true
+typograms: true
 hidden: true
 tabs: true
 tikzjax: true
@@ -3098,7 +3099,10 @@ C=np.einsum('ikl,lkj->ij',A,B)
 
 - 행렬과 벡터의 곱을, 벡터 맵핑으로 해석할 수 있다.
 
-![vectormapping](https://upload.wikimedia.org/wikipedia/commons/4/43/Streckung_eines_Vektors.gif)
+<p align="center">
+  <img src=https://upload.wikimedia.org/wikipedia/commons/4/43/Streckung_eines_Vektors.gif />
+</p>
+
 
 - 아래와 같은 두 조건을 만족시키는 행렬 $$\boldsymbol A$$를 선형변환 행렬이라 한다.
 
@@ -3111,9 +3115,13 @@ C=np.einsum('ikl,lkj->ij',A,B)
   \boldsymbol A\cdot (\lambda\boldsymbol a)=\lambda A\cdot\boldsymbol a
   $$
 
-![cond1](https://upload.wikimedia.org/wikipedia/commons/2/25/Streckung_der_Summe_zweier_Vektoren.gif)
+<p align="center">
+  <img src=https://upload.wikimedia.org/wikipedia/commons/2/25/Streckung_der_Summe_zweier_Vektoren.gif />
+</p>
 
-![cond2](https://upload.wikimedia.org/wikipedia/commons/e/e6/Streckung_homogenitaet_Version_3.gif)
+<p align="center">
+  <img src=https://upload.wikimedia.org/wikipedia/commons/e/e6/Streckung_homogenitaet_Version_3.gif />
+</p>
 
 \*\* [Wikipedia 발췌 이미지](https://en.wikipedia.org/wiki/Linear_map)
 
@@ -3126,7 +3134,9 @@ C=np.einsum('ikl,lkj->ij',A,B)
 고유값의 기하학적 의미를 파악해보자. 다음과 같은 행렬의 경우를 살펴보자. 다음의 여러 행렬들에 의한 벡터(점)의 변환을 살펴보자. 그리고 빨간 선과 (표기되어 있다면) 파란 선 위의 점들이 다른 점들과 어떠한 차이가 있는지 눈여겨 살펴보자.
 
 ![eigen1](/assets/dat_files/lectures/1_2_data_mse/eigen_1.gif)
+
 ![eigen2](/assets/dat_files/lectures/1_2_data_mse/eigen_2.gif)
+
 ![eigen2](/assets/dat_files/lectures/1_2_data_mse/eigen_3.gif)
 
 위 세 경우와 달리, 아래 경우는 조금 특별하다. 특성값이 복소수
@@ -3134,6 +3144,7 @@ $$\lambda_1=0.71+0.71i,$$
 그리고
 $$\lambda_2=0.71-0.71i$$
 임을 눈여겨 보자.
+
 ![eigen3](/assets/dat_files/lectures/1_2_data_mse/eigen_4.gif)
 
 ### 06-1-4 Eigenvalue, Eigenvector 구하기.
@@ -3280,7 +3291,6 @@ $$\lambda_2=0.71-0.71i$$
 
 - `np.ling.eigen`활용 소개
 
-
 - 변형률
 
 역학에서 변위구배텐서(displacement gradient tensor) $\boldsymbol u$라는 물리량을 활용해, 변형 전 후의 위치변화를 다음과 같이 위치를 나타내는 벡터 변환으로 나타낸다.
@@ -3291,7 +3301,6 @@ $$
 
 이때, 변위구배텐서의 eigen value를 활용해 변형의 `량`을 가늠해볼 수 있다. 2차원 변위구배텐서의 특성값을 각각 $\lambda_1, \lambda_2$라 한다면, 경우에 따라 (회전이 거의 없다면) $\lambda_1-1$과 $\lambda_2-1$은 꽤 괜찮은 변형의 정도를 나타내는 지표가 될 수 있다. 여기서 1을 빼는 이유는 무엇일까?
 
-
 - 예시 Human vs. Zombie [ref](https://www.youtube.com/watch?v=i8FukKfMKCI)
 
 신분제가 공고하던 조선 시대에서도 [양반](https://en.wikipedia.org/wiki/Yangban)과 [노비](https://en.wikipedia.org/wiki/Nobi) 계층간의 변화가 일어나곤 했다 ([참고](https://product.kyobobook.co.kr/detail/S000001197638)). 매우 불안정했던 가상의 조선시대에 매년 역적으로 몰린 양반의 20%가 노비가 되고, 노비 중 10%가 큰 부를 쌓아 양반으로 신분상승을 했다고 가정하자.
@@ -3301,7 +3310,6 @@ stateDiagram-v2
 
 Yangban(YB) --> Nobi(NB) : 20%
 Nobi(NB) --> Yangban(YB): 10%
-
 ```
 해가 거듭 될 수록 달라지는 양반(YB)과 노비(NB)의 상관 관계를 수식으로 표현하자면 아래와 같다.
 $$
@@ -3328,7 +3336,7 @@ NB_{(n)}
 \end{bmatrix}
 $$
 
-예들 들어, 양반과 노비의 인구수가 첫해($n=0$)에 100명 vs 100명 이었다고 가정하자. 그 다음해에는
+예들 들어, 양반과 노비의 인구수가 첫해($n=0$)에 8명 vs 2명 이었다고 가정하자. 그 다음해에는
 $$
 \begin{bmatrix}
 YB_{(1)} \\
@@ -3336,24 +3344,100 @@ NB_{(1)}
 \end{bmatrix}
 =
 \begin{bmatrix}
-  0.99& 0.01 \\
-  0.02& 0.95
+  0.8& 0.1 \\
+  0.2& 0.90
  \end{bmatrix}
 
 \begin{bmatrix}
-100 \\
-100
+8 \\
+2
 \end{bmatrix}
 =
+\begin{bmatrix}
+6.60 \\
+3.40
+\end{bmatrix}
+$$
+그리고 그 다음에는
+$$
+\begin{bmatrix}
+YB_{(2)} \\
+NB_{(2)}
+\end{bmatrix}
+=
+\begin{bmatrix}
+  0.8& 0.1 \\
+  0.2& 0.90
+ \end{bmatrix}
+
+\begin{bmatrix}
+6.60 \\
+3.40
+\end{bmatrix}
+=
+\begin{bmatrix}
+5.62 \\
+4.38
+\end{bmatrix}
 $$
 
+이렇게 차례로 시간이 더욱 지나고 나면 3.34, 6.66으로 수렴된다. 하지만 초기 세팅이 8대2가 아니라 8대 4였다면 4대 8로 바뀌게 된다. 위 경우를 포함해 양반대 노비의 비율이 각기 다를경우에도 시간이 충분히 지나면, 규칙성 있게 바뀌게 된다.
+![NBYB](/assets/dat_files/lectures/1_2_data_mse/nobiyangban.gif)
 
+다음 몇몇 선형변환 매트리스와 그에 해당하는 Eigenvector와 Eigenvalue가 보여주는 변화를 살펴보자
+![egenflow1](/assets/dat_files/lectures/1_2_data_mse/eigen_flow1.gif)
+![egenflow2](/assets/dat_files/lectures/1_2_data_mse/eigen_flow2.gif)
+![egenflow3](/assets/dat_files/lectures/1_2_data_mse/eigen_flow3.gif)
+![egenflow3](/assets/dat_files/lectures/1_2_data_mse/eigen_flow4.gif)
 
 
 - 구글(Google)의 Page ranking system: [ref](https://pi.math.cornell.edu/~mec/Winter2009/RalucaRemus/Lecture3/lecture3.html)
+<!--
 
+```typograms
+                                                        ----0.3--+
+                                                        |        |
+                                                        V        |
++-----------------+                    +---------------------+   |
+| www.daum.net    | ------ 0.2 ---   | www.naver.com       |---+
+|                 | <----- 0.3 -----   |                     |
++-----------------+                    +---------------------+
+     ^     |        \                     ^           |
+     |     |         \                    |           |
+    0.2    0.3        \                   0.15        0.3
+     |     |           \                  |           |
+     |     v            0.2               |           v
++-----------------+       \           +-------------------+
+|                 |        \          |                   |
+| www.youtube.com |         +------ |    google.com     |
+|                 |<-------0.7--------|                   |
+|                 |--------0.05-----|                   |
++-----------------+                   +-------------------+
+```
 
+$$
+\begin{bmatrix}
+daum \\
+naver \\
+youtube \\
+google  \\
+\end{bmatrix}
+=
+\begin{bmatrix}
+0 & 0.3  & 0.2 & 0 \\
+0.2 & 0.3 & 0 & 0.15\\
+0.3 & 0 & 0 & 0.7 \\
+0.2 & 0.3 & 0 & 0.05
+\end{bmatrix}
+\begin{bmatrix}
+daum \\
+naver \\
+youtube \\
+google  \\
+\end{bmatrix}
+$$
 
+-->
 
 ------------------------------
 ## 수업 06-2 (ANN, Activation)
