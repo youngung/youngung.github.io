@@ -190,6 +190,7 @@ pie title 평가 방법
 - 오늘의 과제
 
   - 파이썬 설치 및 환경 설정 완성 (Python 3.12, JuPyter, VS code, pip)
+    * 설치 설명 참고 [링크](https://blog.naver.com/dlgusen123/223943489124)
   - [YouTube](https://youtube.com)에서 간단한 Python tutorial 영상 찾아서 보고 따라해보기.
   - 영문타자 익히기 - [여기](http://typing.works)서 연습해보세요.
   - 키보드 기호들의 위치 숙지 필요.
