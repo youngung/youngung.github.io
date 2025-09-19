@@ -189,15 +189,14 @@ pie title 평가 방법
 
 - 오늘의 과제
 
-  - 파이썬 설치 및 환경 설정 완성 (Python 3.12, JuPyter, VS code, pip)
+  - 파이썬 설치 및 환경 설정 완성 (Python 3.12, [JuPyter](https://jupyter.org), [VS code](https://code.visualstudio.com), pip)
     * 설치 설명 참고 [링크](https://blog.naver.com/dlgusen123/223943489124)
   - [YouTube](https://youtube.com)에서 간단한 Python tutorial 영상 찾아서 보고 따라해보기.
-  - 영문타자 익히기 - [여기](http://typing.works)서 연습해보세요.
+  - 영문타자 익히기 - [여기1](https://www.typelit.io), [여기2](https://www.typing.com/student/lesson/328/common-english-words), [여기3](https://www.speedcoder.net)서 연습해보기.
   - 키보드 기호들의 위치 숙지 필요.
   - 교내 인터넷 접속 사전에 해보기.
   - [Google colab](https://colab.google)에서 Notebook 만들어 실습해보기.
-  - [Google colab](https://colab.google)활용한다면 아이패드나 갤럭시 탭, 심지어는 핸드폰(?)으로도 실습 가능하다. 하지만 여러 이유로 컴퓨터가 아닌 기기는 추천하지 않는다
-  - [VScode dev](https://vscode.dev) 기능으로 remote 접속 가능하다.
+  - [Google colab](https://colab.google)활용한다면 아이패드나 갤럭시 탭, 심지어는 핸드폰(?)으로도 실습 가능하다. 하지만 여러 이유로 컴퓨터가 아닌 기기는 추천하지 않는다.
 
 ## 수업 01-2
 
