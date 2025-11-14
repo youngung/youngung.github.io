@@ -566,7 +566,7 @@ print(f"{c:.2f}C= {f:.2f}F")
 #### 02-1-7 실습.
 
 - 1족 원소 기호를 순서대로 포함한 리스트 만들기 (수소, 리튬, 나트륨, 칼륨, 루비듐, 세슘, 프랑슘)
-- Calister 예제 2.1)
+- Calister 예제 2.1
 
 ```python
 #세륨의 동위원소는 4가지 존재한다:
@@ -650,10 +650,12 @@ print(avg)
 - 기본 구조
 
   ```python
+  ## 주의! 실행할 명령문1, 2, ... 줄은 들여쓰기로 구분됨.
   for <변수> in <반복가능객체>:
   	<실행할 명령문1>
   	<실행할 명령문2>
   	<...>
+
   ```
 
   ```mermaid
@@ -667,14 +669,14 @@ print(avg)
   	F --> G[Continue program]
   ```
 
-- 대표적으로 **순서가 있는 데이터 시쿼스**로는 List, Tuple, Dictionary 타입의 변수가 있다.
+- 대표적으로 **순서가 있는 데이터 시퀀스**로는 List, Tuple, Dictionary 타입의 변수가 있다.
 
   - 예1
 
   ```python
   a=[3,4,5] #list type
   for e in a:
-  	print(e)
+     print(e)
   ```
 
   - 예1
@@ -682,7 +684,7 @@ print(avg)
   ```python
   a=[0,1,2,3,4,5,6] #list type
   for e in a[::2]: ## 0, 2, 4, 6
-  	print(e)
+     print(e)
   ```
 
   - 예2
@@ -690,7 +692,7 @@ print(avg)
   ```python
   a=('3',[34343],5) # tuple type
   for e in a:
-  	print(e)
+     print(e)
   ```
 
   - 예3
@@ -698,7 +700,7 @@ print(avg)
   ```python
   a=dict(a='b',b='1',d=3,z=[]) # (Python 3.7>)
   for e in a:
-  	print(e)
+     print(e)
   ```
 
 - 주의
@@ -768,6 +770,12 @@ for i, fruit in enumerate(fruits):
 - 예제3: x! 팩토리얼 구하기
 
 - 예제4: 주어진 List에서 최대값과 최소값 찾기 (조건문과 loop 활용)
+   가령,
+   ```python
+   a=[3,4,5,6,102,3,4,103,1,-10,3,-10]
+   ```
+   으로 주어진 리스트 ```a```내에서 가장 큰 값과 가장 작은 값을
+   ```for``` 구문을 활요해 찾아보기.
 
 - 예제5: 2의 제곱근 구하기.
 
