@@ -5,4 +5,4 @@ inline: true
 related_posts: false
 ---
 
-전보혜 학생이 RWTH Accen (아헨공대)의 **'Port to Europe Fellowship'**에 선정되었습니다. :trophy:
+전보혜 학생이 RWTH Aachen (아헨공대)의 **'Port to Europe Fellowship'**에 선정되었습니다. :trophy:
