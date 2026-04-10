@@ -16,10 +16,12 @@ toc:
 ```
 
 # Orientation
+
 - 국립창원대학교 재료금속공학과
-  * [이메일](mailto:yjeong@changwon.ac.kr)
-  * [웹페이지](https://youngung.github.io)
+  - [이메일](mailto:yjeong@changwon.ac.kr)
+  - [웹페이지](https://youngung.github.io)
 - 실습 환경
 
 # 수업 목표
- - 운동량 전달, 열 전달, 확산의 수학적 모형의 공통점을 이해한다.
+
+- 운동량 전달, 열 전달, 확산의 수학적 모형의 공통점을 이해한다.
