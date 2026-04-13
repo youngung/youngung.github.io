@@ -379,7 +379,12 @@ ninja.data = [{
           section: "News",},{id: "news-전보혜-학생-박사학위-디펜스를-성공적으로-마무리-했습니다-trophy",
           title: '전보혜 학생 박사학위 디펜스를 성공적으로 마무리 했습니다 :trophy:',
           description: "",
-          section: "News",},{id: "projects-개인연구-중견",
+          section: "News",},{id: "projects-열간변형-프리폼-형상-최적화",
+          title: '열간변형 프리폼 형상 최적화',
+          description: "",
+          section: "Projects",handler: () => {
+              window.location.href = "/projects/26_Seah/";
+            },},{id: "projects-개인연구-중견",
           title: '개인연구(중견)',
           description: "",
           section: "Projects",handler: () => {
