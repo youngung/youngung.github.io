@@ -1,1 +1,1 @@
-**Juhong Kang** is a master student, and he has been investigating several numerical issues with $\Delta$EVPSC. Also, he's trying to FE-imulate the springback of high strength steel in a complex shape.
+**Juhong Kang** is a master student, and he has been investigating several numerical issues with $\Delta$EVPSC. Also, he's trying to FE-imulate the springback of high strength steel in a complex shape. He's leading the indutrial project with Seah special steels.
