@@ -379,7 +379,22 @@ ninja.data = [{
           section: "News",},{id: "news-전보혜-학생-박사학위-디펜스를-성공적으로-마무리-했습니다-trophy",
           title: '전보혜 학생 박사학위 디펜스를 성공적으로 마무리 했습니다 :trophy:',
           description: "",
-          section: "News",},{id: "projects-열간변형-프리폼-형상-최적화",
+          section: "News",},{id: "projects-vpsc-evpsc-기반-마그네슘-이원계-합금의-전위활성도-평가",
+          title: 'VPSC/EVPSC 기반 마그네슘 이원계 합금의 전위활성도 평가',
+          description: "",
+          section: "Projects",handler: () => {
+              window.location.href = "/projects/22_KIMS/";
+            },},{id: "projects-밸브-스핀들-및-시트링-유한요소-해석",
+          title: '밸브 스핀들 및 시트링 유한요소 해석',
+          description: "",
+          section: "Projects",handler: () => {
+              window.location.href = "/projects/23_KSP/";
+            },},{id: "projects-전동기-자석-부착용-본딩제의-고온-인장전단-물성-평가",
+          title: '전동기 자석 부착용 본딩제의 고온 인장전단 물성 평가',
+          description: "",
+          section: "Projects",handler: () => {
+              window.location.href = "/projects/25_Hyosung/";
+            },},{id: "projects-열간변형-프리폼-형상-최적화",
           title: '열간변형 프리폼 형상 최적화',
           description: "",
           section: "Projects",handler: () => {
