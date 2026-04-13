@@ -34,4 +34,9 @@ profiles:
     content: about_jk.md
     image_circular: false # crops the image to make it circular
     more_info:
+  - align: right
+    image: # prof_pic.jpg
+    content: about_kh.md
+    image_circular: false # crops the image to make it circular
+    more_info:    
 ---
