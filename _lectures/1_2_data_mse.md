@@ -30,38 +30,37 @@ authors:
      name: Changwon National University
 ---
 
-- [1. Orientation](#1-orientation)
+- [1. 제1강: Orientation](#1-제1강-orientation)
   - [1.1. 수업 소개](#11-수업-소개)
   - [1.2. 세부 수업 목표](#12-세부-수업-목표)
-- [2. Week1](#2-week1)
-  - [2.1. 수업 01-1](#21-수업-01-1)
-    - [2.1.1. 강의 자료 및 수업 진행 방식](#211-강의-자료-및-수업-진행-방식)
-      - [2.1.1.1. 실습 / 코딩](#2111-실습--코딩)
-    - [2.1.2. 01-1-4 평가 방법](#212-01-1-4-평가-방법)
-  - [2.2. 수업 01-2](#22-수업-01-2)
-    - [2.2.1. 목표](#221-목표)
-    - [2.2.2. 내용](#222-내용)
-    - [2.2.3. 실습 예시 1](#223-실습-예시-1)
-    - [2.2.4. 실습 예시 2](#224-실습-예시-2)
-    - [2.2.5. 실습 예시 3](#225-실습-예시-3)
-    - [2.2.6. 실습 예시 4](#226-실습-예시-4)
-- [3. Week2](#3-week2)
-  - [3.1. 수업 02-1](#31-수업-02-1)
-    - [3.1.1. List](#311-list)
-    - [3.1.2. tuple](#312-tuple)
-    - [3.1.3. set](#313-set)
-    - [3.1.4. Dictionary](#314-dictionary)
-    - [3.1.5. Misc.](#315-misc)
-    - [3.1.6. 실습.](#316-실습)
-  - [3.2. 수업 02-2](#32-수업-02-2)
-    - [3.2.1. `if`, `elif`, `else` 조건문 이해](#321-if-elif-else-조건문-이해)
-    - [3.2.2. `for` 반복문](#322-for-반복문)
-    - [3.2.3. Built-in function인 `range`, `len`, `enumerate`를 `for`와 함께 조합!](#323-built-in-function인-range-len-enumerate를-for와-함께-조합)
-    - [3.2.4. 실습 예시](#324-실습-예시)
-- [4. Week3](#4-week3)
-  - [4.1. 수업 03-1 (함수와 클래스 익히기)](#41-수업-03-1-함수와-클래스-익히기)
-    - [4.1.1. 함수란](#411-함수란)
-    - [4.1.2. Built-in functions](#412-built-in-functions)
+  - [1.3. 강의 자료 및 수업 진행 방식](#13-강의-자료-및-수업-진행-방식)
+  - [1.4. 실습 / 코딩](#14-실습--코딩)
+  - [1.5. 평가 방법](#15-평가-방법)
+- [2. 제 2강: 기초 조작 및 실습](#2-제-2강-기초-조작-및-실습)
+  - [2.1 목표](#21-목표)
+  - [2.2 원활한 수업을 위핸 선행 조건 확인](#22-원활한-수업을-위핸-선행-조건-확인)
+  - [2.3 간단한 조작 실습](#23-간단한-조작-실습)
+  - [2.4 예시](#24-예시)
+    - [2.4.1 실습 예시 2-1](#241-실습-예시-2-1)
+    - [2.4.2 실습 예시 2-2](#242-실습-예시-2-2)
+    - [2.4.3 실습 예시 2-3](#243-실습-예시-2-3)
+    - [2.4.4 실습 예시 2-3](#244-실습-예시-2-3)
+- [3. 제 3강: 기초 자료 구조](#3-제-3강-기초-자료-구조)
+  - [3.1. List](#31-list)
+  - [3.2. tuple](#32-tuple)
+  - [3.3. set](#33-set)
+  - [3.4. Dictionary](#34-dictionary)
+  - [3.5. Misc.](#35-misc)
+  - [3.6. Take-home 실습](#36-take-home-실습)
+- [4 제 4강: 조건문과 반복문](#4-제-4강-조건문과-반복문)
+  - [4.1.  `if`, `elif`, `else` 조건문의 기본 구조 이해](#41--if-elif-else-조건문의-기본-구조-이해)
+  - [4.2. `for` 반복문](#42-for-반복문)
+  - [4.3 Built-in function인 `range`, `len`, `enumerate`를 `for`와 함께 조합!](#43-built-in-function인-range-len-enumerate를-for와-함께-조합)
+  - [4.4 Take-home 실습 예시](#44-take-home-실습-예시)
+- [5. 제 5강: 함수, class, module](#5-제-5강-함수-class-module)
+  - [5.1. 함수](#51-함수)
+  - [5.2. 모듈(module)과 import](#52-모듈module과-import)
+  - [5.3. Built-in functions (no import / no declaration required)](#53-built-in-functions-no-import--no-declaration-required)
     - [4.1.3. Class](#413-class)
     - [4.1.4. 클래스 예제](#414-클래스-예제)
     - [4.1.5. 여러 함수 만들어 보기](#415-여러-함수-만들어-보기)
@@ -94,19 +93,19 @@ authors:
     - [6.1.5. Broadcasting](#615-broadcasting)
     - [6.1.6. Other various features](#616-other-various-features)
   - [6.2. 수업 05-2 아인슈타인 표기법과 np.einsum 함수](#62-수업-05-2-아인슈타인-표기법과-npeinsum-함수)
-    - [6.2.1.1. 벡터 스케일링 (스칼라 곱)](#6211-벡터-스케일링-스칼라-곱)
-    - [6.2.1.2. 벡터의 크기](#6212-벡터의-크기)
-    - [6.2.1.3. 단위 벡터 (unit)](#6213-단위-벡터-unit)
-    - [6.2.1.4 예제들](#6214-예제들)
-      - [6.2.1.4. 예시: 같은 방향 단위 벡터 구하기.](#6214-예시-같은-방향-단위-벡터-구하기)
-      - [6.2.1.5. 예시: 반대방향 벡터](#6215-예시-반대방향-벡터)
-      - [6.2.1.6. 예시: 벡터의 합](#6216-예시-벡터의-합)
-      - [6.2.1.7. 예시: 벡터의 차](#6217-예시-벡터의-차)
-      - [6.2.1.8. 내적 (inner dot)](#6218-내적-inner-dot)
-      - [6.2.1.9. (nxn)행렬과 (n)벡터 곱](#6219-nxn행렬과-n벡터-곱)
-      - [6.2.1.10. 행렬 곱1 (single dot)](#62110-행렬-곱1-single-dot)
-      - [6.2.1.11. 행렬 곱2 (double dot)](#62111-행렬-곱2-double-dot)
-      - [6.2.1.12 np.einsum 활용](#62112-npeinsum-활용)
+    - [6.2.1. 벡터 스케일링 (스칼라 곱)](#621-벡터-스케일링-스칼라-곱)
+    - [6.2.2. 벡터의 크기](#622-벡터의-크기)
+    - [6.2.3. 단위 벡터 (unit)](#623-단위-벡터-unit)
+    - [6.2.4. 6.2.1.4 예제들](#624-6214-예제들)
+      - [6.2.4.1. 예시: 같은 방향 단위 벡터 구하기.](#6241-예시-같은-방향-단위-벡터-구하기)
+      - [6.2.4.2. 예시: 반대방향 벡터](#6242-예시-반대방향-벡터)
+      - [6.2.4.3. 예시: 벡터의 합](#6243-예시-벡터의-합)
+      - [6.2.4.4. 예시: 벡터의 차](#6244-예시-벡터의-차)
+      - [6.2.4.5. 내적 (inner dot)](#6245-내적-inner-dot)
+      - [6.2.4.6. (nxn)행렬과 (n)벡터 곱](#6246-nxn행렬과-n벡터-곱)
+      - [6.2.4.7. 행렬 곱1 (single dot)](#6247-행렬-곱1-single-dot)
+      - [6.2.4.8. 행렬 곱2 (double dot)](#6248-행렬-곱2-double-dot)
+      - [6.2.4.9. 6.2.1.12 np.einsum 활용](#6249-62112-npeinsum-활용)
 - [7. Week6](#7-week6)
   - [7.1. 수업 06-1 (Eigenvalue)](#71-수업-06-1-eigenvalue)
     - [7.1.1. 개념](#711-개념)
@@ -146,7 +145,7 @@ authors:
   - [16.2. 수업 15-2](#162-수업-15-2)
 
 
-# 1. Orientation
+# 1. 제1강: Orientation
 
 ## 1.1. 수업 소개
 
@@ -197,24 +196,25 @@ In the order of preference:
 
 ---
 
-# 2. Week1
-- 수업 소개, 규칙, 평가 방법, 실습 환경 소개
 
-## 2.1. 수업 01-1
+## 1.3. 강의 자료 및 수업 진행 방식
 
-### 2.1.1. 강의 자료 및 수업 진행 방식
-
-1. 강의 자료는 [markdown](https://ko.wikipedia.org/wiki/마크다운) 파일로 작성되어, [홈페이지에](https://youngung.github.io)내의 `lectures` 메뉴 게시물을 활용한다. 게시물은 상시로 업데이트가 될 수 있다. 홈페이지 환경에서 'theme'을 바꿔 화이트/블랙 모드로 바꿀 수 있다.
-2. 반드시 인터넷 연결 환경을 활용하거나, 미리 수업 자료를 출력해와야 한다. (수업 태도/참여 점수 반영)
-3. 수업 시간에 필요한 개념에 대해 설명하고, 교수자가 필요한 시연을 보인다. 이후 수강생들과 함께 차근차근 실습하거나, 혹은 학생들이 **스스로** 그리고 **혼자서** 실습해보길 바란다. :pray:
-4. 강의 자료에 실습 가능한 **Python** 코드 snippet은 아래와 같은 박스로 표기된다.
-
+1. 강의 자료는 [markdown](https://ko.wikipedia.org/wiki/마크다운) 파일로 작성되어,
+   [홈페이지에](https://youngung.github.io)내의 `lectures` 메뉴 게시물을 활용한다.
+   게시물은 상시로 업데이트가 될 수 있다.
+2. 원활한 수업 진행을 위해 수강생은 인터넷이 연결된 노트북을 가지고 오거나, 미리 수업 자료를
+   출력해와야 한다. (준비가 안된 학생은 수업 태도/참여 점수 반영)
+3. 수업 시간에 필요한 개념에 대해 설명하고, 교수자가 필요한 시연을 보인다. 이후 수강생들과
+  함께 차근차근 실습하거나, 혹은 학생들이 **스스로** 그리고 **혼자서** 실습해봐야 한다 :pray:
+4. 강의 자료에 실습 가능한 **Python** 코드는 아래와 같이 박스로 표기된다.
 ```python
 print('Hello, world')
 ```
-
-5. 때에 따라서, 기존에 입력한 코드가 이미 실행되어 있어야만 제대로 작동하는 경우가 있으니, 긴장을 늦추지 않고 수업의 진행을 잘 따라오길 바란다.
-6. 수업 시간에 배운 내용을 반드시 스스로 '반복'해서 실습해봐야 한다. 그리고 수업 시간내 내어준 예제를 혼자서 해보는 경험이 필요하다.
+5. 때에 따라서, 기존에 입력한 코드가 이미 실행되어 있어야만 제대로 작동하는 경우가 있으니,
+   긴장을 놓지 않고 수업의 진행을 잘 따라오길 바란다. 놓친 부분에 집착하기 보다는 수업 시간에
+   놓친 부분을 사전에 마킹한 후, 강의 이후 스스로 찾아서 살펴보시오.
+6. 수업 시간에 배운 내용을 반드시 스스로 **반복**해서 실습해봐야 한다. 그리고 수업 시간내
+   다룬 예제를 **혼자서** 해보는 경험이 필요하다.
 
 ```mermaid
 graph LR
@@ -223,33 +223,37 @@ third([학생 시연/실습]) ==> fourth([수업후 개념 복습])
 ==> fifth([수업 후 스스로 혼자 연습])  ==> first
 ```
 
-#### 2.1.1.1. 실습 / 코딩
+## 1.4. 실습 / 코딩
 
-- 궁극적으로 적절한 '툴' 활용을 익히는 것이 목표이기 때문에, **코딩**이 필요하다.
-- 코딩은 :bike:, :ski:, :snowboarder:,:tennis:, :surfer:, :guitar:, :soccer:등과 비슷하다. 모두 **몸**으로 익혀야 한다. 남(교수자)이 하는 걸 백번 보는 것 보다 직접 해보는 것이 낫다.
-- 어려운 개념은 반복해서 예습을 풀어보며 **머리** 뿐만 아니라 **몸**(muscle memory:muscle:)으로 익히기!
-- 개인이 계속해서 쓸 컴퓨터:computer:가 없이 코딩을 배우는 건 매우 어렵다.
-- 실습을 할때마다 본인의 실습환경에 맞게 컴퓨터 환경을 다시 세팅하거나, 필요한 패키지를 설치하는 건 여간 귀찮고 어려운 일이 아니다.
-- 실습에 맞는 개인용 컴퓨터를 **필수**적으로 보유하고 있길 권한다.
-- 각종 cloud service나, 학교 전산실습실 이용을 추천하지 않는 건 실습 환경을 직접 세팅해볼 수가 없기 때문이다.
-- 다시 한번 얘기하지만 반드시 스스로 실습해봐야 한다.
-  - 예제를 일일이 다 쳐보기
-  - 결과를 스스로 살펴봐야 합니다.
+- 본 수업은 재료과학/공학에서 활용되는 다양한 데이터 분석을 경험하고 활용하기 위해 필요한 기초
+  적 도구(tool)의 활용을 익히는 것이 목표이기 때문에, **코딩**(coding)이 필요하다.
+- 코딩을 위해서 필요한 적절한 환경이 갖춰진 컴퓨터:computer:가 없이 코딩을 배우는 건 매우
+  어렵다. 축구공이 없이 축구를 배울 순 없다. 실습을 할때마다 본인의 실습환경에 맞게 컴퓨터
+  환경을 다시 세팅하거나, 필요한 패키지를 설치하는 건 여간 귀찮은 일이 아니다. 실습에 맞는
+  개인용 컴퓨터를 보유하고 있길 권한다. 각종 cloud service나, 학교 전산실습실 이용으로
+  실습이 가능하나, 교수자가 추천하지 않는 건 실습 환경을 직접 세팅해볼 수가 없기 때문이다.
+  친구/가족에게 노트북을 빌리는 것도 가능하나, 학교에서 대여도 한다 - [링크](https://chains.changwon.ac.kr/nonstop/lend/sub.php?group_code=e0000010&subgroup_code=es000043): 마지막으로 연결해본 날짜: 2026-06-05
+  하지만 물량이 많지 않고 조기에 대여가 완료된다.
+- 코딩은 :bike:, :ski:, :snowboarder:,:tennis:, :surfer:, :guitar:,
+  :soccer:등과 비슷하다. 모두 **몸**으로 익혀야 한다. 교수자나 주위 친구가 하는 걸 백번
+  보는 것보다 직접 해보는 것이 낫다. 어려운 개념은 반복해서 예습을 풀어보며 **머리** 뿐만
+  아니라 **몸**(muscle memory:muscle:)으로 익혀라.
+- 수업 시간 예제 반드시 스스로 해보기
+  - 스스로 공부할 때, 혹은 예제를 풀 때 [ChatGPT](https://chatgpt.com)에 도움을
+    받는 건 좋으나, 단순 질문과 답을 구하기 보다 스스로의 이해를 돕기 위해 활용하길 바란다.
+  - 예제를 일일이 다 쳐보기. 네모 박스 코드를 일일이 다 정확히 쳐보기 (copy&paste 금지)
+  - 결과를 스스로 살펴봐야 하고 이해하도록 노력해보기
   - 예제를 바꿔서 적용하고 그 변화를 살펴보기.
-  - 예시로 주어진 프로그램을 '한줄씩', 한 명령어씩 다 뜯어서 살펴보기 (hacking)
-  - 반드시 개인용 컴퓨터 필요 - 실습
-  - 친구/가족에게 빌리세요. 없다면 학교에서 대여도 합니다 - [링크](https://chains.changwon.ac.kr/nonstop/lend/sub.php?group_code=e0000010&subgroup_code=es000043)
-  - 그외 기타 사정으로 수업을 듣고 싶으나 노트북 준비가 어렵다면 교수에게 상담 요청하시오
+  - 예시로 주어진 프로그램을 한줄씩, 한 명령어씩 다 뜯어서 살펴보기 (hacking)
   - :raising_hand: :grey_question:
 - 영문 키보드 반드시 숙지 필요
-
   - 영타가 느리면 그만큼 학습이 느려진다.
   - 예시로 주어지는 코드를 모두 직접 입력해봐야 한다.
-  - 키보드 익히기: 유용한 링크[1](https://typing.io), [2](https://www.typelit.io), [3](https://typing.works) ...
-  - 1분에 300타 정도의 속도는 나와야 하지 않겠어요?
-
-- 각종 기호들 위치 익히기! 평소에 쓰지 않은 다양한 부호가 컴퓨터에 있습니다.
-  위치와 생김새, 이름을 익혀야 하겠습니다.
+  - 키보드 익히기:
+    - 유용한 링크[1](https://typing.io),
+    - [2](https://www.typelit.io),
+    - [3](https://typing.works) ...
+- 각종 기호들 위치 익히기! 평소에 쓰지 않은 다양한 부호가 컴퓨터에 있음을 인지할 것.
   - `: accent
   - ': single quotation mark
   - ": double quotation mark
@@ -263,7 +267,7 @@ third([학생 시연/실습]) ==> fourth([수업후 개념 복습])
   - \*: asterisk
   - (: left parenthesis
   - ): right parenthesis
-  - -: dash
+  - -: dash (minus)
   - =: equal sign
   - ,: comma
   - \_: underscore
@@ -274,26 +278,23 @@ third([학생 시연/실습]) ==> fourth([수업후 개념 복습])
   - \\: blackslash
   - <: left bracket
   - \>: right bracket
-- 수업 시간 예제 반드시 스스로 해보기
-  - 스스로 공부할 때, 혹은 예제를 풀 때 [ChatGPT](https://chatgpt.com)에 도움을 받는 건
-    좋으나 시험에서는 활용 불가!
-  - 왜 ChatGPT를 시험에 못 쓰게 하냐면, ChatGPT가 실수하는 것을 알아내고 고칠 수 있는 능력
-    을 갖추지 못하면...
+
 - 교수자가 사용하는 도구들: MacOS, MS VScode, 기본 terminal, JuPyter notebook, Google Colab ...
   - 하지만, 실습은 Windows, MacOS, Linux .. 등 어디서든 가능합니다.
   - [Google colab](https://colab.google)에서는 인터넷 연결만 되어 있다면 JuPyter notebook 실습 가능합니다.
   - 수업 중간에 인터넷을 통해 몇몇 Python 패키지를 설치해야 할 수도 있으므로, 교내 와이파이 접속 가능해야 함.
   - VS code에 대해 상세히 알고 싶다면 [여기](https://code.visualstudio.com/docs)를 통해 알아보자. 영어로 된 문서가 부담스럽거나 어렵다면, 최신 웹브라우저들은 대부분 번역 기능을 제공하니 적극적으로 활용해보길 바란다.
 
-### 2.1.2. 01-1-4 평가 방법
+## 1.5. 평가 방법
 
 - 출석과 결석 (출석 부를 때 없으면 결석, 수업 시작 30 분 이내 도착하면 이후 **지각**처리)
 
 - 중간/기말 평가
+  - 출석이 매우 중요한 교과목 (40%).
+  - 단순 출석이 필요하기 보다, 수업에 적극적으로 참여하는 태도 필수 (태도 점수 20%).
   - 중요한 원리 이해 필요.
-  - 수업시간 다룬 예제들 중심으로 이해 필요.
-  - 고득점을 원한다면 변형된 예제들까지 이해하고 적용/응용 가능해야함.
-  - 평가 항목
+  - 수업시간 다룬 예제 중심으로 이해 필요.
+  - 고득점(A, A+)을 원한다면 변형된 예제들까지 이해하고 적용/응용 가능해야함.
 
 ```mermaid
 pie title 평가 방법
@@ -303,29 +304,68 @@ pie title 평가 방법
     "수강/실습/과제 태도 및 참여" : 20
 ```
 
-- 오늘의 과제
-
+- 오늘의 강의 내 & take home 과제
+  - 각 학생들마다 컴퓨터 환경 (Windows, MacOS, Linux, cloud ... 등등)이 다르므로
+    본인의 컴퓨터 환경에 맞게 환경 세팅 필요함.
   - 파이썬 설치 및 환경 설정 완성 (Python 3.12, [JuPyter](https://jupyter.org), [VS code](https://code.visualstudio.com), pip)
     * 설치 설명 참고 [링크](https://blog.naver.com/dlgusen123/223943489124)
   - [YouTube](https://youtube.com)에서 간단한 Python tutorial 영상 찾아서 보고 따라해보기.
   - 영문타자 익히기 - [여기1](https://www.typelit.io), [여기2](https://www.typing.com/student/lesson/328/common-english-words), [여기3](https://www.speedcoder.net)서 연습해보기.
   - 키보드 기호들의 위치 숙지 필요.
-  - 교내 인터넷 접속 사전에 해보기.
+  - 강의실 내 인터넷 접속 사전에 해보기. 교수가자 따로 인터넷 제공하지 않는다.
   - [Google colab](https://colab.google)에서 Notebook 만들어 실습해보기.
   - [Google colab](https://colab.google)활용한다면 아이패드나 갤럭시 탭, 심지어는 핸드폰(?)으로도 실습 가능하다. 하지만 여러 이유로 컴퓨터가 아닌 기기는 추천하지 않는다.
 
-## 2.2. 수업 01-2
+# 2. 제 2강: 기초 조작 및 실습
 
-### 2.2.1. 목표
+## 2.1 목표
+- 원활한 강의 위한 선행 조건이 만족 되었는가?
+  - Python 설치 완료?
+  - Internet 환경 세팅 완료?
+  - VS code 설치 완료?
 
-- 파이썬 설치 및 환경 설정 완성 (Python 3.12, [JuPyter](https://jupyter.org), [VS code](https://code.visualstudio.com), pip)
-- VS code에서 JuPyter 셋업 & 구동할 수 있다.
+
+## 2.2 원활한 수업을 위핸 선행 조건 확인
+
+- 원활한 강의를 위한 선행 조건:
+  - 파이썬 설치 및 환경 설정 완성 (Python 3.12, [JuPyter](https://jupyter.org), [VS code](https://code.visualstudio.com), pip)이 되어 있고, terminal에서 다음과 같이 Python 환경 실행 가능한가?
+  ```sh
+  Microsoft Windows [Version 10.0.26200.8655]
+  (c) Microsoft Corporation. All rights reserved.
+
+  C:\Users\Youngung> python
+  Python 3.13.14 (tags/v3.13.14:fd17997, Jun 10 2026, 13:03:48) [MSC v.1944 64 bit (AMD64)] on win32
+  Type "help", "copyright", "credits" or "license" for more information.
+  >>>
+  ```
+  혹은
+  ```terminal
+  Youngungs-MacBook-Pro➜  ~  ᐅ  python
+  Python 3.12.2 (main, Mar 29 2024, 06:39:27) [Clang 15.0.0 (clang-1500.3.9.4)] on darwin
+  Type "help", "copyright", "credits" or "license" for more information.
+  >>>
+  ```
+
+- VS code에서 JuPyter 셋업 & 구동되어 있는가?
    * 몇몇 유용한 extension을 설치하면 더욱 도움이 된다.
-- Hello, world
+- Hello, world 실습
+  ```python
+  print('Hello, world')
+  ```
+- Module
+  - "hollo.py" 모듈 (파일) 만들기
 - 실습 예시를 모두 이해하고 풀 수 있다.
-- 'Traceback'이해하고 대처할 수 있다: 실습간에 예상했던 대로 결과가 나오지 않고, 'Traceback' 이 포함된 메시지를 본다면 알려주세요.
+- 'Traceback'이해하고 대처할 수 있다: 실습간에 예상했던 대로 결과가 나오지 않고, 예를 들어
+ 아래와 같은 에러 메시지 직접 읽고 대처할 수 있도록 노력 필요.
+ ```txt
+  Traceback (most recent call last):
+    File "/Users/youngung/repo/lectures/1_2_data_mse/ex/01_Hello/hello.py", line 1, in <module>
+      xprint('Hello, world')
+      ^^^^^^
+  NameError: name 'xprint' is not defined. Did you mean: 'print'?
+ ```
 
-### 2.2.2. 내용
+## 2.3 간단한 조작 실습
 
 - JuPyter notebook 간단한 키조작 가능
 - 셀(cell) 만들기, 지우기, 입력, 이동(navigation)
@@ -333,8 +373,7 @@ pie title 평가 방법
   - markdown 셀
 - 주석(comment)과 명령문(statement) 구분하기
 - 변수 선언과 자료형 (`int`, `float`, `str`, `bool`) 이해하기
-- 연산자 이해하기
-
+- 연산자(operator) 이해하기
   - 산술 연산자 (더하기, 빼기, 곱하기, 나누기, 지수, 나머지, 몫 ... )
   - 비교 연산자 (==, !=, <, >, >=, <=, is, is not, in, not in)
   - 논리 연산자 (and or)
@@ -358,7 +397,7 @@ pie title 평가 방법
     print(a is c)       # True  (같은 객체)
     print(a is not b)   # True  (다른 객체)
 
-    # 3. 포함 여부
+    # 3. 한 문자(character)가 문자열에 포함되었는지 확인
     text = "Fe2O3"
     print("F" in text)      # True  ('F'가 문자열에 포함됨)
     print("O" not in text)  # True  ('O'가 문자열에 없음)
@@ -368,7 +407,9 @@ pie title 평가 방법
     print(5 not in numbers) # True  (리스트에 5가 없음)
     ```
 
-### 2.2.3. 실습 예시 1
+## 2.4 예시
+
+### 2.4.1 실습 예시 2-1
 
 - [pip](https://pypi.org/project/pip/) 활용하여 아래 패키지 설치
   - [NumPy](https://numpy.org)
@@ -379,7 +420,7 @@ pie title 평가 방법
 - (Windows) 환경변수 살펴보기
 - (Linux/macOS), zsh, bash 등 dotfile 살펴보기
 
-### 2.2.4. 실습 예시 2
+### 2.4.2 실습 예시 2-2
 
 - 인치(inch_leng) 길이를 센치미터(cmeter_leng)로 바꿔서 계산. 센치 미터를 인치로
   계산해보기.
@@ -396,7 +437,7 @@ pie title 평가 방법
 
   - 한쪽이 30 cm 다른 한변이 40 inch라면 총 면적은 어떻게 되나?
 
-### 2.2.5. 실습 예시 3
+### 2.4.3 실습 예시 2-3
 
 - 각도 degree 를 radian으로 바꾸기
 
@@ -436,7 +477,7 @@ print(f"{c:.2f}C= {f:.2f}F")
 
 - 화씨 20도에 섭씨 -5도를 더하면 화씨와 섭씨로 각각 몇도인가?
 
-### 2.2.6. 실습 예시 4
+### 2.4.4 실습 예시 2-3
 
 - 세륨의 평균 원자량 계산 (Fundamentals of Materials Science and Engineering, Calister 예제 2.1)
 
@@ -478,28 +519,26 @@ print(f"{c:.2f}C= {f:.2f}F")
 
 ---
 
-# 3. Week2
-- 자료구조, 제어, 반복
+# 3. 제 3강: 기초 자료 구조
 - 목표
-  - List, Tuple, Dictionary, set
-  - 조건문과 (conditions), 반복문 (loop) 이해
+  - List, Tuple, Dictionary, set 의 자료 구조 이해하기
 
-## 3.1. 수업 02-1
 
-### 3.1.1. List
+
+## 3.1. List
 
 - 특징:
-
   - 수정 가능(mutable): 추가, 삭제, 변경 가능
   - 중복 허용
   - 순서 있음 (ordered)
   - 여러 자료형 혼합해서 저장 가능
 
 - 리스트 생성 - 대괄호 사용 `[]`
-
+  아래 실습해보기
   ```python
   elements = ["H", "He", "Li", "Be"]
   ```
+  vs code에서 살펴보기
 
 - 요소 접근 (인덱싱; indexing); 0에서 부터 시작
 
@@ -541,7 +580,7 @@ print(f"{c:.2f}C= {f:.2f}F")
   a,b,c,d=[1,3,4,5]
   ```
 
-### 3.1.2. tuple
+## 3.2. tuple
 
 - 특징
 
@@ -565,7 +604,7 @@ print(f"{c:.2f}C= {f:.2f}F")
   print(r, g, b)     # red green blue
   ```
 
-### 3.1.3. set
+## 3.3. set
 
 - 특징
 
@@ -608,7 +647,7 @@ print(f"{c:.2f}C= {f:.2f}F")
   s.pop()            # 임의의 값 제거 후 반환 (순서 없으니 랜덤)
   ```
 
-### 3.1.4. Dictionary
+## 3.4. Dictionary
 
 - 특징
 
@@ -659,9 +698,9 @@ print(f"{c:.2f}C= {f:.2f}F")
 	| 대표 메서드     | `append`, `extend`, `remove`, `sort` | 없음 (불변이므로)          | `keys`, `values`, `items`, `update`|
  -->
 
-### 3.1.5. Misc.
+## 3.5. Misc.
 
-- `len` built-in function중 하나
+- `len` built-in function중 하나 (함수에 대한 수업은 차후에 다시 진행할 예정)
 
   ```python
   a=[3,4,5,'a','b']
@@ -677,7 +716,7 @@ print(f"{c:.2f}C= {f:.2f}F")
   a[1::2] # == a[1:6:2]
   ```
 
-### 3.1.6. 실습.
+## 3.6. Take-home 실습
 
 - 1족 원소 기호를 순서대로 포함한 리스트 만들기 (수소, 리튬, 나트륨, 칼륨, 루비듐, 세슘, 프랑슘)
 - Calister 예제 2.1
@@ -696,11 +735,12 @@ print(avg)
 
 ---
 
-## 3.2. 수업 02-2
+# 4 제 4강: 조건문과 반복문
+ - 목표:
+  조건문과 (conditions), 반복문 (loop) 이해
 
-### 3.2.1. `if`, `elif`, `else` 조건문 이해
-
-- 기본 구조 / 형식
+## 4.1.  `if`, `elif`, `else` 조건문의 기본 구조 이해
+ - 기본 구조 / 형식
 
   ```python
   if 조건식1:
@@ -754,7 +794,7 @@ print(avg)
   	print("Liquid state")
   ```
 
-### 3.2.2. `for` 반복문
+## 4.2. `for` 반복문
 
 - 기초 설명
 
@@ -823,7 +863,7 @@ print(avg)
 
   - 콜론 기호 ':' 빼먹지 말 것!
 
-### 3.2.3. Built-in function인 `range`, `len`, `enumerate`를 `for`와 함께 조합!
+## 4.3 Built-in function인 `range`, `len`, `enumerate`를 `for`와 함께 조합!
 
 - 개념
   - `len()` -> 시퀀스 (List, 문자열, 튜플 등)의 **길이(요소 개수)**를 반환
@@ -868,7 +908,7 @@ for i, fruit in enumerate(fruits):
    print(i, fruit)
 ```
 
-### 3.2.4. 실습 예시
+## 4.4 Take-home 실습 예시
 
 - 예제1: 구구단 출력하기 (x단 입력하면 ... )
 
@@ -979,15 +1019,13 @@ for i, fruit in enumerate(fruits):
 <br/><br/>
 <br/><br/>
 
-# 4. Week3
-- 함수, class, module, **import**
+# 5. 제 5강: 함수, class, module
+- 함수 (function), module & import, class
 - 목표
   - 함수와 클래스, 그리고 모듈의 이해
   - 함수를 만들어, 모듈화 시키고 CLI에서 실행할 수 있다.
 
-## 4.1. 수업 03-1 (함수와 클래스 익히기)
-
-### 4.1.1. 함수란
+## 5.1. 함수
 
 - 특정한 작업(task)를 수행하는 묶음.
 
@@ -996,7 +1034,7 @@ for i, fruit in enumerate(fruits):
   입력(arguments), 출력(return)값을 가질 수 있습니다.
   입력과 출력이 없는 함수도 있어요.
 
-- 예시1
+- 예시1: 기초 형태 (template)
 
 ```python
 
@@ -1034,7 +1072,12 @@ def f(a=3,b=5,c,d):
    return a*b*c*d
 ```
 
-### 4.1.2. Built-in functions
+## 5.2. 모듈(module)과 import
+
+- 위 함수 중 하나를 모듈로 만들고 import 해보기
+-
+
+## 5.3. Built-in functions (no import / no declaration required)
 
 - 특징
   - built-in 함수는 파이썬이 기본적으로 제공하는 함수
@@ -2480,7 +2523,7 @@ Reference: [https://rockt.ai/2018/04/30/einsum](https://rockt.ai/2018/04/30/eins
 아인슈타인 표기법은, 벡터, 행렬, 텐서가 사용된 수학 수식에서, 중복된 기호와 합기호 $\sum$가 함께 나타나는 연산을 표기할 때, 합기호를 생략하는데 착안하여 복잡한 수식을 좀 더 간략하게 표기하는 방식이다.
 아래 수식에서 한 기호가 하나의 값을 표현할 때는 굵지 않은 글씨체로 ($a$), 만약 벡터와 같이 하나의 기호가 여러 값으로 이루어져 있을 때는 굵은 글씨체 ($\boldsymbol a$)로 표기하겠다.
 
-### 6.2.1.1. 벡터 스케일링 (스칼라 곱)
+### 6.2.1. 벡터 스케일링 (스칼라 곱)
 
 주어진 벡터 $\boldsymbol a$에 스칼라 $c$를 곱하면 또 다른 벡터 $\boldsymbol b$이 된다. 이는 아래와 같이 수식으로 표현가능하다.
 
@@ -2534,7 +2577,7 @@ b=c*a ## broadcasting (?!)
 {% endtabs %}
 
 
-### 6.2.1.2. 벡터의 크기
+### 6.2.2. 벡터의 크기
 
 벡터의 크기는 앞서 이미 다루었다. 한 벡터 $\boldsymbol a$의 크기는 $|\boldsymbol a|$라 표기하고, 이는 다음과 같이 정의된다.
 
@@ -2572,7 +2615,7 @@ np.sqrt(np.einsum('i->',a**2))
 </p></aside>
 
 
-### 6.2.1.3. 단위 벡터 (unit)
+### 6.2.3. 단위 벡터 (unit)
 
 벡터 $\boldsymbol a$의 크기가 1 이라면 (즉 $|\boldsymbol a=1|$), 벡터 $\boldsymbol a$ 를 단위 벡터(unit vector)라 부른다. 즉 단위 벡터란, 크기가 1인 벡터를 뜻한다.
 주어진 한 벡터 $\boldsymbol a$의 단위 벡터를 $\bar{\boldsymbol a}$라 할 때, $\boldsymbol a$와 $\bar{\boldsymbol a}$의 관계를 다음과 같이 표현할 수 있다:
@@ -2631,9 +2674,9 @@ $$
 {% endtabs 수식 %}
 index를 활용하되 아무런 생략없이 표기된 경우(`생략없이`)와 비교했을 때, `WITH생략`의 경우 얼마나 많이 수식에 활용된 표현이 축약될 수 있는지 비교해보자. 그리고 생략 되어 표기된 경우만 주어지더라도, 생략되지 않은 경우를 의미하는 바를 잘 파악할 수 있어야 하겠다. 굵은 글씨체로 표기된 경우가 가장 많이 생략된 표기법이나, index가 사용되지 않아 수식의 명확성이 높지 않을 수 있다. 마지막에 완전히 생략된 표기법은 Einstein 표기법을 이해하기 위한 기초가 된다.
 
-### 6.2.1.4 예제들
+### 6.2.4. 6.2.1.4 예제들
 
-#### 6.2.1.4. 예시: 같은 방향 단위 벡터 구하기.
+#### 6.2.4.1. 예시: 같은 방향 단위 벡터 구하기.
 
 주어진 벡터 $\boldsymbol a$와 방향은 같으나 크기가 1인 단위 벡터를 구하는 Python 예제를 살펴보자.
 
@@ -2683,7 +2726,7 @@ print(bar_a)
 {% endtab %}
 {% endtabs %}
 
-#### 6.2.1.5. 예시: 반대방향 벡터
+#### 6.2.4.2. 예시: 반대방향 벡터
 
 한 벡터 $\boldsymbol a$와 크기가 같으나, 방향이 반대인 벡터를 $\boldsymbol b$라 한다면, 아래와 같은 결과를 얻는다.
 {% tabs 반대방향벡터 %}
@@ -2739,7 +2782,7 @@ b=-a
 {% endtab %}
 {% endtabs %}
 
-#### 6.2.1.6. 예시: 벡터의 합
+#### 6.2.4.3. 예시: 벡터의 합
 
 {% tabs 벡터합 %}
 {% tab 벡터합 굵은기호수식 %}
@@ -2796,7 +2839,7 @@ c=a+b
 {% endtab %}
 {% endtabs %}
 
-#### 6.2.1.7. 예시: 벡터의 차
+#### 6.2.4.4. 예시: 벡터의 차
 
 {% tabs 벡터차 %}
 {% tab 벡터차 굵은기호수식 %}
@@ -2853,7 +2896,7 @@ c=a-b
 {% endtab %}
 {% endtabs %}
 
-#### 6.2.1.8. 내적 (inner dot)
+#### 6.2.4.5. 내적 (inner dot)
 
 두 벡터간의 '내적'이라 일컫는 연산의 결과는 스칼라가 된다.
 
@@ -2941,7 +2984,7 @@ print(np.sum(a*b))
 {% endtab %}
 {% endtabs %}
 
-#### 6.2.1.9. (nxn)행렬과 (n)벡터 곱
+#### 6.2.4.6. (nxn)행렬과 (n)벡터 곱
 
 행과 열이 각각 n인 행렬과 (즉 nxn행렬)과 n성분으로 구성된 벡터간의 곱
 
@@ -3018,7 +3061,7 @@ print(c)
 {% endtab %}
 {% endtabs %}
 
-#### 6.2.1.10. 행렬 곱1 (single dot)
+#### 6.2.4.7. 행렬 곱1 (single dot)
 
 두 행렬 $\boldsymbol A$와 $\boldsymbol B$의 곱이 아래와 같이 정의된다고 하자.
 
@@ -3097,7 +3140,7 @@ np.einsum('ik,kj->ij',A,B)
 {% endtab %}
 {% endtabs %}
 
-#### 6.2.1.11. 행렬 곱2 (double dot)
+#### 6.2.4.8. 행렬 곱2 (double dot)
 
 $$
 c=\boldsymbol A : \boldsymbol B
@@ -3158,7 +3201,7 @@ c=np.einsum('ij,ij->',A,B)
 ```
 .
 
-#### 6.2.1.12 np.einsum 활용
+#### 6.2.4.9. 6.2.1.12 np.einsum 활용
 - 10 x 3 x 12 행렬 $\boldsymbol A$와 12 x 3 x 8 행렬 $\boldsymbol B$의 곱의 결과가 10 x 8 행렬 $\boldsymbol C$고 아래와 같이 수행된다고 하자.
 $$ C_{ij}=\sum_{k=1}^3\sum_{l=1}^{12}A_{ikl}B_{lkj}$$
 
