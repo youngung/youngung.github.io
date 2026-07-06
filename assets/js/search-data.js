@@ -352,36 +352,6 @@ ninja.data = [{
           description: "데이터 분석/해석 및 시각화(그래프) 등 기초 컴퓨터 활용 능력",
           section: "Lectures",handler: () => {
               window.location.href = "/lectures/1_2_data_mse/";
-            },},{id: "lectures-데이터-재료과학-제-1강",
-          title: '데이터 재료과학 (제 1강)',
-          description: "데이터 분석/해석 및 시각화(그래프) 등 기초 컴퓨터 활용 능력",
-          section: "Lectures",handler: () => {
-              window.location.href = "/lectures/1_2_data_mse/01_data_mse/";
-            },},{id: "lectures-데이터-재료과학-제-2강",
-          title: '데이터 재료과학 (제 2강)',
-          description: "데이터 분석/해석 및 시각화(그래프) 등 기초 컴퓨터 활용 능력",
-          section: "Lectures",handler: () => {
-              window.location.href = "/lectures/1_2_data_mse/02_data_mse/";
-            },},{id: "lectures-데이터-재료과학-제-3강",
-          title: '데이터 재료과학 (제 3강)',
-          description: "",
-          section: "Lectures",handler: () => {
-              window.location.href = "/lectures/1_2_data_mse/03_data_mse/";
-            },},{id: "lectures-데이터-재료과학-제-4강",
-          title: '데이터 재료과학 (제 4강)',
-          description: "",
-          section: "Lectures",handler: () => {
-              window.location.href = "/lectures/1_2_data_mse/04_data_mse/";
-            },},{id: "lectures-데이터-재료과학-제-5강",
-          title: '데이터 재료과학 (제 5강)',
-          description: "함수",
-          section: "Lectures",handler: () => {
-              window.location.href = "/lectures/1_2_data_mse/05_data_mse/";
-            },},{id: "lectures-데이터-재료과학-제-6강",
-          title: '데이터 재료과학 (제 6강)',
-          description: "IO",
-          section: "Lectures",handler: () => {
-              window.location.href = "/lectures/1_2_data_mse/06_data_mse/";
             },},{id: "lectures-수치해석",
           title: '수치해석',
           description: "재료공학도를 위한 수치해석",
