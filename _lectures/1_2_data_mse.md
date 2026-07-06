@@ -37,14 +37,14 @@ authors:
   - [1.4. 실습 / 코딩](#14-실습--코딩)
   - [1.5. 평가 방법](#15-평가-방법)
 - [2. 제 2강: 기초 조작 및 실습](#2-제-2강-기초-조작-및-실습)
-  - [2.1 목표](#21-목표)
-  - [2.2 원활한 수업을 위핸 선행 조건 확인](#22-원활한-수업을-위핸-선행-조건-확인)
-  - [2.3 간단한 조작 실습](#23-간단한-조작-실습)
-  - [2.4 예시](#24-예시)
-    - [2.4.1 실습 예시 2-1](#241-실습-예시-2-1)
-    - [2.4.2 실습 예시 2-2](#242-실습-예시-2-2)
-    - [2.4.3 실습 예시 2-3](#243-실습-예시-2-3)
-    - [2.4.4 실습 예시 2-3](#244-실습-예시-2-3)
+  - [2.1. 목표](#21-목표)
+  - [2.2. 원활한 수업을 위핸 선행 조건 확인](#22-원활한-수업을-위핸-선행-조건-확인)
+  - [2.3. 간단한 조작 실습](#23-간단한-조작-실습)
+  - [2.4. 예시](#24-예시)
+    - [2.4.1. 실습 예시 2-1](#241-실습-예시-2-1)
+    - [2.4.2. 실습 예시 2-2](#242-실습-예시-2-2)
+    - [2.4.3. 실습 예시 2-3](#243-실습-예시-2-3)
+    - [2.4.4. 실습 예시 2-3](#244-실습-예시-2-3)
 - [3. 제 3강: 기초 자료 구조](#3-제-3강-기초-자료-구조)
   - [3.1. List](#31-list)
   - [3.2. tuple](#32-tuple)
@@ -52,97 +52,97 @@ authors:
   - [3.4. Dictionary](#34-dictionary)
   - [3.5. Misc.](#35-misc)
   - [3.6. Take-home 실습](#36-take-home-실습)
-- [4 제 4강: 조건문과 반복문](#4-제-4강-조건문과-반복문)
+- [4. 4 제 4강: 조건문과 반복문](#4-4-제-4강-조건문과-반복문)
   - [4.1.  `if`, `elif`, `else` 조건문의 기본 구조 이해](#41--if-elif-else-조건문의-기본-구조-이해)
   - [4.2. `for` 반복문](#42-for-반복문)
-  - [4.3 Built-in function인 `range`, `len`, `enumerate`를 `for`와 함께 조합!](#43-built-in-function인-range-len-enumerate를-for와-함께-조합)
-  - [4.4 Take-home 실습 예시](#44-take-home-실습-예시)
+  - [4.3. Built-in function인 `range`, `len`, `enumerate`를 `for`와 함께 조합!](#43-built-in-function인-range-len-enumerate를-for와-함께-조합)
+  - [4.4. Take-home 실습 예시](#44-take-home-실습-예시)
 - [5. 제 5강: 함수, class, module](#5-제-5강-함수-class-module)
   - [5.1. 함수](#51-함수)
-  - [5.2. 모듈(module)과 import](#52-모듈module과-import)
-  - [5.3. Built-in functions (no import / no declaration required)](#53-built-in-functions-no-import--no-declaration-required)
-    - [4.1.3. Class](#413-class)
-    - [4.1.4. 클래스 예제](#414-클래스-예제)
-    - [4.1.5. 여러 함수 만들어 보기](#415-여러-함수-만들어-보기)
-  - [4.2. 수업 03-2 (모듈 만들기)](#42-수업-03-2-모듈-만들기)
-    - [4.2.1. 개념](#421-개념)
-    - [4.2.2. 실습](#422-실습)
-      - [4.2.2.1. ex 01: 간단한 모듈 만들기 (더하기 곱하기)](#4221-ex-01-간단한-모듈-만들기-더하기-곱하기)
-      - [4.2.2.2. ex 02: CLI에서 arguments 받기](#4222-ex-02-cli에서-arguments-받기)
-      - [4.2.2.3. 예제](#4223-예제)
-- [5. Week4](#5-week4)
-  - [5.1. 수업 04-1 기초 (file/IO)](#51-수업-04-1-기초-fileio)
-    - [5.1.1. 개념](#511-개념)
-      - [5.1.1.1. 예시](#5111-예시)
-    - [5.1.2. 문자열 포매팅](#512-문자열-포매팅)
-      - [5.1.2.1. 퍼센트 (%) 방식](#5121-퍼센트--방식)
-      - [5.1.2.2. ~~str.format()~~는 다루지 않겠다.](#5122-strformat는-다루지-않겠다)
-      - [5.1.2.3. f-string](#5123-f-string)
-      - [5.1.2.4. 파일 쓰기 연습](#5124-파일-쓰기-연습)
-      - [5.1.2.5. 파일 읽기 연습](#5125-파일-읽기-연습)
-  - [5.2. 수업 04-2 (NumPy 기초)](#52-수업-04-2-numpy-기초)
-    - [5.2.1. 기초 개념](#521-기초-개념)
-    - [5.2.2. 차원과 축: NumPy 배열을 바라보는 두가지 관점](#522-차원과-축-numpy-배열을-바라보는-두가지-관점)
-    - [5.2.3. Indexing \& slicing](#523-indexing--slicing)
-- [6. Week5](#6-week5)
-  - [6.1. 수업 05-1 (List활용한 기초 행렬 연산)](#61-수업-05-1-list활용한-기초-행렬-연산)
-    - [6.1.1. 기본 예제 (벡터의 크기, 내적)](#611-기본-예제-벡터의-크기-내적)
-    - [6.1.2. 행렬간의 dot product 이해하기](#612-행렬간의-dot-product-이해하기)
-    - [6.1.3. 두 3x3 행렬 곱? 일반화하여, nxn 행렬사이의 곱은?](#613-두-3x3-행렬-곱-일반화하여-nxn-행렬사이의-곱은)
-    - [6.1.4. 외적](#614-외적)
-    - [6.1.5. Broadcasting](#615-broadcasting)
-    - [6.1.6. Other various features](#616-other-various-features)
-  - [6.2. 수업 05-2 아인슈타인 표기법과 np.einsum 함수](#62-수업-05-2-아인슈타인-표기법과-npeinsum-함수)
-    - [6.2.1. 벡터 스케일링 (스칼라 곱)](#621-벡터-스케일링-스칼라-곱)
-    - [6.2.2. 벡터의 크기](#622-벡터의-크기)
-    - [6.2.3. 단위 벡터 (unit)](#623-단위-벡터-unit)
-    - [6.2.4. 6.2.1.4 예제들](#624-6214-예제들)
-      - [6.2.4.1. 예시: 같은 방향 단위 벡터 구하기.](#6241-예시-같은-방향-단위-벡터-구하기)
-      - [6.2.4.2. 예시: 반대방향 벡터](#6242-예시-반대방향-벡터)
-      - [6.2.4.3. 예시: 벡터의 합](#6243-예시-벡터의-합)
-      - [6.2.4.4. 예시: 벡터의 차](#6244-예시-벡터의-차)
-      - [6.2.4.5. 내적 (inner dot)](#6245-내적-inner-dot)
-      - [6.2.4.6. (nxn)행렬과 (n)벡터 곱](#6246-nxn행렬과-n벡터-곱)
-      - [6.2.4.7. 행렬 곱1 (single dot)](#6247-행렬-곱1-single-dot)
-      - [6.2.4.8. 행렬 곱2 (double dot)](#6248-행렬-곱2-double-dot)
-      - [6.2.4.9. 6.2.1.12 np.einsum 활용](#6249-62112-npeinsum-활용)
-- [7. Week6](#7-week6)
-  - [7.1. 수업 06-1 (Eigenvalue)](#71-수업-06-1-eigenvalue)
-    - [7.1.1. 개념](#711-개념)
-    - [7.1.2. 선형 변환(linear transformation; linear map)](#712-선형-변환linear-transformation-linear-map)
-      - [7.1.2.1. 선형변환 조건](#7121-선형변환-조건)
-      - [7.1.2.2. 선형변환 특성](#7122-선형변환-특성)
-    - [7.1.3. 고유값의 기하하적 의미](#713-고유값의-기하하적-의미)
-    - [7.1.4. 고유값 (Eigenvalue), 고유벡터 (Eigenvector) 구하기.](#714-고유값-eigenvalue-고유벡터-eigenvector-구하기)
-  - [7.2. 수업 06-2 (ANN, Activation)](#72-수업-06-2-ann-activation)
-- [8. Week7](#8-week7)
-  - [8.1. 수업 07-1](#81-수업-07-1)
-  - [8.2. 수업 07-2](#82-수업-07-2)
-- [9. Week8](#9-week8)
-  - [9.1. 수업 08-1](#91-수업-08-1)
-  - [9.2. Crystal symmetry](#92-crystal-symmetry)
-  - [9.3. 수업 08-2 (~~np.meshgrid~~, np.mgrid, grid, contouring)](#93-수업-08-2-npmeshgrid-npmgrid-grid-contouring)
-- [10. Week9](#10-week9)
-  - [10.1. 수업 09-1 (Force vs. displ 데이터 -\> 응력 선도)](#101-수업-09-1-force-vs-displ-데이터---응력-선도)
-  - [10.2. 수업 09-2 (노이즈가 있는 데이터로부터 최소자승법을 활용한 선형회귀)](#102-수업-09-2-노이즈가-있는-데이터로부터-최소자승법을-활용한-선형회귀)
-- [11. Week10 (Matplotlib + Hall-petch equations, Creep data)](#11-week10-matplotlib--hall-petch-equations-creep-data)
-  - [11.1. 수업 10-1 (Creep data)](#111-수업-10-1-creep-data)
-  - [11.2. 수업 10-2 (Contouring)](#112-수업-10-2-contouring)
-- [12. Week11](#12-week11)
-  - [12.1. 수업 11-1 (무게비 원자비 변환)](#121-수업-11-1-무게비-원자비-변환)
-  - [12.2. 수업 11-2](#122-수업-11-2)
-- [13. Week12](#13-week12)
-  - [13.1. 수업 12-1](#131-수업-12-1)
-  - [13.2. 수업 12-2](#132-수업-12-2)
-- [14. Week13](#14-week13)
-  - [14.1. 수업 13-1](#141-수업-13-1)
-  - [14.2. 수업 13-2](#142-수업-13-2)
-- [15. Week14](#15-week14)
-  - [15.1. 수업 14-1](#151-수업-14-1)
-  - [15.2. 수업 14-2](#152-수업-14-2)
-- [16. Week15 (기말고사)](#16-week15-기말고사)
-  - [16.1. 수업 15-1](#161-수업-15-1)
-  - [16.2. 수업 15-2](#162-수업-15-2)
+  - [5.2. Built-in functions (no import / no declaration required)](#52-built-in-functions-no-import--no-declaration-required)
+  - [5.3. 모듈(module)과 import](#53-모듈module과-import)
+    - [5.3.1. Class](#531-class)
+    - [5.3.2. 클래스 예제](#532-클래스-예제)
+    - [5.3.3. 여러 함수 만들어 보기](#533-여러-함수-만들어-보기)
+  - [5.4. 수업 03-2 (모듈 만들기)](#54-수업-03-2-모듈-만들기)
+    - [5.4.1. 개념](#541-개념)
+    - [5.4.2. 실습](#542-실습)
+      - [5.4.2.1. ex 01: 간단한 모듈 만들기 (더하기 곱하기)](#5421-ex-01-간단한-모듈-만들기-더하기-곱하기)
+      - [5.4.2.2. ex 02: CLI에서 arguments 받기](#5422-ex-02-cli에서-arguments-받기)
+      - [5.4.2.3. 예제](#5423-예제)
+- [6. Week4](#6-week4)
+  - [6.1. 수업 04-1 기초 (file/IO)](#61-수업-04-1-기초-fileio)
+    - [6.1.1. 개념](#611-개념)
+      - [6.1.1.1. 예시](#6111-예시)
+    - [6.1.2. 문자열 포매팅](#612-문자열-포매팅)
+      - [6.1.2.1. 퍼센트 (%) 방식](#6121-퍼센트--방식)
+      - [6.1.2.2. ~~str.format()~~는 다루지 않겠다.](#6122-strformat는-다루지-않겠다)
+      - [6.1.2.3. f-string](#6123-f-string)
+      - [6.1.2.4. 파일 쓰기 연습](#6124-파일-쓰기-연습)
+      - [6.1.2.5. 파일 읽기 연습](#6125-파일-읽기-연습)
+  - [6.2. 수업 04-2 (NumPy 기초)](#62-수업-04-2-numpy-기초)
+    - [6.2.1. 기초 개념](#621-기초-개념)
+    - [6.2.2. 차원과 축: NumPy 배열을 바라보는 두가지 관점](#622-차원과-축-numpy-배열을-바라보는-두가지-관점)
+    - [6.2.3. Indexing \& slicing](#623-indexing--slicing)
+- [7. Week5](#7-week5)
+  - [7.1. 수업 05-1 (List활용한 기초 행렬 연산)](#71-수업-05-1-list활용한-기초-행렬-연산)
+    - [7.1.1. 기본 예제 (벡터의 크기, 내적)](#711-기본-예제-벡터의-크기-내적)
+    - [7.1.2. 행렬간의 dot product 이해하기](#712-행렬간의-dot-product-이해하기)
+    - [7.1.3. 두 3x3 행렬 곱? 일반화하여, nxn 행렬사이의 곱은?](#713-두-3x3-행렬-곱-일반화하여-nxn-행렬사이의-곱은)
+    - [7.1.4. 외적](#714-외적)
+    - [7.1.5. Broadcasting](#715-broadcasting)
+    - [7.1.6. Other various features](#716-other-various-features)
+  - [7.2. 수업 05-2 아인슈타인 표기법과 np.einsum 함수](#72-수업-05-2-아인슈타인-표기법과-npeinsum-함수)
+    - [7.2.1. 벡터 스케일링 (스칼라 곱)](#721-벡터-스케일링-스칼라-곱)
+    - [7.2.2. 벡터의 크기](#722-벡터의-크기)
+    - [7.2.3. 단위 벡터 (unit)](#723-단위-벡터-unit)
+    - [7.2.4. 6.2.1.4 예제들](#724-6214-예제들)
+      - [7.2.4.1. 예시: 같은 방향 단위 벡터 구하기.](#7241-예시-같은-방향-단위-벡터-구하기)
+      - [7.2.4.2. 예시: 반대방향 벡터](#7242-예시-반대방향-벡터)
+      - [7.2.4.3. 예시: 벡터의 합](#7243-예시-벡터의-합)
+      - [7.2.4.4. 예시: 벡터의 차](#7244-예시-벡터의-차)
+      - [7.2.4.5. 내적 (inner dot)](#7245-내적-inner-dot)
+      - [7.2.4.6. (nxn)행렬과 (n)벡터 곱](#7246-nxn행렬과-n벡터-곱)
+      - [7.2.4.7. 행렬 곱1 (single dot)](#7247-행렬-곱1-single-dot)
+      - [7.2.4.8. 행렬 곱2 (double dot)](#7248-행렬-곱2-double-dot)
+      - [7.2.4.9. 6.2.1.12 np.einsum 활용](#7249-62112-npeinsum-활용)
+- [8. Week6](#8-week6)
+  - [8.1. 수업 06-1 (Eigenvalue)](#81-수업-06-1-eigenvalue)
+    - [8.1.1. 개념](#811-개념)
+    - [8.1.2. 선형 변환(linear transformation; linear map)](#812-선형-변환linear-transformation-linear-map)
+      - [8.1.2.1. 선형변환 조건](#8121-선형변환-조건)
+      - [8.1.2.2. 선형변환 특성](#8122-선형변환-특성)
+    - [8.1.3. 고유값의 기하하적 의미](#813-고유값의-기하하적-의미)
+    - [8.1.4. 고유값 (Eigenvalue), 고유벡터 (Eigenvector) 구하기.](#814-고유값-eigenvalue-고유벡터-eigenvector-구하기)
+  - [8.2. 수업 06-2 (ANN, Activation)](#82-수업-06-2-ann-activation)
+- [9. Week7](#9-week7)
+  - [9.1. 수업 07-1](#91-수업-07-1)
+  - [9.2. 수업 07-2](#92-수업-07-2)
+- [10. Week8](#10-week8)
+  - [10.1. 수업 08-1](#101-수업-08-1)
+  - [10.2. Crystal symmetry](#102-crystal-symmetry)
+  - [10.3. 수업 08-2 (~~np.meshgrid~~, np.mgrid, grid, contouring)](#103-수업-08-2-npmeshgrid-npmgrid-grid-contouring)
+- [11. Week9](#11-week9)
+  - [11.1. 수업 09-1 (Force vs. displ 데이터 -\> 응력 선도)](#111-수업-09-1-force-vs-displ-데이터---응력-선도)
+  - [11.2. 수업 09-2 (노이즈가 있는 데이터로부터 최소자승법을 활용한 선형회귀)](#112-수업-09-2-노이즈가-있는-데이터로부터-최소자승법을-활용한-선형회귀)
+- [12. Week10 (Matplotlib + Hall-petch equations, Creep data)](#12-week10-matplotlib--hall-petch-equations-creep-data)
+  - [12.1. 수업 10-1 (Creep data)](#121-수업-10-1-creep-data)
+  - [12.2. 수업 10-2 (Contouring)](#122-수업-10-2-contouring)
+- [13. Week11](#13-week11)
+  - [13.1. 수업 11-1 (무게비 원자비 변환)](#131-수업-11-1-무게비-원자비-변환)
+  - [13.2. 수업 11-2](#132-수업-11-2)
+- [14. Week12](#14-week12)
+  - [14.1. 수업 12-1](#141-수업-12-1)
+  - [14.2. 수업 12-2](#142-수업-12-2)
+- [15. Week13](#15-week13)
+  - [15.1. 수업 13-1](#151-수업-13-1)
+  - [15.2. 수업 13-2](#152-수업-13-2)
+- [16. Week14](#16-week14)
+  - [16.1. 수업 14-1](#161-수업-14-1)
+  - [16.2. 수업 14-2](#162-수업-14-2)
+- [17. Week15 (기말고사)](#17-week15-기말고사)
+  - [17.1. 수업 15-1](#171-수업-15-1)
+  - [17.2. 수업 15-2](#172-수업-15-2)
 
 
 # 1. 제1강: Orientation
@@ -318,14 +318,14 @@ pie title 평가 방법
 
 # 2. 제 2강: 기초 조작 및 실습
 
-## 2.1 목표
+## 2.1. 목표
 - 원활한 강의 위한 선행 조건이 만족 되었는가?
   - Python 설치 완료?
   - Internet 환경 세팅 완료?
   - VS code 설치 완료?
 
 
-## 2.2 원활한 수업을 위핸 선행 조건 확인
+## 2.2. 원활한 수업을 위핸 선행 조건 확인
 
 - 원활한 강의를 위한 선행 조건:
   - 파이썬 설치 및 환경 설정 완성 (Python 3.12, [JuPyter](https://jupyter.org), [VS code](https://code.visualstudio.com), pip)이 되어 있고, terminal에서 다음과 같이 Python 환경 실행 가능한가?
@@ -365,7 +365,7 @@ pie title 평가 방법
   NameError: name 'xprint' is not defined. Did you mean: 'print'?
  ```
 
-## 2.3 간단한 조작 실습
+## 2.3. 간단한 조작 실습
 
 - JuPyter notebook 간단한 키조작 가능
 - 셀(cell) 만들기, 지우기, 입력, 이동(navigation)
@@ -407,9 +407,9 @@ pie title 평가 방법
     print(5 not in numbers) # True  (리스트에 5가 없음)
     ```
 
-## 2.4 예시
+## 2.4. 예시
 
-### 2.4.1 실습 예시 2-1
+### 2.4.1. 실습 예시 2-1
 
 - [pip](https://pypi.org/project/pip/) 활용하여 아래 패키지 설치
   - [NumPy](https://numpy.org)
@@ -420,7 +420,7 @@ pie title 평가 방법
 - (Windows) 환경변수 살펴보기
 - (Linux/macOS), zsh, bash 등 dotfile 살펴보기
 
-### 2.4.2 실습 예시 2-2
+### 2.4.2. 실습 예시 2-2
 
 - 인치(inch_leng) 길이를 센치미터(cmeter_leng)로 바꿔서 계산. 센치 미터를 인치로
   계산해보기.
@@ -437,7 +437,7 @@ pie title 평가 방법
 
   - 한쪽이 30 cm 다른 한변이 40 inch라면 총 면적은 어떻게 되나?
 
-### 2.4.3 실습 예시 2-3
+### 2.4.3. 실습 예시 2-3
 
 - 각도 degree 를 radian으로 바꾸기
 
@@ -477,7 +477,7 @@ print(f"{c:.2f}C= {f:.2f}F")
 
 - 화씨 20도에 섭씨 -5도를 더하면 화씨와 섭씨로 각각 몇도인가?
 
-### 2.4.4 실습 예시 2-3
+### 2.4.4. 실습 예시 2-3
 
 - 세륨의 평균 원자량 계산 (Fundamentals of Materials Science and Engineering, Calister 예제 2.1)
 
@@ -735,7 +735,7 @@ print(avg)
 
 ---
 
-# 4 제 4강: 조건문과 반복문
+# 4. 4 제 4강: 조건문과 반복문
  - 목표:
   조건문과 (conditions), 반복문 (loop) 이해
 
@@ -863,7 +863,7 @@ print(avg)
 
   - 콜론 기호 ':' 빼먹지 말 것!
 
-## 4.3 Built-in function인 `range`, `len`, `enumerate`를 `for`와 함께 조합!
+## 4.3. Built-in function인 `range`, `len`, `enumerate`를 `for`와 함께 조합!
 
 - 개념
   - `len()` -> 시퀀스 (List, 문자열, 튜플 등)의 **길이(요소 개수)**를 반환
@@ -908,7 +908,7 @@ for i, fruit in enumerate(fruits):
    print(i, fruit)
 ```
 
-## 4.4 Take-home 실습 예시
+## 4.4. Take-home 실습 예시
 
 - 예제1: 구구단 출력하기 (x단 입력하면 ... )
 
@@ -1072,19 +1072,93 @@ def f(a=3,b=5,c,d):
    return a*b*c*d
 ```
 
-## 5.2. 모듈(module)과 import
-
-- 위 함수 중 하나를 모듈로 만들고 import 해보기
--
-
-## 5.3. Built-in functions (no import / no declaration required)
+## 5.2. Built-in functions (no import / no declaration required)
 
 - 특징
   - built-in 함수는 파이썬이 기본적으로 제공하는 함수
   - 별도의 **import** 없이 언제든 바로 사용 가능; 예 (print, help, ...)
   - 약 70여 개의 built-in 함수: A full list of built-in functions: [here](https://docs.python.org/3/library/functions.html)
 
-### 4.1.3. Class
+- 입력(input)과 출력(output) I/O
+  - ```print``` 함수
+  - ```input``` 함수
+
+- 출력 예시
+  ```python
+  # 1. 단순 문자열 출력
+  print("안녕하세요, 파이썬!")
+
+  # 2. 숫자 출력 및 연산 결과 출력
+  print(2026)
+  print(10 + 20)
+
+  # 3. 여러 값 동시에 출력 (쉼표로 구분하면 한 칸씩 띄어서 출력돼요)
+  print("올해는", 2026, "년입니다.")
+  ```
+
+- 입력 예시
+  ```python
+  # 1. 입력 받기
+  age_str = input("당신의 현재 나이를 입력하세요: ")
+
+  # 2. 형변환 (문자열로 들어온 나이를 계산할 수 있게 정수(int)로 바꿔줘요)
+  age = int(age_str)
+
+  # 3. 계산하기
+  next_year_age = age + 1
+
+  # 4. 결과 출력하기
+  print("내년에 당신은", next_year_age, "살이 됩니다!")
+  ```
+
+## 5.3. 모듈(module)과 import
+
+- 위 함수 중 하나를 모듈로 만들고 import 해보기
+
+- 한 재료의 부피와 질량을 측정해 밀도를 계산하려고 한다. 각 측정값에 오차가 있어, 측정을
+ 여러번 되풀이 한 다음 평균 값을 계산해 밀도를 구하려고 한다. 아래의 예시를 직접 작성해보고
+ 이를 활용해보자.
+
+  - 'calc_dens.py` 모듈 작성
+  ```python
+  # 이 코드를 파일명 `calc_dens.py`로 작성하여 저장하자.
+  def calc_dens(mass, volume):
+    """
+    질량은 g 단위로, 부피는 mm^3으로
+    """
+    density = mass / volume
+    return density
+  ```
+
+  - 'main.py' 모듈 작성
+  ``` python
+  # 이 코드를 `main.py`로 작성하여 저장하자.
+
+  ## 밀도 계산 프로그램
+
+  ## Raw data
+  mass=[6.01, 6.05, 5.93, 6.03]
+  vol=[3.11, 3.20, 3.09, 3.15]
+
+  import calc_dens ## calc_dens.py 모듈을 import
+
+  dens=[] ## list 자료 생성
+  for i in range(len(mass)):
+    val=calc_dens(mass=mass[i],volume=vol[i]) ## calc_dens.py 모듈 내의 함수
+    dens.append(val) ## list 자료에 값 저장
+
+  average=0.
+  for i in range(len(dens)):
+    average=average+dens[i]
+  average=average/len(dens)
+  ```
+
+
+
+
+
+
+### 5.3.1. Class
 
 - 개념
 
@@ -1127,7 +1201,7 @@ def f(a=3,b=5,c,d):
   - name : 속성 이름 (문자열로 지정)
   - default (선택적) : 해당 속성이 없을 경우 반환할 기본값 (없으면 AttributeError 발생)
 
-### 4.1.4. 클래스 예제
+### 5.3.2. 클래스 예제
 
 - 합금(Alloy) 클래스 만들기
 
@@ -1205,7 +1279,7 @@ for alloy in alloys:
   print(mylist[2])       # 3
   ```
 
-### 4.1.5. 여러 함수 만들어 보기
+### 5.3.3. 여러 함수 만들어 보기
 
 - Hooke's law
 
@@ -1322,9 +1396,9 @@ return a*b
   introduce(name="Alice", age=25, country="Korea")
   ```
 
-## 4.2. 수업 03-2 (모듈 만들기)
+## 5.4. 수업 03-2 (모듈 만들기)
 
-### 4.2.1. 개념
+### 5.4.1. 개념
 
 - CLI (command-line interface)
 - 모듈화 (modularization)
@@ -1334,9 +1408,9 @@ return a*b
   - 패키지는 여러 모듈의 모임이다.
   - 라이브러리(library)는 모듈과 패키지의 모임.
 
-### 4.2.2. 실습
+### 5.4.2. 실습
 
-#### 4.2.2.1. ex 01: 간단한 모듈 만들기 (더하기 곱하기)
+#### 5.4.2.1. ex 01: 간단한 모듈 만들기 (더하기 곱하기)
 
 1. 모듈 작성
 
@@ -1367,7 +1441,7 @@ mymodule.power(3,4)
 - 개개인이 활용하는 시스템:computer:의 환경변수 (windows의 경우)에 의해 행동이 달라질 수 있다.
 - Linux/macOS의 경우에는 활용하는 shell의 닷 파일 (.sh, .bash, .zsh 등등)에서 지정된 $PATH 등의 변수에 의해 달라질 수 있다.
 
-#### 4.2.2.2. ex 02: CLI에서 arguments 받기
+#### 5.4.2.2. ex 02: CLI에서 arguments 받기
 
 - 1. 기초 모듈 작성
 
@@ -1526,7 +1600,7 @@ mymodule.power(3,4)
     x times y: 7
     ```
 
-#### 4.2.2.3. 예제
+#### 5.4.2.3. 예제
 
 - 주어진 정수에 대한 구구단을 출력하는 CLI용 프로그램 만들어 보자.
 
@@ -1540,7 +1614,7 @@ mymodule.power(3,4)
 
 ---
 
-# 5. Week4
+# 6. Week4
 - file IO / NumPy 01 - 기초 배열(array) 이해
 - 목표
   - 파일을 활용해 데이터 input/output의 활용 가능하다.
@@ -1549,9 +1623,9 @@ mymodule.power(3,4)
 <br/><br/>
 <br/><br/>
 
-## 5.1. 수업 04-1 기초 (file/IO)
+## 6.1. 수업 04-1 기초 (file/IO)
 
-### 5.1.1. 개념
+### 6.1.1. 개념
 
 Python에서 파일을 통한 I/O는 `open()` 함수 활용한다 (자세한 설명은 [여기](https://docs.python.org/3/library/functions.html#open)를 참고바람). ```open```함수를 통해 파일 오브젝트를 생성하고, 이를 통해 파일로 data를 입력하거나, 파일로부터 data를 불러올 수 있다. open의 경우 파일을 여는 여러가지 모드가 있다. ```open```함수에 arguments로 filename을 입력하고, 모드를 지정한다.
 {% tabs 파일모드 %}
@@ -1570,7 +1644,7 @@ myFile = open(file='filenamehere', mode='binary')
 {% endtabs %}
 
 
-#### 5.1.1.1. 예시
+#### 6.1.1.1. 예시
 
 - 예시1. (텍스트 파일 **쓰기**)
 
@@ -1665,8 +1739,8 @@ myFile = open(file='filenamehere', mode='binary')
   # `str`의 split을 찾거나, 혹은 index를 활용해 바꿀 수도 있겠다.
   ```
 
-### 5.1.2. 문자열 포매팅
-#### 5.1.2.1. 퍼센트 (%) 방식
+### 6.1.2. 문자열 포매팅
+#### 6.1.2.1. 퍼센트 (%) 방식
 
 문자열에 ```%s```, ```%d```, ```%i```, ```%f```기호를 삽입하여 문자나 값을 대체하여 넣을 수 있다. 아래 예문을 보면, ```name```과 ```density```를 ```print```가 되는 문자열 속에 특정 위치에 삽입 후 출력하는 것을 확인할 수 있다.
 
@@ -1698,9 +1772,9 @@ print('9 / 6 = %.1f'%(9/6))
 print('9 / 6 = %.5f'%(9/6))
 ```
 
-#### 5.1.2.2. ~~str.format()~~는 다루지 않겠다.
+#### 6.1.2.2. ~~str.format()~~는 다루지 않겠다.
 
-#### 5.1.2.3. f-string
+#### 6.1.2.3. f-string
 %를 활용한 방법만큼 널리 쓰이는 포매팅 기법은 f-string 기법이다. 아래와 같이, 문자열이 시작되는 따옴표에 앞서 ```f```로 f-string형식을 활용함을 밝히고, 문자열내에 ```{``` 및 ```}```쌍 내부에 변수의 이름을 직접 적는 방식이다. %기법은 대체되는 변수가 문자열 바깥에 기입되는 반면, f-string은 문자열 내부에 기입되어 있어 코드를 읽기가 더욱 수월하다는 장점이 있다.
 
 ```python
@@ -1712,7 +1786,7 @@ print(f'9/6 = {val:.5f}')
 ```
 
 
-#### 5.1.2.4. 파일 쓰기 연습
+#### 6.1.2.4. 파일 쓰기 연습
 1에서부터 100까지 모든 정수가 한줄에 하나씩 쓰여진 파일을 만들어보자. 반복되는 작업이 예상되므로 ```for```구문이 필요하겠다. 아래와 같은 코드를 `화면`에 출력하게 되겠다.
 ```python
 for i in range(1,101):
@@ -1746,7 +1820,7 @@ with open('one2hund.txt','w') as myFile # file 열기
 ```
 with와 indented된 구역으로 나누어 구성되어, 더욱 세련되게 코드 작성을 도와주고 읽기 쉽게 만들어준다.
 
-#### 5.1.2.5. 파일 읽기 연습
+#### 6.1.2.5. 파일 읽기 연습
 위 쓰기에 이어서, 생성된 파일을 읽어보자.
 ```python
 myfile= open('one2hund.txt','w') # file 열기
@@ -1762,9 +1836,9 @@ print(cnt)
 
 <br/><br/><br/><br/>
 
-## 5.2. 수업 04-2 (NumPy 기초)
+## 6.2. 수업 04-2 (NumPy 기초)
 
-### 5.2.1. 기초 개념
+### 6.2.1. 기초 개념
 - [NumPy](https://numpy.org)는 파이썬 환경에서, 고성능 수치 계산을 위한 library이다. 사실 빠른 연산을 위해 최적화된 [C](https://www.c-language.org)나 [FORTRAN](https://fortran-lang.org) library를 활용한다.
 - 공식 사이트에서 더욱 상세히 배울 수 있다: [링크](https://numpy.org/devdocs/user/quickstart.html).
 
@@ -1895,7 +1969,7 @@ $$1.85 \mu s = 1.85 \times 10^{-6} s$$
 $$539 ns = 538\times 10^{-9} s = 0.538 10^{-6} s$$
 결과가 나왔다. 후자는 전자에 비해 약 1/3 정도의 시간만 필요하였다.
 
-### 5.2.2. 차원과 축: NumPy 배열을 바라보는 두가지 관점
+### 6.2.2. 차원과 축: NumPy 배열을 바라보는 두가지 관점
 NumPy배열의 '차원'(dimension, 혹은 rank)는 배열이 몇 겹으로 중첩되어 있는지를 의미한다. 쉽게 말해, 데이터가 몇 단계의 리스트로 레이어로 감싸져 있는지에 따라 차원이 달라진다. 아래를 살펴보자.
 
 ```python
@@ -1974,7 +2048,7 @@ print(b[:,1])
 print(b[:,2])
 ```
 
-### 5.2.3. Indexing & slicing
+### 6.2.3. Indexing & slicing
 List 타입의 자료에서도 indexing과 slicing이 사용된다. [시작,끝,스텝]형태의 인덱싱이 NumPy 배열에도 동일하게 적용된다.
 ```python
 mylist=List((3,3,4,3,3,4,5,6))
@@ -2093,16 +2167,16 @@ np.savetxt("save_matrix.csv", matrix, delimiter=",", fmt="%d")
 <br/><br/>
 
 
-# 6. Week5
+# 7. Week5
 - NumPy 02 - 배열 연산(산술, 내적, 외적), 브로드캐스팅, 그 외 기타 함수
 - 목표
   - 다양한 벡터/행렬 연산을 NumPy 라이브러리 활용해 수행할 수 있다.
   - 브로드캐스팅을 이해한다.
   - Determinant, Eigenvalue 등을 계산할 수 있다.
 
-## 6.1. 수업 05-1 (List활용한 기초 행렬 연산)
+## 7.1. 수업 05-1 (List활용한 기초 행렬 연산)
 
-### 6.1.1. 기본 예제 (벡터의 크기, 내적)
+### 7.1.1. 기본 예제 (벡터의 크기, 내적)
 
 3차원 벡터는, 가령 아래와 같이 세 성분으로 이루어져 있으며,
 
@@ -2236,7 +2310,7 @@ print('ang in radian:', angle)
 print('ang in degree:', angle*180/3.141592)
 ```
 
-### 6.1.2. 행렬간의 dot product 이해하기
+### 7.1.2. 행렬간의 dot product 이해하기
 
 [두 행렬의 곱](https://ko.wikipedia.org/wiki/행렬_곱셈)을 이해해보자. 행과 열이 각각 (l,m)인 행렬
 
@@ -2384,7 +2458,7 @@ print('6:',A @ B)          # 행렬 곱
 print('7:',np.dot(A, B))   # 동일
 ```
 
-### 6.1.3. 두 3x3 행렬 곱? 일반화하여, nxn 행렬사이의 곱은?
+### 7.1.3. 두 3x3 행렬 곱? 일반화하여, nxn 행렬사이의 곱은?
 
 행렬 $$\boldsymbol A$$ 와 $$\boldsymbol B$$ 의 곱 결과가 또 다른 3x3행렬 $$\boldsymbol C$$ 이라면
 
@@ -2427,7 +2501,7 @@ $$
 # 세 nxn 행렬 사이의 곱을 구하는 python 함수를 작성해 보세요.
 ```
 
-### 6.1.4. 외적
+### 7.1.4. 외적
 
 - 설명
 
@@ -2455,7 +2529,7 @@ $$
 
 - 예시 ~~tetrahedral site & octaheral site 크기 구하기~~
 
-### 6.1.5. [Broadcasting](https://numpy.org/devdocs/user/basics.broadcasting.html#basics-broadcasting)
+### 7.1.5. [Broadcasting](https://numpy.org/devdocs/user/basics.broadcasting.html#basics-broadcasting)
 
 - 브로드캐스팅은 서로 다른 shape의 배열끼리 연산할 때 NumPy가 자동으로 차원을 맞춰주는 기능
 
@@ -2483,7 +2557,7 @@ $$
   뒤에서부터 비교하며 차원이 같거나 1이면 확장 가능
   하나라도 불가능하면 에러 발생
 
-### 6.1.6. Other various features
+### 7.1.6. Other various features
 
 ```python
 arr = np.array([1, 4, 9, 16])
@@ -2516,14 +2590,14 @@ inds=np.argsort(scores)
 print(names[inds]) ## score에 따라 정렬된 배열
 ```
 
-## 6.2. 수업 05-2 [아인슈타인 표기법](https://ko.wikipedia.org/wiki/아인슈타인_표기법)과 [np.einsum](https://numpy.org/doc/stable/reference/generated/numpy.einsum.html) 함수
+## 7.2. 수업 05-2 [아인슈타인 표기법](https://ko.wikipedia.org/wiki/아인슈타인_표기법)과 [np.einsum](https://numpy.org/doc/stable/reference/generated/numpy.einsum.html) 함수
 
 Reference: [https://rockt.ai/2018/04/30/einsum](https://rockt.ai/2018/04/30/einsum)
 
 아인슈타인 표기법은, 벡터, 행렬, 텐서가 사용된 수학 수식에서, 중복된 기호와 합기호 $\sum$가 함께 나타나는 연산을 표기할 때, 합기호를 생략하는데 착안하여 복잡한 수식을 좀 더 간략하게 표기하는 방식이다.
 아래 수식에서 한 기호가 하나의 값을 표현할 때는 굵지 않은 글씨체로 ($a$), 만약 벡터와 같이 하나의 기호가 여러 값으로 이루어져 있을 때는 굵은 글씨체 ($\boldsymbol a$)로 표기하겠다.
 
-### 6.2.1. 벡터 스케일링 (스칼라 곱)
+### 7.2.1. 벡터 스케일링 (스칼라 곱)
 
 주어진 벡터 $\boldsymbol a$에 스칼라 $c$를 곱하면 또 다른 벡터 $\boldsymbol b$이 된다. 이는 아래와 같이 수식으로 표현가능하다.
 
@@ -2577,7 +2651,7 @@ b=c*a ## broadcasting (?!)
 {% endtabs %}
 
 
-### 6.2.2. 벡터의 크기
+### 7.2.2. 벡터의 크기
 
 벡터의 크기는 앞서 이미 다루었다. 한 벡터 $\boldsymbol a$의 크기는 $|\boldsymbol a|$라 표기하고, 이는 다음과 같이 정의된다.
 
@@ -2615,7 +2689,7 @@ np.sqrt(np.einsum('i->',a**2))
 </p></aside>
 
 
-### 6.2.3. 단위 벡터 (unit)
+### 7.2.3. 단위 벡터 (unit)
 
 벡터 $\boldsymbol a$의 크기가 1 이라면 (즉 $|\boldsymbol a=1|$), 벡터 $\boldsymbol a$ 를 단위 벡터(unit vector)라 부른다. 즉 단위 벡터란, 크기가 1인 벡터를 뜻한다.
 주어진 한 벡터 $\boldsymbol a$의 단위 벡터를 $\bar{\boldsymbol a}$라 할 때, $\boldsymbol a$와 $\bar{\boldsymbol a}$의 관계를 다음과 같이 표현할 수 있다:
@@ -2674,9 +2748,9 @@ $$
 {% endtabs 수식 %}
 index를 활용하되 아무런 생략없이 표기된 경우(`생략없이`)와 비교했을 때, `WITH생략`의 경우 얼마나 많이 수식에 활용된 표현이 축약될 수 있는지 비교해보자. 그리고 생략 되어 표기된 경우만 주어지더라도, 생략되지 않은 경우를 의미하는 바를 잘 파악할 수 있어야 하겠다. 굵은 글씨체로 표기된 경우가 가장 많이 생략된 표기법이나, index가 사용되지 않아 수식의 명확성이 높지 않을 수 있다. 마지막에 완전히 생략된 표기법은 Einstein 표기법을 이해하기 위한 기초가 된다.
 
-### 6.2.4. 6.2.1.4 예제들
+### 7.2.4. 6.2.1.4 예제들
 
-#### 6.2.4.1. 예시: 같은 방향 단위 벡터 구하기.
+#### 7.2.4.1. 예시: 같은 방향 단위 벡터 구하기.
 
 주어진 벡터 $\boldsymbol a$와 방향은 같으나 크기가 1인 단위 벡터를 구하는 Python 예제를 살펴보자.
 
@@ -2726,7 +2800,7 @@ print(bar_a)
 {% endtab %}
 {% endtabs %}
 
-#### 6.2.4.2. 예시: 반대방향 벡터
+#### 7.2.4.2. 예시: 반대방향 벡터
 
 한 벡터 $\boldsymbol a$와 크기가 같으나, 방향이 반대인 벡터를 $\boldsymbol b$라 한다면, 아래와 같은 결과를 얻는다.
 {% tabs 반대방향벡터 %}
@@ -2782,7 +2856,7 @@ b=-a
 {% endtab %}
 {% endtabs %}
 
-#### 6.2.4.3. 예시: 벡터의 합
+#### 7.2.4.3. 예시: 벡터의 합
 
 {% tabs 벡터합 %}
 {% tab 벡터합 굵은기호수식 %}
@@ -2839,7 +2913,7 @@ c=a+b
 {% endtab %}
 {% endtabs %}
 
-#### 6.2.4.4. 예시: 벡터의 차
+#### 7.2.4.4. 예시: 벡터의 차
 
 {% tabs 벡터차 %}
 {% tab 벡터차 굵은기호수식 %}
@@ -2896,7 +2970,7 @@ c=a-b
 {% endtab %}
 {% endtabs %}
 
-#### 6.2.4.5. 내적 (inner dot)
+#### 7.2.4.5. 내적 (inner dot)
 
 두 벡터간의 '내적'이라 일컫는 연산의 결과는 스칼라가 된다.
 
@@ -2984,7 +3058,7 @@ print(np.sum(a*b))
 {% endtab %}
 {% endtabs %}
 
-#### 6.2.4.6. (nxn)행렬과 (n)벡터 곱
+#### 7.2.4.6. (nxn)행렬과 (n)벡터 곱
 
 행과 열이 각각 n인 행렬과 (즉 nxn행렬)과 n성분으로 구성된 벡터간의 곱
 
@@ -3061,7 +3135,7 @@ print(c)
 {% endtab %}
 {% endtabs %}
 
-#### 6.2.4.7. 행렬 곱1 (single dot)
+#### 7.2.4.7. 행렬 곱1 (single dot)
 
 두 행렬 $\boldsymbol A$와 $\boldsymbol B$의 곱이 아래와 같이 정의된다고 하자.
 
@@ -3140,7 +3214,7 @@ np.einsum('ik,kj->ij',A,B)
 {% endtab %}
 {% endtabs %}
 
-#### 6.2.4.8. 행렬 곱2 (double dot)
+#### 7.2.4.8. 행렬 곱2 (double dot)
 
 $$
 c=\boldsymbol A : \boldsymbol B
@@ -3201,7 +3275,7 @@ c=np.einsum('ij,ij->',A,B)
 ```
 .
 
-#### 6.2.4.9. 6.2.1.12 np.einsum 활용
+#### 7.2.4.9. 6.2.1.12 np.einsum 활용
 - 10 x 3 x 12 행렬 $\boldsymbol A$와 12 x 3 x 8 행렬 $\boldsymbol B$의 곱의 결과가 10 x 8 행렬 $\boldsymbol C$고 아래와 같이 수행된다고 하자.
 $$ C_{ij}=\sum_{k=1}^3\sum_{l=1}^{12}A_{ikl}B_{lkj}$$
 
@@ -3236,12 +3310,12 @@ C=np.einsum('ikl,lkj->ij',A,B)
 
 ---
 
-# 7. Week6
+# 8. Week6
 - NumPy 03, Eigenvalue, ANN
 
-## 7.1. 수업 06-1 (Eigenvalue)
+## 8.1. 수업 06-1 (Eigenvalue)
 
-### 7.1.1. 개념
+### 8.1.1. 개념
 
 - 고유값(eigen value): 행렬(특히 선형변환)을 적용했을 때, 크기만 변하고 방향은 변하지 않는 벡터의 크기 변화 비율.
 
@@ -3258,9 +3332,9 @@ C=np.einsum('ikl,lkj->ij',A,B)
   $$\lambda_1\boldsymbol{v},\lambda_2\boldsymbol{v},\lambda_3\boldsymbol{v}$$
   를 고유 벡터라 한다.
 
-### 7.1.2. 선형 변환(linear transformation; linear map)
+### 8.1.2. 선형 변환(linear transformation; linear map)
 
-#### 7.1.2.1. 선형변환 조건
+#### 8.1.2.1. 선형변환 조건
 
 - 행렬과 벡터의 곱을, 벡터 맵핑으로 해석할 수 있다.
 
@@ -3290,12 +3364,12 @@ C=np.einsum('ikl,lkj->ij',A,B)
 
 \*\* [Wikipedia 발췌 이미지](https://en.wikipedia.org/wiki/Linear_map)
 
-#### 7.1.2.2. 선형변환 특성
+#### 8.1.2.2. 선형변환 특성
 
 - 선형변환의 특성을 잘 반영하는 방향을 찾을 수 있다.
 - 아래의 행렬은 선형변환을 하며, 그 특성을 대표하는 두 방향을 빨간색으로 나타내었다.
 
-### 7.1.3. 고유값의 기하하적 의미
+### 8.1.3. 고유값의 기하하적 의미
 
 고유값의 기하학적 의미를 파악해보자. 다음과 같은 행렬의 경우를 살펴보자. 다음의 여러 행렬들에 의한 벡터(점)의 변환을 살펴보자. 그리고 빨간 선과 (표기되어 있다면) 파란 선 위의 점들이 다른 점들과 어떠한 차이가 있는지 눈여겨 살펴보자.
 
@@ -3313,7 +3387,7 @@ $$\lambda_2=0.71-0.71i$$
 
 ![eigen3](/assets/dat_files/lectures/1_2_data_mse/eigen_4.gif)
 
-### 7.1.4. 고유값 (Eigenvalue), 고유벡터 (Eigenvector) 구하기.
+### 8.1.4. 고유값 (Eigenvalue), 고유벡터 (Eigenvector) 구하기.
 
 - 2차원 예시01
 
@@ -3606,7 +3680,7 @@ $$
 -->
 
 ------------------------------
-## 7.2. 수업 06-2 (ANN, Activation)
+## 8.2. 수업 06-2 (ANN, Activation)
 
 - 인공 신경망 (Artificial Neural Network)
 
@@ -3733,17 +3807,17 @@ $$
     \phi(x_i)=\frac{x+|x|}{2}
     $$
 
-# 8. Week7
+# 9. Week7
 - 중간고사
 
-## 8.1. 수업 07-1
+## 9.1. 수업 07-1
 
 - 목표
   - 복습, 출제 방향 설명
 
-## 8.2. 수업 07-2
+## 9.2. 수업 07-2
 
-# 9. Week8
+# 10. Week8
 - Matplotlib 01
 
 - 목표
@@ -3754,7 +3828,7 @@ $$
   - 3차원 그래프를 그릴 수 있다.
   - 파일로부터 데이터를 불러오고, 이를 graph로 바꿀 수 있다.
 
-## 9.1. 수업 08-1
+## 10.1. 수업 08-1
 
 [Matplotlib](https://matplotlib.org): Python 환경에서 데이터를 시각화하는데 가장 널리 쓰이는 라이브러리 중에 하나이다. MATLAB과 유사한 환경을 제공해주는 pyplot 모듈을 활용한 인터페이스가 널리쓰인다. 아래 예시들을 함께 살펴보자.
 ```python
@@ -4039,18 +4113,18 @@ ax1.set_ylim(-d,d)
 ax1.set_zlim(-d,d)
 ```
 
-## 9.2. Crystal symmetry
+## 10.2. Crystal symmetry
 
-## 9.3. 수업 08-2 (~~np.meshgrid~~, np.mgrid, grid, contouring)
+## 10.3. 수업 08-2 (~~np.meshgrid~~, np.mgrid, grid, contouring)
 
-# 10. Week9
+# 11. Week9
 - Force vs. Disp curve 분석, 최소 자승법
 - 목표
   - force vs. displacement 파일로 불러올 수 있다.
   - 응력 변형률로 데이터를 분석하고 이를 진응력 진변형률로 바꿀 수 있다.
   - 최소 자승법을 이해하고 활용할 수 있다.
 
-## 10.1. 수업 09-1 (Force vs. displ 데이터 -> 응력 선도)
+## 11.1. 수업 09-1 (Force vs. displ 데이터 -> 응력 선도)
 
 - 실습을 위해 필요한 다음 [calibration1](/assets/dat_files/lectures/1_2_data_mse/calibration1.txt),
   [calibration2](/assets/dat_files/lectures/1_2_data_mse/calibration2.txt)
@@ -4182,7 +4256,7 @@ $$
   #    plt.plot(dmaster[:,1],dmaster[:,2])
   ```
 
-## 10.2. 수업 09-2 (노이즈가 있는 데이터로부터 최소자승법을 활용한 선형회귀)
+## 11.2. 수업 09-2 (노이즈가 있는 데이터로부터 최소자승법을 활용한 선형회귀)
 
 - 목표
 
@@ -4408,9 +4482,9 @@ $$
       a_lsq,b_lsq=np.linalg.inv(matrix)@c ## m^{-1} . c
       ```
 
-# 11. Week10 (Matplotlib + Hall-petch equations, Creep data)
+# 12. Week10 (Matplotlib + Hall-petch equations, Creep data)
 
-## 11.1. 수업 10-1 (Creep data)
+## 12.1. 수업 10-1 (Creep data)
 
 - SN curve 데이터 파일 [SN_curve.txt](/assets/dat_files/lectures/1_2_data_mse/SN_curve.txt)을 다운받아서
   아래 예측 모형에 걸맞는 값들을 구해보자.
@@ -4490,7 +4564,7 @@ $$
   $$
   값을 구해보자.
 
-## 11.2. 수업 10-2 (Contouring)
+## 12.2. 수업 10-2 (Contouring)
 
 - 등고선 (contour) plot
 - 예시
@@ -4606,10 +4680,10 @@ $$
 
 - 인장 응력 방향을 polar coordinate로 표현해서 살펴봅시다.
 
-# 12. Week11
+# 13. Week11
 - 무게비 원자비
 
-## 12.1. 수업 11-1 (무게비 원자비 변환)
+## 13.1. 수업 11-1 (무게비 원자비 변환)
 
 - 무게비 (weight fraction)
 
@@ -4745,15 +4819,15 @@ $$
 
   ```
 
-## 12.2. 수업 11-2
+## 13.2. 수업 11-2
 
-# 13. Week12
+# 14. Week12
 - Matplotlib imaging, color-coding, EBSD 데이터 분석
 
 - 목표
   - SEM 데이터를 소개하고, Ferrite와 Martensite로 분류
 
-## 13.1. 수업 12-1
+## 14.1. 수업 12-1
 
 - 색표현을 설명
 
@@ -4874,21 +4948,21 @@ $$
   [imag2](/assets/dat_files/lectures/1_2_data_mse/edgecenter.png)
   [imag3](/assets/dat_files/lectures/1_2_data_mse/edgeedge.png)
 
-## 13.2. 수업 12-2
+## 14.2. 수업 12-2
 
 - 수업 12-1 내용을 Argparse를 활용해 CLI 프로그램으로 작성해보자.
 - EBSD data 분석
 
-# 14. Week13
+# 15. Week13
 - 내삽과 외삽, 선형회귀
 
-## 14.1. 수업 13-1
+## 15.1. 수업 13-1
 
-## 14.2. 수업 13-2
+## 15.2. 수업 13-2
 
-# 15. Week14
+# 16. Week14
 
-## 15.1. 수업 14-1
+## 16.1. 수업 14-1
 
 - 실습 예시
   - 금속 합금 조성 (Cu %) vs 전기 전도도
@@ -4910,10 +4984,10 @@ plt.legend()
 plt.show()
 ```
 
-## 15.2. 수업 14-2
+## 16.2. 수업 14-2
 
-# 16. Week15 (기말고사)
+# 17. Week15 (기말고사)
 
-## 16.1. 수업 15-1
+## 17.1. 수업 15-1
 
-## 16.2. 수업 15-2
+## 17.2. 수업 15-2
