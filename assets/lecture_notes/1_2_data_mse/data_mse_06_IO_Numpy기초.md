@@ -30,18 +30,23 @@ authors:
      name: Changwon National University
 ---
 
-# 6. 목표
+# 목표
 
 - INPUT/OUTPUT 개념 이해
 - 파일을 활용해 데이터 input/output의 활용
 - NumPy 기초를 이해 및 활용
 
 
-## 6.1. 수업 04-1 기초 (file/IO)
+# 개념
 
-### 6.1.1. 개념
+Python에서 파일을 통한 I/O는 `open()` 함수 활용한다 - 자세한 설명은
+[여기](https://docs.python.org/3/library/functions.html#open)를 참고바람.
 
-Python에서 파일을 통한 I/O는 `open()` 함수 활용한다 (자세한 설명은 [여기](https://docs.python.org/3/library/functions.html#open)를 참고바람). ```open```함수를 통해 파일 오브젝트를 생성하고, 이를 통해 파일로 data를 입력하거나, 파일로부터 data를 불러올 수 있다. open의 경우 파일을 여는 여러가지 모드가 있다. ```open```함수에 arguments로 filename을 입력하고, 모드를 지정한다.
+```open```함수를 통해 파일 오브젝트를 생성하고, 이를 통해 파일로 data를 입력하거나,
+파일로부터 data를 불러올 수 있다. open의 경우 파일을 여는 여러가지 모드가 있다.
+
+```open```함수에 arguments로 filename을 입력하고, 모드를 지정한다.
+
 {% tabs 파일모드 %}
 {% tab 파일모드 read %}
 myFile = open(file='filenamehere', mode='r')
@@ -58,9 +63,36 @@ myFile = open(file='filenamehere', mode='binary')
 {% endtabs %}
 
 
-#### 6.1.1.1. 예시
+# 예시
 
-- 예시1. (텍스트 파일 **쓰기**)
+- 예시 0. (화면에 출력, 기보드로 입력)
+
+  ```python
+  # 키보드를 통한 입력
+  my_value1=input("하나의 값을 입력하시오")
+  my_value2=input("하나의 값을 입력하시오")
+
+  print(my_value1+my_value2)
+  # 화면에 출력
+  ```
+
+- 예시 1. 입력된 값을 모두 더하기
+  ```python
+  val=0.
+  while True:
+    inp = input("?")
+    if len(inp)==0: break
+    else:
+      val=val+float(inp)
+
+  print("총 합은", val, "입니다.")
+  ```
+
+- 예시 2. 위 예시 1을 바꿔서, 입력된 총 값의 평균을 구하는 Script를 작성해보자.
+
+- 예시 3. (텍스트 파일 **쓰기**)
+
+  이번 예시를 통해 `example.txt`라는 파일을 만들고 글을 적는다.
 
   ```python
   # 파일 쓰기
@@ -69,7 +101,7 @@ myFile = open(file='filenamehere', mode='binary')
       f.write("This is an example text file!\n")
   ```
 
-- 예시2. (텍스트 파일 **읽기**)
+- 예시 4. (텍스트 파일 **읽기**)
 
   ```python
   # 파일 읽기
@@ -79,8 +111,8 @@ myFile = open(file='filenamehere', mode='binary')
       print(line.strip())  # strip() → 줄바꿈 제거
   ```
 
-- 예시3. (성적 처리)
-  다음 [파일](/assets/dat_files/lectures/1_2_data_mse/score_record_2017_MF_final_analysis.txt)
+- 예시 5. (성적 처리)
+  다음 [파일](/assets/dat_files/lectures/1_2_data_mse/score_records/score_record_2017_MF_final_analysis.txt)
   을 읽고 평균, 표준 편차, 그리고 최고점과 최저점을 받은 학생 번호를 찾는
   파이썬 프로그램을 만들어 보자.
 
@@ -121,11 +153,13 @@ myFile = open(file='filenamehere', mode='binary')
   xxxx5142  53.0
   ```
 
-- 예시4.
-  예시 3과 같은 파일이 여럿 주어진다면, 각 파일마다 예시3의 작업을 반복 수행하는 CLI에서
-  활용 가능한 Pythonn module을 만들자.
+- 예시 6.
+  예시 5과 같은 파일이 여럿 주어진다면, 각 파일마다 예시3의 작업을 반복 수행하는 CLI에서
+  활용 가능한 Python module을 만들자. 실습을 위해 아래 파일을 활용하자.
+ [파일](/assets/dat_files/lectures/1_2_data_mse/score_records/all_scores/scores.zip)
 
-- 예시5. (모든 파일의 이름 바꾸기)
+
+- 예시 7. (모든 파일의 이름 바꾸기)
   다음 [압축파일](/assets/dat_files/lectures/1_2_data_mse/tensile_test_results.zip)을 풀어서 살펴보자.
   여기서 파일 이름에서 'WZ'를 모두 'EX'로 바꾸고 싶다. 어떻게 해야할까?
 

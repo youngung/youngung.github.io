@@ -32,8 +32,6 @@ authors:
 
 
 
-
-
 # 1. 제1강: Orientation
 
 ## 1.1. 수업 소개

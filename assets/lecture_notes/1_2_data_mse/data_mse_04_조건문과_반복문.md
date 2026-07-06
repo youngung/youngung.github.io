@@ -289,7 +289,7 @@ for i, fruit in enumerate(fruits):
 
   - initial guess를 -1로 사용해서 되풀이 해보자.
 
-- 주양자수 $$n$$에 의해 결정되는 부 양자수 $$l,m_l$$ 출력하기.
+- 주양자수 $n$에 의해 결정되는 부 양자수 $l,m_l$ 출력하기.
 
   ```python
   # Calister 책의 표 2.1
