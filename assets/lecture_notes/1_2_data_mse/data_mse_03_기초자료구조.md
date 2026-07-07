@@ -36,7 +36,6 @@ authors:
   - List, Tuple, Dictionary, set 의 자료 구조 이해하기
 
 
-
 ## 3.1. List
 
 - 특징:

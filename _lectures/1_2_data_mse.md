@@ -66,6 +66,12 @@ authors:
 
 - [제17강 최소자승법]({% link assets/lecture_notes/1_2_data_mse/data_mse_17_최소자승법.md %})
 
+- [제18강 최소자승법]({% link assets/lecture_notes/1_2_data_mse/data_mse_18_무게비_원자비_변환.md %})
+
+- [제19강 최소자승법]({% link assets/lecture_notes/1_2_data_mse/data_mse_19_SEM_Image분석.md %})
+
+- [제20강 최소자승법]({% link assets/lecture_notes/1_2_data_mse/data_mse_20_EBSD_분석.md %})
+
 
 
 # 8. Week6
