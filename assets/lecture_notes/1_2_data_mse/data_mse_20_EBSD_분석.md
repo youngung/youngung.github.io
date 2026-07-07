@@ -30,15 +30,17 @@ authors:
      name: Changwon National University
 ---
 
-
 # EBSD 분석 및 시각화
 
 - 아래 데이터를 함께 살펴보고 분석하기
  [EBSD](https://o365changwon-my.sharepoint.com/:u:/g/personal/yjeong_staff_changwon_ac_kr/IQAoUN0HaycZRaSvQDSh2KpDAX77RcBHw-_bFLMez2GN4Ns?e=Fc3udV)
 
-
 # 파일 구조 설명
+
+# Hexagrid / Square grid
 
 # Euler angle $\phi_1,\Phi,\phi_2$ 설명
 
 # Schmid factor 구하기
+
+# Schmid factor map?
