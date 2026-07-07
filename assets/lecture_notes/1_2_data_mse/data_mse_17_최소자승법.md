@@ -1,6 +1,6 @@
 ---
 layout: distill
-title: 데이터 재료과학 (제 7강)
+title: 데이터 재료과학 (제 17강)
 description: IO
 target: 1학년 2학기
 permalink:
