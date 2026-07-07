@@ -308,8 +308,3 @@ for i, fruit in enumerate(fruits):
   ```
 
 - 예시, 10진법 수를 이진법으로 바꾸는 파이썬 script를 작성해보자.
-
-<br/><br/>
-<br/><br/>
-<br/><br/>
-<br/><br/>
