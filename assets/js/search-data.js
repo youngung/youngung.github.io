@@ -58,13 +58,6 @@ ninja.data = [{
           handler: () => {
             window.location.href = "/cv/";
           },
-        },{id: "nav-people",
-          title: "people",
-          description: "Current members of the lab",
-          section: "Navigation",
-          handler: () => {
-            window.location.href = "/people/";
-          },
         },{id: "post-nist-교환-학생-소식",
         
           title: "NIST 교환 학생 소식",
@@ -389,6 +382,11 @@ ninja.data = [{
           description: "",
           section: "Projects",handler: () => {
               window.location.href = "/projects/23_KSP/";
+            },},{id: "projects-개인연구-중견",
+          title: '개인연구(중견)',
+          description: "",
+          section: "Projects",handler: () => {
+              window.location.href = "/projects/23_midcarrier/";
             },},{id: "projects-전동기-자석-부착용-본딩제의-고온-인장전단-물성-평가",
           title: '전동기 자석 부착용 본딩제의 고온 인장전단 물성 평가',
           description: "",
@@ -399,11 +397,6 @@ ninja.data = [{
           description: "",
           section: "Projects",handler: () => {
               window.location.href = "/projects/26_Seah/";
-            },},{id: "projects-개인연구-중견",
-          title: '개인연구(중견)',
-          description: "",
-          section: "Projects",handler: () => {
-              window.location.href = "/projects/midcarrier/";
             },},{
         id: 'social-email',
         title: 'email',
