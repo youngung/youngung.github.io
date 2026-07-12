@@ -30,13 +30,20 @@ authors:
      name: Changwon National University
 ---
 
+- [1. 목표](#1-목표)
+- [2. List](#2-list)
+- [3. Tuple](#3-tuple)
+- [4. Set](#4-set)
+- [5. Dictionary](#5-dictionary)
+- [6. Misc.](#6-misc)
+- [7. Take-home 실습](#7-take-home-실습)
 
-# 3. 제 3강: 기초 자료 구조
-- 목표
-  - List, Tuple, Dictionary, set 의 자료 구조 이해하기
+
+# 1. 목표
+- List, Tuple, Dictionary, set 의 자료 구조 이해하기
 
 
-## 3.1. List
+# 2. List
 
 - 특징:
   - 수정 가능(mutable): 추가, 삭제, 변경 가능
@@ -91,7 +98,7 @@ authors:
   a,b,c,d=[1,3,4,5]
   ```
 
-## 3.2. tuple
+# 3. Tuple
 
 - 특징
 
@@ -115,7 +122,7 @@ authors:
   print(r, g, b)     # red green blue
   ```
 
-## 3.3. set
+# 4. Set
 
 - 특징
 
@@ -158,7 +165,7 @@ authors:
   s.pop()            # 임의의 값 제거 후 반환 (순서 없으니 랜덤)
   ```
 
-## 3.4. Dictionary
+# 5. Dictionary
 
 - 특징
 
@@ -209,7 +216,7 @@ authors:
 	| 대표 메서드     | `append`, `extend`, `remove`, `sort` | 없음 (불변이므로)          | `keys`, `values`, `items`, `update`|
  -->
 
-## 3.5. Misc.
+# 6. Misc.
 
 - `len` built-in function중 하나 (함수에 대한 수업은 차후에 다시 진행할 예정)
 
@@ -227,7 +234,7 @@ authors:
   a[1::2] # == a[1:6:2]
   ```
 
-## 3.6. Take-home 실습
+# 7. Take-home 실습
 
 - 1족 원소 기호를 순서대로 포함한 리스트 만들기 (수소, 리튬, 나트륨, 칼륨, 루비듐, 세슘, 프랑슘)
 - Calister 예제 2.1

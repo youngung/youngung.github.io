@@ -29,17 +29,37 @@ authors:
    affiliations:
      name: Changwon National University
 ---
+- [1. 목표](#1-목표)
+- [2. 벡터의 성분](#2-벡터의-성분)
+- [3. 벡터의 합](#3-벡터의-합)
+  - [3.1. 예시: 벡터의 차](#31-예시-벡터의-차)
+- [4. 벡터 스케일링 (스칼라 곱)](#4-벡터-스케일링-스칼라-곱)
+- [5. 벡터의 크기 (magnitude)](#5-벡터의-크기-magnitude)
+- [6. 단위 벡터 (unit vector)](#6-단위-벡터-unit-vector)
+- [7. 벡터 내적과 끼인 각 구하기](#7-벡터-내적과-끼인-각-구하기)
+- [8. 예시](#8-예시)
+  - [8.1. Cubic구조내의 두 결정방위 $(u\_1,v\_1,w\_1)$과 $(u\_2,v\_2,w\_2)$ 간의 각도?](#81-cubic구조내의-두-결정방위-u_1v_1w_1과-u_2v_2w_2-간의-각도)
+  - [8.2. Cubic구조내의 두 결정면 $(h\_1,k\_1,l\_1)$과 $(h\_2,k\_2,l\_2)$의 각 법선방향](#82-cubic구조내의-두-결정면-h_1k_1l_1과-h_2k_2l_2의-각-법선방향)
+  - [8.3. Cubic 내 두 면 $(h\_1k\_1l\_1)$과 $(h\_2k\_2l\_2)$ 면 법선 사이의 끼인 각 구하기](#83-cubic-내-두-면-h_1k_1l_1과-h_2k_2l_2-면-법선-사이의-끼인-각-구하기)
+  - [8.4. Tetragonal내의 두 결정방향(crystal direction) $\[u\_1,v\_1,w\_1\]$과 $\[u\_2,v\_2,w\_2\]$ 간의 각도 구하기](#84-tetragonal내의-두-결정방향crystal-direction-u_1v_1w_1과-u_2v_2w_2-간의-각도-구하기)
+  - [8.5. 예시 5:](#85-예시-5)
+  - [8.6. 예시 6 (take-home)](#86-예시-6-take-home)
+- [9. 외적 (cross product)](#9-외적-cross-product)
+  - [9.1. unitcell 부피계산.](#91-unitcell-부피계산)
+  - [9.2. (take-home)](#92-take-home)
+  - [9.3. (take-home)](#93-take-home)
 
-# 목표
+
+# 1. 목표
 - 반복문, 함수, Numpy를 활용해 기초 벡터 연산 및 행렬 연산 수행 및 이해
 
-# 벡터의 성분
+# 2. 벡터의 성분
 한 벡터 $\boldsymbol a$는 아래와 같이 세 성분으로 이루어져 있다.
 
 $\boldsymbol a = (a_x,a_y,a_z)$
 
 
-# 벡터의 합
+# 3. 벡터의 합
 
 벡터 $\boldsymbol a$ 와  $\boldsymbol b$의 합은 새로운 벡터 $\boldsymbol c$가
 된다.
@@ -74,7 +94,7 @@ for i in range(len(a)):
 	c[i]=a[i]+b[i]
 ```
 
-## 예시: 벡터의 차
+## 3.1. 예시: 벡터의 차
 아래와 같이 두 벡터의 차도 새로운 벡터가 된다.
 $$
 \boldsymbol c =  \boldsymbol a - \boldsymbol b
@@ -102,7 +122,7 @@ for i in range(len(a)):
 	c[i]=a[i]-b[i]
 ```
 
-# 벡터 스케일링 (스칼라 곱)
+# 4. 벡터 스케일링 (스칼라 곱)
 
 주어진 벡터 $\boldsymbol a$에 스칼라 $c$를 곱하면 또 다른 벡터 $\boldsymbol b$이 된다.
 
@@ -154,7 +174,7 @@ b=c*a ## broadcasting (?!)
 {% endtabs %}
 
 
-# 벡터의 크기 (magnitude)
+# 5. 벡터의 크기 (magnitude)
 
 벡터는 방향과 크기를 모두 가지고 있다. 한 벡터 $\boldsymbol a$의 크기를
 $|\boldsymbol a|$라 표기하자. 이는 다음과 같이 정의된다.
@@ -179,7 +199,7 @@ mag=mag**0.5
 mag=((a**2).sum())**0.5
 ```
 
-# 단위 벡터 (unit vector)
+# 6. 단위 벡터 (unit vector)
 
 벡터 $\boldsymbol a$의 크기가 1 이라면 (즉 $|\boldsymbol a=1|$),
 벡터 $\boldsymbol a$ 를 단위 벡터(unit vector)라 부른다. 즉 단위 벡터란, 크기가 1인
@@ -208,7 +228,7 @@ def get_mag(v):
    return (v[0]**2+v[1]**2+v[2]**2)**0.5
 ```
 
-# 벡터 내적과 끼인 각 구하기
+# 7. 벡터 내적과 끼인 각 구하기
 
 두 3D 벡터가 주어졌을 때 사이 끼인 각을 구하려면, 앞서 활용된 서로다른 두 벡터의 정의를 함께
 활용할 수 있다. 즉
@@ -253,8 +273,8 @@ print('ang in degree:', angle*180/3.141592)
 ## 정확히 90도가 아니라 90.00001872397223 로 표현된다면??? 무엇 때문일까?
 ```
 
-# 예시
-## 예시1: Cubic구조내의 두 결정방위 $(u_1,v_1,w_1)$과 $(u_2,v_2,w_2)$ 간의 각도?
+# 8. 예시
+## 8.1. Cubic구조내의 두 결정방위 $(u_1,v_1,w_1)$과 $(u_2,v_2,w_2)$ 간의 각도?
 
 ```python
 ## cubic 결정구조내의 밀러 인덱스 [uvw]로 주어진 결정방위에 해당하는 unit vector 구하기
@@ -271,13 +291,13 @@ angle*180/np.pi ## np.pi: 원주율
 np.deg2rad(angle) ## np 패키지내의 메소드 활용 가능
 ```
 
-## 예시2: Cubic구조내의 두 결정면 $(h_1,k_1,l_1)$과 $(h_2,k_2,l_2)$의 각 법선방향
+## 8.2. Cubic구조내의 두 결정면 $(h_1,k_1,l_1)$과 $(h_2,k_2,l_2)$의 각 법선방향
 
 사이의 각도?
 
-## 예시3: cubic 내 두 면 $(h_1k_1l_1)$과 $(h_2k_2l_2)$ 면 법선 사이의 끼인 각 구하기
+## 8.3. Cubic 내 두 면 $(h_1k_1l_1)$과 $(h_2k_2l_2)$ 면 법선 사이의 끼인 각 구하기
 
-## 예시4: Tetragonal내의 두 결정방향(crystal direction) $[u_1,v_1,w_1]$과 $[u_2,v_2,w_2]$ 간의 각도 구하기
+## 8.4. Tetragonal내의 두 결정방향(crystal direction) $[u_1,v_1,w_1]$과 $[u_2,v_2,w_2]$ 간의 각도 구하기
 - Cubic의 경우, $a=b=c$이며 세 사이 각이 $\alpha=\beta=\gamma=90\degree$이다.
 - Tetragonal의 경우, $a=b\ne c$이며 $\alpha=\beta=\gamma=90\degree$을 만족한다.
 - Tetragonal structure는 c축 방향으로 늘어난 형태이다. cubic과 다르게 miller 인덱스를
@@ -329,7 +349,7 @@ um2=m2unitv_tetragonal(m2)
 get_ang(um1,um2) #
 ```
 
-## 예시 5:
+## 8.5. 예시 5:
 - Tetragonal 내의 결정면 $(hkl)$의 수직 방향은?
   결정 방향(crystal direction)과 다르게 결정면의 수직방향은 (norm of crystal plane)
   다른 방식으로 영향을 받는다.
@@ -340,7 +360,7 @@ get_ang(um1,um2) #
    $(x,y,z)=(h,k,l{\color{green}\frac{a}{c}})$
 - 두 결정면 $(h_1,k_1,l_1)$과 $(h_2,k_2,l_2)$의 수직선 사이의 각도 구하는 Python script 작성해보기
 
-## 예시 6 (take-home)
+## 8.6. 예시 6 (take-home)
  cubic내에서는 $[101]$ 결정방향과 $(101)$면의 법선방향이 일치한다. 하지만
  Tetragonal의 경우 $[101]$ 결정방향과 $(101)$면의 법선 방향이 일치하지 않는다.
  $\beta$Tin은 상온에서 Body-centered tetragonal 구조를 가진다. 격자상수 $a,b,c$가
@@ -348,7 +368,7 @@ get_ang(um1,um2) #
  사이의 끼인 각도는 얼마인가? 이미 작성된 Python script를 활용하고, 보완하거나 추가하여
  각도를 계산해보자.
 
-# 외적 (cross product)
+# 9. 외적 (cross product)
 
 - 설명
   두 벡터 $\boldsymbol a, \boldsymbol b$의 외적이 다음과 같이 표현된다.
@@ -380,10 +400,10 @@ get_ang(um1,um2) #
   c[2]=a[0]*b[1]-a[1]*b[0]
   ```
 
-## 예시 7, unitcell 부피계산.
+## 9.1. unitcell 부피계산.
 
 
-## 예시 8 (take-home)
+## 9.2. (take-home)
 
 전위선 (dislocation line)의 방향 $\boldsymbol{l}$이고 버거스 벡터의
 방향 $\boldsymbol{b}$이라면 슬립면의 법선 벡터 $\boldsymbol{n}$은 다음의
@@ -397,6 +417,6 @@ $$
 $\boldsymbol{b}=[hkl]$ 가 주어진 cubic 결정 구조에서 슬립면 벡터 $\boldsymbol{n}$
 을 계산하는 함수를 작성해보시오.
 
-## 예시 9 (take-home)
+## 9.3. (take-home)
 
 앞선 예시에서 주어진 결정법선 $n$을 miller index로 구해보시오.

@@ -30,9 +30,21 @@ authors:
      name: Changwon National University
 ---
 
+- [1. 목표](#1-목표)
+- [2. 소개](#2-소개)
+- [3. scatter plot](#3-scatter-plot)
+- [4. Figure \& axes objects](#4-figure--axes-objects)
+- [5. 1차원 그래프 그리기](#5-1차원-그래프-그리기)
+  - [5.1. 1차원 그래프](#51-1차원-그래프)
+    - [5.1.1. $y=\\cos\\theta$](#511-ycostheta)
+    - [5.1.2. $y=\\sin\\theta$](#512-ysintheta)
+    - [5.1.3. $y=\\tan\\theta$](#513-ytantheta)
+    - [5.1.4. 반지름의 길이가 10인 원](#514-반지름의-길이가-10인-원)
+  - [5.2. 공칭 변형률과 진변형률](#52-공칭-변형률과-진변형률)
+  - [5.3. Stress vs. strain curve 그리기](#53-stress-vs-strain-curve-그리기)
 
 
-# 목표
+# 1. 목표
  - axes, figure 를 만들 수 있다.
  - 선(line), 점(dot)으로 이루어진 그래프를 그릴 수 있다.
  - x축, y축의 label, tick, limits을 만들 수 있다.
@@ -40,7 +52,7 @@ authors:
  - 3차원 그래프를 그릴 수 있다.
  - 파일로부터 데이터를 불러오고, 이를 graph로 바꿀 수 있다.
 
-# 소개
+# 2. 소개
 
 [Matplotlib](https://matplotlib.org): Python 환경에서 데이터를 시각화하는데 가장
 널리 쓰이는 라이브러리 중 하나이다. MATLAB과 유사한 환경을 제공해주는 pyplot 모듈을 활용한
@@ -57,7 +69,7 @@ plt.xlabel("X-axis")
 plt.ylabel("Y-axis")
 ```
 
-- scatter plot
+# 3. scatter plot
 
 ```python
 x = [5, 7, 8, 7, 6, 9, 5, 4, 5, 6]
@@ -90,6 +102,7 @@ plt.title("Right")
 것을 알 수 있다. ```figure```는 그림을 그리는 캔버스, ```axis```는 그래프가 시각화되는
 좌표계라 볼 수 있다.
 
+# 4. Figure & axes objects
 - Figure: 그래프 전체 "캔버스"
 - Axes: 실제 데이터가 그려지는 "좌표 영역"
 
@@ -152,8 +165,9 @@ ax2.grid(True)
 plt.show()
 ```
 
+# 5. 1차원 그래프 그리기
 
-NumPy의 ```linspace```, ```logspace```등과 결합하면 여러 1D 그래프를 손쉽게 그릴
+- NumPy의 ```linspace```, ```logspace```등과 결합하면 여러 1D 그래프를 손쉽게 그릴
 수 있다. 예를 들어 $y=x^2$을 $x\in[-10,10]$을 그리자면
 
 ```python
@@ -165,38 +179,42 @@ plt.plot(x,y)
 ```
 결과를 살펴보자.
 
+## 5.1. 1차원 그래프
 위 예제를 응용하여 아래 실습을 수행해보자. 범위 내의 아래 삼각함수를 그려보자.
 
-예1.
+### 5.1.1. $y=\cos\theta$
 
 $$
 y=\cos(\theta), \text{ with } \theta\in[-\pi,\pi]
 $$
 
-예2.
+### 5.1.2. $y=\sin\theta$
 
 $$
 y=\sin(\theta), \text{ with } \theta\in[-\pi,\pi]
 $$
 
-예3.
+### 5.1.3. $y=\tan\theta$
 $$
 y=\tan(\theta), \text{ with } \theta\in\big[-\frac{\pi}{2},\frac{\pi}{2}\big]
 $$
 
-- 반지름의 길이가 10인 원을 그려보자.
+### 5.1.4. 반지름의 길이가 10인 원
 
 $$
 x^2+y^2=10^2
 $$
 
-- 길이 변화에 따라서 나타나는 공칭 변형률과 진형병률 그래프 관계를 그리고 이를 비교해보자.
+## 5.2. 공칭 변형률과 진변형률
+
+- 길이 변화에 따라서 나타나는 공칭 변형률(engineering strain)과 진변형률
+  (true strain)그래프 관계를 그리고 이를 비교해보자.
 
 $$
 \varepsilon=\ln(\epsilon+1)
 $$
 
-- Stress vs. strain curve 그리기
+## 5.3. Stress vs. strain curve 그리기
 다음 [압축파일](/assets/dat_files/lectures/1_2_data_mse/tensile_test_results.zip)을 풀어서, 파일 하나를
 살펴보자 - 예를 들어 `00_DD_WZ_01.csv`
 위 데이터 파일을 활용해

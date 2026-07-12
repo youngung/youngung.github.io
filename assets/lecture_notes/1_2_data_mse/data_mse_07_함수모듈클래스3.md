@@ -30,10 +30,24 @@ authors:
      name: Changwon National University
 ---
 
-# 목표
+- [1. 목표](#1-목표)
+- [2. 개념](#2-개념)
+- [3. 실습](#3-실습)
+  - [3.1. 간단한 모듈 만들기 (더하기 곱하기)](#31-간단한-모듈-만들기-더하기-곱하기)
+  - [3.2. CLI에서 arguments 받기](#32-cli에서-arguments-받기)
+  - [3.3. Argument parse 읽을 거리](#33-argument-parse-읽을-거리)
+  - [3.4. 간단한 작동](#34-간단한-작동)
+  - [3.5. positional argument](#35-positional-argument)
+  - [3.6. `--help` 기능](#36---help-기능)
+  - [3.7. 변경된 영향 확인](#37-변경된-영향-확인)
+  - [3.8. Additional options](#38-additional-options)
+- [4. 예제 (take-home)](#4-예제-take-home)
+
+
+# 1. 목표
  - Python 모듈을 이해하고 만들 수 있다.
 
-# 개념
+# 2. 개념
 
 - CLI (command-line interface)
 - 모듈화 (modularization)
@@ -43,9 +57,9 @@ authors:
   - 패키지는 여러 모듈의 모임이다.
   - 라이브러리(library)는 모듈과 패키지의 모임.
 
-# 실습
+# 3. 실습
 
-## ex 01: 간단한 모듈 만들기 (더하기 곱하기)
+## 3.1. 간단한 모듈 만들기 (더하기 곱하기)
 
 1. 모듈 작성
 
@@ -78,7 +92,7 @@ mymodule.power(3,4)
 - Linux/macOS의 경우에는 활용하는 shell의 닷 파일 (.sh, .bash, .zsh 등등)에서
   지정된 $PATH 등의 변수에 의해 달라질 수 있다.
 
-## ex 02: CLI에서 arguments 받기
+## 3.2. CLI에서 arguments 받기
 
 - 1. 기초 모듈 작성
 
@@ -107,14 +121,13 @@ mymodule.power(3,4)
 
 - 4. 더 상세한 argument parsing
 
-  - 4-1. Argument parse 읽을 거리
+  ## 3.3. Argument parse 읽을 거리
 
   * [Argparse](https://docs.python.org/ko/3.7/library/argparse.html) 활용
   * [Argparse 자습서](https://docs.python.org/ko/3.7/howto/argparse.html#id1)
 
-  - 4-2. 단계별로 작성해보기.
 
-  * 4-2-1. 간단한 작동
+  ## 3.4. 간단한 작동
 
     아래를 myprogram.py 파일(모듈)로 작성하여 저장하자.
 
@@ -135,7 +148,7 @@ mymodule.power(3,4)
     -h, --help  show this help message and exit
     ```
 
-  * 4-2-2. positional argument
+  ## 3.5. positional argument
 
     다음으로 myprogram.py을 열어서 다음과 같이 수정해봅시다.
     `x` argument를 추가하였고, $x^2$을 출력합니다.
@@ -150,7 +163,7 @@ mymodule.power(3,4)
     print(args.x**2)
     ```
 
-  * 4-2-3. `--help` 기능
+  ## 3.6. `--help` 기능
 
     아래와 같이 명령문을 입력하면 ...
 
@@ -171,7 +184,7 @@ mymodule.power(3,4)
 
     ```
 
-  * 4-2-4. 변경된 영향 확인
+  ## 3.7. 변경된 영향 확인
 
     명령어를 바꿔 다음과 같이 입력해보자.
 
@@ -181,9 +194,9 @@ mymodule.power(3,4)
     x^2: 9
     ```
 
-  * 4-2-5. Additional options
+  ## 3.8. Additional options
 
-    a. 다음으로 myprogram.py을 열어서 다음과 같이 수정해봅시다.
+    - 다음으로 myprogram.py을 열어서 다음과 같이 수정해봅시다.
 
     ```python
     import argparse
@@ -205,7 +218,7 @@ mymodule.power(3,4)
       print('x times y:', multiplie)
     ```
 
-    b. CLI에서 아래를 실행하면
+    - CLI에서 아래를 실행하면
 
     ```dos
     c:\users\user> python main.py --help
@@ -227,7 +240,7 @@ mymodule.power(3,4)
 
     `--myname`옵션의 경우 `MYNAME`이라는 입력이 필요함을 알 수 있다.
 
-    c. 실행해보자.
+    - 실행해보자.
 
     ```dos
     c:\users\user> python main.py 3 4 --myname mike
@@ -237,6 +250,6 @@ mymodule.power(3,4)
     x times y: 7
     ```
 
-# 예제 (take-home)
+# 4. 예제 (take-home)
 
 - 주어진 정수에 대한 구구단을 출력하는 CLI용 프로그램 만들어 보자.

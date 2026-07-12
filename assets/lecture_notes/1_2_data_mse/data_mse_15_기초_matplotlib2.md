@@ -30,7 +30,14 @@ authors:
      name: Changwon National University
 ---
 
-- 임의의 3차원 벡터 생성과 stereographic projection.
+- [1. 목표](#1-목표)
+- [2. 임의의 3차원 벡터 생성과 stereographic projection.](#2-임의의-3차원-벡터-생성과-stereographic-projection)
+- [3. 극점도 (pole figure)](#3-극점도-pole-figure)
+
+
+# 1. 목표
+
+# 2. 임의의 3차원 벡터 생성과 stereographic projection.
 
 cubic crystal structure내의 결정 방위 [h,k,l]에 해당하는 단위 벡터를 그려보자. Cubic crystal의 경우 Miller index $[uvw]$가 한 결정 방향이라면 그 방향에 해당하는 벡터 $\boldsymbol b$는 아래와 같이 구할 수 있다.
 $$
@@ -79,6 +86,7 @@ def get_direct(v1,v2,v3):
   return uvw/deno
 ```
 
+# 3. 극점도 (pole figure)
 위 함수를 활용해 결정학적으로 같이 $[100],[010],[001],[\bar{1}00],[0\bar{1}0],[00\bar{1}]$을 3차원 그래프로 표현해보자. 3차원 점들을 표현하기 위해서는 3차원 axis가 필요하다. 이를 위해서 fig의 add_subplot 매소드에 'projection=3d' 파라미터를 입력하여 3차원 axis를 만들자. 그 다음, 앞서 생성한 점들을 'scatter'함수를 활용해 아래와 같이 표현해보자.
 ```python
 %matplotlib widget

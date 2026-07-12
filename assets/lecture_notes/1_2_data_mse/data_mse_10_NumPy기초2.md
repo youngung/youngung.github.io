@@ -30,31 +30,45 @@ authors:
      name: Changwon National University
 ---
 
-# 목표
+- [1. 목표](#1-목표)
+- [2. Indexing \& slicing](#2-indexing--slicing)
+- [3. 예제](#3-예제)
+  - [3.1. 예제: 데이터 파일](#31-예제-데이터-파일)
+  - [3.2. 예제: csv file](#32-예제-csv-file)
+  - [3.3. 예제: 저장하기](#33-예제-저장하기)
+- [4. List활용한 기초 벡터/행렬 연산](#4-list활용한-기초-벡터행렬-연산)
+  - [4.1. 기본 예제 (벡터의 크기, 내적)](#41-기본-예제-벡터의-크기-내적)
+
+
+# 1. 목표
 - Indexing & Slicing 이해
 - 다양한 벡터/행렬 연산을 NumPy 라이브러리 활용해 수행할 수 있다.
 - 브로드캐스팅을 이해한다.
 - Determinant, Eigenvalue 등을 계산할 수 있다.
 
-# Indexing & slicing
-List 타입의 자료에서도 indexing과 slicing이 사용된다. [시작,끝,스텝]형태의 인덱싱이 NumPy 배열에도 동일하게 적용된다.
+# 2. Indexing & slicing
+
+- List 타입의 자료에서도 indexing과 slicing이 사용된다. [시작,끝,스텝]형태의 인덱싱이 NumPy 배열에도 동일하게 적용된다.
 ```python
 mylist=List((3,3,4,3,3,4,5,6))
 #mylist[시작:끝:스텝] 형태로 index가 적용되는 것 처럼 ..
 ```
-
 
 ```python
 myarray=np.array((3,3,4,3,3,4,5,6))
 myarray[2:6:2] #3번째부터 6번째까지, 2칸씩 띄어 넘으며 ..
 #mylist[시작:끝:스텝] 형태로 index가 적용되는 것 처럼 ..
 ```
+
 위 결과는 아래와 같을 것이다.
+
 ```python
 array([ 5, 10])
 ```
 
-NumPy 배열에 경우에는 이러한 indexing이 각 '축'에 깔끔히 적용될 수 있다. 아래 2차원 배열 (혹은 2축으로 구성된 배열)을 살펴보자.
+- NumPy 배열에 경우에는 이러한 indexing이 각 '축'에 깔끔히 적용될 수 있다.
+ 아래 2차원 배열 (혹은 2축으로 구성된 배열)을 살펴보자.
+
 ```python
 arr = np.array([[1, 2, 3], [4, 5, 6]])
 ```
@@ -103,8 +117,9 @@ a=a.reshape(10,10,10) #
 a[::5,::,::] #?
 ```
 
+# 3. 예제
 
-- 예제: 데이터 파일
+## 3.1. 예제: 데이터 파일
   Use data in here [matrix_01.txt](/assets/dat_files/lectures/1_2_data_mse/matrix_01.txt)
 
   ```python
@@ -120,7 +135,7 @@ a[::5,::,::] #?
   print("dtype:", matrix.dtype)   # ?
   ```
 
-- 예제: csv file
+## 3.2. 예제: csv file
   Use data in here [matrix_01.csv](/assets/dat_files/lectures/1_2_data_mse/matrix_01.csv)
 
   ```python
@@ -136,8 +151,7 @@ a[::5,::,::] #?
   print("dtype:", matrix.dtype)   # ?
   ```
 
-
-- 예제: 저장하기
+## 3.3. 예제: 저장하기
 <aside><p>%d 와 %f로 정수는 각각 정수와 실수 형식 저장에 쓰인다.</p></aside>
 
 ```python
@@ -150,9 +164,9 @@ np.savetxt("save_matrix.csv", matrix, delimiter=",", fmt="%d")
 ```
 
 
-# List활용한 기초 벡터/행렬 연산
+# 4. List활용한 기초 벡터/행렬 연산
 
-## 기본 예제 (벡터의 크기, 내적)
+## 4.1. 기본 예제 (벡터의 크기, 내적)
 
 3차원 벡터는, 가령 아래와 같이 세 성분으로 이루어져 있으며,
 

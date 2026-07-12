@@ -29,9 +29,22 @@ authors:
    affiliations:
      name: Changwon National University
 ---
+- [1. 목표](#1-목표)
+- [2. 클래스](#2-클래스)
+- [3. 클래스 예제](#3-클래스-예제)
+- [4. 여러 함수 만들어 보기](#4-여러-함수-만들어-보기)
+  - [4.1. Hooke's law](#41-hookes-law)
+  - [4.2. Engineering strain \& true strain](#42-engineering-strain--true-strain)
+  - [4.3. 길이 변화를 주면 true strain을 계산하는 함수](#43-길이-변화를-주면-true-strain을-계산하는-함수)
+  - [4.4. Schmid law](#44-schmid-law)
+  - [4.5. 위치 인자 (\*args)를 활용한 다항함수(polynomial function) 구하기](#45-위치-인자-args를-활용한-다항함수polynomial-function-구하기)
+  - [4.6. 키워드 인자 (keyword arguments; \*\*kwargs) 활용 예시](#46-키워드-인자-keyword-arguments-kwargs-활용-예시)
+  - [4.7. 여러 슬립계로 이루어진 재료에 가해진 응력에 따라, 가장 큰 분해 전단 응력을 가진 슬립계 찾기](#47-여러-슬립계로-이루어진-재료에-가해진-응력에-따라-가장-큰-분해-전단-응력을-가진-슬립계-찾기)
 
+# 1. 목표
+ - 클래스를 이해한다.
 
-# 클래스
+# 2. 클래스
 파이썬에서 클래스(Class)는 나만의 새로운 데이터 타입이나 객체를 만들기 위한 ‘설계도’라고
 생각할 수 있다. 이 설계도를 바탕으로 실제로 만들어진 실체를 인스턴스(Instance) 또는 객체
 (Object)라고 부른다.
@@ -67,7 +80,7 @@ myAl.add_structure('FCC')
   - name : 속성 이름 (문자열로 지정)
   - default (선택적) : 해당 속성이 없을 경우 반환할 기본값 (없으면 AttributeError 발생)
 
-# 클래스 예제
+# 3. 클래스 예제
 
 - 합금(Alloy) 클래스 만들기
 
@@ -145,9 +158,11 @@ for alloy in alloys:
   print(mylist[2])       # 3
   ```
 
-# 여러 함수 만들어 보기
+# 4. 여러 함수 만들어 보기
 
-- Hooke's law
+## 4.1. Hooke's law
+
+  - 응력($\sigma$)와 변형률($\varepsilon$) 사이의 선형 관계 법칙
 
   $$
   \sigma = E \varepsilon
@@ -155,7 +170,7 @@ for alloy in alloys:
 
   ```python
   def hooke(modulus,epsilon):
-  return modulus * epsilon
+    return modulus * epsilon
   ```
 
 - 개념:
@@ -171,10 +186,12 @@ for alloy in alloys:
 
 ```python
 def a(b,c):
-return a*b
+  return a*b
 ```
 
-- Engineering strain & true strain
+##  4.2. Engineering strain & true strain
+ -  변형전 길이($l_0$)와 그 길이의 변화($\Delta l$)로 부터 공칭변형률 ($\epsilon$)
+  구하기.
 
   $$
   \epsilon=\frac{\Delta l}{l_0}
@@ -182,26 +199,30 @@ return a*b
 
   ```python
   def calc_engi_strain(l0,l1):
-  delta_l=l1-l0
-  return delta_l/l0
+    delta_l=l1-l0
+    return delta_l/l0
   ```
 
 - True strain
+  공칭 변형률로부터 진 변형률 계산하기
 
   $$
   \varepsilon=\ln(\epsilon+1)
   $$
 
-  ```python
-  def calc_true_strain(engi_eps):
+```python
+def calc_true_strain(engi_eps):
   import math
-  true_eps=math.log(1+engi_eps) ## log function with base of e.
+  # math.log: log function with base of Euler's number, 2.718...
+  true_eps=math.log(1+engi_eps)
   return true_eps
-  ```
+```
 
-- 예시: 길이 변화를 주면 true strain을 계산하는 함수를 작성하시오.
+## 4.3. 길이 변화를 주면 true strain을 계산하는 함수
 
-- Schmid law
+## 4.4. Schmid law
+  - Schmid의 법칙을 활용하면, 일축 인장 (혹은 압축) 응력값($\sigma$)와 전위 슬립계
+  (dislocation slip system)의 방위 관계 ($\phi,\lambda$)를 활용해 분해전단응력($\tau$)값을 구할 수 있다.
 
   $$
   \tau=\sigma \cos\phi \cos\lambda
@@ -209,25 +230,27 @@ return a*b
 
   ```python
   def schmid(sigma,phi,lamb):
-  """
-  Arguments
-  ---------
-  sigma: float
-    uniaxial stress
-  phi: float (in radian)
-    angle between the slip plane normal and the loading direction
-  lamb: float (in radian)
-    angle between the slip direction and the loading direction
+    """
+    Arguments
+    ---------
+    sigma: float
+      uniaxial stress
+    phi: float (in radian)
+      angle between the slip plane normal and the loading direction
+    lamb: float (in radian)
+      angle between the slip direction and the loading direction
 
-  Returns
-  -------
-  Schmid factor
-  """
-  import math
-  return sigma*math.cos(phi)*math.cos(lamb)
+    Returns
+    -------
+    Schmid factor
+    """
+    import math
+    return sigma*math.cos(phi)*math.cos(lamb)
   ```
 
-- 위치 인자 (\*args); tuple
+## 4.5. 위치 인자 (\*args)를 활용한 다항함수(polynomial function) 구하기
+   - 다항식의 규칙성을 이해해보자.
+   - 2차
 
   ```python
   def poly(x,*args):
@@ -254,7 +277,7 @@ return a*b
     return y
   ```
 
-- 키워드 인자 (keyword arguments; \*\*kwargs); dictionary 활용
+## 4.6. 키워드 인자 (keyword arguments; \*\*kwargs) 활용 예시
 
   ```python
   def get_sum(*args):
@@ -268,3 +291,7 @@ return a*b
   	  print(f"{key}: {value}")
   introduce(name="Alice", age=25, country="Korea")
   ```
+
+## 4.7. 여러 슬립계로 이루어진 재료에 가해진 응력에 따라, 가장 큰 분해 전단 응력을 가진 슬립계 찾기
+  - 재료는 다양한 슬립계로 이루어져 있다. 주어진 슬립계를 class로 만들고, 클래스로 객체를
+  만들때(instantiated)

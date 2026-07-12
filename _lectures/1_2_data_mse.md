@@ -8,13 +8,13 @@ featured: true
 prerequisite: 재료공학개론1
 toc:
 #sidebar: left
-- name: Orientation
-- name: Week1
-- name: Week2
-- name: Week3
-- name: Week4
-- name: Week5
-- name: Week6
+#- name: Orientation
+#- name: Week1
+#- name: Week2
+#- name: Week3
+#- name: Week4
+#- name: Week5
+#- name: Week6
 
 mermaid:
   enabled: true

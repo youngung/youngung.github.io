@@ -30,8 +30,18 @@ authors:
      name: Changwon National University
 ---
 
+- [1. 행렬간의 내적 (dot product) 이해하기](#1-행렬간의-내적-dot-product-이해하기)
+- [2. 두 3x3 행렬 곱? 일반화하여, nxn 행렬사이의 곱은?](#2-두-3x3-행렬-곱-일반화하여-nxn-행렬사이의-곱은)
+- [3. 예제](#3-예제)
+  - [3.1. Loop 표현](#31-loop-표현)
+  - [3.2. 일반적 행렬곱](#32-일반적-행렬곱)
+  - [3.3. 예제 3.](#33-예제-3)
+  - [3.4. 예제 4.](#34-예제-4)
+  - [3.5. 예제 5. 세 행렬의 곱](#35-예제-5-세-행렬의-곱)
+- [4. Broadcasting](#4-broadcasting)
+- [5. Other various features](#5-other-various-features)
 
-# 행렬간의 내적 (dot product) 이해하기
+# 1. 행렬간의 내적 (dot product) 이해하기
 
 [두 행렬의 곱](https://ko.wikipedia.org/wiki/행렬_곱셈)을 이해해보자. 행과 열이 각각
 $(l,m)$인 행렬
@@ -181,7 +191,7 @@ print('6:',A @ B)          # 행렬 곱
 print('7:',np.dot(A, B))   # 동일
 ```
 
-# 두 3x3 행렬 곱? 일반화하여, nxn 행렬사이의 곱은?
+# 2. 두 3x3 행렬 곱? 일반화하여, nxn 행렬사이의 곱은?
 
 행렬 $\boldsymbol A$ 와 $\boldsymbol B$ 의 곱 결과가 또 다른 3x3행렬 $\boldsymbol C$ 이라면
 
@@ -196,7 +206,9 @@ $$
 $$
 
 
-## 예제 1. Loop 표현
+# 3. 예제
+
+## 3.1. Loop 표현
 
 ```python
 # For loop 3개를 활용해서 표현
@@ -208,13 +220,14 @@ for i in range(3):
                 C[i,j]=C[i,j]+A[i,k]*B[k,j]
 ```
 
-## 예제 2.
+## 3.2. 일반적 행렬곱
 
 ```python
 # 두 nxn 행렬 사이의 곱을 구하는 python 함수를 작성해 보세요.
+# 규칙성을 찾고, 그 규칙성을 구현해 보세요.
 ```
 
-## 예제 3.
+## 3.3. 예제 3.
 격자 상수 $(a,b,c)$가 주어진 Tetragonal에서의 격자 위치 $(p_1,p_2,p_3)$가 주어질 때,
 격자 위치를 행렬을 활용해 unit cell내에서의 위치로 표현할 수 있다.
 
@@ -244,7 +257,7 @@ $$
 그 결과 벡터가 실제 unit cell내의 위치가 된다.
 
 
-## 예제 4.
+## 3.4. 예제 4.
 격자 상수 $(a,b,c)$가 주어진 Tetragonal에서의 두 격자 위치 $p=(p_1,p_2,p_3)$와
 $q=(q_1,q_2,q_3)$가 주어질 때, 두 격자 위치 사이의 거리를 구해보자.
 
@@ -291,7 +304,7 @@ $$
 
 
 
-## 예제 5. 세 행렬의 곱
+## 3.5. 예제 5. 세 행렬의 곱
   세 행렬 사이의 곱이 다음과 같다.
 
 $$
@@ -309,7 +322,7 @@ $$
 ```
 
 
-# [Broadcasting](https://numpy.org/devdocs/user/basics.broadcasting.html#basics-broadcasting)
+# 4. [Broadcasting](https://numpy.org/devdocs/user/basics.broadcasting.html#basics-broadcasting)
 
 - 브로드캐스팅은 서로 다른 shape의 배열끼리 연산할 때 NumPy가 자동으로 차원을 맞춰주는 기능
 
@@ -337,7 +350,7 @@ $$
   뒤에서부터 비교하며 차원이 같거나 1이면 확장 가능
   하나라도 불가능하면 에러 발생
 
-# Other various features
+# 5. Other various features
 
 ```python
 arr = np.array([1, 4, 9, 16])

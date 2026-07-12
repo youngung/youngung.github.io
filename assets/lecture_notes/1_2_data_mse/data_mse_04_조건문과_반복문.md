@@ -29,12 +29,23 @@ authors:
    affiliations:
      name: Changwon National University
 ---
+- [1. 목표:](#1-목표)
+- [2. `if`, `elif`, `else` 조건문의 기본 구조 이해](#2-if-elif-else-조건문의-기본-구조-이해)
+- [3. `for` 반복문](#3-for-반복문)
+- [4. Built-in function인 `range`, `len`, `enumerate`를 `for`와 함께 조합!](#4-built-in-function인-range-len-enumerate를-for와-함께-조합)
+- [5. 예제](#5-예제)
+  - [5.1. 구구단 출력하기 (x단 입력하면 ... )](#51-구구단-출력하기-x단-입력하면--)
+  - [5.2. 2의 제곱근 구하기.](#52-2의-제곱근-구하기)
+  - [5.3. 3의 제곱근 구하기](#53-3의-제곱근-구하기)
+  - [5.4. 4의 제곱근 구하기](#54-4의-제곱근-구하기)
+  - [5.5. a의 제곱근 구하기](#55-a의-제곱근-구하기)
+  - [5.6. 주양자수 $n$에 의해 결정되는 부 양자수 $l,m\_l$ 출력하기.](#56-주양자수-n에-의해-결정되는-부-양자수-lm_l-출력하기)
+  - [5.7. 임의의 10진법 수를 이진법으로 바꾸는 파이썬 script를 작성해보자.](#57-임의의-10진법-수를-이진법으로-바꾸는-파이썬-script를-작성해보자)
 
-# 4. 4 제 4강: 조건문과 반복문
- - 목표:
+#  1. 목표:
   조건문과 (conditions), 반복문 (loop) 이해
 
-## 4.1.  `if`, `elif`, `else` 조건문의 기본 구조 이해
+# 2. `if`, `elif`, `else` 조건문의 기본 구조 이해
  - 기본 구조 / 형식
 
   ```python
@@ -89,7 +100,7 @@ authors:
   	print("Liquid state")
   ```
 
-## 4.2. `for` 반복문
+# 3. `for` 반복문
 
 - 기초 설명
 
@@ -118,7 +129,9 @@ authors:
   	F --> G[Continue program]
   ```
 
-- 대표적으로 **순서가 있는 데이터 시퀀스**로는 List, Tuple, Dictionary 타입의 변수가 있다.
+- Indent & dedent를 활용해서 시작과 끝을 구분
+
+- **순서가 있는 데이터 시퀀스**로는 List, Tuple, Dictionary 타입의 변수가 있다.
 
   - 예1
 
@@ -158,9 +171,9 @@ authors:
 
   - 콜론 기호 ':' 빼먹지 말 것!
 
-## 4.3. Built-in function인 `range`, `len`, `enumerate`를 `for`와 함께 조합!
+# 4. Built-in function인 `range`, `len`, `enumerate`를 `for`와 함께 조합!
 
-- 개념
+ - 개념
   - `len()` -> 시퀀스 (List, 문자열, 튜플 등)의 **길이(요소 개수)**를 반환
   - `range()` → 지정한 범위의 숫자 시퀀스를 생성 (반복문에서 자주 사용)
   - `range` 와 `len` 함께 활용하여, 인덱스 기반 반복
@@ -203,9 +216,9 @@ for i, fruit in enumerate(fruits):
    print(i, fruit)
 ```
 
-## 4.4. Take-home 실습 예시
+# 5. 예제
 
-- 예제1: 구구단 출력하기 (x단 입력하면 ... )
+## 5.1. 구구단 출력하기 (x단 입력하면 ... )
 
   ```python
   ## algorithm
@@ -226,7 +239,7 @@ for i, fruit in enumerate(fruits):
    으로 주어진 리스트 ```a```내에서 가장 큰 값과 가장 작은 값을
    ```for``` 구문을 활요해 찾아보기.
 
-- 예제5: 2의 제곱근 구하기.
+## 5.2. 2의 제곱근 구하기.
 
   - Algorithm (점화식)
 
@@ -255,7 +268,7 @@ for i, fruit in enumerate(fruits):
   	print(x)
   ```
 
-- 예제6: (예제5 응용) 3의 제곱근 구하기
+## 5.3. 3의 제곱근 구하기
 
   ```python
   x=1. ## initial guess (0이어서는 안된다. 이유는?)
@@ -264,7 +277,7 @@ for i, fruit in enumerate(fruits):
   	print(x)
   ```
 
-- 예제 7: 4의 제곱근 구하기
+## 5.4. 4의 제곱근 구하기
 
   ```python
   x=1. ## initial guess (0이어서는 안된다. 이유는?)
@@ -273,7 +286,7 @@ for i, fruit in enumerate(fruits):
   	print(x)
   ```
 
-- 예제 8(제곱근 구하기 일반화): a의 제곱근 구하기
+## 5.5. a의 제곱근 구하기
 
   - Algorithm (점화식)
 
@@ -289,7 +302,7 @@ for i, fruit in enumerate(fruits):
 
   - initial guess를 -1로 사용해서 되풀이 해보자.
 
-- 주양자수 $n$에 의해 결정되는 부 양자수 $l,m_l$ 출력하기.
+## 5.6. 주양자수 $n$에 의해 결정되는 부 양자수 $l,m_l$ 출력하기.
 
   ```python
   # Calister 책의 표 2.1
@@ -307,4 +320,4 @@ for i, fruit in enumerate(fruits):
   print('total number of electrons:',no_electrons)
   ```
 
-- 예시, 10진법 수를 이진법으로 바꾸는 파이썬 script를 작성해보자.
+## 5.7. 임의의 10진법 수를 이진법으로 바꾸는 파이썬 script를 작성해보자.

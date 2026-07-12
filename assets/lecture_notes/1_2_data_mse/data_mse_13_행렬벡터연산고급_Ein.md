@@ -29,18 +29,33 @@ authors:
    affiliations:
      name: Changwon National University
 ---
+- [1. 목표](#1-목표)
+- [2. 아인슈타인 표기법과 np.einsum 함수](#2-아인슈타인-표기법과-npeinsum-함수)
+- [3. 벡터 스케일링 (스칼라 곱)](#3-벡터-스케일링-스칼라-곱)
+- [4. 벡터의 크기](#4-벡터의-크기)
+- [5. 단위 벡터 (unit)](#5-단위-벡터-unit)
+- [6. 예제](#6-예제)
+  - [6.1. 같은 방향의 단위 벡터 구하기.](#61-같은-방향의-단위-벡터-구하기)
+  - [6.2. 예시: 반대방향 벡터](#62-예시-반대방향-벡터)
+  - [6.3. 예시: 벡터의 합](#63-예시-벡터의-합)
+  - [6.4. 예시: 벡터의 차](#64-예시-벡터의-차)
+  - [6.5. 내적 (inner dot)](#65-내적-inner-dot)
+  - [6.6. (nxn)행렬과 (n)벡터 곱](#66-nxn행렬과-n벡터-곱)
+  - [6.7. 행렬 곱1 (single dot)](#67-행렬-곱1-single-dot)
+  - [6.8. 행렬 곱2 (double dot)](#68-행렬-곱2-double-dot)
+- [7. np.einsum 활용](#7-npeinsum-활용)
 
-# 목표
+# 1. 목표
 - Einstein summation 을 이해하고, 다양한 벡터 및 행렬 연산에 활용할 수 있다.
 
-# [아인슈타인 표기법](https://ko.wikipedia.org/wiki/아인슈타인_표기법)과 [np.einsum](https://numpy.org/doc/stable/reference/generated/numpy.einsum.html) 함수
+# 2. [아인슈타인 표기법](https://ko.wikipedia.org/wiki/아인슈타인_표기법)과 [np.einsum](https://numpy.org/doc/stable/reference/generated/numpy.einsum.html) 함수
 
 Reference: [https://rockt.ai/2018/04/30/einsum](https://rockt.ai/2018/04/30/einsum)
 
 아인슈타인 표기법은, 벡터, 행렬, 텐서가 사용된 수학 수식에서, 중복된 기호와 합기호 $\sum$가 함께 나타나는 연산을 표기할 때, 합기호를 생략하는데 착안하여 복잡한 수식을 좀 더 간략하게 표기하는 방식이다.
 아래 수식에서 한 기호가 하나의 값을 표현할 때는 굵지 않은 글씨체로 ($a$), 만약 벡터와 같이 하나의 기호가 여러 값으로 이루어져 있을 때는 굵은 글씨체 ($\boldsymbol a$)로 표기하겠다.
 
-# 벡터 스케일링 (스칼라 곱)
+# 3. 벡터 스케일링 (스칼라 곱)
 
 주어진 벡터 $\boldsymbol a$에 스칼라 $c$를 곱하면 또 다른 벡터 $\boldsymbol b$이 된다. 이는 아래와 같이 수식으로 표현가능하다.
 
@@ -94,7 +109,7 @@ b=c*a ## broadcasting (?!)
 {% endtabs %}
 
 
-# 벡터의 크기
+# 4. 벡터의 크기
 
 벡터의 크기는 앞서 이미 다루었다. 한 벡터 $\boldsymbol a$의 크기는 $|\boldsymbol a|$라 표기하고, 이는 다음과 같이 정의된다.
 
@@ -132,7 +147,7 @@ np.sqrt(np.einsum('i->',a**2))
 </p></aside>
 
 
-# 단위 벡터 (unit)
+# 5. 단위 벡터 (unit)
 
 벡터 $\boldsymbol a$의 크기가 1 이라면 (즉 $|\boldsymbol a=1|$), 벡터 $\boldsymbol a$ 를 단위 벡터(unit vector)라 부른다. 즉 단위 벡터란, 크기가 1인 벡터를 뜻한다.
 주어진 한 벡터 $\boldsymbol a$의 단위 벡터를 $\bar{\boldsymbol a}$라 할 때, $\boldsymbol a$와 $\bar{\boldsymbol a}$의 관계를 다음과 같이 표현할 수 있다:
@@ -191,9 +206,9 @@ $$
 {% endtabs 수식 %}
 index를 활용하되 아무런 생략없이 표기된 경우(`생략없이`)와 비교했을 때, `WITH생략`의 경우 얼마나 많이 수식에 활용된 표현이 축약될 수 있는지 비교해보자. 그리고 생략 되어 표기된 경우만 주어지더라도, 생략되지 않은 경우를 의미하는 바를 잘 파악할 수 있어야 하겠다. 굵은 글씨체로 표기된 경우가 가장 많이 생략된 표기법이나, index가 사용되지 않아 수식의 명확성이 높지 않을 수 있다. 마지막에 완전히 생략된 표기법은 Einstein 표기법을 이해하기 위한 기초가 된다.
 
-# 예제들
+# 6. 예제
 
-## 같은 방향의 단위 벡터 구하기.
+## 6.1. 같은 방향의 단위 벡터 구하기.
 
 주어진 벡터 $\boldsymbol a$와 방향은 같으나 크기가 1인 단위 벡터를 구하는 Python 예제를 살펴보자.
 
@@ -243,7 +258,7 @@ print(bar_a)
 {% endtab %}
 {% endtabs %}
 
-## 예시: 반대방향 벡터
+## 6.2. 예시: 반대방향 벡터
 
 한 벡터 $\boldsymbol a$와 크기가 같으나, 방향이 반대인 벡터를 $\boldsymbol b$라 한다면, 아래와 같은 결과를 얻는다.
 {% tabs 반대방향벡터 %}
@@ -299,7 +314,7 @@ b=-a
 {% endtab %}
 {% endtabs %}
 
-## 예시: 벡터의 합
+## 6.3. 예시: 벡터의 합
 
 {% tabs 벡터합 %}
 {% tab 벡터합 굵은기호수식 %}
@@ -356,7 +371,7 @@ c=a+b
 {% endtab %}
 {% endtabs %}
 
-## 예시: 벡터의 차
+## 6.4. 예시: 벡터의 차
 
 {% tabs 벡터차 %}
 {% tab 벡터차 굵은기호수식 %}
@@ -413,7 +428,7 @@ c=a-b
 {% endtab %}
 {% endtabs %}
 
-## 내적 (inner dot)
+## 6.5. 내적 (inner dot)
 
 두 벡터간의 '내적'이라 일컫는 연산의 결과는 스칼라가 된다.
 
@@ -501,7 +516,7 @@ print(np.sum(a*b))
 {% endtab %}
 {% endtabs %}
 
-## (nxn)행렬과 (n)벡터 곱
+## 6.6. (nxn)행렬과 (n)벡터 곱
 
 행과 열이 각각 n인 행렬과 (즉 nxn행렬)과 n성분으로 구성된 벡터간의 곱
 
@@ -578,7 +593,7 @@ print(c)
 {% endtab %}
 {% endtabs %}
 
-## 행렬 곱1 (single dot)
+## 6.7. 행렬 곱1 (single dot)
 
 두 행렬 $\boldsymbol A$와 $\boldsymbol B$의 곱이 아래와 같이 정의된다고 하자.
 
@@ -657,7 +672,7 @@ np.einsum('ik,kj->ij',A,B)
 {% endtab %}
 {% endtabs %}
 
-## 행렬 곱2 (double dot)
+## 6.8. 행렬 곱2 (double dot)
 
 $$
 c=\boldsymbol A : \boldsymbol B
@@ -718,7 +733,7 @@ c=np.einsum('ij,ij->',A,B)
 ```
 .
 
-# np.einsum 활용
+# 7. np.einsum 활용
 - 10 x 3 x 12 행렬 $\boldsymbol A$와 12 x 3 x 8 행렬 $\boldsymbol B$의 곱의 결과가 10 x 8 행렬 $\boldsymbol C$고 아래와 같이 수행된다고 하자.
 $$ C_{ij}=\sum_{k=1}^3\sum_{l=1}^{12}A_{ikl}B_{lkj}$$
 

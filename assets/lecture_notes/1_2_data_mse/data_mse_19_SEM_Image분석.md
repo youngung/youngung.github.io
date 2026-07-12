@@ -1,19 +1,56 @@
+---
+layout: distill
+title: 데이터 재료과학 (제 18강)
+description: IO
+target: 1학년 2학기
+permalink:
+featured: true
+prerequisite: 재료공학개론1
+toc:
+#sidebar: left
+#- name: Orientation
+#- name: Week1
+#- name: Week2
+#- name: Week3
+#- name: Week4
+#- name: Week5
+#- name: Week6
 
-# 14. Week12
+mermaid:
+  enabled: true
+  zoomable: true
+typograms: true
+hidden: true
+tabs: true
+tikzjax: true
+authors:
+ - name: Youngung Jeong
+   url: "https://youngung.github.io/"
+   affiliations:
+     name: Changwon National University
+---
+
+- [1. 목표](#1-목표)
+- [2. 색과 image 그리기](#2-색과-image-그리기)
+  - [2.1. 색표현을 설명](#21-색표현을-설명)
+  - [2.2. 이미지 그리기](#22-이미지-그리기)
+  - [2.3. 미세조직 사진 활용 실습](#23-미세조직-사진-활용-실습)
+- [3. 상분리 실습](#3-상분리-실습)
+
+# 1. 목표
 - Matplotlib imaging, color-coding, EBSD 데이터 분석
+- SEM 데이터를 소개하고, Ferrite와 Martensite로 분류
 
-- 목표
-  - SEM 데이터를 소개하고, Ferrite와 Martensite로 분류
+# 2. 색과 image 그리기
 
-## 14.1. 수업 12-1
-
-- 색표현을 설명
+## 2.1. 색표현을 설명
 
   - Gray scale (0~255)
   - RGB R(0~255), G(0~255), B(0~255)
   - RGBA R(0~2550), G(0~255), B(0~255), alpha(0~1)
   - [참고](<https://www.w3schools.com/colors/colors_rgb.asp?color=rgb(102,%20255,%20255)>)
 
+## 2.2. 이미지 그리기
 - [imshow](https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.imshow.html) 함수
 
   ```python
@@ -52,7 +89,7 @@
   	ax.set_title(f'color map: {cmaps[i]}')
   ```
 
-- 실제 미세조직 사진 활용 실습
+## 2.3. 미세조직 사진 활용 실습
 
   - 아래 사진을 [여기](/assets/dat_files/lectures/1_2_data_mse/dualphase_sem.png) 눌러서 다운 받자
 
@@ -112,6 +149,7 @@
   #print(ferrite,martensite)
   ```
 
+# 3. 상분리 실습
 - 아래 세 이미지는 한 dual-phase 시편 내의 각기 다른 3 위치에서 촬영한 SEM image이다.
   위에서 다뤘던 내용을 익혀 적용하고, 이를 바탕으로 이 시편에서의 ferrite와 martensite
   분율을 고르시오.

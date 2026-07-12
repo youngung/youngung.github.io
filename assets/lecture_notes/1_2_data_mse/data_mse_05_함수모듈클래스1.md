@@ -30,12 +30,21 @@ authors:
      name: Changwon National University
 ---
 
+- [1. 목표](#1-목표)
+- [2. 함수란](#2-함수란)
+- [3. 모듈(module)과 import](#3-모듈module과-import)
+- [4. Built-in functions (no import / no declaration required)](#4-built-in-functions-no-import--no-declaration-required)
+- [5. 가변 인자 (\*args)](#5-가변-인자-args)
+- [6. 키워드 가변인자 (\*\*kwargs)](#6-키워드-가변인자-kwargs)
+- [7. 예시](#7-예시)
+  - [7.1. 주어진 모든 가변인자를 순서대로 곱하여 출력하는 함수 만들기](#71-주어진-모든-가변인자를-순서대로-곱하여-출력하는-함수-만들기)
+  - [7.2. 주어진 모든 가변인자의 개수를 출력하고, 그 가변인자의 총합과 평균을 구하는 함수 만들기](#72-주어진-모든-가변인자의-개수를-출력하고-그-가변인자의-총합과-평균을-구하는-함수-만들기)
 
-# 목표
+# 1. 목표
  - 함수와 클래스, 그리고 모듈의 이해
  - 함수를 만들어, 모듈화 시키고 CLI에서 실행할 수 있다.
 
-#  함수란
+# 2. 함수란
 
 - 특정한 작업(task)를 수행하는 묶음.
 
@@ -95,47 +104,7 @@ def f(a=3,b=5,c,d):
    print(c+d)
    return a*b*c*d
 ```
-
-# Built-in functions (no import / no declaration required)
-
-- 특징
-  - built-in 함수는 파이썬이 기본적으로 제공하는 함수
-  - 별도의 **import** 없이 언제든 바로 사용 가능; 예 (print, help, ...)
-  - 약 70여 개의 built-in 함수: A full list of built-in functions: [here](https://docs.python.org/3/library/functions.html)
-
-- 입력(input)과 출력(output) I/O
-  - ```print``` 함수
-  - ```input``` 함수
-
-- 출력 예시
-  ```python
-  # 1. 단순 문자열 출력
-  print("안녕하세요, 파이썬!")
-
-  # 2. 숫자 출력 및 연산 결과 출력
-  print(2026)
-  print(10 + 20)
-
-  # 3. 여러 값 동시에 출력 (쉼표로 구분하면 한 칸씩 띄어서 출력돼요)
-  print("올해는", 2026, "년입니다.")
-  ```
-
-- 입력 예시
-  ```python
-  # 1. 입력 받기
-  age_str = input("당신의 현재 나이를 입력하세요: ")
-
-  # 2. 형변환 (문자열로 들어온 나이를 계산할 수 있게 정수(int)로 바꿔줘요)
-  age = int(age_str)
-
-  # 3. 계산하기
-  next_year_age = age + 1
-
-  # 4. 결과 출력하기
-  print("내년에 당신은", next_year_age, "살이 됩니다!")
-  ```
-
-# 모듈(module)과 import
+# 3. 모듈(module)과 import
 
 - 위 함수 중 하나를 모듈로 만들고 import 해보기
 
@@ -185,7 +154,46 @@ def f(a=3,b=5,c,d):
   - 밀도의 표준 편차는 얼마인가?
   - 표준편차를 계산하는 함수를 만들어서 활용해보자.
 
-# 가변 인자 (*args)
+# 4. Built-in functions (no import / no declaration required)
+
+- 특징
+  - built-in 함수는 파이썬이 기본적으로 제공하는 함수
+  - 별도의 **import** 없이 언제든 바로 사용 가능; 예 (print, help, ...)
+  - 약 70여 개의 built-in 함수: A full list of built-in functions: [here](https://docs.python.org/3/library/functions.html)
+
+- 입력(input)과 출력(output) I/O
+  - ```print``` 함수
+  - ```input``` 함수
+
+- 출력 예시
+  ```python
+  # 1. 단순 문자열 출력
+  print("안녕하세요, 파이썬!")
+
+  # 2. 숫자 출력 및 연산 결과 출력
+  print(2026)
+  print(10 + 20)
+
+  # 3. 여러 값 동시에 출력 (쉼표로 구분하면 한 칸씩 띄어서 출력돼요)
+  print("올해는", 2026, "년입니다.")
+  ```
+
+- 입력 예시
+  ```python
+  # 1. 입력 받기
+  age_str = input("당신의 현재 나이를 입력하세요: ")
+
+  # 2. 형변환 (문자열로 들어온 나이를 계산할 수 있게 정수(int)로 바꿔줘요)
+  age = int(age_str)
+
+  # 3. 계산하기
+  next_year_age = age + 1
+
+  # 4. 결과 출력하기
+  print("내년에 당신은", next_year_age, "살이 됩니다!")
+  ```
+
+# 5. 가변 인자 (*args)
 
 ```python
 def add_all(*args):
@@ -197,7 +205,7 @@ print(add_all(1, 2))        # 결과: 3
 print(add_all(1, 2, 3, 4))  # 결과: 10
 ```
 
-# 키워드 가변인자 (**kwargs)
+# 6. 키워드 가변인자 (**kwargs)
 ```python
 def print_info(**kwargs):
     # kwargs는 dictionary 형태. 예: {'name': 'Alice', 'age': 30}
@@ -210,34 +218,10 @@ print_info(name="Alice", age=30, role="Professor")
 # name: Alice
 # age: 30
 # role: Professor
-
-```python
-class Atom:
-    def __init__(self):
-      pass
-		def add_density(self,val):
-			self.density=val
-		def add_structure(self,val):
-			self.structure=val
-
-	## usage examples
-	myFe=Atom() # Atom 클래스를 활용
-	myFe.add_density(7.87) #7.87g/cm^3
-	myFe.add_structure('BCC')
-
-	myAl=Atom()
-	myAl.add_density(2.70)
-	myAl.add_structure('FCC')
 ```
 
-- `getattr` built-in 함수
+# 7. 예시
 
-  - 기본문법
+## 7.1. 주어진 모든 가변인자를 순서대로 곱하여 출력하는 함수 만들기
 
-  ```python
-  getattr(object, name[, default])
-  ```
-
-  - object : 속성을 가져올 대상 객체
-  - name : 속성 이름 (문자열로 지정)
-  - default (선택적) : 해당 속성이 없을 경우 반환할 기본값 (없으면 AttributeError 발생)
+## 7.2. 주어진 모든 가변인자의 개수를 출력하고, 그 가변인자의 총합과 평균을 구하는 함수 만들기
