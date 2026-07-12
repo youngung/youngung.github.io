@@ -77,15 +77,8 @@ In the order of preference:
   - [NumPy](https://numpy.org)
   - [matplotlib](https://matplotlib.org)
 - 이를 활용해 재료공학 기초 문제 해결을 위해 활용 경험
-- 기초적 이해를 바탕으로, 재료공학 실전 문제 해결에 응용 경험
-- 나아가 더욱 어려운 문제를 **스스로** 해결하기 위해 필요한 배경 지식 습득
-
-<br/><br/>
-<br/><br/>
-<br/><br/>
-<br/><br/>
-
----
+- 기초적 이해를 바탕으로, 재료공학 실전 문제 해결에 응용을 할 수 있는 원리 이해
+- 각자에게 주어진 문제를 **스스로** 해결하기 위해 필요한 배경 지식 습득
 
 
 # 3. 강의 자료 및 수업 진행 방식
@@ -181,11 +174,11 @@ third([학생 시연/실습]) ==> fourth([수업후 개념 복습])
 - 출석과 결석 (출석 부를 때 없으면 결석, 수업 시작 30 분 이내 도착하면 이후 **지각**처리)
 
 - 중간/기말 평가
-  - 출석이 매우 중요한 교과목 (40%).
-  - 단순 출석이 필요하기 보다, 수업에 적극적으로 참여하는 태도 필수 (태도 점수 20%).
-  - 중요한 원리 이해 필요.
-  - 수업시간 다룬 예제 중심으로 이해 필요.
-  - 고득점(A, A+)을 원한다면 변형된 예제들까지 이해하고 적용/응용 가능해야함.
+  + 출석이 매우 중요한 교과목 (40%).
+  + 단순 출석이 필요하기 보다, 수업에 적극적으로 참여하는 태도 필수 (태도 점수 20%).
+  + 중요한 원리 이해 필요.
+  + 수업시간 다룬 예제 중심으로 이해 필요.
+  + 고득점(A, A+)을 원한다면 변형된 예제들까지 이해하고 적용/응용 가능해야함.
 
 ```mermaid
 pie title 평가 방법
@@ -196,13 +189,13 @@ pie title 평가 방법
 ```
 
 - 오늘의 강의 내 & take home 과제
-  - 각 학생들마다 컴퓨터 환경 (Windows, MacOS, Linux, cloud ... 등등)이 다르므로
+  + 각 학생들마다 컴퓨터 환경 (Windows, MacOS, Linux, cloud ... 등등)이 다르므로
     본인의 컴퓨터 환경에 맞게 환경 세팅 필요함.
-  - 파이썬 설치 및 환경 설정 완성 (Python 3.12, [JuPyter](https://jupyter.org), [VS code](https://code.visualstudio.com), pip)
+  + 파이썬 설치 및 환경 설정 완성 (Python 3.12, [JuPyter](https://jupyter.org), [VS code](https://code.visualstudio.com), pip)
     * 설치 설명 참고 [링크](https://blog.naver.com/dlgusen123/223943489124)
-  - [YouTube](https://youtube.com)에서 간단한 Python tutorial 영상 찾아서 보고 따라해보기.
-  - 영문타자 익히기 - [여기1](https://www.typelit.io), [여기2](https://www.typing.com/student/lesson/328/common-english-words), [여기3](https://www.speedcoder.net)서 연습해보기.
-  - 키보드 기호들의 위치 숙지 필요.
-  - 강의실 내 인터넷 접속 사전에 해보기. 교수가자 따로 인터넷 제공하지 않는다.
-  - [Google colab](https://colab.google)에서 Notebook 만들어 실습해보기.
-  - [Google colab](https://colab.google)활용한다면 아이패드나 갤럭시 탭, 심지어는 핸드폰(?)으로도 실습 가능하다. 하지만 여러 이유로 컴퓨터가 아닌 기기는 추천하지 않는다.
+  + [YouTube](https://youtube.com)에서 간단한 Python tutorial 영상 찾아서 보고 따라해보기.
+  + 영문타자 익히기 - [여기1](https://www.typelit.io), [여기2](https://www.typing.com/student/lesson/328/common-english-words), [여기3](https://www.speedcoder.net)서 연습해보기.
+  + 키보드 기호들의 위치 숙지 필요.
+  + 강의실 내 인터넷 접속 사전에 해보기. 교수가자 따로 인터넷 제공하지 않는다.
+  + [Google colab](https://colab.google)에서 Notebook 만들어 실습해보기.
+  + [Google colab](https://colab.google)활용한다면 아이패드나 갤럭시 탭, 심지어는 핸드폰(?)으로도 실습 가능하다. 하지만 여러 이유로 컴퓨터가 아닌 기기는 추천하지 않는다.

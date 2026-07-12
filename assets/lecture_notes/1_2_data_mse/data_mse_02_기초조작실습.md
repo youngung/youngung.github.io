@@ -31,8 +31,9 @@ authors:
 ---
 - [1. 목표](#1-목표)
 - [2. Python 환경 확인](#2-python-환경-확인)
-  - [2.1. 2.1 파이썬](#21-21-파이썬)
+  - [2.1. 파이썬](#21-파이썬)
   - [2.2. VS code에서 JuPyter 셋업 \& 구동되어 있는가?](#22-vs-code에서-jupyter-셋업--구동되어-있는가)
+  - [2.3 CLI (command line interface 기초)](#23-cli-command-line-interface-기초)
 - [3. 모듈 만들기 및 실습](#3-모듈-만들기-및-실습)
 - [4. 간단한 조작 실습](#4-간단한-조작-실습)
 - [5. 변수와 연산자](#5-변수와-연산자)
@@ -49,11 +50,9 @@ authors:
   - Internet 환경 세팅 완료?
   - VS code 설치 완료?
 
-
 # 2. Python 환경 확인
 
-
-  ## 2.1. 2.1 파이썬
+  ## 2.1. 파이썬
    - 파이썬 설치 및 환경 설정 완성 (Python 3.12, [JuPyter](https://jupyter.org), [VS code](https://code.visualstudio.com), pip)이 되어 있고, terminal에서 다음과 같이 Python 환경 실행 가능한가?
 
    - Windows 예시
@@ -78,6 +77,9 @@ authors:
 
   ## 2.2. VS code에서 JuPyter 셋업 & 구동되어 있는가?
    * 몇몇 유용한 extension을 설치하면 더욱 도움이 된다.
+
+  ## 2.3 CLI (command line interface 기초)
+   * https://www.youtube.com/watch?v=hNdAQQeqkYU
 
 # 3. 모듈 만들기 및 실습
 
