@@ -35,6 +35,7 @@ authors:
 - [3. 강의 자료 및 수업 진행 방식](#3-강의-자료-및-수업-진행-방식)
 - [4. 실습 / 코딩](#4-실습--코딩)
 - [5. 평가 방법](#5-평가-방법)
+- [6. 오늘의 강의 내 \& take home 과제](#6-오늘의-강의-내--take-home-과제)
 
 
 
@@ -123,61 +124,61 @@ third([학생 시연/실습]) ==> fourth([수업후 개념 복습])
   보는 것보다 직접 해보는 것이 낫다. 어려운 개념은 반복해서 예습을 풀어보며 **머리** 뿐만
   아니라 **몸**(muscle memory:muscle:)으로 익혀라.
 - 수업 시간 예제 반드시 스스로 해보기
-  - 스스로 공부할 때, 혹은 예제를 풀 때 [ChatGPT](https://chatgpt.com)에 도움을
+  + 스스로 공부할 때, 혹은 예제를 풀 때 [ChatGPT](https://chatgpt.com)에 도움을
     받는 건 좋으나, 단순 질문과 답을 구하기 보다 스스로의 이해를 돕기 위해 활용하길 바란다.
-  - 예제를 일일이 다 쳐보기. 네모 박스 코드를 일일이 다 정확히 쳐보기 (copy&paste 금지)
-  - 결과를 스스로 살펴봐야 하고 이해하도록 노력해보기
-  - 예제를 바꿔서 적용하고 그 변화를 살펴보기.
-  - 예시로 주어진 프로그램을 한줄씩, 한 명령어씩 다 뜯어서 살펴보기 (hacking)
-  - :raising_hand: :grey_question:
+  + 예제를 일일이 다 쳐보기. 네모 박스 코드를 일일이 다 정확히 쳐보기 (copy&paste 금지)
+  + 결과를 스스로 살펴봐야 하고 이해하도록 노력해보기
+  + 예제를 바꿔서 적용하고 그 변화를 살펴보기.
+  + 예시로 주어진 프로그램을 한줄씩, 한 명령어씩 다 뜯어서 살펴보기 (hacking)
+  + :raising_hand: :grey_question:
 - 영문 키보드 반드시 숙지 필요
-  - 영타가 느리면 그만큼 학습이 느려진다.
-  - 예시로 주어지는 코드를 모두 직접 입력해봐야 한다.
-  - 키보드 익히기:
-    - 유용한 링크[1](https://typing.io),
-    - [2](https://www.typelit.io),
-    - [3](https://typing.works) ...
+  + 영타가 느리면 그만큼 학습이 느려진다.
+  + 예시로 주어지는 코드를 모두 직접 입력해봐야 한다.
+  + 키보드 익히기 유용한 링크
+    * [1](https://typing.io),
+    * [2](https://www.typelit.io),
+    * [3](https://typing.works) ...
 - 각종 기호들 위치 익히기! 평소에 쓰지 않은 다양한 부호가 컴퓨터에 있음을 인지할 것.
-  - `: accent
-  - ': single quotation mark
-  - ": double quotation mark
-  - !: exclamation mark
-  - @: 'at'
-  - #: number sign (sharp)
-  - $: dollar sign
-  - %: percent
-  - ^: caret
-  - &: ampersand
-  - \*: asterisk
-  - (: left parenthesis
-  - ): right parenthesis
-  - -: dash (minus)
-  - =: equal sign
-  - ,: comma
-  - \_: underscore
-  - +: plus
-  - [: left square bracket
-  - ]: right square bracket
-  - /: slash
-  - \\: blackslash
-  - <: left bracket
-  - \>: right bracket
+  + `: accent
+  + ': single quotation mark
+  + ": double quotation mark
+  + !: exclamation mark
+  + @: 'at'
+  + #: number sign (sharp)
+  + $: dollar sign
+  + %: percent
+  + ^: caret
+  + &: ampersand
+  + \*: asterisk
+  + (: left parenthesis
+  + ): right parenthesis
+  + -: dash (minus)
+  + =: equal sign
+  + ,: comma
+  + \_: underscore
+  + +: plus
+  + [: left square bracket
+  + ]: right square bracket
+  + /: slash
+  + \\: blackslash
+  + <: left bracket
+  + \>: right bracket
 
 - 교수자가 사용하는 도구들: MacOS, MS VScode, 기본 terminal, JuPyter notebook, Google Colab ...
-  - 하지만, 실습은 Windows, MacOS, Linux .. 등 어디서든 가능합니다.
-  - [Google colab](https://colab.google)에서는 인터넷 연결만 되어 있다면 JuPyter notebook 실습 가능합니다.
-  - 수업 중간에 인터넷을 통해 몇몇 Python 패키지를 설치해야 할 수도 있으므로, 교내 와이파이 접속 가능해야 함.
-  - VS code에 대해 상세히 알고 싶다면 [여기](https://code.visualstudio.com/docs)를 통해 알아보자. 영어로 된 문서가 부담스럽거나 어렵다면, 최신 웹브라우저들은 대부분 번역 기능을 제공하니 적극적으로 활용해보길 바란다.
+  + 하지만, 실습은 Windows, MacOS, Linux .. 등 어디서든 가능합니다.
+  + [Google colab](https://colab.google)에서는 인터넷 연결만 되어 있다면 JuPyter notebook 실습 가능합니다.
+  + 수업 중간에 인터넷을 통해 몇몇 Python 패키지를 설치해야 할 수도 있으므로, 교내 와이파이 접속 가능해야 함.
+  + VS code에 대해 상세히 알고 싶다면 [여기](https://code.visualstudio.com/docs)를 통해 알아보자. 영어로 된 문서가 부담스럽거나 어렵다면, 최신 웹브라우저들은 대부분 번역 기능을 제공하니 적극적으로 활용해보길 바란다.
 
 # 5. 평가 방법
 
 - 출석과 결석 (출석 부를 때 없으면 결석, 수업 시작 30 분 이내 도착하면 이후 **지각**처리)
 
 - 중간/기말 평가
-  + 출석이 매우 중요한 교과목 (40%).
-  + 단순 출석이 필요하기 보다, 수업에 적극적으로 참여하는 태도 필수 (태도 점수 20%).
+  + 꾸준한 **출석**이 매우 중요한 교과목 (40%). 벼락치기로 몰아서 공부가 어려운 교과목.
+  + 단순 출석을 넘어서 수업에 적극적으로 참여하는 태도 필수 (태도 점수 20%).
   + 중요한 원리 이해 필요.
-  + 수업시간 다룬 예제 중심으로 이해 필요.
+  + 수업시간 다룬 예제 중심으로 이해 필요. 꾸준히 반복 수행 필요.
   + 고득점(A, A+)을 원한다면 변형된 예제들까지 이해하고 적용/응용 가능해야함.
 
 ```mermaid
@@ -188,14 +189,15 @@ pie title 평가 방법
     "수강/실습/과제 태도 및 참여" : 20
 ```
 
-- 오늘의 강의 내 & take home 과제
-  + 각 학생들마다 컴퓨터 환경 (Windows, MacOS, Linux, cloud ... 등등)이 다르므로
+# 6. 오늘의 강의 내 & take home 과제
+  - 각 학생들마다 컴퓨터 환경 (Windows, MacOS, Linux, cloud ... 등등)이 다르므로
     본인의 컴퓨터 환경에 맞게 환경 세팅 필요함.
-  + 파이썬 설치 및 환경 설정 완성 (Python 3.12, [JuPyter](https://jupyter.org), [VS code](https://code.visualstudio.com), pip)
-    * 설치 설명 참고 [링크](https://blog.naver.com/dlgusen123/223943489124)
-  + [YouTube](https://youtube.com)에서 간단한 Python tutorial 영상 찾아서 보고 따라해보기.
-  + 영문타자 익히기 - [여기1](https://www.typelit.io), [여기2](https://www.typing.com/student/lesson/328/common-english-words), [여기3](https://www.speedcoder.net)서 연습해보기.
-  + 키보드 기호들의 위치 숙지 필요.
-  + 강의실 내 인터넷 접속 사전에 해보기. 교수가자 따로 인터넷 제공하지 않는다.
-  + [Google colab](https://colab.google)에서 Notebook 만들어 실습해보기.
-  + [Google colab](https://colab.google)활용한다면 아이패드나 갤럭시 탭, 심지어는 핸드폰(?)으로도 실습 가능하다. 하지만 여러 이유로 컴퓨터가 아닌 기기는 추천하지 않는다.
+  - 파이썬 설치 및 환경 설정 완성 (Python 3.12, [JuPyter](https://jupyter.org), [VS code](https://code.visualstudio.com), pip)
+    + 설치 설명 참고 [링크](https://blog.naver.com/dlgusen123/223943489124)
+  - [YouTube](https://youtube.com)에서 간단한 Python tutorial 영상 찾아서 보고 따라해보기.
+  - 영문타자 익히기 - [여기1](https://www.typelit.io), [여기2](https://www.typing.com/student/lesson/328/common-english-words), [여기3](https://www.speedcoder.net)서 연습해보기.
+  - 키보드 기호들의 위치 숙지 필요.
+  - 강의실 내 인터넷 접속 사전에 해보기. 교수가자 따로 인터넷 제공하지 않는다.
+  - [Google colab](https://colab.google)에서 Notebook 만들어 실습해보기.
+  - [Google colab](https://colab.google)활용한다면 아이패드나 갤럭시 탭, 심지어는
+  핸드폰(?)으로도 실습 가능하다. 하지만 여러 이유로 컴퓨터가 아닌 기기는 추천하지 않는다.

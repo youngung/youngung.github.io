@@ -6,7 +6,7 @@ target: 1학년 2학기
 permalink:
 featured: true
 prerequisite: 재료공학개론1
-# toc:
+toc:
 #sidebar: left
 #- name: Orientation
 #- name: Week1
@@ -34,6 +34,7 @@ authors:
   - [2.1. 파이썬](#21-파이썬)
   - [2.2. VS code에서 JuPyter 셋업 \& 구동되어 있는가?](#22-vs-code에서-jupyter-셋업--구동되어-있는가)
   - [2.3 CLI (command line interface 기초)](#23-cli-command-line-interface-기초)
+- [Source / version control via Git](#source--version-control-via-git)
 - [3. 모듈 만들기 및 실습](#3-모듈-만들기-및-실습)
 - [4. 간단한 조작 실습](#4-간단한-조작-실습)
 - [5. 변수와 연산자](#5-변수와-연산자)
@@ -80,6 +81,12 @@ authors:
 
   ## 2.3 CLI (command line interface 기초)
    * https://www.youtube.com/watch?v=hNdAQQeqkYU
+   * CLI 활용을 통한 더욱 다양한 툴의 활용 및 자동화를 위한 script
+
+# Source / version control via Git
+- Git 활용을 통한 체계적인 소스/버전 컨트롤 및 협업
+- Git 를 활용한 local repository 생성
+- GitHub / GitLab .. 등 다양한 서비스를 통한 remote repository 관리 / 협업 등
 
 # 3. 모듈 만들기 및 실습
 
@@ -108,7 +115,7 @@ authors:
  에러 메시지 2.
  ```txt
 /Users/youngung/.pyenv/versions/3.12.2/bin/python: can't open file '/Users/youngung/repo/youngung.github.io/mdim.py': [Errno 2] No such file or directory
-  ```
+ ```
 
 # 4. 간단한 조작 실습
 
@@ -123,6 +130,10 @@ authors:
   # print('I am fine')
   print('What did you say?')
   ```
+
+- Extension 설치
+  + Python exntension?
+  + Jupyter extension?
 
 # 5. 변수와 연산자
 - 변수 선언과 자료형 (`int`, `float`, `str`, `bool`) 이해하기

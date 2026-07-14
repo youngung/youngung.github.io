@@ -7,7 +7,7 @@ permalink:
 featured: true
 prerequisite: 재료공학개론1
 toc:
-#sidebar: left
+# sidebar: left
 #- name: Orientation
 #- name: Week1
 #- name: Week2
