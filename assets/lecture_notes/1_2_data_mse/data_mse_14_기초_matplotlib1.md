@@ -42,6 +42,9 @@ authors:
     - [5.1.4. 반지름의 길이가 10인 원](#514-반지름의-길이가-10인-원)
   - [5.2. 공칭 변형률과 진변형률](#52-공칭-변형률과-진변형률)
   - [5.3. Stress vs. strain curve 그리기](#53-stress-vs-strain-curve-그리기)
+  - [5.4 데이터 fitting](#54-데이터-fitting)
+    - [5.4.1 Curve fitting in Cartesian (x,y)](#541-curve-fitting-in-cartesian-xy)
+    - [5.4.2 Curve fitting in Polar coordinate (r,$\\theta$)](#542-curve-fitting-in-polar-coordinate-rtheta)
 
 
 # 1. 목표
@@ -221,3 +224,15 @@ $$
 1.  폭: 6.04 mm, 두께 2.99 mm 인걸 확인하고,
 2.  힘과 변위 칼럼을 활용해서 응력과 변형률을 구하자.
 3.  그 다음 응력과 변형률 곡선을 Figure로 그려보자.
+
+
+## 5.4 데이터 fitting
+### 5.4.1 Curve fitting in Cartesian (x,y)
+- 금속의 인장 실험 이후 변형률과 응력의 데이터를 아래와 같이 취득하였다. 이 데이터에 해당하는
+  Young's modulus (영률)을 구하여라. 그리고 구해진 영률을 활용한 직선과 실험 데이터를
+  비교하는 그래프를 작성하여라.
+- 여러 온도에 해당하는 측정된 확산계수를 활용해 1000 K에서의 확산 계수를
+  가늠해 보아라.
+
+### 5.4.2 Curve fitting in Polar coordinate (r,$\theta$)
+Bohr의 원자 모형에서의 전자 움직임을 모사하였더니 아래와 같은 데이터를 보인다. 이를 활용해보자.
