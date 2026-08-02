@@ -396,6 +396,11 @@ ninja.data = [{
           title: '열간변형 프리폼 형상 최적화',
           description: "",
           section: "Projects",handler: () => {
+              window.location.href = "/projects/26_SMR2/";
+            },},{id: "projects-열간변형-프리폼-형상-최적화",
+          title: '열간변형 프리폼 형상 최적화',
+          description: "",
+          section: "Projects",handler: () => {
               window.location.href = "/projects/26_Seah/";
             },},{
         id: 'social-email',
