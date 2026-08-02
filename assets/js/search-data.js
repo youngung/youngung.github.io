@@ -392,8 +392,8 @@ ninja.data = [{
           description: "",
           section: "Projects",handler: () => {
               window.location.href = "/projects/25_Hyosung/";
-            },},{id: "projects-열간변형-프리폼-형상-최적화",
-          title: '열간변형 프리폼 형상 최적화',
+            },},{id: "projects-smr2-국가연구소-nrl-2-0",
+          title: 'SMR2 국가연구소(NRL 2.0)',
           description: "",
           section: "Projects",handler: () => {
               window.location.href = "/projects/26_SMR2/";
