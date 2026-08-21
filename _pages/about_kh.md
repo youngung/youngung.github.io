@@ -1,0 +1,1 @@
+**Gyeongwon Hwang** is a master student and investigates the mechanical behavior of magnesium alloys under multiaxial loading conditions by simulating Nakajima experiments using the user material subroutine of EVPSC model.
