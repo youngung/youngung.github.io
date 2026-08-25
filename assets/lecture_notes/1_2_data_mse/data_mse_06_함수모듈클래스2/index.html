@@ -113,45 +113,45 @@
   <span class="c1"># math.log: log function with base of Euler's number, 2.718...
 </span>  <span class="n">true_eps</span><span class="o">=</span><span class="n">math</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="n">engi_eps</span><span class="p">)</span>
   <span class="k">return</span> <span class="n">true_eps</span>
-</code></pre></div></div> <h2 id="43-길이-변화를-주면-true-strain을-계산하는-함수">4.3. 길이 변화를 주면 true strain을 계산하는 함수</h2> <h2 id="44-schmid-law">4.4. Schmid law</h2> <ul> <li>Schmid의 법칙을 활용하면, 일축 인장 (혹은 압축) 응력값($\sigma$)와 전위 슬립계 (dislocation slip system)의 방위 관계 ($\phi,\lambda$)를 활용해 분해전단응력($\tau$)값을 구할 수 있다.</li> </ul> \[\tau=\sigma \cos\phi \cos\lambda\] <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="k">def</span> <span class="nf">schmid</span><span class="p">(</span><span class="n">sigma</span><span class="p">,</span><span class="n">phi</span><span class="p">,</span><span class="n">lamb</span><span class="p">):</span>
-    <span class="sh">"""</span><span class="s">
-    Arguments
-    ---------
-    sigma: float
-      uniaxial stress
-    phi: float (in radian)
-      angle between the slip plane normal and the loading direction
-    lamb: float (in radian)
-      angle between the slip direction and the loading direction
+</code></pre></div></div> <h2 id="43-길이-변화를-주면-true-strain을-계산하는-함수">4.3. 길이 변화를 주면 true strain을 계산하는 함수</h2> <h2 id="44-schmid-law">4.4. Schmid law</h2> <ul> <li>Schmid의 법칙을 활용하면, 일축 인장 (혹은 압축) 응력값($\sigma$)와 전위 슬립계 (dislocation slip system)의 방위 관계 ($\phi,\lambda$)를 활용해 분해전단응력($\tau$)값을 구할 수 있다.</li> </ul> \[\tau=\sigma \cos\phi \cos\lambda\] <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">schmid</span><span class="p">(</span><span class="n">sigma</span><span class="p">,</span><span class="n">phi</span><span class="p">,</span><span class="n">lamb</span><span class="p">):</span>
+  <span class="sh">"""</span><span class="s">
+  Arguments
+  ---------
+  sigma: float
+    uniaxial stress
+  phi: float (in radian)
+    angle between the slip plane normal and the loading direction
+  lamb: float (in radian)
+    angle between the slip direction and the loading direction
 
-    Returns
-    -------
-    Schmid factor
-    </span><span class="sh">"""</span>
-    <span class="kn">import</span> <span class="n">math</span>
-    <span class="k">return</span> <span class="n">sigma</span><span class="o">*</span><span class="n">math</span><span class="p">.</span><span class="nf">cos</span><span class="p">(</span><span class="n">phi</span><span class="p">)</span><span class="o">*</span><span class="n">math</span><span class="p">.</span><span class="nf">cos</span><span class="p">(</span><span class="n">lamb</span><span class="p">)</span>
-</code></pre></div></div> <h2 id="45-위치-인자-args를-활용한-다항함수polynomial-function-구하기">4.5. 위치 인자 (*args)를 활용한 다항함수(polynomial function) 구하기</h2> <ul> <li>다항식의 규칙성을 이해해보자.</li> <li>2차</li> </ul> <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="k">def</span> <span class="nf">poly</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="o">*</span><span class="n">args</span><span class="p">):</span>
-    <span class="sh">"""</span><span class="s">
-    polynomial function
+  Returns
+  -------
+  Schmid factor
+  </span><span class="sh">"""</span>
+  <span class="kn">import</span> <span class="n">math</span>
+  <span class="k">return</span> <span class="n">sigma</span><span class="o">*</span><span class="n">math</span><span class="p">.</span><span class="nf">cos</span><span class="p">(</span><span class="n">phi</span><span class="p">)</span><span class="o">*</span><span class="n">math</span><span class="p">.</span><span class="nf">cos</span><span class="p">(</span><span class="n">lamb</span><span class="p">)</span>
+</code></pre></div></div> <h2 id="45-위치-인자-args를-활용한-다항함수polynomial-function-구하기">4.5. 위치 인자 (*args)를 활용한 다항함수(polynomial function) 구하기</h2> <ul> <li>다항식의 규칙성을 이해해보자.</li> <li>2차</li> </ul> <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">poly</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="o">*</span><span class="n">args</span><span class="p">):</span>
+  <span class="sh">"""</span><span class="s">
+  polynomial function
 
-    y = a x^n + b x^(n-1) + c x^(n-2) ... z x^0
+  y = a x^n + b x^(n-1) + c x^(n-2) ... z x^0
 
-    Arguments
-    ---------
-    x,*args
+  Arguments
+  ---------
+  x,*args
 
-    Returns
-    -------
-    y
-    </span><span class="sh">"""</span>
-    <span class="n">n</span><span class="o">=</span><span class="nf">len</span><span class="p">(</span><span class="n">args</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span> <span class="c1"># highest order
-</span>    <span class="n">y</span><span class="o">=</span><span class="mf">0.</span>
-    <span class="nf">print</span><span class="p">(</span><span class="sh">'</span><span class="s">n,i,arg</span><span class="sh">'</span><span class="p">)</span>
-    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">arg</span> <span class="ow">in</span> <span class="nf">enumerate</span><span class="p">(</span><span class="n">args</span><span class="p">):</span>
-  	  <span class="c1"># print(n,i,arg)
-</span>  	  <span class="n">y</span><span class="o">+=</span><span class="n">arg</span><span class="o">*</span><span class="p">(</span><span class="n">x</span><span class="o">**</span><span class="n">n</span><span class="p">)</span> <span class="c1">#
-</span>  	  <span class="n">n</span><span class="o">-=</span><span class="mi">1</span>          <span class="c1"># in descending order
-</span>    <span class="k">return</span> <span class="n">y</span>
+  Returns
+  -------
+  y
+  </span><span class="sh">"""</span>
+  <span class="n">n</span><span class="o">=</span><span class="nf">len</span><span class="p">(</span><span class="n">args</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span> <span class="c1"># highest order
+</span>  <span class="n">y</span><span class="o">=</span><span class="mf">0.</span>
+  <span class="nf">print</span><span class="p">(</span><span class="sh">'</span><span class="s">n,i,arg</span><span class="sh">'</span><span class="p">)</span>
+  <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">arg</span> <span class="ow">in</span> <span class="nf">enumerate</span><span class="p">(</span><span class="n">args</span><span class="p">):</span>
+	  <span class="c1"># print(n,i,arg)
+</span>	  <span class="n">y</span><span class="o">+=</span><span class="n">arg</span><span class="o">*</span><span class="p">(</span><span class="n">x</span><span class="o">**</span><span class="n">n</span><span class="p">)</span> <span class="c1">#
+</span>	  <span class="n">n</span><span class="o">-=</span><span class="mi">1</span>          <span class="c1"># in descending order
+</span>  <span class="k">return</span> <span class="n">y</span>
 </code></pre></div></div> <h2 id="46-키워드-인자-keyword-arguments-kwargs-활용-예시">4.6. 키워드 인자 (keyword arguments; **kwargs) 활용 예시</h2> <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">get_sum</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">):</span>
   <span class="nb">sum</span><span class="o">=</span><span class="mf">0.</span>
   <span class="k">for</span> <span class="n">arg</span> <span class="ow">in</span> <span class="n">args</span><span class="p">:</span>
