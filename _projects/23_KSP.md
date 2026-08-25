@@ -2,7 +2,7 @@
 layout: page
 title: 밸브 스핀들 및 시트링 유한요소 해석
 description:
-img: 
+img:
 importance: 1
 category: work
 related_publications: true

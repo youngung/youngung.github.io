@@ -24,11 +24,12 @@ hidden: true
 tabs: true
 tikzjax: true
 authors:
- - name: Youngung Jeong
-   url: "https://youngung.github.io/"
-   affiliations:
-     name: Changwon National University
+  - name: Youngung Jeong
+    url: "https://youngung.github.io/"
+    affiliations:
+      name: Changwon National University
 ---
+
 - [1. 목표](#1-목표)
 - [2. Python 환경 확인](#2-python-환경-확인)
   - [2.1. 파이썬](#21-파이썬)
@@ -44,8 +45,8 @@ authors:
   - [6.3. 실습 예시 2-3](#63-실습-예시-2-3)
   - [6.4. 실습 예시 2-4](#64-실습-예시-2-4)
 
-
 # 1. 목표
+
 - 원활한 강의 위한 선행 조건이 만족 되었는가?
   - Python 설치 완료?
   - Internet 환경 세팅 완료?
@@ -53,12 +54,14 @@ authors:
 
 # 2. Python 환경 확인
 
-  ## 2.1. 파이썬
-   - 파이썬 설치 및 환경 설정 완성 (Python 3.12, [JuPyter](https://jupyter.org), [VS code](https://code.visualstudio.com), pip)이 되어 있고, terminal에서 다음과 같이 Python 환경 실행 가능한가?
+## 2.1. 파이썬
 
-   - Windows 예시
+-    파이썬 설치 및 환경 설정 완성 (Python 3.12, [JuPyter](https://jupyter.org), [VS code](https://code.visualstudio.com), pip)이 되어 있고, terminal에서 다음과 같이 Python 환경 실행 가능한가?
+
+-    Windows 예시
 
     ```batch
+
     Microsoft Windows [Version 10.0.26200.8655]
     (c) Microsoft Corporation. All rights reserved.
 
@@ -68,24 +71,28 @@ authors:
     >>>
     ```
 
-   - MacOS 예시
+-    MacOS 예시
 
     ```batch
+
     Youngungs-MacBook-Pro➜  ~  ᐅ  python
     Python 3.12.2 (main, Mar 29 2024, 06:39:27)   [Clang 15.0.0 (clang-1500.3.9.4)] on darwin
     Type "help", "copyright", "credits" or "license" for more information.
     >>>
     ```
 
-  ## 2.2. VS code에서 JuPyter 셋업 & 구동되어 있는가?
-   * 몇몇 유용한 extension을 설치하면 더욱 도움이 된다.
-   * Check this [link](https://code.visualstudio.com/docs/python/python-tutorial)
+## 2.2. VS code에서 JuPyter 셋업 & 구동되어 있는가?
 
-  ## 2.3 CLI (command line interface 기초)
-   * https://www.youtube.com/watch?v=hNdAQQeqkYU
-   * CLI 활용을 통한 더욱 다양한 툴의 활용 및 자동화를 위한 script
+- 몇몇 유용한 extension을 설치하면 더욱 도움이 된다.
+- Check this [link](https://code.visualstudio.com/docs/python/python-tutorial)
+
+## 2.3 CLI (command line interface 기초)
+
+- https://www.youtube.com/watch?v=hNdAQQeqkYU
+- CLI 활용을 통한 더욱 다양한 툴의 활용 및 자동화를 위한 script
 
 # Source / version control via Git
+
 - Git 활용을 통한 체계적인 소스/버전 컨트롤 및 협업
 - Git 를 활용한 local repository 생성
 - GitHub / GitLab .. 등 다양한 서비스를 통한 remote repository 관리 / 협업 등
@@ -97,27 +104,30 @@ authors:
   print('Hello, world')
   ```
 - Module 실행
+
   ```batch
   C:\Users\Youngung> python hello.py
   Hello, world
   ```
 
 - 'Traceback'이해하고 대처할 수 있다: 실습간에 예상했던 대로 결과가 나오지 않고, 예를 들어
- 아래와 같은 에러 메시지 직접 읽고 대처할 수 있도록 노력 필요.
+  아래와 같은 에러 메시지 직접 읽고 대처할 수 있도록 노력 필요.
 
- 에러 메시지 1.
- ```batch
-  Traceback (most recent call last):
-    File "/Users/youngung/repo/lectures/1_2_data_mse/ex/01_Hello/hello.py", line 1, in <module>
-      xprint('Hello, world')
-      ^^^^^^
-  NameError: name 'xprint' is not defined. Did you mean: 'print'?
- ```
+에러 메시지 1.
 
- 에러 메시지 2.
- ```txt
+```batch
+ Traceback (most recent call last):
+   File "/Users/youngung/repo/lectures/1_2_data_mse/ex/01_Hello/hello.py", line 1, in <module>
+     xprint('Hello, world')
+     ^^^^^^
+ NameError: name 'xprint' is not defined. Did you mean: 'print'?
+```
+
+에러 메시지 2.
+
+```txt
 /Users/youngung/.pyenv/versions/3.12.2/bin/python: can't open file '/Users/youngung/repo/youngung.github.io/mdim.py': [Errno 2] No such file or directory
- ```
+```
 
 # 4. 간단한 조작 실습
 
@@ -127,6 +137,7 @@ authors:
   - 코드 셀
   - markdown 셀
 - 주석(comment)과 명령문(statement) 구분하기
+
   ```python
   print('Hello, world')
   # print('I am fine')
@@ -134,15 +145,16 @@ authors:
   ```
 
 - Extension 설치; extensions: Marketplace에서 검색 후 설치하기
-  + Python extension?
-  + Jupyter extension?
+  - Python extension?
+  - Jupyter extension?
 
 # 5. 변수와 연산자
+
 - 변수 선언과 자료형 (`int`, `float`, `str`, `bool`) 이해하기
-   - integer
-   - float
-   - str
-   - bool
+  - integer
+  - float
+  - str
+  - bool
 - 연산자(operator) 이해하기
   - 산술 연산자 (더하기, 빼기, 곱하기, 나누기, 지수, 나머지, 몫 ... )
   - 비교 연산자 (==, !=, <, >, >=, <=, is, is not, in, not in)
@@ -185,9 +197,10 @@ authors:
   - [SciPy](https://scipy.org)
   - [matplotlib](https://matplotlib.org)
   - [JuPyter](https://jupyter.org)
- ```bash
- $ pip install numpy scipy matplotlib jupyter
- ```
+
+```bash
+$ pip install numpy scipy matplotlib jupyter
+```
 
 - 위 package가 설치된 directory 찾아 보기
 
@@ -217,7 +230,7 @@ $$25 \text{ cm} \times \frac{0.393 \text{ inch}}{1 \text{ cm}}=25 \text{ cm} \ti
 
 $$=25 \text{ cm} \times 0.393= 9.825 \text{ cm}.$$
 
-- 알고리즘 - 규칙성 찾기:  (in 출력값) = (cm 입력값 ) $\times$ 0.393
+- 알고리즘 - 규칙성 찾기: (in 출력값) = (cm 입력값 ) $\times$ 0.393
 
 - 170 cm는 몇 inch인가?
 
