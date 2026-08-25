@@ -113,28 +113,6 @@ ninja.data = [{
             window.location.href = "/blog/2024/typograms/";
           
         },
-      },{id: "post-a-post-that-can-be-cited",
-        
-          title: "a post that can be cited",
-        
-        description: "this is what a post that can be cited looks like",
-        section: "Posts",
-        handler: () => {
-          
-            window.location.href = "/blog/2024/post-citation/";
-          
-        },
-      },{id: "post-tikzjax",
-        
-          title: "Tikzjax",
-        
-        description: "",
-        section: "Posts",
-        handler: () => {
-          
-            window.location.href = "/blog/2023/tikzjax/";
-          
-        },
       },{id: "post-2023-september-ictp",
         
           title: "2023 September ICTP",
