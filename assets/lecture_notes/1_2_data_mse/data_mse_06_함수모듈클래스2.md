@@ -34,7 +34,7 @@ authors:
 - [3. 클래스 예제](#3-클래스-예제)
 - [4. 여러 함수 만들어 보기](#4-여러-함수-만들어-보기)
   - [4.1. Hooke's law](#41-hookes-law)
-  - [4.2. Engineering strain \& true strain](#42-engineering-strain--true-strain)
+  - [4.2. 공칭변형률과 진변형률](#42-공칭변형률과-진변형률)
   - [4.3. 길이 변화를 주면 true strain을 계산하는 함수](#43-길이-변화를-주면-true-strain을-계산하는-함수)
   - [4.4. Schmid law](#44-schmid-law)
   - [4.5. 위치 인자 (\*args)를 활용한 다항함수(polynomial function) 구하기](#45-위치-인자-args를-활용한-다항함수polynomial-function-구하기)
@@ -168,10 +168,10 @@ for alloy in alloys:
   \sigma = E \varepsilon
   $$
 
-  ```python
-  def hooke(modulus,epsilon):
-    return modulus * epsilon
-  ```
+```python
+def hooke(modulus,epsilon):
+  return modulus * epsilon
+```
 
 - 개념:
 
@@ -189,19 +189,19 @@ def a(b,c):
   return a*b
 ```
 
-##  4.2. Engineering strain & true strain
- -  변형전 길이($l_0$)와 그 길이의 변화($\Delta l$)로 부터 공칭변형률 ($\epsilon$)
+##  4.2. 공칭변형률과 진변형률
+ - 변형전 길이($l_0$)와 그 길이의 변화($\Delta l$)로 부터 공칭변형률 ($\epsilon$)
   구하기.
 
   $$
   \epsilon=\frac{\Delta l}{l_0}
   $$
 
-  ```python
-  def calc_engi_strain(l0,l1):
-    delta_l=l1-l0
-    return delta_l/l0
-  ```
+```python
+def calc_engi_strain(l0,l1):
+  delta_l=l1-l0
+  return delta_l/l0
+```
 
 - True strain
   공칭 변형률로부터 진 변형률 계산하기
@@ -279,19 +279,23 @@ def calc_true_strain(engi_eps):
 
 ## 4.6. 키워드 인자 (keyword arguments; \*\*kwargs) 활용 예시
 
-  ```python
-  def get_sum(*args):
-    sum=0.
-    for arg in args:
-  	  sum=sum+arg
-    return sum
-  get_sum(1,2,3,4,5,6,7) #? what's going to be the correct answer?
-  def introduce(**kwargs):
-    for key, value in kwargs.items():
-  	  print(f"{key}: {value}")
-  introduce(name="Alice", age=25, country="Korea")
-  ```
+```python
+def get_sum(*args):
+  sum=0.
+  for arg in args:
+    sum=sum+arg
+  return sum
+
+get_sum(1,2,3,4,5,6,7) #? what's going to be the correct answer?
+
+def introduce(**kwargs):
+  for key, value in kwargs.items():
+    print(f"{key}: {value}")
+introduce(name="Alice", age=25, country="Korea")
+```
 
 ## 4.7. 여러 슬립계로 이루어진 재료에 가해진 응력에 따라, 가장 큰 분해 전단 응력을 가진 슬립계 찾기
-  - 재료는 다양한 슬립계로 이루어져 있다. 주어진 슬립계를 class로 만들고, 클래스로 객체를
-  만들때(instantiated)
+  - 재료는 다양한 슬립계로 이루어져 있다. 주어진 슬립계를 class로 만들어 보자.
+  - 클래스로 객체를 만들때(instantiated) 주어진 응력에 대해 가장
+  높은 분해 전단 응력 (Resolved shear stress)를 갖는 슬립계를
+  찾도록 프로그램을 만들어 보자.

@@ -34,7 +34,14 @@ authors:
 - [2. 개념](#2-개념)
 - [3. 실습](#3-실습)
   - [3.1. 간단한 모듈 만들기 (더하기 곱하기)](#31-간단한-모듈-만들기-더하기-곱하기)
+    - [모듈 작성](#모듈-작성)
+    - [그 다음 아래를 활용해 mymodule을 불러와 보자.](#그-다음-아래를-활용해-mymodule을-불러와-보자)
+    - [etc](#etc)
   - [3.2. CLI에서 arguments 받기](#32-cli에서-arguments-받기)
+    - [기초 모듈 작성](#기초-모듈-작성)
+    - [Arguments의 역할을 이해하기 위해서 아래 실행](#arguments의-역할을-이해하기-위해서-아래-실행)
+    - [실행 후 출력 결과 살펴보기](#실행-후-출력-결과-살펴보기)
+    - [더 상세한 argument parsing](#더-상세한-argument-parsing)
   - [3.3. Argument parse 읽을 거리](#33-argument-parse-읽을-거리)
   - [3.4. 간단한 작동](#34-간단한-작동)
   - [3.5. positional argument](#35-positional-argument)
@@ -61,7 +68,7 @@ authors:
 
 ## 3.1. 간단한 모듈 만들기 (더하기 곱하기)
 
-1. 모듈 작성
+### 모듈 작성
 
 ```python
 # 아래 모듈을 작성 후 mymodule.py로 저장하자.
@@ -75,7 +82,7 @@ def power(valuea, valueb):
     return valuea ** valueb
 ```
 
-2. 그 다음 아래를 활용해 mymodule을 불러와 보자.
+### 그 다음 아래를 활용해 mymodule을 불러와 보자.
 
 ```python
 import mymodel
@@ -84,17 +91,17 @@ mymodule.multiply(3,4)
 mymodule.power(3,4)
 ```
 
-3. etc
+### etc
 
-- 작성된 모듈이 저장된 위치가 중요하다!
-- 개개인이 활용하는 시스템:computer:의 환경변수 (windows의 경우)에 의해 행동이 달라질
+  - 작성된 모듈이 저장된 위치가 중요하다!
+  - 개개인이 활용하는 시스템:computer:의 환경변수 (windows의 경우)에 의해 행동이 달라질
   수 있다.
-- Linux/macOS의 경우에는 활용하는 shell의 닷 파일 (.sh, .bash, .zsh 등등)에서
+  - Linux/macOS의 경우에는 활용하는 shell의 닷 파일 (.sh, .bash, .zsh 등등)에서
   지정된 $PATH 등의 변수에 의해 달라질 수 있다.
 
 ## 3.2. CLI에서 arguments 받기
 
-- 1. 기초 모듈 작성
+### 기초 모듈 작성
 
   ```python
   # file: ex02.py
@@ -103,152 +110,151 @@ mymodule.power(3,4)
     print("Arguments:", sys.argv)
   ```
 
-- 2. Arguments의 역할을 이해하기 위해서 아래 실행
+### Arguments의 역할을 이해하기 위해서 아래 실행
 
-  - 2-1. Windows 환경
+  - Windows 환경
 
   ```sh
   c:\users\user\repo\mse> python ex02.py a b c 1 23
   ```
 
-  - 2-2. MacOS/Linux 환경
+  - MacOS/Linux 환경
 
   ```sh
   ~/repo/mse $ python ex02.py a b c 1 2 3
   ```
 
-- 3. 실행 후 출력 결과 살펴보기
+### 실행 후 출력 결과 살펴보기
 
-- 4. 더 상세한 argument parsing
+### 더 상세한 argument parsing
 
-  ## 3.3. Argument parse 읽을 거리
+## 3.3. Argument parse 읽을 거리
 
-  * [Argparse](https://docs.python.org/ko/3.7/library/argparse.html) 활용
-  * [Argparse 자습서](https://docs.python.org/ko/3.7/howto/argparse.html#id1)
+  - [Argparse](https://docs.python.org/ko/3.7/library/argparse.html) 활용
+  - [Argparse 자습서](https://docs.python.org/ko/3.7/howto/argparse.html#id1)
 
 
-  ## 3.4. 간단한 작동
+## 3.4. 간단한 작동
 
-    아래를 myprogram.py 파일(모듈)로 작성하여 저장하자.
+  - 아래를 myprogram.py 파일(모듈)로 작성하여 저장하자.
 
-    ```python
-    import argparse
-    if __name__=='__main__':
-    parser = argparse.ArgumentParser()
-    parser.parse_args()
-    ```
+```python
+import argparse
+if __name__=='__main__':
+parser = argparse.ArgumentParser()
+parser.parse_args()
+```
 
-    그 다음 CLI에서 아래와 같이 명령문을 쳐보자.
+  - 그 다음 CLI에서 아래와 같이 명령문을 쳐보자.
 
-    ```batch
-    c:/users/user> python myprogram.py --help
-    usage: main.py [-h]
+```batch
+c:/users/user> python myprogram.py --help
+usage: main.py [-h]
 
-    options:
-    -h, --help  show this help message and exit
-    ```
+options:
+-h, --help  show this help message and exit
+```
 
-  ## 3.5. positional argument
+## 3.5. positional argument
 
-    다음으로 myprogram.py을 열어서 다음과 같이 수정해봅시다.
+  - 다음으로 myprogram.py을 열어서 다음과 같이 수정해봅시다.
     `x` argument를 추가하였고, $x^2$을 출력합니다.
 
-    ```python
-    import argparse
-    if __name__=='__main__':
-    parser = argparse.ArgumentParser()
-    parser.add_argument("x", type=int, help="the base")
-    args=parser.parse_args()
+```python
+import argparse
+if __name__=='__main__':
+parser = argparse.ArgumentParser()
+parser.add_argument("x", type=int, help="the base")
+args=parser.parse_args()
 
-    print(args.x**2)
-    ```
+print(args.x**2)
+```
 
-  ## 3.6. `--help` 기능
+## 3.6. `--help` 기능
 
-    아래와 같이 명령문을 입력하면 ...
+ - 아래와 같이 명령문을 입력하면 ...
 
-    ```dos
-    c:\users\user> python myprogram.py --help
-    ```
+```dos
+c:\users\user> python myprogram.py --help
+```
 
-    다음과 같이 출력되었나? 출력된 결과물을 살펴보자.
+ - 다음과 같이 출력되었나? 출력된 결과물을 살펴보자.
 
-    ```dos
-    usage: main.py [-h] x
+```dos
+usage: main.py [-h] x
 
-    positional arguments:
-    x           the base
+positional arguments:
+x           the base
 
-    options:
-    -h, --help  show this help message and exit
+options:
+-h, --help  show this help message and exit
+```
 
-    ```
+## 3.7. 변경된 영향 확인
 
-  ## 3.7. 변경된 영향 확인
+  - 명령어를 바꿔 다음과 같이 입력해보자.
 
-    명령어를 바꿔 다음과 같이 입력해보자.
+```sh
+c:\users\user> python myprogram.py 3
+given x: 3
+x^2: 9
+```
 
-    ```sh
-    c:\users\user> python myprogram.py 3
-    given x: 3
-    x^2: 9
-    ```
+## 3.8. Additional options
 
-  ## 3.8. Additional options
+  - 다음으로 myprogram.py을 열어서 다음과 같이 수정해봅시다.
 
-    - 다음으로 myprogram.py을 열어서 다음과 같이 수정해봅시다.
+```python
+import argparse
 
-    ```python
-    import argparse
+def add(x,y):
+  return x+y
 
-    def add(x,y):
-      return x+y
+if __name__=='__main__':
+  parser=argparse.ArgumentParser()
+  parser.add_argument('x',type=int,help='the 1st base')
+  parser.add_argument('y',type=int,help='the 2nd base')
+  parser.add_argument('--myname',type=str,help='My Name')
+  args=parser.parse_args()
 
-    if __name__=='__main__':
-      parser=argparse.ArgumentParser()
-      parser.add_argument('x',type=int,help='the 1st base')
-      parser.add_argument('y',type=int,help='the 2nd base')
-      parser.add_argument('--myname',type=str,help='My Name')
-      args=parser.parse_args()
+  print('Myname:',args.myname)
+  print('given x:', args.x)
+  print('given y:', args.y)
+  multiplied=add(args.x,args.y)
+  print('x times y:', multiplie)
+```
 
-      print('Myname:',args.myname)
-      print('given x:', args.x)
-      print('given y:', args.y)
-      multiplied=add(args.x,args.y)
-      print('x times y:', multiplie)
-    ```
+  - CLI에서 아래를 실행하면
 
-    - CLI에서 아래를 실행하면
+```dos
+c:\users\user> python main.py --help
+```
 
-    ```dos
-    c:\users\user> python main.py --help
-    ```
+  - 다음과 같이 `positional arguments`와 `options`이 출력된다.
 
-    다음과 같이 `positional arguments`와 `options`이 출력된다.
+```dos
+usage: main.py [-h] [--myname MYNAME] x y
 
-    ```dos
-    usage: main.py [-h] [--myname MYNAME] x y
+positional arguments:
+x                the 1st base
+y                the 2nd base
 
-    positional arguments:
-    x                the 1st base
-    y                the 2nd base
+options:
+-h, --help       show this help message and exit
+--myname MYNAME  My Name
+```
 
-    options:
-    -h, --help       show this help message and exit
-    --myname MYNAME  My Name
-    ```
+`--myname`옵션의 경우 `MYNAME`이라는 입력이 필요함을 알 수 있다.
 
-    `--myname`옵션의 경우 `MYNAME`이라는 입력이 필요함을 알 수 있다.
+- 실행해보자.
 
-    - 실행해보자.
-
-    ```dos
-    c:\users\user> python main.py 3 4 --myname mike
-    Myname: mike
-    given x: 3
-    given y: 4
-    x times y: 7
-    ```
+```dos
+c:\users\user> python main.py 3 4 --myname mike
+Myname: mike
+given x: 3
+given y: 4
+x times y: 7
+```
 
 # 4. 예제 (take-home)
 

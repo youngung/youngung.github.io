@@ -69,7 +69,8 @@ authors:
     ```
 
    - MacOS 예시
-    ```terminal
+
+    ```batch
     Youngungs-MacBook-Pro➜  ~  ᐅ  python
     Python 3.12.2 (main, Mar 29 2024, 06:39:27)   [Clang 15.0.0 (clang-1500.3.9.4)] on darwin
     Type "help", "copyright", "credits" or "license" for more information.
@@ -78,6 +79,7 @@ authors:
 
   ## 2.2. VS code에서 JuPyter 셋업 & 구동되어 있는가?
    * 몇몇 유용한 extension을 설치하면 더욱 도움이 된다.
+   * Check this [link](https://code.visualstudio.com/docs/python/python-tutorial)
 
   ## 2.3 CLI (command line interface 기초)
    * https://www.youtube.com/watch?v=hNdAQQeqkYU
@@ -131,8 +133,8 @@ authors:
   print('What did you say?')
   ```
 
-- Extension 설치
-  + Python exntension?
+- Extension 설치; extensions: Marketplace에서 검색 후 설치하기
+  + Python extension?
   + Jupyter extension?
 
 # 5. 변수와 연산자
@@ -183,9 +185,26 @@ authors:
   - [SciPy](https://scipy.org)
   - [matplotlib](https://matplotlib.org)
   - [JuPyter](https://jupyter.org)
+ ```bash
+ $ pip install numpy scipy matplotlib jupyter
+ ```
+
 - 위 package가 설치된 directory 찾아 보기
-- (Windows) 환경변수 살펴보기
-- (Linux/macOS), zsh, bash 등 dotfile 살펴보기
+
+```text
+$ python
+
+Python 3.12.2 (main, Mar 29 2024, 06:39:27) [Clang 15.0.0 (clang-1500.3.9.4)] on darwin
+Type "help", "copyright", "credits" or "license" for more information.
+>>> import scipy
+>>> scipy.__file__
+'/Users/youngung/.pyenv/versions/3.12.2/lib/python3.12/site-packages/scipy/__init__.py'
+>>>
+```
+
+- (optional) Windows 환경변수 살펴보기
+
+- (optional) Linux / MacOS 에서 zsh, bash 등 dotfile 살펴보기
 
 ## 6.2. 실습 예시 2-2
 

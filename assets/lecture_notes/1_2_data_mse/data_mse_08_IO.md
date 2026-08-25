@@ -67,16 +67,24 @@ Python에서 파일을 통한 I/O는 `open()` 함수 활용한다 - 자세한 �
 
 {% tabs 파일모드 %}
 {% tab 파일모드 read %}
+```python
 myFile = open(file='filenamehere', mode='r')
+```
 {% endtab %}
 {% tab 파일모드 write %}
+```python
 myFile = open(file='filenamehere', mode='w')
+```
 {% endtab %}
 {% tab 파일모드 append %}
+```python
 myFile = open(file='filenamehere', mode='a')
+```
 {% endtab %}
 {% tab 파일모드 binary %}
+```python
 myFile = open(file='filenamehere', mode='binary')
+```
 {% endtab %}
 {% endtabs %}
 
@@ -85,126 +93,126 @@ myFile = open(file='filenamehere', mode='binary')
 
 ## 3.1. 예시 - 화면에 출력, 기보드로 입력
 
-  ```python
-  # 키보드를 통한 입력
-  my_value1=input("하나의 값을 입력하시오")
-  my_value2=input("하나의 값을 입력하시오")
+```python
+# 키보드를 통한 입력
+my_value1=input("하나의 값을 입력하시오")
+my_value2=input("하나의 값을 입력하시오")
 
-  print(my_value1+my_value2)
-  # 화면에 출력
-  ```
+print(my_value1+my_value2)
+# 화면에 출력
+```
 
 ## 3.2. 예시 - 입력된 값을 모두 더하기
-  ```python
-  val=0.
-  while True:
-    inp = input("?")
-    if len(inp)==0: break
-    else:
-      val=val+float(inp)
+```python
+val=0.
+while True:
+  inp = input("?")
+  if len(inp)==0: break
+  else:
+    val=val+float(inp)
 
-  print("총 합은", val, "입니다.")
-  ```
+print("총 합은", val, "입니다.")
+```
 
 ## 3.3. 예시 - 위 예시를 바꿔서, 입력된 총 값의 평균을 구하는 Script를 작성해보자.
 
 ## 3.4. 예시 - 텍스트 파일 **쓰기**
 
-  이번 예시를 통해 `example.txt`라는 파일을 만들고 글을 적는다.
+  - 이번 예시를 통해 `example.txt`라는 파일을 만들고 글을 적는다.
 
-  ```python
-  # 파일 쓰기
-  with open("example.txt", "w" encoding="utf-8") as f:
-      f.write("Hi people in Changwon National University!\n")
-      f.write("This is an example text file!\n")
-  ```
+```python
+# 파일 쓰기
+with open("example.txt", "w" encoding="utf-8") as f:
+    f.write("Hi people in Changwon National University!\n")
+    f.write("This is an example text file!\n")
+```
 
 ## 3.5. 예시 - 텍스트 파일 **읽기**
 
-  ```python
-  # 파일 읽기
-  with open("example.txt", "r", encoding="utf-8") as f:
-      lines = f.readlines()  # 모든 줄을 리스트로 읽기
-  for line in lines:
-      print(line.strip())  # strip() → 줄바꿈 제거
-  ```
+```python
+# 파일 읽기
+with open("example.txt", "r", encoding="utf-8") as f:
+    lines = f.readlines()  # 모든 줄을 리스트로 읽기
+for line in lines:
+    print(line.strip())  # strip() → 줄바꿈 제거
+```
 
 ## 3.6. 예시 - 성적 처리
 
-  다음 [파일](/assets/dat_files/lectures/1_2_data_mse/score_records/score_record_2017_MF_final_analysis.txt)
+  - 다음 [파일](/assets/dat_files/lectures/1_2_data_mse/score_records/score_record_2017_MF_final_analysis.txt)
   을 읽고 평균, 표준 편차, 그리고 최고점과 최저점을 받은 학생 번호를 찾는
   파이썬 프로그램을 만들어 보자.
 
-  ```txt
-  ID Score
-  --------------
-  xxxx5093  14.0
-  xxxx5298  53.0
-  xxxx3374  28.0
-  xxxx3374  41.0
-  xxxx5116  15.0
-  xxxx5122  16.0
-  xxxx5102  10.0
-  xxxx6114   6.0
-  xxxx5108  26.0
-  xxxx6135  22.0
-  xxxx4246  12.0
-  xxxx1513  11.0
-  xxxx5115  42.0
-  xxxx5140  41.0
-  xxxx5105  44.0
-  xxxx4254  67.0
-  xxxx3341  47.0
-  xxxx5100  48.0
-  xxxx4264  55.0
-  xxxx5127  53.0
-  xxxx4235  44.0
-  xxxx4249  67.0
-  xxxx4257  41.0
-  xxxx5146  53.0
-  xxxx4273  62.0
-  xxxx4275  64.0
-  xxxx4258  62.0
-  xxxx4282  58.0
-  xxxx4236  77.0
-  xxxx4269  38.0
-  xxxx4445  50.0
-  xxxx5142  53.0
-  ```
+```txt
+ID Score
+--------------
+xxxx5093  14.0
+xxxx5298  53.0
+xxxx3374  28.0
+xxxx3374  41.0
+xxxx5116  15.0
+xxxx5122  16.0
+xxxx5102  10.0
+xxxx6114   6.0
+xxxx5108  26.0
+xxxx6135  22.0
+xxxx4246  12.0
+xxxx1513  11.0
+xxxx5115  42.0
+xxxx5140  41.0
+xxxx5105  44.0
+xxxx4254  67.0
+xxxx3341  47.0
+xxxx5100  48.0
+xxxx4264  55.0
+xxxx5127  53.0
+xxxx4235  44.0
+xxxx4249  67.0
+xxxx4257  41.0
+xxxx5146  53.0
+xxxx4273  62.0
+xxxx4275  64.0
+xxxx4258  62.0
+xxxx4282  58.0
+xxxx4236  77.0
+xxxx4269  38.0
+xxxx4445  50.0
+xxxx5142  53.0
+```
 
 ## 3.7. 예시 - 여러 파일을 대상으로 반복하기.
 
-  위 예싱에 주어진 형식의 파일이 여럿 있다면, CLI에서 활용 가능한 Python module을 만들어
+  - 위 예싱에 주어진 형식의 파일이 여럿 있다면, CLI에서 활용 가능한 Python module을 만들어
   각 파일마다 작업을 반복 수행해보자. 실습을 위해 다음 링크의 파일을 활용하자.
  [파일](/assets/dat_files/lectures/1_2_data_mse/score_records/all_scores/scores.zip)
 
 ## 3.8. 예시 - 모든 파일의 이름 바꾸기
-  다음 [압축파일](/assets/dat_files/lectures/1_2_data_mse/tensile_test_results.zip)을 풀어서 살펴보자.
+  - 다음 [압축파일](/assets/dat_files/lectures/1_2_data_mse/tensile_test_results.zip)을 풀어서 살펴보자.
   여기서 파일 이름에서 'WZ'를 모두 'EX'로 바꾸고 싶다. 어떻게 해야할까?
 
-  ```dos
-  c:\users\user> ren 00_DD_WZ_01.csv 00_DD_EX_01.csv
-  c:\users\user> ren 00_DD_WZ_02.csv 00_DD_EX_02.csv
-  ...
-  ```
+```dos
+c:\users\user> ren 00_DD_WZ_01.csv 00_DD_EX_01.csv
+c:\users\user> ren 00_DD_WZ_02.csv 00_DD_EX_02.csv
+...
+```
 
-  혹은 복사?
+  - 혹은 복사?
 
-  ```dos
-  c:\users\user> cp 00_DD_WZ_01.csv 00_DD_EX_01.csv
-  c:\users\user> cp 00_DD_WZ_02.csv 00_DD_EX_02.csv
-  ...
-  ```
+```dos
+c:\users\user> cp 00_DD_WZ_01.csv 00_DD_EX_01.csv
+c:\users\user> cp 00_DD_WZ_02.csv 00_DD_EX_02.csv
+...
+```
 
-  혹은 마우스로 일일이 눌러서 바꿀 수도 있겠다. Python으로 가능할까?
+  - 혹은 마우스로 일일이 눌러서 바꿀 수도 있겠다. Python으로 가능할까?
 
-  ```python
-  # os.copy
-  # glob
-  # os.getcwd()
-  # os.listdir(os.getcwd())
-  # `str`의 split을 찾거나, 혹은 index를 활용해 바꿀 수도 있겠다.
-  ```
+```python
+# os.copy
+# glob
+# os.getcwd()
+# os.listdir(os.getcwd())
+# `str`의 split을 찾거나, 혹은 index를 활용해 바꿀 수도 있겠다.
+```
 
 #  4. 문자열 포매팅
 

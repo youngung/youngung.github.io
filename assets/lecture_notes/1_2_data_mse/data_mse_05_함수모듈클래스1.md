@@ -113,18 +113,19 @@ def f(a=3,b=5,c,d):
  이를 활용해보자.
 
   - 'calc_dens.py` 모듈 작성
-  ```python
-  # 이 코드를 파일명 `calc_dens.py`로 작성하여 저장하자.
-  def calc_dens(mass, volume):
+```python
+# 이 코드를 파일명 `calc_dens.py`로 작성하여 저장하자.
+def calc_dens(mass, volume):
     """
     질량은 g 단위로, 부피는 mm^3으로
     """
     density = mass / volume
     return density
-  ```
+```
 
   - 'main.py' 모듈 작성
-  ``` python
+
+  ```python
   # 이 코드를 `main.py`로 작성하여 저장하자.
 
   ## 밀도 계산 프로그램

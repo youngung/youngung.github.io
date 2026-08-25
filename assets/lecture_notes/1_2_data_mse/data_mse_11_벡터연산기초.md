@@ -45,7 +45,7 @@ authors:
   - [8.5. 예시 5:](#85-예시-5)
   - [8.6. 예시 6 (take-home)](#86-예시-6-take-home)
 - [9. 외적 (cross product)](#9-외적-cross-product)
-  - [9.1. unitcell 부피계산.](#91-unitcell-부피계산)
+  - [9.1. 단위 격자(unit cell)의 부피계산.](#91-단위-격자unit-cell의-부피계산)
   - [9.2. (take-home)](#92-take-home)
   - [9.3. (take-home)](#93-take-home)
 
@@ -91,7 +91,7 @@ a=[3,4,5]
 b=[3,-5,-2]
 c=[0,0,0]
 for i in range(len(a)):
-	c[i]=a[i]+b[i]
+  c[i]=a[i]+b[i]
 ```
 
 ## 3.1. 예시: 벡터의 차
@@ -250,8 +250,8 @@ $$
 $$
 
 위를 `math`모듈과 그 모듈내의 `sqrt`, `acos`을 활용하여 아래와 같은 간단한 코드를 작성할
-수 있다. <aside><p>sqrt는 square root, 즉 제곱근에서 따왔고 acos 함수는 arccosine,
-즉 코사인 함수의 역함수, $\cos^{-1}$ 에서 따왔다. </p></aside>
+수 있다. sqrt는 square root, 즉 제곱근에서 따왔고 acos 함수는 arccosine,
+즉 코사인 함수의 역함수, $\cos^{-1}$ 에서 따왔다.
 
 ```python
 def get_ang(a,b):
@@ -298,13 +298,17 @@ np.deg2rad(angle) ## np 패키지내의 메소드 활용 가능
 ## 8.3. Cubic 내 두 면 $(h_1k_1l_1)$과 $(h_2k_2l_2)$ 면 법선 사이의 끼인 각 구하기
 
 ## 8.4. Tetragonal내의 두 결정방향(crystal direction) $[u_1,v_1,w_1]$과 $[u_2,v_2,w_2]$ 간의 각도 구하기
-- Cubic의 경우, $a=b=c$이며 세 사이 각이 $\alpha=\beta=\gamma=90\degree$이다.
-- Tetragonal의 경우, $a=b\ne c$이며 $\alpha=\beta=\gamma=90\degree$을 만족한다.
+- Cubic의 경우, $a=b=c$이며 세 사이 각이 $\alpha=\beta=\gamma=90 ^\circ$이다.
+
+- Tetragonal의 경우, $a=b\ne c$이며 $\alpha=\beta=\gamma=90 ^\circ$을 만족한다.
+
 - Tetragonal structure는 c축 방향으로 늘어난 형태이다. cubic과 다르게 miller 인덱스를
   마냥 벡터로 활용할 수 없다. Tetragonality의 정도에 따라 주어진 밀러 인덱스를 적절히 벡터로
   바꿔야 한다. 예를 들어, c축의 길이가 a축에 비해 2배 길다면 [001] 밀러 인덱스는 사실 [0,0,2]
   벡터가 된다.
+
 - 이와 같은 상황을 '보정'해주기 위해서는 $c/a$ 비율 (c over a ratio)를 활용해야 한다.
+
 - 따라서, $c/a$ ratio가 알려진 Tetragonal의 Miller index [$u_1v_1w_1$]로 표현된 결정방위의
   실제 길이는:
   $$
@@ -312,22 +316,29 @@ np.deg2rad(angle) ## np 패키지내의 메소드 활용 가능
   $$
 
 - Tetragonal 내의 결정 방향 $[uvw]$를 벡터 $[x,y,z]$로 바꾸는 함수는?
-  ```python
-  def miller2vect_tetragonal(miller,ca_ratio):
-    u,v,w=miller
-    ## 오직 z성분값을 구할때만 c over a 비율이 곱해진 것에 유의하시오.
-    x=u
-    y=v
-    z=w*ca_ratio
-    return x,y,z
-  ```
+```python
+def miller2vect_tetragonal(miller,ca_ratio):
+  u,v,w=miller
+  ## 오직 z성분값을 구할때만 c over a 비율이 곱해진 것에 유의하시오.
+  x=u
+  y=v
+  z=w*ca_ratio
+  return x,y,z
+```
 
 - 위 결과인 벡터 $(x,y,z)$를 unit 벡터 $(\bar x,\bar y,\bar z)$로 바꾸면?
-  $$
-  \bar x= \frac{x}{\sqrt{x^2+y^2+{\color{red}z}^2}} = \frac{x}{\sqrt{u^2+v^2+({\color{red} w\frac{c}{a}})^2}}  \newline
-  \bar y= \frac{y}{\sqrt{x^2+y^2+{\color{red}z}^2}} = \frac{y}{\sqrt{u^2+v^2+({\color{red} w\frac{c}{a}})^2}}  \newline
-  \bar z= \frac{z}{\sqrt{x^2+y^2+{\color{red}z}^2}} = \frac{z}{\sqrt{u^2+v^2+({\color{red} w\frac{c}{a}})^2}}  \newline
-  $$
+
+$$
+\bar x= \frac{x}{\sqrt{x^2+y^2+{\color{red}z}^2}} = \frac{x}{\sqrt{u^2+v^2+({\color{red} w\frac{c}{a}})^2}}
+$$
+
+$$
+\bar y= \frac{y}{\sqrt{x^2+y^2+{\color{red}z}^2}} = \frac{y}{\sqrt{u^2+v^2+({\color{red} w\frac{c}{a}})^2}}
+$$
+
+$$
+\bar z= \frac{z}{\sqrt{x^2+y^2+{\color{red}z}^2}} = \frac{z}{\sqrt{u^2+v^2+({\color{red} w\frac{c}{a}})^2}}
+$$
 
 - 위를 Python으로 구현해보자.
 ```python
@@ -339,6 +350,7 @@ def m2unitv_tetragonal(miller,ca_ratio):
 ```
 
 - 다음으로 두 결정 방위 간의 각도는?
+
 ```python
 m1=[3,1,1]
 m2=[1,0,1]
@@ -358,14 +370,17 @@ get_ang(um1,um2) #
    $(x,y,z)=(u,v,w{\color{red}\frac{c}{a}})$
   결정 면의 수직방향은 아래와 같이 바뀐다.
    $(x,y,z)=(h,k,l{\color{green}\frac{a}{c}})$
+
 - 두 결정면 $(h_1,k_1,l_1)$과 $(h_2,k_2,l_2)$의 수직선 사이의 각도 구하는 Python script 작성해보기
 
 ## 8.6. 예시 6 (take-home)
- cubic내에서는 $[101]$ 결정방향과 $(101)$면의 법선방향이 일치한다. 하지만
+ - cubic내에서는 $[101]$ 결정방향과 $(101)$면의 법선방향이 일치한다. 하지만
  Tetragonal의 경우 $[101]$ 결정방향과 $(101)$면의 법선 방향이 일치하지 않는다.
  $\beta$Tin은 상온에서 Body-centered tetragonal 구조를 가진다. 격자상수 $a,b,c$가
- 각각 5.81, 5.81, 3.18 $\AA$ 라면, $[101]$ 결정 방향과 $(101)$ 결정면의 법선 방향
- 사이의 끼인 각도는 얼마인가? 이미 작성된 Python script를 활용하고, 보완하거나 추가하여
+ 각각 5.81, 5.81, 3.18 $\mathring{A}$ 라면, $[101]$ 결정 방향과 $(101)$ 결정면의 법선 방향
+ 사이의 끼인 각도는 얼마인가?
+
+ - 이미 작성된 Python script를 활용하고, 보완하거나 추가하여
  각도를 계산해보자.
 
 # 9. 외적 (cross product)
@@ -373,35 +388,46 @@ get_ang(um1,um2) #
 - 설명
   두 벡터 $\boldsymbol a, \boldsymbol b$의 외적이 다음과 같이 표현된다.
 
-  $$
-  \boldsymbol c = \boldsymbol a \times \boldsymbol b
-  $$
+$$
+\boldsymbol c = \boldsymbol a \times \boldsymbol b
+$$
 
-  $$
-  c_i=\sum_j^3 \sum_k^3 \epsilon_{ijk}a_jb_k \newline
+$$
+c_i=\sum_j^3 \sum_k^3 \epsilon_{ijk}a_jb_k \newline
 
-  c_x= a_yb_z - a_zb_y \newline
-  c_y= a_zb_x - a_xb_z \newline
-  c_z= a_xb_y - a_yb_x
-  $$
+c_x= a_yb_z - a_zb_y \newline
+c_y= a_zb_x - a_xb_z \newline
+c_z= a_xb_y - a_yb_x
+$$
 
-  어떻게 파이썬으로 구현할 수 있나?
+- 어떻게 파이썬으로 구현할 수 있나?
 
-  ```python
-  import numpy as np
+```python
+import numpy as np
 
-  a = np.array([1, 2, 3])
-  b = np.array([4, 5, 6])
+a = np.array([1, 2, 3])
+b = np.array([4, 5, 6])
 
-  c = np.zeros(3)
+c = np.zeros(3)
 
-  c[0]=a[1]*b[2]-a[2]*b[1]
-  c[1]=a[2]*b[0]-a[0]*b[2]
-  c[2]=a[0]*b[1]-a[1]*b[0]
-  ```
+c[0]=a[1]*b[2]-a[2]*b[1]
+c[1]=a[2]*b[0]-a[0]*b[2]
+c[2]=a[0]*b[1]-a[1]*b[0]
+```
 
-## 9.1. unitcell 부피계산.
+- 어떻게 더 영리하게 구현할 수 있나?
 
+```python
+import numpy as np
+
+a = np.array([1, 2, 3])
+b = np.array([4, 5, 6])
+c = np.cross(a,b)
+```
+
+- 교환 법칙이 성립하나? $a \times b = b \times a ?$
+
+## 9.1. 단위 격자(unit cell)의 부피계산.
 
 ## 9.2. (take-home)
 

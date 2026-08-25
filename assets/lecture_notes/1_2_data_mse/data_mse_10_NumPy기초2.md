@@ -31,7 +31,7 @@ authors:
 ---
 
 - [1. 목표](#1-목표)
-- [2. Indexing \& slicing](#2-indexing--slicing)
+- [2. 인덱싱(indexing)과 슬라이싱(slicing)](#2-인덱싱indexing과-슬라이싱slicing)
 - [3. 예제](#3-예제)
   - [3.1. 예제: 데이터 파일](#31-예제-데이터-파일)
   - [3.2. 예제: csv file](#32-예제-csv-file)
@@ -46,9 +46,10 @@ authors:
 - 브로드캐스팅을 이해한다.
 - Determinant, Eigenvalue 등을 계산할 수 있다.
 
-# 2. Indexing & slicing
+# 2. 인덱싱(indexing)과 슬라이싱(slicing)
 
 - List 타입의 자료에서도 indexing과 slicing이 사용된다. [시작,끝,스텝]형태의 인덱싱이 NumPy 배열에도 동일하게 적용된다.
+
 ```python
 mylist=List((3,3,4,3,3,4,5,6))
 #mylist[시작:끝:스텝] 형태로 index가 적용되는 것 처럼 ..
