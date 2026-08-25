@@ -24,10 +24,10 @@ hidden: true
 tabs: true
 tikzjax: true
 authors:
- - name: Youngung Jeong
-   url: "https://youngung.github.io/"
-   affiliations:
-     name: Changwon National University
+  - name: Youngung Jeong
+    url: "https://youngung.github.io/"
+    affiliations:
+      name: Changwon National University
 ---
 
 - [1. 목표](#1-목표)
@@ -50,9 +50,9 @@ authors:
   - [3.8. Additional options](#38-additional-options)
 - [4. 예제 (take-home)](#4-예제-take-home)
 
-
 # 1. 목표
- - Python 모듈을 이해하고 만들 수 있다.
+
+- Python 모듈을 이해하고 만들 수 있다.
 
 # 2. 개념
 
@@ -93,36 +93,36 @@ mymodule.power(3,4)
 
 ### etc
 
-  - 작성된 모듈이 저장된 위치가 중요하다!
-  - 개개인이 활용하는 시스템:computer:의 환경변수 (windows의 경우)에 의해 행동이 달라질
+- 작성된 모듈이 저장된 위치가 중요하다!
+- 개개인이 활용하는 시스템:computer:의 환경변수 (windows의 경우)에 의해 행동이 달라질
   수 있다.
-  - Linux/macOS의 경우에는 활용하는 shell의 닷 파일 (.sh, .bash, .zsh 등등)에서
+- Linux/macOS의 경우에는 활용하는 shell의 닷 파일 (.sh, .bash, .zsh 등등)에서
   지정된 $PATH 등의 변수에 의해 달라질 수 있다.
 
 ## 3.2. CLI에서 arguments 받기
 
 ### 기초 모듈 작성
 
-  ```python
-  # file: ex02.py
-  import sys
-  if __name__ == "__main__":
-    print("Arguments:", sys.argv)
-  ```
+```python
+# file: ex02.py
+import sys
+if __name__ == "__main__":
+  print("Arguments:", sys.argv)
+```
 
 ### Arguments의 역할을 이해하기 위해서 아래 실행
 
-  - Windows 환경
+- Windows 환경
 
-  ```sh
-  c:\users\user\repo\mse> python ex02.py a b c 1 23
-  ```
+```sh
+c:\users\user\repo\mse> python ex02.py a b c 1 23
+```
 
-  - MacOS/Linux 환경
+- MacOS/Linux 환경
 
-  ```sh
-  ~/repo/mse $ python ex02.py a b c 1 2 3
-  ```
+```sh
+~/repo/mse $ python ex02.py a b c 1 2 3
+```
 
 ### 실행 후 출력 결과 살펴보기
 
@@ -130,13 +130,12 @@ mymodule.power(3,4)
 
 ## 3.3. Argument parse 읽을 거리
 
-  - [Argparse](https://docs.python.org/ko/3.7/library/argparse.html) 활용
-  - [Argparse 자습서](https://docs.python.org/ko/3.7/howto/argparse.html#id1)
-
+- [Argparse](https://docs.python.org/ko/3.7/library/argparse.html) 활용
+- [Argparse 자습서](https://docs.python.org/ko/3.7/howto/argparse.html#id1)
 
 ## 3.4. 간단한 작동
 
-  - 아래를 myprogram.py 파일(모듈)로 작성하여 저장하자.
+- 아래를 myprogram.py 파일(모듈)로 작성하여 저장하자.
 
 ```python
 import argparse
@@ -145,7 +144,7 @@ parser = argparse.ArgumentParser()
 parser.parse_args()
 ```
 
-  - 그 다음 CLI에서 아래와 같이 명령문을 쳐보자.
+- 그 다음 CLI에서 아래와 같이 명령문을 쳐보자.
 
 ```batch
 c:/users/user> python myprogram.py --help
@@ -157,8 +156,8 @@ options:
 
 ## 3.5. positional argument
 
-  - 다음으로 myprogram.py을 열어서 다음과 같이 수정해봅시다.
-    `x` argument를 추가하였고, $x^2$을 출력합니다.
+- 다음으로 myprogram.py을 열어서 다음과 같이 수정해봅시다.
+  `x` argument를 추가하였고, $x^2$을 출력합니다.
 
 ```python
 import argparse
@@ -172,13 +171,13 @@ print(args.x**2)
 
 ## 3.6. `--help` 기능
 
- - 아래와 같이 명령문을 입력하면 ...
+- 아래와 같이 명령문을 입력하면 ...
 
 ```dos
 c:\users\user> python myprogram.py --help
 ```
 
- - 다음과 같이 출력되었나? 출력된 결과물을 살펴보자.
+- 다음과 같이 출력되었나? 출력된 결과물을 살펴보자.
 
 ```dos
 usage: main.py [-h] x
@@ -192,7 +191,7 @@ options:
 
 ## 3.7. 변경된 영향 확인
 
-  - 명령어를 바꿔 다음과 같이 입력해보자.
+- 명령어를 바꿔 다음과 같이 입력해보자.
 
 ```sh
 c:\users\user> python myprogram.py 3
@@ -202,7 +201,7 @@ x^2: 9
 
 ## 3.8. Additional options
 
-  - 다음으로 myprogram.py을 열어서 다음과 같이 수정해봅시다.
+- 다음으로 myprogram.py을 열어서 다음과 같이 수정해봅시다.
 
 ```python
 import argparse
@@ -224,13 +223,13 @@ if __name__=='__main__':
   print('x times y:', multiplie)
 ```
 
-  - CLI에서 아래를 실행하면
+- CLI에서 아래를 실행하면
 
 ```dos
 c:\users\user> python main.py --help
 ```
 
-  - 다음과 같이 `positional arguments`와 `options`이 출력된다.
+- 다음과 같이 `positional arguments`와 `options`이 출력된다.
 
 ```dos
 usage: main.py [-h] [--myname MYNAME] x y

@@ -24,10 +24,10 @@ hidden: true
 tabs: true
 tikzjax: true
 authors:
- - name: Youngung Jeong
-   url: "https://youngung.github.io/"
-   affiliations:
-     name: Changwon National University
+  - name: Youngung Jeong
+    url: "https://youngung.github.io/"
+    affiliations:
+      name: Changwon National University
 ---
 
 - [1. 목표](#1-목표)
@@ -41,8 +41,9 @@ authors:
   - [7.2. 주어진 모든 가변인자의 개수를 출력하고, 그 가변인자의 총합과 평균을 구하는 함수 만들기](#72-주어진-모든-가변인자의-개수를-출력하고-그-가변인자의-총합과-평균을-구하는-함수-만들기)
 
 # 1. 목표
- - 함수와 클래스, 그리고 모듈의 이해
- - 함수를 만들어, 모듈화 시키고 CLI에서 실행할 수 있다.
+
+- 함수와 클래스, 그리고 모듈의 이해
+- 함수를 만들어, 모듈화 시키고 CLI에서 실행할 수 있다.
 
 # 2. 함수란
 
@@ -79,6 +80,7 @@ def func(a=3,b=5): # 함수의 이름이 'func', 입력 a와 b의 default가 있
 ```
 
 아래 실행해보자
+
 ```python
 ## default value 활용됨
 print(func())
@@ -104,15 +106,17 @@ def f(a=3,b=5,c,d):
    print(c+d)
    return a*b*c*d
 ```
+
 # 3. 모듈(module)과 import
 
 - 위 함수 중 하나를 모듈로 만들고 import 해보기
 
 - 한 재료의 부피와 질량을 측정해 밀도를 계산하려고 한다. 각 측정값에 오차가 있어, 측정을
- 여러번 되풀이 한 다음 평균 값을 계산해 밀도를 구하려고 한다. 아래의 예시를 직접 작성해보고
- 이를 활용해보자.
+  여러번 되풀이 한 다음 평균 값을 계산해 밀도를 구하려고 한다. 아래의 예시를 직접 작성해보고
+  이를 활용해보자.
 
   - 'calc_dens.py` 모듈 작성
+
 ```python
 # 이 코드를 파일명 `calc_dens.py`로 작성하여 저장하자.
 def calc_dens(mass, volume):
@@ -123,37 +127,37 @@ def calc_dens(mass, volume):
     return density
 ```
 
-  - 'main.py' 모듈 작성
+- 'main.py' 모듈 작성
 
-  ```python
-  # 이 코드를 `main.py`로 작성하여 저장하자.
+```python
+# 이 코드를 `main.py`로 작성하여 저장하자.
 
-  ## 밀도 계산 프로그램
+## 밀도 계산 프로그램
 
-  ## Raw data
-  mass=[6.01, 6.05, 5.93, 6.03]
-  vol=[3.11, 3.20, 3.09, 3.15]
+## Raw data
+mass=[6.01, 6.05, 5.93, 6.03]
+vol=[3.11, 3.20, 3.09, 3.15]
 
-  import calc_dens ## calc_dens.py 모듈을 import
+import calc_dens ## calc_dens.py 모듈을 import
 
-  dens=[] ## list 자료 생성
-  for i in range(len(mass)):
-    val=calc_dens(mass=mass[i],volume=vol[i]) ## calc_dens.py 모듈 내의 함수
-    dens.append(val) ## list 자료에 값 저장
+dens=[] ## list 자료 생성
+for i in range(len(mass)):
+  val=calc_dens(mass=mass[i],volume=vol[i]) ## calc_dens.py 모듈 내의 함수
+  dens.append(val) ## list 자료에 값 저장
 
-  average=0.
-  for i in range(len(dens)):
-    average=average+dens[i]
-  average=average/len(dens)
-  ```
+average=0.
+for i in range(len(dens)):
+  average=average+dens[i]
+average=average/len(dens)
+```
 
-  - 위 생성된 모듈을 활용해서 표준 편차 구해보기.
-   $std(v_i)=\sum_i^n (\bar{v} - v_i)^2$
+- 위 생성된 모듈을 활용해서 표준 편차 구해보기.
+  $std(v_i)=\sum_i^n (\bar{v} - v_i)^2$
 
-  - 측정된 질량에서의 표준 편차는 얼마인가?
-  - 측정된 부피내의 표준 편차는 얼마인가?
-  - 밀도의 표준 편차는 얼마인가?
-  - 표준편차를 계산하는 함수를 만들어서 활용해보자.
+- 측정된 질량에서의 표준 편차는 얼마인가?
+- 측정된 부피내의 표준 편차는 얼마인가?
+- 밀도의 표준 편차는 얼마인가?
+- 표준편차를 계산하는 함수를 만들어서 활용해보자.
 
 # 4. Built-in functions (no import / no declaration required)
 
@@ -163,10 +167,11 @@ def calc_dens(mass, volume):
   - 약 70여 개의 built-in 함수: A full list of built-in functions: [here](https://docs.python.org/3/library/functions.html)
 
 - 입력(input)과 출력(output) I/O
-  - ```print``` 함수
-  - ```input``` 함수
+  - `print` 함수
+  - `input` 함수
 
 - 출력 예시
+
   ```python
   # 1. 단순 문자열 출력
   print("안녕하세요, 파이썬!")
@@ -207,6 +212,7 @@ print(add_all(1, 2, 3, 4))  # 결과: 10
 ```
 
 # 6. 키워드 가변인자 (**kwargs)
+
 ```python
 def print_info(**kwargs):
     # kwargs는 dictionary 형태. 예: {'name': 'Alice', 'age': 30}

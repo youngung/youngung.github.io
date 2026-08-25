@@ -24,13 +24,14 @@ hidden: true
 tabs: true
 tikzjax: true
 authors:
- - name: Youngung Jeong
-   url: "https://youngung.github.io/"
-   affiliations:
-     name: Changwon National University
+  - name: Youngung Jeong
+    url: "https://youngung.github.io/"
+    affiliations:
+      name: Changwon National University
 ---
 
 # 1. 목표
+
 - 무게비 원자비를 이해하고 이를 상호 호환할 수 있는 모듈을 만들 수 있다.
 
 ## 1.1. 수업 11-1 (무게비 원자비 변환)

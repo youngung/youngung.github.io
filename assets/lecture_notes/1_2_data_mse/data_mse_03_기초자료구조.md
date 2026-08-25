@@ -24,10 +24,10 @@ hidden: true
 tabs: true
 tikzjax: true
 authors:
- - name: Youngung Jeong
-   url: "https://youngung.github.io/"
-   affiliations:
-     name: Changwon National University
+  - name: Youngung Jeong
+    url: "https://youngung.github.io/"
+    affiliations:
+      name: Changwon National University
 ---
 
 - [1. 목표](#1-목표)
@@ -38,10 +38,9 @@ authors:
 - [6. Misc.](#6-misc)
 - [7. Take-home 실습](#7-take-home-실습)
 
-
 # 1. 목표
-- List, Tuple, Dictionary, set 의 자료 구조 이해하기
 
+- List, Tuple, Dictionary, set 의 자료 구조 이해하기
 
 # 2. List
 
@@ -53,9 +52,11 @@ authors:
 
 - 리스트 생성 - 대괄호 사용 `[]`
   아래 실습해보기
+
   ```python
   elements = ["H", "He", "Li", "Be"]
   ```
+
   vs code에서 살펴보기
 
 - 요소 접근 (인덱싱; indexing); 0에서 부터 시작

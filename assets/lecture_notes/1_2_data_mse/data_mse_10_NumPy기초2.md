@@ -7,14 +7,14 @@ permalink:
 featured: true
 prerequisite: 재료공학개론1
 toc:
-#sidebar: left
-- name: Orientation
-- name: Week1
-- name: Week2
-- name: Week3
-- name: Week4
-- name: Week5
-- name: Week6
+  #sidebar: left
+  - name: Orientation
+  - name: Week1
+  - name: Week2
+  - name: Week3
+  - name: Week4
+  - name: Week5
+  - name: Week6
 
 mermaid:
   enabled: true
@@ -24,10 +24,10 @@ hidden: true
 tabs: true
 tikzjax: true
 authors:
- - name: Youngung Jeong
-   url: "https://youngung.github.io/"
-   affiliations:
-     name: Changwon National University
+  - name: Youngung Jeong
+    url: "https://youngung.github.io/"
+    affiliations:
+      name: Changwon National University
 ---
 
 - [1. 목표](#1-목표)
@@ -39,8 +39,8 @@ authors:
 - [4. List활용한 기초 벡터/행렬 연산](#4-list활용한-기초-벡터행렬-연산)
   - [4.1. 기본 예제 (벡터의 크기, 내적)](#41-기본-예제-벡터의-크기-내적)
 
-
 # 1. 목표
+
 - Indexing & Slicing 이해
 - 다양한 벡터/행렬 연산을 NumPy 라이브러리 활용해 수행할 수 있다.
 - 브로드캐스팅을 이해한다.
@@ -68,7 +68,7 @@ array([ 5, 10])
 ```
 
 - NumPy 배열에 경우에는 이러한 indexing이 각 '축'에 깔끔히 적용될 수 있다.
- 아래 2차원 배열 (혹은 2축으로 구성된 배열)을 살펴보자.
+  아래 2차원 배열 (혹은 2축으로 구성된 배열)을 살펴보자.
 
 ```python
 arr = np.array([[1, 2, 3], [4, 5, 6]])
@@ -87,6 +87,7 @@ print(arr[:, 1])  # 모든 행의 2열 → [2 5]
 ```
 
 각 축마다 begin, end, step이 적용되므로, 복잡한 slicing을 할 수 있다. 아래를 보자.
+
 ```python
 ## 각 '축'에서 List indexing 적용가능. 예를 들어
 print(arr[1::,1::])
@@ -99,6 +100,7 @@ print(arr[::-1,::-1]) #행과 열을 모두 거꾸로
 ```
 
 아래 경우를 하나씩 입력 후 차근차근 살펴보며 실습해보자.
+
 ```python
 a=np.arange(100)
 a=a.reshape(10,10)
@@ -121,38 +123,41 @@ a[::5,::,::] #?
 # 3. 예제
 
 ## 3.1. 예제: 데이터 파일
-  Use data in here [matrix_01.txt](/assets/dat_files/lectures/1_2_data_mse/matrix_01.txt)
 
-  ```python
-  import numpy as np
+Use data in here [matrix_01.txt](/assets/dat_files/lectures/1_2_data_mse/matrix_01.txt)
 
-  # 공백 구분 텍스트 불러오기
-  matrix = np.loadtxt("matrix.txt")
+```python
+import numpy as np
 
-  print("불러온 행렬:")
-  print(matrix)
+# 공백 구분 텍스트 불러오기
+matrix = np.loadtxt("matrix.txt")
 
-  print("shape:", matrix.shape)   # (3, 3)
-  print("dtype:", matrix.dtype)   # ?
-  ```
+print("불러온 행렬:")
+print(matrix)
+
+print("shape:", matrix.shape)   # (3, 3)
+print("dtype:", matrix.dtype)   # ?
+```
 
 ## 3.2. 예제: csv file
-  Use data in here [matrix_01.csv](/assets/dat_files/lectures/1_2_data_mse/matrix_01.csv)
 
-  ```python
-  import numpy as np
+Use data in here [matrix_01.csv](/assets/dat_files/lectures/1_2_data_mse/matrix_01.csv)
 
-  # 공백 구분 텍스트 불러오기
-  matrix = np.loadtxt("matrix.txt")
+```python
+import numpy as np
 
-  print("불러온 행렬:")
-  print(matrix)
+# 공백 구분 텍스트 불러오기
+matrix = np.loadtxt("matrix.txt")
 
-  print("shape:", matrix.shape)   # (3, 3)
-  print("dtype:", matrix.dtype)   # ?
-  ```
+print("불러온 행렬:")
+print(matrix)
+
+print("shape:", matrix.shape)   # (3, 3)
+print("dtype:", matrix.dtype)   # ?
+```
 
 ## 3.3. 예제: 저장하기
+
 <aside><p>%d 와 %f로 정수는 각각 정수와 실수 형식 저장에 쓰인다.</p></aside>
 
 ```python
@@ -163,7 +168,6 @@ np.savetxt("save_matrix.txt", matrix, fmt="%.2f")
 # CSV로 저장
 np.savetxt("save_matrix.csv", matrix, delimiter=",", fmt="%d")
 ```
-
 
 # 4. List활용한 기초 벡터/행렬 연산
 

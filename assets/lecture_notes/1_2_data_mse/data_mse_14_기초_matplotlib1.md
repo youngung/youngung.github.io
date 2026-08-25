@@ -24,10 +24,10 @@ hidden: true
 tabs: true
 tikzjax: true
 authors:
- - name: Youngung Jeong
-   url: "https://youngung.github.io/"
-   affiliations:
-     name: Changwon National University
+  - name: Youngung Jeong
+    url: "https://youngung.github.io/"
+    affiliations:
+      name: Changwon National University
 ---
 
 - [1. 목표](#1-목표)
@@ -46,20 +46,21 @@ authors:
     - [5.4.1 Curve fitting in Cartesian (x,y)](#541-curve-fitting-in-cartesian-xy)
     - [5.4.2 Curve fitting in Polar coordinate (r,$\\theta$)](#542-curve-fitting-in-polar-coordinate-rtheta)
 
-
 # 1. 목표
- - axes, figure 를 만들 수 있다.
- - 선(line), 점(dot)으로 이루어진 그래프를 그릴 수 있다.
- - x축, y축의 label, tick, limits을 만들 수 있다.
- - linear scale, logscale을 만들고 이해할 수 있다.
- - 3차원 그래프를 그릴 수 있다.
- - 파일로부터 데이터를 불러오고, 이를 graph로 바꿀 수 있다.
+
+- axes, figure 를 만들 수 있다.
+- 선(line), 점(dot)으로 이루어진 그래프를 그릴 수 있다.
+- x축, y축의 label, tick, limits을 만들 수 있다.
+- linear scale, logscale을 만들고 이해할 수 있다.
+- 3차원 그래프를 그릴 수 있다.
+- 파일로부터 데이터를 불러오고, 이를 graph로 바꿀 수 있다.
 
 # 2. 소개
 
 [Matplotlib](https://matplotlib.org): Python 환경에서 데이터를 시각화하는데 가장
 널리 쓰이는 라이브러리 중 하나이다. MATLAB과 유사한 환경을 제공해주는 pyplot 모듈을 활용한
 인터페이스가 널리쓰인다. 아래 예시들을 함께 살펴보자.
+
 ```python
 import matplotlib.pyplot as plt
 
@@ -81,7 +82,7 @@ plt.scatter(x, y, color='red')
 plt.title("Scatter Plot")
 ```
 
-각 데이터 세트 (선, 점 등)에 라벨을 부여하고, 이를 레전드(```legend```) 함수를 활용해 그래프를 꾸밀 수 있다.
+각 데이터 세트 (선, 점 등)에 라벨을 부여하고, 이를 레전드(`legend`) 함수를 활용해 그래프를 꾸밀 수 있다.
 
 ```python
 plt.plot([1,2,3],[1,4,9], label=r'$y = x^2$')
@@ -89,7 +90,7 @@ plt.plot([1,2,3],[1,2,3], label=r'$y = x$')
 plt.legend() ## legend
 ```
 
-```plt.subplot```을 활용해서 행렬 행태의 그래프 모임을 그릴 수 있다.
+`plt.subplot`을 활용해서 행렬 행태의 그래프 모임을 그릴 수 있다.
 
 ```python
 plt.subplot(1, 2, 1)  # 1행 2열 중 첫 번째
@@ -101,11 +102,12 @@ plt.plot([1,2,3],[1,2,3])
 plt.title("Right")
 ```
 
-```plt```환경을 조금 더 상세히 살펴보면, ```figure```와 ```axis``` 객체가 사용되는
-것을 알 수 있다. ```figure```는 그림을 그리는 캔버스, ```axis```는 그래프가 시각화되는
+`plt`환경을 조금 더 상세히 살펴보면, `figure`와 `axis` 객체가 사용되는
+것을 알 수 있다. `figure`는 그림을 그리는 캔버스, `axis`는 그래프가 시각화되는
 좌표계라 볼 수 있다.
 
 # 4. Figure & axes objects
+
 - Figure: 그래프 전체 "캔버스"
 - Axes: 실제 데이터가 그려지는 "좌표 영역"
 
@@ -136,6 +138,7 @@ plt.show()
 ```
 
 혹은 각각을 다른 axis에 그리기
+
 ```python
 import matplotlib.pyplot as plt
 
@@ -170,8 +173,8 @@ plt.show()
 
 # 5. 1차원 그래프 그리기
 
-- NumPy의 ```linspace```, ```logspace```등과 결합하면 여러 1D 그래프를 손쉽게 그릴
-수 있다. 예를 들어 $y=x^2$을 $x\in[-10,10]$을 그리자면
+- NumPy의 `linspace`, `logspace`등과 결합하면 여러 1D 그래프를 손쉽게 그릴
+  수 있다. 예를 들어 $y=x^2$을 $x\in[-10,10]$을 그리자면
 
 ```python
 import numpy as np
@@ -180,9 +183,11 @@ x=np.linspace(-10,10) # [-10,10] 범위내의 50 포인트
 y=x**2 ## NumPy의 element-wise operation을 기억하자.
 plt.plot(x,y)
 ```
+
 결과를 살펴보자.
 
 ## 5.1. 1차원 그래프
+
 위 예제를 응용하여 아래 실습을 수행해보자. 범위 내의 아래 삼각함수를 그려보자.
 
 ### 5.1.1. $y=\cos\theta$
@@ -198,6 +203,7 @@ y=\sin(\theta), \text{ with } \theta\in[-\pi,\pi]
 $$
 
 ### 5.1.3. $y=\tan\theta$
+
 $$
 y=\tan(\theta), \text{ with } \theta\in\big[-\frac{\pi}{2},\frac{\pi}{2}\big]
 $$
@@ -218,16 +224,19 @@ $$
 $$
 
 ## 5.3. Stress vs. strain curve 그리기
+
 다음 [압축파일](/assets/dat_files/lectures/1_2_data_mse/tensile_test_results.zip)을 풀어서, 파일 하나를
 살펴보자 - 예를 들어 `00_DD_WZ_01.csv`
 위 데이터 파일을 활용해
+
 1.  폭: 6.04 mm, 두께 2.99 mm 인걸 확인하고,
 2.  힘과 변위 칼럼을 활용해서 응력과 변형률을 구하자.
 3.  그 다음 응력과 변형률 곡선을 Figure로 그려보자.
 
-
 ## 5.4 데이터 fitting
+
 ### 5.4.1 Curve fitting in Cartesian (x,y)
+
 - 금속의 인장 실험 이후 변형률과 응력의 데이터를 아래와 같이 취득하였다. 이 데이터에 해당하는
   Young's modulus (영률)을 구하여라. 그리고 구해진 영률을 활용한 직선과 실험 데이터를
   비교하는 그래프를 작성하여라.
@@ -235,4 +244,5 @@ $$
   가늠해 보아라.
 
 ### 5.4.2 Curve fitting in Polar coordinate (r,$\theta$)
+
 Bohr의 원자 모형에서의 전자 움직임을 모사하였더니 아래와 같은 데이터를 보인다. 이를 활용해보자.

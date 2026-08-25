@@ -7,14 +7,14 @@ permalink:
 featured: true
 prerequisite: 재료공학개론1
 toc:
-#sidebar: left
-- name: Orientation
-- name: Week1
-- name: Week2
-- name: Week3
-- name: Week4
-- name: Week5
-- name: Week6
+  #sidebar: left
+  - name: Orientation
+  - name: Week1
+  - name: Week2
+  - name: Week3
+  - name: Week4
+  - name: Week5
+  - name: Week6
 
 mermaid:
   enabled: true
@@ -24,11 +24,12 @@ hidden: true
 tabs: true
 tikzjax: true
 authors:
- - name: Youngung Jeong
-   url: "https://youngung.github.io/"
-   affiliations:
-     name: Changwon National University
+  - name: Youngung Jeong
+    url: "https://youngung.github.io/"
+    affiliations:
+      name: Changwon National University
 ---
+
 - [1. 목표](#1-목표)
 - [2. 벡터의 성분](#2-벡터의-성분)
 - [3. 벡터의 합](#3-벡터의-합)
@@ -49,19 +50,19 @@ authors:
   - [9.2. (take-home)](#92-take-home)
   - [9.3. (take-home)](#93-take-home)
 
-
 # 1. 목표
+
 - 반복문, 함수, Numpy를 활용해 기초 벡터 연산 및 행렬 연산 수행 및 이해
 
 # 2. 벡터의 성분
+
 한 벡터 $\boldsymbol a$는 아래와 같이 세 성분으로 이루어져 있다.
 
 $\boldsymbol a = (a_x,a_y,a_z)$
 
-
 # 3. 벡터의 합
 
-벡터 $\boldsymbol a$ 와  $\boldsymbol b$의 합은 새로운 벡터 $\boldsymbol c$가
+벡터 $\boldsymbol a$ 와 $\boldsymbol b$의 합은 새로운 벡터 $\boldsymbol c$가
 된다.
 
 $$
@@ -95,7 +96,9 @@ for i in range(len(a)):
 ```
 
 ## 3.1. 예시: 벡터의 차
+
 아래와 같이 두 벡터의 차도 새로운 벡터가 된다.
+
 $$
 \boldsymbol c =  \boldsymbol a - \boldsymbol b
 $$
@@ -173,7 +176,6 @@ b=c*a ## broadcasting (?!)
 {% endtab %}
 {% endtabs %}
 
-
 # 5. 벡터의 크기 (magnitude)
 
 벡터는 방향과 크기를 모두 가지고 있다. 한 벡터 $\boldsymbol a$의 크기를
@@ -182,6 +184,7 @@ $|\boldsymbol a|$라 표기하자. 이는 다음과 같이 정의된다.
 $$|\boldsymbol a|=\sqrt{a_x^2+a_y^2+a_z^2}$$
 
 이를 List를 활용해 구현한다면:
+
 ```python
 a=[2,3,4]
 mag=a[0]**2+a[1]**2+a[2]**2
@@ -189,6 +192,7 @@ mag=mag**0.5
 ```
 
 혹은 numpy를 활용해서 아래와 같이 구현할 수 있다.
+
 ```python
 import numpy as np
 a=np.array([2,3,4])
@@ -216,6 +220,7 @@ $$
 $$
 
 이와 같은 연산을 Python을 활용해 아래와 같이 구현할 수 있겠다.
+
 ```python
 def get_mag(v):
    import math
@@ -223,6 +228,7 @@ def get_mag(v):
 ```
 
 혹은 아래와 같이 math 페키지 없이 구현할 수 있겠다.
+
 ```python
 def get_mag(v):
    return (v[0]**2+v[1]**2+v[2]**2)**0.5
@@ -274,6 +280,7 @@ print('ang in degree:', angle*180/3.141592)
 ```
 
 # 8. 예시
+
 ## 8.1. Cubic구조내의 두 결정방위 $(u_1,v_1,w_1)$과 $(u_2,v_2,w_2)$ 간의 각도?
 
 ```python
@@ -298,6 +305,7 @@ np.deg2rad(angle) ## np 패키지내의 메소드 활용 가능
 ## 8.3. Cubic 내 두 면 $(h_1k_1l_1)$과 $(h_2k_2l_2)$ 면 법선 사이의 끼인 각 구하기
 
 ## 8.4. Tetragonal내의 두 결정방향(crystal direction) $[u_1,v_1,w_1]$과 $[u_2,v_2,w_2]$ 간의 각도 구하기
+
 - Cubic의 경우, $a=b=c$이며 세 사이 각이 $\alpha=\beta=\gamma=90 ^\circ$이다.
 
 - Tetragonal의 경우, $a=b\ne c$이며 $\alpha=\beta=\gamma=90 ^\circ$을 만족한다.
@@ -311,11 +319,13 @@ np.deg2rad(angle) ## np 패키지내의 메소드 활용 가능
 
 - 따라서, $c/a$ ratio가 알려진 Tetragonal의 Miller index [$u_1v_1w_1$]로 표현된 결정방위의
   실제 길이는:
+
   $$
   \sqrt{ (u_1\times 1)^2+(v_1\times 1)^2+(w_1\times \frac{c}{a})^2 }
   $$
 
 - Tetragonal 내의 결정 방향 $[uvw]$를 벡터 $[x,y,z]$로 바꾸는 함수는?
+
 ```python
 def miller2vect_tetragonal(miller,ca_ratio):
   u,v,w=miller
@@ -341,6 +351,7 @@ $$
 $$
 
 - 위를 Python으로 구현해보자.
+
 ```python
 def m2unitv_tetragonal(miller,ca_ratio):
   v=miller2vect_tetragonal(miller,ca_ratio)
@@ -362,26 +373,28 @@ get_ang(um1,um2) #
 ```
 
 ## 8.5. 예시 5:
+
 - Tetragonal 내의 결정면 $(hkl)$의 수직 방향은?
   결정 방향(crystal direction)과 다르게 결정면의 수직방향은 (norm of crystal plane)
   다른 방식으로 영향을 받는다.
 
   결정 방향의 경우 아래와 같이 벡터로 바뀌었다면
-   $(x,y,z)=(u,v,w{\color{red}\frac{c}{a}})$
+  $(x,y,z)=(u,v,w{\color{red}\frac{c}{a}})$
   결정 면의 수직방향은 아래와 같이 바뀐다.
-   $(x,y,z)=(h,k,l{\color{green}\frac{a}{c}})$
+  $(x,y,z)=(h,k,l{\color{green}\frac{a}{c}})$
 
 - 두 결정면 $(h_1,k_1,l_1)$과 $(h_2,k_2,l_2)$의 수직선 사이의 각도 구하는 Python script 작성해보기
 
 ## 8.6. 예시 6 (take-home)
- - cubic내에서는 $[101]$ 결정방향과 $(101)$면의 법선방향이 일치한다. 하지만
- Tetragonal의 경우 $[101]$ 결정방향과 $(101)$면의 법선 방향이 일치하지 않는다.
- $\beta$Tin은 상온에서 Body-centered tetragonal 구조를 가진다. 격자상수 $a,b,c$가
- 각각 5.81, 5.81, 3.18 $\mathring{A}$ 라면, $[101]$ 결정 방향과 $(101)$ 결정면의 법선 방향
- 사이의 끼인 각도는 얼마인가?
 
- - 이미 작성된 Python script를 활용하고, 보완하거나 추가하여
- 각도를 계산해보자.
+- cubic내에서는 $[101]$ 결정방향과 $(101)$면의 법선방향이 일치한다. 하지만
+  Tetragonal의 경우 $[101]$ 결정방향과 $(101)$면의 법선 방향이 일치하지 않는다.
+  $\beta$Tin은 상온에서 Body-centered tetragonal 구조를 가진다. 격자상수 $a,b,c$가
+  각각 5.81, 5.81, 3.18 $\mathring{A}$ 라면, $[101]$ 결정 방향과 $(101)$ 결정면의 법선 방향
+  사이의 끼인 각도는 얼마인가?
+
+- 이미 작성된 Python script를 활용하고, 보완하거나 추가하여
+  각도를 계산해보자.
 
 # 9. 외적 (cross product)
 

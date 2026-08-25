@@ -24,11 +24,12 @@ hidden: true
 tabs: true
 tikzjax: true
 authors:
- - name: Youngung Jeong
-   url: "https://youngung.github.io/"
-   affiliations:
-     name: Changwon National University
+  - name: Youngung Jeong
+    url: "https://youngung.github.io/"
+    affiliations:
+      name: Changwon National University
 ---
+
 - [1. 목표](#1-목표)
 - [2. 클래스](#2-클래스)
 - [3. 클래스 예제](#3-클래스-예제)
@@ -42,9 +43,11 @@ authors:
   - [4.7. 여러 슬립계로 이루어진 재료에 가해진 응력에 따라, 가장 큰 분해 전단 응력을 가진 슬립계 찾기](#47-여러-슬립계로-이루어진-재료에-가해진-응력에-따라-가장-큰-분해-전단-응력을-가진-슬립계-찾기)
 
 # 1. 목표
- - 클래스를 이해한다.
+
+- 클래스를 이해한다.
 
 # 2. 클래스
+
 파이썬에서 클래스(Class)는 나만의 새로운 데이터 타입이나 객체를 만들기 위한 ‘설계도’라고
 생각할 수 있다. 이 설계도를 바탕으로 실제로 만들어진 실체를 인스턴스(Instance) 또는 객체
 (Object)라고 부른다.
@@ -162,11 +165,11 @@ for alloy in alloys:
 
 ## 4.1. Hooke's law
 
-  - 응력($\sigma$)와 변형률($\varepsilon$) 사이의 선형 관계 법칙
+- 응력($\sigma$)와 변형률($\varepsilon$) 사이의 선형 관계 법칙
 
-  $$
-  \sigma = E \varepsilon
-  $$
+$$
+\sigma = E \varepsilon
+$$
 
 ```python
 def hooke(modulus,epsilon):
@@ -189,13 +192,14 @@ def a(b,c):
   return a*b
 ```
 
-##  4.2. 공칭변형률과 진변형률
- - 변형전 길이($l_0$)와 그 길이의 변화($\Delta l$)로 부터 공칭변형률 ($\epsilon$)
+## 4.2. 공칭변형률과 진변형률
+
+- 변형전 길이($l_0$)와 그 길이의 변화($\Delta l$)로 부터 공칭변형률 ($\epsilon$)
   구하기.
 
-  $$
-  \epsilon=\frac{\Delta l}{l_0}
-  $$
+$$
+\epsilon=\frac{\Delta l}{l_0}
+$$
 
 ```python
 def calc_engi_strain(l0,l1):
@@ -221,61 +225,63 @@ def calc_true_strain(engi_eps):
 ## 4.3. 길이 변화를 주면 true strain을 계산하는 함수
 
 ## 4.4. Schmid law
-  - Schmid의 법칙을 활용하면, 일축 인장 (혹은 압축) 응력값($\sigma$)와 전위 슬립계
+
+- Schmid의 법칙을 활용하면, 일축 인장 (혹은 압축) 응력값($\sigma$)와 전위 슬립계
   (dislocation slip system)의 방위 관계 ($\phi,\lambda$)를 활용해 분해전단응력($\tau$)값을 구할 수 있다.
 
-  $$
-  \tau=\sigma \cos\phi \cos\lambda
-  $$
+$$
+\tau=\sigma \cos\phi \cos\lambda
+$$
 
-  ```python
-  def schmid(sigma,phi,lamb):
-    """
-    Arguments
-    ---------
-    sigma: float
-      uniaxial stress
-    phi: float (in radian)
-      angle between the slip plane normal and the loading direction
-    lamb: float (in radian)
-      angle between the slip direction and the loading direction
+```python
+def schmid(sigma,phi,lamb):
+  """
+  Arguments
+  ---------
+  sigma: float
+    uniaxial stress
+  phi: float (in radian)
+    angle between the slip plane normal and the loading direction
+  lamb: float (in radian)
+    angle between the slip direction and the loading direction
 
-    Returns
-    -------
-    Schmid factor
-    """
-    import math
-    return sigma*math.cos(phi)*math.cos(lamb)
-  ```
+  Returns
+  -------
+  Schmid factor
+  """
+  import math
+  return sigma*math.cos(phi)*math.cos(lamb)
+```
 
 ## 4.5. 위치 인자 (\*args)를 활용한 다항함수(polynomial function) 구하기
-   - 다항식의 규칙성을 이해해보자.
-   - 2차
 
-  ```python
-  def poly(x,*args):
-    """
-    polynomial function
+- 다항식의 규칙성을 이해해보자.
+- 2차
 
-    y = a x^n + b x^(n-1) + c x^(n-2) ... z x^0
+```python
+def poly(x,*args):
+  """
+  polynomial function
 
-    Arguments
-    ---------
-    x,*args
+  y = a x^n + b x^(n-1) + c x^(n-2) ... z x^0
 
-    Returns
-    -------
-    y
-    """
-    n=len(args)-1 # highest order
-    y=0.
-    print('n,i,arg')
-    for i, arg in enumerate(args):
-  	  # print(n,i,arg)
-  	  y+=arg*(x**n) #
-  	  n-=1          # in descending order
-    return y
-  ```
+  Arguments
+  ---------
+  x,*args
+
+  Returns
+  -------
+  y
+  """
+  n=len(args)-1 # highest order
+  y=0.
+  print('n,i,arg')
+  for i, arg in enumerate(args):
+	  # print(n,i,arg)
+	  y+=arg*(x**n) #
+	  n-=1          # in descending order
+  return y
+```
 
 ## 4.6. 키워드 인자 (keyword arguments; \*\*kwargs) 활용 예시
 
@@ -295,7 +301,8 @@ introduce(name="Alice", age=25, country="Korea")
 ```
 
 ## 4.7. 여러 슬립계로 이루어진 재료에 가해진 응력에 따라, 가장 큰 분해 전단 응력을 가진 슬립계 찾기
-  - 재료는 다양한 슬립계로 이루어져 있다. 주어진 슬립계를 class로 만들어 보자.
-  - 클래스로 객체를 만들때(instantiated) 주어진 응력에 대해 가장
+
+- 재료는 다양한 슬립계로 이루어져 있다. 주어진 슬립계를 class로 만들어 보자.
+- 클래스로 객체를 만들때(instantiated) 주어진 응력에 대해 가장
   높은 분해 전단 응력 (Resolved shear stress)를 갖는 슬립계를
   찾도록 프로그램을 만들어 보자.

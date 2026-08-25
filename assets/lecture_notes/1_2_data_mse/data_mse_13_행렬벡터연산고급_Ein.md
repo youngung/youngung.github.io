@@ -7,14 +7,14 @@ permalink:
 featured: true
 prerequisite: 재료공학개론1
 toc:
-#sidebar: left
-- name: Orientation
-- name: Week1
-- name: Week2
-- name: Week3
-- name: Week4
-- name: Week5
-- name: Week6
+  #sidebar: left
+  - name: Orientation
+  - name: Week1
+  - name: Week2
+  - name: Week3
+  - name: Week4
+  - name: Week5
+  - name: Week6
 
 mermaid:
   enabled: true
@@ -24,11 +24,12 @@ hidden: true
 tabs: true
 tikzjax: true
 authors:
- - name: Youngung Jeong
-   url: "https://youngung.github.io/"
-   affiliations:
-     name: Changwon National University
+  - name: Youngung Jeong
+    url: "https://youngung.github.io/"
+    affiliations:
+      name: Changwon National University
 ---
+
 - [1. 목표](#1-목표)
 - [2. 아인슈타인 표기법과 np.einsum 함수](#2-아인슈타인-표기법과-npeinsum-함수)
 - [3. 벡터 스케일링 (스칼라 곱)](#3-벡터-스케일링-스칼라-곱)
@@ -46,6 +47,7 @@ authors:
 - [7. np.einsum 활용](#7-npeinsum-활용)
 
 # 1. 목표
+
 - Einstein summation 을 이해하고, 다양한 벡터 및 행렬 연산에 활용할 수 있다.
 
 # 2. [아인슈타인 표기법](https://ko.wikipedia.org/wiki/아인슈타인_표기법)과 [np.einsum](https://numpy.org/doc/stable/reference/generated/numpy.einsum.html) 함수
@@ -64,18 +66,18 @@ Reference: [https://rockt.ai/2018/04/30/einsum](https://rockt.ai/2018/04/30/eins
 # 3. 벡터 스케일링 (스칼라 곱)
 
 - 주어진 벡터 $\boldsymbol a$에 스칼라 $c$를 곱하면 또 다른 벡터
-$\boldsymbol b$이 된다. 이는 아래와 같이 수식으로 표현가능하다.
+  $\boldsymbol b$이 된다. 이는 아래와 같이 수식으로 표현가능하다.
 
 $$
 c\boldsymbol a=\boldsymbol b
 $$
 
 - 이를 index 표기법으로 나타내면, 3차원 공간에서 각 벡터는 3성분을 지니므로, 아래 첨자
-$_i$를 활용해 각 첨자를 구분할 수 있다. 즉 벡터 $\boldsymbol a$는 사실
-$(a_1,a_2,a_3)$로 구분되는 세 성분으로 이루어져 있으며, 이는 벡터 $\boldsymbol b$
-도 마찬가지이다. 따라서 앞선 수식을 각 성분에 대해 나타낸다면, 각기 구분되는 세 수식
-$b_1=ca_1$ 그리고 $b_2=ca_2$, 마지막으로 $b_3=ca_3$으로 대신할 수 있다. 그런데,
-아무래도 이건 조금 번거로운 느낌이 든다. 아래와 같이 좀 더 간략하게 표기하는 게 좋겠다.
+  $_i$를 활용해 각 첨자를 구분할 수 있다. 즉 벡터 $\boldsymbol a$는 사실
+  $(a_1,a_2,a_3)$로 구분되는 세 성분으로 이루어져 있으며, 이는 벡터 $\boldsymbol b$
+  도 마찬가지이다. 따라서 앞선 수식을 각 성분에 대해 나타낸다면, 각기 구분되는 세 수식
+  $b_1=ca_1$ 그리고 $b_2=ca_2$, 마지막으로 $b_3=ca_3$으로 대신할 수 있다. 그런데,
+  아무래도 이건 조금 번거로운 느낌이 든다. 아래와 같이 좀 더 간략하게 표기하는 게 좋겠다.
 
 $$
 b_i=ca_i \text{ with } i=1,2,3
@@ -120,17 +122,16 @@ b=c*a ## broadcasting (?!)
 {% endtab %}
 {% endtabs %}
 
-
 # 4. 벡터의 크기
 
 - 벡터의 크기는 앞서 이미 다루었다. 한 벡터 $\boldsymbol a$의 크기는
-$|\boldsymbol a|$라 표기하고, 이는 다음과 같이 정의된다.
+  $|\boldsymbol a|$라 표기하고, 이는 다음과 같이 정의된다.
 
 $$|\boldsymbol a|=\sqrt{\sum_i^3a_i^2}$$
 
 - 고전적인 아인슈타인 표기법은 위와 같이 하나의 물리량에 일반적으로 적용되진 않는다.
-하지만 NumPy의 einsum 함수는 적용된다. 아래와 같이 먼저 벡터내의 요소의 거듭제곱으로
-이루어진 벡터를 구할 수 있다. 벡터 $\boldsymbol a$가 가령 아래와 같다고 하자.
+  하지만 NumPy의 einsum 함수는 적용된다. 아래와 같이 먼저 벡터내의 요소의 거듭제곱으로
+  이루어진 벡터를 구할 수 있다. 벡터 $\boldsymbol a$가 가령 아래와 같다고 하자.
 
 $$
 \boldsymbol a= (2,3,4)
@@ -140,6 +141,7 @@ $$
 import numpy as np
 a=np.array([2,3,4])
 ```
+
 만약 2+3+4를 구하는게 목적이라면, 즉 $\sum_i a_i$가 목적이라면, 아래와 같이 수행할 수 있다.
 
 ```python
@@ -147,6 +149,7 @@ np.einsum('i->',a)
 ```
 
 그런데 우리는 $\sum_ia_i^2$을 먼저 구해야 하겠다. 따라서 아래와 같이 약간 변화를 줄 수 있다.
+
 ```python
 np.einsum('i->',a**2)
 ```
@@ -160,9 +163,8 @@ np.sqrt(np.einsum('i->',a**2))
 <aside><p>
 실은 NumPy의 선형대수(Linear Algebra) 함수 모듬을 활용하여 더욱 간략히 수행할 수 있다.
 
-```np.linalg.norm(a)```
+`np.linalg.norm(a)`
 </p></aside>
-
 
 # 5. 단위 벡터 (unit)
 
@@ -742,23 +744,25 @@ for i in range(3): # i is outer
     c+=A[i,j]*B[i,j]
 ```
 
-
 ```python
 A=np.array([[1,2,3],[4,5,6],[7,8,9]])
 B=np.array([[3,2,1],[6,5,4],[9,8,7]])
 c=np.einsum('ij,ij->',A,B)
 ```
+
 .
 
 # 7. np.einsum 활용
+
 - 10 x 3 x 12 행렬 $\boldsymbol A$와 12 x 3 x 8 행렬 $\boldsymbol B$의 곱의 결과가 10 x 8 행렬 $\boldsymbol C$고 아래와 같이 수행된다고 하자.
-$$ C_{ij}=\sum_{k=1}^3\sum_{l=1}^{12}A_{ikl}B_{lkj}$$
+  $$ C_{ij}=\sum_{k=1}^3\sum_{l=1}^{12}A_{ikl}B_{lkj}$$
 
 {% tabs 행렬곱3차 %}
 {% tab 행렬곱3차 질문 %}
 Python으로 코드를 작성한 후, 예시로 제시된 정답과 비교해보자.
 {% endtab %}
 {% tab 행렬곱3차 정답예시1 %}
+
 ```python
 C=np.zeros((10,8))
 for i in range(10):
@@ -767,15 +771,19 @@ for i in range(10):
       for l in range(12):
         C[i,j]=C[i,j]+A[i,k,l]*B[l,k,j]
 ```
+
 {% endtab %}
 {% tab 행렬곱3차 정답예시2 %}
+
 ```python
 C=np.einsum('ikl,lkj->ij',A,B)
 ```
+
 {% endtab %}
 {% endtabs %}
 
 행렬의 축이 늘어나면 늘어날 수록, 정답 예시1과 같은 형태의 코드 스타일은 선호되지 않을 것이다. 여러 인공지능 기술에서 매우 차원이 높은 다수의 행렬들간의 복잡한 연산이 요구된다. 그럴 경우, Einstein summation 기법을 익히고 간략히 표현할 수 있을수록 유리할 것이다.
 
 - 예시 ~~tetrahedral site & octaheral site 크기 구하기~~
+
 ---

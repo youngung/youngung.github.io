@@ -7,14 +7,14 @@ permalink:
 featured: true
 prerequisite: 재료공학개론1
 toc:
-#sidebar: left
-- name: Orientation
-- name: Week1
-- name: Week2
-- name: Week3
-- name: Week4
-- name: Week5
-- name: Week6
+  #sidebar: left
+  - name: Orientation
+  - name: Week1
+  - name: Week2
+  - name: Week3
+  - name: Week4
+  - name: Week5
+  - name: Week6
 
 mermaid:
   enabled: true
@@ -24,10 +24,10 @@ hidden: true
 tabs: true
 tikzjax: true
 authors:
- - name: Youngung Jeong
-   url: "https://youngung.github.io/"
-   affiliations:
-     name: Changwon National University
+  - name: Youngung Jeong
+    url: "https://youngung.github.io/"
+    affiliations:
+      name: Changwon National University
 ---
 
 - [1. 행렬간의 내적 (dot product) 이해하기](#1-행렬간의-내적-dot-product-이해하기)
@@ -205,7 +205,6 @@ $$
 \sum_k^3A_{ik}B_{kj}=C_{ij}, \text{ for } i=1,2,3 \text{ and } \   j=1,2,3
 $$
 
-
 # 3. 예제
 
 ## 3.1. Loop 표현
@@ -228,6 +227,7 @@ for i in range(3):
 ```
 
 ## 3.3. 예제 3.
+
 격자 상수 $(a,b,c)$가 주어진 Tetragonal에서의 격자 위치 $(p_1,p_2,p_3)$가 주어질 때,
 격자 위치를 행렬을 활용해 unit cell내에서의 위치로 표현할 수 있다.
 
@@ -256,8 +256,8 @@ $$
 
 그 결과 벡터가 실제 unit cell내의 위치가 된다.
 
-
 ## 3.4. 예제 4.
+
 격자 상수 $(a,b,c)$가 주어진 Tetragonal에서의 두 격자 위치 $p=(p_1,p_2,p_3)$와
 $q=(q_1,q_2,q_3)$가 주어질 때, 두 격자 위치 사이의 거리를 구해보자.
 
@@ -300,12 +300,12 @@ $$
 $$
 |p^\prime - q^\prime]
 $$
+
 에 해당한다.
 
-
-
 ## 3.5. 예제 5. 세 행렬의 곱
-  세 행렬 사이의 곱이 다음과 같다.
+
+세 행렬 사이의 곱이 다음과 같다.
 
 $$
 \boldsymbol D=\boldsymbol A \cdot \boldsymbol B \cdot \boldsymbol C
@@ -320,7 +320,6 @@ $$
 ```python
 # 세 nxn 행렬 사이의 곱을 구하는 python 함수를 작성해 보세요.
 ```
-
 
 # 4. [Broadcasting](https://numpy.org/devdocs/user/basics.broadcasting.html#basics-broadcasting)
 

@@ -24,26 +24,28 @@ hidden: true
 tabs: true
 tikzjax: true
 authors:
- - name: Youngung Jeong
-   url: "https://youngung.github.io/"
-   affiliations:
-     name: Changwon National University
+  - name: Youngung Jeong
+    url: "https://youngung.github.io/"
+    affiliations:
+      name: Changwon National University
 ---
 
 - [1. 목표](#1-목표)
 - [2. 임의의 3차원 벡터 생성과 stereographic projection.](#2-임의의-3차원-벡터-생성과-stereographic-projection)
 - [3. 극점도 (pole figure)](#3-극점도-pole-figure)
 
-
 # 1. 목표
 
 # 2. 임의의 3차원 벡터 생성과 stereographic projection.
 
 cubic crystal structure내의 결정 방위 [h,k,l]에 해당하는 단위 벡터를 그려보자. Cubic crystal의 경우 Miller index $[uvw]$가 한 결정 방향이라면 그 방향에 해당하는 벡터 $\boldsymbol b$는 아래와 같이 구할 수 있다.
+
 $$
 \boldsymbol b = (b_1,b_2,b_3)=\bigg(\frac{h}{\sqrt{h^2+k^2+l^2}},\frac{h}{\sqrt{h^2+k^2+l^2}},\frac{h}{\sqrt{h^2+k^2+l^2}}\bigg)
 $$
+
 이를 계산하는 함수를 작성해보면
+
 ```python
 def get_direct(uvw=np.array([1,1,0])):
   """
@@ -69,6 +71,7 @@ get_direct([1,1,1])
 ```
 
 꼭 List 타입으로 주는 방식이 싫다면 아래와 같은 형태도 괜찮은 대안이 될 수 있겠다.
+
 ```python
 def get_direct(v1,v2,v3):
   """
@@ -87,7 +90,9 @@ def get_direct(v1,v2,v3):
 ```
 
 # 3. 극점도 (pole figure)
+
 위 함수를 활용해 결정학적으로 같이 $[100],[010],[001],[\bar{1}00],[0\bar{1}0],[00\bar{1}]$을 3차원 그래프로 표현해보자. 3차원 점들을 표현하기 위해서는 3차원 axis가 필요하다. 이를 위해서 fig의 add_subplot 매소드에 'projection=3d' 파라미터를 입력하여 3차원 axis를 만들자. 그 다음, 앞서 생성한 점들을 'scatter'함수를 활용해 아래와 같이 표현해보자.
+
 ```python
 %matplotlib widget
 fig=plt.figure()
@@ -98,7 +103,8 @@ for i, v in enumerate(vs):
     ax1.scatter(*uvw,marker='o',color='k')
 ```
 
-3차원 공간인지 사실 한눈에 살펴보기 어렵다. 따라서, 원점(0,0,0)에서부터 각 지점까지 화살표로 이어보는게 더 좋겠다. 화살표를 그리기 위해서 [```quiver```](https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.quiver.html)매소드를 활용하였다.
+3차원 공간인지 사실 한눈에 살펴보기 어렵다. 따라서, 원점(0,0,0)에서부터 각 지점까지 화살표로 이어보는게 더 좋겠다. 화살표를 그리기 위해서 [`quiver`](https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.quiver.html)매소드를 활용하였다.
+
 ```python
 %matplotlib widget
 import matplotlib.pyplot as plt
@@ -113,6 +119,7 @@ for i, v in enumerate(vs):
 ```
 
 3차원 방향을 좀 더 명확히 살펴보기 위해, 반지름 1인 구(sphere)를 같이 그려보면 좋겠다. 이를 위해서는 [구면 좌표계(spherical coordinate system)](https://ko.wikipedia.org/wiki/구면좌표계)를 활용하면 더욱 쉽게 구를 그릴 수 있다. $(r,\theta,\phi)$의 좌표계에서 $r=1$로 고정하면, 반지름이 1인 구의 면에 해당한다. 아래 범위 내의 경우를 활용하면 되겠다.
+
 - $\theta=[0,\pi]$
 - $\phi=[0,2\pi]$
 
@@ -122,13 +129,15 @@ for i, v in enumerate(vs):
 - $y=r\times \sin\theta\sin\phi$
 - $z=r\cos\theta$
 
-[```np.mgrid```](https://numpy.org/doc/stable/reference/generated/numpy.mgrid.html)기능을 활용하면 쉽게 그리드를 만들 수 있다. np.linspace와 유사하나, 다차원으로 확장가능하며, grid를 만들기에 적합하다.
+[`np.mgrid`](https://numpy.org/doc/stable/reference/generated/numpy.mgrid.html)기능을 활용하면 쉽게 그리드를 만들 수 있다. np.linspace와 유사하나, 다차원으로 확장가능하며, grid를 만들기에 적합하다.
 
 ```python
 import numpy as np
 theta,phi=np.mgrid[0:np.pi:10j,0:2*np.pi:10j]
 ```
+
 위에 만들어진 theta와 phi를 직교좌표계로 바꾸면
+
 ```python
 import numpy as np
 theta,phi=np.mgrid[0:np.pi:10j,0:2*np.pi:10j]

@@ -1,6 +1,5 @@
-
-
 # 8. Week6
+
 - NumPy 03, Eigenvalue, ANN
 
 ## 8.1. 수업 06-1 (Eigenvalue)
@@ -31,7 +30,6 @@
 <p align="center">
   <img src=https://upload.wikimedia.org/wikipedia/commons/4/43/Streckung_eines_Vektors.gif />
 </p>
-
 
 - 아래와 같은 두 조건을 만족시키는 행렬 $$\boldsymbol A$$를 선형변환 행렬이라 한다.
 
@@ -241,14 +239,19 @@ stateDiagram-v2
 Yangban(YB) --> Nobi(NB) : 20%
 Nobi(NB) --> Yangban(YB): 10%
 ```
+
 해가 거듭 될 수록 달라지는 양반(YB)과 노비(NB)의 상관 관계를 수식으로 표현하자면 아래와 같다.
+
 $$
 YB_{(n+1)} = 0.80 YB_{(n)} + 0.10 NB_{(n)}
 $$
+
 $$
 NB_{(n+1)} = 0.20 YB_{(n)} + 0.90 NB_{(n)}
 $$
+
 여기서 첨자 $_{n}$과 $_{n+1}$은 각각 직전 해, 그리고 다음해에 해당하는 노비와 양반을 가리킨다. 위 연립 방정식을 아래와 같이 행렬식으로 나타낼 수 있겠다.
+
 $$
 \begin{bmatrix}
 YB_{(n+1)} \\
@@ -267,6 +270,7 @@ NB_{(n)}
 $$
 
 예들 들어, 양반과 노비의 인구수가 첫해($n=0$)에 8명 vs 2명 이었다고 가정하자. 그 다음해에는
+
 $$
 \begin{bmatrix}
 YB_{(1)} \\
@@ -288,7 +292,9 @@ NB_{(1)}
 3.40
 \end{bmatrix}
 $$
+
 그리고 그 다음에는
+
 $$
 \begin{bmatrix}
 YB_{(2)} \\
@@ -320,8 +326,8 @@ $$
 ![egenflow3](/assets/dat_files/lectures/1_2_data_mse/eigen_flow3.gif)
 ![egenflow3](/assets/dat_files/lectures/1_2_data_mse/eigen_flow4.gif)
 
-
 - 구글(Google)의 Page ranking system: [ref](https://pi.math.cornell.edu/~mec/Winter2009/RalucaRemus/Lecture3/lecture3.html)
+
 <!--
 
 ```typograms
@@ -369,7 +375,8 @@ $$
 
 -->
 
-------------------------------
+---
+
 ## 8.2. 수업 06-2 (ANN, Activation)
 
 - 인공 신경망 (Artificial Neural Network)
@@ -490,7 +497,6 @@ $$
     $$
     \phi(x_i)=\frac{1}{1+e^{-x_i}}
     $$
-
     - 예시: Rectified linear unit (ReLU)
 
     $$
@@ -498,6 +504,7 @@ $$
     $$
 
 # 9. Week7
+
 - 중간고사
 
 ## 9.1. 수업 07-1
@@ -510,7 +517,6 @@ $$
 ## 10.2. Crystal symmetry
 
 ## 10.3. 수업 08-2 (~~np.meshgrid~~, np.mgrid, grid, contouring)
-
 
 # 12. Week10 (Matplotlib + Hall-petch equations, Creep data)
 
@@ -711,6 +717,7 @@ $$
 - 인장 응력 방향을 polar coordinate로 표현해서 살펴봅시다.
 
 # 13. Week11
+
 - 무게비 원자비
 
 ## 13.1. 수업 11-1 (무게비 원자비 변환)
@@ -857,6 +864,7 @@ $$
 - EBSD data 분석
 
 # 15. Week13
+
 - 내삽과 외삽, 선형회귀
 
 ## 15.1. 수업 13-1

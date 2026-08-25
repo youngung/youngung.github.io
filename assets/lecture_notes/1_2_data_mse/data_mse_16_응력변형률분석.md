@@ -24,10 +24,10 @@ hidden: true
 tabs: true
 tikzjax: true
 authors:
- - name: Youngung Jeong
-   url: "https://youngung.github.io/"
-   affiliations:
-     name: Changwon National University
+  - name: Youngung Jeong
+    url: "https://youngung.github.io/"
+    affiliations:
+      name: Changwon National University
 ---
 
 # 1. 목표
@@ -88,19 +88,16 @@ authors:
   $$
   \sigma^{engi}=\frac{force}{Area}
   $$
-
   - 공칭 변형률
 
   $$
   \epsilon^{engi}=\frac{\Delta l}{l_0}
   $$
-
   - 진 변형
 
   $$
   \varepsilon=\ln(1+\epsilon)
   $$
-
   - 진 응력
 
   $$
