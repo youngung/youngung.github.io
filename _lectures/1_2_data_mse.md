@@ -24,13 +24,11 @@ hidden: true
 tabs: true
 tikzjax: true
 authors:
- - name: Youngung Jeong
-   url: "https://youngung.github.io/"
-   affiliations:
-     name: Changwon National University
+  - name: Youngung Jeong
+    url: "https://youngung.github.io/"
+    affiliations:
+      name: Changwon National University
 ---
-
-
 
 - [제1강 orientation]({% link assets/lecture_notes/1_2_data_mse/data_mse_01_orientation.md %})
 

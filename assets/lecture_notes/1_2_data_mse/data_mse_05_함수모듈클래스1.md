@@ -162,11 +162,13 @@ average=average/len(dens)
 # 4. Built-in functions (no import / no declaration required)
 
 - 특징
+
   - built-in 함수는 파이썬이 기본적으로 제공하는 함수
   - 별도의 **import** 없이 언제든 바로 사용 가능; 예 (print, help, ...)
   - 약 70여 개의 built-in 함수: A full list of built-in functions: [here](https://docs.python.org/3/library/functions.html)
 
 - 입력(input)과 출력(output) I/O
+
   - `print` 함수
   - `input` 함수
 
@@ -185,6 +187,7 @@ average=average/len(dens)
   ```
 
 - 입력 예시
+
   ```python
   # 1. 입력 받기
   age_str = input("당신의 현재 나이를 입력하세요: ")
@@ -199,7 +202,7 @@ average=average/len(dens)
   print("내년에 당신은", next_year_age, "살이 됩니다!")
   ```
 
-# 5. 가변 인자 (*args)
+# 5. 가변 인자 (\*args)
 
 ```python
 def add_all(*args):
@@ -211,7 +214,7 @@ print(add_all(1, 2))        # 결과: 3
 print(add_all(1, 2, 3, 4))  # 결과: 10
 ```
 
-# 6. 키워드 가변인자 (**kwargs)
+# 6. 키워드 가변인자 (\*\*kwargs)
 
 ```python
 def print_info(**kwargs):

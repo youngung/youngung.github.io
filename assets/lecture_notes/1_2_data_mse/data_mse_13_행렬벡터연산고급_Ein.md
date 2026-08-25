@@ -164,6 +164,7 @@ np.sqrt(np.einsum('i->',a**2))
 실은 NumPy의 선형대수(Linear Algebra) 함수 모듬을 활용하여 더욱 간략히 수행할 수 있다.
 
 `np.linalg.norm(a)`
+
 </p></aside>
 
 # 5. 단위 벡터 (unit)
@@ -755,7 +756,7 @@ c=np.einsum('ij,ij->',A,B)
 # 7. np.einsum 활용
 
 - 10 x 3 x 12 행렬 $\boldsymbol A$와 12 x 3 x 8 행렬 $\boldsymbol B$의 곱의 결과가 10 x 8 행렬 $\boldsymbol C$고 아래와 같이 수행된다고 하자.
-  $$ C_{ij}=\sum_{k=1}^3\sum_{l=1}^{12}A_{ikl}B_{lkj}$$
+  $$ C*{ij}=\sum*{k=1}^3\sum*{l=1}^{12}A*{ikl}B\_{lkj}$$
 
 {% tabs 행렬곱3차 %}
 {% tab 행렬곱3차 질문 %}

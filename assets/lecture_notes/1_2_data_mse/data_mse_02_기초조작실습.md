@@ -56,9 +56,10 @@ authors:
 
 ## 2.1. 파이썬
 
--    파이썬 설치 및 환경 설정 완성 (Python 3.12, [JuPyter](https://jupyter.org), [VS code](https://code.visualstudio.com), pip)이 되어 있고, terminal에서 다음과 같이 Python 환경 실행 가능한가?
+- 파이썬 설치 및 환경 설정 완성 (Python 3.12, [JuPyter](https://jupyter.org), [VS code](https://code.visualstudio.com), pip)이 되어 있고, terminal에서 다음과 같이 Python 환경 실행 가능한가?
 
--    Windows 예시
+- Windows 예시
+
 
     ```batch
 
@@ -71,7 +72,8 @@ authors:
     >>>
     ```
 
--    MacOS 예시
+- MacOS 예시
+
 
     ```batch
 
@@ -156,9 +158,11 @@ authors:
   - str
   - bool
 - 연산자(operator) 이해하기
+
   - 산술 연산자 (더하기, 빼기, 곱하기, 나누기, 지수, 나머지, 몫 ... )
   - 비교 연산자 (==, !=, <, >, >=, <=, is, is not, in, not in)
   - 논리 연산자 (and, or, not, ...)
+
     ```python
     # 1. 값 비교
     print(5 == 5)       # True (값이 같음)

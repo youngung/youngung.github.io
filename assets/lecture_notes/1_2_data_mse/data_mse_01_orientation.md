@@ -127,6 +127,7 @@ third([학생 시연/실습]) ==> fourth([수업후 개념 복습])
     - [2](https://www.typelit.io),
     - [3](https://typing.works) ...
 - 각종 기호들 위치 익히기! 평소에 쓰지 않은 다양한 부호가 컴퓨터에 있음을 인지할 것.
+
   - `: accent
   - ': single quotation mark
   - ": double quotation mark

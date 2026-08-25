@@ -45,6 +45,7 @@ authors:
 # 2. List
 
 - 특징:
+
   - 수정 가능(mutable): 추가, 삭제, 변경 가능
   - 중복 허용
   - 순서 있음 (ordered)
