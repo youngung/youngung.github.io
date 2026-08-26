@@ -497,7 +497,6 @@ $$
     $$
     \phi(x_i)=\frac{1}{1+e^{-x_i}}
     $$
-
     - 예시: Rectified linear unit (ReLU)
 
     $$

@@ -62,7 +62,7 @@
 <span class="n">y</span><span class="o">=</span><span class="n">c2</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]</span> <span class="c1"># force in kN
 </span><span class="n">x</span><span class="o">=</span><span class="n">c2</span><span class="p">[:,</span><span class="mi">1</span><span class="p">]</span> <span class="c1"># voltage
 # .... 이어 계속해서 프로그래밍 해보자.
-</span></code></pre></div> </div> <p>이렇게 얻어진 데이터를 가지고 폭과 두께, 그리고 gauge length를 안다면 응력 vs. 변형률 데이터로 변환 가능하다.</p> </li> <li> <p>다음으로, 위에서 구한 힘과 변위를 활용해 응력 vs. 변형률 데이터로 바꿔보자.</p> <ul> <li>폭이 12.695 mm, 두께가 1.193 mm, 게이즈가 20 mm라 가정하자.</li> <li>공칭 응력</li> </ul> \[\sigma^{engi}=\frac{force}{Area}\] <ul> <li>공칭 변형률</li> </ul> \[\epsilon^{engi}=\frac{\Delta l}{l_0}\] <ul> <li>진 변형</li> </ul> \[\varepsilon=\ln(1+\epsilon)\] <ul> <li>진 응력</li> </ul> \[\sigma^{true}=\sigma^{engi}(1+\epsilon)\] <div class="language-python highlighter-rouge"> <div class="highlight"><pre class="highlight"><code><span class="c1">## algorithm
+</span></code></pre></div> </div> <p>이렇게 얻어진 데이터를 가지고 폭과 두께, 그리고 gauge length를 안다면 응력 vs. 변형률 데이터로 변환 가능하다.</p> </li> <li> <p>다음으로, 위에서 구한 힘과 변위를 활용해 응력 vs. 변형률 데이터로 바꿔보자.</p> <ul> <li>폭이 12.695 mm, 두께가 1.193 mm, 게이즈가 20 mm라 가정하자.</li> <li>공칭 응력</li> </ul> <p>\(\sigma^{engi}=\frac{force}{Area}\)</p> <ul> <li>공칭 변형률</li> </ul> <p>\(\epsilon^{engi}=\frac{\Delta l}{l_0}\)</p> <ul> <li>진 변형</li> </ul> <p>\(\varepsilon=\ln(1+\epsilon)\)</p> <ul> <li>진 응력</li> </ul> \[\sigma^{true}=\sigma^{engi}(1+\epsilon)\] <div class="language-python highlighter-rouge"> <div class="highlight"><pre class="highlight"><code><span class="c1">## algorithm
 # 1. 파일로부터 Numpy를 활용해 데이터를 불러온다.
 # 2. 주어진 시편의 폭과 두께로부터 초기단면적을 구한다.
 # 3. 초기 단면적과 힘을 활용해 공칭 응력을 구한다.
