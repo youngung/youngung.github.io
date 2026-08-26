@@ -31,7 +31,6 @@ authors:
 - [9. 2차원 예제](#9-2차원-예제)
 - [10. 요약](#10-요약)
 
-
 # 1. 위치(position)와 위치의 변화(변위; displacement)
 
 - 3차원 공간 상의 위치를 벡터로 표현 가능하다.
@@ -51,13 +50,12 @@ $$\mathbf u = \mathbf x- \mathbf X$$
 
 - 중요한 차이
 
-| 상황 | 변형 발생 여부 |
-|------|---------------|
-| 물체 전체가 평행이동 | X |
-| 물체 전체가 회전 | X |
-| 길이가 늘어남 | O |
-| 각도가 변함 | O |
-
+| 상황                 | 변형 발생 여부 |
+| -------------------- | -------------- |
+| 물체 전체가 평행이동 | X              |
+| 물체 전체가 회전     | X              |
+| 길이가 늘어남        | O              |
+| 각도가 변함          | O              |
 
 # 3. 강체 운동 (Rigid Body Motion)
 
@@ -71,14 +69,13 @@ $$\mathbf u = \mathbf x- \mathbf X$$
 
 - 변위는 위치마다 다를 수 있다.
 
- $$\mathbf u(위치) =\mathbf u (\mathbf x)=\mathbf u (x_1,x_2,x_3)$$
+$$\mathbf u(위치) =\mathbf u (\mathbf x)=\mathbf u (x_1,x_2,x_3)$$
 
- 혹은 변형 전의 위치를 기준으로
+혹은 변형 전의 위치를 기준으로
 
- $$\mathbf u(위치) =\mathbf u (\mathbf X)=\mathbf u(X_1,X_2,X_3)$$
+$$\mathbf u(위치) =\mathbf u (\mathbf X)=\mathbf u(X_1,X_2,X_3)$$
 
-
- # 6. 1차원 공간에서의 변형률
+# 6. 1차원 공간에서의 변형률
 
 - 따라서 위치는 스칼라 $x$.
 
@@ -88,7 +85,7 @@ $$\mathbf u = \mathbf x- \mathbf X$$
 
 - 두 점 a와 b의 초기 위치를 $X^a, X^b$, 변형 이후의 위치를 $x^a, x^b$라 할 때, 두 점 사이의 초기 거리는
 
- $$X^b-X^a$$
+$$X^b-X^a$$
 
 - 변형 이후의 두 점사이의 거리는
 
@@ -97,7 +94,6 @@ $$x^b-x^a$$
 - 변형 전후의 두 점 사이의 거리 변화는?
 
 $$(x^b-x^a) - (X^b-X^a)$$
-
 
 - 변형 이후의 두점 사이의 거리를 변형 전의 두점 사이의 거리로 나누면
 
@@ -120,14 +116,15 @@ $$\varepsilon = \Delta l / l_0$$
 - $$\frac{du}{dx} = 0.01 $$
 
 - 다음 환경에서 변형률은 얼마인가?
-$$u(x)=0$$
+  $$u(x)=0$$
 
 - 다음 환경에서 변형률은 얼마인가?
-$$u(x)=0.02$$
+  $$u(x)=0.02$$
 
 # 8. 2차원 공간에서의 변위
+
 - 변위 장
-(displacement field)은 위치 장(position field)에 대한 함수.
+  (displacement field)은 위치 장(position field)에 대한 함수.
 
 $$\mathbf u(\mathbf x)$$
 
@@ -136,7 +133,6 @@ $$\mathbf u(\mathbf x)$$
 $$\mathbf u = [u_1,u_2]$$
 
 $$\mathbf x = [x_1,x_2]$$
-
 
 - 2차원에서의 수직 변형률 성분은
 
@@ -147,7 +143,6 @@ $$\varepsilon_{22}=\partial u_2/\partial x_2$$
 - 2차원에서의 전단 변형률 성분은
 
 $$\varepsilon_{12}=\frac{1}{2}(\partial u_1/\partial x_2+\partial u_2/\partial x_1)$$
-
 
 $$\varepsilon_{21}=\frac{1}{2}(\partial u_2/\partial x_1+\partial u_1/\partial x_2)$$
 
@@ -181,10 +176,10 @@ $$u_2(x_1,x_2)=0.01x_2$$
 
 # 10. 요약
 
-| 개념 | 공식 |
-|------|------|
-| 변위 | $u = x - X$ |
-| 1차원 변형률 | $\varepsilon = du/dx$ |
-| $\mathbf{e}_1$방향 수직변형률 | $\varepsilon_{11} = \partial u_1/\partial x_1$ |
-| $\mathbf{e}_2$방향 수직변형률 | $\varepsilon_{22} = \partial u_2/\partial x_2$ |
-| 전단변형률 | $\varepsilon_{12} =0.5(\partial u_1/\partial x_2+\partial u_2/\partial x_1)$ |
+| 개념                          | 공식                                                                         |
+| ----------------------------- | ---------------------------------------------------------------------------- |
+| 변위                          | $u = x - X$                                                                  |
+| 1차원 변형률                  | $\varepsilon = du/dx$                                                        |
+| $\mathbf{e}_1$방향 수직변형률 | $\varepsilon_{11} = \partial u_1/\partial x_1$                               |
+| $\mathbf{e}_2$방향 수직변형률 | $\varepsilon_{22} = \partial u_2/\partial x_2$                               |
+| 전단변형률                    | $\varepsilon_{12} =0.5(\partial u_1/\partial x_2+\partial u_2/\partial x_1)$ |

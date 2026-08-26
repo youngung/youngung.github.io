@@ -30,8 +30,7 @@ authors:
 - [7. 선형 등방 Hooke 법칙에서의 상수 관계](#7-선형-등방-hooke-법칙에서의-상수-관계)
 - [8. Voigt 표현법](#8-voigt-표현법)
 - [9. Compliance matrix](#9-compliance-matrix)
-- [10. Plane stress와  plane strain 조건에서의 Hooke 법칙](#10-plane-stress와--plane-strain-조건에서의-hooke-법칙)
-
+- [10. Plane stress와 plane strain 조건에서의 Hooke 법칙](#10-plane-stress와--plane-strain-조건에서의-hooke-법칙)
 
 # 1. 선형 탄성 (linear elasticity) 거동
 
@@ -89,14 +88,16 @@ $$
 $$
 
 - 위를 인덱스를 활용해 표현하면
+
 $$
 \sigma_{ij} = \lambda  \delta_{ij} \sum_k^3(\varepsilon_{kk}) + 2G\varepsilon_{ij}, \text{ with } i=1,2,3\ \ \ j=1,2,3
 $$
 
 - $tr(\mathbf\varepsilon)$는 체적 변형률이며 아래와 같이 정의된다.
- $$tr(\mathbf\varepsilon)=\sum_k^3\varepsilon_{kk}=\varepsilon_{11}+\varepsilon_{22}+\varepsilon_{33} $$
+  $$tr(\mathbf\varepsilon)=\sum_k^3\varepsilon_{kk}=\varepsilon_{11}+\varepsilon_{22}+\varepsilon_{33} $$
 
 - $\mathbf I$는 랭크2 단위 텐서이며, 아래와 같은 매트릭스 형태로 표현된다.
+
 $$
 \mathbf I = \begin{bmatrix}
 1 &0 &0 \\
@@ -125,13 +126,13 @@ $$
 - 응력 성분을 각기 풀어 표현하면
 
   - 수직 성분의 경우
-$$\sigma_{11}=\lambda (\varepsilon_{11}+\varepsilon_{22}+\varepsilon_{33}) + 2G\varepsilon_{11}$$
+    $$\sigma_{11}=\lambda (\varepsilon_{11}+\varepsilon_{22}+\varepsilon_{33}) + 2G\varepsilon_{11}$$
 
 $$\sigma_{22}=\lambda (\varepsilon_{11}+\varepsilon_{22}+\varepsilon_{33}) + 2G\varepsilon_{22}$$
 
 $$\sigma_{33}=\lambda (\varepsilon_{11}+\varepsilon_{22}+\varepsilon_{33}) + 2G\varepsilon_{33}$$
 
-  - 전단 성분의 경우
+- 전단 성분의 경우
 
 $$ \sigma_{12}=2G\varepsilon_{12} $$
 
@@ -152,13 +153,13 @@ $$\lambda = \frac{E\nu}{(1+\nu)(1-2\nu)}$$
 # 8. Voigt 표현법
 
 - 삼차원으로 확장하여 표현한 Hooke의 법칙은 아래와 같다.
-$$ \sigma_{ij} = \sum_{k}^3\sum_{l}^3 E_{ijkl} \varepsilon _{kl} \text{ with } i=1,2,3\ \ \ j=1,2,3$$
+  $$ \sigma_{ij} = \sum_{k}^3\sum_{l}^3 E_{ijkl} \varepsilon _{kl} \text{ with } i=1,2,3\ \ \ j=1,2,3$$
 
 - 응력과 변형률 텐서 모두 6개의 독립 성분만을 가지므로, 6성분을 가지는 랭크1의 행렬로 표현하여 표기하기도 한다.
 
 - 그러한 방법중 Voigt표현을 활용하여 아래와 같이 표현한다.
 
-$$\mathbf\sigma^{voigt}=
+$$ \mathbf\sigma^{voigt}=
 \begin{bmatrix}
 \sigma_{11}\\
 \sigma_{22}\\
@@ -182,13 +183,16 @@ $$\mathbf\varepsilon^{voigt}=
 - 위 방법을 확장하며 Hooke의 법칙을 새로 인덱스로 표기하면
 
 $$
+
 \sigma_i^{voigt}=\sum_{j}^6 E_{ij}^{voigt}\varepsilon_j^{voigt}
+
 $$
 로 간략히 표기할 수 있겠다. 그리고 이때 탄성계수 텐서가 2랭크 $6\times6$행렬 형태로 표기된다.
 
 - 등방성 재료에서 $E_{ij}^{voigt}$의 각 성분은 아래와 같다.
 
 $$
+
 \mathbf E^{voigt}=
 \begin{bmatrix}
 \lambda + 2G & \lambda &\lambda &0 &0 &0 \\
@@ -198,39 +202,45 @@ $$
 0 & 0 &0 &0 &G &0 \\
 0 & 0 &0 &0 &0 &G \\
 \end{bmatrix}
+
 $$
 
 # 9. Compliance matrix
 
 - Hooke의 법칙을 역으로 표현할 수 있다.
 $$
+
 \varepsilon=\mathbf S \mathbf \sigma
+
 $$
 
 - Voigt 표현을 활용하면
 
 $$
+
 \mathbf S^{voigt}=
 \begin{bmatrix}
 1/ E& -\nu/E & -\nu/E &0 &0 &0 \\
--\nu/E &1/E  & -\nu/E &0 &0 &0 \\
+-\nu/E &1/E & -\nu/E &0 &0 &0 \\
 -\nu/E & -\nu/E &1/E &0 &0 &0 \\
 0 & 0 &0 &1/G &0 &0 \\
 0 & 0 &0 &0 &1/G &0 \\
 0 & 0 &0 &0 &0 &1/G \\
 \end{bmatrix}
+
 $$
 
 
 # 10. Plane stress와  plane strain 조건에서의 Hooke 법칙
 
 $$
+
 \begin{bmatrix}
 \sigma_{11}\\
 \sigma_{22}\\
-\sigma_{12}
-11. \end{bmatrix}
+\sigma_{12} 11. \end{bmatrix}
 =
+
 \begin{bmatrix}
 \frac{E}{1-\nu^2} & \frac{E}{1-\nu^2} & 0 \\
 \frac{E}{1-\nu^2} & \frac{E}{1-\nu^2} & 0 \\
@@ -241,4 +251,6 @@ $$
 \varepsilon_{22}\\
 2\varepsilon_{12}
 \end{bmatrix}
+
+$$
 $$

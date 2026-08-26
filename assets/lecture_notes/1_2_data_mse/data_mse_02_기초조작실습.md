@@ -60,28 +60,26 @@ authors:
 
 - Windows 예시
 
+  ```batch
 
-    ```batch
+  Microsoft Windows [Version 10.0.26200.8655]
+  (c) Microsoft Corporation. All rights reserved.
 
-    Microsoft Windows [Version 10.0.26200.8655]
-    (c) Microsoft Corporation. All rights reserved.
-
-    C:\Users\Youngung> python
-    Python 3.13.14 (tags/v3.13.14:fd17997, Jun 10 2026, 13:03:48) [MSC v.1944 64 bit (AMD64)] on win32
-    Type "help", "copyright", "credits" or "license" for more information.
-    >>>
-    ```
+  C:\Users\Youngung> python
+  Python 3.13.14 (tags/v3.13.14:fd17997, Jun 10 2026, 13:03:48) [MSC v.1944 64 bit (AMD64)] on win32
+  Type "help", "copyright", "credits" or "license" for more information.
+  >>>
+  ```
 
 - MacOS 예시
 
+  ```batch
 
-    ```batch
-
-    Youngungs-MacBook-Pro➜  ~  ᐅ  python
-    Python 3.12.2 (main, Mar 29 2024, 06:39:27)   [Clang 15.0.0 (clang-1500.3.9.4)] on darwin
-    Type "help", "copyright", "credits" or "license" for more information.
-    >>>
-    ```
+  Youngungs-MacBook-Pro➜  ~  ᐅ  python
+  Python 3.12.2 (main, Mar 29 2024, 06:39:27)   [Clang 15.0.0 (clang-1500.3.9.4)] on darwin
+  Type "help", "copyright", "credits" or "license" for more information.
+  >>>
+  ```
 
 ## 2.2. VS code에서 JuPyter 셋업 & 구동되어 있는가?
 

@@ -43,8 +43,6 @@ authors:
   - [6.4. 매트릭스 곱하기2 (double contraction)](#64-매트릭스-곱하기2-double-contraction)
 - [7. 매트릭스 연산 일반화](#7-매트릭스-연산-일반화)
 
-
-
 # 1. 물리량의 종류
 
 - 물리량은 때로는 스칼라, 벡터로 표현해야 할 때가 있다.
@@ -54,7 +52,6 @@ authors:
 - 텐서의 가장 큰 특징은 '좌표계'에 상관없이 동일한 물리량을 표현한다는 점이다 (좌표계에 무관한 성질)
 
 - (advanced concept) 텐서가 좌표계에 독립적인 성질을 갖는 방법은, 좌표계에 따라 '변환'하기 때문에 가능하다.
-
 
 # 2. 스칼라와 벡터
 
@@ -76,10 +73,10 @@ authors:
   ($m$, $f$, $\alpha$, $\beta$ 등)
 
 - 굵은 글씨체 (bold-face)를 활용해 '방향'성을 가진 물리량을 표기한다.
- ($a, \mathbf a, \alpha, {\mathbf \alpha}$)
+  ($a, \mathbf a, \alpha, {\mathbf \alpha}$)
 
 - 윗첨자 혹은 아랫첨자를 활용해 벡터나 텐서, 혹은 매트릭스의 성분을 구분한다.
- ($a_1, \alpha^1, \beta_3, \gamma^1$ 등)
+  ($a_1, \alpha^1, \beta_3, \gamma^1$ 등)
 
 # 3. 좌표계 (coordinate system)
 
@@ -88,7 +85,7 @@ authors:
 - '방향성'을 가진 물리량을 표현하기 위해서는 좌표계가 필요하다.
 
 - 좌표계는 순전히 '편의'에 의해 선택되며 우리는 '직각좌표계'를 중심으로 활용하겠다.
- 그외 다양한 좌표계도 있음을 잊지 말자.
+  그외 다양한 좌표계도 있음을 잊지 말자.
 
 # 4. 스칼라 연산
 
@@ -146,14 +143,13 @@ authors:
 
   $$|\mathbf a|=\sqrt{\sum_i^3 a_i^2}$$
 
-
 ## 5.2. 더하기, 빼기
 
 - 두 벡터의 더하기 빼기는 각각 $+$와 $-$기호로 표기한다.
 
- $$\mathbf a + \mathbf b$$
+$$\mathbf a + \mathbf b$$
 
- $$\mathbf a - \mathbf b$$
+$$\mathbf a - \mathbf b$$
 
 - 벡터의 덧셈 뺄셈 연산은 결과는 또 다른 벡터이다.
 
@@ -162,7 +158,7 @@ authors:
   $$\mathbf d = \mathbf a - \mathbf b$$
 
 - 한 벡터가 세 성분으로 이루어져 있다면, 위 더하기 빼기 연산을 각 성분에 대해
-   아래와 같이 표기할 수도 있다.
+  아래와 같이 표기할 수도 있다.
 
   $$c_1 = a_1 + b_1$$
 
@@ -207,7 +203,7 @@ authors:
   $$c = \mathbf a \cdot \mathbf b = | \mathbf a| |\mathbf b|\cos\theta$$
 
 - 이때 $\theta$는 두 벡터 $\mathbf a$와 $\mathbf b$ 사이의 끼인
-   각이다.
+  각이다.
 
 - 내적은 다음과 같이 연산될 수도 있다.
 
@@ -221,7 +217,7 @@ authors:
 
 - 두 벡터의 외적의 결과는 또 다른 벡터이다.
 
-    - $\mathbf c = \mathbf a \times \mathbf b$
+  - $\mathbf c = \mathbf a \times \mathbf b$
 
 ## 5.6. 다이아딕 곱하기
 
@@ -229,10 +225,9 @@ authors:
 
 - 두 벡터 $\mathbf a$와 $\mathbf b$의 다이아딕 연산 결과를 2차 텐서 $\mathbf A$라 하면, 이를 행렬로 표기할 때 다음과 같이 정의된다.
 
- $$\mathbf A = \mathbf a \otimes \mathbf b$$
+$$\mathbf A = \mathbf a \otimes \mathbf b$$
 
- $$A_{ij}= a_i b_j \text{ with } (i,j)=(1,1),(1,2),(1,3),(2,1) ... (3,3)$$
-
+$$A_{ij}= a_i b_j \text{ with } (i,j)=(1,1),(1,2),(1,3),(2,1) ... (3,3)$$
 
 # 6. 매트릭스 연산
 
@@ -321,7 +316,6 @@ $$c = A_{ij} B_{ij} = \sum_i^3 \sum_j^3 A_{ij}B_{ij}$$
 - 랭크가 3인 매트릭스 $A_{ijk}$와 벡터 $\mathbf v$ 사이의 single contraction 곱을 생각해보자.
 
 $$B_{ij} = \sum_k^3A_{ijk} b_k \text{ with } i=1,2,3,\ \ \ j=1,2,3$$
-
 
 # 7. 매트릭스 연산 일반화
 
