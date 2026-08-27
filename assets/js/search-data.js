@@ -58,7 +58,18 @@ ninja.data = [{
           handler: () => {
             window.location.href = "/cv/";
           },
-        },{id: "post-nist-교환-학생-소식",
+        },{id: "post-연구년-종료",
+        
+          title: "연구년 종료",
+        
+        description: "",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2026/SantaFe/";
+          
+        },
+      },{id: "post-nist-교환-학생-소식",
         
           title: "NIST 교환 학생 소식",
         
