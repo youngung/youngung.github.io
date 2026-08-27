@@ -47,3 +47,7 @@ authors:
 - [제8강 Hooke의 탄성 법칙]({% link assets/lecture_notes/3_1_metal_plasticity/metal_plasticity_08_elasticity.md %})
 
 - [제9강 항복과 항복 조건]({% link assets/lecture_notes/3_1_metal_plasticity/metal_plasticity_09_plastic_yield.md %})
+
+- [제10강 좌표 변환]({% link assets/lecture_notes/3_1_metal_plasticity/metal_plasticity_10_coordinate_transformation.md %})
+
+- [제11강 주 응력과 편차 응력]({% link assets/lecture_notes/3_1_metal_plasticity/metal_plasticity_11_principal_space_deviatoric_stress.md %})

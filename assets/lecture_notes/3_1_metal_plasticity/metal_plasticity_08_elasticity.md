@@ -30,7 +30,8 @@ authors:
 - [7. 선형 등방 Hooke 법칙에서의 상수 관계](#7-선형-등방-hooke-법칙에서의-상수-관계)
 - [8. Voigt 표현법](#8-voigt-표현법)
 - [9. Compliance matrix](#9-compliance-matrix)
-- [10. Plane stress와 plane strain 조건에서의 Hooke 법칙](#10-plane-stress와--plane-strain-조건에서의-hooke-법칙)
+- [10. Plane stress와  plane strain 조건에서의 Hooke 법칙](#10-plane-stress와--plane-strain-조건에서의-hooke-법칙)
+- [\\end{bmatrix}](#endbmatrix)
 
 # 1. 선형 탄성 (linear elasticity) 거동
 
@@ -234,13 +235,12 @@ $$
 # 10. Plane stress와  plane strain 조건에서의 Hooke 법칙
 
 $$
-
 \begin{bmatrix}
 \sigma_{11}\\
 \sigma_{22}\\
-\sigma_{12} 11. \end{bmatrix}
+\sigma_{12}\\
+\end{bmatrix}
 =
-
 \begin{bmatrix}
 \frac{E}{1-\nu^2} & \frac{E}{1-\nu^2} & 0 \\
 \frac{E}{1-\nu^2} & \frac{E}{1-\nu^2} & 0 \\
@@ -251,6 +251,4 @@ $$
 \varepsilon_{22}\\
 2\varepsilon_{12}
 \end{bmatrix}
-
-$$
 $$
