@@ -41,10 +41,11 @@ authors:
   - [6.2. 스칼라 곱하기](#62-스칼라-곱하기)
   - [6.3. 매트릭스 곱하기1 (single contraction)](#63-매트릭스-곱하기1-single-contraction)
   - [6.4. 매트릭스 곱하기2 (double contraction)](#64-매트릭스-곱하기2-double-contraction)
-  - [6.4. 매트릭스 전치 (transpose)](#64-매트릭스-전치-transpose)
-  - [6.5. 매트릭스 trace](#65-매트릭스-trace)
-  - [6.6. 역행렬 (inverse matrix)](#66-역행렬-inverse-matrix)
-- [7. 매트릭스 연산 일반화](#7-매트릭스-연산-일반화)
+  - [6.5. 매트릭스 전치 (transpose)](#65-매트릭스-전치-transpose)
+  - [6.6. 매트릭스 trace](#66-매트릭스-trace)
+  - [6.7. 역행렬 (inverse matrix)](#67-역행렬-inverse-matrix)
+- [7. Contraction / outer product](#7-contraction--outer-product)
+- [8. 매트릭스 연산](#8-매트릭스-연산)
 
 # 1. 물리량의 종류
 
@@ -320,7 +321,7 @@ $$c = A_{ij} B_{ij} = \sum_i^3 \sum_j^3 A_{ij}B_{ij}$$
 
 $$B_{ij} = \sum_k^3A_{ijk} b_k \text{ with } i=1,2,3,\ \ \ j=1,2,3$$
 
-## 6.4. 매트릭스 전치 (transpose)
+## 6.5. 매트릭스 전치 (transpose)
 
 - 한 매트릭스 $\boldsymbol A$의 전치는 $\boldsymbol A^T$라 표기하고, 다음과 같이 정의된다.
 
@@ -328,7 +329,7 @@ $$
 A^T_{ij}=A_{ji}, \text{ with } i=1,2,3 \ \ \ j=1,2,3
 $$
 
-## 6.5. 매트릭스 trace
+## 6.6. 매트릭스 trace
 
 - 한 매트릭스 $\boldsymbol A$의 trace는 $tr(\boldsymbol A)$라 표기하고, 다음과 같이 정의된다.
 
@@ -336,7 +337,7 @@ $$
 tr(\boldsymbol A) = A_{11}+A_{22}+A_{33}=\sum_i^3A_{ii}
 $$
 
-## 6.6. 역행렬 (inverse matrix)
+## 6.7. 역행렬 (inverse matrix)
 
 - 한 매트릭스 $\boldsymbol A$의 역은 $\boldsymbol A^{-1}$라 표기하고, 다음의 성질을 만족한다.
 
@@ -349,7 +350,15 @@ $$
 \sum_k^3A_{ik}A^{-1}_{kj}=I_{ij} \text{ with } i=1,2,3\ \ \ \ j=1,2,3
 $$
 
-# 7. 매트릭스 연산 일반화
+# 7. Contraction / outer product
+
+- Contraction: 물리량들 사이에 곱을 통해 랭크가 감소하는 경우
+
+- Outer product: 물리량들 사이에 곱을 통해 랭크가 증가하는 경우
+
+- 랭크가 유지되는 경우
+
+# 8. 매트릭스 연산
 
 - Einstein convention; 반복 되는 기호들에 주목하자. 항상 $\sum$ 기호와 함께 나타난다.
 

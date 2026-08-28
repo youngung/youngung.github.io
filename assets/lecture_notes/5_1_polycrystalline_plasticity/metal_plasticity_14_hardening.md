@@ -38,6 +38,7 @@ authors:
   - [2.1. Hill's yield criterion](#21-hills-yield-criterion)
   - [2.2. Barlat's yield criterion](#22-barlats-yield-criterion)
 - [3. Slip system \& crystal orientation](#3-slip-system--crystal-orientation)
+- [4. 평균장 다결정 소성 모델](#4-평균장-다결정-소성-모델)
 
 # 1. Hardening
 
@@ -106,7 +107,7 @@ $$
 - Von Mises의 등가 응력에 계수를 도입하여, 이방성을 고려하였다. 이때 활용하는 응력 텐서 성분값은, 재료의 '압연' 공정 방향 좌표축을 활용한다. 즉, $\boldsymbol e_1 || \text{RD}, \boldsymbol e_2||\text{TD}, \boldsymbol e_3||\text{ND}$
 
 $$
-\sigma^{Hill} = F(\sigma_{22}-\sigma_{33})^2+G(\sigma_{33}-\sigma_{11})^2+H(\sigma_{11}-\sigma_{22})^2+2L\sigma_{23}^2+2M\sigma_{13}^2+2N\sigma_{12}^2
+\sigma^{Hill} = \sqrt{F(\sigma_{22}-\sigma_{33})^2+G(\sigma_{33}-\sigma_{11})^2+H(\sigma_{11}-\sigma_{22})^2+2L\sigma_{23}^2+2M\sigma_{13}^2+2N\sigma_{12}^2}
 $$
 
 $$
@@ -136,21 +137,50 @@ $$
 One can then use the same form of Hosford yield function such that:
 
 $$
-f(\boldsymbol\sigma)=|s_1 - s_2|^a+|s_2 - s_3|^a+|s_1 - s_3|^a
+f(\boldsymbol\sigma)=(|s_1 - s_2|^a+|s_2 - s_3|^a+|s_1 - s_3|^a)^{1/a}
 $$
 
 so that
 
 $$
-|s_1 - s_2|^a+|s_2 - s_3|^a+|s_1 - s_3|^a = \sigma^Y : \text{yield criterion}
+(|s_1 - s_2|^a+|s_2 - s_3|^a+|s_1 - s_3|^a)^{1/a} = \sigma^Y : \text{yield criterion}
 $$
 
 
 $$
-|s_1 - s_2|^a+|s_2 - s_3|^a+|s_1 - s_3|^a <> \sigma^Y : \text{elastic behavior}
+(|s_1 - s_2|^a+|s_2 - s_3|^a+|s_1 - s_3|^a)^{1/a} < \sigma^Y : \text{elastic behavior}
 $$
 
 
 # 3. Slip system & crystal orientation
 
 전위 슬립계가 simple shear 변형을 받아드리면서 lattice 회전이 발생할 수 있다. 이는 집합조직 발달로 이어진다.
+
+
+# 4. 평균장 다결정 소성 모델
+
+- 각 결정립의 평균적인 거동을 바탕으로, 여러 결정립으로 이루어진 다결정의 평균 거동을 계산할 필요가 있다.
+
+- FE 모델의 경우(Type I), 각 유한요소에 다른 결정 방위를 부과하여 그 평균 값을 계산을 통해 하는 방법이 있다.
+
+- VPSC 모델의 경우, Homogeneous Effective Medimu 방법을 활용해 계산한다.
+
+  - 우선 아래 비선형 거동을 선형화 형태로 나타내어야 한다.
+
+$$
+\dot{\boldsymbol\varepsilon}^{pl}=\dot\gamma_0\sum_s\boldsymbol m^s\bigg(\frac{|\boldsymbol m^s : \boldsymbol \sigma|}{\tau_c}\bigg)^n \text{sgn}(\boldsymbol m^s : \boldsymbol \sigma)
+$$
+
+  - 다양한 방법중 Secant 방법을 소개하겠다.
+
+$$
+\dot{\boldsymbol\varepsilon}^{pl}=\dot\gamma_0\sum_s\boldsymbol m^s\bigg(\frac{|\boldsymbol m^s : \boldsymbol \sigma|}{\tau_c}\bigg)^{n-1} \bigg(\frac{|\boldsymbol m^s : \boldsymbol \sigma|}{\tau_c}\bigg)\text{sgn}(\boldsymbol m^s : \boldsymbol \sigma)
+
+\newline
+
+=\dot\gamma_0\sum_s\boldsymbol m^s\bigg(\frac{|\boldsymbol m^s : \boldsymbol \sigma|}{\tau_c}\bigg)^{n-1} \bigg(\frac{\boldsymbol m^s : \boldsymbol \sigma}{\tau_c}\bigg)
+
+
+\newline
+=\dot\gamma_0\sum_s\frac{\boldsymbol m^s\otimes m^s}{\tau_c}\bigg(\frac{|\boldsymbol m^s : \boldsymbol \sigma|}{\tau_c}\bigg)^{n-1} \bigg(\frac{\boldsymbol m^s : \boldsymbol \sigma}{\tau_c}\bigg)
+$$
