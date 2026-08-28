@@ -349,6 +349,11 @@ ninja.data = [{
           description: "",
           section: "Lectures",handler: () => {
               window.location.href = "/lectures/3_1_metal_plasticity/";
+            },},{id: "lectures-다결정-소성-이론",
+          title: '다결정 소성 이론',
+          description: "",
+          section: "Lectures",handler: () => {
+              window.location.href = "/lectures/5_1_polycrystalline_Plasticity/";
             },},{id: "news-정의찬-학생이-석사과정연구장려금지원사업-에-선정되었습니다-trophy",
           title: '정의찬 학생이 ‘석사과정연구장려금지원사업’에 선정되었습니다. :trophy:',
           description: "",
