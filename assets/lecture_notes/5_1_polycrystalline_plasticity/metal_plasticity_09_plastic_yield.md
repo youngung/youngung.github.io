@@ -85,14 +85,14 @@ $$
 - 하지만 앞서 다루었던 응력은 스칼라 물리량으로 충분히 표현되지 않는다. 일반적인 텐서 응력환경에서 항복 조건은 따라서, 응력 텐서를 활용해서 아래와 같이 표현되어야 겠다.
 
 $$
-f(\mathbf\sigma)=\sigma^Y
+f(\boldsymbol\sigma)=\sigma^Y
 $$
 
-- 이때 $f(\mathbf\sigma)$를 우리는 항복 함수(yield function)이라 부르며 아래와 조건을 만족해야 한다.
+- 이때 $f(\boldsymbol\sigma)$를 우리는 항복 함수(yield function)이라 부르며 아래와 조건을 만족해야 한다.
 
-  - $f(\mathbf\sigma)<\sigma^Y$: 재료가 탄성 거동을 한다.
-  - $f(\mathbf\sigma)=\sigma^Y$: 재료가 소성 변형도 한다.
-  - $f(\mathbf\sigma)>\sigma^Y$: 허용되지 않는다.
+  - $f(\boldsymbol\sigma)<\sigma^Y$: 재료가 탄성 거동을 한다.
+  - $f(\boldsymbol\sigma)=\sigma^Y$: 재료가 소성 변형도 한다.
+  - $f(\boldsymbol\sigma)>\sigma^Y$: 허용되지 않는다.
 
 # 6. 등가 응력 (equivalent stress)
 

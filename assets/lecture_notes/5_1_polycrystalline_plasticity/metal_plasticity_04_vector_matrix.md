@@ -41,6 +41,9 @@ authors:
   - [6.2. 스칼라 곱하기](#62-스칼라-곱하기)
   - [6.3. 매트릭스 곱하기1 (single contraction)](#63-매트릭스-곱하기1-single-contraction)
   - [6.4. 매트릭스 곱하기2 (double contraction)](#64-매트릭스-곱하기2-double-contraction)
+  - [6.4. 매트릭스 전치 (transpose)](#64-매트릭스-전치-transpose)
+  - [6.5. 매트릭스 trace](#65-매트릭스-trace)
+  - [6.6. 역행렬 (inverse matrix)](#66-역행렬-inverse-matrix)
 - [7. 매트릭스 연산 일반화](#7-매트릭스-연산-일반화)
 
 # 1. 물리량의 종류
@@ -73,7 +76,7 @@ authors:
   ($m$, $f$, $\alpha$, $\beta$ 등)
 
 - 굵은 글씨체 (bold-face)를 활용해 '방향'성을 가진 물리량을 표기한다.
-  ($a, \mathbf a, \alpha, {\mathbf \alpha}$)
+  ($a, \boldsymbol a, \alpha, {\boldsymbol \alpha}$)
 
 - 윗첨자 혹은 아랫첨자를 활용해 벡터나 텐서, 혹은 매트릭스의 성분을 구분한다.
   ($a_1, \alpha^1, \beta_3, \gamma^1$ 등)
@@ -131,31 +134,31 @@ authors:
 
 - 벡터는 스칼라처럼 크기를 가지며 거기에 '방향'도 가진다.
 
-- 한 벡터 $\mathbf a$ 의 크기는 아래와 같이 표기된다.
-  $|\mathbf a|$
+- 한 벡터 $\boldsymbol a$ 의 크기는 아래와 같이 표기된다.
+  $|\boldsymbol a|$
 
-- 한 벡터 $\mathbf a$가 세 성분 $a_1, a_2, a_3$로 이루어진다면 그 크기는
+- 한 벡터 $\boldsymbol a$가 세 성분 $a_1, a_2, a_3$로 이루어진다면 그 크기는
   아래와 같이 정의된다.
 
-  $$|\mathbf a|=\sqrt{a_1^2+a_2^2+a_3^2}$$
+  $$|\boldsymbol a|=\sqrt{a_1^2+a_2^2+a_3^2}$$
 
 - 위를 줄여서 아래와 같이 종종 표기한다.
 
-  $$|\mathbf a|=\sqrt{\sum_i^3 a_i^2}$$
+  $$|\boldsymbol a|=\sqrt{\sum_i^3 a_i^2}$$
 
 ## 5.2. 더하기, 빼기
 
 - 두 벡터의 더하기 빼기는 각각 $+$와 $-$기호로 표기한다.
 
-$$\mathbf a + \mathbf b$$
+$$\boldsymbol a + \boldsymbol b$$
 
-$$\mathbf a - \mathbf b$$
+$$\boldsymbol a - \boldsymbol b$$
 
 - 벡터의 덧셈 뺄셈 연산은 결과는 또 다른 벡터이다.
 
-  $$\mathbf c = \mathbf a + \mathbf b$$
+  $$\boldsymbol c = \boldsymbol a + \boldsymbol b$$
 
-  $$\mathbf d = \mathbf a - \mathbf b$$
+  $$\boldsymbol d = \boldsymbol a - \boldsymbol b$$
 
 - 한 벡터가 세 성분으로 이루어져 있다면, 위 더하기 빼기 연산을 각 성분에 대해
   아래와 같이 표기할 수도 있다.
@@ -172,7 +175,7 @@ $$\mathbf a - \mathbf b$$
 
 - 덧셈의 교환 법칙이 성립한다.
 
-  $$\mathbf a + \mathbf b = \mathbf b + \mathbf a$$
+  $$\boldsymbol a + \boldsymbol b = \boldsymbol b + \boldsymbol a$$
 
 ## 5.3. 벡터와 스칼라 곱
 
@@ -180,52 +183,52 @@ $$\mathbf a - \mathbf b$$
 
 - 스칼라와의 곱에는 연산 기호가 생략된다.
 
-  $$\mathbf c= d \mathbf b$$
+  $$\boldsymbol c= d \boldsymbol b$$
 
 - 교환 법칙이 성립한다.
 
-  $$d \mathbf b = \mathbf b d$$
+  $$d \boldsymbol b = \boldsymbol b d$$
 
 - 양의 스칼라 값이 곱해지면, 벡터의 방향은 그대로 유지되며 그 크기만 달라진다.
 
 - 음의 스칼라 값이 곱해지면, 벡터의 방향이 반전되며 그 크기가 달라진다.
 
-- $d=\pm 1$일하면, $\mathbf c$의 크기는 $\mathbf b$의 크기과 같다.
+- $d=\pm 1$일하면, $\boldsymbol c$의 크기는 $\boldsymbol b$의 크기과 같다.
 
 ## 5.4. 내적
 
-- 두 벡터 $\mathbf a$ 와 $\mathbf b$ 사이의 내적의 결과는 스칼라이며 이를 $c$라 한다면 아래와 같이 표기된다.
+- 두 벡터 $\boldsymbol a$ 와 $\boldsymbol b$ 사이의 내적의 결과는 스칼라이며 이를 $c$라 한다면 아래와 같이 표기된다.
 
-  $$c = \mathbf a \cdot \mathbf b$$
+  $$c = \boldsymbol a \cdot \boldsymbol b$$
 
 - 이는 아래와 같이 연산된다.
 
-  $$c = \mathbf a \cdot \mathbf b = | \mathbf a| |\mathbf b|\cos\theta$$
+  $$c = \boldsymbol a \cdot \boldsymbol b = | \boldsymbol a| |\boldsymbol b|\cos\theta$$
 
-- 이때 $\theta$는 두 벡터 $\mathbf a$와 $\mathbf b$ 사이의 끼인
+- 이때 $\theta$는 두 벡터 $\boldsymbol a$와 $\boldsymbol b$ 사이의 끼인
   각이다.
 
 - 내적은 다음과 같이 연산될 수도 있다.
 
-  $$c = \mathbf a \cdot \mathbf b = \sum_i^3 a_ib_i = a_1b_1+a_2b_2+a_3b_3$$
+  $$c = \boldsymbol a \cdot \boldsymbol b = \sum_i^3 a_ib_i = a_1b_1+a_2b_2+a_3b_3$$
 
 - 따라서 얻어지는 다음 두 관계는 매우 유용하다.
 
-  $$c = \mathbf a \cdot \mathbf b = | \mathbf a| |\mathbf b|\cos\theta=\sum_i^3 a_ib_i$$
+  $$c = \boldsymbol a \cdot \boldsymbol b = | \boldsymbol a| |\boldsymbol b|\cos\theta=\sum_i^3 a_ib_i$$
 
 ## 5.5. 외적
 
 - 두 벡터의 외적의 결과는 또 다른 벡터이다.
 
-  - $\mathbf c = \mathbf a \times \mathbf b$
+  - $\boldsymbol c = \boldsymbol a \times \boldsymbol b$
 
 ## 5.6. 다이아딕 곱하기
 
 - 두 벡터의 다이아딕 곱하기 결과는 2차 텐서이며, 3차원 벡터 둘의 다이아딕 결과은 2차 텐서를 $3\times 3$ 행렬로 표기할 수 있다.
 
-- 두 벡터 $\mathbf a$와 $\mathbf b$의 다이아딕 연산 결과를 2차 텐서 $\mathbf A$라 하면, 이를 행렬로 표기할 때 다음과 같이 정의된다.
+- 두 벡터 $\boldsymbol a$와 $\boldsymbol b$의 다이아딕 연산 결과를 2차 텐서 $\boldsymbol A$라 하면, 이를 행렬로 표기할 때 다음과 같이 정의된다.
 
-$$\mathbf A = \mathbf a \otimes \mathbf b$$
+$$\boldsymbol A = \boldsymbol a \otimes \boldsymbol b$$
 
 $$A_{ij}= a_i b_j \text{ with } (i,j)=(1,1),(1,2),(1,3),(2,1) ... (3,3)$$
 
@@ -233,11 +236,11 @@ $$A_{ij}= a_i b_j \text{ with } (i,j)=(1,1),(1,2),(1,3),(2,1) ... (3,3)$$
 
 ## 6.1. 더하기, 빼기
 
-- 같은 랭크의 매트릭스 $\mathbf A$와 $\mathbf B$의 합이나 차는 같은 랭크의 또 다른 매트릭스가 된다.
+- 같은 랭크의 매트릭스 $\boldsymbol A$와 $\boldsymbol B$의 합이나 차는 같은 랭크의 또 다른 매트릭스가 된다.
 
-$$\mathbf C = \mathbf A + \mathbf B$$
+$$\boldsymbol C = \boldsymbol A + \boldsymbol B$$
 
-$$\mathbf D = \mathbf A - \mathbf B$$
+$$\boldsymbol D = \boldsymbol A - \boldsymbol B$$
 
 - 랭크 2인 행렬, 즉 $3\times3$ 행렬의 합과 차를 다음과 같이 연산한다.
 
@@ -267,7 +270,7 @@ $$C_{ij}=A_{ij}+B_{ij} \text{ with } i=1,2,3, \ \ \ j=1,2,3$$
 
 - 매트릭스에 스칼라를 곱하면 같은 랭크의 다른 매트릭스가 된다.
 
-$$\mathbf B = c \mathbf A $$
+$$\boldsymbol B = c \boldsymbol A $$
 
 - 이는 아래와 같다.
 
@@ -277,7 +280,7 @@ $$B_{ij}=c A_{ij} \text{ with } i=1,2,3, \ \ \ j=1,2,3$$
 
 - 랭크 2인 매트릭스에 벡터를 곱하면 벡터가 된다.
 
-$$\mathbf b = \mathbf A \cdot \mathbf v$$
+$$\boldsymbol b = \boldsymbol A \cdot \boldsymbol v$$
 
 - 위는 아래와 같이 계산된다.
 
@@ -293,7 +296,7 @@ $$b_i = \sum_j^3 A_{ij} v_j \text{ with } i=1,2,3$$
 
 - 아래의 경우를 살펴보자.
 
-$$\mathbf c = \mathbf v \cdot \mathbf B$$
+$$\boldsymbol c = \boldsymbol v \cdot \boldsymbol B$$
 
 - 위를 앞선 인덱스 표기법을 적용하면 아래와 같다.
 
@@ -301,7 +304,7 @@ $$c_i = v_i B_{ij} $$
 
 - 교환 법칙이 성립하지 않는다.
 
-$$ \mathbf A\cdot \mathbf v \ne \mathbf v \cdot \mathbf A $$
+$$ \boldsymbol A\cdot \boldsymbol v \ne \boldsymbol v \cdot \boldsymbol A $$
 
 ## 6.4. 매트릭스 곱하기2 (double contraction)
 
@@ -313,11 +316,42 @@ $$d_i = \sum_j^3 A_{ij} b_j \text{ with } i=1,2,3$$
 
 $$c = A_{ij} B_{ij} = \sum_i^3 \sum_j^3 A_{ij}B_{ij}$$
 
-- 랭크가 3인 매트릭스 $A_{ijk}$와 벡터 $\mathbf v$ 사이의 single contraction 곱을 생각해보자.
+- 랭크가 3인 매트릭스 $A_{ijk}$와 벡터 $\boldsymbol v$ 사이의 single contraction 곱을 생각해보자.
 
 $$B_{ij} = \sum_k^3A_{ijk} b_k \text{ with } i=1,2,3,\ \ \ j=1,2,3$$
 
+## 6.4. 매트릭스 전치 (transpose)
+
+- 한 매트릭스 $\boldsymbol A$의 전치는 $\boldsymbol A^T$라 표기하고, 다음과 같이 정의된다.
+
+$$
+A^T_{ij}=A_{ji}, \text{ with } i=1,2,3 \ \ \ j=1,2,3
+$$
+
+## 6.5. 매트릭스 trace
+
+- 한 매트릭스 $\boldsymbol A$의 trace는 $tr(\boldsymbol A)$라 표기하고, 다음과 같이 정의된다.
+
+$$
+tr(\boldsymbol A) = A_{11}+A_{22}+A_{33}=\sum_i^3A_{ii}
+$$
+
+## 6.6. 역행렬 (inverse matrix)
+
+- 한 매트릭스 $\boldsymbol A$의 역은 $\boldsymbol A^{-1}$라 표기하고, 다음의 성질을 만족한다.
+
+$$
+\boldsymbol{A}\cdot\boldsymbol{A}^{-1}=\boldsymbol {I}
+$$
+
+- 즉
+$$
+\sum_k^3A_{ik}A^{-1}_{kj}=I_{ij} \text{ with } i=1,2,3\ \ \ \ j=1,2,3
+$$
+
 # 7. 매트릭스 연산 일반화
+
+- Einstein convention; 반복 되는 기호들에 주목하자. 항상 $\sum$ 기호와 함께 나타난다.
 
 - 아래 각 결과가 무엇이 될까? 그리고 그 결과는 몇 **랭크**의 물리량이 될까?
 
@@ -333,14 +367,14 @@ $$ a_{ijk} b_{ijk} $$
 
 # 8. 좌표계 변환
 
-$$\mathbf v = v_1 \mathbf e _{1} + v_2 \mathbf e _{2}+ v_3 \mathbf e _3 = \sum_i^3 v_i\mathbf e_i$$
+$$\boldsymbol v = v_1 \boldsymbol e _{1} + v_2 \boldsymbol e _{2}+ v_3 \boldsymbol e _3 = \sum_i^3 v_i\boldsymbol e_i$$
 
 
-다른 좌표계로 $\tilde{\mathbf e}_1,\tilde{\mathbf e}_2,\tilde{\mathbf e}_3$를 활용해 표현하여도 동일한 벡터여야 한다.
+다른 좌표계로 $\tilde{\boldsymbol e}_1,\tilde{\boldsymbol e}_2,\tilde{\boldsymbol e}_3$를 활용해 표현하여도 동일한 벡터여야 한다.
 
 따라서,
 
-$$\mathbf v = \sum_i^3 v_i\mathbf e_i= \sum_j^3 {\tilde v}_j\tilde{\mathbf e}_j$$
+$$\boldsymbol v = \sum_i^3 v_i\boldsymbol e_i= \sum_j^3 {\tilde v}_j\tilde{\boldsymbol e}_j$$
 
 ...
  -->

@@ -35,14 +35,14 @@ authors:
 
 - 3차원 공간 상의 위치를 벡터로 표현 가능하다.
 
-$$\mathbf x=x_1\mathbf e_1+x_2\mathbf e_2+x_3\mathbf e_3$$
+$$\boldsymbol x=x_1\boldsymbol e_1+x_2\boldsymbol e_2+x_3\boldsymbol e_3$$
 
-- 변형전 위치: $\mathbf X$
-- 변형후 위치: $\mathbf x$ 라 하자.
+- 변형전 위치: $\boldsymbol X$
+- 변형후 위치: $\boldsymbol x$ 라 하자.
 
-- 이럴 경우 변위 $\mathbf u$는
+- 이럴 경우 변위 $\boldsymbol u$는
 
-$$\mathbf u = \mathbf x- \mathbf X$$
+$$\boldsymbol u = \boldsymbol x- \boldsymbol X$$
 
 # 2. 변형과 변위장
 
@@ -69,11 +69,11 @@ $$\mathbf u = \mathbf x- \mathbf X$$
 
 - 변위는 위치마다 다를 수 있다.
 
-$$\mathbf u(위치) =\mathbf u (\mathbf x)=\mathbf u (x_1,x_2,x_3)$$
+$$\boldsymbol u(위치) =\boldsymbol u (\boldsymbol x)=\boldsymbol u (x_1,x_2,x_3)$$
 
 혹은 변형 전의 위치를 기준으로
 
-$$\mathbf u(위치) =\mathbf u (\mathbf X)=\mathbf u(X_1,X_2,X_3)$$
+$$\boldsymbol u(위치) =\boldsymbol u (\boldsymbol X)=\boldsymbol u(X_1,X_2,X_3)$$
 
 # 6. 1차원 공간에서의 변형률
 
@@ -126,13 +126,13 @@ $$\varepsilon = \Delta l / l_0$$
 - 변위 장
   (displacement field)은 위치 장(position field)에 대한 함수.
 
-$$\mathbf u(\mathbf x)$$
+$$\boldsymbol u(\boldsymbol x)$$
 
-- 변위 $\mathbf u$도 2차원 벡터, 위치 $\mathbf x$도 2차원 벡터이다.
+- 변위 $\boldsymbol u$도 2차원 벡터, 위치 $\boldsymbol x$도 2차원 벡터이다.
 
-$$\mathbf u = [u_1,u_2]$$
+$$\boldsymbol u = [u_1,u_2]$$
 
-$$\mathbf x = [x_1,x_2]$$
+$$\boldsymbol x = [x_1,x_2]$$
 
 - 2차원에서의 수직 변형률 성분은
 
@@ -180,6 +180,6 @@ $$u_2(x_1,x_2)=0.01x_2$$
 | ----------------------------- | ---------------------------------------------------------------------------- |
 | 변위                          | $u = x - X$                                                                  |
 | 1차원 변형률                  | $\varepsilon = du/dx$                                                        |
-| $\mathbf{e}_1$방향 수직변형률 | $\varepsilon_{11} = \partial u_1/\partial x_1$                               |
-| $\mathbf{e}_2$방향 수직변형률 | $\varepsilon_{22} = \partial u_2/\partial x_2$                               |
+| $\boldsymbol{e}_1$방향 수직변형률 | $\varepsilon_{11} = \partial u_1/\partial x_1$                               |
+| $\boldsymbol{e}_2$방향 수직변형률 | $\varepsilon_{22} = \partial u_2/\partial x_2$                               |
 | 전단변형률                    | $\varepsilon_{12} =0.5(\partial u_1/\partial x_2+\partial u_2/\partial x_1)$ |
