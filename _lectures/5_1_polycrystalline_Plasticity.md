@@ -58,4 +58,4 @@ authors:
 
 - [제14강 Hardening]({% link assets/lecture_notes/5_1_polycrystalline_plasticity/metal_plasticity_14_hardening.md %})
 
-- [제54강 Kinematics]({% link assets/lecture_notes/5_1_polycrystalline_plasticity/metal_plasticity_14_hardening.md %})
+- [제15강 Kinematics]({% link assets/lecture_notes/5_1_polycrystalline_plasticity/metal_plasticity_15_kinematics.md %})

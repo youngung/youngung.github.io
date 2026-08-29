@@ -1,11 +1,11 @@
 ---
 layout: distill
-title: 소성가공
+title:
 description:
-target: 3학년 1학기
+target:
 permalink:
 featured: true
-prerequisite: 재료공학개론1, 대학수학, 데이터 재료과학, 수치해석
+prerequisite:
 #toc:
 #sidebar: left
 #- name: Orientation

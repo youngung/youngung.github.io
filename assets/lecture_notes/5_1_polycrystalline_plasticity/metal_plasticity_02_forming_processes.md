@@ -1,8 +1,8 @@
 ---
 layout: distill
-title: 소성가공
-description: 금속 소성 가공 역학 기초
-target: 3학년 1학기
+title:
+description:
+target:
 permalink:
 featured: true
 prerequisite:
@@ -94,6 +94,6 @@ authors:
 
 - 관(pipe)형상의 제품을 만드는 방법을 크게 두 가지 방법으로 나눌 수 있다.
   - welded pipe
-    - 강판 코일 -> Ring rolling -> 용접
+    - 강판 코일 $\rightarrow$ Ring rolling $\rightarrow$ 용접
   - seamless pipe
-    - Billet -> 가열 후 Piercing -> Mill / Drawing
+    - Billet $\rightarrow$ 가열 후 Piercing $\rightarrow$ Mill / Drawing

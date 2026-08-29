@@ -163,7 +163,7 @@ $$
 
 - FE 모델의 경우(Type I), 각 유한요소에 다른 결정 방위를 부과하여 그 평균 값을 계산을 통해 하는 방법이 있다.
 
-- VPSC 모델의 경우, Homogeneous Effective Medimu 방법을 활용해 계산한다.
+- VPSC 모델의 경우, Homogeneous Effective Medium 방법을 활용해 계산한다.
 
   - 우선 아래 비선형 거동을 선형화 형태로 나타내어야 한다.
 
@@ -175,12 +175,12 @@ $$
 
 $$
 \dot{\boldsymbol\varepsilon}^{pl}=\dot\gamma_0\sum_s\boldsymbol m^s\bigg(\frac{|\boldsymbol m^s : \boldsymbol \sigma|}{\tau_c}\bigg)^{n-1} \bigg(\frac{|\boldsymbol m^s : \boldsymbol \sigma|}{\tau_c}\bigg)\text{sgn}(\boldsymbol m^s : \boldsymbol \sigma)
+$$
 
-\newline
-
+$$
 =\dot\gamma_0\sum_s\boldsymbol m^s\bigg(\frac{|\boldsymbol m^s : \boldsymbol \sigma|}{\tau_c}\bigg)^{n-1} \bigg(\frac{\boldsymbol m^s : \boldsymbol \sigma}{\tau_c}\bigg)
+$$
 
-
-\newline
-=\dot\gamma_0\sum_s\frac{\boldsymbol m^s\otimes m^s}{\tau_c}\bigg(\frac{|\boldsymbol m^s : \boldsymbol \sigma|}{\tau_c}\bigg)^{n-1} \bigg(\frac{\boldsymbol m^s : \boldsymbol \sigma}{\tau_c}\bigg)
+$$
+=\dot\gamma_0\sum_s\frac{\boldsymbol m^s\otimes \boldsymbol m^s}{\tau_c}\bigg(\frac{|\boldsymbol m^s : \boldsymbol \sigma|}{\tau_c}\bigg)^{n-1} \bigg(\frac{\boldsymbol m^s : \boldsymbol \sigma}{\tau_c}\bigg)
 $$

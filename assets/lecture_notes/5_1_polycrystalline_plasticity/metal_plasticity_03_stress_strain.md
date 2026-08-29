@@ -1,8 +1,8 @@
 ---
 layout: distill
-title: 소성가공
-description: 금속 소성 가공 역학 기초
-target: 3학년 1학기
+title:
+description:
+target:
 permalink:
 featured: true
 prerequisite:

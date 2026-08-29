@@ -2,19 +2,10 @@
 layout: distill
 title:
 description:
-target: 3학년 1학기
+target:
 permalink:
 featured: true
-prerequisite: 재료공학개론1, 대학수학, 데이터 재료과학, 수치해석
-#toc:
-#sidebar: left
-#- name: Orientation
-#- name: Week1
-#- name: Week2
-#- name: Week3
-#- name: Week4
-#- name: Week5
-#- name: Week6
+prerequisite:
 
 mermaid:
   enabled: true
@@ -37,7 +28,6 @@ authors:
 - [3. Polar decomposition](#3-polar-decomposition)
 - [4. Velocity of points](#4-velocity-of-points)
 - [5. Velocity gradient](#5-velocity-gradient)
-- [\\end{bmatrix}](#endbmatrix)
 
 
 # 1. Kinematics in VPSC
@@ -112,6 +102,7 @@ $$
 $$
 
 - Matrix form of boundary condition
+
 $$
 \begin{bmatrix}
 L_{11}&L_{12}&L_{13}\\
@@ -136,7 +127,7 @@ $$
 \dot{\varepsilon}_{23}\\
 \dot{\varepsilon}_{13}\\
 \dot{\varepsilon}_{12}
-\end{bmatrix}
+6. \end{bmatrix}
 =
 \begin{bmatrix}
 C_{111} & C_{1122} & ... & C_{1112} \\
@@ -146,12 +137,13 @@ C_{111} & C_{1122} & ... & C_{1112} \\
 .\\
 C_{1211} & C_{1222} & ... & C_{1212}
 \end{bmatrix}
+
 \begin{bmatrix}
 \sigma_{11}\\
 \sigma_{22}\\
 \sigma_{33}\\
 \sigma_{23}\\
 \sigma_{13}\\
-\sigma_{12}
+\sigma_{12}\\
 \end{bmatrix}
 $$

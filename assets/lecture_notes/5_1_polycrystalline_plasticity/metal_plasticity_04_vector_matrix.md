@@ -1,8 +1,8 @@
 ---
 layout: distill
-title: 소성가공
-description: 금속 소성 가공 역학 기초
-target: 3학년 1학기
+title:
+description:
+target:
 permalink:
 featured: true
 prerequisite:
@@ -44,8 +44,11 @@ authors:
   - [6.5. 매트릭스 전치 (transpose)](#65-매트릭스-전치-transpose)
   - [6.6. 매트릭스 trace](#66-매트릭스-trace)
   - [6.7. 역행렬 (inverse matrix)](#67-역행렬-inverse-matrix)
-- [7. 랭크의 증감](#7-랭크의-증감)
-- [8. 매트릭스 연산](#8-매트릭스-연산)
+- [7. Determinant](#7-determinant)
+  - [7.1. $2\\times2$ 행렬](#71-2times2-행렬)
+  - [7.2. $3\\times3$ 행렬](#72-3times3-행렬)
+- [8. 랭크의 증감](#8-랭크의-증감)
+- [9. 매트릭스 연산](#9-매트릭스-연산)
 
 # 1. 물리량의 종류
 
@@ -373,7 +376,37 @@ $$
 \sum_k^3A_{ik}A^{-1}_{kj}=I_{ij} \text{ with } i=1,2,3\ \ \ \ j=1,2,3
 $$
 
-# 7. 랭크의 증감
+# 7. Determinant
+
+## 7.1. $2\times2$ 행렬
+
+$$
+\boldsymbol A=\begin{bmatrix}
+a & b \\
+c & d
+\end{bmatrix}
+$$
+
+$$
+\det(\boldsymbol A) = |\boldsymbol A| = ad -bc
+$$
+
+## 7.2. $3\times3$ 행렬
+
+$$
+\boldsymbol A=\begin{bmatrix}
+a & b & c \\
+d & e & f \\
+g & h & i
+\end{bmatrix}
+$$
+
+$$
+\det(\boldsymbol A)=|\boldsymbol A| = a(ei-fh)-b(di-fg)+c(dh-eg)
+$$
+
+
+# 8. 랭크의 증감
 
 - Contraction: 물리량들 사이에 곱을 통해 랭크가 감소하는 경우
 
@@ -386,7 +419,7 @@ $$
 - 랭크가 유지되는 경우
   - $b_i=ca_i \ \ \text{ with } i=1,2,3$
 
-# 8. 매트릭스 연산
+# 9. 매트릭스 연산
 
 - Einstein convention; 반복 되는 기호들에 주목하자. 항상 $\sum$ 기호와 함께 나타난다.
 
