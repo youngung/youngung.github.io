@@ -44,7 +44,7 @@ authors:
   - [6.5. 매트릭스 전치 (transpose)](#65-매트릭스-전치-transpose)
   - [6.6. 매트릭스 trace](#66-매트릭스-trace)
   - [6.7. 역행렬 (inverse matrix)](#67-역행렬-inverse-matrix)
-- [7. Contraction / outer product](#7-contraction--outer-product)
+- [7. 랭크의 증감](#7-랭크의-증감)
 - [8. 매트릭스 연산](#8-매트릭스-연산)
 
 # 1. 물리량의 종류
@@ -82,6 +82,12 @@ authors:
 - 윗첨자 혹은 아랫첨자를 활용해 벡터나 텐서, 혹은 매트릭스의 성분을 구분한다.
   ($a_1, \alpha^1, \beta_3, \gamma^1$ 등)
 
+- 랭크
+  - 첨자의 개수에 따라 랭크가 구분될 수 있다.
+  - 스칼라는 첨자가 없다. 따라서, 랭크 0
+  - 벡터는 첨자가 하나 있다. 따라서, 랭크 1
+  - $3\times3$ 행렬은 첨자가 두개다. 따라서 랭크 2
+
 # 3. 좌표계 (coordinate system)
 
 - 좌표계는 서로 구분되는 여러 좌표축(axis)으로 이루어진다.
@@ -90,6 +96,8 @@ authors:
 
 - 좌표계는 순전히 '편의'에 의해 선택되며 우리는 '직각좌표계'를 중심으로 활용하겠다.
   그외 다양한 좌표계도 있음을 잊지 말자.
+
+- 우리가 사용하는 직각 좌표계의 좌표 축은 세 unit vector로, 서로 수직이다.
 
 # 4. 스칼라 연산
 
@@ -223,6 +231,11 @@ $$\boldsymbol a - \boldsymbol b$$
 
   - $\boldsymbol c = \boldsymbol a \times \boldsymbol b$
 
+  - 그리고 그 벡터의 성분은 아래와 같이 정의된다.
+    - $c_1 = a_2b_3-a_3b_2$
+    - $c_2 = a_3b_1-a_1b_3$
+    - $c_3 = a_1b_2-a_2b_1$
+
 ## 5.6. 다이아딕 곱하기
 
 - 두 벡터의 다이아딕 곱하기 결과는 2차 텐서이며, 3차원 벡터 둘의 다이아딕 결과은 2차 텐서를 $3\times 3$ 행렬로 표기할 수 있다.
@@ -232,6 +245,10 @@ $$\boldsymbol a - \boldsymbol b$$
 $$\boldsymbol A = \boldsymbol a \otimes \boldsymbol b$$
 
 $$A_{ij}= a_i b_j \text{ with } (i,j)=(1,1),(1,2),(1,3),(2,1) ... (3,3)$$
+
+$$\text{혹은}$$
+
+$$A_{ij}= a_i b_j \text{ with } i=1,2,3 \ \ \ j=1,2,3$$
 
 # 6. 매트릭스 연산
 
@@ -317,6 +334,12 @@ $$d_i = \sum_j^3 A_{ij} b_j \text{ with } i=1,2,3$$
 
 $$c = A_{ij} B_{ij} = \sum_i^3 \sum_j^3 A_{ij}B_{ij}$$
 
+- 위와 같은 곱하기를 아래와 같이 ':'기호를 활용해 표기하기도 한다.
+
+$$
+c=\boldsymbol A : \boldsymbol B
+$$
+
 - 랭크가 3인 매트릭스 $A_{ijk}$와 벡터 $\boldsymbol v$ 사이의 single contraction 곱을 생각해보자.
 
 $$B_{ij} = \sum_k^3A_{ijk} b_k \text{ with } i=1,2,3,\ \ \ j=1,2,3$$
@@ -350,13 +373,18 @@ $$
 \sum_k^3A_{ik}A^{-1}_{kj}=I_{ij} \text{ with } i=1,2,3\ \ \ \ j=1,2,3
 $$
 
-# 7. Contraction / outer product
+# 7. 랭크의 증감
 
 - Contraction: 물리량들 사이에 곱을 통해 랭크가 감소하는 경우
 
+  - $a_i = \sum_j^3A_{ij}b_j\ \ \text{ with }\ i=1,2,3$
+
 - Outer product: 물리량들 사이에 곱을 통해 랭크가 증가하는 경우
 
+  - $A_{ij}=a_ib_j\ \ \text{ with } i=1,2,3,\ \ \ j=1,2,3$
+
 - 랭크가 유지되는 경우
+  - $b_i=ca_i \ \ \text{ with } i=1,2,3$
 
 # 8. 매트릭스 연산
 
@@ -371,19 +399,3 @@ $$ a_{ijk} b_{jk} $$
 $$ a_{ijk} b_{ik} $$
 
 $$ a_{ijk} b_{ijk} $$
-
-<!--
-
-# 8. 좌표계 변환
-
-$$\boldsymbol v = v_1 \boldsymbol e _{1} + v_2 \boldsymbol e _{2}+ v_3 \boldsymbol e _3 = \sum_i^3 v_i\boldsymbol e_i$$
-
-
-다른 좌표계로 $\tilde{\boldsymbol e}_1,\tilde{\boldsymbol e}_2,\tilde{\boldsymbol e}_3$를 활용해 표현하여도 동일한 벡터여야 한다.
-
-따라서,
-
-$$\boldsymbol v = \sum_i^3 v_i\boldsymbol e_i= \sum_j^3 {\tilde v}_j\tilde{\boldsymbol e}_j$$
-
-...
- -->

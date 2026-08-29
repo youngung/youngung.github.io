@@ -52,10 +52,9 @@ $$\boldsymbol u = \boldsymbol x- \boldsymbol X$$
 
 | 상황                 | 변형 발생 여부 |
 | -------------------- | -------------- |
-| 물체 전체가 평행이동 | X              |
-| 물체 전체가 회전     | X              |
+| 물체 전체가 평행이동   | X              |
+| 물체 전체가 회전      | X              |
 | 길이가 늘어남        | O              |
-| 각도가 변함          | O              |
 
 # 3. 강체 운동 (Rigid Body Motion)
 
@@ -71,13 +70,13 @@ $$\boldsymbol u = \boldsymbol x- \boldsymbol X$$
 
 $$\boldsymbol u(위치) =\boldsymbol u (\boldsymbol x)=\boldsymbol u (x_1,x_2,x_3)$$
 
-혹은 변형 전의 위치를 기준으로
+- 혹은 변형 전의 위치를 기준으로
 
 $$\boldsymbol u(위치) =\boldsymbol u (\boldsymbol X)=\boldsymbol u(X_1,X_2,X_3)$$
 
 # 6. 1차원 공간에서의 변형률
 
-- 따라서 위치는 스칼라 $x$.
+- 1차원 공간에서 위치는 스칼라 물릴량이 된다. $x$
 
 - 변위도 scalar가 되며 아래와 같다
 
@@ -101,13 +100,13 @@ $$\frac{(x^b-x^a) - (X^b-X^a)} {x^b-x^a}=\frac{u^b-u^a}{x^b-x^a}$$
 
 - a와 b점이 가까워 지면??
 
-$$\lim_{a \rarr b} \frac{u^b-u^a}{x^b-x^a}=\frac{du}{dx}$$
+$$\lim_{a \rightarrow b} \frac{u^b-u^a}{x^b-x^a}=\frac{du}{dx}$$
 
 - 엔지니어링 변형률은
 
 $$\varepsilon = \Delta l / l_0$$
 
-- 위 둘의 유사성을 찾아보자.
+- $\varepsilon = \Delta l / l_0$ 와 $\frac{du}{dx}$의 유사성을 생각해보자.
 
 # 7. 1차원 예제
 
@@ -130,9 +129,15 @@ $$\boldsymbol u(\boldsymbol x)$$
 
 - 변위 $\boldsymbol u$도 2차원 벡터, 위치 $\boldsymbol x$도 2차원 벡터이다.
 
-$$\boldsymbol u = [u_1,u_2]$$
+$$\boldsymbol u =
+\begin{bmatrix}
+u_1&u_2
+\end{bmatrix}$$
 
-$$\boldsymbol x = [x_1,x_2]$$
+$$\boldsymbol x =
+\begin{bmatrix}
+x_1&x_2
+\end{bmatrix}$$
 
 - 2차원에서의 수직 변형률 성분은
 

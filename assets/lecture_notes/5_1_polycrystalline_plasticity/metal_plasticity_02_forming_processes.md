@@ -22,8 +22,8 @@ authors:
 ---
 
 - [1. Rolling (압연)](#1-rolling-압연)
-  - [1.1. 1-1. Hot rolling (열간 압연 - 열연)](#11-1-1-hot-rolling-열간-압연---열연)
-  - [1.2. 1-2. Cold rolling (냉간 압연 - 냉연)](#12-1-2-cold-rolling-냉간-압연---냉연)
+  - [1.1. Hot rolling (열간 압연 - 열연)](#11-hot-rolling-열간-압연---열연)
+  - [1.2. Cold rolling (냉간 압연 - 냉연)](#12-cold-rolling-냉간-압연---냉연)
 - [2. Forging (단조)](#2-forging-단조)
 - [3. Extrusion (압출)](#3-extrusion-압출)
 - [4. Drawing (인발)](#4-drawing-인발)
@@ -35,11 +35,11 @@ authors:
 
 # 1. Rolling (압연)
 
-## 1.1. 1-1. Hot rolling (열간 압연 - 열연)
+## 1.1. Hot rolling (열간 압연 - 열연)
 
 - 재결정(recrystallization)온도 이상의 온도에서 수행한다.
 
-## 1.2. 1-2. Cold rolling (냉간 압연 - 냉연)
+## 1.2. Cold rolling (냉간 압연 - 냉연)
 
 - 강한 집합조직(crystallographic texture) 발달하기 쉽다.
 

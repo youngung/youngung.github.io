@@ -184,16 +184,14 @@ $$\mathbf\varepsilon^{voigt}=
 - 위 방법을 확장하며 Hooke의 법칙을 새로 인덱스로 표기하면
 
 $$
-
 \sigma_i^{voigt}=\sum_{j}^6 E_{ij}^{voigt}\varepsilon_j^{voigt}
-
 $$
+
 로 간략히 표기할 수 있겠다. 그리고 이때 탄성계수 텐서가 2랭크 $6\times6$행렬 형태로 표기된다.
 
 - 등방성 재료에서 $E_{ij}^{voigt}$의 각 성분은 아래와 같다.
 
 $$
-
 \mathbf E^{voigt}=
 \begin{bmatrix}
 \lambda + 2G & \lambda &\lambda &0 &0 &0 \\
@@ -203,22 +201,19 @@ $$
 0 & 0 &0 &0 &G &0 \\
 0 & 0 &0 &0 &0 &G \\
 \end{bmatrix}
-
 $$
 
 # 9. Compliance matrix
 
 - Hooke의 법칙을 역으로 표현할 수 있다.
+
 $$
-
 \varepsilon=\mathbf S \mathbf \sigma
-
 $$
 
 - Voigt 표현을 활용하면
 
 $$
-
 \mathbf S^{voigt}=
 \begin{bmatrix}
 1/ E& -\nu/E & -\nu/E &0 &0 &0 \\
@@ -228,7 +223,6 @@ $$
 0 & 0 &0 &0 &1/G &0 \\
 0 & 0 &0 &0 &0 &1/G \\
 \end{bmatrix}
-
 $$
 
 

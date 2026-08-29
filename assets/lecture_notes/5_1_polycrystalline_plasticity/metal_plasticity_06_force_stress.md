@@ -41,6 +41,8 @@ authors:
 
 $\mathbf \sigma = \mathbf F/ \mathbf A$
 
+- 텐서 나누기 텐서? 그러한 operation 자체는 없다!
+
 - 단위
 
 | 단위 | 의미     |
@@ -80,8 +82,7 @@ $$ \sigma =\begin{bmatrix}
 | 개념 | 공식 |
 |------|------|
 | 힘 | $\mathbf F = m\mathbf a$ |
-| 응력 성분 의미 | $\mathbf\sigma_{ij} = F_{i} / A_{j}$ |
+| 응력 성분 의미 | $\mathbf\sigma_{ij} = F_{i} / A_{j}$??   $\boldsymbol e_i$축과 나란한 힘 방향 $\boldsymbol e_j$축과 나란한 수직성을 가진 면|
 | 수직 및 전단응력 | 힘과 면의 수직 방향이 같은 방향이나, 혹은 수직이냐에 따라 구분 |
 | 응력의 단위 | $1 Pa = 1 N/m²$ |
-| 전단응력의 대칭성 | $\sigma_{12} = \sigma_{21}$ |
-$$
+| 전단응력의 대칭성 | $\sigma_{12} = \sigma_{21}$ 모멘트(힘) 평형에 의한 결과|
