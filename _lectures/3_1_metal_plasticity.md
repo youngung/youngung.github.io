@@ -29,3 +29,5 @@ authors:
     affiliations:
       name: Changwon National University
 ---
+
+- [제1강 orientation]({% link assets/lecture_notes/3_1_metal_plasticity/orientation.md %})
