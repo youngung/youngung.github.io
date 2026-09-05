@@ -6,6 +6,8 @@ target:
 permalink:
 featured: true
 prerequisite:
+toc:
+  sidebar: left
 
 mermaid:
   enabled: true

@@ -15,7 +15,8 @@ prerequisite: 재료공학개론1, 대학수학, 데이터 재료과학, 수치�
 #- name: Week4
 #- name: Week5
 #- name: Week6
-
+toc:
+  sidebar: left
 mermaid:
   enabled: true
   zoomable: true
