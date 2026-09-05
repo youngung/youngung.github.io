@@ -229,6 +229,7 @@ $$
 
 $$
 Error=\sqrt{\sum_i(x^{true}_i-x^{approx}_i)^2}
+$$
 위와 같은 수열의 오차를 표현하자면 아래와 같다.
 
 ```python
