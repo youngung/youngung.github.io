@@ -1,20 +1,13 @@
 ---
 layout: distill
-title: 데이터 재료과학 (제 18강)
-description: IO
+title: 질량분율과 원자분율 변환
+description: 합금 조성의 질량분율·원자분율 변환
 target: 1학년 2학기
 permalink:
 featured: true
-prerequisite: 재료공학개론1
+prerequisite: Python 함수, NumPy
 toc:
-#sidebar: left
-#- name: Orientation
-#- name: Week1
-#- name: Week2
-#- name: Week3
-#- name: Week4
-#- name: Week5
-#- name: Week6
+  sidebar: left
 
 mermaid:
   enabled: true
@@ -171,3 +164,32 @@ authors:
   ```
 
 # 2. CLI용 모듈 만들기
+
+# 쉬운 연습 문제
+
+## 문제 1
+
+질량이 30 g과 70 g인 두 성분의 전체 질량을 구하라.
+
+<!--
+풀이와 해답:
+100 g이다.
+-->
+
+## 문제 2
+
+전체 질량 100 g 중 A가 30 g이면 A의 질량분율을 구하라.
+
+<!--
+풀이와 해답:
+0.30, 즉 30 wt.%이다.
+-->
+
+## 문제 3
+
+원자분율 계산에서 각 성분의 질량을 나누어야 하는 물리량은 무엇인가?
+
+<!--
+풀이와 해답:
+각 성분의 원자량 또는 몰질량이다.
+-->

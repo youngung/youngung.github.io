@@ -1,20 +1,13 @@
 ---
 layout: distill
-title: 데이터 재료과학
-description: 데이터 분석/해석 및 시각화(그래프) 등 기초 컴퓨터 활용 능력
+title: NumPy 배열 활용
+description: 배열 슬라이싱, 파일 저장과 기초 벡터 연산
 target: 1학년 2학기
 permalink:
 featured: true
-prerequisite: 재료공학개론1
+prerequisite: NumPy 배열 기초
 toc:
-  #sidebar: left
-  - name: Orientation
-  - name: Week1
-  - name: Week2
-  - name: Week3
-  - name: Week4
-  - name: Week5
-  - name: Week6
+  sidebar: left
 
 mermaid:
   enabled: true
@@ -271,3 +264,32 @@ a=np.array([1,2,3])
 b=np.array([4,5,6])
 print(a@b)
 ```
+
+# 쉬운 연습 문제
+
+## 문제 1
+
+배열 <code>a</code>의 두 번째 원소를 선택하는 표현을 쓰시오.
+
+<!--
+풀이와 해답:
+a[1]
+-->
+
+## 문제 2
+
+2차원 배열 <code>A</code>의 첫 번째 행을 선택하는 표현을 쓰시오.
+
+<!--
+풀이와 해답:
+A[0, :]
+-->
+
+## 문제 3
+
+배열의 모든 원소에 2를 곱하는 표현을 쓰시오.
+
+<!--
+풀이와 해답:
+2 * a
+-->

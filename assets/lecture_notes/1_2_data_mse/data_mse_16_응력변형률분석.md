@@ -1,20 +1,13 @@
 ---
 layout: distill
-title: 데이터 재료과학 (제 7강)
-description: IO
+title: 응력–변형률 데이터 분석
+description: 인장시험 데이터의 응력·변형률 변환과 시각화
 target: 1학년 2학기
 permalink:
 featured: true
-prerequisite: 재료공학개론1
+prerequisite: NumPy, Matplotlib
 toc:
-#sidebar: left
-#- name: Orientation
-#- name: Week1
-#- name: Week2
-#- name: Week3
-#- name: Week4
-#- name: Week5
-#- name: Week6
+  sidebar: left
 
 mermaid:
   enabled: true
@@ -106,7 +99,7 @@ authors:
 
   ```python
   ## algorithm
-  # 1. 파일로부터 Numpy를 활용해 데이터를 불러온다.
+  # 1. 파일로부터 NumPy를 활용해 데이터를 불러온다.
   # 2. 주어진 시편의 폭과 두께로부터 초기단면적을 구한다.
   # 3. 초기 단면적과 힘을 활용해 공칭 응력을 구한다.
   # 4. 초기 게이지 길이와 변위를 활용해 공칭 변형률을 구한다.
@@ -166,3 +159,32 @@ $$
 
   #    plt.plot(dmaster[:,1],dmaster[:,2])
   ```
+
+# 쉬운 연습 문제
+
+## 문제 1
+
+힘이 1000 N이고 초기 단면적이 10 mm²일 때 공칭응력을 구하라.
+
+<!--
+풀이와 해답:
+100 N/mm², 즉 100 MPa이다.
+-->
+
+## 문제 2
+
+초기 길이 50 mm인 시편이 51 mm가 되었다. 공칭변형률을 구하라.
+
+<!--
+풀이와 해답:
+(51-50)/50=0.02이다.
+-->
+
+## 문제 3
+
+응력–변형률 데이터를 그래프로 나타낼 때 일반적으로 x축에 놓는 값을 쓰시오.
+
+<!--
+풀이와 해답:
+변형률을 x축에 놓는다.
+-->

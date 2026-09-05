@@ -1,20 +1,13 @@
 ---
 layout: distill
-title: 데이터 재료과학 (제 7강)
-description: IO
+title: Matplotlib 기초
+description: Python을 이용한 2차원 그래프 작성
 target: 1학년 2학기
 permalink:
 featured: true
-prerequisite: 재료공학개론1
+prerequisite: NumPy 배열 기초
 toc:
-#sidebar: left
-#- name: Orientation
-#- name: Week1
-#- name: Week2
-#- name: Week3
-#- name: Week4
-#- name: Week5
-#- name: Week6
+  sidebar: left
 
 mermaid:
   enabled: true
@@ -246,3 +239,32 @@ $$
 ### 5.4.2 Curve fitting in Polar coordinate (r,$\theta$)
 
 Bohr의 원자 모형에서의 전자 움직임을 모사하였더니 아래와 같은 데이터를 보인다. 이를 활용해보자.
+
+# 쉬운 연습 문제
+
+## 문제 1
+
+Matplotlib의 pyplot을 <code>plt</code>로 불러오는 문장을 쓰시오.
+
+<!--
+풀이와 해답:
+import matplotlib.pyplot as plt
+-->
+
+## 문제 2
+
+x와 y 데이터로 선 그래프를 그리는 함수를 쓰시오.
+
+<!--
+풀이와 해답:
+plt.plot(x, y)
+-->
+
+## 문제 3
+
+그래프의 x축 이름을 지정하는 함수를 쓰시오.
+
+<!--
+풀이와 해답:
+plt.xlabel()을 사용한다.
+-->

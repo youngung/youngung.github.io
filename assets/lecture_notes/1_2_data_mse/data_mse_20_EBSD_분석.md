@@ -1,20 +1,13 @@
 ---
 layout: distill
-title: 데이터 재료과학
-description: 데이터 분석/해석 및 시각화(그래프) 등 기초 컴퓨터 활용 능력
+title: EBSD 데이터 분석 개요
+description: EBSD 데이터 구조, 결정방위와 Schmid factor 소개
 target: 1학년 2학기
 permalink:
 featured: true
-prerequisite: 재료공학개론1
+prerequisite: 벡터 연산, 결정학 기초
 toc:
-  #sidebar: left
-  - name: Orientation
-  - name: Week1
-  - name: Week2
-  - name: Week3
-  - name: Week4
-  - name: Week5
-  - name: Week6
+  sidebar: left
 
 mermaid:
   enabled: true
@@ -44,3 +37,32 @@ authors:
 # Schmid factor 구하기
 
 # Schmid factor map?
+
+# 쉬운 연습 문제
+
+## 문제 1
+
+EBSD의 영문 전체 명칭을 쓰시오.
+
+<!--
+풀이와 해답:
+Electron Backscatter Diffraction이다.
+-->
+
+## 문제 2
+
+EBSD 데이터로 알 수 있는 대표적인 재료 정보를 하나 쓰시오.
+
+<!--
+풀이와 해답:
+결정방위 또는 결정립 정보를 알 수 있다.
+-->
+
+## 문제 3
+
+Euler 각은 무엇을 나타내는 데 사용하는가?
+
+<!--
+풀이와 해답:
+결정방위 또는 두 좌표계 사이의 회전을 나타내는 데 사용한다.
+-->

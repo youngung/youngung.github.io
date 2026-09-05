@@ -1,20 +1,13 @@
 ---
 layout: distill
-title: 데이터 재료과학 (제 3강)
-description:
+title: Python 기초 자료구조
+description: 리스트, 튜플, 집합과 딕셔너리
 target: 1학년 2학기
 permalink:
 featured: true
-prerequisite: 재료공학개론1
+prerequisite: Python 기초 조작
 toc:
-# sidebar: left
-#- name: Orientation
-#- name: Week1
-#- name: Week2
-#- name: Week3
-#- name: Week4
-#- name: Week5
-#- name: Week6
+  sidebar: left
 
 mermaid:
   enabled: true
@@ -254,3 +247,32 @@ print(avg)
 ```
 
 ---
+
+# 쉬운 연습 문제
+
+## 문제 1
+
+세 원소 1, 2, 3을 갖는 리스트를 작성하라.
+
+<!--
+풀이와 해답:
+[1, 2, 3]
+-->
+
+## 문제 2
+
+리스트 <code>a = [10, 20, 30]</code>에서 첫 번째 원소를 선택하는 표현을 쓰시오.
+
+<!--
+풀이와 해답:
+a[0]
+-->
+
+## 문제 3
+
+원소를 key와 value의 쌍으로 저장하는 자료구조는 무엇인가?
+
+<!--
+풀이와 해답:
+딕셔너리(dictionary)이다.
+-->

@@ -1,20 +1,13 @@
 ---
 layout: distill
-title: 데이터 재료과학
-description: 데이터 분석/해석 및 시각화(그래프) 등 기초 컴퓨터 활용 능력
+title: 벡터 연산 기초
+description: NumPy를 이용한 벡터의 크기, 내적과 외적
 target: 1학년 2학기
 permalink:
 featured: true
-prerequisite: 재료공학개론1
+prerequisite: NumPy 배열 기초
 toc:
-  #sidebar: left
-  - name: Orientation
-  - name: Week1
-  - name: Week2
-  - name: Week3
-  - name: Week4
-  - name: Week5
-  - name: Week6
+  sidebar: left
 
 mermaid:
   enabled: true
@@ -52,7 +45,7 @@ authors:
 
 # 1. 목표
 
-- 반복문, 함수, Numpy를 활용해 기초 벡터 연산 및 행렬 연산 수행 및 이해
+- 반복문, 함수, NumPy를 활용해 기초 벡터 연산 및 행렬 연산 수행 및 이해
 
 # 2. 벡터의 성분
 
@@ -459,3 +452,32 @@ $\boldsymbol{b}=[hkl]$ 가 주어진 cubic 결정 구조에서 슬립면 벡터 
 ## 9.3. (take-home)
 
 앞선 예시에서 주어진 결정법선 $n$을 miller index로 구해보시오.
+
+# 쉬운 연습 문제
+
+## 문제 1
+
+벡터 $(3,4)$의 크기를 구하라.
+
+<!--
+풀이와 해답:
+5이다.
+-->
+
+## 문제 2
+
+서로 수직인 두 벡터의 내적은 얼마인가?
+
+<!--
+풀이와 해답:
+0이다.
+-->
+
+## 문제 3
+
+NumPy에서 두 벡터의 내적을 계산하는 함수를 하나 쓰시오.
+
+<!--
+풀이와 해답:
+np.dot(a, b)를 사용할 수 있다.
+-->

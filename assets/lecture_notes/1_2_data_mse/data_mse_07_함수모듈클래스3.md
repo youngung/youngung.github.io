@@ -1,20 +1,13 @@
 ---
 layout: distill
-title: 데이터 재료과학 (제 5강)
-description: 함수
+title: 모듈과 명령행 인자
+description: Python 모듈과 argparse 기초
 target: 1학년 2학기
 permalink:
 featured: true
-prerequisite: 재료공학개론1
+prerequisite: 함수 기초
 toc:
-#sidebar: left
-#- name: Orientation
-#- name: Week1
-#- name: Week2
-#- name: Week3
-#- name: Week4
-#- name: Week5
-#- name: Week6
+  sidebar: left
 
 mermaid:
   enabled: true
@@ -140,8 +133,8 @@ c:\users\user\repo\mse> python ex02.py a b c 1 23
 ```python
 import argparse
 if __name__=='__main__':
-parser = argparse.ArgumentParser()
-parser.parse_args()
+    parser = argparse.ArgumentParser()
+    parser.parse_args()
 ```
 
 - 그 다음 CLI에서 아래와 같이 명령문을 쳐보자.
@@ -162,11 +155,10 @@ options:
 ```python
 import argparse
 if __name__=='__main__':
-parser = argparse.ArgumentParser()
-parser.add_argument("x", type=int, help="the base")
-args=parser.parse_args()
-
-print(args.x**2)
+    parser = argparse.ArgumentParser()
+    parser.add_argument("x", type=int, help="the base")
+    args = parser.parse_args()
+    print(args.x**2)
 ```
 
 ## 3.6. `--help` 기능
@@ -258,3 +250,32 @@ x times y: 7
 # 4. 예제 (take-home)
 
 - 주어진 정수에 대한 구구단을 출력하는 CLI용 프로그램 만들어 보자.
+
+# 쉬운 연습 문제
+
+## 문제 1
+
+다른 Python 파일의 기능을 불러올 때 사용하는 키워드는 무엇인가?
+
+<!--
+풀이와 해답:
+import이다.
+-->
+
+## 문제 2
+
+Python 모듈 파일의 확장자를 쓰시오.
+
+<!--
+풀이와 해답:
+.py이다.
+-->
+
+## 문제 3
+
+명령행 프로그램의 사용법을 확인할 때 흔히 사용하는 선택 사항은 무엇인가?
+
+<!--
+풀이와 해답:
+--help이다.
+-->

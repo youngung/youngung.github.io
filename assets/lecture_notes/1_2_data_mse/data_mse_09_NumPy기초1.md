@@ -1,20 +1,13 @@
 ---
 layout: distill
-title: 데이터 재료과학 (제 7강)
-description: IO
+title: NumPy 배열 기초
+description: NumPy 배열 생성, 인덱싱, 차원과 축
 target: 1학년 2학기
 permalink:
 featured: true
-prerequisite: 재료공학개론1
+prerequisite: Python 기초 자료구조
 toc:
-#sidebar: left
-#- name: Orientation
-#- name: Week1
-#- name: Week2
-#- name: Week3
-#- name: Week4
-#- name: Week5
-#- name: Week6
+  sidebar: left
 
 mermaid:
   enabled: true
@@ -32,7 +25,7 @@ authors:
 
 - [1. 목표](#1-목표)
 - [2. 기초 개념](#2-기초-개념)
-- [3. 차원과 축: NumPy 배열을 바라보는 두가지 관점](#3-차원과-축-numpy-배열을-바라보는-두가지-관점)
+- [3. 차원과 축: NumPy 배열을 바라보는 두 가지 관점](#3-차원과-축-numpy-배열을-바라보는-두 가지-관점)
 
 # 1. 목표
 
@@ -175,7 +168,7 @@ myarray=np.array(mylist)
 myarray ## The numpy type object
 ```
 
-아래와 같이 각각의 연산을 JuPyter의 매직 키워드 `%%timeit`를 활용해 7번 반복
+아래와 같이 각각의 연산을 Jupyter의 매직 키워드 `%%timeit`를 활용해 7번 반복
 연산해 평균 연산 속도를 측정해보자.
 
 ```python
@@ -198,7 +191,7 @@ $$1.85 \mu s = 1.85 \times 10^{-6} s$$
 $$539 ns = 538\times 10^{-9} s = 0.538 10^{-6} s$$
 결과가 나왔다. 후자는 전자에 비해 약 1/3 정도의 시간만 필요하였다.
 
-# 3. 차원과 축: NumPy 배열을 바라보는 두가지 관점
+# 3. 차원과 축: NumPy 배열을 바라보는 두 가지 관점
 
 NumPy배열의 '차원'(dimension, 혹은 rank)는 배열이 몇 겹으로 중첩되어 있는지를 의미한다.
 쉽게 말해, 데이터가 몇 단계의 리스트로 레이어로 감싸져 있는지에 따라 차원이 달라진다.
@@ -304,3 +297,32 @@ print(b[:,0])
 print(b[:,1])
 print(b[:,2])
 ```
+
+# 쉬운 연습 문제
+
+## 문제 1
+
+NumPy를 <code>np</code>라는 이름으로 불러오는 문장을 쓰시오.
+
+<!--
+풀이와 해답:
+import numpy as np
+-->
+
+## 문제 2
+
+리스트 [1, 2, 3]으로 NumPy 배열을 만드는 표현을 쓰시오.
+
+<!--
+풀이와 해답:
+np.array([1, 2, 3])
+-->
+
+## 문제 3
+
+2행 3열의 0 배열을 만드는 표현을 쓰시오.
+
+<!--
+풀이와 해답:
+np.zeros((2, 3))
+-->

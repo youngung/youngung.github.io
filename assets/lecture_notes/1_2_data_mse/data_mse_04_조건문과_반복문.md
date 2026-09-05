@@ -1,20 +1,13 @@
 ---
 layout: distill
-title: 데이터 재료과학 (제 4강)
-description:
+title: 조건문과 반복문
+description: 조건 판단과 반복을 이용한 Python 프로그램 작성
 target: 1학년 2학기
 permalink:
 featured: true
-prerequisite: 재료공학개론1
+prerequisite: Python 기초 자료구조
 toc:
-#sidebar: left
-#- name: Orientation
-#- name: Week1
-#- name: Week2
-#- name: Week3
-#- name: Week4
-#- name: Week5
-#- name: Week6
+  sidebar: left
 
 mermaid:
   enabled: true
@@ -42,6 +35,10 @@ authors:
   - [5.5. a의 제곱근 구하기](#55-a의-제곱근-구하기)
   - [5.6. 주양자수 $n$에 의해 결정되는 부 양자수 $l,m\_l$ 출력하기.](#56-주양자수-n에-의해-결정되는-부-양자수-lm_l-출력하기)
   - [5.7. 임의의 10진법 수를 이진법으로 바꾸는 파이썬 script를 작성해보자.](#57-임의의-10진법-수를-이진법으로-바꾸는-파이썬-script를-작성해보자)
+- [쉬운 연습 문제](#쉬운-연습-문제)
+  - [문제 1](#문제-1)
+  - [문제 2](#문제-2)
+  - [문제 3](#문제-3)
 
 # 1. 목표:
 
@@ -51,7 +48,7 @@ authors:
 
 - 기본 구조 / 형식
 
-```python
+```text
 if 조건식1:
 	<명령문a>
 	<명령문b>
@@ -112,7 +109,7 @@ flowchart LR
 
 - 기본 구조
 
-  ```python
+  ```text
   ## 주의! 실행할 명령문1, 2, ... 줄은 들여쓰기로 구분됨.
   for <변수> in <반복가능객체>:
   	<실행할 명령문1>
@@ -197,8 +194,8 @@ for i in range(len(fruits)):  # 0 ~ len(fruits)-1
 specimen_lengths = [10.0, 12.3, 9.8, 11.5]  # cm
 
 for i in range(len(specimen_lengths)):
-length = specimen_lengths[i]
-   print(f"Specimen {i+1}: {length} cm")
+    length = specimen_lengths[i]
+    print(f"Specimen {i+1}: {length} cm")
 ```
 
 - 예시 3
@@ -240,7 +237,7 @@ for i, fruit in enumerate(fruits):
   a=[3,4,5,6,102,3,4,103,1,-10,3,-10]
   ```
   으로 주어진 리스트 `a`내에서 가장 큰 값과 가장 작은 값을
-  `for` 구문을 활요해 찾아보기.
+  `for` 구문을 활용해 찾아보기.
 
 ## 5.2. 2의 제곱근 구하기.
 
@@ -275,7 +272,7 @@ for i in range(5):
 
 ```python
 x=1. ## initial guess (0이어서는 안된다. 이유는?)
-for i in range(7):
+for n in range(7):
 	x=x-(x**2-3)/(2*x)
 	print(x)
 ```
@@ -284,7 +281,7 @@ for i in range(7):
 
 ```python
 x=1. ## initial guess (0이어서는 안된다. 이유는?)
-for i in range(7):
+for n in range(7):
 	x=x-(x**2-4)/(2*x)
 	print(x)
 ```
@@ -293,7 +290,7 @@ for i in range(7):
 
 - Algorithm (점화식)
 
-$$ x\_{n+1}=x_n-\frac{(x_n)^2-a}{2x_n} $$
+$$ x_{n+1}=x_n-\frac{(x_n)^2-a}{2x_n} $$
 
 ```python
 a=30 # a에 다른 숫자를 넣어서 반복해보자.
@@ -324,3 +321,32 @@ print('total number of electrons:',no_electrons)
 ```
 
 ## 5.7. 임의의 10진법 수를 이진법으로 바꾸는 파이썬 script를 작성해보자.
+
+# 쉬운 연습 문제
+
+## 문제 1
+
+변수 <code>x</code>가 0보다 큰지 검사하는 조건식을 쓰시오.
+
+<!--
+풀이와 해답:
+x > 0
+-->
+
+## 문제 2
+
+<code>for i in range(3)</code>에서 i가 차례로 갖는 값을 쓰시오.
+
+<!--
+풀이와 해답:
+0, 1, 2
+-->
+
+## 문제 3
+
+1부터 3까지의 정수를 출력하는 반복문의 첫 줄을 쓰시오.
+
+<!--
+풀이와 해답:
+for i in range(1, 4):
+-->

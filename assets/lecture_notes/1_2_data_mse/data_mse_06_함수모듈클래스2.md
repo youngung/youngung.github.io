@@ -1,20 +1,13 @@
 ---
 layout: distill
-title: 데이터 재료과학 (제 5강)
-description: 함수
+title: 함수와 클래스 활용
+description: 재료공학 계산 함수와 간단한 클래스
 target: 1학년 2학기
 permalink:
 featured: true
-prerequisite: 재료공학개론1
+prerequisite: 함수 기초
 toc:
-#sidebar: left
-#- name: Orientation
-#- name: Week1
-#- name: Week2
-#- name: Week3
-#- name: Week4
-#- name: Week5
-#- name: Week6
+  sidebar: left
 
 mermaid:
   enabled: true
@@ -75,7 +68,7 @@ myAl.add_structure('FCC')
 
   - 기본문법
 
-  ```python
+  ```text
   getattr(object, name[, default])
   ```
 
@@ -306,3 +299,32 @@ introduce(name="Alice", age=25, country="Korea")
 - 클래스로 객체를 만들때(instantiated) 주어진 응력에 대해 가장
   높은 분해 전단 응력 (Resolved shear stress)를 갖는 슬립계를
   찾도록 프로그램을 만들어 보자.
+
+# 쉬운 연습 문제
+
+## 문제 1
+
+길이 변화량과 초기 길이를 받아 공칭변형률을 반환하는 식을 쓰시오.
+
+<!--
+풀이와 해답:
+공칭변형률은 길이 변화량을 초기 길이로 나눈 값이다.
+-->
+
+## 문제 2
+
+클래스로 만든 객체가 가지는 데이터 값을 일반적으로 무엇이라고 하는가?
+
+<!--
+풀이와 해답:
+속성(attribute)이라고 한다.
+-->
+
+## 문제 3
+
+Young 계수 200 GPa와 탄성변형률 0.001을 곱해 응력을 구하라.
+
+<!--
+풀이와 해답:
+0.2 GPa, 즉 200 MPa이다.
+-->

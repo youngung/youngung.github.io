@@ -1,20 +1,13 @@
 ---
 layout: distill
-title: 데이터 재료과학 (제 7강)
-description: IO
+title: Matplotlib 응용
+description: 3차원 벡터와 극점도 시각화 기초
 target: 1학년 2학기
 permalink:
 featured: true
-prerequisite: 재료공학개론1
+prerequisite: Matplotlib 기초, 벡터 연산
 toc:
-#sidebar: left
-#- name: Orientation
-#- name: Week1
-#- name: Week2
-#- name: Week3
-#- name: Week4
-#- name: Week5
-#- name: Week6
+  sidebar: left
 
 mermaid:
   enabled: true
@@ -207,3 +200,32 @@ ax1.set_xlim(-d,d)
 ax1.set_ylim(-d,d)
 ax1.set_zlim(-d,d)
 ```
+
+# 쉬운 연습 문제
+
+## 문제 1
+
+3차원 벡터 $(0,0,1)$의 길이를 구하라.
+
+<!--
+풀이와 해답:
+1이다.
+-->
+
+## 문제 2
+
+극점도에서 하나의 점은 일반적으로 무엇의 방향을 나타내는가?
+
+<!--
+풀이와 해답:
+결정방향 또는 결정면 법선의 방향을 나타낸다.
+-->
+
+## 문제 3
+
+그래프에서 점만 표시할 때 사용할 수 있는 함수를 하나 쓰시오.
+
+<!--
+풀이와 해답:
+plt.scatter()를 사용할 수 있다.
+-->

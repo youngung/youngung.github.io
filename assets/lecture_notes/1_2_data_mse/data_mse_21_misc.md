@@ -1,3 +1,22 @@
+---
+layout: distill
+title: 데이터 재료과학 보충 실습
+description: 고유값과 데이터 분석을 포함한 보충 학습 자료
+target: 1학년 2학기
+permalink:
+featured: true
+prerequisite: NumPy, 벡터와 행렬 연산
+toc:
+  sidebar: left
+hidden: true
+tikzjax: true
+authors:
+  - name: Youngung Jeong
+    url: "https://youngung.github.io/"
+    affiliations:
+      name: Changwon National University
+---
+
 # 8. Week6
 
 - NumPy 03, Eigenvalue, ANN
@@ -17,9 +36,10 @@
   $$
 
   를 만족시키는 스칼라 $$\lambda$$ 값을 고유값이라 한다.
-  위 관계를 만족시키는 고유값 세개가 각각 $$\lambda_1,\lambda_2,\lambda_3$$라면
-  $$\lambda_1\boldsymbol{v},\lambda_2\boldsymbol{v},\lambda_3\boldsymbol{v}$$
-  를 고유 벡터라 한다.
+  3차원 행렬의 고유값이 $\lambda_1,\lambda_2,\lambda_3$이고 이에 대응하는
+  벡터가 각각 $\boldsymbol v_1,\boldsymbol v_2,\boldsymbol v_3$라면
+  $\boldsymbol A\boldsymbol v_i=\lambda_i\boldsymbol v_i$를 만족하는
+  $\boldsymbol v_i$를 고유벡터라 한다.
 
 ### 8.1.2. 선형 변환(linear transformation; linear map)
 
@@ -396,32 +416,21 @@ $$
     $$
 
     $$
-    y_i=\bigg(\sum_j^mW_{ij}x_j\bigg)+b_i=W_{ij}x_j+b_i \text{ with } i=1,2, ..., n
+    y_i=\bigg(\sum_{j=1}^mW_{ij}x_j\bigg)+b_i \qquad i=1,2,\ldots,n
     $$
 
     ```python
-    W=np.array([[1,2,3,4],[5,6,7,8]]) ## 2x4 행렬 (with n and m beging 2 and 4, respectively)
-    x=np.array([5.5,0.1,0.3,1.0])     ## 4 (nested 가 아님. 1차원 임에 유의)
-    b=np.array([-0.5,+0.5])
+    W = np.array([[1, 2, 3, 4], [5, 6, 7, 8]])
+    x = np.array([5.5, 0.1, 0.3, 1.0])
+    b = np.array([-0.5, 0.5])
 
     n=2
     m=4
-    y=np.zeros(n) # 주의 정수 n은 2이다.
-
-    for i in range(n): ## i=1,2,...,n
-    for j in range(m):
-      y[i]+=W[i,j]*x[j]+b[i]
-    print(y)
-    ## 위 표현은 틀렸다.
-    ## 올바른 표현의 예는 아래와 같다. 무엇이 고쳐졌는가?
-    n=2
-    m=4
-    y=np.zeros(n)
-    for i in range(n): ## i=1,2,...,n
-    y[i]+=b[i]
-    for j in range(m):
-      y[i]+=W[i,j]*x[j]
-    ## summation_j^m가 어디까지의 term에 적용되는지 정확히 알아야 함.
+    y = np.zeros(n)
+    for i in range(n):
+        y[i] += b[i]
+        for j in range(m):
+            y[i] += W[i, j] * x[j]
     print(y)
     ```
 
@@ -435,26 +444,15 @@ $$
   을 계산하여 리턴하는 함수를 만드시오.
 
   ```python
-  def neuron(w,x,b):
-  	  """
-  	  Arguments
-  	  ---------
-  	  W: ndarray
-  	   [m x n] matrix (weight)
-  	  b: ndarray
-  	   [n] vector (bias)
-
-  	  Returns
-  	  -------
-  	  W.x + b
-  	  """
-  	  n,m=w.shape() # tuple
-  	  y=np.zeros(n)
-  	  for i in range(n):
-  		y[i]+=b[i]
-  		for j in range(m):
-  		  y[i]+=w[i,j]*x[j]
-  	  return y
+  def neuron(w, x, b):
+      """Return w @ x + b."""
+      n, m = w.shape
+      y = np.zeros(n)
+      for i in range(n):
+          y[i] += b[i]
+          for j in range(m):
+              y[i] += w[i, j] * x[j]
+      return y
   ```
 
 - Activation
@@ -628,24 +626,19 @@ $$
   ax2=fig.add_subplot(132)
   ax3=fig.add_subplot(133,projection='3d')
 
-  ## grid points
+  ## grid points and function values
   ax1.scatter(xx,yy,c='k')
+  z=np.cos(xx)*yy+10
   mappable=ax2.contourf(xx,yy,z,cmap='jet')
   plt.colorbar(mappable,ax=ax2)
-  if True:
-  	#z=np.sqrt(xx**2+yy**2)
-  	z=np.cos(xx)*yy+10
-  	#z=np.log(np.abs(xx))*np.abs(yy)
+  # 3D surface
+  ax3.plot_surface(xx, yy, z, cmap='jet', alpha=0.5)
+  ax3.contour(xx, yy, z, offset=0, cmap='jet')
 
-  	## 3D surface
-  	ax3.plot_surface(xx,yy,z,cmap='jet',alpha=0.5)
-  	## colored 2D contour
-  	ax3.contour(xx,yy,z,offset=0,cmap='jet')
-
-  	for i in range(xn): ## x
-  		for j in range(yn): ## y
-  			ax1.text(xx[i,j],yy[i,j],f"z{i,j}={z[i,j]:.1f}",size=7,va='bottom',ha='center')
-
+  for i in range(xn):
+      for j in range(yn):
+          ax1.text(xx[i, j], yy[i, j], f"z{i,j}={z[i,j]:.1f}",
+                   size=7, va='bottom', ha='center')
   fig.tight_layout()
   for i, ax in enumerate([ax1,ax2,ax3]):
   	ax.set_xlabel('X'); ax.set_ylabel('Y')
@@ -902,3 +895,32 @@ plt.show()
 ## 17.1. 수업 15-1
 
 ## 17.2. 수업 15-2
+
+# 쉬운 연습 문제
+
+## 문제 1
+
+행렬 $\boldsymbol A$와 벡터 $\boldsymbol v$가 $\boldsymbol A\boldsymbol v=\lambda\boldsymbol v$를 만족할 때 $\lambda$를 무엇이라고 하는가?
+
+<!--
+풀이와 해답:
+고유값(eigenvalue)이라고 한다.
+-->
+
+## 문제 2
+
+단위행렬의 모든 고유값은 얼마인가?
+
+<!--
+풀이와 해답:
+1이다.
+-->
+
+## 문제 3
+
+NumPy에서 행렬의 고유값과 고유벡터를 구하는 함수를 쓰시오.
+
+<!--
+풀이와 해답:
+np.linalg.eig()이다.
+-->

@@ -1,20 +1,13 @@
 ---
 layout: distill
-title: 데이터 재료과학 (제 18강)
-description: IO
+title: SEM 영상 분석 기초
+description: SEM 영상의 명암 분포와 간단한 상 분리
 target: 1학년 2학기
 permalink:
 featured: true
-prerequisite: 재료공학개론1
+prerequisite: NumPy, Matplotlib
 toc:
-#sidebar: left
-#- name: Orientation
-#- name: Week1
-#- name: Week2
-#- name: Week3
-#- name: Week4
-#- name: Week5
-#- name: Week6
+  sidebar: left
 
 mermaid:
   enabled: true
@@ -166,3 +159,32 @@ ax2.imshow(img,cmap='gray')
   [imag1](/assets/dat_files/lectures/1_2_data_mse/centercenter.png)
   [imag2](/assets/dat_files/lectures/1_2_data_mse/edgecenter.png)
   [imag3](/assets/dat_files/lectures/1_2_data_mse/edgeedge.png)
+
+# 쉬운 연습 문제
+
+## 문제 1
+
+8-bit 회색조 영상의 밝기값 범위를 쓰시오.
+
+<!--
+풀이와 해답:
+0부터 255까지이다.
+-->
+
+## 문제 2
+
+회색조 영상에서 일반적으로 0과 255는 각각 어떤 색에 해당하는가?
+
+<!--
+풀이와 해답:
+0은 검정, 255는 흰색에 해당한다.
+-->
+
+## 문제 3
+
+영상의 밝기값 분포를 확인하는 그래프는 무엇인가?
+
+<!--
+풀이와 해답:
+히스토그램(histogram)이다.
+-->

@@ -1,11 +1,13 @@
 ---
 layout: distill
-title: 데이터 재료과학 (제 1강)
-description: 데이터 분석/해석 및 시각화(그래프) 등 기초 컴퓨터 활용 능력
+title: 데이터 재료과학 개요
+description: 데이터 재료과학 수업과 실습 환경 소개
 target: 1학년 2학기
 permalink:
 featured: true
 prerequisite: 재료공학개론1
+toc:
+  sidebar: left
 
 mermaid:
   enabled: true
@@ -50,7 +52,7 @@ authors:
   경험을 하게된다.
 
 - 관련 분야에서 가장 널리 활용되는 [Python](https://python.org) 언어를 활용하고,
-  [JuPyter](https://jupyter.org) 환경을 활용한다.
+  [Jupyter](https://jupyter.org) 환경을 활용한다.
 
 - 재료공학 전공자에게 필요한 데이터 분석, IO (input/output), 해석 및 시각화 (그래프)
  등 기초 컴퓨터활용 능력을 길러주기 위한 강의로 설계되었다. 본 교과목은 국립창원대학교
@@ -58,8 +60,8 @@ authors:
  이해를 위해서 선수강하길 권한다.
 
 - 교수자는 Apple사의 MacOS 컴퓨터를 활용해 MS사의
-[VScode](https://code.visualstudio.com)설치하고, 그 환경에서
-[JuPyter](https://jupyter.org) 활용하며, 강의자료는 본 웹페이지를 활용할 계획이다.
+[VS Code](https://code.visualstudio.com)설치하고, 그 환경에서
+[Jupyter](https://jupyter.org) 활용하며, 강의자료는 본 웹페이지를 활용할 계획이다.
 강의 시간에 보이는 시연/실습 환경과 무관하게, Windows, Linux 등 다양한 컴퓨터 환경에서
 동일한 실습이 원칙적으로 가능하다. 다만 실습이 가능한 환경을 마련하는 것은 개별 수강생들의
 몫이다. 필요하다면 수업 전후에 도움을 줄 수 있다.
@@ -73,7 +75,7 @@ authors:
 않습니다.
 - 수업 중간에 인터넷을 통해 몇몇 Python 패키지를 설치해야 할 수도 있으므로, 교내
   와이파이 접속 가능해야 한다.
-- VS code에 대해 상세히 알고 싶다면 [여기](https://code.visualstudio.com/docs)를 통해 알아보자. 영어로 된 문서가 부담스럽거나 어렵다면, 최신 웹브라우저들은 대부분 번역 기능을 제공하니 적극적으로 활용해보길 바란다.
+- VS Code에 대해 상세히 알고 싶다면 [여기](https://code.visualstudio.com/docs)를 통해 알아보자. 영어로 된 문서가 부담스럽거나 어렵다면, 최신 웹브라우저들은 대부분 번역 기능을 제공하니 적극적으로 활용해보길 바란다.
 
 
 - (optional) 스스로 프로그램을 작성하고, 더욱 세밀하게 관리하고 싶다면 [git](<https://ko.wikipedia.org/wiki/깃_(소프트웨어)>)을 배우고, 나아가 [GitHub](https://github.com) 계정을 만들고 결합하길 권한다.
@@ -83,7 +85,7 @@ authors:
 - 수강자의 기초 파이썬 활용 능력 향상
 - 최신 데이터 해석/분석 툴의 기초적 활용법을 익힘
   - [Python](https://python.org)
-  - [JuPyter](https://jupyter.org)
+  - [Jupyter](https://jupyter.org)
   - [NumPy](https://numpy.org)
   - [matplotlib](https://matplotlib.org)
 - 이를 활용해 재료공학 기초 문제 해결을 위해 활용 경험
@@ -215,7 +217,7 @@ pie title 평가 방법
 
 - 각 학생들마다 컴퓨터 환경 (Windows, MacOS, Linux, cloud ... 등등)이 다르므로
   본인의 컴퓨터 환경에 맞게 환경 세팅 필요하기.
-- 파이썬 설치 및 환경 설정 완성 (Python 3.12, [JuPyter](https://jupyter.org), [VS code](https://code.visualstudio.com), pip)
+- 파이썬 설치 및 환경 설정 완성 (Python 3.12, [Jupyter](https://jupyter.org), [VS Code](https://code.visualstudio.com), pip)
   - 설치 설명 참고 [링크](https://blog.naver.com/dlgusen123/223943489124)
 - [YouTube](https://youtube.com)에서 간단한 Python tutorial 영상 찾아서 보고 따라해보기.
 - 영문타자 익히기 - [여기1](https://www.typelit.io), [여기2](https://www.typing.com/student/lesson/328/common-english-words), [여기3](https://www.speedcoder.net)서 연습해보기.
@@ -224,3 +226,32 @@ pie title 평가 방법
 - [Google colab](https://colab.google)에서 Notebook 만들어 실습해보기.
 - [Google colab](https://colab.google)활용한다면 아이패드나 갤럭시 탭, 심지어는
   핸드폰(?)으로도 실습 가능하다. 계속 반복하여 설명하지만 여러 이유로 수강생 본인의 컴퓨터가 아닌 기기나 클라우드 활용은 추천하지 않는다.
+
+# 쉬운 연습 문제
+
+## 문제 1
+
+이 강의에서 주로 사용할 프로그래밍 언어는 무엇인가?
+
+<!--
+풀이와 해답:
+Python이다.
+-->
+
+## 문제 2
+
+Python 코드를 셀 단위로 실행할 수 있는 실습 환경을 하나 쓰시오.
+
+<!--
+풀이와 해답:
+Jupyter Notebook을 사용할 수 있다.
+-->
+
+## 문제 3
+
+수업 중 작성한 코드를 직접 실행하고 오류를 고쳐보아야 하는 이유를 한 문장으로 설명하라.
+
+<!--
+풀이와 해답:
+직접 실행하고 수정하는 과정에서 프로그램의 동작과 문제 해결 방법을 익힐 수 있기 때문이다.
+-->

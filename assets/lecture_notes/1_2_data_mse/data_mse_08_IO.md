@@ -1,20 +1,13 @@
 ---
 layout: distill
-title: 데이터 재료과학 (제 6강)
-description: IO
+title: 파일 입출력
+description: 파일과 경로, 문자열 포매팅 및 텍스트 입출력
 target: 1학년 2학기
 permalink:
 featured: true
-prerequisite: 재료공학개론1
+prerequisite: Python 기초 자료구조
 toc:
-#sidebar: left
-#- name: Orientation
-#- name: Week1
-#- name: Week2
-#- name: Week3
-#- name: Week4
-#- name: Week5
-#- name: Week6
+  sidebar: left
 
 mermaid:
   enabled: true
@@ -129,7 +122,7 @@ print("총 합은", val, "입니다.")
 
 ```python
 # 파일 쓰기
-with open("example.txt", "w" encoding="utf-8") as f:
+with open("example.txt", "w", encoding="utf-8") as f:
     f.write("Hi people in Changwon National University!\n")
     f.write("This is an example text file!\n")
 ```
@@ -317,12 +310,12 @@ myfile.close() # file 닫기
 `open`으로 생성한 뒤, 쓰임이 다하면 `close`메소드로 닫아야 한다. 따라서,
 `open`과 `close`는 짝으로 쓰일때가 많다. `open` 활용 이후
 `close`구문을 깜빡하지 않게 강제시켜주는 좋은 습관은 `with`구문을 함께 활용하는
-것이다. 아래 에제를 보자.
+것이다. 아래 예제를 보자.
 
 ```python
-with open('one2hund.txt','w') as myFile # file 열기
-   for i in range(1,101):
-      myfile.write(f'{i}\n') # write method 활용
+with open('one2hund.txt', 'w') as myfile:  # file 열기
+    for i in range(1, 101):
+        myfile.write(f'{i}\n')  # write method 활용
 ```
 
 with와 indented된 구역으로 나누어 구성되어, 더욱 세련되게 코드 작성을 도와주고 읽기 쉽게 만들어준다.
@@ -341,3 +334,32 @@ myfile = open('one2hund.txt','r') # file 열기
 cnt=myfile.read()
 print(cnt)
 ```
+
+# 쉬운 연습 문제
+
+## 문제 1
+
+텍스트 파일을 읽기 모드로 여는 표현을 <code>open</code>을 사용하여 쓰시오.
+
+<!--
+풀이와 해답:
+open("data.txt", "r")
+-->
+
+## 문제 2
+
+현재 작업 폴더를 확인하는 <code>os</code> 모듈 함수를 쓰시오.
+
+<!--
+풀이와 해답:
+os.getcwd()
+-->
+
+## 문제 3
+
+변수 <code>x=3</code>을 이용하여 문자열 <code>x = 3</code>을 만드는 f-string을 쓰시오.
+
+<!--
+풀이와 해답:
+f"x = {x}"
+-->

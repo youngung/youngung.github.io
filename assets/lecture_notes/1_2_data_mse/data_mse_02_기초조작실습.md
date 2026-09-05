@@ -1,20 +1,13 @@
 ---
 layout: distill
-title: 데이터 재료과학 (제 2강)
-description: 데이터 분석/해석 및 시각화(그래프) 등 기초 컴퓨터 활용 능력
+title: Python 기초 조작 실습
+description: VS Code, Jupyter와 Python 변수 및 연산 기초
 target: 1학년 2학기
 permalink:
 featured: true
-prerequisite: 재료공학개론1
+prerequisite: 데이터 재료과학 개요
 toc:
-#sidebar: left
-#- name: Orientation
-#- name: Week1
-#- name: Week2
-#- name: Week3
-#- name: Week4
-#- name: Week5
-#- name: Week6
+  sidebar: left
 
 mermaid:
   enabled: true
@@ -33,7 +26,7 @@ authors:
 - [1. 목표](#1-목표)
 - [2. Python 환경 확인](#2-python-환경-확인)
   - [2.1. 파이썬](#21-파이썬)
-  - [2.2. VS code에서 JuPyter 셋업 \& 구동되어 있는가?](#22-vs-code에서-jupyter-셋업--구동되어-있는가)
+  - [2.2. VS Code에서 Jupyter 셋업 \& 구동되어 있는가?](#22-vs-code에서-jupyter-셋업--구동되어-있는가)
   - [2.3 CLI (command line interface 기초)](#23-cli-command-line-interface-기초)
 - [Source / version control via Git](#source--version-control-via-git)
 - [3. 모듈 만들기 및 실습](#3-모듈-만들기-및-실습)
@@ -44,19 +37,23 @@ authors:
   - [6.2. 실습 예시 2-2](#62-실습-예시-2-2)
   - [6.3. 실습 예시 2-3](#63-실습-예시-2-3)
   - [6.4. 실습 예시 2-4](#64-실습-예시-2-4)
+- [쉬운 연습 문제](#쉬운-연습-문제)
+  - [문제 1](#문제-1)
+  - [문제 2](#문제-2)
+  - [문제 3](#문제-3)
 
 # 1. 목표
 
 - 원활한 강의 위한 선행 조건이 만족 되었는가?
   - Python 설치 완료?
   - Internet 환경 세팅 완료?
-  - VS code 설치 완료?
+  - VS Code 설치 완료?
 
 # 2. Python 환경 확인
 
 ## 2.1. 파이썬
 
-- 파이썬 설치 및 환경 설정 완성 (Python 3.12, [JuPyter](https://jupyter.org), [VS code](https://code.visualstudio.com), pip)이 되어 있고, terminal에서 다음과 같이 Python 환경 실행 가능한가?
+- 파이썬 설치 및 환경 설정 완성 (Python 3.12, [Jupyter](https://jupyter.org), [VS Code](https://code.visualstudio.com), pip)이 되어 있고, terminal에서 다음과 같이 Python 환경 실행 가능한가?
 
 - Windows 예시
 
@@ -81,7 +78,7 @@ authors:
   >>>
   ```
 
-## 2.2. VS code에서 JuPyter 셋업 & 구동되어 있는가?
+## 2.2. VS Code에서 Jupyter 셋업 & 구동되어 있는가?
 
 - 몇몇 유용한 extension을 설치하면 더욱 도움이 된다.
 - Check this [link](https://code.visualstudio.com/docs/python/python-tutorial)
@@ -131,7 +128,7 @@ authors:
 
 # 4. 간단한 조작 실습
 
-- JuPyter notebook 간단한 키조작 가능
+- Jupyter notebook 간단한 키조작 가능
 
 - 셀(cell) 만들기, 지우기, 입력, 이동(navigation)
   - 코드 셀
@@ -198,7 +195,7 @@ authors:
   - [NumPy](https://numpy.org)
   - [SciPy](https://scipy.org)
   - [matplotlib](https://matplotlib.org)
-  - [JuPyter](https://jupyter.org)
+  - [Jupyter](https://jupyter.org)
 
 ```bash
 $ pip install numpy scipy matplotlib jupyter
@@ -314,3 +311,32 @@ print(f"{c:.2f}C= {f:.2f}F")
   로 구했겠지만, 서로 다른량이 존재하므로 주어진 분율을 활용해야겠다. 즉
 
   $$\frac{w^{^{136}Ce}f^{^{136}Ce}+w^{^{138}Ce}f^{^{138}Ce}+w^{^{140}Ce}f^{^{140}Ce}+w^{^{142}Ce}f^{^{142}Ce}}{f^{^{136}Ce}+f^{^{138}Ce}+f^{^{140}Ce}+f^{^{142}Ce}}$$
+
+# 쉬운 연습 문제
+
+## 문제 1
+
+변수 <code>x</code>에 정수 5를 저장하는 Python 문장을 쓰시오.
+
+<!--
+풀이와 해답:
+x = 5
+-->
+
+## 문제 2
+
+Python에서 덧셈과 곱셈에 사용하는 연산자를 각각 쓰시오.
+
+<!--
+풀이와 해답:
+덧셈은 +, 곱셈은 *를 사용한다.
+-->
+
+## 문제 3
+
+<code>print(2 + 3)</code>의 출력값을 쓰시오.
+
+<!--
+풀이와 해답:
+5
+-->

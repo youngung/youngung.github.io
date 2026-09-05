@@ -1,20 +1,13 @@
 ---
 layout: distill
-title: 데이터 재료과학
-description: 데이터 분석/해석 및 시각화(그래프) 등 기초 컴퓨터 활용 능력
+title: 행렬 연산 기초
+description: NumPy를 이용한 행렬 연산과 broadcasting
 target: 1학년 2학기
 permalink:
 featured: true
-prerequisite: 재료공학개론1
+prerequisite: NumPy 배열 기초
 toc:
-  #sidebar: left
-  - name: Orientation
-  - name: Week1
-  - name: Week2
-  - name: Week3
-  - name: Week4
-  - name: Week5
-  - name: Week6
+  sidebar: left
 
 mermaid:
   enabled: true
@@ -381,3 +374,32 @@ scores=[5, 30, 20, 40, 10, 25]
 inds=np.argsort(scores)
 print(names[inds]) ## score에 따라 정렬된 배열
 ```
+
+# 쉬운 연습 문제
+
+## 문제 1
+
+2행 3열 행렬의 shape을 튜플로 쓰시오.
+
+<!--
+풀이와 해답:
+(2, 3)
+-->
+
+## 문제 2
+
+단위행렬과 벡터를 곱하면 어떤 결과가 나오는가?
+
+<!--
+풀이와 해답:
+원래 벡터가 나온다.
+-->
+
+## 문제 3
+
+NumPy에서 행렬곱에 사용하는 연산자를 쓰시오.
+
+<!--
+풀이와 해답:
+@ 연산자를 사용한다.
+-->

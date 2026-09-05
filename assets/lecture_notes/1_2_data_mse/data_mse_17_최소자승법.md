@@ -1,20 +1,13 @@
 ---
 layout: distill
-title: 데이터 재료과학 (제 17강)
-description: IO
+title: 최소제곱법
+description: 측정 데이터에 직선을 적합하는 최소제곱법
 target: 1학년 2학기
 permalink:
 featured: true
-prerequisite: 재료공학개론1
+prerequisite: NumPy, Matplotlib
 toc:
-#sidebar: left
-#- name: Orientation
-#- name: Week1
-#- name: Week2
-#- name: Week3
-#- name: Week4
-#- name: Week5
-#- name: Week6
+  sidebar: left
 
 mermaid:
   enabled: true
@@ -257,3 +250,32 @@ $$
     # obtain inverse matrix and multiply it with c
     a_lsq,b_lsq=np.linalg.inv(matrix)@c ## m^{-1} . c
     ```
+
+# 쉬운 연습 문제
+
+## 문제 1
+
+최소제곱법은 측정값과 예측값 사이의 어떤 양을 최소화하는가?
+
+<!--
+풀이와 해답:
+잔차 제곱의 합을 최소화한다.
+-->
+
+## 문제 2
+
+점들이 직선에 정확히 놓여 있으면 적합 결과의 잔차는 얼마인가?
+
+<!--
+풀이와 해답:
+모든 점에서 0이다.
+-->
+
+## 문제 3
+
+직선식 $y=ax+b$에서 $a$가 나타내는 값을 쓰시오.
+
+<!--
+풀이와 해답:
+직선의 기울기이다.
+-->

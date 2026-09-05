@@ -1,20 +1,13 @@
 ---
 layout: distill
-title: 데이터 재료과학
-description: 데이터 분석/해석 및 시각화(그래프) 등 기초 컴퓨터 활용 능력
+title: 행렬·벡터 연산과 Einstein 표기법
+description: 텐서 contraction과 NumPy einsum의 기초
 target: 1학년 2학기
 permalink:
 featured: true
-prerequisite: 재료공학개론1
+prerequisite: 벡터와 행렬 연산
 toc:
-  #sidebar: left
-  - name: Orientation
-  - name: Week1
-  - name: Week2
-  - name: Week3
-  - name: Week4
-  - name: Week5
-  - name: Week6
+  sidebar: left
 
 mermaid:
   enabled: true
@@ -467,7 +460,7 @@ Einstein 표기법에 따르면, 앞서 $\text{ with } i=1,2,3 $가 생략되었
 {% tab 내적 List1 %}
 
 ```python
-## Numpy없이 구현
+## NumPy없이 구현
 a=[1,2,3]
 b=[4,5,6]
 c=0.
@@ -480,7 +473,7 @@ print(c)
 {% tab 내적 List2 %}
 
 ```python
-## Numpy없이 구현
+## NumPy없이 구현
 a=[1,2,3]
 b=[4,5,6]
 c=0.
@@ -490,11 +483,11 @@ print(c)
 ```
 
 {% endtab %}
-{% tab 내적 Numpy %}
+{% tab 내적 NumPy %}
 
 ```python
 import numpy as np
-## Numpy로 구현
+## NumPy로 구현
 a=np.array([1,2,3])
 b=np.array([4,5,6])
 c=a*b  ## element-wise operation되는 것을 유념하라.
@@ -512,7 +505,7 @@ print(c)
 
 ```python
 import numpy as np
-## Numpy로 구현
+## NumPy로 구현
 a=np.array([1,2,3])
 b=np.array([4,5,6])
 np.einsum('i,i->',a,b)
@@ -523,7 +516,7 @@ np.einsum('i,i->',a,b)
 
 ```python
 import numpy as np
-## Numpy로 구현
+## NumPy로 구현
 a=np.array([1,2,3])
 b=np.array([4,5,6])
 print(np.einsum('i,i->',a,b))
@@ -788,3 +781,32 @@ C=np.einsum('ikl,lkj->ij',A,B)
 - 예시 ~~tetrahedral site & octaheral site 크기 구하기~~
 
 ---
+
+# 쉬운 연습 문제
+
+## 문제 1
+
+Einstein 합 규약에서 한 항에 같은 첨자가 두 번 나타나면 무엇을 의미하는가?
+
+<!--
+풀이와 해답:
+그 첨자에 대해 합을 취한다는 의미이다.
+-->
+
+## 문제 2
+
+$A_{ij}b_j$에서 자유첨자를 쓰시오.
+
+<!--
+풀이와 해답:
+i이다.
+-->
+
+## 문제 3
+
+NumPy에서 Einstein 표기법 계산에 사용하는 함수는 무엇인가?
+
+<!--
+풀이와 해답:
+np.einsum이다.
+-->
