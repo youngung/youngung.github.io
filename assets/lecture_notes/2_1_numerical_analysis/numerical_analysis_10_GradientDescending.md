@@ -17,10 +17,8 @@ toc:
   - [4.2. 손으로 계산하는 예제](#42-손으로-계산하는-예제)
 - [5. 학습률의 영향](#5-학습률의-영향)
 - [6. Python 구현](#6-python-구현)
-- [7. 선형 연립방정식과의 연결](#7-선형-연립방정식과의-연결)
-- [8. Newton 방법으로 가는 다리](#8-newton-방법으로-가는-다리)
-- [9. 정리](#9-정리)
-- [10. 연습 문제](#10-연습-문제)
+- [7. 정리](#7-정리)
+- [8. 연습 문제](#8-연습-문제)
 
 # 1. 학습 목표
 
@@ -307,7 +305,7 @@ x_min, history, n_iter = gradient_descent(
 )
 
 print("minimum point:", x_min)
-print("function value:", objective(x_min))
+print("function value:", objective(*x_min))
 print("iterations:", n_iter)
 ```
 
@@ -331,109 +329,78 @@ plt.legend()
 plt.show()
 ```
 
-`alpha`를 `0.02`, `0.2`, `0.49`, `0.51`로 바꾸어 경로와 수렴 여부를 비교해보자.
+같은 함수와 수렴 경로를 3차원 곡면 위에 나타내면 경사하강법이 함수값을
+줄여가는 과정을 더욱 직관적으로 확인할 수 있다.
 
-# 7. 선형 연립방정식과의 연결
+```python
+fig = plt.figure(figsize=(9, 7))
+ax = fig.add_subplot(111, projection="3d")
 
-$\boldsymbol A$가 대칭 양의 정부호(symmetric positive definite) 행렬이라고 하자.
-다음 이차함수를 정의한다.
+# 목적함수의 3차원 곡면
+surface = ax.plot_surface(
+    X,
+    Y,
+    Z,
+    cmap="viridis",
+    alpha=0.75,
+    edgecolor="none",
+)
 
-$$
-F(\boldsymbol x)
-=\frac{1}{2}\boldsymbol x^\mathsf{T}\boldsymbol A\boldsymbol x
--\boldsymbol b^\mathsf{T}\boldsymbol x
-$$
+# 각 반복점에서의 함수값
+z_history = np.array([objective(point) for point in history])
 
-$\boldsymbol A$가 대칭이므로 기울기는
+# 곡면에 가려지지 않도록 경로를 조금 위에 표시한다.
+z_offset = 0.02*Z.max()
+ax.plot(
+    history[:, 0],
+    history[:, 1],
+    z_history + z_offset,
+    "o-",
+    color="tab:red",
+    linewidth=2,
+    markersize=4,
+    label="gradient descent",
+)
 
-$$
-\nabla F(\boldsymbol x)=\boldsymbol A\boldsymbol x-\boldsymbol b
-$$
+ax.scatter(2.0, -1.0, z_offset, color="black", marker="*", s=120,
+           label="minimum")
+ax.set_xlabel("x")
+ax.set_ylabel("y")
+ax.set_zlabel("F(x, y)")
+ax.set_title("Gradient descent on a 3D objective surface")
+ax.view_init(elev=30, azim=-55)
+fig.colorbar(surface, ax=ax, shrink=0.6, pad=0.1, label="F(x, y)")
+ax.legend()
+plt.show()
+```
 
-이다. 최솟점에서 $\nabla F=\boldsymbol 0$이므로
+곡면을 반투명한 격자(mesh)로 강조하고 싶다면 `plot_surface` 대신 다음 코드를
+사용할 수 있다.
 
-$$
-\boldsymbol A\boldsymbol x=\boldsymbol b
-$$
+```python
+ax.plot_wireframe(X, Y, Z, rstride=8, cstride=8,
+                  color="tab:blue", alpha=0.5)
+```
 
-를 얻는다. 즉, 같은 선형 연립방정식을 두 관점에서 풀 수 있다.
+![imag](/assets/dat_files/lectures/2_1_numerical_analysis/GradientDescent_ex.png)
 
-- Gauss 소거법 또는 LU 분해: 유한한 단계로 직접 해를 계산한다.
-- 경사하강법: 잔차 $\boldsymbol r=\boldsymbol A\boldsymbol x-\boldsymbol b$를 이용하여 반복적으로 접근한다.
 
-이 경우 경사하강법의 반복식은
+- `alpha`를 `0.02`, `0.2`, `0.49`, `0.51`로 바꾸어 경로와 수렴 여부를 비교해보자.
 
-$$
-\boldsymbol x^{(k+1)}
-=\boldsymbol x^{(k)}-\alpha
-\left(\boldsymbol A\boldsymbol x^{(k)}-\boldsymbol b\right)
-$$
 
-가 된다. 큰 희소행렬에서는 모든 원소를 분해하여 저장하는 직접법보다 이러한
-반복법이 유리할 수 있다.
+# 7. 정리
 
-# 8. Newton 방법으로 가는 다리
-
-현재점 근처에서 $F$를 Taylor 전개하면
-
-$$
-F(\boldsymbol x+\boldsymbol p)
-\approx F(\boldsymbol x)
-+\nabla F(\boldsymbol x)^\mathsf{T}\boldsymbol p
-+\frac{1}{2}\boldsymbol p^\mathsf{T}
-\boldsymbol H(\boldsymbol x)\boldsymbol p
-$$
-
-이다. $\boldsymbol H$는 이계 편미분으로 이루어진 **Hessian 행렬**이다.
-
-경사하강법은 기울기만 사용하여
-
-$$
-\boldsymbol p=-\alpha\nabla F
-$$
-
-를 선택한다. Newton 최적화법은 곡률 정보까지 사용하여
-
-$$
-\boldsymbol H\boldsymbol p=-\nabla F,
-\qquad
-\boldsymbol x^{(k+1)}=\boldsymbol x^{(k)}+\boldsymbol p
-$$
-
-를 푼다. 여기서 다시 Gauss 소거법이나 LU 분해가 필요해진다.
-
-| 방법 | 사용하는 정보 | 한 반복의 계산량 | 일반적 특징 |
-|---|---|---:|---|
-| 경사하강법 | 기울기 | 작음 | 단순하지만 느릴 수 있음 |
-| Newton 최적화법 | 기울기와 Hessian | 큼 | 해 근처에서 매우 빠를 수 있음 |
-| 다변수 Newton--Raphson | 함수 벡터와 Jacobian | 큼 | 비선형 연립방정식의 근을 찾음 |
-
-다음 강의의 다변수 Newton--Raphson 방법에서는
-
-$$
-\boldsymbol J(\boldsymbol x^{(k)})\Delta\boldsymbol x
-=-\boldsymbol f(\boldsymbol x^{(k)})
-$$
-
-를 풀어 갱신량 $\Delta\boldsymbol x$를 계산한다. 오늘 배운 기울기처럼 Jacobian도
-여러 편미분을 행렬로 정리한 것이며, 선형 시스템을 푸는 과정에는 앞서 배운
-Gauss 소거법과 LU 분해가 사용된다.
-
-# 9. 정리
-
-- 기울기는 함수가 가장 빠르게 증가하는 방향을 나타낸다.
-- 경사하강법은 음의 기울기 방향으로 반복하여 이동한다.
+- 기울기(gradient)는 함수가 가장 빠르게 증가하는 방향을 나타낸다.
+- 경사하강법은 음의 기울기 방향(기울기의 반대 방향)으로 반복하여 이동한다.
 - 학습률은 수렴 속도와 안정성을 결정한다.
 - 종료 조건은 기울기의 크기, 위치의 변화, 함수값의 변화 등을 이용해 정한다.
-- 선형 시스템, 최적화, 다변수 Newton 방법은 미분과 선형대수로 서로 연결된다.
 
-# 10. 연습 문제
+# 8. 연습 문제
 
 1. $f(x,y)=x^2+4y^2-2x+8y$의 기울기와 해석적 최솟점을 구하라.
 2. 초기값 $(2,2)$와 학습률 $\alpha=0.1$을 사용하여 위 함수에 경사하강법을 세 번 적용하라.
 3. 같은 문제에서 $\alpha=0.01$, $0.1$, $0.3$일 때 함수값의 변화를 비교하라.
-4. 중앙차분을 사용하여 기울기를 수치적으로 근사하고 해석적 기울기와 비교하라.
-5. 다음 행렬과 벡터로 정의한 이차함수에 경사하강법을 적용하라.
+4. 다음 행렬과 벡터로 정의한 이차함수에 경사하강법을 적용하라.
 
    $$
    \boldsymbol A=
