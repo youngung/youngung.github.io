@@ -4,355 +4,527 @@ title: 수치해석
 description: 재료공학도를 위한 수치해석
 target: 2학년 1학기
 permalink:
-prerequisite: 재료공학개론1, 데이터 재료과학
+prerequisite: Newton–Raphson 방법 1, Taylor 급수
 toc:
-  0.1. sidebar: left
+  sidebar: left
 ---
 
-- [1. 뉴턴 랩슨 법 활용하는 방법](#1-뉴턴-랩슨-법-활용하는-방법)
-- [2. 테일러 급수로 부터 Newton-Raphson 방법을 도출할 수 있다.](#2-테일러-급수로-부터-newton-raphson-방법을-도출할-수-있다)
-  - [2.1. 1st order Newton-Raphson 식](#21-1st-order-newton-raphson-식)
-  - [2.2. 2nd order Newton-Raphson 식](#22-2nd-order-newton-raphson-식)
-- [3. 예제](#3-예제)
-  - [3.1. 방정식 $$x^2+x=10$$을 풀어보자.](#31-방정식-x2x10을-풀어보자)
-  - [3.2. 앞선 예제에서 초기값을 바꿔보고 그 영향을 살펴보자.](#32-앞선-예제에서-초기값을-바꿔보고-그-영향을-살펴보자)
-  - [3.3. **고급 예제**: 앞선 예제를 아래와 같이 2nd order Taylor expansion을 활용해 작성해보자.](#33-고급-예제-앞선-예제를-아래와-같이-2nd-order-taylor-expansion을-활용해-작성해보자)
-- [**고급 예제**: 임의의 2차 함수의 해를 찾는 script를 작성해보자.](#고급-예제-임의의-2차-함수의-해를-찾는-script를-작성해보자)
-- [**고급 예제**: CLI 환경에서 $a,b,c$ 를 줬을 때, $ax^2+bx+c=0$의 해를 찾는 모듈을 만들어보자.](#고급-예제-cli-환경에서-abc-를-줬을-때-ax2bxc0의-해를-찾는-모듈을-만들어보자)
+- [1. 학습 목표](#1-학습-목표)
+- [2. Newton–Raphson 방법 복습](#2-newtonraphson-방법-복습)
+- [3. Taylor 전개를 이용한 유도](#3-taylor-전개를-이용한-유도)
+- [4. 수렴이 빠른 이유](#4-수렴이-빠른-이유)
+- [5. 예제: $x^2+x=10$](#5-예제-x2x10)
+  - [5.1. 반복식](#51-반복식)
+  - [5.2. 초기값의 영향](#52-초기값의-영향)
+  - [5.3. Python 구현](#53-python-구현)
+- [6. 실패할 수 있는 경우](#6-실패할-수-있는-경우)
+  - [6.1. 도함수가 0인 경우](#61-도함수가-0인-경우)
+  - [6.2. 근 사이에서 반복하는 경우](#62-근-사이에서-반복하는-경우)
+  - [6.3. 정의역을 벗어나는 경우](#63-정의역을-벗어나는-경우)
+- [7. 이계도함수를 이용하는 방법](#7-이계도함수를-이용하는-방법)
+  - [7.1. 2차 Taylor 모델](#71-2차-taylor-모델)
+  - [7.2. Halley 방법](#72-halley-방법)
+- [8. Newton 방법과 Halley 방법 비교](#8-newton-방법과-halley-방법-비교)
+- [9. 정리](#9-정리)
+- [10. 연습 문제](#10-연습-문제)
 
+# 1. 학습 목표
 
-# 1. 뉴턴 랩슨 법 활용하는 방법
+이번 강의가 끝나면 다음을 할 수 있어야 한다.
 
-- 아래 형태의 함수의 답, 즉 $f=0$을 만족하는 $x$값을 구하고 싶을 때 사용할 수 있다.
+- Taylor 전개에서 Newton–Raphson 반복식을 유도할 수 있다.
+- Newton–Raphson 방법이 근 근처에서 빠르게 수렴하는 이유를 설명할 수 있다.
+- 초기값을 바꾸어 서로 다른 근을 구할 수 있다.
+- Newton–Raphson 방법이 실패할 수 있는 경우를 설명할 수 있다.
+- 2차 Taylor 모델과 Halley 방법을 표준 Newton 방법과 구분할 수 있다.
 
-$$f(x)=0$$
+# 2. Newton–Raphson 방법 복습
 
-- 따라서, 문제의 방정식을 위와 같은 형태로 바꿔 표현할 수 있다면, Newton-Raphson 방법을 활용해 해를 구할 수 있다.
-
-- 예: $x^2=2$ 의 해를 구하기 위해서는
-
-$$f(x)=x^2-2=0$$
-
-위의 해를 구하면 되겠다.
-
-- Bisection method는 항상 해를 구할 수 있지만, Newton Raphson은 가끔 해를 못구할 때도 (해를 구하는데 실패할 수) 있다.
-
-- 하지만 Bisection method에 비해 훨씬 빠르게 해를 찾을 수 있다.
-
-- '접선'을 활용해 해를 빠르게 찾아간다.
-
-- 미지수가 둘 이상은 경우에도 활용가능하다 (Advanced). 따라서, 벡터 함수에도 적용가능하다.
-
-- $f(x,y)=0$ 혹은 $\boldsymbol f(\boldsymbol v)=0$ 에도 활용 가능.
-
-# 2. 테일러 급수로 부터 Newton-Raphson 방법을 도출할 수 있다.
-
-- [테일러 급수(Taylor series)](https://ko.wikipedia.org/wiki/테일러_급수)로부터
- [Newton Raphson](https://ko.wikipedia.org/wiki/뉴턴_방법) 방법 도출
-
-- 함수 $f(x)$ 의 테일러 급수에 의하면
-
-$f(x)=\sum_{n=0}$
-
-$$
-f(x)=\sum_{n=0}^{\infty}\frac{f^{(n)}(a)}{n!}(x-a)^n
-=f(a)+f^\prime(a)(x-a)+\frac{1}{2}f^{\prime\prime}(a)(x-a)^2+\frac{1}{6}f^{\prime\prime\prime}(a)(x-a)^3 + ...
-$$
-
-- Example of $f(x)=x^2$ 의 경우?
-
-$$
-f(x)=x^2
-$$
-
-$$
-f^\prime(x)=2x
-$$
-
-$$
-f^{\prime\prime}(x)=2
-$$
-
-$$
-f^{\prime\prime\prime}(x)=0.
-$$
-
-- 따라서, 이어서 나오는 고차 항의 도함수는 0이 되며 기여하는 바가 없게 된다.
-다시 테일러 급수의 정의를 따라,
-
-- $a=0$ 일 때의 경우(Maclaurin series)를 살펴보면
-
-$$
-f(x)=f(0)+f^\prime(0)x+\frac{1}{2}f^{\prime\prime}(0)x^2
-\newline
-=0+0\times x+1/2\times 2\times x^2=x^2
-$$
-
-- $a=1$일 때의 경우에는?
-
-$$
-f(x)=f(1)+f^\prime(1)(x-1)+\frac{1}{2}f^{\prime\prime}(1)(x-1)^2
-\newline
-=1+2(x-1)+(x-1)^2
-\newline
-=1+2x-2+x^2-2x+1=x^2
-$$
-
-- Newton-Raphson 식 도출 (1st order)
+방정식
 
 $$
 f(x)=0
 $$
 
-을 풀이하는 문제가 있다 가정하자. 이때 이를 위 의 $$a$$값을 $$x_n$$라 놓고 풀면
+의 근을 구하기 위한 Newton–Raphson 반복식은 다음과 같다.
 
 $$
-f(x)=f(x_n)+f^\prime(x_n)(x-x_n)+\frac{1}{2}f^{\prime\prime}(x_n)(x-x_n)^2+ ...
+\boxed{
+x_{k+1}=x_k-\frac{f(x_k)}{f'(x_k)}
+}
 $$
 
-## 2.1. 1st order Newton-Raphson 식
-여기서 $n=1$까지 항만 고려한다면..
+현재 근삿값 $x_k$에서 접선을 그리고, 그 접선이 $x$축과 만나는 점을 다음
+근삿값 $x_{k+1}$로 사용한다. 좋은 초기값에서 시작하면 이분법보다 훨씬 적은
+반복으로 정확한 근삿값을 얻을 수 있다.
+
+다만 다음 조건을 자동으로 만족하는 것은 아니다.
+
+- 반복값이 항상 근에 가까워진다는 보장은 없다.
+- 반복 중 $f^{\prime}(x_k)=0$이면 다음 값을 계산할 수 없다.
+- 여러 근이 있으면 초기값에 따라 서로 다른 근으로 수렴할 수 있다.
+- 반복값이 로그나 제곱근 함수의 정의역을 벗어날 수 있다.
+
+# 3. Taylor 전개를 이용한 유도
+
+함수 $f(x)$를 현재 근삿값 $x_k$ 주변에서 Taylor 전개하면
 
 $$
-f(x)\approx f(x_n)+f^\prime(x_n)(x-x_n)
+f(x_k+h)
+=f(x_k)+f'(x_k)h
++\frac{1}{2}f''(x_k)h^2
++\frac{1}{6}f'''(x_k)h^3+\cdots
 $$
 
-우리가 풀이하고자 하는 조건에 의하면 $f(x)=0$ 이므로
+이다. 여기서
 
 $$
-0\approx f(x_n)+f^\prime(x_n)(x-x_n)
+h=x-x_k
 $$
 
-따라서 $x$에 대해 풀이하면
+는 현재점에서 새로운 점까지의 변화량이다.
+
+Newton–Raphson 방법은 1차항까지만 사용하여 함수를 접선으로 근사한다.
 
 $$
--\frac{f(x_n)}{f^\prime(x_n)}\approx x-x_n
+f(x_k+h)\approx f(x_k)+f'(x_k)h
 $$
 
-아래가 도출된다.
+새로운 점이 근이라고 가정하여 왼쪽을 0으로 놓으면
 
 $$
-\rightarrow x\approx x_n-\frac{f(x_n)}{f^\prime(x_n)}
+0\approx f(x_k)+f'(x_k)h
 $$
 
-이 때 근사된 $$x$$을 다음번 추측값 $$x_{n+1}$$이라 하면 Newton-Raphson에 활용되는 반복식이 얻어진다.
-
-
-## 2.2. 2nd order Newton-Raphson 식
-
-- Taylor 공식에서 2차 오더까지 사용하면 어떠한 Newton-Raphson식이 도출되나?
-- 도출
+이고,
 
 $$
-f(x)\approx f(x_n)+f^\prime(x_n)(x-x_n)+\frac{1}{2}f^{\prime\prime}(x_n)(x-x_n)^2
+h\approx-\frac{f(x_k)}{f'(x_k)}
 $$
 
-급수의 중심을 바꾸기 위해 $h$값을 아래와 같이 도입하자
+을 얻는다. 따라서 $x_{k+1}=x_k+h$를 사용하면
 
 $$
-h=x-x_n
+x_{k+1}=x_k-\frac{f(x_k)}{f'(x_k)}
 $$
 
-그러면 2차항까지의 테일러 급수가 아래와 같이 표현된다.
+이 된다. 접선을 이용한 기하학적 설명과 Taylor 1차 근사는 같은 반복식을 준다.
+
+# 4. 수렴이 빠른 이유
+
+참근을 $x^{\ast}$라고 하고 $f(x^{\ast})=0$,
+$f^{\prime}(x^{\ast})\ne0$인 **단순근**이라고 하자.
+근에 충분히 가까운 곳에서 Newton–Raphson 방법을 적용하면 대략
 
 $$
-f(x_n+h)\approx f(x_n)+f^\prime(x_n)h+\frac{1}{2}f^{\prime\prime}(x_n)h^2
+|x^*-x_{k+1}|\approx
+C|x^*-x_k|^2
 $$
 
-그 다음 좌항이 0이 되면
+의 관계가 나타난다. 여기서 $C$는 함수와 근에 따라 결정되는 상수이다.
+즉, 현재 오차가 작을 때 다음 오차는 현재 오차의 제곱에 비례한다. 이를
+**이차수렴(quadratic convergence)**이라고 한다.[^quadratic-convergence]
 
-$$
-0\approx f(x_n)+f^\prime(x_n)h+\frac{1}{2}f^{\prime\prime}(x_n)h^2
-$$
+예를 들어 현재 오차가 약 $10^{-2}$라면 다음 오차는 대략 $10^{-4}$ 크기,
+그다음 오차는 대략 $10^{-8}$ 크기로 줄어들 수 있다. 이 성질은 초기값이
+근에 충분히 가깝고 도함수가 0이 아닌 경우에 기대할 수 있다.
 
-$h$에 대한 2차 방정식이므로, 근의 공식을 사용하면
+# 5. 예제: $x^2+x=10$
 
-$$
-h=\frac{-f^\prime(x_n)\pm\sqrt{[f^\prime(x_n)]^2-2f(x_n)f^{\prime\prime}(x_n)}}{f^{\prime\prime}(x_n)}
-$$
-
-위 계산으로 구해진 $h$를 활용해서
-
-$$
-x_{n+1}=x_{n}+h
-$$
-
-- 주의: 근의 공식에 따른 두 $h$값 중에 무엇을 선택해야 하나? 대부분의 경우 두 값을 비교하여 더욱 작은 $h$값을 활용한다.
-
-# 3. 예제
-
-## 3.1. 방정식 $$x^2+x=10$$을 풀어보자.
-
-- 우선 $$f(x)=0$$ 형태로 바꿔 표현하면,
+방정식을 $f(x)=0$ 형태로 바꾸면
 
 $$
 f(x)=x^2+x-10=0
 $$
 
-혹은
+이고 도함수는
 
 $$
-f(x)=-x^2-x+10=0
+f'(x)=2x+1
 $$
 
-이 된다. 사실 어느 쪽을 고르나 동일한 알고리듬이 적용 가능하다. 전자의 경우를 선택하고
-파이썬으로 함수 $f(x)$를 표현해보자.
-
-```python
-def func(x):
-    return x**2+x-10
-```
-
-풀이에 의하면 함수의 도함수 $f^\prime(x)$도 필요하다. 따라서,
+이다. 이 방정식의 정확한 두 근은
 
 $$
-f^\prime(x)=\frac{\partial f(x)}{\partial x}=2x+1
+x=\frac{-1\pm\sqrt{41}}{2}
 $$
 
-파이썬으로 표현하자면
+이다.
 
-```python
-def fprime(x):
-    return 2*x+1
-```
+## 5.1. 반복식
 
-이를 활용해 아래 알고리듬에 대입하면
+Newton–Raphson 반복식은 다음과 같다.
 
 $$
-x_{n+1}\leftarrow x_n-\frac{f(x_n)}{f^\prime(x_n)}
+x_{k+1}
+=x_k-\frac{x_k^2+x_k-10}{2x_k+1}
 $$
 
-```python
-x=1 # initial guess
-x=x-func(x)/fprime(x)
-```
+초기값 $x_0=1$에서 계산하면 다음과 같다.
 
-여기에 tolerance를 추가한다면
+| $k$ | $x_k$ | $|f(x_k)|$ |
+|---:|---:|---:|
+| 0 | 1.000000000 | 8.000000000 |
+| 1 | 3.666666667 | 7.111111111 |
+| 2 | 2.813333333 | 0.728177778 |
+| 3 | 2.703447351 | 0.012074929 |
+| 4 | 2.701562673 | $3.5520\times10^{-6}$ |
+| 5 | 2.701562119 | $3.09\times10^{-13}$ |
 
-```python
-x=1 # initial guess
-tol=1e-10
-err=abs(func(x))
-while err>tol:
-    x=x-func(x)/fprime(x)
-    err=abs(func(x))
-```
-
-## 3.2. 앞선 예제에서 초기값을 바꿔보고 그 영향을 살펴보자.
-
-## 3.3. **고급 예제**: 앞선 예제를 아래와 같이 2nd order Taylor expansion을 활용해 작성해보자.
+양의 근
 
 $$
-h=\frac{-f^\prime(x_n)\pm\sqrt{[f^\prime(x_n)]^2-2f(x_n)f^{\prime\prime}(x_n)}}{f^{\prime\prime}(x_n)}
+x^*=\frac{-1+\sqrt{41}}{2}\approx2.701562119
 $$
 
-위 계산으로 구해진 $h$를 활용해서
+에 빠르게 가까워지는 것을 확인할 수 있다.
+
+## 5.2. 초기값의 영향
+
+같은 함수에서 $x_0=-5$로 시작하면 음의 근으로 수렴한다.
 
 $$
-x_{n+1}=x_{n}+h
+x^*=\frac{-1-\sqrt{41}}{2}\approx-3.701562119
 $$
 
-- 아래는 Halley's method으로 알려진 방법이다.
+$x_0=1$은 양의 근에, $x_0=-5$는 음의 근에 비교적 가까운 초기값이다.
+초기값은 반복 과정과 최종적으로 도달하는 근을 결정할 수 있다. 두 초기값의
+계산 결과는 다음 절의 코드로 직접 확인한다.
 
-$$
-x_{n+1}=x_n-\frac{2f(x_n)f^\prime(x_n)}{2[f^\prime(x_n)]^2-f(x_n)f^{\prime\prime}(x_n)}
-$$
+## 5.3. Python 구현
 
-이를 활용해
+앞 강의에서 작성한 **newton_raphson** 함수를 다시 정의하여 사용한다.
 
-$$
-f(x)=\cos(x)e^{3x}-3=0
-$$
-
-을 만족하는 $x$값을 구하시오.
-
-- 1st and 2nd order Newton-Raphson과 Halley's method 비교 예제
-
-```python
-import matplotlib.pyplot as plt
+~~~python
 import numpy as np
+import matplotlib.pyplot as plt
+
+def newton_raphson(f, df, x0, tol=1e-10, max_iter=50):
+    x = float(x0)
+    history = [x]
+
+    for iteration in range(max_iter+1):
+        fx = f(x)
+
+        if abs(fx) <= tol:
+            return x, iteration, history
+
+        if iteration == max_iter:
+            break
+
+        dfx = df(x)
+        if abs(dfx) < 1e-14:
+            raise ZeroDivisionError("도함수가 0에 너무 가까워 계산할 수 없습니다.")
+
+        x = x-fx/dfx
+        history.append(x)
+
+    raise RuntimeError("최대 반복 횟수 안에 수렴하지 않았습니다.")
 
 def f(x):
-    return np.cos(x)*np.exp(3*x)-3
-def fp(x):
-    return np.cos(x)*np.exp(3*x)*3-np.sin(x)*np.exp(3*x)
-def fpp(x):
-    return -np.sin(x)*np.exp(3*x)*3+np.cos(x)*np.exp(3*x)*9
-def h(x): # 2nd order NR
-    F=f(x)
-    p=fp(x)
-    pp=fpp(x)
+    return x**2+x-10
 
-    det=p**2-2*F*pp
-    det=np.sqrt(det)
-    h1=-p+det
-    h1=h1/pp
+def df(x):
+    return 2*x+1
 
-    h2=-p-det
-    h2=h2/pp
-    if abs(h1)<abs(h2): return h1
-    else: return h2
+root, iterations, history = newton_raphson(f, df, x0=1.0)
 
-def Halley(x): ## Halley's term
-    F=f(x)
-    p=fp(x)
-    pp=fpp(x)
-    return 2*F*p/(2*p**2-F*pp)
+print("root:", root)
+print("f(root):", f(root))
+print("iterations:", iterations)
 
-xs=np.linspace(-2.5,1)
-ys=f(xs)
+for x0 in [1.0, -5.0]:
+    root, iterations, history = newton_raphson(f, df, x0)
+    print("x0 =", x0, "root =", root, "iterations =", iterations)
+~~~
 
-fig=plt.figure(figsize=(7,3))
-ax1=fig.add_subplot(121)
-ax2=fig.add_subplot(122)
-ax1.plot(xs,ys)
+반복에 따른 잔차를 그려보자.
 
-xinit=-0.1
-tol=1e-10
-## Newton Raphson
-x=xinit
-err=tol*2
-i=0
-while err>tol:
-ax1.plot(x,f(x),'ko',mfc='None')
-ax2.plot(i,f(x),'ko')
-x+=-f(x)/fp(x)
-err=abs(f(x))
-i+=1
+~~~python
+root, iterations, history = newton_raphson(f, df, x0=1.0)
+history = np.array(history)
+residuals = np.abs(f(history))
 
-## 2nd order
-x=xinit
-err=tol*2
-i=0
-while err>tol:
-ax1.plot(x,f(x),'r+')
-ax2.plot(i,f(x),'r+')
-x+=+h(x) # here it is + sign.
-err=abs(f(x))
-i+=1
+plt.semilogy(range(len(history)), residuals, "o-")
+plt.xlabel("iteration")
+plt.ylabel(r"$|f(x_n)|$")
+plt.grid()
+plt.show()
+~~~
 
-## Halley's method
-## 2nd order
-x=xinit
-err=tol*2
-i=0
-while err>tol:
-print(i,x)
-ax1.plot(x,f(x),'bx')
-ax2.plot(i,f(x),'bx')
-x-=Halley(x) # note the minus sign here!
-err=abs(f(x))
-i+=1
-```
+# 6. 실패할 수 있는 경우
 
+## 6.1. 도함수가 0인 경우
 
+$f(x)=x^3-1$에서 $x_0=0$을 선택하면
 
+$$
+f'(x)=3x^2,
+\qquad
+f'(0)=0
+$$
 
+이므로 첫 번째 반복을 계산할 수 없다.
 
-# **고급 예제**: 임의의 2차 함수의 해를 찾는 script를 작성해보자.
-- 해석적 해와 수치적해를 비교해보자.
-- 수치적 해를 구하는 방법은 위에서 배운 Newton-Raphson 방법을 활용하면 된다.
+## 6.2. 근 사이에서 반복하는 경우
 
-# **고급 예제**: CLI 환경에서 $a,b,c$ 를 줬을 때, $ax^2+bx+c=0$의 해를 찾는 모듈을 만들어보자.
+함수와 초기값에 따라 반복값이 두 점 사이를 계속 오갈 수도 있다. 예를 들어
 
-- CLI 환경에서 입력값을 주는 방법은 다양하다. 그 중에서 argpase를 활용하는 방법을 추천한다.
+$$
+f(x)=x^3-2x+2
+$$
+
+에 $x_0=0$을 사용하면
+
+$$
+x_1=1,
+\qquad
+x_2=0,
+\qquad
+x_3=1,\ldots
+$$
+
+이 되어 수렴하지 않는다.
+
+## 6.3. 정의역을 벗어나는 경우
+
+$f(x)=\ln x-1$은 $x>0$에서만 정의된다. 반복값이 0 이하가 되면 함수값과
+도함수를 계산할 수 없다.
+
+Newton–Raphson 방법을 사용할 때는 그래프를 그려 근의 위치를 예상하고, 반복 횟수의
+상한을 두며, 도함수와 함수의 정의역을 확인해야 한다.
+
+# 7. 이계도함수를 이용하는 방법
+
+## 7.1. 2차 Taylor 모델
+
+Taylor 전개의 2차항까지 유지하면
+
+$$
+f(x_n+h)
+\approx f(x_n)+f'(x_n)h+\frac{1}{2}f''(x_n)h^2
+$$
+
+이다. 오른쪽을 0으로 놓고 $h$에 관한 이차방정식을 풀면
+
+$$
+h=
+\frac{-f'(x_n)\pm
+\sqrt{[f'(x_n)]^2-2f(x_n)f''(x_n)}}
+{f''(x_n)}
+$$
+
+을 얻는다. 이를 이용한 갱신은
+
+$$
+x_{n+1}=x_n+h
+$$
+
+이다.
+
+이 방법은 표준 Newton–Raphson 방법과 구분해야 한다. 다음과 같은 추가 문제가 있다.
+
+- 두 해 중 어느 $h$를 선택할지 정해야 한다.
+- 판별식이 음수이면 실수 범위에서 $h$를 계산할 수 없다.
+- $f^{\prime\prime}(x_n)=0$이면 위 식을 직접 사용할 수 없다.
+- 제곱근을 포함하므로 반올림에 의한 소거 오차가 생길 수 있다.
+
+따라서 이번 강의에서는 개념적인 2차 근사로 이해하고, 기본 근 찾기에는 표준
+Newton–Raphson 방법을 사용한다.
+
+## 7.2. Halley 방법
+
+이계도함수를 이용하는 대표적인 근 찾기 방법으로 Halley 방법이 있다.
+
+$$
+\boxed{
+x_{n+1}
+=x_n-
+\frac{2f(x_n)f'(x_n)}
+{2[f'(x_n)]^2-f(x_n)f''(x_n)}
+}
+$$
+
+Halley 방법은 조건이 좋으면 근 근처에서 삼차수렴을 보일 수 있지만, 이계도함수를
+계산해야 하고 분모가 0에 가까워질 수 있다는 단점이 있다. 따라서 Newton 방법보다
+항상 효율적인 것은 아니다.
+
+# 8. Newton 방법과 Halley 방법 비교
+
+$f(x)=x^3-2$의 양의 근을 $x_0=1$에서 구해보자.
+
+$$
+f'(x)=3x^2,
+\qquad
+f''(x)=6x
+$$
+
+~~~python
+def f(x):
+    return x**3-2
+
+def df(x):
+    return 3*x**2
+
+def ddf(x):
+    return 6*x
+
+def halley(f, df, ddf, x0, tol=1e-10, max_iter=50):
+    x = float(x0)
+    history = [x]
+
+    for iteration in range(max_iter+1):
+        fx = f(x)
+
+        if abs(fx) <= tol:
+            return x, iteration, history
+
+        if iteration == max_iter:
+            break
+
+        dfx = df(x)
+        ddfx = ddf(x)
+        denominator = 2*dfx**2-fx*ddfx
+
+        if abs(denominator) < 1e-14:
+            raise ZeroDivisionError("분모가 0에 너무 가까워 계산할 수 없습니다.")
+
+        x = x-2*fx*dfx/denominator
+        history.append(x)
+
+    raise RuntimeError("최대 반복 횟수 안에 수렴하지 않았습니다.")
+
+root_newton, n_newton, hist_newton = newton_raphson(f, df, 1.0)
+root_halley, n_halley, hist_halley = halley(f, df, ddf, 1.0)
+
+print("Newton:", root_newton, n_newton)
+print("Halley:", root_halley, n_halley)
+~~~
+
+허용 잔차를 $10^{-10}$으로 설정하면 일반적인 배정밀도 환경에서 Newton 방법은
+5회, Halley 방법은 3회 갱신하여 $\sqrt[3]{2}\approx1.25992105$에 도달한다.
+한 반복 횟수만 비교하기보다 각 반복에 필요한 도함수 계산 비용도 함께 고려해야 한다.
+
+# 9. 정리
+
+- Newton–Raphson 방법은 Taylor 전개의 1차항까지 사용한 근사에서 유도할 수 있다.
+- 단순근 근처에서는 오차가 제곱에 비례하여 줄어드는 이차수렴을 기대할 수 있다.
+- 초기값에 따라 다른 근에 수렴하거나 수렴에 실패할 수 있다.
+- 2차 Taylor 모델을 직접 푸는 방법은 표준 Newton–Raphson 방법과 다르다.
+- Halley 방법은 이계도함수를 사용하며 조건이 좋으면 삼차수렴할 수 있다.
+
+# 10. 연습 문제
+
+강의의 식을 직접 적용하는 기초 문제이다.
+
+1. 다음 빈칸을 채워라.
+
+   $$
+   f(x_n+h)
+   \approx f(x_n)+(　　　　　　　　)h
+   $$
+
+   이 식에서 $f(x_n+h)=0$으로 놓으면
+
+   $$
+   h\approx-\frac{(　　　　　　　　)}{(　　　　　　　　)}
+   $$
+
+   을 얻는다.
+
+   <!--
+   풀이 및 정답:
+   첫 번째 빈칸은 f'(x_n)이다. h=-f(x_n)/f'(x_n)이므로 다음 두 빈칸은
+   각각 f(x_n), f'(x_n)이다.
+   -->
+
+2. $f(x)=x^2+x-10$의 도함수를 구하고, $x_0=1$에서 $x_1$을 계산하라.
+
+   <!--
+   풀이 및 정답:
+   f'(x)=2x+1이다.
+   x_1=1-(1^2+1-10)/(2×1+1)=1-(-8)/3=11/3≈3.6667이다.
+   -->
+
+3. 같은 함수에서 $x_1=11/3$일 때 $x_2$를 계산하라.
+
+   <!--
+   풀이 및 정답:
+   f(11/3)=64/9이고 f'(11/3)=25/3이다.
+   x_2=11/3-(64/9)/(25/3)=11/3-64/75=211/75≈2.8133이다.
+   -->
+
+4. $f(x)=x^3-1$과 초기값 $x_0=0$에서 Newton–Raphson 반복식을 바로
+   적용할 수 없는 이유를 설명하라.
+
+   <!--
+   풀이 및 정답:
+   f'(x)=3x^2이고 f'(0)=0이다. 반복식에서 f'(x_0)로 나누어야 하므로
+   분모가 0이 되어 계산할 수 없다.
+   -->
+
+5. $f(x)=x^3-2x+2$와 $x_0=0$에 대해 $x_1$과 $x_2$를 계산하라.
+
+   <!--
+   풀이 및 정답:
+   f'(x)=3x^2-2이다.
+   x_1=0-f(0)/f'(0)=0-2/(-2)=1이다.
+   x_2=1-f(1)/f'(1)=1-1/1=0이다.
+   따라서 0과 1 사이를 반복하여 수렴하지 않는다.
+   -->
+
+6. 다음 설명이 Newton 방법에 해당하면 N, Halley 방법에 해당하면 H를 적어라.
+
+   1. 일계도함수만 필요하다. (　　)
+   2. 이계도함수도 필요하다. (　　)
+   3. 조건이 좋으면 근 근처에서 이차수렴한다. (　　)
+   4. 조건이 좋으면 근 근처에서 삼차수렴할 수 있다. (　　)
+
+   <!--
+   풀이 및 정답: 1번 N, 2번 H, 3번 N, 4번 H이다.
+   -->
+
+7. 강의의 **newton_raphson** 함수를 사용하여 $x^2+x-10=0$을 계산하라.
+
+   1. $x_0=1$에서 시작한다.
+   2. $x_0=-5$에서 시작한다.
+   3. 두 초기값에서 얻은 근을 비교한다.
+
+   <!--
+   풀이 및 정답:
+   x_0=1에서는 약 2.701562119, x_0=-5에서는 약 -3.701562119에 수렴한다.
+   초기값에 따라 서로 다른 근으로 수렴한다.
+   -->
+
+8. 다음 중 Newton–Raphson 방법을 사용할 때 확인할 사항을 모두 고르라.
+
+   1. 도함수가 0에 가까운가?
+   2. 반복값이 함수의 정의역 안에 있는가?
+   3. 최대 반복 횟수를 설정했는가?
+   4. 함수값과 도함수를 올바르게 작성했는가?
+
+   <!--
+   풀이 및 정답:
+   네 항목 모두 확인해야 한다.
+   -->
+
+[^quadratic-convergence]: 참근을 $x^{\ast}$, 현재 오차를
+    $e_k=x_k-x^{\ast}$라고 하자. $f(x^{\ast})=0$이고
+    $f^{\prime}(x^{\ast})\ne0$인 단순근 주변에서 Taylor 정리를 적용하면,
+    $x_k$과 $x^{\ast}$ 사이의 어떤 점 $\xi_k$에 대하여 다음 관계를 얻는다.
+
+    $$
+    e_{k+1}
+    =\frac{f^{\prime\prime}(\xi_k)}{2f^{\prime}(x_k)}e_k^2
+    $$
+
+    근 주변에서 $f^{\prime\prime}$이 유계이고 $f^{\prime}$이 0에서 떨어져
+    있으면 $|e_{k+1}|\leq C|e_k|^2$이므로 이차수렴한다. 특히
+    $f(x)=x^2-2$에서는 다음 식이 정확히 성립한다.
+
+    $$
+    e_{k+1}=\frac{e_k^2}{2x_k}
+    $$
+
+    이 결과는 초기값이 단순근에 충분히 가까울 때 적용된다. 중근에서는 일반적으로
+    이차수렴하지 않는다.

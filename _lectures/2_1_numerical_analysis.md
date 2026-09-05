@@ -30,6 +30,6 @@ toc:
 
 - [제10강 경사하강법]({% link assets/lecture_notes/2_1_numerical_analysis/numerical_analysis_10_GradientDescending.md %})
 
-- [제11강 다변수 Newton-Raphson 방법]({% link assets/lecture_notes/2_1_numerical_analysis/numerical_analysis_10_multivariate.md %})
+- [제11강 다변수 Newton-Raphson 방법]({% link assets/lecture_notes/2_1_numerical_analysis/numerical_analysis_11_multivariate.md %})
 
-- [제12강 다변수 Newton-Raphson 방법의 기하학적 해석]({% link assets/lecture_notes/2_1_numerical_analysis/numerical_analysis_11_multivariate_geometric_interpretation.md %})
+- [제12강 다변수 Newton-Raphson 방법의 기하학적 해석]({% link assets/lecture_notes/2_1_numerical_analysis/numerical_analysis_12_multivariate_geometric_interpretation.md %})

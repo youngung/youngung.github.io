@@ -4,552 +4,619 @@ title: 수치해석
 description: 재료공학도를 위한 수치해석
 target: 2학년 1학기
 permalink:
-prerequisite: 재료공학개론1, 데이터 재료과학
+prerequisite: 선형 연립방정식, 행렬과 벡터, Python 기초
 toc:
-  0.1. sidebar: left
+  sidebar: left
 ---
 
-- [1. 가우스 소거법](#1-가우스-소거법)
-- [2. 가우스 소거법 worked example](#2-가우스-소거법-worked-example)
-  - [2.1. 1단계](#21-1단계)
-  - [2.2. 1단계 파이썬](#22-1단계-파이썬)
-  - [2.3. 행 위치 교환 (row swap - optional)](#23-행-위치-교환-row-swap---optional)
-  - [2.4. 지금까지 한 내용을 Python 코드로 옮기면](#24-지금까지-한-내용을-python-코드로-옮기면)
-  - [2.5. 전진 소거 (forward elimination)](#25-전진-소거-forward-elimination)
-  - [2.6. Python으로 정리하면 아래와 같다.](#26-python으로-정리하면-아래와-같다)
-  - [2.7. 다시 행교환 (swap)](#27-다시-행교환-swap)
-  - [2.8. 다시 전진소거 (forward elimination)](#28-다시-전진소거-forward-elimination)
-  - [2.9. 앞선 결과 Python 정리하면](#29-앞선-결과-python-정리하면)
-  - [2.10. Swap/Forward 축약](#210-swapforward-축약)
-  - [2.11. Diagonalization](#211-diagonalization)
-- [3. 전체 코드](#3-전체-코드)
-- [4. take home](#4-take-home)
-- [5. 덧붙이는 말](#5-덧붙이는-말)
+- [1. 학습 목표](#1-학습-목표)
+- [2. 가우스 소거법](#2-가우스-소거법)
+  - [2.1. 확대행렬](#21-확대행렬)
+- [\[\\boldsymbol A\\mid\\boldsymbol b\]](#boldsymbol-amidboldsymbol-b)
+  - [2.2. 기본 행 연산](#22-기본-행-연산)
+  - [2.3. 전체 알고리듬](#23-전체-알고리듬)
+- [3. 손으로 계산하는 예제](#3-손으로-계산하는-예제)
+  - [3.1. 확대행렬 만들기](#31-확대행렬-만들기)
+  - [3.2. 첫 번째 열 소거](#32-첫-번째-열-소거)
+  - [3.3. 두 번째 열 소거](#33-두-번째-열-소거)
+  - [3.4. 후진 대입 (back substitution)](#34-후진-대입-back-substitution)
+- [4. 부분 피벗팅](#4-부분-피벗팅)
+- [5. Python 구현](#5-python-구현)
+  - [5.1. 계산 예제](#51-계산-예제)
+- [(x,y,z)](#xyz)
+  - [5.2. 잔차 확인](#52-잔차-확인)
+- [6. Gauss–Jordan 소거법과의 차이](#6-gaussjordan-소거법과의-차이)
+- [7. 계산량과 주의 사항](#7-계산량과-주의-사항)
+- [8. 정리](#8-정리)
+- [9. 연습 문제](#9-연습-문제)
 
+# 1. 학습 목표
 
+이번 강의가 끝나면 다음을 할 수 있어야 한다.
 
-# 1. 가우스 소거법
--  확장행렬(augmented matrix) 만들기
--  두행 (가로줄)의 교환
--  한 행에 0이 아닌 상수를 곱함 (scaling)
--  한행에 다른 행의 배수를 더함 (row addition)
--  앞선 2-4단계를 반복하며 삼각형 모양의 행렬을 만듦
--  Diagnolization
--  삼각형 행렬이 다 만들어지면 아래에서부터 거꾸로 대입 (back-substitution)
+- 연립방정식을 확대행렬(augmented matrix)로 나타낼 수 있다.
+- 기본 행 연산을 이용하여 확대행렬을 상삼각(upper triangular) 형태로 바꿀 수 있다.
+- 소거 계수를 계산하고 전진 소거(forward elimination)를 수행할 수 있다.
+- 후진 대입(back substitution)으로 미지수를 구할 수 있다.
+- 부분 피벗팅(partial pivoting)이 필요한 이유를 설명할 수 있다.
+- 가우스 소거법(Gaussian elimination)을 Python으로 구현하고 잔차로 결과를 확인할 수 있다.
 
+# 2. 가우스 소거법
 
-#  2. 가우스 소거법 worked example
-
-## 2.1. 1단계
-
-- 예를 들어 아래 행렬식을 푼다면
+가우스 소거법(Gaussian elimination)은 선형 연립방정식
 
 $$
-\begin{bmatrix}
-2& 3 & 1 \\
-1& -1 & 1\\
-3& 11 & 5
-\end{bmatrix}
-\begin{bmatrix}
-    x\\
-    y\\
-    z\\
-13. \end{bmatrix}
+\boldsymbol A \cdot \boldsymbol x=\boldsymbol b
+$$
+
+를 기본 행 연산으로 변형하여 푸는 직접해법이다. 계산 과정은 크게 두 단계로
+나뉜다.
+
+1. **전진 소거(forward elimination):** 계수행렬을 상삼각행렬로 만든다.
+2. **후진 대입(back substitution):** 마지막 식부터 거꾸로 미지수를 구한다.
+
+## 2.1. 확대행렬
+
+다음 연립방정식을 생각하자.
+
+$$
+\begin{aligned}
+a_{11}x_1+a_{12}x_2+a_{13}x_3&=b_1,\\
+a_{21}x_1+a_{22}x_2+a_{23}x_3&=b_2,\\
+a_{31}x_1+a_{32}x_2+a_{33}x_3&=b_3.
+\end{aligned}
+$$
+
+계수행렬과 우변 벡터를 결합한 행렬을 **확대행렬(augmented matrix)**이라고 한다.
+
+$$
+[\boldsymbol A\mid\boldsymbol b]
 =
+\left[
+\begin{array}{ccc|c}
+a_{11}&a_{12}&a_{13}&b_1\\
+a_{21}&a_{22}&a_{23}&b_2\\
+a_{31}&a_{32}&a_{33}&b_3
+\end{array}
+\right]
+$$
+
+**세로선은 계수행렬과 우변 벡터를 구분하기 위한 표시이며 행렬의 원소가 아니다.
+
+## 2.2. 기본 행 연산
+
+연립방정식의 해를 바꾸지 않는 기본 행 연산은 세 가지이다.
+
+1. 두 행(row)을 서로 교환한다.
+
+   $$
+   R_i\leftrightarrow R_j
+   $$
+
+2. 한 행에 0이 아닌 상수를 곱한다.
+
+   $$
+   R_i\leftarrow cR_i,
+   \qquad c\ne0
+   $$
+
+3. 한 행에 다른 행의 배수를 더한다.
+
+   $$
+   R_i\leftarrow R_i+cR_j
+   $$
+
+전진 소거에서는 주로 세 번째 연산을 다음 형태로 사용한다.
+
+$$
+R_i\leftarrow R_i-m_{ik}R_k,
+\qquad
+m_{ik}=\frac{a_{ik}}{a_{kk}}
+$$
+
+여기서 $a_{kk}$는 현재 계산의 기준이 되는 **피벗(pivot)**이고,
+$m_{ik}$는 **소거 계수(multiplier)**이다.
+
+## 2.3. 전체 알고리듬
+
+$n\times n$ 연립방정식에 대한 과정은 다음과 같다.
+
+1. 확대행렬 $[\boldsymbol A\mid\boldsymbol b]$를 만든다.
+2. 첫 번째 열(column)부터 피벗을 선택한다.
+3. 필요하면 현재 행과 아래 행을 교환한다.
+4. 피벗 아래의 원소를 0으로 만든다.
+5. 다음 열로 이동하여 같은 작업을 반복한다.
+6. 상삼각 연립방정식이 만들어지면 후진 대입한다.
+
+전진 소거가 끝난 계수행렬은 다음 형태이다.
+
+$$
+\boldsymbol U=
 \begin{bmatrix}
-9\\
-1\\
-35\\
+u_{11}&u_{12}&u_{13}\\
+0&u_{22}&u_{23}\\
+0&0&u_{33}
 \end{bmatrix}
 $$
 
-- 우선 좌변의 3x3행렬과 우변의 3x1'벡터'를 결합한 3x4 확장 행렬을 만듭니다.
+# 3. 손으로 계산하는 예제
+
+다음 연립방정식을 풀어보자.
+
+$$
+\begin{aligned}
+x+y+z&=6,\\
+2x+3y+z&=11,\\
+-x+2y+3z&=12.
+\end{aligned}
+$$
+
+이 연립방정식의 해는 아래에 이어 계산하여 확인한다.
+
+## 3.1. 확대행렬 만들기
 
 $$
 \left[
 \begin{array}{ccc|c}
-  2& 3 & 1 & 9\\
-  1& -1 & 1 & 1\\
-  3& 11 & 5 & 35
+1&1&1&6\\
+2&3&1&11\\
+-1&2&3&12
 \end{array}
 \right]
-\begin{array}{c}
-  \text{1st row}\\
-  \text{2nd row}\\
-  \text{3rd row}
-\end{array}
-\begin{array}{c}
-  \text{irow=0}\\
-  \text{irow=1}\\
-  \text{irow=2}
-\end{array}
 $$
 
-- 그리고 이를 행렬 $\boldsymbol A$라 부릅시다. 따라서 아래와 같습니다.
+## 3.2. 첫 번째 열 소거
+
+첫 번째 피벗은 $a_{11}=1$이다. 두 번째 행에서 첫 번째 원소를 없애기 위한 소거
+계수는
 
 $$
-\begin{bmatrix}
-A_{11} & A_{12} & A_{13} & A_{14} \\
-A_{21} & A_{22} & A_{23} & A_{24} \\
-A_{31} & A_{32} & A_{33} & A_{34} \\
-\end{bmatrix}
+m_{21}=\frac{a_{21}}{a_{11}}=\frac{2}{1}=\textcolor{red}{2}
+$$
 
+이다. 따라서
+
+$$
+R_2\leftarrow R_2-\textcolor{red}{2}R_1
+$$
+
+을 수행한다. 세 번째 행의 소거 계수는
+
+$$
+m_{31}=\frac{a_{31}}{a_{11}}=\frac{-1}{1}=\textcolor{blue}{-1}
+$$
+
+이므로
+
+$$
+R_3\leftarrow R_3-\textcolor{blue}{(-1)}R_1=R_3+R_1
+$$
+
+을 수행한다. 결과는
+
+$$
+\left[
+\begin{array}{ccc|c}
+1&1&1&6\\
+0&1&-1&-1\\
+0&3&4&18
+\end{array}
+\right]
+$$
+
+이다.
+
+## 3.3. 두 번째 열 소거
+
+두 번째 피벗은 $a_{22}=1$이고 소거 계수는
+
+$$
+m_{32}=\frac{a_{32}}{a_{22}}=\frac{3}{1}=\textcolor{green}{3}
+$$
+
+이다. 따라서
+
+$$
+R_3\leftarrow R_3-\textcolor{green}{3}R_2
+$$
+
+를 수행하면
+
+$$
+\left[
+\begin{array}{ccc|c}
+1&1&1&6\\
+0&1&-1&-1\\
+0&0&7&21
+\end{array}
+\right]
+$$
+
+이 된다.
+
+## 3.4. 후진 대입 (back substitution)
+
+마지막 행부터 미지수를 구한다.
+
+$$
+7z=21
+\quad\Longrightarrow\quad
+z=3
+$$
+
+두 번째 행에 $z=3$을 대입하면
+
+$$
+y-z=-1
+\quad\Longrightarrow\quad
+y=2
+$$
+
+첫 번째 행에 $y=2$, $z=3$을 대입하면
+
+$$
+x+y+z=6
+\quad\Longrightarrow\quad
+x=1
+$$
+
+이다. 따라서 최종 해는
+
+$$
+\boxed{(x,y,z)=(1,2,3)}
+$$
+
+이다.
+
+일반적인 상삼각 연립방정식의 후진 대입은 다음 식으로 나타낼 수 있다.
+
+$$
+x_i=
+\frac{
+b_i-\displaystyle\sum_{j=i+1}^{n}u_{ij}x_j
+}{u_{ii}},
+\qquad
+i=n,n-1,\ldots,1
+$$
+
+# 4. 부분 피벗팅
+
+피벗이 0이면 해당 피벗으로 나눌 수 없다. 다음 연립방정식을 살펴보자.
+
+$$
+\begin{aligned}
+0x+2y&=4,\\
+x+y&=3.
+\end{aligned}
+$$
+
+첫 번째 피벗은 0이지만 두 행을 교환하면 계산할 수 있다.
+
+$$
+\left[
+\begin{array}{cc|c}
+0&2&4\\
+1&1&3
+\end{array}
+\right]
+\quad\xrightarrow{R_1\leftrightarrow R_2}\quad
+\left[
+\begin{array}{cc|c}
+1&1&3\\
+0&2&4
+\end{array}
+\right]
+$$
+
+또한 피벗의 절댓값이 매우 작으면 나눗셈 과정에서 반올림 오차가 크게 증폭될 수
+있다. **부분 피벗팅(partial pivoting)**은 현재 열에서 피벗 후보와 그 아래 원소 중
+절댓값이 가장 큰 원소를 찾아 현재 피벗 행과 교환한다.
+
+열 $k$에서 피벗 행은 다음과 같이 선택한다.
+
+$$
+p=k+\mathop{\mathrm{argmax}}_{i=k,\ldots,n-1}|a_{ik}|
+$$
+
+부분 피벗팅은 모든 행을 단순히 크기순으로 정렬하는 작업이 아니다. 소거가 한 단계
+끝날 때마다 아직 처리하지 않은 부분행렬에서 새 피벗을 선택한다.
+
+# 5. Python 구현
+
+다음 구현은 입력 배열을 복사한 뒤 부분 피벗팅, 전진 소거와 후진 대입을 수행한다.
+
+~~~python
+import numpy as np
+
+def gaussian_elimination(A, b, tol=1e-12):
+    A = np.asarray(A, dtype=float).copy()
+    b = np.asarray(b, dtype=float).copy()
+
+    if A.ndim != 2 or A.shape[0] != A.shape[1]:
+        raise ValueError("A는 정사각행렬이어야 합니다.")
+    if b.ndim != 1 or len(b) != A.shape[0]:
+        raise ValueError("b의 길이는 A의 행 개수와 같아야 합니다.")
+
+    n = len(b)
+
+    # 전진 소거
+    for k in range(n-1):
+        pivot_row = k+np.argmax(np.abs(A[k:, k]))
+
+        if abs(A[pivot_row, k]) < tol:
+            raise np.linalg.LinAlgError("유일한 해가 없습니다.")
+
+        if pivot_row != k:
+            # partial pivoting
+            A[[k, pivot_row], :] = A[[pivot_row, k], :]
+            b[[k, pivot_row]] = b[[pivot_row, k]]
+
+        for i in range(k+1, n):
+            multiplier = A[i, k]/A[k, k]
+            A[i, k:] = A[i, k:]-multiplier*A[k, k:]
+            b[i] = b[i]-multiplier*b[k]
+
+    if abs(A[-1, -1]) < tol:
+        raise np.linalg.LinAlgError("유일한 해가 없습니다.")
+
+    # 후진 대입
+    x = np.zeros(n)
+
+    for i in range(n-1, -1, -1):
+        known_terms = A[i, i+1:]@x[i+1:]
+        x[i] = (b[i]-known_terms)/A[i, i]
+
+    return x
+~~~
+
+## 5.1. 계산 예제
+
+원래 강의에서 사용한 연립방정식을 풀어보자.
+
+$$
+\begin{aligned}
+2x+3y+z&=9,\\
+x-y+z&=1,\\
+3x+11y+5z&=35.
+\end{aligned}
+$$
+
+~~~python
+A = np.array([
+    [2.0,  3.0, 1.0],
+    [1.0, -1.0, 1.0],
+    [3.0, 11.0, 5.0],
+])
+b = np.array([9.0, 1.0, 35.0])
+
+x = gaussian_elimination(A, b)
+
+print("solution:", x)
+print("NumPy:", np.linalg.solve(A, b))
+~~~
+
+계산 결과는
+
+$$
+(x,y,z)
 =
-
-\left[
-\begin{array}{ccc|c}
-2& 3 & 1 & 9\\
-1& -1 & 1 & 1\\
-3& 11 & 5 & 35
-\end{array}
-\right]
+\left(
+\frac{1}{3},
+\frac{23}{12},
+\frac{31}{12}
+\right)
+\approx
+(0.3333,1.9167,2.5833)
 $$
 
-## 2.2. 1단계 파이썬
+이다.
 
-- 1단계까지 작업 내용을 파이썬으로 구현한다면 아래와 같습니다.
+## 5.2. 잔차 확인
 
-```python
-def show(A,fmt='%+7.2f'):
-  """
-  Function to more neatly print out the matrix.
-  """
-  print('--')
-  for i, As in enumerate(A):
-    cr=''
-    for j, a in enumerate(As):
-      cr=f'{cr} {fmt}'%a
-    print(cr)
-
-import numpy as np
-A=np.zeros((3,4)) # 3 x 4 (three rows, four columns) (3행, 4열)
-A[0,:]=2, 3, 1, 9 #irow=0
-A[1,:]=1,-1, 1, 1 #irow=1
-A[2,:]=3,11, 5,35 #irow=2
-show(A) ## 말끔하게 행렬을 소수 2째자리 까지만 출력해서 봅시다.
-```
-
-- 위에서 함수 ```show```는 행렬을 말끔하게 출력하기 위해서 간략히 작성해 봤습니다.
-
-
-## 2.3. 행 위치 교환 (row swap - optional)
-
- - 행의 위치를 교환합니다 반드시 필요한 단계는 아니지만, truncation 오차를 줄여줍니다.
- - 첫번째 열(즉 ```A[:,0]```)의 절대값이 높은 순서대로 아래에서부터 위로 채웁니다.
- - 1열 즉
+계산한 해가 원래 연립방정식을 얼마나 잘 만족하는지 잔차 벡터로 확인한다.
 
 $$
-\begin{bmatrix}
-    \textcolor{blue}{2} &\textcolor{blue}{...}\\
-    \textcolor{red}{1}&\textcolor{red}{...} \\
-    \textcolor{green}{3}&\textcolor{green}{...}
-\end{bmatrix}
+\boldsymbol r=\boldsymbol A \cdot \boldsymbol x-\boldsymbol b
 $$
 
-을 따라서, 3번째 행(3rd row)의 1열(1st col.) 값, 즉 $A_{13}$의 절대 값
+~~~python
+residual = A@x-b
 
-$$|A_{13}|=\textcolor{green}{3}$$
+print("residual:", residual)
+print("residual norm:", np.linalg.norm(residual))
+~~~
 
-이며 가장 큰 수입니다. 그 다음이
+부동소수점 연산 때문에 잔차가 정확히 0이 아니라 매우 작은 값으로 나타날 수 있다.
 
-$$|A_{11}|=\textcolor{blue}{2}, A_{12}=\textcolor{red}{1}$$
+# 6. Gauss–Jordan 소거법과의 차이
 
-순서입니다.
+가우스 소거법은 전진 소거로 상삼각행렬을 만든 뒤 후진 대입한다.
 
 $$
 \left[
 \begin{array}{ccc|c}
-  \textcolor{red}{1}& \textcolor{red}{-1} & \textcolor{red}{1} & \textcolor{red}{1}\\
-  \textcolor{blue}{2}& \textcolor{blue}{3} & \textcolor{blue}{1} & \textcolor{blue}{9}\\
-  \textcolor{green}{3}& \textcolor{green}{11} & \textcolor{green}{5} & \textcolor{green}{35}
+u_{11}&u_{12}&u_{13}&c_1\\
+0&u_{22}&u_{23}&c_2\\
+0&0&u_{33}&c_3
 \end{array}
 \right]
-\begin{array}{c}
-\text{2nd row}\rightarrow\text{3rd row}\\
-\text{1st row}\rightarrow\text{2nd row}\\
-\text{3rd row}\rightarrow\text{1st row}
-\end{array}
 $$
 
-행렬 옆에 표기된 방법대로 row를 바꾸면
+Gauss–Jordan 소거법은 피벗 위의 원소까지 모두 0으로 만들고 피벗을 1로 만들어
+다음과 같은 기약 행 사다리꼴을 구한다.
 
 $$
 \left[
 \begin{array}{ccc|c}
-  \textcolor{green}{3}& \textcolor{green}{11} & \textcolor{green}{5} & \textcolor{green}{35} \\
-  \textcolor{blue}{2}& \textcolor{blue}{3} & \textcolor{blue}{1} & \textcolor{blue}{9}\\
-  \textcolor{red}{1}& \textcolor{red}{-1} & \textcolor{red}{1} & \textcolor{red}{1}
+1&0&0&x_1\\
+0&1&0&x_2\\
+0&0&1&x_3
 \end{array}
 \right]
 $$
 
-## 2.4. 지금까지 한 내용을 Python 코드로 옮기면
+둘은 관련된 방법이지만 동일한 알고리듬은 아니다. 연립방정식 하나를 푸는 표준
+가우스 소거법에서는 모든 비대각 원소를 0으로 만들 필요가 없다.
 
-```python
-#------------------------------------------------
-import numpy as np
-# initial empty A.
-A=np.zeros((3,4))
-# filling up the matrix.
-A[0,:]=2, 3, 1, 9 #1st row, irow=0
-A[1,:]=1,-1, 1, 1 #2nd row, irow=1
-A[2,:]=3,11, 5,35 #3rd row, irow=2
-show(A)
+# 7. 계산량과 주의 사항
 
-B=A.copy() ## copy to a temp matrix, and named it `B`
-A[::]=0.   ## zeroed.
-A[0,:] = B[2,:] # 3rd row [3,11,5,35] -> 1st row
-A[1,:] = B[0,:] # 1st row [2, 3, 1,9] -> 2nd row
-A[2,:] = B[1,:] # 2nd row [1,-1, 1,1] -> 3rd row
-show(A)
-```
+- 피벗이 0이면 행 교환이 필요하다.
+- 매우 작은 피벗은 반올림 오차를 증폭시킬 수 있으므로 부분 피벗팅을 사용한다.
+- 행렬이 특이행렬이면 유일한 해가 없다.
+- 입력 배열을 직접 수정하지 않으려면 복사본을 만들어 계산한다.
+- 실제 프로그램에서는 검증된 **np.linalg.solve**를 사용하는 것이 좋다.
+- 학습 목적으로 가우스 소거법을 직접 구현하면 선형대수 알고리듬의 구조를
+  이해하는 데 도움이 된다.
 
-그런데, $A$ 행렬의 순서를 바꾸는 걸 Python에게 시키고 싶다면
-[np.argsort](https://numpy.org/doc/stable/reference/generated/numpy.argsort.html)를 다음과 같이 활용할 수 있겠다.
+# 8. 정리
 
-```python
-print(A[:,0]) #1열 - 혹은 A[0:3,0]
-# 위 결과는 [2,1,3] 순서가 된다. 그런데 우리는 절대 값의 순서가 필요.
-# 따라서 np.abs 을 활용해 절대값을
-print(np.abs(A[:,0]))
-# 1열을 따라 낮은 값에서 순서대로 인덱스를 저장.
-ind = np.argsort(np.abs(A[:,0]))
-#
-show(A[ind,:])       #낮은->높은 값 순서대로 바뀜.
-show(A[ind[::-1],:]) #높은->낮은 값 순서대로... ind[::-1]
-```
+- 가우스 소거법은 전진 소거와 후진 대입으로 구성된다.
+- 확대행렬의 기본 행 연산은 연립방정식의 해를 바꾸지 않는다.
+- 소거 계수는 $m_{ik}=a_{ik}/a_{kk}$로 계산한다.
+- 부분 피벗팅은 현재 열에서 절댓값이 가장 큰 피벗을 선택한다.
+- 계산 결과는 잔차 $\boldsymbol A \cdot \boldsymbol x-\boldsymbol b$로 확인한다.
+- Gauss–Jordan 소거법은 피벗 위까지 소거한다는 점에서 가우스 소거법과 다르다.
 
-## 2.5. 전진 소거 (forward elimination)
+# 9. 연습 문제
 
-- 앞서 재 정렬된 행렬은 아래와 같다.
-
-$$
-\boldsymbol A=
-\left[
-\begin{array}{ccc|c}
-\textcolor{green}{3}& \textcolor{green}{11} & \textcolor{green}{5} & \textcolor{green}{35} \\
-\textcolor{blue}{2}& \textcolor{blue}{3} & \textcolor{blue}{1} & \textcolor{blue}{9}\\
-\textcolor{red}{1}& \textcolor{red}{-1} & \textcolor{red}{1} & \textcolor{red}{1}
-\end{array}
-\right]
-$$
-
-- 첫번째 행의 첫번째 렬 값, ```A[0,0]```, 즉 $\textcolor{green}{3}$을 분자로
-그리고 $\textcolor{blue}{\text{row2}}$, 첫번째 렬(col1) 값, 즉 $A_{21}$,
-```A[1,0]```$=\textcolor{blue}{2}$을 분모로 하는 factor
-$\frac{\textcolor{green}{3}}{\textcolor{blue}{2}}$을 두번째 행, ```A[1,:]```에
-곱해서 첫번째 행에서 뺀 후, 두번째 행을 대체합니다.
+강의에서 다룬 행 연산과 계산 과정을 확인하는 기초 문제이다.
 
 
-## 2.6. Python으로 정리하면 아래와 같다.
+1. 다음 빈칸을 채워라.
 
-```python
-# irow=1
-A[1,:]=A[0,:]-(A[0,0]/A[1,0])*A[1,:]
-```
+   - 계수행렬과 우변 벡터를 결합한 행렬을 (　　　　　　)이라고 한다.
+   - 가우스 소거법은 (　　　　　　)와 후진 대입의 두 단계로 이루어진다.
+   - 현재 계산에서 기준으로 사용하는 대각 원소를 (　　　　　　)이라고 한다.
 
-- 위 작업을 3번째 행에도 동일하게 수행하면
+   <!--
+   풀이 및 정답:
+   확대행렬, 전진 소거, 피벗이다.
+   -->
 
-```python
-# irow=2
-A[2,:]=A[0,:]-(A[0,0]/A[2,0])*A[2,:]
-```
+2. 다음 연립방정식의 확대행렬을 작성하라.
 
-* 그런데 이를 한번에 loop안에 적용할 수 있다. 즉:
+   $$
+   \begin{aligned}
+   2x+y&=5,\\
+   x-y&=-1.
+   \end{aligned}
+   $$
 
-```python
-#------------------------------------------------
-import numpy as np
-# initial empty A.
-A=np.zeros((3,4))
-# filling up the matrix.
-A[0,:]=2, 3, 1, 9 #1st row, irow=0
-A[1,:]=1,-1, 1, 1 #2nd row, irow=1
-A[2,:]=3,11, 5,35 #3rd row, irow=2
-show(A)
+   <!--
+   풀이 및 정답:
+   확대행렬은 [[2,1|5],[1,-1|-1]]이다.
+   -->
 
-B=A.copy() ## copy to a temp matrix, and named it `B`
-A[::]=0.   ## zeroed.
-A[0,:] = B[2,:] # 3rd row [3,11,5,35] -> 1st row
-A[1,:] = B[0,:] # 1st row [2, 3, 1,9] -> 2nd row
-A[2,:] = B[1,:] # 2nd row [1,-1, 1,1] -> 3rd row
-show(A)
+3. 다음 중 기본 행 연산으로 사용할 수 있는 것을 모두 고르라.
 
-for irow in range(1,3):
-    A[irow,:]=A[0,:]-(A[0,0]/A[irow,0])*A[irow,:]
-show(A)
-```
+   1. 두 행을 교환한다.
+   2. 한 행에 0을 곱한다.
+   3. 한 행에 0이 아닌 상수를 곱한다.
+   4. 한 행에 다른 행의 배수를 더한다.
 
-## 2.7. 다시 행교환 (swap)
+   <!--
+   풀이 및 정답:
+   1번, 3번, 4번이다. 한 행에 0을 곱하면 원래 방정식의 정보를 잃으므로
+   사용할 수 없다.
+   -->
 
-- 이제 행렬은 아래와 같은 형태가 된다.
+4. 첫 번째 피벗이 2이고 그 아래에서 없애려는 원소가 6일 때 소거 계수
+   $m_{21}$을 구하라.
 
-$$
-\boldsymbol A=
-\left[
-\begin{array}{ccc|c}
-\textcolor{green}{3}& \textcolor{green}{11} & \textcolor{green}{5} & \textcolor{green}{35} \\
-\textcolor{blue}{0}& \textcolor{blue}{6.5} & \textcolor{blue}{3.5} & \textcolor{blue}{21.5}\\
-\textcolor{red}{0}& \textcolor{red}{14} & \textcolor{red}{2} & \textcolor{red}{32}
-\end{array}
-\right]
-$$
+   <!--
+   풀이 및 정답:
+   m_21=6/2=3이다. 따라서 R_2를 R_2-3R_1로 바꾸면 첫 번째 열의 6이 0이 된다.
+   -->
 
-이제 우리의 기준은 $A_{22}$ 즉 ```A[1,1]```입니다. 그런데
-$|\textcolor{blue}{6.5}|<|\textcolor{red}{14}|$
-이므로 행 교환이 필요하다.
+5. 다음 확대행렬에 $R_2\leftarrow R_2-2R_1$을 수행하라.
 
-$$
-\boldsymbol A=
-\left[
-\begin{array}{ccc|c}
-\textcolor{green}{3}& \textcolor{green}{11} & \textcolor{green}{5} & \textcolor{green}{35} \\
-\textcolor{red}{0}& \textcolor{red}{14} & \textcolor{red}{2} & \textcolor{red}{32}         \\
-\textcolor{blue}{0}& \textcolor{blue}{6.5} & \textcolor{blue}{3.5} & \textcolor{blue}{21.5}
-\end{array}
-\right]
-$$
+   $$
+   \left[
+   \begin{array}{cc|c}
+   1&1&3\\
+   2&3&8
+   \end{array}
+   \right]
+   $$
 
-```python
-# swap
-ind = np.argsort(np.abs(A[1:,1]))
-A[1:,]=A[1:,][ind[::-1],:]
-show(A)
-```
+   <!--
+   풀이 및 정답:
+   두 번째 행은 [2,3,8]-2[1,1,3]=[0,1,2]가 된다.
+   결과는 [[1,1|3],[0,1|2]]이다.
+   -->
 
-## 2.8. 다시 전진소거 (forward elimination)
-* 전진 소거의 기준이, 앞서 살펴보았듯 $A_{22}$부터다. 즉,
+6. 다음 상삼각 연립방정식을 후진 대입으로 풀어라.
 
-$$
-\textcolor{blue}{A_{3,:}}\leftarrow\textcolor{red}{A_{2,:}}-A_{22}/A_{32}\times \textcolor{blue}{A_{3,:}}
-$$
+   $$
+   \begin{aligned}
+   x+2y&=5,\\
+   3y&=6.
+   \end{aligned}
+   $$
 
-```python
-icol=1 # A{:,2}
-irow=2 # A{3,:}
-A[irow,:]=A[icol,:]-(A[icol,icol]/A[irow,icol])*A[irow,:]
-show(A)
-```
+   <!--
+   풀이 및 정답:
+   두 번째 식에서 y=2이다. 첫 번째 식에 대입하면 x+4=5이므로 x=1이다.
+   -->
 
-## 2.9. 앞선 결과 Python 정리하면
+7. 다음 확대행렬에서 첫 번째 단계의 부분 피벗팅을 수행하면 어느 두 행을
+   교환해야 하는가?
 
-- 즉 앞서 이어온 결과와 다 모아 행바꾸기, 전진 소거를 표현하자면 아래와 같다.
+   $$
+   \left[
+   \begin{array}{cc|c}
+   0.1&1&2\\
+   2&3&4
+   \end{array}
+   \right]
+   $$
 
-```python
-#------------------------------------------------
-import numpy as np
-# initial empty A.
-A=np.zeros((3,4))
-# filling up the matrix.
-A[0,:]=2, 3, 1, 9 #1st row, irow=0
-A[1,:]=1,-1, 1, 1 #2nd row, irow=1
-A[2,:]=3,11, 5,35 #3rd row, irow=2
-show(A)
+   <!--
+   풀이 및 정답:
+   첫 번째 열에서 절댓값이 가장 큰 원소는 두 번째 행의 2이다.
+   따라서 R_1과 R_2를 교환한다.
+   -->
 
-# swap
-icol=0
-ind = np.argsort(np.abs(A[icol:,icol]))
-A=A[ind[::-1],:]
-show(A)
-# forward
-for irow in range(icol+1,A.shape[0]):
- A[irow,:]=A[icol,:]-(A[icol,icol]/A[irow,icol])*A[irow,:]
-show(A)
+8. 다음 코드의 빈칸을 채워 해를 계산하라.
 
-# swap
-icol=1
-ind = np.argsort(np.abs(A[icol:,icol]))
-A[icol:,]=A[icol:,][ind[::-1],:]
-show(A)
-# forward
-for irow in range(icol+1,A.shape[0]):
- A[irow,:]=A[icol,:]-(A[icol,icol]/A[irow,icol])*A[irow,:]
-show(A)
-```
+   ~~~python
+   A = np.array([[1.0, 1.0],
+                 [2.0, 3.0]])
+   b = np.array([3.0, 8.0])
 
-## 2.10. Swap/Forward 축약
+   x = gaussian_elimination(____, ____)
+   print(x)
+   ~~~
 
-- 여기서, row swap과 forward elimination이 icol=0,1로 바뀌며 동일한 코드가 반복되는 걸 알 수 있다.
+   <!--
+   풀이 및 정답:
+   빈칸은 A와 b이다. 연립방정식은 x+y=3, 2x+3y=8이고 해는 x=1, y=2이다.
+   -->
 
-- Swap/Forward 축약 표기
-- 앞 단계의 결과를 행렬의 크기와 swap/forward의 대상 행과 열을 고려하여
-더욱 축약하자면 아래와 같이 표현된다.
+9. 계산된 해 $\boldsymbol x=(1,2)$와 다음 행렬 및 벡터에 대해 잔차를 구하라.
 
-```python
-A=np.zeros((3,4))
-# filling up the matrix.
-A[0,:]=2,3,1,9
-A[1,:]=1,-1,1,1
-A[2,:]=3,11,5,35
+   $$
+   \boldsymbol A=
+   \begin{bmatrix}
+   1&1\\
+   2&3
+   \end{bmatrix},
+   \qquad
+   \boldsymbol b=
+   \begin{bmatrix}
+   3\\8
+   \end{bmatrix}.
+   $$
 
-for icol in range(0,A.shape[0]-1):
-    ## swap
-    a=np.abs(A[icol:,icol]) ## Based on [absolute values] of a portion of column
-    ind=np.argsort(a)
-    ind=ind[::-1] # reverse order
-    A[icol:,:]=A[icol:,:][ind,:]
-    show(A)
-    ## forward
-    for irow in range(icol+1,A.shape[0]):
-        A[irow,:]=A[irow,:]-A[irow,icol]/A[icol,icol]*A[icol,:]
-    show(A)
-    print('****************')
-```
+   <!--
+   풀이 및 정답:
+   Ax=[3,8]^T=b이므로 잔차 r=Ax-b=[0,0]^T이다.
+   -->
 
-- 그 결과는 아래와 같다
+10. 가우스 소거법과 Gauss–Jordan 소거법의 차이를 한 문장으로 설명하라.
 
-$$
-\left[
-\begin{array}{ccc|c}
-+3.00&  +11.00&   +5.00&  +35.00 \\
-+0.00&   -4.67&   -0.67&  -10.67 \\
-+0.00&   +0.00&   -1.71&   -4.43
-\end{array}
-\right]
-$$
-
-## 2.11. Diagonalization
-- 앞선 단계의 결과를 더욱 진행하여 대각선 값들을 제외하고 `0`을 만들 수 있다.
-아래 코드를 참고하자.
-
-```python
-# now one could 'diagonalize'
-for icol in range(A.shape[0]-1,0,-1):
-    for irow in range(0,icol):
-        f=A[irow,icol]/A[icol,icol]
-        A[irow,:]=A[irow,:]-f*A[icol,:]
-```
-
-그 결과는 아래와 같다.
-
-$$
-\left[
-\begin{array}{ccc|c}
-+3.00&  -0.00&   +0.00&   +1.00 \\
-+0.00&  -4.67&   +0.00&   -8.94 \\
-+0.00&  +0.00&   -1.71&   -4.43
-\end{array}
-\right]
-$$
-
-정리하자면, 현재 연립 방정식은 아래와 같은 형태가 된 것이다.
-
-$$
-\left[
-\begin{array}{c}
-+3.00x=+1.00 \\
--4.67y=-8.94 \\
--1.71z=-4.43
-\end{array}
-\right]
-$$
-
-각 식을 풀기 위해서는 행렬의 대각선 값들을 각 행에 각가 나눠주면 되겠다.
-즉 아래와 같은 수행을 하고 나면
-
-```python
-for icol in range(A.shape[0]):
-  A[icol,:]=A[icol,:]/A[icol,icol]
-```
-
-$$
-  \left[
-  \begin{array}{ccc|c}
-  +1.00&  -0.00&   +0.00&  +0.33 \\
-  -0.00&  +1.00&   -0.00&  +1.92 \\
-  -0.00&  -0.00&   +1.00&  +2.58
-  \end{array}
-  \right]
-$$
-
-가 되어 $(x,y,z)=(0.33,1.92,2.58)$ 해를 찾게 되었다.
-
-# 3. 전체 코드
-- 모든 단계에 이르는 전체 코드를 살펴보자.
-
-```python
-def show(A,fmt='%+7.2f'):
-  """
-  Function to more neatly print out the matrix.
-  """
-  print('--')
-  for i, As in enumerate(A):
-    cr=''
-    for j, a in enumerate(As):
-      cr=f'{cr} {fmt}'%a
-    print(cr)
-
-import numpy as np
-# initial empty A.
-A=np.zeros((3,4))
-# filling up the matrix.
-A[0,:]=2,3,1,9
-A[1,:]=1,-1,1,1
-A[2,:]=3,11,5,35
-#show(A)
-
-# swap and forward
-for icol in range(0,A.shape[0]-1):
-  ## swap
-  a=np.abs(A[icol:,icol])
-  ind=np.argsort(a)
-  ind=ind[::-1] # reverse order
-  A[icol:,:]=A[icol:,:][ind,:]
-
-  ## forward
-  for irow in range(icol+1,A.shape[0]):
-    A[irow,:]=A[irow,:]-A[irow,icol]/A[icol,icol]*A[icol,:]
-
-show(A)
-
-# now one could 'diagonalize'
-for icol in range(A.shape[0]-1,0,-1):
-  for irow in range(0,icol):
-    f=A[irow,icol]/A[icol,icol]
-    A[irow,:]=A[irow,:]-f*A[icol,:]
-show(A)
-for icol in range(A.shape[0]):
-  A[icol,:]=A[icol,:]/A[icol,icol]
-show(A)
-```
-
-# 4. take home
-- 위에서 만든 Gauss 소거법 코드를 활용해 아래를 풀어보자.
-
-$$
-\left[
-\begin{array}{cccc|c}
-+2  & +3 & +1  & +9  & -1 \\
--1  & -1 & -1 &  +1 & +10 \\
-+3  & +3 & -5  & +35 &  +0 \\
-+3  & +4 & +10 &  +3 &  -3
-\end{array}
-\right]
-$$
-
-# 5. 덧붙이는 말
-
-- 중간에 row의 순서를 바꾸는 과정이 없는 알고리듬으로 구현한 웹 프로그램을
-[여기](https://onlinemschool.com/math/assistance/equation/gaus/)에서
-찾을 수 있다.
-
-- Numpy의 선형대수(Linear Algebra) 패키지 ([np.linalg](https://numpy.org/doc/2.2/reference/routines.linalg.html)) 활용
-
-```python
-import numpy
-A=np.zeros((3,4))
-# filling up the matrix.
-A[0,:]=2,3,1,9
-A[1,:]=1,-1,1,1
-A[2,:]=3,11,5,35
-n=A.shape[0]
-
-## determinant 를 구한다.
-print('det:',np.linalg.det(A[:,:n]))
-# Inverse matrix 구한 다음 곱하기.
-root=np.linalg.inv(A[:,:n])@A[:,n]
-print(root)
-
-# 혹은 solve를 활용해서
-print(np.linalg.solve(A[:,:n], A[:,n]))
-```
+    <!--
+    풀이 및 정답:
+    가우스 소거법은 피벗 아래를 소거한 뒤 후진 대입하고, Gauss–Jordan
+    소거법은 피벗의 위와 아래를 모두 소거하여 기약 행 사다리꼴을 만든다.
+    -->

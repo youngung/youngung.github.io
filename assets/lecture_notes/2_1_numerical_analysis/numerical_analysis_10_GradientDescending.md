@@ -347,7 +347,7 @@ surface = ax.plot_surface(
 )
 
 # 각 반복점에서의 함수값
-z_history = np.array([objective(point) for point in history])
+z_history = np.array([objective(*point) for point in history])
 
 # 곡면에 가려지지 않도록 경로를 조금 위에 표시한다.
 z_offset = 0.02*Z.max()
@@ -403,6 +403,12 @@ ax.plot_wireframe(X, Y, Z, rstride=8, cstride=8,
 4. 다음 행렬과 벡터로 정의한 이차함수에 경사하강법을 적용하라.
 
    $$
+   f(\boldsymbol x)
+   =\frac{1}{2}\boldsymbol x^{\mathsf T}\boldsymbol A\boldsymbol x
+   -\boldsymbol b^{\mathsf T}\boldsymbol x
+   $$
+
+   $$
    \boldsymbol A=
    \begin{bmatrix}4&1\\1&3\end{bmatrix},
    \qquad
@@ -411,6 +417,7 @@ ax.plot_wireframe(X, Y, Z, rstride=8, cstride=8,
    $$
 
    구한 결과를 `np.linalg.solve(A, b)`와 비교하라.
+
 
 [^cauchy-schwarz]: **Cauchy--Schwarz 부등식:** 임의의 두 벡터
     $\boldsymbol a$와 $\boldsymbol b$에 대하여
