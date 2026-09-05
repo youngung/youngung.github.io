@@ -1,11 +1,13 @@
 ---
 layout: distill
-title:
-description:
-target:
+title: 경화와 이방성
+description: 소성 경화, 이방성 항복조건과 결정소성 개요
+target: 학부 고학년
 permalink:
 featured: true
-prerequisite:
+prerequisite: 소성 항복, 소성 유동법칙
+toc:
+  sidebar: left
 
 mermaid:
   enabled: true
@@ -23,7 +25,7 @@ authors:
 
 
 - [1. Hardening](#1-hardening)
-  - [1.1. strain hardening depicted in phenomonlogical plasticity](#11-strain-hardening-depicted-in-phenomonlogical-plasticity)
+  - [1.1. Phenomenological plasticity에서의 가공경화](#11-phenomenological-plasticity에서의-가공경화)
   - [1.2. strain hardening described in crystal plasticity framework.](#12-strain-hardening-described-in-crystal-plasticity-framework)
 - [2. Anisotropy](#2-anisotropy)
   - [2.1. Hill's yield criterion](#21-hills-yield-criterion)
@@ -37,7 +39,7 @@ authors:
 
 - 전위 밀도가 증가하며, 항복 응력이 소성 변형량의 증가함에 따라 함께 높아진다.
 
-## 1.1. strain hardening depicted in phenomonlogical plasticity
+## 1.1. Phenomenological plasticity에서의 가공경화
 
 - Isotropic hardening
 
@@ -175,3 +177,41 @@ $$
 $$
 =\dot\gamma_0\sum_s\frac{\boldsymbol m^s\otimes \boldsymbol m^s}{\tau_c}\bigg(\frac{|\boldsymbol m^s : \boldsymbol \sigma|}{\tau_c}\bigg)^{n-1} \bigg(\frac{\boldsymbol m^s : \boldsymbol \sigma}{\tau_c}\bigg)
 $$
+
+# 5. 연습 문제
+
+## 문제 1
+
+가공경화가 진행될 때 일반적으로 이후의 항복응력은 어떻게 변하는가?
+
+<!--
+풀이와 해답:
+소성변형이 누적될수록 이후의 항복응력은 증가한다.
+-->
+
+## 문제 2
+
+등방경화에서 항복면의 크기와 중심은 각각 어떻게 변하는가?
+
+<!--
+풀이와 해답:
+항복면의 크기는 증가하고 중심은 변하지 않는다.
+-->
+
+## 문제 3
+
+이동경화에서 항복면은 응력공간에서 어떻게 변하는가?
+
+<!--
+풀이와 해답:
+항복면의 중심이 이동한다.
+-->
+
+## 문제 4
+
+결정소성에서 경화를 미시적으로 나타내는 대표적인 내부변수를 하나 쓰시오.
+
+<!--
+풀이와 해답:
+예를 들어 슬립계의 임계분해전단응력 또는 전위밀도를 사용할 수 있다.
+-->

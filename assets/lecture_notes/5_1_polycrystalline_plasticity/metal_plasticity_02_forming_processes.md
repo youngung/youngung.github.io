@@ -1,11 +1,13 @@
 ---
 layout: distill
-title:
-description:
-target:
+title: 금속 소성가공 공정
+description: 압연, 단조, 압출, 인발과 판재 성형 공정의 개요
+target: 학부 고학년
 permalink:
 featured: true
-prerequisite:
+prerequisite: 금속 소성학 개요
+toc:
+  sidebar: left
 
 mermaid:
   enabled: true
@@ -97,3 +99,41 @@ authors:
     - 강판 코일 $\rightarrow$ Ring rolling $\rightarrow$ 용접
   - seamless pipe
     - Billet $\rightarrow$ 가열 후 Piercing $\rightarrow$ Mill / Drawing
+
+# 10. 연습 문제
+
+## 문제 1
+
+두 회전 롤 사이로 소재를 통과시켜 두께를 줄이는 공정의 이름을 쓰시오.
+
+<!--
+풀이와 해답:
+압연(rolling)이다.
+-->
+
+## 문제 2
+
+열간가공과 냉간가공을 구분하는 기준을 쓰시오.
+
+<!--
+풀이와 해답:
+재료의 재결정온도보다 높은 온도에서 가공하면 열간가공, 낮은 온도에서 가공하면 냉간가공이다.
+-->
+
+## 문제 3
+
+봉이나 선재를 다이를 통과시켜 단면을 줄이는 공정의 이름을 쓰시오.
+
+<!--
+풀이와 해답:
+인발(drawing)이다.
+-->
+
+## 문제 4
+
+판재로 컵 모양의 제품을 만드는 대표적인 공정을 쓰시오.
+
+<!--
+풀이와 해답:
+딥 드로잉(deep drawing)이다.
+-->

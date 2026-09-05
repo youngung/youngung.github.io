@@ -1,11 +1,13 @@
 ---
 layout: distill
-title:
-description:
-target:
+title: 선형 탄성
+description: 등방 선형탄성과 Hooke 법칙
+target: 학부 고학년
 permalink:
 featured: true
-prerequisite:
+prerequisite: 응력과 변형률, 벡터와 행렬
+toc:
+  sidebar: left
 
 mermaid:
   enabled: true
@@ -76,7 +78,7 @@ $$\nu=-\frac{\varepsilon_{22}}{\varepsilon_{11}}$$
 
 - 응력텐서 $\mathbf \sigma$와 변형률 텐서 $\mathbf \varepsilon$의 선형 관계를 표현해야 하겠다. 이를 아래와 같이 표현할 수 있다.
 
-$$ \sigma_{ij} = \sum_{k}^3\sum_{l}^3 E_{ijkl} \varepsilon _{kl} \text{ with } i=1,2,3\ \ \ j=1,2,3$$
+$$ \sigma_{ij} = \sum_{k=1}^3\sum_{l=1}^3 E_{ijkl} \varepsilon _{kl} \text{ with } i=1,2,3\ \ \ j=1,2,3$$
 
 - 응력과 변형률 텐서는 각각 랭크2의 매트릭스로, 탄성계수 텐서 $E$는 랭크 4의 매트릭스로 표현됨을 알 수 있다.
 
@@ -91,11 +93,11 @@ $$
 - 위를 인덱스를 활용해 표현하면
 
 $$
-\sigma_{ij} = \lambda  \delta_{ij} \sum_k^3(\varepsilon_{kk}) + 2G\varepsilon_{ij}, \text{ with } i=1,2,3\ \ \ j=1,2,3
+\sigma_{ij} = \lambda  \delta_{ij} \sum_{k=1}^3(\varepsilon_{kk}) + 2G\varepsilon_{ij}, \text{ with } i=1,2,3\ \ \ j=1,2,3
 $$
 
 - $tr(\mathbf\varepsilon)$는 체적 변형률이며 아래와 같이 정의된다.
-  $$tr(\mathbf\varepsilon)=\sum_k^3\varepsilon_{kk}=\varepsilon_{11}+\varepsilon_{22}+\varepsilon_{33} $$
+  $$tr(\mathbf\varepsilon)=\sum_{k=1}^3\varepsilon_{kk}=\varepsilon_{11}+\varepsilon_{22}+\varepsilon_{33} $$
 
 - $\mathbf I$는 랭크2 단위 텐서이며, 아래와 같은 매트릭스 형태로 표현된다.
 
@@ -154,7 +156,7 @@ $$\lambda = \frac{E\nu}{(1+\nu)(1-2\nu)}$$
 # 8. Voigt 표현법
 
 - 삼차원으로 확장하여 표현한 Hooke의 법칙은 아래와 같다.
-  $$ \sigma_{ij} = \sum_{k}^3\sum_{l}^3 E_{ijkl} \varepsilon _{kl} \text{ with } i=1,2,3\ \ \ j=1,2,3$$
+  $$ \sigma_{ij} = \sum_{k=1}^3\sum_{l=1}^3 E_{ijkl} \varepsilon _{kl} \text{ with } i=1,2,3\ \ \ j=1,2,3$$
 
 - 응력과 변형률 텐서 모두 6개의 독립 성분만을 가지므로, 6성분을 가지는 랭크1의 행렬로 표현하여 표기하기도 한다.
 
@@ -246,3 +248,41 @@ $$
 2\varepsilon_{12}
 \end{bmatrix}
 $$
+
+# 11. 연습 문제
+
+## 문제 1
+
+Young 계수가 200 GPa인 재료에 0.001의 일축 탄성변형률이 생겼다. 응력을 구하라.
+
+<!--
+풀이와 해답:
+sigma=E epsilon=200 GPa 곱하기 0.001=0.2 GPa=200 MPa이다.
+-->
+
+## 문제 2
+
+일축 인장변형률이 0.01이고 Poisson 비가 0.3일 때 횡변형률을 구하라.
+
+<!--
+풀이와 해답:
+횡변형률은 -nu epsilon=-0.3 곱하기 0.01=-0.003이다.
+-->
+
+## 문제 3
+
+등방 선형탄성체를 나타내는 독립적인 탄성상수는 몇 개인가?
+
+<!--
+풀이와 해답:
+두 개이다. 예를 들어 Young 계수 E와 Poisson 비 nu를 사용할 수 있다.
+-->
+
+## 문제 4
+
+전단탄성계수 $G$를 $E$와 $\nu$로 나타내라.
+
+<!--
+풀이와 해답:
+G=E/[2(1+nu)]이다.
+-->

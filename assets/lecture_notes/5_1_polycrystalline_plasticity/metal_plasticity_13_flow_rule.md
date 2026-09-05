@@ -1,11 +1,13 @@
 ---
 layout: distill
-title:
-description:
-target:
+title: 소성 유동법칙
+description: 변형률 분해, 항복함수와 소성 유동법칙
+target: 학부 고학년
 permalink:
 featured: true
-prerequisite:
+prerequisite: 소성 항복, 선형 탄성
+toc:
+  sidebar: left
 
 mermaid:
   enabled: true
@@ -21,16 +23,17 @@ authors:
       name: Changwon National University
 ---
 
-# 영구 변형(permanent deformation)
+# 1. 영구 변형 (permanent deformation)
 
 - 경화가 없는 탄소성 거동 재료의 stress vs. strain 곡선:
 
 
 <img src="/assets/lecture_notes/3_1_metal_plasticity/elasto-plastic.jpeg" alt="흰색 배경의 응력-변형률 그래프. 세로축은 응력, 가로축은 변형률을 나타내며, 곡선은 초기의 직선 탄성 구간을 지나 항복점에 도달한 뒤 거의 수평인 소성 변형 구간으로 이어진다. 그래프에는 탄성 및 소성 거동의 구분이 표시되어 있다." width="400"/>
 
-- 소성 변형은 응력이 0이되면 사라지고, 소성 변형은 $\sigma=\sigma_y$를 만족하여야 생긴다.
+- 탄성변형은 하중을 제거하면 회복되지만 소성변형은 영구적으로 남는다.
+  단순한 일축 탄소성 모델에서는 $|\sigma|=\sigma_y$에 도달할 때 소성변형이 시작된다.
 
-# 변형률 분해
+# 2. 변형률 분해
 
 - 전체 변형률은 탄성 변형률과 소성 변형률의 '합'으로 이해된다.
 
@@ -44,7 +47,7 @@ $$
 \boldsymbol{\varepsilon}=\boldsymbol{\varepsilon}^{el}+\boldsymbol{\varepsilon}^{pl}
 $$
 
-# Hooke's law
+# 3. Hooke 법칙
 - 탄성 변형률은 Hooke 법칙 따른다
 
 $$
@@ -52,10 +55,10 @@ $$
 $$
 
 $$
-\sigma_{ij} =\sum_k^3\sum_l^3 E_{ijkl}\varepsilon^{el}_{kl} \text{ with }\ \ i=1,2,3 \ \ \ j=1,2,3
+\sigma_{ij} =\sum_{k=1}^3\sum_{l=1}^3 E_{ijkl}\varepsilon^{el}_{kl} \text{ with }\ \ i=1,2,3 \ \ \ j=1,2,3
 $$
 
-# Flow rule
+# 4. 유동법칙 (flow rule)
 
 - 소성 변형률의 변화는 flow rule을 따른다.
 
@@ -66,9 +69,8 @@ d\boldsymbol{\varepsilon}^{pl}=d\lambda\frac{\partial f}{\partial\boldsymbol{\si
 $$
 
 $$
-f: \text{ plastic potential}\newline
-\lambda: \text{ plastic multiplier}. \newline
-d\lambda: \text { instantaneous change in } \lambda
+f: \text{ plastic potential},\qquad
+d\lambda: \text{ plastic multiplier increment}
 $$
 
 - 소성 변형률 텐서 increment(즉 $d\boldsymbol\varepsilon^{pl}$)의 방향은 $\frac{\partial f}{\partial \boldsymbol\sigma}$가 결정하고, 그 크기($|d\boldsymbol\varepsilon^{pl}|$)는 $d\lambda$가 결정한다.
@@ -85,18 +87,18 @@ $$
 f=\sqrt{\frac{1}{2}\bigg((\sigma_1-\sigma_2)^2+(\sigma_2-\sigma_3)^2+(\sigma_3-\sigma_1)^2\bigg)}
 $$
 
-# 전위 슬립 (dislocation slip)과 Schmid law
+# 5. 전위 슬립과 Schmid 법칙
 
 - 금속에서 소성 변형은 전위의 슬립 메커니즘으로 수용된다.
 
-- 한 슬립계는, 슬립면의 수직선 $\boldsymbol n$과 슬립 방향 $\boldsymbol b$로 이우어져 있다.
+- 한 슬립계는 슬립면 법선 $\boldsymbol n$과 슬립방향 $\boldsymbol b$로 이루어진다.
 
 - Schmid 법칙
 
   - 외부 응력 $\boldsymbol \sigma$가 가해졌을 때, 슬립계 s에 전달되는 분해 전단 응력은 아래와 같이 구한다.
 
 $$
-\tau^s=({\boldsymbol\sigma}\cdot {\boldsymbol n}^s)\cdot \boldsymbol b^s=\sum_i^3\sum_j^3\sigma_{ij}n_i^sb_j^s
+\tau^s=({\boldsymbol\sigma}\cdot {\boldsymbol n}^s)\cdot \boldsymbol b^s=\sum_{i=1}^3\sum_{j=1}^3\sigma_{ij}n_i^sb_j^s
 $$
 
   - 이를 Schmid tensor $\boldsymbol m$을 활용해 표현할 수 있다.
@@ -113,7 +115,7 @@ $$
 - 응력텐서의 특징 $\sigma_{ij}=\sigma_{ji}$로 인해 아래를 만족한다.
 
 $$
-\tau^s=({\boldsymbol\sigma}\cdot {\boldsymbol n}^s)\cdot \boldsymbol b^s=\sum_i^3\sum_j^3\sigma_{ij}n_i^sb_j^s=\sum_i^3\sum_j^3\sigma_{ij}m_{ij}^s
+\tau^s=({\boldsymbol\sigma}\cdot {\boldsymbol n}^s)\cdot \boldsymbol b^s=\sum_{i=1}^3\sum_{j=1}^3\sigma_{ij}n_i^sb_j^s=\sum_{i=1}^3\sum_{j=1}^3\sigma_{ij}m_{ij}^s
 $$
 
 - double contraction 활용해 더욱 간략히 표기할 수 있다.
@@ -122,7 +124,7 @@ $$
 \tau^s=\boldsymbol\sigma:\boldsymbol m^s
 $$
 
-# Dislocation slip 조건
+# 6. 전위 슬립 조건
 
 - 모든 슬립계의 CRSS값, $\tau_c$가 동일하다면, 소성 변형의 시작은 최대 분해 전단 응력값이 $\tau^{crss}$ 값과 같을 때 발생한다.
 
@@ -130,7 +132,7 @@ $$
 |\max_s\{\tau^s\}|=\tau_c
 $$
 
-# Rate dependent formulation
+# 7. 속도 의존형 정식화
 
 - 앞서 논의한 아래와 같은 항복 조건을 좀 더 유연하게 적용한 경우가 있다.
 
@@ -157,9 +159,9 @@ $$
 \dot\gamma^s/\dot{\gamma_0}=(|\tau^s|/\tau_c^s)^n\text{sgn}(\tau^s)
 $$
 
-- 멱함수내 전단 응력의 sign을 항상 positive로 유지하고, 대신 바깥에 $\text{sgn}(\tau^s)$를 통해 $\dot\gamma^s$와 $\tau^s$의 방향(sign)을 일키 시키게 된다.
+- 멱함수 안의 전단응력 크기는 항상 양수로 두고, $\text{sgn}(\tau^s)$를 곱하여 $\dot\gamma^s$와 $\tau^s$의 부호를 일치시킨다.
 
-# 결정립내 변형률
+# 8. 결정립 내 변형률
 
 - 한 결정립 내 여러 슬립계가 12개 있다면
 
@@ -184,5 +186,48 @@ $$
 
 
 $$
-\dot{\varepsilon}^{pl}_{ij}=\sum_s^{12} \dot\gamma_0\bigg(\frac{|\sum_k^3\sum_l^3\boldsymbol m^s_{kl}:\sigma_{kl}|}{\tau_c^s}\bigg)^n\text{sgn}(\sum_k^3\sum_l^3\boldsymbol m^s_{kl}:\sigma_{kl}) m^s_{ij}\ ,\ \ \text{ with } i=1,2,3\ \ \ \ j=1,2,3
+\dot{\varepsilon}^{pl}_{ij}
+=\sum_{s=1}^{12}\dot\gamma_0
+\left(\frac{|\tau^s|}{\tau_c^s}\right)^n
+\operatorname{sgn}(\tau^s)m^s_{ij},
+\qquad
+\tau^s=\sum_{k=1}^{3}\sum_{l=1}^{3}m^s_{kl}\sigma_{kl}
 $$
+
+# 9. 연습 문제
+
+## 문제 1
+
+소성변형률 증분을 탄성변형률 증분과 전체 변형률 증분으로 나타내라.
+
+<!--
+풀이와 해답:
+d epsilon^p=d epsilon-d epsilon^e이다.
+-->
+
+## 문제 2
+
+연관 유동법칙에서 소성변형률 증분의 방향은 무엇으로 결정되는가?
+
+<!--
+풀이와 해답:
+항복함수의 응력에 대한 gradient, 즉 항복면의 법선방향으로 결정된다.
+-->
+
+## 문제 3
+
+Schmid 법칙에서 분해전단응력이 임계분해전단응력에 도달하면 무엇이 시작되는가?
+
+<!--
+풀이와 해답:
+해당 슬립계에서 전위 슬립이 시작된다.
+-->
+
+## 문제 4
+
+소성승수는 소성변형이 발생하지 않을 때 어떤 값을 갖는가?
+
+<!--
+풀이와 해답:
+0이다.
+-->

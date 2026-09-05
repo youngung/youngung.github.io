@@ -1,11 +1,13 @@
 ---
 layout: distill
-title:
-description:
-target:
+title: 벡터와 행렬
+description: 소성역학에 필요한 벡터, 행렬 및 텐서 연산
+target: 학부 고학년
 permalink:
 featured: true
-prerequisite:
+prerequisite: 기초수학, 응력과 변형률
+toc:
+  sidebar: left
 
 mermaid:
   enabled: true
@@ -48,7 +50,7 @@ authors:
   - [7.1. $2\\times2$ 행렬](#71-2times2-행렬)
   - [7.2. $3\\times3$ 행렬](#72-3times3-행렬)
 - [8. 랭크의 증감](#8-랭크의-증감)
-- [9. 매트릭스 연산](#9-매트릭스-연산)
+- [9. Einstein 표기법](#9-einstein-표기법)
 
 # 1. 물리량의 종류
 
@@ -156,7 +158,7 @@ authors:
 
 - 위를 줄여서 아래와 같이 종종 표기한다.
 
-  $$|\boldsymbol a|=\sqrt{\sum_i^3 a_i^2}$$
+  $$|\boldsymbol a|=\sqrt{\sum_{i=1}^3 a_i^2}$$
 
 ## 5.2. 더하기, 빼기
 
@@ -222,11 +224,11 @@ $$\boldsymbol a - \boldsymbol b$$
 
 - 내적은 다음과 같이 연산될 수도 있다.
 
-  $$c = \boldsymbol a \cdot \boldsymbol b = \sum_i^3 a_ib_i = a_1b_1+a_2b_2+a_3b_3$$
+  $$c = \boldsymbol a \cdot \boldsymbol b = \sum_{i=1}^3 a_ib_i = a_1b_1+a_2b_2+a_3b_3$$
 
 - 따라서 얻어지는 다음 두 관계는 매우 유용하다.
 
-  $$c = \boldsymbol a \cdot \boldsymbol b = | \boldsymbol a| |\boldsymbol b|\cos\theta=\sum_i^3 a_ib_i$$
+  $$c = \boldsymbol a \cdot \boldsymbol b = | \boldsymbol a| |\boldsymbol b|\cos\theta=\sum_{i=1}^3 a_ib_i$$
 
 ## 5.5. 외적
 
@@ -305,15 +307,15 @@ $$\boldsymbol b = \boldsymbol A \cdot \boldsymbol v$$
 
 - 위는 아래와 같이 계산된다.
 
-$$b_1 = \sum_j^3 A_{1j} v_j $$
+$$b_1 = \sum_{j=1}^3 A_{1j} v_j $$
 
-$$b_2 = \sum_j^3 A_{2j} v_j $$
+$$b_2 = \sum_{j=1}^3 A_{2j} v_j $$
 
-$$b_3 = \sum_j^3 A_{3j} v_j $$
+$$b_3 = \sum_{j=1}^3 A_{3j} v_j $$
 
 - 따라서 축약하면
 
-$$b_i = \sum_j^3 A_{ij} v_j \text{ with } i=1,2,3$$
+$$b_i = \sum_{j=1}^3 A_{ij} v_j \text{ with } i=1,2,3$$
 
 - 아래의 경우를 살펴보자.
 
@@ -331,11 +333,11 @@ $$ \boldsymbol A\cdot \boldsymbol v \ne \boldsymbol v \cdot \boldsymbol A $$
 
 - 앞서 곱셈이 한 첨자 기호에만 적용된 경우를 살펴보았다. 즉
 
-$$d_i = \sum_j^3 A_{ij} b_j \text{ with } i=1,2,3$$
+$$d_i = \sum_{j=1}^3 A_{ij} b_j \text{ with } i=1,2,3$$
 
 - 랭크2인 두 매트릭스 사이에서는 두 첨자 사이에 위와 같은 곱이 수행될 수 있으며, 그 결과는 스칼라가 된다.
 
-$$c = A_{ij} B_{ij} = \sum_i^3 \sum_j^3 A_{ij}B_{ij}$$
+$$c = A_{ij} B_{ij} = \sum_{i=1}^3 \sum_{j=1}^3 A_{ij}B_{ij}$$
 
 - 위와 같은 곱하기를 아래와 같이 ':'기호를 활용해 표기하기도 한다.
 
@@ -345,7 +347,7 @@ $$
 
 - 랭크가 3인 매트릭스 $A_{ijk}$와 벡터 $\boldsymbol v$ 사이의 single contraction 곱을 생각해보자.
 
-$$B_{ij} = \sum_k^3A_{ijk} b_k \text{ with } i=1,2,3,\ \ \ j=1,2,3$$
+$$B_{ij} = \sum_{k=1}^3A_{ijk} b_k \text{ with } i=1,2,3,\ \ \ j=1,2,3$$
 
 ## 6.5. 매트릭스 전치 (transpose)
 
@@ -360,7 +362,7 @@ $$
 - 한 매트릭스 $\boldsymbol A$의 trace는 $tr(\boldsymbol A)$라 표기하고, 다음과 같이 정의된다.
 
 $$
-tr(\boldsymbol A) = A_{11}+A_{22}+A_{33}=\sum_i^3A_{ii}
+tr(\boldsymbol A) = A_{11}+A_{22}+A_{33}=\sum_{i=1}^3A_{ii}
 $$
 
 ## 6.7. 역행렬 (inverse matrix)
@@ -373,7 +375,7 @@ $$
 
 - 즉
 $$
-\sum_k^3A_{ik}A^{-1}_{kj}=I_{ij} \text{ with } i=1,2,3\ \ \ \ j=1,2,3
+\sum_{k=1}^3A_{ik}A^{-1}_{kj}=I_{ij} \text{ with } i=1,2,3\ \ \ \ j=1,2,3
 $$
 
 # 7. Determinant
@@ -410,7 +412,7 @@ $$
 
 - Contraction: 물리량들 사이에 곱을 통해 랭크가 감소하는 경우
 
-  - $a_i = \sum_j^3A_{ij}b_j\ \ \text{ with }\ i=1,2,3$
+  - $a_i = \sum_{j=1}^3A_{ij}b_j\ \ \text{ with }\ i=1,2,3$
 
 - Outer product: 물리량들 사이에 곱을 통해 랭크가 증가하는 경우
 
@@ -419,9 +421,9 @@ $$
 - 랭크가 유지되는 경우
   - $b_i=ca_i \ \ \text{ with } i=1,2,3$
 
-# 9. 매트릭스 연산
+# 9. Einstein 표기법
 
-- Einstein convention; 반복 되는 기호들에 주목하자. 항상 $\sum$ 기호와 함께 나타난다.
+- Einstein 합 규약에서는 한 항에 같은 첨자가 두 번 나타나면 그 첨자에 대해 합을 취한 것으로 약속한다.
 
 - 아래 각 결과가 무엇이 될까? 그리고 그 결과는 몇 **랭크**의 물리량이 될까?
 
@@ -432,3 +434,41 @@ $$ a_{ijk} b_{jk} $$
 $$ a_{ijk} b_{ik} $$
 
 $$ a_{ijk} b_{ijk} $$
+
+# 10. 연습 문제
+
+## 문제 1
+
+벡터 $\boldsymbol a=(3,4,0)$의 크기를 구하라.
+
+<!--
+풀이와 해답:
+벡터의 크기는 sqrt(3^2+4^2)=5이다.
+-->
+
+## 문제 2
+
+$\boldsymbol a=(1,0,0)$과 $\boldsymbol b=(0,2,0)$의 내적을 구하고 두 벡터의 관계를 설명하라.
+
+<!--
+풀이와 해답:
+내적은 0이다. 두 벡터는 서로 수직이다.
+-->
+
+## 문제 3
+
+$\boldsymbol a=(1,0,0)$과 $\boldsymbol b=(0,1,0)$의 외적을 구하라.
+
+<!--
+풀이와 해답:
+a cross b=(0,0,1)이다.
+-->
+
+## 문제 4
+
+단위행렬 $\boldsymbol I$와 임의의 벡터 $\boldsymbol a$의 곱 $\boldsymbol I\boldsymbol a$는 무엇인가?
+
+<!--
+풀이와 해답:
+원래 벡터 a와 같다.
+-->

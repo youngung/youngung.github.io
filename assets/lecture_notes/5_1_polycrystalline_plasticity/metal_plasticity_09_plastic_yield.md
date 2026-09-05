@@ -1,11 +1,13 @@
 ---
 layout: distill
-title:
-description:
-target:
+title: 소성 항복
+description: 항복응력과 Tresca 및 von Mises 항복조건
+target: 학부 고학년
 permalink:
 featured: true
-prerequisite:
+prerequisite: 선형 탄성, 응력 텐서
+toc:
+  sidebar: left
 
 mermaid:
   enabled: true
@@ -110,9 +112,47 @@ $$
 - Von Mises의 등가 응력, $\sigma^{VM}$은 아래와 같이 정의된다.
 
 $$
-\sigma^{VM}=\sqrt{0.5\big[(\sigma_{11}-\sigma_{22})^2+(\sigma_{22}-\sigma_{33})^2+(\sigma_{33}-\sigma_{11})^2+3(\sigma_{12}^2+\sigma_{13}^2+\sigma_{23}^2)\big]}
+\sigma^{VM}=\sqrt{\frac{1}{2}\big[(\sigma_{11}-\sigma_{22})^2+(\sigma_{22}-\sigma_{33})^2+(\sigma_{33}-\sigma_{11})^2+6(\sigma_{12}^2+\sigma_{13}^2+\sigma_{23}^2)\big]}
 $$
 
 - Von Mises 항복 조건은 아래와 같다.
   - $\sigma^{VM}<\sigma^Y$: 재료가 탄성 거동을 한다.
   - $\sigma^{VM}=\sigma^Y$: 재료가 소성 변형도 한다.
+
+# 9. 연습 문제
+
+## 문제 1
+
+일축 인장시험에서 응력이 항복응력보다 작을 때 하중을 제거하면 변형은 어떻게 되는가?
+
+<!--
+풀이와 해답:
+이상적인 탄소성 구분에서는 탄성변형이 회복되어 원래 상태로 돌아간다.
+-->
+
+## 문제 2
+
+주응력이 $(100,0,0)$ MPa일 때 von Mises 등가응력을 구하라.
+
+<!--
+풀이와 해답:
+일축 응력상태이므로 von Mises 등가응력은 100 MPa이다.
+-->
+
+## 문제 3
+
+정수압 응력만 작용할 때 von Mises 항복이 발생하지 않는 이유를 설명하라.
+
+<!--
+풀이와 해답:
+von Mises 항복은 형상변화를 일으키는 편차응력에 의존하며 정수압 응력의 편차성분은 0이기 때문이다.
+-->
+
+## 문제 4
+
+Tresca 항복조건이 사용하는 주응력의 조합을 설명하라.
+
+<!--
+풀이와 해답:
+최대 주응력과 최소 주응력의 차이, 즉 최대전단응력에 해당하는 값을 사용한다.
+-->

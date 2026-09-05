@@ -1,20 +1,13 @@
 ---
 layout: distill
-title:
-description:
-target:
+title: 주응력과 편차응력
+description: 주응력 공간, 편차응력과 von Mises 등가응력
+target: 학부 고학년
 permalink:
 featured: true
-prerequisite:
-#toc:
-#sidebar: left
-#- name: Orientation
-#- name: Week1
-#- name: Week2
-#- name: Week3
-#- name: Week4
-#- name: Week5
-#- name: Week6
+prerequisite: 좌표변환, 소성 항복
+toc:
+  sidebar: left
 
 mermaid:
   enabled: true
@@ -31,7 +24,7 @@ authors:
 ---
 
 
-- [1. 좌표 변환(coordiante transformation)과 주 공간 (principal space)](#1-좌표-변환coordiante-transformation과-주-공간-principal-space)
+- [1. 좌표 변환(coordinate transformation)과 주 공간 (principal space)](#1-좌표-변환coordinate-transformation과-주-공간-principal-space)
 - [2. 주 응력 (principal stress)](#2-주-응력-principal-stress)
 - [3. 주 응력 값 구하기](#3-주-응력-값-구하기)
 - [4. 편차 응력(deviatoric stress)](#4-편차-응력deviatoric-stress)
@@ -41,7 +34,7 @@ authors:
 - [8. 요약](#8-요약)
 
 
-# 1. 좌표 변환(coordiante transformation)과 주 공간 (principal space)
+# 1. 좌표 변환(coordinate transformation)과 주 공간 (principal space)
 
 - 앞서 좌표 변환 방법에 대해서 배웠다.
 
@@ -50,7 +43,7 @@ authors:
 
 - 즉,
 $$
-\boldsymbol{\sigma}=\sum_i^3\sum_j^3\sigma_{ij}\boldsymbol{e}_i\otimes\boldsymbol{e}_j
+\boldsymbol{\sigma}=\sum_{i=1}^3\sum_{j=1}^3\sigma_{ij}\boldsymbol{e}_i\otimes\boldsymbol{e}_j
 $$
 
 - 여기에 좌표변환행렬 $\boldsymbol{R}$ 를 통해 또 다른 좌표축 $(\tilde{\boldsymbol e}_1, \tilde{\boldsymbol e}_2,\tilde{\boldsymbol e}_3)$에 대한 구성성분값을 아래와 같이 구할 수 있다.
@@ -148,7 +141,7 @@ $$
 - Von Mises 등가 응력을 편차 응력에 대한 함수로 아래와 같이 표현할 수 있다.
 
 $$
-\sigma^{VM}=\sqrt{\frac{3}{2}\sum_i^3\sum_j^3s_{ij}}
+\sigma^{VM}=\sqrt{\frac{3}{2}\sum_{i=1}^3\sum_{j=1}^3s_{ij}^2}
 $$
 
 - 위 등가 응력을 활용한 Von Mises 항복 조건에 따르면, 소성 변형에 '평균응력'이 기여가 없고
@@ -182,4 +175,42 @@ $$
 | 평균응력 | $\sigma_m=\frac{1}{3}(\sigma_{11}+\sigma_{22}+\sigma_{33})$ |
 | Hydrostatic Stress | 부피 변화 유발; $\sigma_m\boldsymbol I$ |
 | Deviatoric Stress | 형상 변화 유발; $\boldsymbol s = \boldsymbol{\sigma} - \sigma_m\boldsymbol I$ |
-| von Mises 응력 | 편차응력 기반 등가응력; $\sigma^{VM}=\sqrt{\frac{3}{2}\sum_i^3\sum_j^3s_{ij}}$ |
+| von Mises 응력 | 편차응력 기반 등가응력; $\sigma^{VM}=\sqrt{\frac{3}{2}\sum_{i=1}^3\sum_{j=1}^3s_{ij}^2}$ |
+
+# 9. 연습 문제
+
+## 문제 1
+
+주응력의 물리적 의미를 간단히 설명하라.
+
+<!--
+풀이와 해답:
+전단응력이 0이 되는 서로 수직인 면들에서의 수직응력이다.
+-->
+
+## 문제 2
+
+응력 텐서의 평균응력 $\sigma_m$을 세 주응력으로 나타내라.
+
+<!--
+풀이와 해답:
+sigma_m=(sigma_1+sigma_2+sigma_3)/3이다.
+-->
+
+## 문제 3
+
+주응력이 $(90,60,30)$ MPa일 때 평균응력과 편차 주응력을 구하라.
+
+<!--
+풀이와 해답:
+평균응력은 60 MPa이고 편차 주응력은 (30,0,-30) MPa이다.
+-->
+
+## 문제 4
+
+정수압 응력을 더해도 von Mises 등가응력이 변하지 않는 이유를 설명하라.
+
+<!--
+풀이와 해답:
+von Mises 등가응력은 편차응력에만 의존하고 정수압 응력은 편차응력을 바꾸지 않기 때문이다.
+-->

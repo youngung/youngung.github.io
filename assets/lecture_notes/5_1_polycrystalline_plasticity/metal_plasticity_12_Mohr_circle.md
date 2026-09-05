@@ -1,11 +1,13 @@
 ---
 layout: distill
-title:
-description:
-target:
+title: Mohr 원
+description: 평면응력의 좌표변환과 Mohr 원
+target: 학부 고학년
 permalink:
 featured: true
-prerequisite:
+prerequisite: 좌표변환, 평면 응력
+toc:
+  sidebar: left
 
 mermaid:
   enabled: true
@@ -259,3 +261,41 @@ $$
 $$
 (\sigma-C)^2-\sigma_{12}^2=R^2
 $$
+
+# 5. 연습 문제
+
+## 문제 1
+
+$\sigma_x=100$ MPa, $\sigma_y=40$ MPa, $\tau_{xy}=0$인 평면응력 상태에서 Mohr 원의 중심을 구하라.
+
+<!--
+풀이와 해답:
+중심은 (sigma_x+sigma_y)/2=(100+40)/2=70 MPa이다.
+-->
+
+## 문제 2
+
+문제 1의 Mohr 원 반지름을 구하라.
+
+<!--
+풀이와 해답:
+전단응력이 0이므로 반지름은 |sigma_x-sigma_y|/2=30 MPa이다.
+-->
+
+## 문제 3
+
+문제 1의 두 주응력을 구하라.
+
+<!--
+풀이와 해답:
+중심에 반지름을 더하고 빼면 100 MPa와 40 MPa이다.
+-->
+
+## 문제 4
+
+실제 요소가 $\theta$만큼 회전할 때 Mohr 원에서는 몇 도 이동하는가?
+
+<!--
+풀이와 해답:
+Mohr 원에서는 크기가 2 theta인 각도만큼 이동한다.
+-->
