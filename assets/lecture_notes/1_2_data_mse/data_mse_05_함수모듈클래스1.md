@@ -1,18 +1,13 @@
 ---
 layout: distill
 title: 함수 기초
-description: 함수 정의, 반환값과 가변 인자
+description: 함수의 정의, 매개변수, 반환값과 재사용
 target: 1학년 2학기
 permalink:
 featured: true
 prerequisite: 조건문과 반복문
 toc:
   sidebar: left
-
-mermaid:
-  enabled: true
-  zoomable: true
-typograms: true
 hidden: true
 tabs: true
 tikzjax: true
@@ -23,241 +18,394 @@ authors:
       name: Changwon National University
 ---
 
-- [1. 목표](#1-목표)
-- [2. 함수란](#2-함수란)
-- [3. 모듈(module)과 import](#3-모듈module과-import)
-- [4. Built-in functions (no import / no declaration required)](#4-built-in-functions-no-import--no-declaration-required)
-- [5. 가변 인자 (\*args)](#5-가변-인자-args)
-- [6. 키워드 가변인자 (\*\*kwargs)](#6-키워드-가변인자-kwargs)
-- [7. 예시](#7-예시)
-  - [7.1. 주어진 모든 가변인자를 순서대로 곱하여 출력하는 함수 만들기](#71-주어진-모든-가변인자를-순서대로-곱하여-출력하는-함수-만들기)
-  - [7.2. 주어진 모든 가변인자의 개수를 출력하고, 그 가변인자의 총합과 평균을 구하는 함수 만들기](#72-주어진-모든-가변인자의-개수를-출력하고-그-가변인자의-총합과-평균을-구하는-함수-만들기)
-- [쉬운 연습 문제](#쉬운-연습-문제)
+- [1. 학습 목표](#1-학습-목표)
+- [2. 함수가 필요한 이유](#2-함수가-필요한-이유)
+- [3. 함수의 기본 구조](#3-함수의-기본-구조)
+- [4. 매개변수와 인자](#4-매개변수와-인자)
+- [5. return과 print의 차이](#5-return과-print의-차이)
+- [6. 기본값과 키워드 인자](#6-기본값과-키워드-인자)
+- [7. 변수의 범위](#7-변수의-범위)
+- [8. 재료공학 예제](#8-재료공학-예제)
+  - [8.1. 밀도 계산](#81-밀도-계산)
+  - [8.2. 여러 측정값의 평균](#82-여러-측정값의-평균)
+  - [8.3. 표준편차](#83-표준편차)
+- [9. 여러 입력값 받기](#9-여러-입력값-받기)
+- [10. 함수를 작성할 때의 점검 사항](#10-함수를-작성할-때의-점검-사항)
+- [11. 쉬운 연습 문제](#11-쉬운-연습-문제)
   - [문제 1](#문제-1)
   - [문제 2](#문제-2)
   - [문제 3](#문제-3)
+  - [문제 4](#문제-4)
+  - [문제 5](#문제-5)
+  - [문제 6](#문제-6)
 
-# 1. 목표
+# 1. 학습 목표
 
-- 함수와 클래스, 그리고 모듈의 이해
-- 함수를 만들어, 모듈화 시키고 CLI에서 실행할 수 있다.
+이번 강의가 끝나면 다음을 할 수 있어야 한다.
 
-# 2. 함수란
+- <code>def</code>를 사용하여 간단한 함수를 정의할 수 있다.
+- 매개변수(parameter)와 인자(argument)를 구분할 수 있다.
+- <code>return</code>으로 계산 결과를 반환할 수 있다.
+- 기본값과 키워드 인자를 사용할 수 있다.
+- 반복되는 재료공학 계산을 함수로 만들 수 있다.
 
-- 특정한 작업(task)를 수행하는 묶음.
+# 2. 함수가 필요한 이유
 
-- basics:
-  `def`로 정의하며, **재사용** 가능하고(reuseable),
-  입력(arguments), 출력(return)값을 가질 수 있다.
-  입력과 출력이 없는 함수도 있다.
+원의 넓이를 여러 번 계산한다고 생각해 보자.
 
-- 예시1: 기초 형태 (template)
+~~~python
+radius1 = 2.0
+area1 = 3.141592 * radius1**2
 
-```python
-def add(a, b): #함수의 이름이 'add', 입력은 a와 b
-   return a + b # 출력은 a+b
-```
+radius2 = 3.0
+area2 = 3.141592 * radius2**2
+~~~
 
-- 예시2
+반복되는 계산을 함수로 만들면 계산식을 한 번만 작성해도 된다.
 
-```python
-def sayhi(): # 함수의 이름이 'sayhi', 입력과 출력 없음
-   print('Hi')
-```
+~~~python
+def circle_area(radius):
+    return 3.141592 * radius**2
 
-- 예시3
 
-```python
-def func(a=3,b=5): # 함수의 이름이 'func', 입력 a와 b의 default가 있음.
-  """
-  a and b are the two arguments of this function
-  and this function calculates a+b, then return the result as output
-  """
-  return a+b
-```
+area1 = circle_area(2.0)
+area2 = circle_area(3.0)
 
-아래 실행해보자
+print(area1)
+print(area2)
+~~~
 
-```python
-## default value 활용됨
-print(func())
+함수(function)는 특정 작업을 수행하도록 이름을 붙인 코드의 묶음이다. 함수를 사용하면
 
-print(func(3,5))
+- 같은 코드를 반복해서 작성하지 않아도 되고,
+- 계산식의 의미가 명확해지며,
+- 오류를 한 곳에서 수정할 수 있다.
 
-print(func(5,3))
+# 3. 함수의 기본 구조
 
-print(func(a=3,b=6))
+함수는 다음과 같은 형태로 정의한다.
 
-print(func(b=6,a=3))
+~~~text
+def 함수이름(매개변수):
+    실행할 문장 1
+    실행할 문장 2
+    실행할 문장 ...
+    return 결과
+~~~
 
-print(func.__doc__) ## docstring 출력
-print(help(func))
-print(help(help))
-```
+두 수를 더하는 함수는 다음과 같다.
 
-- 예시 4: 아래 함수를 정의하면 에러가 발생한다. 에러를 읽어보고 이해해보자.
+~~~python
+def add(a, b):
+    result = a + b
+    return result
 
-```python
-def f(a=3,b=5,c,d):
-   print(a+b)
-   print(c+d)
-   return a*b*c*d
-```
 
-# 3. 모듈(module)과 import
+value = add(3, 5)
+print(value)
+~~~
 
-- 위 함수 중 하나를 모듈로 만들고 import 해보기
+함수 정의에서 중요한 점은 다음과 같다.
 
-- 한 재료의 부피와 질량을 측정해 밀도를 계산하려고 한다. 각 측정값에 오차가 있어, 측정을
-  여러번 되풀이 한 다음 평균 값을 계산해 밀도를 구하려고 한다. 아래의 예시를 직접 작성해보고
-  이를 활용해보자.
+- 함수 이름 뒤에 괄호```(```, ```)```와 콜론```:```을 쓴다.
+- 함수 본문은 들여쓴다 (indentation).
+- 함수는 정의한 뒤 호출(call)해야 실행된다.
+- 함수 이름은 수행하는 작업을 알 수 있게 짓는다.
 
-  - 'calc_dens.py` 모듈 작성
+# 4. 매개변수와 인자
 
-```python
-# 이 코드를 파일명 `calc_dens.py`로 작성하여 저장하자.
-def calc_dens(mass, volume):
-    """
-    질량은 g 단위로, 부피는 mm^3으로
-    """
-    density = mass / volume
-    return density
-```
+다음 함수에서 <code>mass</code>와 <code>volume</code>은 매개변수(parameter)이다.
 
-- 'main.py' 모듈 작성
+~~~python
+def density(mass, volume):
+    return mass / volume
+~~~
 
-```python
-# 이 코드를 `main.py`로 작성하여 저장하자.
+함수를 호출할 때 전달하는 7.8과 1.0은 인자(argument)이다.
 
-## 밀도 계산 프로그램
+~~~python
+rho = density(7.8, 1.0)
+print(rho)
+~~~
 
-## Raw data
-mass=[6.01, 6.05, 5.93, 6.03]
-vol=[3.11, 3.20, 3.09, 3.15]
+정리하면
 
-import calc_dens ## calc_dens.py 모듈을 import
+- 매개변수: 함수를 정의할 때 입력을 받을 변수
+- 인자: 함수를 호출할 때 실제로 전달하는 값
 
-dens=[] ## list 자료 생성
-for i in range(len(mass)):
-  val=calc_dens(mass=mass[i],volume=vol[i]) ## calc_dens.py 모듈 내의 함수
-  dens.append(val) ## list 자료에 값 저장
+이다.
 
-average=0.
-for i in range(len(dens)):
-  average=average+dens[i]
-average=average/len(dens)
-```
+# 5. return과 print의 차이
 
-- 위 생성된 모듈을 활용해서 표준 편차 구해보기.
-  $std(v_i)=\sum_i^n (\bar{v} - v_i)^2$
+<code>print</code>는 값을 화면에 보여준다. <code>return</code>은 값을 함수 밖으로
+돌려주어 다른 계산에 사용할 수 있게 한다.
 
-- 측정된 질량에서의 표준 편차는 얼마인가?
-- 측정된 부피내의 표준 편차는 얼마인가?
-- 밀도의 표준 편차는 얼마인가?
-- 표준편차를 계산하는 함수를 만들어서 활용해보자.
+~~~python
+def show_double(x):
+    print(2 * x)
 
-# 4. Built-in functions (no import / no declaration required)
 
-- 특징
+def calculate_double(x):
+    return 2 * x
 
-  - built-in 함수는 파이썬이 기본적으로 제공하는 함수
-  - 별도의 **import** 없이 언제든 바로 사용 가능; 예 (print, help, ...)
-  - 약 70여 개의 built-in 함수: A full list of built-in functions: [here](https://docs.python.org/3/library/functions.html)
 
-- 입력(input)과 출력(output) I/O
+show_double(4)
+value = calculate_double(4)
+result = value + 1
+print(result)
+~~~
 
-  - `print` 함수
-  - `input` 함수
+계산용 함수에서는 일반적으로 결과를 <code>return</code>한다.
 
-- 출력 예시
 
-  ```python
-  # 1. 단순 문자열 출력
-  print("안녕하세요, 파이썬!")
+하나의 함수가 여러 값을 반환할 수도 있다.
 
-  # 2. 숫자 출력 및 연산 결과 출력
-  print(2026)
-  print(10 + 20)
+~~~python
+def minimum_maximum(values):
+    return min(values), max(values)
 
-  # 3. 여러 값 동시에 출력 (쉼표로 구분하면 한 칸씩 띄어서 출력돼요)
-  print("올해는", 2026, "년입니다.")
-  ```
 
-- 입력 예시
+smallest, largest = minimum_maximum([3, 7, 2, 5])
+print(smallest, largest)
+~~~
 
-  ```python
-  # 1. 입력 받기
-  age_str = input("당신의 현재 나이를 입력하세요: ")
+# 6. 기본값과 키워드 인자
 
-  # 2. 형변환 (문자열로 들어온 나이를 계산할 수 있게 정수(int)로 바꿔줘요)
-  age = int(age_str)
+매개변수에 기본값(default value)을 지정할 수 있다.
 
-  # 3. 계산하기
-  next_year_age = age + 1
+~~~python
+def power(base, exponent=2):
+    return base**exponent
 
-  # 4. 결과 출력하기
-  print("내년에 당신은", next_year_age, "살이 됩니다!")
-  ```
 
-# 5. 가변 인자 (\*args)
+print(power(3))
+print(power(3, 3))
+print(power(base=2, exponent=4))
+~~~
 
-```python
+기본값이 없는 매개변수는 기본값이 있는 매개변수보다 앞에 놓아야 한다.
+
+~~~python
+def valid_function(c, d, a=3, b=5):
+    return a * b * c * d
+~~~
+
+다음과 같은 정의는 허용되지 않는다.
+
+~~~text
+def invalid_function(a=3, b=5, c, d):
+    ...
+~~~
+
+# 7. 변수의 범위
+
+함수 안에서 만든 변수는 기본적으로 함수 밖에서 직접 사용할 수 없다. 이를 지역변수
+(local variable)라고 한다.
+
+~~~python
+def engineering_strain(initial_length, final_length):
+    length_change = final_length - initial_length
+    strain = length_change / initial_length
+    return strain
+
+
+epsilon = engineering_strain(50.0, 51.0)
+print(epsilon)
+~~~
+
+위 코드에서 <code>length_change</code>와 <code>strain</code>은 함수 안의 지역변수이고,
+<code>epsilon</code>은 함수 밖의 변수이다.
+
+함수 안에서 전역변수(global variable)를 변경하는 방식보다 필요한 값을 인자로 전달하고 결과를 반환하는
+방식이 이해하기 쉽고 오류도 적다.
+
+# 8. 재료공학 예제
+
+## 8.1. 밀도 계산
+
+밀도는 질량을 부피로 나누어 계산한다.
+
+$$
+\rho=\frac{m}{V}
+$$
+
+~~~python
+def calculate_density(mass_g, volume_cm3):
+    """Return density in g/cm^3."""
+    return mass_g / volume_cm3
+
+
+al_density = calculate_density(27.0, 10.0)
+print(f"density = {al_density:.2f} g/cm^3")
+~~~
+
+단위가 서로 맞는지 확인해야 한다. 변수 이름에 단위를 포함하면 실수를 줄일 수 있다.
+
+## 8.2. 여러 측정값의 평균
+
+~~~python
+def mean(values):
+    total = 0.0
+
+    for value in values:
+        total += value
+
+    return total / len(values)
+
+
+masses = [6.01, 6.05, 5.93, 6.03]
+average_mass = mean(masses)
+print(average_mass)
+~~~
+
+Python이 제공하는 <code>sum</code>을 사용하면 더 간단히 작성할 수도 있다.
+
+~~~python
+def mean(values):
+    return sum(values) / len(values)
+~~~
+
+## 8.3. 표준편차
+
+$n$개의 값을 모집단으로 보고 표준편차(standard deviation)를 계산하면
+
+$$
+s=\sqrt{\frac{1}{n}\sum_{i=1}^{n}(x_i-\bar{x})^2}
+$$
+
+이다.
+
+~~~python
+def population_std(values):
+    average = sum(values) / len(values)
+    squared_sum = 0.0
+
+    for value in values:
+        squared_sum += (value - average)**2
+
+    return (squared_sum / len(values))**0.5
+
+
+print(population_std(masses))
+~~~
+
+# 9. 여러 입력값 받기
+
+입력값의 개수를 미리 정하기 어렵다면 <code>*args</code>를 사용할 수 있다.
+<code>args</code>는 함수 안에서 튜플로 다룬다.
+
+~~~python
 def add_all(*args):
-    # args는 입력된 모든 숫자가 담긴 튜플 형태. 예: (1, 2, 3)
     return sum(args)
 
-# 인자의 개수를 자유롭게 넣을 수 있습니다.
-print(add_all(1, 2))        # 결과: 3
-print(add_all(1, 2, 3, 4))  # 결과: 10
-```
 
-# 6. 키워드 가변인자 (\*\*kwargs)
+print(add_all(1, 2))
+print(add_all(1, 2, 3, 4))
+~~~
 
-```python
-def print_info(**kwargs):
-    # kwargs는 dictionary 형태. 예: {'name': 'Alice', 'age': 30}
+키워드와 값을 여러 개 받으려면 <code>**kwargs</code>를 사용할 수 있다.
+<code>kwargs</code>는 딕셔너리이다.
+
+~~~python
+def print_material(**kwargs):
     for key, value in kwargs.items():
         print(f"{key}: {value}")
 
-# 키워드 형태로 인자를 자유롭게 넘깁니다.
-print_info(name="Alice", age=30, role="Professor")
-# 출력:
-# name: Alice
-# age: 30
-# role: Professor
-```
 
-# 7. 예시
+print_material(name="Aluminum", structure="FCC", density=2.70)
+~~~
 
-## 7.1. 주어진 모든 가변인자를 순서대로 곱하여 출력하는 함수 만들기
+처음 함수를 배울 때는 일반 매개변수를 우선 사용하고, 입력 개수가 달라지는 경우에만
+<code>*args</code>나 <code>**kwargs</code>를 사용하는 것이 좋다.
 
-## 7.2. 주어진 모든 가변인자의 개수를 출력하고, 그 가변인자의 총합과 평균을 구하는 함수 만들기
+# 10. 함수를 작성할 때의 점검 사항
 
-# 쉬운 연습 문제
+- 함수 이름이 하는 일을 잘 나타내는가?
+- 입력값과 반환값이 분명한가?
+- 계산을 수행할 때 사용하는 단위가 일관적인가?
+- 같은 계산이 함수 안에서 불필요하게 반복되지 않는가?
+- 간단한 입력값으로 결과를 직접 확인했는가?
+- 0으로 나누는 경우(혹은 자연로그 0, 즉 $\ln 0$)처럼 허용되지 않는 입력은 없는가?
+
+# 11. 쉬운 연습 문제
 
 ## 문제 1
 
-두 수를 더해 반환하는 함수의 이름을 <code>add</code>로 정할 때 함수 선언 첫 줄을 쓰시오.
+두 수를 곱하여 반환하는 함수 <code>multiply</code>를 작성하라.
 
 <!--
 풀이와 해답:
-def add(a, b):
+def multiply(a, b):
+    return a * b
 -->
 
 ## 문제 2
 
-Python 함수에서 계산 결과를 호출한 곳으로 돌려주는 키워드는 무엇인가?
+다음 코드의 출력값을 구하라.
+
+~~~python
+def subtract(a, b):
+    return a - b
+
+
+print(subtract(7, 2))
+~~~
 
 <!--
 풀이와 해답:
-return이다.
+5가 출력된다.
 -->
 
 ## 문제 3
 
-<code>len([3, 4, 5])</code>의 결과를 쓰시오.
+다음 함수에서 매개변수와 인자(argument)를 각각 쓰시오.
+
+~~~python
+def square(x):
+    return x**2
+
+
+square(4)
+~~~
 
 <!--
 풀이와 해답:
-3
+매개변수는 x이고 인자는 4이다.
+-->
+
+## 문제 4
+
+다음 코드의 두 출력값을 구하라.
+
+~~~python
+def power(base, exponent=2):
+    return base**exponent
+
+
+print(power(3))
+print(power(3, 3))
+~~~
+
+<!--
+풀이와 해답:
+각각 9와 27이 출력된다.
+-->
+
+## 문제 5
+
+질량이 15 g이고 부피가 5 cm³인 재료의 밀도를
+<code>calculate_density</code> 함수로 계산하라.
+
+<!--
+풀이와 해답:
+calculate_density(15, 5)의 결과는 3 g/cm^3이다.
+-->
+
+## 문제 6
+
+함수에서 <code>return</code>이 필요한 이유를 한 문장으로 설명하라.
+
+<!--
+풀이와 해답:
+계산 결과를 함수 밖으로 돌려주어 변수에 저장하거나 다음 계산에 사용할 수 있게 하기 위해서이다.
 -->
