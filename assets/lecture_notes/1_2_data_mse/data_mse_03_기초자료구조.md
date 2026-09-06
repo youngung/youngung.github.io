@@ -24,18 +24,25 @@ authors:
 ---
 
 - [1. 목표](#1-목표)
-- [2. List](#2-list)
-- [3. Tuple](#3-tuple)
-- [4. Set](#4-set)
-- [5. Dictionary](#5-dictionary)
+- [2. List (리스트)](#2-list-리스트)
+- [3. Tuple (튜플)](#3-tuple-튜플)
+- [4. Set (집합)](#4-set-집합)
+- [5. Dictionary (딕셔너리)](#5-dictionary-딕셔너리)
 - [6. Misc.](#6-misc)
 - [7. Take-home 실습](#7-take-home-실습)
+- [쉬운 연습 문제](#쉬운-연습-문제)
+  - [문제 1](#문제-1)
+  - [문제 2](#문제-2)
+  - [문제 3](#문제-3)
+  - [문제 4](#문제-4)
+  - [문제 5](#문제-5)
+  - [문제 6](#문제-6)
 
 # 1. 목표
 
 - List, Tuple, Dictionary, set 의 자료 구조 이해하기
 
-# 2. List
+# 2. List (리스트)
 
 - 특징:
 
@@ -93,7 +100,7 @@ authors:
   a,b,c,d=[1,3,4,5]
   ```
 
-# 3. Tuple
+# 3. Tuple (튜플)
 
 - 특징
 
@@ -117,7 +124,7 @@ authors:
   print(r, g, b)     # red green blue
   ```
 
-# 4. Set
+# 4. Set (집합)
 
 - 특징
 
@@ -160,7 +167,7 @@ authors:
   s.pop()            # 임의의 값 제거 후 반환 (순서 없으니 랜덤)
   ```
 
-# 5. Dictionary
+# 5. Dictionary (딕셔너리)
 
 - 특징
 
@@ -275,4 +282,43 @@ a[0]
 <!--
 풀이와 해답:
 딕셔너리(dictionary)이다.
+-->
+
+## 문제 4
+
+다음 튜플에서 두 번째 원소를 선택하는 표현을 쓰시오.
+
+```python
+colors = ("red", "green", "blue")
+```
+
+<!--
+풀이와 해답:
+colors[1]
+-->
+
+## 문제 5
+
+다음 리스트를 집합으로 변환했을 때 중복을 제외한 원소를 쓰시오.
+
+```python
+numbers = [1, 2, 2, 3, 3, 3]
+```
+
+<!--
+풀이와 해답:
+{1, 2, 3}
+-->
+
+## 문제 6
+
+다음 딕셔너리에서 철의 밀도 값을 출력하는 표현을 쓰시오.
+
+```python
+iron = {"name": "iron", "density": 7.874}
+```
+
+<!--
+풀이와 해답:
+iron["density"] 또는 iron.get("density")
 -->
