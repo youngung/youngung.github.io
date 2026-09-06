@@ -27,6 +27,10 @@ authors:
 - [2. `if`, `elif`, `else` 조건문의 기본 구조 이해](#2-if-elif-else-조건문의-기본-구조-이해)
 - [3. `for` 반복문](#3-for-반복문)
 - [4. Built-in function인 `range`, `len`, `enumerate`를 `for`와 함께 조합!](#4-built-in-function인-range-len-enumerate를-for와-함께-조합)
+  - [4.1. 논리 연산자를 활용한 조건식](#41-논리-연산자를-활용한-조건식)
+  - [4.2. `while` 반복문](#42-while-반복문)
+  - [4.3. `break`와 `continue`](#43-break와-continue)
+  - [4.4. 누적 계산과 반복문 속 조건문](#44-누적-계산과-반복문-속-조건문)
 - [5. 예제](#5-예제)
   - [5.1. 구구단 출력하기 (x단 입력하면 ... )](#51-구구단-출력하기-x단-입력하면--)
   - [5.2. 2의 제곱근 구하기.](#52-2의-제곱근-구하기)
@@ -39,6 +43,9 @@ authors:
   - [문제 1](#문제-1)
   - [문제 2](#문제-2)
   - [문제 3](#문제-3)
+  - [문제 4](#문제-4)
+  - [문제 5](#문제-5)
+  - [문제 6](#문제-6)
 
 # 1. 목표:
 
@@ -216,6 +223,91 @@ for i, fruit in enumerate(fruits):
    print(i, fruit)
 ```
 
+## 4.1. 논리 연산자를 활용한 조건식
+
+여러 조건을 함께 판단할 때는 논리 연산자를 사용한다.
+
+- `and`: 두 조건이 모두 참일 때 참
+- `or`: 조건 중 하나 이상이 참일 때 참
+- `not`: 조건의 참과 거짓을 반대로 바꿈
+- `in`: 어떤 값이 자료구조에 포함되어 있는지 확인
+
+```python
+temperature = 750
+melting_point = 660
+
+if temperature >= melting_point and temperature < 1000:
+  print("liquid state")
+```
+
+문자열이나 리스트에 특정 값이 포함되어 있는지도 확인할 수 있다.
+
+```python
+element = "Fe"
+metals = ["Fe", "Al", "Cu"]
+
+if element in metals:
+  print("metal")
+```
+
+## 4.2. `while` 반복문
+
+`while`은 조건이 참인 동안 명령문을 반복한다. 반복문 안에서 조건이 거짓이 되도록 값을 변경해야 무한 반복을 피할 수 있다.
+
+```python
+n = 1
+
+while n <= 5:
+  print(n)
+  n += 1
+```
+
+`for`는 반복 횟수나 순회할 자료가 정해져 있을 때, `while`은 종료 조건이 중심일 때 사용하면 편리하다.
+
+## 4.3. `break`와 `continue`
+
+- `break`: 반복문을 즉시 종료
+- `continue`: 현재 반복만 건너뛰고 다음 반복으로 이동
+
+```python
+for number in range(1, 10):
+  if number == 5:
+    break
+  print(number)
+```
+
+```python
+for number in range(1, 6):
+  if number == 3:
+    continue
+  print(number)
+```
+
+## 4.4. 누적 계산과 반복문 속 조건문
+
+반복문에서 계산 결과를 변수에 계속 더하는 방식을 누적 계산이라고 한다.
+
+```python
+total = 0
+
+for number in range(1, 6):
+  total += number # total= total + number
+
+print(total)  # 15
+```
+
+반복문 안에 조건문을 넣으면 특정 조건을 만족하는 값만 처리할 수 있다.
+
+```python
+numbers = [3, 8, 11, 20, 25]
+
+for number in numbers:
+  if number % 2 == 0:
+    print(number, "짝수")
+  else:
+    print(number, "홀수")
+```
+
 # 5. 예제
 
 ## 5.1. 구구단 출력하기 (x단 입력하면 ... )
@@ -349,4 +441,41 @@ x > 0
 <!--
 풀이와 해답:
 for i in range(1, 4):
+-->
+
+## 문제 4
+
+변수 `temperature`가 0보다 크고 100보다 작은지 검사하는 조건식을 쓰시오.
+
+<!--
+풀이와 해답:
+0 < temperature and temperature < 100
+또는 0 < temperature < 100
+-->
+
+## 문제 5
+
+`while` 반복문을 사용하여 1부터 5까지의 정수를 출력하시오.
+
+<!--
+풀이와 해답:
+n = 1
+while n <= 5:
+  print(n)
+  n += 1
+-->
+
+## 문제 6
+
+다음 리스트에서 짝수만 출력하도록 반복문 속에 조건문을 작성하시오.
+
+```python
+numbers = [1, 2, 3, 4, 5, 6]
+```
+
+<!--
+풀이와 해답:
+for number in numbers:
+  if number % 2 == 0:
+    print(number)
 -->
