@@ -27,8 +27,8 @@ authors:
 - [2. Python 환경 확인](#2-python-환경-확인)
   - [2.1. 파이썬](#21-파이썬)
   - [2.2. VS Code에서 Jupyter 셋업 \& 구동되어 있는가?](#22-vs-code에서-jupyter-셋업--구동되어-있는가)
-  - [2.3 CLI (command line interface 기초)](#23-cli-command-line-interface-기초)
-- [Source / version control via Git](#source--version-control-via-git)
+  - [2.3. CLI (command line interface 기초)](#23-cli-command-line-interface-기초)
+  - [2.4. Source / version control via Git](#24-source--version-control-via-git)
 - [3. 모듈 만들기 및 실습](#3-모듈-만들기-및-실습)
 - [4. 간단한 조작 실습](#4-간단한-조작-실습)
 - [5. 변수와 연산자](#5-변수와-연산자)
@@ -37,10 +37,10 @@ authors:
   - [6.2. 실습 예시 2-2](#62-실습-예시-2-2)
   - [6.3. 실습 예시 2-3](#63-실습-예시-2-3)
   - [6.4. 실습 예시 2-4](#64-실습-예시-2-4)
-- [쉬운 연습 문제](#쉬운-연습-문제)
-  - [문제 1](#문제-1)
-  - [문제 2](#문제-2)
-  - [문제 3](#문제-3)
+- [7. 쉬운 연습 문제](#7-쉬운-연습-문제)
+  - [7.1. 문제 1](#71-문제-1)
+  - [7.2. 문제 2](#72-문제-2)
+  - [7.3. 문제 3](#73-문제-3)
 
 # 1. 목표
 
@@ -83,12 +83,12 @@ authors:
 - 몇몇 유용한 extension을 설치하면 더욱 도움이 된다.
 - Check this [link](https://code.visualstudio.com/docs/python/python-tutorial)
 
-## 2.3 CLI (command line interface 기초)
+## 2.3. CLI (command line interface 기초)
 
 - https://www.youtube.com/watch?v=hNdAQQeqkYU
 - CLI 활용을 통한 더욱 다양한 툴의 활용 및 자동화를 위한 script
 
-# Source / version control via Git
+## 2.4. Source / version control via Git
 
 - Git 활용을 통한 체계적인 소스/버전 컨트롤 및 협업
 - Git 를 활용한 local repository 생성
@@ -312,9 +312,9 @@ print(f"{c:.2f}C= {f:.2f}F")
 
   $$\frac{w^{^{136}Ce}f^{^{136}Ce}+w^{^{138}Ce}f^{^{138}Ce}+w^{^{140}Ce}f^{^{140}Ce}+w^{^{142}Ce}f^{^{142}Ce}}{f^{^{136}Ce}+f^{^{138}Ce}+f^{^{140}Ce}+f^{^{142}Ce}}$$
 
-# 쉬운 연습 문제
+# 7. 쉬운 연습 문제
 
-## 문제 1
+## 7.1. 문제 1
 
 변수 <code>x</code>에 정수 5를 저장하는 Python 문장을 쓰시오.
 
@@ -323,7 +323,7 @@ print(f"{c:.2f}C= {f:.2f}F")
 x = 5
 -->
 
-## 문제 2
+## 7.2. 문제 2
 
 Python에서 덧셈과 곱셈에 사용하는 연산자를 각각 쓰시오.
 
@@ -332,7 +332,7 @@ Python에서 덧셈과 곱셈에 사용하는 연산자를 각각 쓰시오.
 덧셈은 +, 곱셈은 *를 사용한다.
 -->
 
-## 문제 3
+## 7.3. 문제 3
 
 <code>print(2 + 3)</code>의 출력값을 쓰시오.
 
