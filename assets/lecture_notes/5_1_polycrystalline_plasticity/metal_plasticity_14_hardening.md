@@ -74,11 +74,20 @@ authors:
 
   - 항복면을 응력 공간에서 '이동'시켜 경화현상 설명
 
+  - 항복면 중심을 나타내는 배응력(back stress) $\boldsymbol\alpha$를 사용하면
+
+    $$
+    f=\sigma_{eq}(\boldsymbol\sigma-\boldsymbol\alpha)-\sigma^Y_0
+    $$
+
+    로 나타낼 수 있다. 하중 방향이 바뀔 때 반대 방향 항복응력이 낮아지는 Bauschinger
+    효과를 설명하는 데 유용하다.
+
 - Combination of isotropic & kinematic hardening
 
 ## 1.2. strain hardening described in crystal plasticity framework.
 
-- By expressing $\tau_c$ as a function of strains accumulcated in grain,
+- By expressing $\tau_c$ as a function of strains accumulated in a grain,
  one can describe the strain hardening.
 
 - For example, let's say the strain of a grain is expressed as below:
@@ -87,7 +96,7 @@ $$
 \dot{\boldsymbol\varepsilon}^{pl}=\dot\gamma_0\sum_s\boldsymbol m^s\bigg(\frac{|\boldsymbol m^s : \boldsymbol \sigma|}{\tau_c}\bigg)^n \text{sgn}(\boldsymbol m^s : \boldsymbol \sigma)
 $$
 
-- The CRSS $\tau_c$ can be expressed as slip shears accumulcated within grains via:
+- The CRSS $\tau_c$ can be expressed as slip shears accumulated within grains via:
 
 $$
 \tau_c\equiv\tau_c\bigg(\sum_s\int_0^{t}\dot\gamma^s dt\bigg)
@@ -175,8 +184,17 @@ $$
 $$
 
 $$
-=\dot\gamma_0\sum_s\frac{\boldsymbol m^s\otimes \boldsymbol m^s}{\tau_c}\bigg(\frac{|\boldsymbol m^s : \boldsymbol \sigma|}{\tau_c}\bigg)^{n-1} \bigg(\frac{\boldsymbol m^s : \boldsymbol \sigma}{\tau_c}\bigg)
+\dot{\boldsymbol\varepsilon}^{pl}
+=\left[
+\dot\gamma_0\sum_s
+\frac{\boldsymbol m^s\otimes\boldsymbol m^s}{\tau_c}
+\left(\frac{|\boldsymbol m^s:\boldsymbol\sigma|}{\tau_c}\right)^{n-1}
+\right]:\boldsymbol\sigma
 $$
+
+대괄호 안은 현재 응력상태에 의존하는 4차 secant compliance 역할을 한다. 한 슬립계의
+변형이 다른 슬립계의 임계분해전단응력에도 영향을 주는 현상을 잠재경화(latent
+hardening)라 한다.
 
 # 5. 연습 문제
 

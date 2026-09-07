@@ -164,6 +164,21 @@ $$
 \tilde{E}_{ijkl} = \sum_{m=1}^3 \sum_{n=1}^3 \sum_{o=1}^3 \sum_{p=1}^3 R_{im}R_{jn}R_{ko}R_{lp}E_{mnop}, \text{ with } i=1,2,3\ \ \ j=1,2,3\ \ \ k=1,2,3 \ \ \ \ l=1,2,3
 $$
 
+## 좌표변환에서 반드시 정해야 하는 관례
+
+이 강의의 $\boldsymbol R$은 기존 기저에서 새 기저로 성분을 바꾸는 수동적 변환이며
+$R_{ij}=\tilde{\boldsymbol e}_i\cdot\boldsymbol e_j$로 정의하였다. 따라서
+
+$$
+\tilde{\boldsymbol v}=\boldsymbol R\boldsymbol v,
+\qquad
+\tilde{\boldsymbol A}=\boldsymbol R\boldsymbol A\boldsymbol R^T
+$$
+
+이다. 물체 자체를 회전시키는 능동적 회전에서는 전치행렬의 위치가 달라질 수 있으므로
+행렬의 정의와 회전 방향을 먼저 확인해야 한다. 좌표변환 뒤에도 벡터의 크기와 2차 텐서의
+trace, determinant, 고유값은 변하지 않으므로 이를 이용해 계산을 검산할 수 있다.
+
 # 3. 연습 문제
 
 ## 문제 1

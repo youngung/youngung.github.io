@@ -35,3 +35,5 @@ toc:
 - [제12강 다변수 Newton-Raphson 방법의 기하학적 해석]({% link assets/lecture_notes/2_1_numerical_analysis/numerical_analysis_12_multivariate_geometric_interpretation.md %})
 
 - [제13강 적분]({% link assets/lecture_notes/2_1_numerical_analysis/numerical_analysis_13_integration.md %})
+
+- [제14강 벌점법]({% link assets/lecture_notes/2_1_numerical_analysis/numerical_analysis_14_penalty_method.md %})

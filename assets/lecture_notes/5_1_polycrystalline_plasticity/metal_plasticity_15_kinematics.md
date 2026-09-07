@@ -65,9 +65,20 @@ $$
 d\boldsymbol x = \boldsymbol F \cdot d\boldsymbol X
 $$
 
+- 체적비는 $J=\det\boldsymbol F=dv/dV$로 나타낸다. 물리적으로 허용되는 변형에서는
+  $J>0$이어야 하고, 비압축성 변형에서는 $J=1$이다.
+
 # 3. 극분해
 
 - $\boldsymbol F = \boldsymbol{R} \cdot \boldsymbol{U}=   \boldsymbol{V}\cdot\boldsymbol{R}$
+
+- $\boldsymbol R$은 회전, $\boldsymbol U$와 $\boldsymbol V$는 우·좌 신장텐서다.
+
+$$
+\boldsymbol C=\boldsymbol F^T\boldsymbol F=\boldsymbol U^2,
+\qquad
+\boldsymbol B=\boldsymbol F\boldsymbol F^T=\boldsymbol V^2
+$$
 
 # 4. 점의 속도
 
@@ -77,7 +88,7 @@ $$
 
 - Definition
 $$
-\boldsymbol L = \nabla \boldsymbol v
+\boldsymbol L = \nabla \boldsymbol v=\dot{\boldsymbol F}\boldsymbol F^{-1}
 $$
 
 $$
@@ -114,6 +125,18 @@ L_{21}&L_{22}&L_{23}\\
 L_{31}&L_{32}&L_{33}
 \end{bmatrix}
 $$
+
+## 유한변형 소성에서의 곱셈 분해
+
+미소변형에서는 전체 변형률을 탄성분과 소성분의 합으로 분해하지만, 큰 변형에서는
+
+$$
+\boxed{\boldsymbol F=\boldsymbol F^e\boldsymbol F^p}
+$$
+
+와 같이 변형구배를 곱셈 분해한다. $\boldsymbol F^p$는 슬립에 의한 국소 소성변형을,
+$\boldsymbol F^e$는 격자의 탄성 신장과 회전을 나타낸다. 곱셈 순서가 중요하며 이 분해가
+유한변형 결정소성 모델의 운동학적 출발점이다.
 
 # 6. 연습 문제
 

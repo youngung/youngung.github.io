@@ -69,7 +69,7 @@ d\boldsymbol{\varepsilon}^{pl}=d\lambda\frac{\partial f}{\partial\boldsymbol{\si
 $$
 
 $$
-f: \text{ plastic potential},\qquad
+f: \text{ yield function and plastic potential},\qquad
 d\lambda: \text{ plastic multiplier increment}
 $$
 
@@ -129,7 +129,7 @@ $$
 - 모든 슬립계의 CRSS값, $\tau_c$가 동일하다면, 소성 변형의 시작은 최대 분해 전단 응력값이 $\tau^{crss}$ 값과 같을 때 발생한다.
 
 $$
-|\max_s\{\tau^s\}|=\tau_c
+\max_s|\tau^s|=\tau_c
 $$
 
 # 7. 속도 의존형 정식화
@@ -137,7 +137,7 @@ $$
 - 앞서 논의한 아래와 같은 항복 조건을 좀 더 유연하게 적용한 경우가 있다.
 
 $$
-|\max_s\{\tau^s\}|=\tau_c
+\max_s|\tau^s|=\tau_c
 $$
 
 - 각 슬립계에서, 다음과 같은 '멱함수'의 형태로 각 전단 변형률 속도와 연계된다.
@@ -182,7 +182,7 @@ $$
 $$
 
 
-- 위 식을 index를 활용해 표기하면 더 이해에 도움된다?
+- 위 식을 첨자표기법으로 나타내면 각 성분의 합을 명확히 확인할 수 있다.
 
 
 $$
@@ -193,6 +193,19 @@ $$
 \qquad
 \tau^s=\sum_{k=1}^{3}\sum_{l=1}^{3}m^s_{kl}\sigma_{kl}
 $$
+
+## 소성 적재 조건과 일관성 조건
+
+속도 비의존 소성모델에서는
+
+$$
+f\leq0,\qquad d\lambda\geq0,\qquad f\,d\lambda=0
+$$
+
+인 상보조건을 만족한다. $f<0$이면 $d\lambda=0$이고 탄성적으로 거동한다. $f=0$에서
+소성 적재가 일어나면 갱신된 응력이 항복면 위에 머물도록 $df=0$인 일관성 조건을
+적용한다. von Mises 연관 유동법칙에서는
+$\operatorname{tr}(d\boldsymbol\varepsilon^{pl})=0$이므로 소성 체적변형이 없다.
 
 # 9. 연습 문제
 

@@ -236,7 +236,6 @@ python square.py 3
 ~~~python
 import argparse
 
-
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("x", type=float)
@@ -275,13 +274,11 @@ python calculate.py 3 4 --operation multiply
 ~~~python
 import argparse
 
-
 def density(mass_g, volume_cm3):
     if volume_cm3 <= 0:
         raise ValueError("volume must be positive")
 
     return mass_g / volume_cm3
-
 
 def main():
     parser = argparse.ArgumentParser(

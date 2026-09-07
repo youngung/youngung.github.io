@@ -192,7 +192,7 @@ flowchart LR
 fruits = ["apple", "banana", "cherry"]
 
 for i in range(len(fruits)):  # 0 ~ len(fruits)-1
-   print(f"Index {i}: {fruits[i]}")
+   print("Index:",fruits[i])
 ```
 
 - 예시 2
@@ -202,7 +202,7 @@ specimen_lengths = [10.0, 12.3, 9.8, 11.5]  # cm
 
 for i in range(len(specimen_lengths)):
     length = specimen_lengths[i]
-    print(f"Specimen {i+1}: {length} cm")
+    print("Specimen", length, "cm")
 ```
 
 - 예시 3
@@ -211,7 +211,7 @@ for i in range(len(specimen_lengths)):
 word = "steel"
 
 for i in range(len(word)):
-   print(f"Index {i} → {word[i]}")
+   print("Index ->", word[i])
 ```
 
 - 예시 4
@@ -333,7 +333,7 @@ for number in numbers:
 
 ## 5.2. 2의 제곱근 구하기.
 
-- Algorithm (점화식)
+- 알고리듬 (algorithm)
 
 $$x_{n+1}=x_n-\frac{(x_n)^2-2}{2x_n}$$
 
@@ -380,7 +380,7 @@ for n in range(7):
 
 ## 5.5. a의 제곱근 구하기
 
-- Algorithm (점화식)
+- 알고리듬 (algorithm)
 
 $$ x_{n+1}=x_n-\frac{(x_n)^2-a}{2x_n} $$
 
@@ -413,6 +413,7 @@ print('total number of electrons:',no_electrons)
 ```
 
 ## 5.7. 임의의 10진법 수를 이진법으로 바꾸는 파이썬 script를 작성해보자.
+ -  연산 부호 ```//``` 와 ```%``` 활용하길 바란다.
 
 # 쉬운 연습 문제
 

@@ -163,6 +163,18 @@ $$
 
 - 항복 면 내부는 탄성 변형만이 가능하고, 항복 면 위의 응력에 도달하여야 소성 변형도 발생한다.
 
+## 응력 불변량과의 연결
+
+$$
+I_1=\operatorname{tr}(\boldsymbol\sigma)=3\sigma_m,
+\qquad
+J_2=\frac{1}{2}\boldsymbol s:\boldsymbol s
+$$
+
+이며 von Mises 등가응력은 $\boxed{\sigma^{VM}=\sqrt{3J_2}}$로 쓸 수 있다.
+$I_1$은 평균응력 정보를, $J_2$는 편차응력의 크기를 나타내며 좌표계를 회전해도 변하지
+않는다. 주응력 공간에서 von Mises 항복면은
+$\sigma_1=\sigma_2=\sigma_3$인 정수압축을 중심축으로 하는 원기둥이다.
 
 
 # 8. 요약
@@ -173,7 +185,7 @@ $$
 | 주축  | 주응력이 작용하는 방향 |
 | Principal Stress Space | $(\sigma_1, \sigma_2, \sigma_3)$ 공간 |
 | 평균응력 | $\sigma_m=\frac{1}{3}(\sigma_{11}+\sigma_{22}+\sigma_{33})$ |
-| Hydrostatic Stress | 부피 변화 유발; $\sigma_m\boldsymbol I$ |
+| Hydrostatic Stress | 평균응력 성분; 탄성 부피변화와 관련된 $\sigma_m\boldsymbol I$ |
 | Deviatoric Stress | 형상 변화 유발; $\boldsymbol s = \boldsymbol{\sigma} - \sigma_m\boldsymbol I$ |
 | von Mises 응력 | 편차응력 기반 등가응력; $\sigma^{VM}=\sqrt{\frac{3}{2}\sum_{i=1}^3\sum_{j=1}^3s_{ij}^2}$ |
 

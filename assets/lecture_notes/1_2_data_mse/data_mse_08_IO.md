@@ -418,7 +418,6 @@ for path in data_folder.glob("*.txt"):
 ~~~python
 from pathlib import Path
 
-
 data_folder = Path("tensile_test_results")
 
 for old_path in data_folder.glob("*WZ*.csv"):
@@ -441,8 +440,6 @@ old_path.rename(new_path)
 
 ~~~python
 from shutil import copy
-
-
 copy(old_path, new_path)
 ~~~
 
@@ -454,8 +451,6 @@ copy(old_path, new_path)
 
 ~~~python
 from pathlib import Path
-
-
 path = Path("materials.txt")
 print(path.exists())
 print(path.resolve())

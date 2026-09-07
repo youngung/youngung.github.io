@@ -159,7 +159,18 @@ authors:
   - 논리 연산자 (and, or, not, ...)
 
     ```python
-    # 1. 값 비교
+
+    # 1. 산술 연산자
+    3 + 2
+    3. + 2.
+    3 - 2
+    3 * 2
+    3 / 2
+    3 ** 2    ## 지수
+    3 % 2     ## 나머지
+    3 // 2   ## 몫
+
+    # 2. 값 비교
     print(5 == 5)       # True (값이 같음)
     print(5 != 3)       # True (값이 다름)
     print(7 > 2)        # True (7이 2보다 큼)
@@ -167,7 +178,7 @@ authors:
     print(5 >= 5)       # True (5가 5보다 크거나 같음)
     print(4 <= 6)       # True (4가 6보다 작거나 같음)
 
-    # 2. 객체 동일성 비교
+    # 3. 객체 동일성 비교
     a = [1, 2, 3]
     b = [1, 2, 3]
     c = a
@@ -177,7 +188,7 @@ authors:
     print(a is c)       # True  (같은 객체)
     print(a is not b)   # True  (다른 객체)
 
-    # 3. 한 문자(character)가 문자열에 포함되었는지 확인
+    # 4. 한 문자(character)가 문자열에 포함되었는지 확인
     text = "Fe2O3"
     print("F" in text)      # True  ('F'가 문자열에 포함됨)
     print("O" not in text)  # True  ('O'가 문자열에 없음)
@@ -273,6 +284,7 @@ print(f"{c:.2f}C= {f:.2f}F")
 
 - 화씨 (Fahrenheit) 온도를 섭씨(Celsius)로 바꾸기
   화씨(F)와 섭씨(C)는 아래의 관계를 보인다.
+
   $$
   F=\frac{9}{5}C+32
   $$

@@ -40,7 +40,7 @@ authors:
 
 - 소성 변형의 발생한다고해서 탄성 변형이 멈추는 것은 아니다!
 
-- 아래 Hooke의 법칙만으로 소성 번형까지 설명할 수 없다.
+- 아래 Hooke의 법칙만으로 소성변형까지 설명할 수 없다.
 $$
 \sigma=E\varepsilon
 $$
@@ -49,9 +49,10 @@ $$
 
 # 2. 항복 응력 (yield stress)
 
-- 항복(plastic yielding)은 소성 번형이 발생하기 시작하는 현상이다. (다시 한번 말하지만, 소성 변형이 생겼다고해서 탄성 변형이 나타나지 않는 것이 아니다.)
+- 항복(plastic yielding)은 소성변형이 발생하기 시작하는 현상이다. 소성변형이 생긴
+  뒤에도 탄성변형 성분은 함께 존재할 수 있다.
 
-- 보통 일정 이상의 임계 응력 이상이 가해질 소성 변형이 나타나기 시작한다.
+- 보통 응력이 임계값에 도달하면 소성변형이 나타나기 시작한다.
 
 - 따라서, 항복 조건을 주로 '응력' 기준으로 표현한다. 소성 변형이 발생하기 시작하는 응력값을 '항복응력'(yield stress)라 부른다.
 
@@ -87,14 +88,14 @@ $$
 - 하지만 앞서 다루었던 응력은 스칼라 물리량으로 충분히 표현되지 않는다. 일반적인 텐서 응력환경에서 항복 조건은 따라서, 응력 텐서를 활용해서 아래와 같이 표현되어야 겠다.
 
 $$
-f(\boldsymbol\sigma)=\sigma^Y
+\boxed{f(\boldsymbol\sigma)=\sigma_{eq}(\boldsymbol\sigma)-\sigma^Y}
 $$
 
 - 이때 $f(\boldsymbol\sigma)$를 우리는 항복 함수(yield function)이라 부르며 아래와 조건을 만족해야 한다.
 
-  - $f(\boldsymbol\sigma)<\sigma^Y$: 재료가 탄성 거동을 한다.
-  - $f(\boldsymbol\sigma)=\sigma^Y$: 재료가 소성 변형도 한다.
-  - $f(\boldsymbol\sigma)>\sigma^Y$: 허용되지 않는다.
+  - $f(\boldsymbol\sigma)<0$: 응력상태가 항복면 안에 있어 탄성 거동을 한다.
+  - $f(\boldsymbol\sigma)=0$: 응력상태가 항복면 위에 있다.
+  - $f(\boldsymbol\sigma)>0$: 속도 비의존 모델에서는 허용되지 않으며 소성보정이 필요하다.
 
 # 6. 등가 응력 (equivalent stress)
 
@@ -105,7 +106,7 @@ $$
 # 7. Tresca 항복 조건
 
 - 최대 전단 응력값이 임계값에 도달하는 조건
-- 이해를 위해 주응력(principal stress)와 좌표변환을 이애할 필요가 있다.
+- 이해를 위해 주응력(principal stress)과 좌표변환을 이해할 필요가 있다.
 
 # 8. Von Mises 항복 조건
 
@@ -118,6 +119,13 @@ $$
 - Von Mises 항복 조건은 아래와 같다.
   - $\sigma^{VM}<\sigma^Y$: 재료가 탄성 거동을 한다.
   - $\sigma^{VM}=\sigma^Y$: 재료가 소성 변형도 한다.
+
+## 항복에서 평균응력과 편차응력의 역할
+
+응력은 $\boldsymbol\sigma=\sigma_m\boldsymbol I+\boldsymbol s$로 분해할 수 있다.
+연성금속의 von Mises 항복은 형상변화를 일으키는 편차응력 $\boldsymbol s$에만 의존한다.
+따라서 모든 주응력에 같은 정수압 응력을 더해도 von Mises 등가응력은 변하지 않는다.
+다만 정수압 응력은 연성파괴, 공극 성장과 압력 의존 재료의 항복에는 영향을 줄 수 있다.
 
 # 9. 연습 문제
 

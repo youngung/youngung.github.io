@@ -121,10 +121,18 @@ $$
 
 # 6. 선형 등방 Hooke 법칙 상세 설명
 
-- 위 Hooke의 법칙에서
+- 체적변형과 형상변형의 역할을 정확히 나누려면 변형률을 평균성분과 편차성분으로
+  분해하는 것이 좋다. 체적탄성계수를 $K=\lambda+2G/3$라 하면
 
-  - $\lambda tr(\mathbf \varepsilon) \mathbf I$은 체적변형과 관련된 응력
-  - $2G \mathbf \varepsilon$은 형태 변화에 의한 응력으로 볼 수 있다.
+$$
+\boldsymbol\sigma
+=K\operatorname{tr}(\boldsymbol\varepsilon)\boldsymbol I
++2G\boldsymbol\varepsilon^{dev}
+$$
+
+이다. 첫 항은 체적변화에, 두 번째 항은 형상변화에 대응한다. 원래 식의
+$2G\boldsymbol\varepsilon$에는 체적성분도 포함되므로 그 항 전체를 형상변화 성분이라고
+부르면 정확하지 않다.
 
 - 응력 성분을 각기 풀어 표현하면
 
@@ -147,7 +155,8 @@ $$ \sigma_{23}=2G\varepsilon_{23} $$
 
 - 등방성을 고려하지 않은 Hooke 법칙에서 랭크 4의 탄성계수 텐서$E_{ijkl}$가 81개의 성분을 가질 수 있는 것으로 보인다 (3x3x3x3=81).
 - 하지만 등방성을 고려한 Hooke의 법칙에서는 단 2개의 스칼라 값을 활용했다 ($\lambda, G$)
-- 사실 $\lambda$와 $G$ 의 패어 보다 영률 $E$와 포아송 비 $\nu$를 활용하는 경우가 더 많다. 그리고 이는 $G$와 $\lambda$와 관계된다.
+- 실제로는 $\lambda$와 $G$의 쌍보다 영률 $E$와 Poisson 비 $\nu$를 활용하는 경우가
+  많으며, 두 상수 집합은 서로 변환할 수 있다.
 
 $$G=\frac{E}{2(1+\nu)}$$
 
@@ -238,8 +247,8 @@ $$
 \end{bmatrix}
 =
 \begin{bmatrix}
-\frac{E}{1-\nu^2} & \frac{E}{1-\nu^2} & 0 \\
-\frac{E}{1-\nu^2} & \frac{E}{1-\nu^2} & 0 \\
+\frac{E}{1-\nu^2} & \frac{\nu E}{1-\nu^2} & 0 \\
+\frac{\nu E}{1-\nu^2} & \frac{E}{1-\nu^2} & 0 \\
 0 & 0 & G
 \end{bmatrix}
 \begin{bmatrix}
@@ -248,6 +257,36 @@ $$
 2\varepsilon_{12}
 \end{bmatrix}
 $$
+
+위 행렬은 **평면응력** 조건의 식이다. 벡터의 세 번째 변형률 성분은 공학전단변형률
+$\gamma_{12}=2\varepsilon_{12}$이므로 전단계수가 $G$로 들어간다.
+
+평면변형률에서는 $\varepsilon_{33}=0$이지만 $\sigma_{33}$은 일반적으로 0이 아니다.
+면내 관계는 다음과 같다.
+
+$$
+\begin{bmatrix}
+\sigma_{11}\\
+\sigma_{22}\\
+\sigma_{12}
+\end{bmatrix}
+=
+\frac{E}{(1+\nu)(1-2\nu)}
+\begin{bmatrix}
+1-\nu & \nu & 0\\
+\nu & 1-\nu & 0\\
+0 & 0 & \frac{1-2\nu}{2}
+\end{bmatrix}
+\begin{bmatrix}
+\varepsilon_{11}\\
+\varepsilon_{22}\\
+2\varepsilon_{12}
+\end{bmatrix}
+$$
+
+등방 선형탄성체의 에너지가 안정하려면 일반적으로 $E>0$이고
+$-1<\nu<0.5$여야 한다. 금속의 Poisson 비는 흔히 약 0.3이며, $\nu$가 0.5에
+가까울수록 탄성 체적변화에 더 강하게 저항한다.
 
 # 11. 연습 문제
 
