@@ -341,7 +341,7 @@ ninja.data = [{
               window.location.href = "/lectures/2_1_numerical_analysis/";
             },},{id: "lectures-이동현상",
           title: '이동현상',
-          description: "",
+          description: "재료공학도를 위한 운동량, 열 및 물질 전달",
           section: "Lectures",handler: () => {
               window.location.href = "/lectures/2_2_transport/";
             },},{id: "lectures-소성가공",
