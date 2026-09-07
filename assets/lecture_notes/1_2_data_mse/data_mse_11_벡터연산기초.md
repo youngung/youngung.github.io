@@ -1,18 +1,13 @@
 ---
 layout: distill
 title: 벡터 연산 기초
-description: NumPy를 이용한 벡터의 크기, 내적과 외적
+description: NumPy를 이용한 벡터의 합, 크기, 내적과 외적
 target: 1학년 2학기
 permalink:
 featured: true
-prerequisite: NumPy 배열 기초
+prerequisite: NumPy 배열 기초, NumPy 배열 활용
 toc:
   sidebar: left
-
-mermaid:
-  enabled: true
-  zoomable: true
-typograms: true
 hidden: true
 tabs: true
 tikzjax: true
@@ -23,461 +18,488 @@ authors:
       name: Changwon National University
 ---
 
-- [1. 목표](#1-목표)
-- [2. 벡터의 성분](#2-벡터의-성분)
-- [3. 벡터의 합](#3-벡터의-합)
-  - [3.1. 예시: 벡터의 차](#31-예시-벡터의-차)
-- [4. 벡터 스케일링 (스칼라 곱)](#4-벡터-스케일링-스칼라-곱)
-- [5. 벡터의 크기 (magnitude)](#5-벡터의-크기-magnitude)
-- [6. 단위 벡터 (unit vector)](#6-단위-벡터-unit-vector)
-- [7. 벡터 내적과 끼인 각 구하기](#7-벡터-내적과-끼인-각-구하기)
-- [8. 예시](#8-예시)
-  - [8.1. Cubic구조내의 두 결정방위 $(u\_1,v\_1,w\_1)$과 $(u\_2,v\_2,w\_2)$ 간의 각도?](#81-cubic구조내의-두-결정방위-u_1v_1w_1과-u_2v_2w_2-간의-각도)
-  - [8.2. Cubic구조내의 두 결정면 $(h\_1,k\_1,l\_1)$과 $(h\_2,k\_2,l\_2)$의 각 법선방향](#82-cubic구조내의-두-결정면-h_1k_1l_1과-h_2k_2l_2의-각-법선방향)
-  - [8.3. Cubic 내 두 면 $(h\_1k\_1l\_1)$과 $(h\_2k\_2l\_2)$ 면 법선 사이의 끼인 각 구하기](#83-cubic-내-두-면-h_1k_1l_1과-h_2k_2l_2-면-법선-사이의-끼인-각-구하기)
-  - [8.4. Tetragonal내의 두 결정방향(crystal direction) $\[u\_1,v\_1,w\_1\]$과 $\[u\_2,v\_2,w\_2\]$ 간의 각도 구하기](#84-tetragonal내의-두-결정방향crystal-direction-u_1v_1w_1과-u_2v_2w_2-간의-각도-구하기)
-  - [8.5. 예시 5:](#85-예시-5)
-  - [8.6. 예시 6 (take-home)](#86-예시-6-take-home)
-- [9. 외적 (cross product)](#9-외적-cross-product)
-  - [9.1. 단위 격자(unit cell)의 부피계산.](#91-단위-격자unit-cell의-부피계산)
-  - [9.2. (take-home)](#92-take-home)
-  - [9.3. (take-home)](#93-take-home)
+- [1. 학습 목표](#1-학습-목표)
+- [2. 벡터와 NumPy 배열](#2-벡터와-numpy-배열)
+- [3. 벡터의 합과 차](#3-벡터의-합과-차)
+- [\\boldsymbol a+\\boldsymbol b](#boldsymbol-aboldsymbol-b)
+- [4. 스칼라와 벡터의 곱](#4-스칼라와-벡터의-곱)
+- [c\\boldsymbol a](#cboldsymbol-a)
+- [5. 벡터의 크기](#5-벡터의-크기)
+- [|\\boldsymbol a|\_2](#boldsymbol-a_2)
+- [6. 단위벡터](#6-단위벡터)
+- [\\widehat{\\boldsymbol a}](#widehatboldsymbol-a)
+- [7. 내적](#7-내적)
+- [\\boldsymbol a\\mathbin{\\cdot}\\boldsymbol b](#boldsymbol-amathbincdotboldsymbol-b)
+- [8. 두 벡터 사이의 각](#8-두-벡터-사이의-각)
+- [\\boldsymbol a\\mathbin{\\cdot}\\boldsymbol b](#boldsymbol-amathbincdotboldsymbol-b-1)
+- [\\theta](#theta)
+- [9. 외적](#9-외적)
+- [\\boldsymbol a\\times\\boldsymbol b](#boldsymbol-atimesboldsymbol-b)
+- [\\boldsymbol b\\times\\boldsymbol a](#boldsymbol-btimesboldsymbol-a)
+- [|\\boldsymbol a\\times\\boldsymbol b|](#boldsymbol-atimesboldsymbol-b-1)
+- [10. 재료공학 예제](#10-재료공학-예제)
+  - [10.1. 두 힘의 합력](#101-두-힘의-합력)
+  - [10.2. 입방정에서 결정방향 사이의 각](#102-입방정에서-결정방향-사이의-각)
+  - [10.3. 평행사변형의 넓이](#103-평행사변형의-넓이)
+- [11. 자주 하는 실수](#11-자주-하는-실수)
+- [12. 정리](#12-정리)
+- [13. 쉬운 연습 문제](#13-쉬운-연습-문제)
+  - [문제 1](#문제-1)
+  - [문제 2](#문제-2)
+  - [문제 3](#문제-3)
+  - [문제 4](#문제-4)
+  - [문제 5](#문제-5)
+  - [문제 6](#문제-6)
+  - [문제 7](#문제-7)
 
-# 1. 목표
+# 1. 학습 목표
 
-- 반복문, 함수, NumPy를 활용해 기초 벡터 연산 및 행렬 연산 수행 및 이해
+이번 강의가 끝나면 다음을 할 수 있어야 한다.
 
-# 2. 벡터의 성분
+- 벡터를 1차원 NumPy 배열로 나타낼 수 있다.
+- 벡터의 합, 차와 스칼라 곱을 계산할 수 있다.
+- 벡터의 크기와 단위벡터를 구할 수 있다.
+- 내적을 이용하여 두 벡터의 수직 여부와 끼인 각을 구할 수 있다.
+- 외적의 방향과 크기를 설명하고 NumPy로 계산할 수 있다.
 
-한 벡터 $\boldsymbol a$는 아래와 같이 세 성분으로 이루어져 있다.
+# 2. 벡터와 NumPy 배열
 
-$\boldsymbol a = (a_x,a_y,a_z)$
-
-# 3. 벡터의 합
-
-벡터 $\boldsymbol a$ 와 $\boldsymbol b$의 합은 새로운 벡터 $\boldsymbol c$가
-된다.
-
-$$
-\boldsymbol c =  \boldsymbol a + \boldsymbol b
-$$
-
-이는 아래와 같이 각 성분들간의 합을 수행하고,
-
-$$
-c_x = a_x+b_x,
-\ \ \
-c_y = a_y+b_y,
-\ \ \
-c_z = a_z+b_z
-$$
-
-이 결과 값이 성분으로 이루어진 벡터가 그 결과가 된다.
+벡터(vector)는 크기와 방향을 함께 나타내는 물리량이다. 3차원 벡터
+$\boldsymbol a$는 다음과 같이 세 성분으로 나타낼 수 있다.
 
 $$
-\boldsymbol c = (c_x,c_y,c_z)=(a_x+b_x,a_y+b_y,a_z+b_z)
+\boldsymbol a=
+\begin{bmatrix}
+a_x\\a_y\\a_z
+\end{bmatrix}
 $$
 
-이는 아래와 같이 List 자료를 활용해 구현할 수 있다.
+Python에서는 1차원 NumPy 배열로 저장한다.
 
-```python
-a=[3,4,5]
-b=[3,-5,-2]
-c=[0,0,0]
-for i in range(len(a)):
-  c[i]=a[i]+b[i]
-```
-
-## 3.1. 예시: 벡터의 차
-
-아래와 같이 두 벡터의 차도 새로운 벡터가 된다.
-
-$$
-\boldsymbol c =  \boldsymbol a - \boldsymbol b
-$$
-
-$$
-c_x = a_x-b_x,
-\ \ \
-c_y = a_y-b_y,
-\ \ \
-c_z = a_z-b_z
-$$
-
-$$
-\boldsymbol c = (c_x,c_y,c_z)=(a_x-b_x,a_y-b_y,a_z-b_z)
-$$
-
-위를 구현하면 아래와 같이 된다.
-
-```python
-a=[3,4,5]
-b=[3,-5,-2]
-c=[0,0,0]
-for i in range(len(a)):
-	c[i]=a[i]-b[i]
-```
-
-# 4. 벡터 스케일링 (스칼라 곱)
-
-주어진 벡터 $\boldsymbol a$에 스칼라 $c$를 곱하면 또 다른 벡터 $\boldsymbol b$이 된다.
-
-3차원 공간에서 각 벡터는 3성분을 이를 각각 $(a_x,a_y,a_z)$ 라 하자.
-
-스케일링이 된 벡터 $\boldsymbol b$는 아래와 같이 계산된다.
-
-$$
-(b_x,b_y,b_z)=(ca_x,ca_y,ca_z)
-$$
-
-위를 Python의 List, 그리고 NumPy를 가지고 각기 표현할 수도 있겠다.
-
-{% tabs vector %}
-{% tab vector List %}
-
-```python
-## List로 구현
-c=0.3
-a=[1,2,3]
-b=[] # empty list
-for i in range(3): ## iteration
-   b.append(c*a[i])
-```
-
-{% endtab %}
-{% tab vector range와 len 활용 %}
-
-```python
-## Range와 len의 조합을 활용해, 임의의 크기를 가진 list에 적용 가능
-c=0.3
-a=[1,2,3]
-b=[] # empty list
-for i in range(len(a)): ## iteration
-   b.append(c*a[i])
-```
-
-{% endtab %}
-{% tab vector NumPy %}
-
-```python
-## NumPy로 구현
-c=0.3
-a=np.array([1,2,3])
-b=c*a ## broadcasting (?!)
-```
-
-{% endtab %}
-{% endtabs %}
-
-# 5. 벡터의 크기 (magnitude)
-
-벡터는 방향과 크기를 모두 가지고 있다. 한 벡터 $\boldsymbol a$의 크기를
-$|\boldsymbol a|$라 표기하자. 이는 다음과 같이 정의된다.
-
-$$|\boldsymbol a|=\sqrt{a_x^2+a_y^2+a_z^2}$$
-
-이를 List를 활용해 구현한다면:
-
-```python
-a=[2,3,4]
-mag=a[0]**2+a[1]**2+a[2]**2
-mag=mag**0.5
-```
-
-혹은 numpy를 활용해서 아래와 같이 구현할 수 있다.
-
-```python
+~~~python
 import numpy as np
-a=np.array([2,3,4])
-mag=(a**2).sum()
-mag=mag**0.5
+a = np.array([3.0, 4.0, 5.0])
+print(a)
+print(a.shape)
+print(a.ndim)
+~~~
 
-# 혹은 더 줄여서
-mag=((a**2).sum())**0.5
-```
+벡터 성분은 앞선 강의에서 배운 인덱싱으로 선택한다.
 
-# 6. 단위 벡터 (unit vector)
+~~~python
+print(a[0])
+print(a[1])
+print(a[2])
+~~~
 
-벡터 $\boldsymbol a$의 크기가 1 이라면 (즉 $|\boldsymbol a=1|$),
-벡터 $\boldsymbol a$ 를 단위 벡터(unit vector)라 부른다. 즉 단위 벡터란, 크기가 1인
-벡터를 뜻한다. 주어진 한 벡터 $\boldsymbol a$의 단위 벡터를 $\bar{\boldsymbol a}$라
-할 때, $\boldsymbol a$와 $\bar{\boldsymbol a}$의 관계를 다음과 같이 표현할 수 있다:
+# 3. 벡터의 합과 차
 
-$$
-(\bar a_x,\bar a_y,\bar a_z)
-=\bigg(
-  \frac{a_x}{\sqrt{a_x^2+a_y^2+a_z^2}},
-  \frac{a_y}{\sqrt{a_x^2+a_y^2+a_z^2}},
-  \frac{a_z}{\sqrt{a_x^2+a_y^2+a_z^2}}
-  \bigg)
-$$
-
-이와 같은 연산을 Python을 활용해 아래와 같이 구현할 수 있겠다.
-
-```python
-def get_mag(v):
-   import math
-   return math.sqrt(v[0]**2+v[1]**2+v[2]**2)
-```
-
-혹은 아래와 같이 math 페키지 없이 구현할 수 있겠다.
-
-```python
-def get_mag(v):
-   return (v[0]**2+v[1]**2+v[2]**2)**0.5
-```
-
-# 7. 벡터 내적과 끼인 각 구하기
-
-두 3D 벡터가 주어졌을 때 사이 끼인 각을 구하려면, 앞서 활용된 서로다른 두 벡터의 정의를 함께
-활용할 수 있다. 즉
+두 벡터의 합과 차는 같은 위치의 성분끼리 계산한다.
 
 $$
-\boldsymbol a \cdot \boldsymbol b=a_1b_1+a_2b_2+a_3b_3=\sum_i^3a_ib_i=|\boldsymbol a||\boldsymbol b|\cos\theta
+\boldsymbol a+\boldsymbol b
+=
+\begin{bmatrix}
+a_x+b_x\\
+a_y+b_y\\
+a_z+b_z
+\end{bmatrix}
 $$
 
-위 식을 정리하여 활용하면 아래와 같다.
+~~~python
+a = np.array([3.0, 4.0, 5.0])
+b = np.array([3.0, -5.0, -2.0])
+
+vector_sum = a + b
+vector_difference = a - b
+
+print(vector_sum)
+print(vector_difference)
+~~~
+
+결과는 각각 $[6,-1,3]$과 $[0,9,7]$이다. 두 배열의 shape이 같아야 성분별로
+자연스럽게 더하고 뺄 수 있다.
+
+# 4. 스칼라와 벡터의 곱
+
+벡터에 하나의 수인 스칼라 $c$를 곱하면 모든 성분에 $c$가 곱해진다.
 
 $$
-\frac{a_1b_1+a_2b_2+a_3b_3}{|\boldsymbol a||\boldsymbol b|}=\cos\theta
+c\boldsymbol a
+=
+\begin{bmatrix}
+ca_x\\ca_y\\ca_z
+\end{bmatrix}
+$$
+
+~~~python
+a = np.array([1.0, 2.0, 3.0])
+scaled = 0.5 * a
+
+print(scaled)
+~~~
+
+이는 앞선 NumPy 강의에서 배운 배열과 스칼라의 브로드캐스팅이다. 양의 값을 곱하면
+방향은 같고 크기가 변한다. 음의 값을 곱하면 방향도 반대가 된다.
+
+# 5. 벡터의 크기
+
+벡터 $\boldsymbol a$의 크기(Euclidean norm)는
+
+$$
+\|\boldsymbol a\|_2
+=
+\sqrt{a_x^2+a_y^2+a_z^2}
+$$
+
+이다.
+
+줄여서 다음과 같이 표기하기도 한다.
+
+$$
+|\boldsymbol a|
+$$
+
+벡터 $(3,4,0)$의 크기를 직접 계산하면
+
+$$
+\sqrt{3^2+4^2+0^2}=5
+$$
+
+이다.
+
+NumPy의 원소별 연산과 집계 연산을 이용할 수 있다.
+
+~~~python
+a = np.array([3.0, 4.0, 0.0])
+
+magnitude = np.sqrt((a**2).sum())
+print(magnitude)
+~~~
+
+NumPy가 제공하는 <code>np.linalg.norm()</code>을 사용하면 더 간단하다.
+
+~~~python
+magnitude = np.linalg.norm(a)
+print(magnitude)
+~~~
+
+# 6. 단위벡터
+
+크기가 1인 벡터를 단위벡터(unit vector)라고 한다. 0이 아닌 벡터를 그 크기로 나누면
+같은 방향의 단위벡터를 얻는다.
+
+$$
+\widehat{\boldsymbol a}
+=
+\frac{\boldsymbol a}{\|\boldsymbol a\|_2}
+$$
+
+~~~python
+def unit_vector(vector):
+    magnitude = np.linalg.norm(vector)
+
+    if magnitude == 0:
+        raise ValueError("zero vector has no direction")
+
+    return vector / magnitude
+
+
+a = np.array([3.0, 4.0, 0.0])
+a_unit = unit_vector(a)
+
+print(a_unit)
+print(np.linalg.norm(a_unit))
+~~~
+
+영벡터는 방향이 없으므로 단위벡터로 만들 수 없다.
+
+# 7. 내적
+
+두 벡터의 내적(dot product)은 같은 위치의 성분을 곱한 뒤 모두 더한 값이다.
+
+$$
+\boldsymbol a\mathbin{\cdot}\boldsymbol b
+=
+\sum_{i=1}^{n}a_i b_i
+$$
+
+3차원에서는
+
+$$
+\boldsymbol a\mathbin{\cdot}\boldsymbol b
+=a_1b_1+a_2b_2+a_3b_3
+$$
+
+이다.
+
+~~~python
+a = np.array([1.0, 2.0, 3.0])
+b = np.array([4.0, 5.0, 6.0])
+
+dot_product = (a * b).sum()
+print(dot_product)
+~~~
+
+NumPy에서는 다음 두 표현을 사용할 수 있다.
+
+~~~python
+print(np.dot(a, b))
+print(a @ b)
+~~~
+
+결과는 모두 스칼라 32이다. <code>a * b</code>만 계산하면 합을 하지 않으므로
+내적이 아니라 원소별 곱 배열이 나온다.
+
+두 벡터가 모두 영벡터가 아니고 내적이 0이면 두 벡터는 서로 수직이다.
+
+~~~python
+x_direction = np.array([1.0, 0.0, 0.0])
+y_direction = np.array([0.0, 1.0, 0.0])
+
+print(x_direction @ y_direction)
+~~~
+
+# 8. 두 벡터 사이의 각
+
+내적은 두 벡터 사이의 각 $\theta$와 다음 관계를 갖는다.
+
+$$
+\boldsymbol a\mathbin{\cdot}\boldsymbol b
+=
+|\boldsymbol a|
+|\boldsymbol b|
+\cos\theta
 $$
 
 따라서
 
 $$
-\theta=\cos^{-1}\bigg(\frac{a_1b_1+a_2b_2+a_3b_3}{|\boldsymbol a||\boldsymbol b|}\bigg)
+\theta
+=
+\cos^{-1}
+\left(
+\frac{\boldsymbol a\mathbin{\cdot}\boldsymbol b}
+{|\boldsymbol a||\boldsymbol b|}
+\right)
 $$
 
-위를 `math`모듈과 그 모듈내의 `sqrt`, `acos`을 활용하여 아래와 같은 간단한 코드를 작성할
-수 있다. sqrt는 square root, 즉 제곱근에서 따왔고 acos 함수는 arccosine,
-즉 코사인 함수의 역함수, $\cos^{-1}$ 에서 따왔다.
+이다.
 
-```python
-def get_ang(a,b):
-   import math
-   dotprod=0.
-   for i in range(len(a)):
-      dotprod+=a[i]*b[i]
-   costh=dotprod/(get_mag(a)*get_mag(b))
-   print(f'costh:{costh}')
-   th=math.acos(costh)
-   return th
+~~~python
+def angle_between(vector_a, vector_b):
+    magnitude_a = np.linalg.norm(vector_a)
+    magnitude_b = np.linalg.norm(vector_b)
 
-a=[1,0,0]
-b=[0,1,0]
-angle=get_ang(a,b)
-print('ang in radian:', angle)
-## angle to degree?
-print('ang in degree:', angle*180/3.141592)
-## 정확히 90도가 아니라 90.00001872397223 로 표현된다면??? 무엇 때문일까?
-```
+    if magnitude_a == 0 or magnitude_b == 0:
+        raise ValueError("zero vector has no direction")
 
-# 8. 예시
+    cosine = (
+        vector_a @ vector_b
+        / (magnitude_a * magnitude_b)
+    )
 
-## 8.1. Cubic구조내의 두 결정방위 $(u_1,v_1,w_1)$과 $(u_2,v_2,w_2)$ 간의 각도?
+    cosine = np.clip(cosine, -1.0, 1.0)
+    angle_rad = np.arccos(cosine)
 
-```python
-## cubic 결정구조내의 밀러 인덱스 [uvw]로 주어진 결정방위에 해당하는 unit vector 구하기
-miller1=np.array([u1,v1,w1])
-unit_vector1=miller / get_mag(miller1)
+    return np.degrees(angle_rad)
 
-miller2=np.array([u2,v2,w2])
-unit_vector2=miller / get_mag(miller2)
 
-angle=get_ang(unit_vector1,unit_vector2)
+a = np.array([1.0, 0.0, 0.0])
+b = np.array([0.0, 1.0, 0.0])
 
-angle*180/np.pi ## np.pi: 원주율
+print(angle_between(a, b))
+~~~
 
-np.deg2rad(angle) ## np 패키지내의 메소드 활용 가능
-```
+결과는 90도이다. <code>np.arccos()</code>의 결과는 radian이고,
+<code>np.degrees()</code>가 degree로 변환한다. 부동소수점 계산 때문에 cosine이
+아주 조금 1보다 커지거나 -1보다 작아지는 것을 막기 위해 <code>np.clip()</code>을 사용했다.
 
-## 8.2. Cubic구조내의 두 결정면 $(h_1,k_1,l_1)$과 $(h_2,k_2,l_2)$의 각 법선방향
+# 9. 외적
 
-사이의 각도?
-
-## 8.3. Cubic 내 두 면 $(h_1k_1l_1)$과 $(h_2k_2l_2)$ 면 법선 사이의 끼인 각 구하기
-
-## 8.4. Tetragonal내의 두 결정방향(crystal direction) $[u_1,v_1,w_1]$과 $[u_2,v_2,w_2]$ 간의 각도 구하기
-
-- Cubic의 경우, $a=b=c$이며 세 사이 각이 $\alpha=\beta=\gamma=90 ^\circ$이다.
-
-- Tetragonal의 경우, $a=b\ne c$이며 $\alpha=\beta=\gamma=90 ^\circ$을 만족한다.
-
-- Tetragonal structure는 c축 방향으로 늘어난 형태이다. cubic과 다르게 miller 인덱스를
-  마냥 벡터로 활용할 수 없다. Tetragonality의 정도에 따라 주어진 밀러 인덱스를 적절히 벡터로
-  바꿔야 한다. 예를 들어, c축의 길이가 a축에 비해 2배 길다면 [001] 밀러 인덱스는 사실 [0,0,2]
-  벡터가 된다.
-
-- 이와 같은 상황을 '보정'해주기 위해서는 $c/a$ 비율 (c over a ratio)를 활용해야 한다.
-
-- 따라서, $c/a$ ratio가 알려진 Tetragonal의 Miller index [$u_1v_1w_1$]로 표현된 결정방위의
-  실제 길이는:
-
-  $$
-  \sqrt{ (u_1\times 1)^2+(v_1\times 1)^2+(w_1\times \frac{c}{a})^2 }
-  $$
-
-- Tetragonal 내의 결정 방향 $[uvw]$를 벡터 $[x,y,z]$로 바꾸는 함수는?
-
-```python
-def miller2vect_tetragonal(miller,ca_ratio):
-  u,v,w=miller
-  ## 오직 z성분값을 구할때만 c over a 비율이 곱해진 것에 유의하시오.
-  x=u
-  y=v
-  z=w*ca_ratio
-  return x,y,z
-```
-
-- 위 결과인 벡터 $(x,y,z)$를 unit 벡터 $(\bar x,\bar y,\bar z)$로 바꾸면?
+3차원 벡터의 외적(cross product)은 두 벡터에 모두 수직인 새로운 벡터이다.
 
 $$
-\bar x= \frac{x}{\sqrt{x^2+y^2+{\color{red}z}^2}} = \frac{x}{\sqrt{u^2+v^2+({\color{red} w\frac{c}{a}})^2}}
+\boldsymbol a\times\boldsymbol b
+=
+\begin{bmatrix}
+a_yb_z-a_zb_y\\
+a_zb_x-a_xb_z\\
+a_xb_y-a_yb_x
+\end{bmatrix}
 $$
 
-$$
-\bar y= \frac{y}{\sqrt{x^2+y^2+{\color{red}z}^2}} = \frac{y}{\sqrt{u^2+v^2+({\color{red} w\frac{c}{a}})^2}}
-$$
+~~~python
+a = np.array([1.0, 0.0, 0.0])
+b = np.array([0.0, 1.0, 0.0])
+
+cross_product = np.cross(a, b)
+print(cross_product)
+~~~
+
+결과는 $[0,0,1]$이다. 방향은 오른손 법칙을 따른다.
+
+외적은 순서를 바꾸면 부호가 바뀐다.
 
 $$
-\bar z= \frac{z}{\sqrt{x^2+y^2+{\color{red}z}^2}} = \frac{z}{\sqrt{u^2+v^2+({\color{red} w\frac{c}{a}})^2}}
+\boldsymbol b\times\boldsymbol a
+=
+-\boldsymbol a\times\boldsymbol b
 $$
 
-- 위를 Python으로 구현해보자.
+~~~python
+print(np.cross(b, a))
+~~~
 
-```python
-def m2unitv_tetragonal(miller,ca_ratio):
-  v=miller2vect_tetragonal(miller,ca_ratio)
-  v=np.array(v)
-  mag=get_mag(v)
-  return v/mag ## element-wise operation
-```
-
-- 다음으로 두 결정 방위 간의 각도는?
-
-```python
-m1=[3,1,1]
-m2=[1,0,1]
-
-um1=m2unitv_tetragonal(m1)
-um2=m2unitv_tetragonal(m2)
-
-get_ang(um1,um2) #
-```
-
-## 8.5. 예시 5:
-
-- Tetragonal 내의 결정면 $(hkl)$의 수직 방향은?
-  결정 방향(crystal direction)과 다르게 결정면의 수직방향은 (norm of crystal plane)
-  다른 방식으로 영향을 받는다.
-
-  결정 방향의 경우 아래와 같이 벡터로 바뀌었다면
-  $(x,y,z)=(u,v,w{\color{red}\frac{c}{a}})$
-  결정 면의 수직방향은 아래와 같이 바뀐다.
-  $(x,y,z)=(h,k,l{\color{green}\frac{a}{c}})$
-
-- 두 결정면 $(h_1,k_1,l_1)$과 $(h_2,k_2,l_2)$의 수직선 사이의 각도 구하는 Python script 작성해보기
-
-## 8.6. 예시 6 (take-home)
-
-- cubic내에서는 $[101]$ 결정방향과 $(101)$면의 법선방향이 일치한다. 하지만
-  Tetragonal의 경우 $[101]$ 결정방향과 $(101)$면의 법선 방향이 일치하지 않는다.
-  $\beta$Tin은 상온에서 Body-centered tetragonal 구조를 가진다. 격자상수 $a,b,c$가
-  각각 5.81, 5.81, 3.18 $\mathring{A}$ 라면, $[101]$ 결정 방향과 $(101)$ 결정면의 법선 방향
-  사이의 끼인 각도는 얼마인가?
-
-- 이미 작성된 Python script를 활용하고, 보완하거나 추가하여
-  각도를 계산해보자.
-
-# 9. 외적 (cross product)
-
-- 설명
-  두 벡터 $\boldsymbol a, \boldsymbol b$의 외적이 다음과 같이 표현된다.
+외적의 크기는 두 벡터가 만드는 평행사변형의 넓이이다.
 
 $$
-\boldsymbol c = \boldsymbol a \times \boldsymbol b
+|\boldsymbol a\times\boldsymbol b|
+=
+|\boldsymbol a|
+|\boldsymbol b|
+\sin\theta
 $$
 
-$$
-c_i=\sum_j^3 \sum_k^3 \epsilon_{ijk}a_jb_k \newline
+# 10. 재료공학 예제
 
-c_x= a_yb_z - a_zb_y \newline
-c_y= a_zb_x - a_xb_z \newline
-c_z= a_xb_y - a_yb_x
-$$
+## 10.1. 두 힘의 합력
 
-- 어떻게 파이썬으로 구현할 수 있나?
+한 점에 두 힘이 작용한다고 하자.
 
-```python
-import numpy as np
+~~~python
+force_1 = np.array([100.0, 0.0, 0.0])
+force_2 = np.array([0.0, 50.0, 0.0])
 
-a = np.array([1, 2, 3])
-b = np.array([4, 5, 6])
+resultant = force_1 + force_2
+resultant_magnitude = np.linalg.norm(resultant)
 
-c = np.zeros(3)
+print(resultant)
+print(resultant_magnitude)
+~~~
 
-c[0]=a[1]*b[2]-a[2]*b[1]
-c[1]=a[2]*b[0]-a[0]*b[2]
-c[2]=a[0]*b[1]-a[1]*b[0]
-```
+합력은 $[100,50,0]$ N이고 크기는 약 111.8 N이다.
 
-- 어떻게 더 영리하게 구현할 수 있나?
+## 10.2. 입방정에서 결정방향 사이의 각
 
-```python
-import numpy as np
+입방정(cubic crystal)에서는 결정방향 $[uvw]$를 성분이 $(u,v,w)$인 벡터로
+다룰 수 있다. $[100]$과 $[110]$ 사이의 각을 계산해 보자.
 
-a = np.array([1, 2, 3])
-b = np.array([4, 5, 6])
-c = np.cross(a,b)
-```
+~~~python
+direction_1 = np.array([1.0, 0.0, 0.0])
+direction_2 = np.array([1.0, 1.0, 0.0])
 
-- 교환 법칙이 성립하나? $a \times b = b \times a ?$
+angle_deg = angle_between(
+    direction_1,
+    direction_2,
+)
 
-## 9.1. 단위 격자(unit cell)의 부피계산.
+print(angle_deg)
+~~~
 
-## 9.2. (take-home)
+결과는 45도이다. 비입방정(non-cubic)에서는 격자상수를 고려해야 하므로 같은 방법을 그대로 적용할 수 없다.
 
-전위선 (dislocation line)의 방향 $\boldsymbol{l}$이고 버거스 벡터의
-방향 $\boldsymbol{b}$이라면 슬립면의 법선 벡터 $\boldsymbol{n}$은 다음의
-관계를 가진다.
+## 10.3. 평행사변형의 넓이
 
-$$
-\boldsymbol{n}=\boldsymbol{l}\times \boldsymbol{b}
-$$
+두 격자벡터가 만드는 평행사변형의 넓이는 외적의 크기로 구할 수 있다.
 
-위를 통해 임의의 전위 선 방향 $\boldsymbol{l}=[uvw]$와 버거스 벡터
-$\boldsymbol{b}=[hkl]$ 가 주어진 cubic 결정 구조에서 슬립면 벡터 $\boldsymbol{n}$
-을 계산하는 함수를 작성해보시오.
+~~~python
+lattice_a = np.array([2.0, 0.0, 0.0])
+lattice_b = np.array([0.0, 3.0, 0.0])
 
-## 9.3. (take-home)
+area = np.linalg.norm(
+    np.cross(lattice_a, lattice_b)
+)
 
-앞선 예시에서 주어진 결정법선 $n$을 miller index로 구해보시오.
+print(area)
+~~~
 
-# 쉬운 연습 문제
+넓이는 6이다. 격자벡터의 단위가 nm라면 넓이 단위는 nm²이다.
+
+# 11. 자주 하는 실수
+
+- 두 벡터의 shape이 서로 다른데 성분별 연산을 시도한다.
+- <code>a * b</code>를 내적이라고 생각한다.
+- 영벡터를 크기로 나누어 단위벡터를 만들려고 한다.
+- radian과 degree를 구분하지 않는다.
+- 외적에서 벡터 순서를 바꾸어도 결과가 같다고 생각한다.
+- 배열 차원(<code>ndim</code>)과 물리학적 벡터 차원을 혼동한다.
+
+# 12. 정리
+
+- 벡터는 1차원 NumPy 배열로 나타낼 수 있다.
+- 벡터의 합과 차는 같은 위치의 성분끼리 계산한다.
+- <code>np.linalg.norm()</code>은 벡터의 크기를 계산한다.
+- 단위벡터는 벡터를 그 크기로 나누어 구한다.
+- 내적 결과는 스칼라이며 두 벡터의 끼인 각과 관계된다.
+- 외적 결과는 두 입력 벡터에 모두 수직인 벡터이다.
+
+# 13. 쉬운 연습 문제
 
 ## 문제 1
 
-벡터 $(3,4)$의 크기를 구하라.
+두 벡터 $\boldsymbol a=(1,2,3)$과 $\boldsymbol b=(2,0,1)$의 합을 구하라.
 
 <!--
 풀이와 해답:
-5이다.
+a+b=(3,2,4)이다.
 -->
 
 ## 문제 2
 
-서로 수직인 두 벡터의 내적은 얼마인가?
+벡터 $(3,4,0)$의 크기를 구하라.
 
 <!--
 풀이와 해답:
-0이다.
+sqrt(3^2+4^2)=5이다.
 -->
 
 ## 문제 3
 
-NumPy에서 두 벡터의 내적을 계산하는 함수를 하나 쓰시오.
+벡터 <code>a</code>의 크기를 NumPy로 계산하는 표현을 쓰시오.
 
 <!--
 풀이와 해답:
-np.dot(a, b)를 사용할 수 있다.
+np.linalg.norm(a)
+-->
+
+## 문제 4
+
+$\boldsymbol a=(1,0,0)$과 $\boldsymbol b=(0,2,0)$의 내적을 구하라.
+
+<!--
+풀이와 해답:
+내적은 0이다. 두 벡터는 서로 수직이다.
+-->
+
+## 문제 5
+
+다음 코드에서 <code>a * b</code>와 <code>a @ b</code>의 결과를 각각 구하라.
+
+~~~python
+a = np.array([1, 2, 3])
+b = np.array([4, 5, 6])
+~~~
+
+<!--
+풀이와 해답:
+a*b는 [4,10,18]이고 a@b는 32이다.
+-->
+
+## 문제 6
+
+$\boldsymbol a=(1,0,0)$과 $\boldsymbol b=(0,1,0)$의 외적을 구하라.
+
+<!--
+풀이와 해답:
+a cross b=(0,0,1)이다.
+-->
+
+## 문제 7
+
+<code>np.arccos()</code>가 반환한 각도의 기본 단위는 무엇인가?
+
+<!--
+풀이와 해답:
+radian이다.
 -->

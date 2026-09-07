@@ -1,18 +1,13 @@
 ---
 layout: distill
 title: NumPy 배열 기초
-description: NumPy 배열 생성, 인덱싱, 차원과 축
+description: 배열 생성, 자료형, 형태와 원소별 연산
 target: 1학년 2학기
 permalink:
 featured: true
 prerequisite: Python 기초 자료구조
 toc:
   sidebar: left
-
-mermaid:
-  enabled: true
-  zoomable: true
-typograms: true
 hidden: true
 tabs: true
 tikzjax: true
@@ -23,282 +18,356 @@ authors:
       name: Changwon National University
 ---
 
-- [1. 목표](#1-목표)
-- [2. 기초 개념](#2-기초-개념)
-- [3. 차원과 축: NumPy 배열을 바라보는 두 가지 관점](#3-차원과-축-numpy-배열을-바라보는-두 가지-관점)
+- [1. 학습 목표](#1-학습-목표)
+- [2. NumPy가 필요한 이유](#2-numpy가-필요한-이유)
+- [3. NumPy 불러오기](#3-numpy-불러오기)
+- [4. 배열 만들기](#4-배열-만들기)
+  - [4.1. 리스트로부터 만들기](#41-리스트로부터-만들기)
+  - [4.2. 일정한 값으로 채우기](#42-일정한-값으로-채우기)
+  - [4.3. 연속된 값 만들기](#43-연속된-값-만들기)
+- [5. 배열의 주요 속성](#5-배열의-주요-속성)
+- [6. 자료형](#6-자료형)
+- [7. 원소별 연산 (element-wise operation)](#7-원소별-연산-element-wise-operation)
+- [8. 집계 연산 (reduction)](#8-집계-연산-reduction)
+- [9. 배열 형태 바꾸기 (reshape)](#9-배열-형태-바꾸기-reshape)
+- [10. 리스트와 배열의 차이](#10-리스트와-배열의-차이)
+- [11. 간단한 속도 비교](#11-간단한-속도-비교)
+- [12. 재료공학 예제](#12-재료공학-예제)
+- [13. 정리](#13-정리)
+- [14. 쉬운 연습 문제](#14-쉬운-연습-문제)
+  - [문제 1](#문제-1)
+  - [문제 2](#문제-2)
+  - [문제 3](#문제-3)
+  - [문제 4](#문제-4)
+  - [문제 5](#문제-5)
+  - [문제 6](#문제-6)
 
-# 1. 목표
+# 1. 학습 목표
 
-Numerical Python package. Python을 활용한 수학적 연산은 파이썬 본연의 built-in
-자료 객체 (List, Set, 등)를 활용하면 연산 속도가 느리다. 따라서 수학적 연산을 빠르게
-수행하고자 만든 패키지이며 매우 널리 쓰인다. 본 강의에서는 NumPy의 기초 활용 방법을 배운다.
+이번 강의가 끝나면 다음을 할 수 있어야 한다.
 
-# 2. 기초 개념
+- Python 리스트와 NumPy 배열의 차이를 설명할 수 있다.
+- 1차원 및 2차원 배열을 만들 수 있다.
+- <code>shape</code>, <code>ndim</code>, <code>size</code>, <code>dtype</code>을 확인할 수 있다.
+- 배열의 원소별 사칙연산을 수행할 수 있다.
+- 배열의 합계, 평균, 최솟값과 최댓값을 계산할 수 있다.
 
-- [NumPy](https://numpy.org)는 파이썬 환경에서, 고성능 수치 계산을 위한
-  library이다. 사실 빠른 연산을 위해 최적화된 [C](https://www.c-language.org)나
-  [FORTRAN](https://fortran-lang.org) library를 활용한다.
-- 공식 사이트에서 더욱 상세히 배울 수 있다: [링크](https://numpy.org/devdocs/user/quickstart.html).
+# 2. NumPy가 필요한 이유
 
-앞서 List를 활용하여, math package를 함께 사용하면, 스칼라, 벡터, 행렬 등을 대상으로
-다양한 수학적 연산을 수행할 수 있다. 하지만 Python의 built-in 기능으로는 빠른 수학적
-연산처리가 어렵다. 이를 보완하고자 연산속도가 빠르면서도 다양한 수학적 기능을 도와주는
-[NumPy](https://numpy.org)패키지가 개발되었다. NumPy설치를 위해서는 `pip`를
-활용할 수 있다. 인터넷이 연결된 컴퓨터의 CLI환경에서 다음과 같이 명령어를 입력하면 설치가
-가능하다. 인터넷으로 연결된 시스템의 터미널에서 아래와 같이 입력하면 설치된다.
+NumPy(Numerical Python)는 수치 계산에 사용하는 Python 라이브러리이다. NumPy 배열은
+같은 종류의 수치 데이터를 효율적으로 저장하고, 여러 원소에 대한 계산을 간단하게 표현한다.
 
-```dos
-c:/users/user/myrepo> pip install numpy
-```
+Python 리스트의 각 원소에 2를 곱하려면 반복문과 <code>append()</code>를 사용할 수 있다.
 
-이후 파이썬 환경에서 NumPy패키지를 import해 사용하면 되겠다. 많은 경우, 아래와 같이
-`np`라는 이름으로 불러오는 경우가 많다.
+~~~python
+values = [1, 2, 3]
+doubled = []
 
-```python
+for value in values:
+    doubled.append(2 * value)
+
+print(doubled)
+~~~
+
+NumPy 배열에서는 배열 전체에 2를 곱할 수 있다.
+
+~~~python
 import numpy as np
-```
 
-다른 많은 Python 패키지들과 마찬가지로, open source 프로젝트로 개발되었으며, 현재로 활발히
-업데이트가 되고 있다. 따라서 새로운 기능이 추가되거나, 종전의 기능이 없어지는 경우가 있으므로,
-어떠한 버전을 활용하고 있는지 확인이 필요할 때가 있다. 그리고 한 시스템내에서 다양한 위치에
-서로다른 패키지가 설치될 때가 있으므로, 사용되는 NumPy패키지의 위치를 확인할 필요가 있다.
-아래의 두 경우를 살펴보자.
 
-```python
+values = np.array([1, 2, 3])
+doubled = 2 * values
+
+print(doubled)
+~~~
+
+이처럼 배열 전체에 적용되는 연산을 벡터화된 연산(vectorized operation)이라고 한다.
+
+# 3. NumPy 불러오기
+
+NumPy는 일반적으로 <code>np</code>라는 짧은 이름으로 불러온다.
+
+~~~python
 import numpy as np
+~~~
+
+설치되지 않았다면 터미널에서 다음 명령을 사용할 수 있다.
+
+~~~sh
+python -m pip install numpy
+~~~
+
+현재 사용 중인 NumPy 버전은 다음과 같이 확인한다.
+
+~~~python
 print(np.__version__)
-print(np.__file__)
-```
+~~~
 
-List로 생성된 값의 모임을 간단히 NumPy배열 형식 `numpy.ndarray`로 간편히 바꿀 수 있다. 아래 예시들을 살펴보자.
+# 4. 배열 만들기
 
-```python
-# 1차원 배열
-arr1 = np.array([1, 2, 3]) # np.array 클래스 생성.
-print(arr1)
+## 4.1. 리스트로부터 만들기
 
-# 2차원 배열
-arr2 = np.array([[1, 2, 3], [4, 5, 6]])
-print(arr2)
+<code>np.array()</code>는 입력 데이터로 <code>numpy.ndarray</code> 객체를 만든다.
 
-# 0으로 채운 배열
-zeros_arr = np.zeros((2, 3)) # zeros method 활용하여 2x3배열
-print(zeros_arr)
+~~~python
+vector = np.array([1, 2, 3])
+matrix = np.array([
+    [1, 2, 3],
+    [4, 5, 6],
+])
 
-# 1로 채운 배열
-ones_arr = np.ones((3, 3)) # 3x3배열
-print(ones_arr)
+print(vector)
+print(matrix)
+~~~
 
-# 특정 값으로 채운 배열
-full_arr = np.full((2, 2), 7)
-print(full_arr)
+## 4.2. 일정한 값으로 채우기
 
-# 연속된 수
-range_arr = np.arange(0, 10, 2)  # 0부터 10 전까지 2씩 증가
-print(range_arr)
+배열의 형태(shape)는 튜플로 전달한다.
 
-# 랜덤 배열
-rand_arr = np.random.rand(2, 3)  # 0~1 사이 난수로 이루어진 행렬
-print(rand_arr)
-```
+~~~python
+zeros = np.zeros((2, 3))
+ones = np.ones((2, 3))
+sevens = np.full((2, 3), 7)
 
-`numpy.ndarray`형식은 NumPy의 array클래스의 instance로써, 다양한
-속성(attributes)과 매서드(method) 갖고 있다. 아래의 attributes와 매서드가 자주
-쓰인다. 그 쓰임을 익힐 필요가 있다.
+print(zeros)
+print(ones)
+print(sevens)
+~~~
 
-```python
-arr = np.array([[1, 2, 3], [4, 5, 6]])
-print(arr.shape)   # (2, 3) → 2행 3열
-print(arr.ndim)    # 차원 수 → 2
-print(arr.size)    # 전체 원소 개수 → 6
-print(arr.dtype)   # 데이터 타입 → int64 (환경에 따라 다름)
-print(arr.ravel()) ## memory-efficient
-print(arr.flatten()) ## independent copy
-print(arr.ravel().sum())
-print(arr.flatten().sum())
-```
+<code>np.zeros((2, 3))</code>의 괄호가 두 겹인 이유는 <code>(2, 3)</code>이라는
+shape 튜플을 하나의 인자로 전달하기 때문이다.
 
-NumPy의 배열간의 연산은 벡터화되어 속도가 빠르다. 많은 경우, `for`, `range` 등의
-일반적인 반복문 필요없어, 간단한 형태로 표기되어, list를 활용한 것보다 간략한 수식을 코드로
-구현하기 쉬우며 연산속도도 빠르다.
+## 4.3. 연속된 값 만들기
 
-```python
-a = np.array([1, 2, 3])
-b = np.array([4, 5, 6])
+<code>np.arange()</code>는 시작값 이상, 끝값 미만의 값을 일정한 간격으로 만든다.
 
-print(a + b)   # [5 7 9]
-print(a - b)   # [-3 -3 -3]
-print(a * b)   # [ 4 10 18]  (요소별 곱)
-print(a / b)   # [0.25 0.4 0.5]
-print(a ** 2)  # [1 4 9]    (제곱)
+~~~python
+even_numbers = np.arange(0, 10, 2)
+print(even_numbers)
+~~~
 
+결과는 <code>[0 2 4 6 8]</code>이다.
 
-## 각각의 경우 List를 활용했을 때 훨씬 많은 코딩 필요함.
-c=[] # +
-for i in range(a):
-  c.append(a[i]+b[i])
+<code>np.linspace()</code>는 시작값과 끝값을 포함하여 지정한 개수의 값을 만든다.
 
-c=[] # -
-for i in range(a):
-  c.append(a[i]-b[i])
+~~~python
+temperatures = np.linspace(300.0, 500.0, 5)
+print(temperatures)
+~~~
 
-c=[] # *
-for i in range(a):
-  c.append(a[i]*b[i])
+결과는 <code>[300. 350. 400. 450. 500.]</code>이다.
 
-c=[] # /
-for i in range(a):
-  c.append(a[i]/b[i])
+| 함수 | 지정하는 값 | 끝값 포함 |
+|---|---|---|
+| <code>np.arange(start, stop, step)</code> | 간격 | 포함하지 않음 |
+| <code>np.linspace(start, stop, num)</code> | 원소 개수 | 기본적으로 포함 |
 
-c=[] # **
-for i in range(a):
-  c.append(a[i]**2)
+# 5. 배열의 주요 속성
 
-##?
-print((a**2).sum())
-```
+~~~python
+array = np.array([
+    [1, 2, 3],
+    [4, 5, 6],
+])
 
-List를 활용한 방식과 NumPy의 속도 비교를 위해 아래 예제를 활용해보자. 우선 0에서부터
-100까지 정수가 담겨있는 `List`와 `numpy.ndarray` 형식의 자료를 만들자.
+print(array.shape)
+print(array.ndim)
+print(array.size)
+print(array.dtype)
+~~~
 
-```python
-mylist=list(range(101))
-mylist ## The list type object
-myarray=np.array(mylist)
-myarray ## The numpy type object
-```
+- <code>shape</code>: 각 축의 원소 개수. 위 배열에서는 <code>(2, 3)</code>
+- <code>ndim</code>: 배열 축의 개수. 위 배열에서는 2
+- <code>size</code>: 전체 원소 개수. 위 배열에서는 6
+- <code>dtype</code>: 배열 원소의 자료형
 
-아래와 같이 각각의 연산을 Jupyter의 매직 키워드 `%%timeit`를 활용해 7번 반복
-연산해 평균 연산 속도를 측정해보자.
+NumPy의 배열 차원(<code>ndim</code>)과 물리학에서 사용하는 텐서의 rank는 같은
+개념이 아니므로 구분한다.
 
-```python
+# 6. 자료형
+
+NumPy 배열은 일반적으로 한 가지 자료형의 원소를 저장한다.
+
+~~~python
+integer_array = np.array([1, 2, 3])
+float_array = np.array([1.0, 2.0, 3.0])
+
+print(integer_array.dtype)
+print(float_array.dtype)
+~~~
+
+정수와 실수를 함께 넣으면 실수를 보존할 수 있는 자료형으로 변환된다.
+
+~~~python
+mixed = np.array([1, 2.5, 3])
+print(mixed)
+print(mixed.dtype)
+~~~
+
+<code>dtype</code>을 직접 지정할 수도 있다.
+
+~~~python
+measurements = np.array(
+    [1, 2, 3],
+    dtype=float,
+)
+
+print(measurements)
+~~~
+
+자료형마다 표현할 수 있는 범위와 정밀도가 다르다. 처음에는 측정값처럼 소수점이 필요한
+데이터에는 실수형을 사용한다는 점을 기억하면 된다.
+
+# 7. 원소별 연산 (element-wise operation)
+
+크기가 같은 두 배열에 사칙연산을 적용하면 같은 위치의 원소끼리 계산한다.
+
+~~~python
+a = np.array([1.0, 2.0, 3.0])
+b = np.array([4.0, 5.0, 6.0])
+
+print(a + b)
+print(a - b)
+print(a * b)
+print(a / b)
+print(a**2)
+~~~
+
+여기서 <code>a * b</code>는 행렬곱이 아니라 원소별 곱이다. 행렬과 벡터의 곱은 뒤의
+벡터·행렬 연산 강의에서 다룬다.
+
+스칼라와 배열을 계산하면 모든 원소에 같은 연산을 적용한다.
+
+~~~python
+stress_mpa = np.array([100.0, 150.0, 200.0])
+
+print(stress_mpa / 1000.0)
+print(stress_mpa + 10.0)
+~~~
+
+# 8. 집계 연산 (reduction)
+
+여러 원소를 하나의 값으로 요약하는 계산을 집계 연산(reduction)이라고 한다.
+
+~~~python
+values = np.array([3.0, 5.0, 7.0, 9.0])
+
+print(values.sum())
+print(values.mean())
+print(values.min())
+print(values.max())
+print(values.std())
+~~~
+
+위 결과는 각각 합계, 평균, 최솟값, 최댓값과 모집단 표준편차이다.
+
+함수 형태로도 같은 계산을 할 수 있다.
+
+~~~python
+print(np.sum(values))
+print(np.mean(values))
+~~~
+
+# 9. 배열 형태 바꾸기 (reshape)
+
+<code>reshape()</code>는 원소 개수를 유지하면서 배열의 형태를 바꾼다.
+
+~~~python
+values = np.arange(12)
+matrix = values.reshape(3, 4)
+
+print(values.shape)
+print(matrix.shape)
+print(matrix)
+~~~
+
+12개의 원소는 $3\times4$ 또는 $2\times6$으로 바꿀 수 있지만 $5\times3$으로는
+바꿀 수 없다.
+
+배열을 다시 1차원으로 펼칠 때는 <code>ravel()</code>을 사용할 수 있다.
+
+~~~python
+flat = matrix.ravel()
+
+print(flat)
+print(flat.shape)
+~~~
+
+# 10. 리스트와 배열의 차이
+
+<code>+</code> 연산의 의미가 서로 다르다.
+
+~~~python
+list_a = [1, 2, 3]
+list_b = [4, 5, 6]
+
+array_a = np.array([1, 2, 3])
+array_b = np.array([4, 5, 6])
+
+print(list_a + list_b)
+print(array_a + array_b)
+~~~
+
+- 리스트의 <code>+</code>: 두 리스트를 이어 붙인다.
+- 배열의 <code>+</code>: 같은 위치의 원소끼리 더한다.
+
+배열은 수치 계산에 편리하지만 이름, 결정구조, 설명처럼 서로 다른 종류의 데이터를 함께
+저장할 때는 리스트나 딕셔너리가 더 적합할 수 있다.
+
+# 11. 간단한 속도 비교
+
+속도를 비교하려면 두 코드가 같은 데이터를 대상으로 같은 계산을 수행해야 한다.
+
+~~~python
+python_values = list(range(1_000_000))
+numpy_values = np.array(python_values)
+~~~
+
+Jupyter Notebook에서 다음 두 셀을 각각 실행할 수 있다.
+
+~~~python
 %%timeit
-s=0.
-for i in range(100):
-    s=s+mylist[i]
-```
+sum(python_values)
+~~~
 
-그리고 `sum` 매소드를 활용한 결과를 비교해보자.
-
-```python
+~~~python
 %%timeit
-s=myarray.sum()
-```
+numpy_values.sum()
+~~~
 
-나의 경우에는 전자는
-$$1.85 \mu s = 1.85 \times 10^{-6} s$$
-그리고 후자는
-$$539 ns = 538\times 10^{-9} s = 0.538 10^{-6} s$$
-결과가 나왔다. 후자는 전자에 비해 약 1/3 정도의 시간만 필요하였다.
+결과는 컴퓨터와 NumPy 버전에 따라 달라진다. 특정 실행시간을 외우는 것이 아니라, 큰
+수치 배열에서 NumPy 연산이 일반적인 Python 반복보다 효율적일 수 있음을 확인하는 실습이다.
 
-# 3. 차원과 축: NumPy 배열을 바라보는 두 가지 관점
+# 12. 재료공학 예제
 
-NumPy배열의 '차원'(dimension, 혹은 rank)는 배열이 몇 겹으로 중첩되어 있는지를 의미한다.
-쉽게 말해, 데이터가 몇 단계의 리스트로 레이어로 감싸져 있는지에 따라 차원이 달라진다.
-아래를 살펴보자.
+세 인장 시편의 힘과 초기 단면적이 다음과 같이 측정되었다고 하자.
 
-```python
-import numpy as np
+~~~python
+force_n = np.array([1000.0, 1500.0, 2200.0])
+area_mm2 = np.array([10.0, 12.0, 20.0])
 
-a = np.array(5)                  # 스칼라 (0차원)
-b = np.array([1, 2, 3])          # 벡터 (1차원)
-c = np.array([[1, 2, 3],
-              [4, 5, 6]])        # 행렬 (2차원)
-d = np.array([[[1], [2], [3]],
-              [[4], [5], [6]]])  # 행렬 (3차원) ... 혹은 ML/AI 관련 문헌에서
-                                 # '텐서(tensor)'라 불림 - 수학/물리/역학 등의
-                                 # 문헌에서 정의되는 '텐서'와 다름에 유의할 것.
-print(a.ndim)
-print(b.ndim)
-print(c.ndim)
-print(d.ndim)
-```
+stress_mpa = force_n / area_mm2
 
-차원과 다르게 '축'(axis)의 관점에서 배열을 바라보는 관점도 있다. 이때 '축'은 배열의
-index방향을 의미한다. 즉, 다차원 배열에서 데이터를 접근하거나 연산할 때 어느 방향을 기준으로
-하느냐에 따라 축이 달라진다. 다음 배열은 차원의 관점에서는 2차원임을 알 수 있다.
+print(stress_mpa)
+print(f"평균 응력: {stress_mpa.mean():.2f} MPa")
+~~~
 
-```python
-c = np.array([[1, 2, 3],
-              [4, 5, 6],
-              [7, 8, 9]])
-```
+$1\ \mathrm{N/mm^2}=1\ \mathrm{MPa}$이므로 결과의 단위는 MPa이다. 배열을 사용하면
+여러 시편의 응력을 한 번에 계산할 수 있다.
 
-이 경우 축이 2개인 것으로 이해할 수 있다. 첫번째 축 `0`은 행을 따라 내려가는 방향
-(세로, column-wise)이 되며, 축 `1`은 열을 따라 가로로 가는 방향
-(가로, row-wise)로 이해된다. 아래 각 열, 그리고 행 '축'을 따라 덧셈을 하는 경우를 살펴보자.
+# 13. 정리
 
-```python
-c = np.array([[1, 2, 3],
-              [4, 5, 6],
-              [7, 8, 9]])
-print(c.sum(axis=0))  # 열별 합 → [12 15 18]
-print(c.sum(axis=1))  # 행별 합 → [ 6 15 24]
-## axis의 순서는 마지막, 마지막-1, 마지막-2, ...
-## 이 경우, '행'과 '열'로 불리는 두 축만 있으며, 축의 순서는 '열' 그리고 '행' 순으로 이어진다.
-```
+- NumPy 배열은 같은 종류의 수치 데이터를 효율적으로 다룬다.
+- <code>np.array()</code>, <code>np.zeros()</code>, <code>np.arange()</code>,
+  <code>np.linspace()</code>로 배열을 만들 수 있다.
+- <code>shape</code>, <code>ndim</code>, <code>size</code>, <code>dtype</code>은
+  배열의 구조를 설명한다.
+- 배열의 사칙연산은 기본적으로 원소별로 수행된다.
+- <code>sum()</code>, <code>mean()</code>, <code>min()</code>, <code>max()</code>로
+  데이터를 요약할 수 있다.
+- <code>reshape()</code>는 원소 수를 유지하면서 배열의 형태를 바꾼다.
 
-3D 배열에서 축 번호는 '바깥'(혹은 마지막)부터 '안쪽' 순으로 0, 1, 2, ... 순으로 이어진다.
-
-```python
-d = np.array([[[1, 2], [3, 4]],
-              [[5, 6], [7, 8]]])
-```
-
-`d.shape`은 `(2,2,2)`이고, `d.ndim`은 3이다. 즉 3차원이고, 총 세 축으로 이루어진다. 각 축을 따라 2개씩 element가 있는 구조로 이해할 수 있다. 이때
-
-- `axis=0` 은 가장 바깥 차원 (가장 마지막)
-- `axis=1` 은 중간 차원 (row)
-- `axis=2` 는 가장 안쪽 차원 (column)
-  로 이해된다.
-
-아래 경우를 더 살펴보자.
-
-```python
-a = np.arange(15)
-```
-
-위 결과로 1D 배열에 0에서부터 14까지 15개의 element 숫자가 자료가 `a`에 저장된다.
-이를 (3x5) 형태의 2D 배열로 형태를 바꿀 수 있다. `reshape` method를 활용한다.
-
-```python
-b=a.reshape(3,5)
-```
-
-이때 두 축이 활용된 것으로 볼 수 있고, 첫번째 축 `axis=0`은 3 요소를, 두번째 축
-`axis=1`은 5 요소를 가진 것으로 이해할 수 있다. 그 결과를 `b`로 저장했고 그
-결과를 출력해보자
-
-```python
-print(b)
-```
-
-다음과 같이 출력이 될것이다.
-
-```
-array([[ 0,  1,  2,  3,  4],
-       [ 5,  6,  7,  8,  9],
-       [10, 11, 12, 13, 14]])
-```
-
-첫번째 축(`axis=0`)의 첫 요소는 [0,1,2,3,4], 그 다음은 [5,6,7,8,9], 마지막 세번째는 [10,11,12,13,14]가 된다. 이를 인덱싱 해보면
-
-```python
-print(b[0,:])
-print(b[1,:])
-print(b[2,:])
-```
-
-이번에는 두번째 축 (`axis==1`)을 따라 살펴보자.
-첫 요소는 [0,5,10], 그 다음은 [1,6,11], [2,7,12], [3,8,13], 마지막 5번째 요소는 [4,9,14]가 될 것이다.
-
-```python
-print(b[:,0])
-print(b[:,1])
-print(b[:,2])
-```
-
-# 쉬운 연습 문제
+# 14. 쉬운 연습 문제
 
 ## 문제 1
 
@@ -311,18 +380,57 @@ import numpy as np
 
 ## 문제 2
 
-리스트 [1, 2, 3]으로 NumPy 배열을 만드는 표현을 쓰시오.
+다음 배열의 <code>shape</code>, <code>ndim</code>, <code>size</code>를 구하라.
+
+~~~python
+a = np.array([
+    [1, 2, 3],
+    [4, 5, 6],
+])
+~~~
 
 <!--
 풀이와 해답:
-np.array([1, 2, 3])
+shape은 (2, 3), ndim은 2, size는 6이다.
 -->
 
 ## 문제 3
 
-2행 3열의 0 배열을 만드는 표현을 쓰시오.
+2행 3열의 모든 원소가 0인 배열을 만드는 표현을 쓰시오.
 
 <!--
 풀이와 해답:
 np.zeros((2, 3))
+-->
+
+## 문제 4
+
+<code>np.arange(0, 7, 2)</code>의 결과를 쓰시오.
+
+<!--
+풀이와 해답:
+[0 2 4 6]이다.
+-->
+
+## 문제 5
+
+다음 코드의 결과를 쓰시오.
+
+~~~python
+a = np.array([1, 2, 3])
+print(2 * a)
+~~~
+
+<!--
+풀이와 해답:
+[2 4 6]이 출력된다.
+-->
+
+## 문제 6
+
+배열 <code>a</code>의 평균을 구하는 표현을 하나 쓰시오.
+
+<!--
+풀이와 해답:
+a.mean() 또는 np.mean(a)를 사용할 수 있다.
 -->

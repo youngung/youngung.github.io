@@ -1,18 +1,13 @@
 ---
 layout: distill
-title: Matplotlib 기초
-description: Python을 이용한 2차원 그래프 작성
+title: Matplotlib 기초 1
+description: NumPy 배열을 선 그래프와 산점도로 표현하기
 target: 1학년 2학기
 permalink:
 featured: true
-prerequisite: NumPy 배열 기초
+prerequisite: NumPy 배열 기초, NumPy 배열 활용
 toc:
   sidebar: left
-
-mermaid:
-  enabled: true
-  zoomable: true
-typograms: true
 hidden: true
 tabs: true
 tikzjax: true
@@ -23,248 +18,300 @@ authors:
       name: Changwon National University
 ---
 
-- [1. 목표](#1-목표)
-- [2. 소개](#2-소개)
-- [3. scatter plot](#3-scatter-plot)
-- [4. Figure \& axes objects](#4-figure--axes-objects)
-- [5. 1차원 그래프 그리기](#5-1차원-그래프-그리기)
-  - [5.1. 1차원 그래프](#51-1차원-그래프)
-    - [5.1.1. $y=\\cos\\theta$](#511-ycostheta)
-    - [5.1.2. $y=\\sin\\theta$](#512-ysintheta)
-    - [5.1.3. $y=\\tan\\theta$](#513-ytantheta)
-    - [5.1.4. 반지름의 길이가 10인 원](#514-반지름의-길이가-10인-원)
-  - [5.2. 공칭 변형률과 진변형률](#52-공칭-변형률과-진변형률)
-  - [5.3. Stress vs. strain curve 그리기](#53-stress-vs-strain-curve-그리기)
-  - [5.4 데이터 fitting](#54-데이터-fitting)
-    - [5.4.1 Curve fitting in Cartesian (x,y)](#541-curve-fitting-in-cartesian-xy)
-    - [5.4.2 Curve fitting in Polar coordinate (r,$\\theta$)](#542-curve-fitting-in-polar-coordinate-rtheta)
+- [1. 학습 목표](#1-학습-목표)
+- [2. Matplotlib 시작하기](#2-matplotlib-시작하기)
+- [3. 선 그래프](#3-선-그래프)
+- [4. Figure와 Axes](#4-figure와-axes)
+- [5. 그래프 꾸미기](#5-그래프-꾸미기)
+- [6. 산점도 (scatter plot)](#6-산점도-scatter-plot)
+- [7. 여러 데이터 비교하기](#7-여러-데이터-비교하기)
+- [8. 재료공학 예제: 응력–변형률 곡선](#8-재료공학-예제-응력변형률-곡선)
+- [9. 일차 함수 그려보기](#9-일차-함수-그려보기)
+  - [삼각함수](#삼각함수)
+- [9. 그림 저장하기](#9-그림-저장하기)
+- [10. 자주 하는 실수](#10-자주-하는-실수)
+- [11. 정리](#11-정리)
+- [12. 쉬운 연습 문제](#12-쉬운-연습-문제)
+  - [문제 1](#문제-1)
+  - [문제 2](#문제-2)
+  - [문제 3](#문제-3)
+  - [문제 4](#문제-4)
 
-# 1. 목표
+# 1. 학습 목표
 
-- axes, figure 를 만들 수 있다.
-- 선(line), 점(dot)으로 이루어진 그래프를 그릴 수 있다.
-- x축, y축의 label, tick, limits을 만들 수 있다.
-- linear scale, logscale을 만들고 이해할 수 있다.
-- 3차원 그래프를 그릴 수 있다.
-- 파일로부터 데이터를 불러오고, 이를 graph로 바꿀 수 있다.
+이번 강의가 끝나면 다음을 할 수 있어야 한다.
 
-# 2. 소개
+- NumPy 배열을 선 그래프와 산점도로 나타낼 수 있다.
+- Figure와 Axes의 역할을 구분할 수 있다.
+- 제목, 축 이름, 범례와 격자를 추가할 수 있다.
+- 한 그래프에서 여러 데이터를 비교할 수 있다.
+- 응력–변형률 데이터를 그래프로 나타낼 수 있다.
+- 완성한 그림을 파일로 저장할 수 있다.
 
-[Matplotlib](https://matplotlib.org): Python 환경에서 데이터를 시각화하는데 가장
-널리 쓰이는 라이브러리 중 하나이다. MATLAB과 유사한 환경을 제공해주는 pyplot 모듈을 활용한
-인터페이스가 널리쓰인다. 아래 예시들을 함께 살펴보자.
+# 2. Matplotlib 시작하기
 
-```python
-import matplotlib.pyplot as plt
+[Matplotlib](https://matplotlib.org/)은 Python에서 데이터를 시각화할 때 널리 사용하는
+라이브러리다. 보통 NumPy는 데이터를 계산하고, Matplotlib은 계산 결과를 그림으로
+표현하는 데 사용한다.
 
-x = [0, 1, 2, 3, 4] # list 혹은 numpy array 모두 활용 가능
-y = [0, 1, 4, 9, 16]
-
-plt.plot(x, y)          # 선 그래프
-plt.title("Basic Line Plot")
-plt.xlabel("X-axis")
-plt.ylabel("Y-axis")
-```
-
-# 3. scatter plot
-
-```python
-x = [5, 7, 8, 7, 6, 9, 5, 4, 5, 6]
-y = [99, 86, 87, 88, 100, 86, 103, 87, 94, 78]
-plt.scatter(x, y, color='red')
-plt.title("Scatter Plot")
-```
-
-각 데이터 세트 (선, 점 등)에 라벨을 부여하고, 이를 레전드(`legend`) 함수를 활용해 그래프를 꾸밀 수 있다.
-
-```python
-plt.plot([1,2,3],[1,4,9], label=r'$y = x^2$')
-plt.plot([1,2,3],[1,2,3], label=r'$y = x$')
-plt.legend() ## legend
-```
-
-`plt.subplot`을 활용해서 행렬 행태의 그래프 모임을 그릴 수 있다.
-
-```python
-plt.subplot(1, 2, 1)  # 1행 2열 중 첫 번째
-plt.plot([1,2,3],[1,4,9])
-plt.title("Left")
-
-plt.subplot(1, 2, 2)  # 두 번째
-plt.plot([1,2,3],[1,2,3])
-plt.title("Right")
-```
-
-`plt`환경을 조금 더 상세히 살펴보면, `figure`와 `axis` 객체가 사용되는
-것을 알 수 있다. `figure`는 그림을 그리는 캔버스, `axis`는 그래프가 시각화되는
-좌표계라 볼 수 있다.
-
-# 4. Figure & axes objects
-
-- Figure: 그래프 전체 "캔버스"
-- Axes: 실제 데이터가 그려지는 "좌표 영역"
-
-따라서 한 Figure 안에 여러 개의 axes가 삽입될 수 있다. 아래 예제를 살펴보자.
-
-```python
-import matplotlib.pyplot as plt
-
-# Figure(도화지), Axes(좌표 영역) 생성
-fig, ax = plt.subplots()
-
-x = [0, 1, 2, 3, 4]
-y1 = [0, 1, 4, 9, 16]
-y2 = [9, 8, 7, 6, 5]
-
-# ax 객체를 활용해 데이터 플롯
-ax.plot(x, y1, label="y = x^2", color="blue")
-ax.plot(x, y2, label="y =-x+9", color="red")
-
-# 그래프 꾸미기
-ax.set_title("Figure & Axes Example")
-ax.set_xlabel("X-axis")
-ax.set_ylabel("Y-axis")
-ax.legend()
-ax.grid(True)
-
-plt.show()
-```
-
-혹은 각각을 다른 axis에 그리기
-
-```python
-import matplotlib.pyplot as plt
-
-# Figure(도화지), Axes(좌표 영역) 생성
-fig=plt.figure(figsize=(9,3))
-ax1=fig.add_subplot(121)
-ax2=fig.add_subplot(122)
-
-x = [0, 1, 2, 3, 4]
-y1 = [0, 1, 4, 9, 16]
-y2 = [9, 8, 7, 6, 5]
-
-# ax 객체를 활용해 데이터 플롯
-ax1.plot(x, y1, label="y = x^2", color="blue")
-ax2.plot(x, y2, label="y =-x+9", color="red")
-
-# 그래프 꾸미기
-ax1.set_title("Axis 1")
-ax1.set_xlabel("X-axis")
-ax1.set_ylabel("Y-axis")
-ax1.legend()
-ax1.grid(True)
-
-ax2.set_title("Axis 2")
-ax2.set_xlabel("X-axis")
-ax2.set_ylabel("Y-axis")
-ax2.legend()
-ax2.grid(True)
-
-plt.show()
-```
-
-# 5. 1차원 그래프 그리기
-
-- NumPy의 `linspace`, `logspace`등과 결합하면 여러 1D 그래프를 손쉽게 그릴
-  수 있다. 예를 들어 $y=x^2$을 $x\in[-10,10]$을 그리자면
-
-```python
+~~~python
 import numpy as np
 import matplotlib.pyplot as plt
-x=np.linspace(-10,10) # [-10,10] 범위내의 50 포인트
-y=x**2 ## NumPy의 element-wise operation을 기억하자.
-plt.plot(x,y)
-```
+~~~
 
-결과를 살펴보자.
+관례적으로 <code>numpy</code>는 <code>np</code>, <code>matplotlib.pyplot</code>은
+<code>plt</code>라는 이름으로 불러온다.
 
-## 5.1. 1차원 그래프
+# 3. 선 그래프
 
-위 예제를 응용하여 아래 실습을 수행해보자. 범위 내의 아래 삼각함수를 그려보자.
+선 그래프(line plot)는 $x$와 $y$의 관계 또는 값의 연속적인 변화를 표현하기에
+적합하다. <code>np.linspace()</code>로 $x$ 좌표를 만들고, 앞선 NumPy 강의에서 배운
+원소별 연산으로 $y$ 좌표를 계산해 보자.
 
-### 5.1.1. $y=\cos\theta$
+~~~python
+x = np.linspace(-3.0, 3.0, 101)
+y = x**2
+
+plt.plot(x, y)
+plt.show()
+~~~
+
+<code>x</code>와 <code>y</code>에는 같은 개수의 값이 들어 있다. 같은 인덱스의 두 값
+$(x_i,y_i)$가 하나의 좌표가 되고, 선 그래프는 이 점들을 연결한다.
+
+# 4. Figure와 Axes
+
+- **Figure**는 그림 전체를 담는 캔버스다.
+- **Axes**는 실제 그래프가 그려지는 좌표 영역이다.
+
+<code>plt.subplots()</code>는 Figure와 Axes를 함께 만든다.
+
+~~~python
+x = np.linspace(0.0, 10.0, 101)
+y = 2.0 * x + 3.0
+
+fig, ax = plt.subplots()
+ax.plot(x, y)
+plt.show()
+~~~
+
+이후에는 어느 그래프를 수정하는지 명확한 객체 지향(object-oriented) 방식을 사용한다.
+즉, <code>plt.plot()</code>보다 <code>ax.plot()</code>을 주로 사용한다.
+
+# 5. 그래프 꾸미기
+
+그래프에는 데이터의 의미와 단위를 표시해야 한다.
+
+~~~python
+x = np.linspace(0.0, 10.0, 101)
+y = 2.0 * x + 3.0
+
+fig, ax = plt.subplots(figsize=(6, 4))
+ax.plot(x, y, color="tab:blue", linewidth=2, label=r"$y=2x+3$")
+ax.set_title("Linear Function")
+ax.set_xlabel("x")
+ax.set_ylabel("y")
+ax.set_xlim(0.0, 10.0)
+ax.set_ylim(0.0, 25.0)
+ax.grid(True, alpha=0.3)
+ax.legend()
+fig.tight_layout()
+plt.show()
+~~~
+
+| 명령 | 역할 |
+|---|---|
+| <code>ax.set_title()</code> | 그래프 제목 |
+| <code>ax.set_xlabel()</code> | $x$축 이름과 단위 |
+| <code>ax.set_ylabel()</code> | $y$축 이름과 단위 |
+| <code>ax.set_xlim()</code> | $x$축 표시 범위 |
+| <code>ax.set_ylim()</code> | $y$축 표시 범위 |
+| <code>ax.grid()</code> | 격자 표시 |
+| <code>ax.legend()</code> | 범례 표시 |
+
+# 6. 산점도 (scatter plot)
+
+산점도(scatter plot)는 측정값처럼 서로 떨어진 데이터의 관계를 나타내기에 적합하다.
+
+~~~python
+temperature = np.array([300, 400, 500, 600, 700])
+strength = np.array([315, 302, 284, 258, 225])
+
+fig, ax = plt.subplots(figsize=(6, 4))
+ax.scatter(temperature, strength, color="tab:red", s=60)
+ax.set_xlabel("Temperature (K)")
+ax.set_ylabel("Yield strength (MPa)")
+ax.set_title("Temperature and Yield Strength")
+ax.grid(True, alpha=0.3)
+fig.tight_layout()
+plt.show()
+~~~
+
+여기에서 <code>s</code>는 점의 크기다. 측정된 점 사이의 값이 알려져 있지 않다면 선으로
+연결하기보다 산점도로 먼저 표현하는 것이 자연스럽다.
+
+# 7. 여러 데이터 비교하기
+
+하나의 Axes에 <code>ax.plot()</code>을 여러 번 호출하면 여러 데이터를 함께 비교할 수
+있다. 각 데이터에 <code>label</code>을 지정하고 범례를 표시하자.
+
+~~~python
+strain = np.linspace(0.0, 0.01, 101)
+stress_al = 70_000 * strain
+stress_fe = 210_000 * strain
+
+fig, ax = plt.subplots(figsize=(6, 4))
+ax.plot(strain, stress_al, label="Al: E = 70 GPa")
+ax.plot(strain, stress_fe, label="Fe: E = 210 GPa")
+ax.set_xlabel("Strain")
+ax.set_ylabel("Stress (MPa)")
+ax.set_title("Elastic Stress–Strain Curves")
+ax.grid(True, alpha=0.3)
+ax.legend()
+fig.tight_layout()
+plt.show()
+~~~
+
+응력의 단위를 MPa로 사용했으므로 영률도 $70\,000$ MPa와 $210\,000$ MPa로
+계산하였다. 그래프에 물리량을 표시할 때는 단위를 반드시 확인해야 한다.
+
+# 8. 재료공학 예제: 응력–변형률 곡선
+
+초기 길이가 $L_0$, 초기 단면적이 $A_0$인 인장시험편에서 공칭 변형률과 공칭 응력은
 
 $$
-y=\cos(\theta), \text{ with } \theta\in[-\pi,\pi]
+e=\frac{\Delta L}{L_0},
+\qquad
+\sigma=\frac{F}{A_0}
 $$
 
-### 5.1.2. $y=\sin\theta$
+이다. 초기 길이 $50$ mm, 폭 $6$ mm, 두께 $2$ mm인 시험편의 측정값을 그래프로
+나타내자. $1\ \mathrm{N/mm^2}=1\ \mathrm{MPa}$이다.
+
+~~~python
+displacement = np.array([0.00, 0.05, 0.10, 0.15, 0.20, 0.30])  # mm
+force = np.array([0, 2400, 4750, 6900, 8200, 8700])             # N
+
+initial_length = 50.0  # mm
+width = 6.0            # mm
+thickness = 2.0        # mm
+initial_area = width * thickness
+
+engineering_strain = displacement / initial_length
+engineering_stress = force / initial_area
+
+fig, ax = plt.subplots(figsize=(6, 4))
+ax.plot(engineering_strain, engineering_stress, marker="o")
+ax.set_xlabel("Engineering strain")
+ax.set_ylabel("Engineering stress (MPa)")
+ax.set_title("Tensile Test")
+ax.grid(True, alpha=0.3)
+fig.tight_layout()
+plt.show()
+~~~
+
+<code>marker="o"</code>는 실제 측정 지점을 원으로 표시한다.
+
+
+# 9. 일차 함수 그려보기
+
+## 삼각함수
+$$
+y=\sin(x), \text{in}\ -\pi\le x  \le \pi
+$$
 
 $$
-y=\sin(\theta), \text{ with } \theta\in[-\pi,\pi]
+y=\tan(x), \text{in}\ 0 \le x \le \frac{\pi}{2}
 $$
 
-### 5.1.3. $y=\tan\theta$
+~~~python
+x=np.linspace(-np.pi,np.pi)
+sinx=np.sin(x)
+tanx=np.tan(x)
+fig, ax = plt.subplots(figsize=(6, 4))
+ax.plot(x, sinx,label='sin')
+ax.plot(x, tanx,label='tan')
+ax.set_xlabel("x (rad)")
+ax.set_ylabel("sinx, tanx")
+~~~
 
-$$
-y=\tan(\theta), \text{ with } \theta\in\big[-\frac{\pi}{2},\frac{\pi}{2}\big]
-$$
+# 9. 그림 저장하기
 
-### 5.1.4. 반지름의 길이가 10인 원
+<code>fig.savefig()</code>로 그림을 저장할 수 있다. 저장 명령은 일반적으로
+<code>plt.show()</code>보다 앞에 둔다.
 
-$$
-x^2+y^2=10^2
-$$
+~~~python
+x = np.linspace(0.0, 2.0 * np.pi, 201)
+y = np.sin(x)
 
-## 5.2. 공칭 변형률과 진변형률
+fig, ax = plt.subplots(figsize=(6, 4))
+ax.plot(x, y)
+ax.set_xlabel("x (rad)")
+ax.set_ylabel("sin(x)")
+ax.grid(True, alpha=0.3)
+fig.tight_layout()
+fig.savefig("sine_curve.png", dpi=150)
+plt.close(fig)
+~~~
 
-- 길이 변화에 따라서 나타나는 공칭 변형률(engineering strain)과 진변형률
-  (true strain)그래프 관계를 그리고 이를 비교해보자.
+# 10. 자주 하는 실수
 
-$$
-\varepsilon=\ln(\epsilon+1)
-$$
+- $x$와 $y$ 데이터의 길이가 다르면 그래프를 그릴 수 없다.
+- 축 이름만 쓰고 단위를 빠뜨리지 않도록 한다.
+- <code>label</code>과 함께 <code>ax.legend()</code>도 호출해야 범례가 나타난다.
+- 측정값의 점과 모델의 선이 무엇을 의미하는지 구분해서 표시한다.
 
-## 5.3. Stress vs. strain curve 그리기
+# 11. 정리
 
-다음 [압축파일](/assets/dat_files/lectures/1_2_data_mse/tensile_test_results.zip)을 풀어서, 파일 하나를
-살펴보자 - 예를 들어 `00_DD_WZ_01.csv`
-위 데이터 파일을 활용해
+- <code>ax.plot(x, y)</code>는 선 그래프를, <code>ax.scatter(x, y)</code>는 산점도를 그린다.
+- Figure는 그림 전체이고 Axes는 실제 좌표 영역이다.
+- 제목, 축 이름, 단위, 범례를 표시해야 그래프의 의미가 분명해진다.
+- NumPy의 배열 연산 결과를 Matplotlib으로 바로 시각화할 수 있다.
 
-1.  폭: 6.04 mm, 두께 2.99 mm 인걸 확인하고,
-2.  힘과 변위 칼럼을 활용해서 응력과 변형률을 구하자.
-3.  그 다음 응력과 변형률 곡선을 Figure로 그려보자.
-
-## 5.4 데이터 fitting
-
-### 5.4.1 Curve fitting in Cartesian (x,y)
-
-- 금속의 인장 실험 이후 변형률과 응력의 데이터를 아래와 같이 취득하였다. 이 데이터에 해당하는
-  Young's modulus (영률)을 구하여라. 그리고 구해진 영률을 활용한 직선과 실험 데이터를
-  비교하는 그래프를 작성하여라.
-- 여러 온도에 해당하는 측정된 확산계수를 활용해 1000 K에서의 확산 계수를
-  가늠해 보아라.
-
-### 5.4.2 Curve fitting in Polar coordinate (r,$\theta$)
-
-Bohr의 원자 모형에서의 전자 움직임을 모사하였더니 아래와 같은 데이터를 보인다. 이를 활용해보자.
-
-# 쉬운 연습 문제
+# 12. 쉬운 연습 문제
 
 ## 문제 1
 
-Matplotlib의 pyplot을 <code>plt</code>로 불러오는 문장을 쓰시오.
+다음 코드의 빈칸을 채워 $y=3x$를 선 그래프로 나타내시오.
+
+~~~python
+x = np.linspace(0.0, 5.0, 51)
+y = 3.0 * x
+fig, ax = plt.subplots()
+# 여기에 코드를 작성한다.
+plt.show()
+~~~
 
 <!--
 풀이와 해답:
-import matplotlib.pyplot as plt
+ax.plot(x, y)
 -->
 
 ## 문제 2
 
-x와 y 데이터로 선 그래프를 그리는 함수를 쓰시오.
+선 그래프와 산점도는 각각 어떤 종류의 데이터를 표현하기에 적합한지 설명하시오.
 
 <!--
 풀이와 해답:
-plt.plot(x, y)
+선 그래프는 연속적인 변화나 함수의 경향에, 산점도는 서로 떨어진 측정값에 적합하다.
 -->
 
 ## 문제 3
 
-그래프의 x축 이름을 지정하는 함수를 쓰시오.
+그래프에 $x$축 이름 <code>Time (s)</code>와 $y$축 이름
+<code>Temperature (K)</code>를 추가하는 코드를 쓰시오.
 
 <!--
 풀이와 해답:
-plt.xlabel()을 사용한다.
+ax.set_xlabel("Time (s)")
+ax.set_ylabel("Temperature (K)")
+-->
+
+## 문제 4
+
+초기 길이가 $40$ mm이고 변위가 $0.2$ mm일 때 공칭 변형률을 계산하시오.
+
+<!--
+풀이와 해답:
+e = 0.2 / 40 = 0.005이다.
 -->

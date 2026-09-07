@@ -1,18 +1,13 @@
 ---
 layout: distill
 title: 행렬 연산 기초
-description: NumPy를 이용한 행렬 연산과 broadcasting
+description: NumPy를 이용한 행렬–벡터곱과 행렬곱
 target: 1학년 2학기
 permalink:
 featured: true
-prerequisite: NumPy 배열 기초
+prerequisite: NumPy 배열 활용, 벡터 연산 기초
 toc:
   sidebar: left
-
-mermaid:
-  enabled: true
-  zoomable: true
-typograms: true
 hidden: true
 tabs: true
 tikzjax: true
@@ -23,383 +18,606 @@ authors:
       name: Changwon National University
 ---
 
-- [1. 행렬간의 내적 (dot product) 이해하기](#1-행렬간의-내적-dot-product-이해하기)
-- [2. 두 3x3 행렬 곱? 일반화하여, nxn 행렬사이의 곱은?](#2-두-3x3-행렬-곱-일반화하여-nxn-행렬사이의-곱은)
-- [3. 예제](#3-예제)
-  - [3.1. Loop 표현](#31-loop-표현)
-  - [3.2. 일반적 행렬곱](#32-일반적-행렬곱)
-  - [3.3. 예제 3.](#33-예제-3)
-  - [3.4. 예제 4.](#34-예제-4)
-  - [3.5. 예제 5. 세 행렬의 곱](#35-예제-5-세-행렬의-곱)
-- [4. Broadcasting](#4-broadcasting)
-- [5. Other various features](#5-other-various-features)
+- [1. 학습 목표](#1-학습-목표)
+- [2. 행렬과 NumPy 배열](#2-행렬과-numpy-배열)
+- [3. 행렬의 합과 원소별 곱](#3-행렬의-합과-원소별-곱)
+- [4. 행렬–벡터곱](#4-행렬벡터곱)
+- [\\boldsymbol A\\boldsymbol x](#boldsymbol-aboldsymbol-x)
+- [\\end{bmatrix}](#endbmatrix)
+- [5. 행렬곱](#5-행렬곱)
+- [\\boldsymbol C](#boldsymbol-c)
+- [\\boldsymbol A\\cdot\\boldsymbol B](#boldsymbol-acdotboldsymbol-b)
+- [C\_{ij}](#c_ij)
+- [C\_{ij}](#c_ij-1)
+- [6. 행렬곱의 shape](#6-행렬곱의-shape)
+- [7. 단위행렬과 전치행렬](#7-단위행렬과-전치행렬)
+  - [7.1. 단위행렬](#71-단위행렬)
+  - [7.2. 전치행렬](#72-전치행렬)
+- [8. 행렬식과 역행렬](#8-행렬식과-역행렬)
+  - [8.1. 행렬식](#81-행렬식)
+  - [8.2. 역행렬](#82-역행렬)
+- [\\boldsymbol A^{-1}\\boldsymbol A](#boldsymbol-a-1boldsymbol-a)
+- [9. 연립방정식 풀기](#9-연립방정식-풀기)
+- [10. 재료공학 예제](#10-재료공학-예제)
+  - [10.1. 격자 좌표를 실제 위치로 변환하기](#101-격자-좌표를-실제-위치로-변환하기)
+  - [10.2. 두 격자점 사이의 거리](#102-두-격자점-사이의-거리)
+- [11. 자주 하는 실수](#11-자주-하는-실수)
+- [12. 정리](#12-정리)
+- [13. 쉬운 연습 문제](#13-쉬운-연습-문제)
+  - [문제 1](#문제-1)
+  - [문제 2](#문제-2)
+  - [문제 3](#문제-3)
+  - [문제 4](#문제-4)
+  - [문제 5](#문제-5)
+  - [문제 6](#문제-6)
+  - [문제 7](#문제-7)
 
-# 1. 행렬간의 내적 (dot product) 이해하기
+# 1. 학습 목표
 
-[두 행렬의 곱](https://ko.wikipedia.org/wiki/행렬_곱셈)을 이해해보자. 행과 열이 각각
-$(l,m)$인 행렬
+이번 강의가 끝나면 다음을 할 수 있어야 한다.
 
-$$\boldsymbol{A}_{l\times m}$$
+- 행렬을 2차원 NumPy 배열로 나타낼 수 있다.
+- 원소별 곱과 행렬곱을 구분할 수 있다.
+- 행렬–벡터곱과 행렬곱을 손으로 계산하고 NumPy로 확인할 수 있다.
+- 행렬곱이 가능한 shape 조건을 판단할 수 있다.
+- 단위행렬, 전치행렬, 행렬식과 역행렬의 의미를 설명할 수 있다.
+- <code>np.linalg.solve()</code>로 간단한 연립방정식을 풀 수 있다.
 
-와 $(m,n)$인
+# 2. 행렬과 NumPy 배열
 
-$$\boldsymbol{B}_{m\times n}$$
+$m$행 $n$열의 행렬은 $m\times n$ 행렬이라고 한다.
 
-의 곱은 새로운 행렬 $\boldsymbol{C}$가 된다. $\boldsymbol{C}$ 행렬의 행과 열은
-($l,n$)이 되며 다음과 같이 표기되곤 한다.
+$$
+\boldsymbol A=
+\begin{bmatrix}
+1&2&3\\
+4&5&6
+\end{bmatrix}
+$$
 
-$$\boldsymbol{C}=\boldsymbol{A}\cdot\boldsymbol{B}$$
+은 2행 3열 행렬이다.
 
-이때, 앞선 행렬의 한 행의 요소와, 뒷따르는 행렬의 열 요소들이 각기 순서대로 곱해져서 새로운 행렬 $\boldsymbol{C}$를 이루게 되며, 그 방식이 아래 그림에 표기되어 있다.
+~~~python
+import numpy as np
+A = np.array([
+    [1.0, 2.0, 3.0],
+    [4.0, 5.0, 6.0],
+])
 
-<p align="center">
-  <img src=https://upload.wikimedia.org/wikipedia/commons/e/eb/Matrix_multiplication_diagram_2.svg />
-</p>
+print(A)
+print(A.shape)
+print(A.ndim)
+~~~
 
-예를 아래 두 벡터의 곱의 예를 함께 살펴보자,
+<code>A.shape</code>은 <code>(2, 3)</code>이고 <code>A.ndim</code>은 2이다.
+행렬 성분 $A_{ij}$는 Python에서 <code>A[i, j]</code>로 선택한다. 다만 수학에서 첨자는
+1부터, Python의 인덱스는 0부터 시작한다.
+
+~~~python
+print(A[0, 0])
+print(A[1, 2])
+~~~
+
+# 3. 행렬의 합과 원소별 곱
+
+shape이 같은 두 행렬의 합과 차는 같은 위치의 성분끼리 계산한다.
+
+~~~python
+A = np.array([
+    [1.0, 2.0],
+    [3.0, 4.0],
+])
+B = np.array([
+    [5.0, 6.0],
+    [7.0, 8.0],
+])
+
+print(A + B)
+print(A - B)
+~~~
+
+별표 연산자 <code>*</code>는 행렬곱이 아니라 원소별 곱을 계산한다.
+
+~~~python
+elementwise_product = A * B
+print(elementwise_product)
+~~~
+
+결과는
 
 $$
 \begin{bmatrix}
-1 & 2 \\
-3 & 4
+5&12\\
+21&32
 \end{bmatrix}
-\cdot
+$$
+
+이다.
+
+# 4. 행렬–벡터곱
+
+행렬
+
+$$
+\boldsymbol A=
 \begin{bmatrix}
-2 & 0 \\
-1 & 3
+1&2\\
+3&4
 \end{bmatrix}
-= ?
 $$
 
-두 2x2 행렬 $\boldsymbol A$와 $\boldsymbol B$를 곱하여 행렬 $\boldsymbol C$가 된다면, 아래와 같이 표현한다.
+와 벡터
 
 $$
-\boldsymbol C = \boldsymbol A \cdot \boldsymbol B
+\boldsymbol x=
+\begin{bmatrix}
+5\\6
+\end{bmatrix}
 $$
 
-이 때
+의 곱은 각 행과 벡터의 내적으로 계산한다.
 
 $$
-\begin{array}{c}
-C_{11}=A_{11}B_{11}+A_{12}B_{21} \\
-C_{12}=A_{11}B_{12}+A_{12}B_{22} \\
-C_{21}=A_{21}B_{11}+A_{22}B_{21} \\
-C_{22}=A_{21}B_{12}+A_{22}B_{22} \\
-\end{array}
+\boldsymbol A\boldsymbol x
+=
+\begin{bmatrix}
+1\times5+2\times6\\
+3\times5+4\times6
+\end{bmatrix}
+=
+\begin{bmatrix}
+17\\39
+\end{bmatrix}
 $$
 
-가 된다. 이를 그대로 Python으로 옮기면
+~~~python
+A = np.array([
+    [1.0, 2.0],
+    [3.0, 4.0],
+])
+x = np.array([5.0, 6.0])
 
-```python
-A = [[1, 2], [3, 4]]
-B = [[2, 0], [1, 3]]
+result = A @ x
 
-C=[[0,0],[0,0]]
-C[0][0]=A[0][0]*B[0][0]+A[0][1]*B[1][0]
-C[0][1]=A[0][0]*B[0][1]+A[0][1]*B[1][1]
-C[1][0]=A[1][0]*B[0][0]+A[1][1]*B[1][0]
-C[1][1]=A[1][0]*B[0][1]+A[1][1]*B[1][1]
-print('1:',C)
-```
+print(result)
+print(result.shape)
+~~~
 
-위 행렬곱 식에서 $\boldsymbol{C}$ 행렬 요소 위치에 따라 달라지는
-$\boldsymbol{A}$와 $\boldsymbol{B}$ 행렬의 위치가 있다.
-이를 살펴보면
+$(m,n)$ 행렬과 shape이 $(n,)$인 벡터를 곱하면 shape이 $(m,)$인 벡터가 나온다.
+
+# 5. 행렬곱
+
+두 행렬
 
 $$
-C_{ij}=A_{i1}B_{1j}+A_{i2}B_{2j}
+\boldsymbol A=
+\begin{bmatrix}
+1&2\\
+3&4
+\end{bmatrix},
+\qquad
+\boldsymbol B=
+\begin{bmatrix}
+2&0\\
+1&3
+\end{bmatrix}
 $$
 
-로 표현됨을 알 수 있다. 이를 반영하여 모든 $(i,j)$ 짝에 적용하면...
+의 곱을 생각하자. 결과의 각 성분은 $A$의 한 행과 $B$의 한 열의 내적이다.
 
-```python
-A = [[1, 2], [3, 4]]
-B = [[2, 0], [1, 3]]
-
-C=[[0,0],[0,0]]
-i=0;j=0
-C[i][j]=A[i][0]*B[0][j]+A[i][1]*B[1][j]
-i=0;j=1
-C[i][j]=A[i][0]*B[0][j]+A[i][1]*B[1][j]
-i=1;j=0
-C[i][j]=A[i][0]*B[0][j]+A[i][1]*B[1][j]
-i=1;j=1
-C[i][1]=A[i][0]*B[0][j]+A[i][1]*B[j][1]
-print('2:',C)
-```
-
-그런데, 코드를 살펴보면, 아래의 동일한 statements가 4번 반복되는 것을 알 수 있다.
-
-```python
-C[i][j]=A[i,0]*B[0,j]+A[i,1]*B[j,1]
-```
-
-$(i,j)$가 각각 `for`구문을 통해 0,1을 반복하므로, 아래와 같이 축약할 수 있겠다.
-
-```python
-A = [[1, 2], [3, 4]]
-B = [[2, 0], [1, 3]]
-
-C=[[0,0],[0,0]]
-for i in range(2):
-    for j in range(2):
-        C[i][j]=A[i][0]*B[0][j]+A[i][1]*B[1][j] ## 네 statements가 동일함에 주목!
-print('3:',C)
-```
-
-그런데, 반복되던 statement의 우변에서도 0과 1이 반복된다.
-
-```python
-C[i][j]=A[i][0]*B[0][j]+A[i][1]*B[j][1]
-```
+$$
+\begin{aligned}
+C_{11}&=1\times2+2\times1=4,\\
+C_{12}&=1\times0+2\times3=6,\\
+C_{21}&=3\times2+4\times1=10,\\
+C_{22}&=3\times0+4\times3=12.
+\end{aligned}
+$$
 
 따라서
 
-```python
-for k in range(2):
-   C[i][j]=C[i][j]+A[i][k]*B[k][j]
-```
-
-라 줄일 수 있겠다.
-이렇게 모두 줄일 수 있는 만큼 줄여서 축약된 형태로 표현하면 ..
-
-```python
-#더 줄이면?
-C=[[0,0],[0,0]]
-for i in range(2):
-	for j in range(2):
-		for k in range(2):
-			C[i][j]=C[i][j]+A[i][k]*B[k][j]
-			#C[i][j]+=A[i,k]*B[k,j]      += 기호 사용
-print('4:',C)
-```
-
-두 2x2행렬 곱은, 아래 더 상세히 배우게 될 `NumPy`패키지를 활용하면 더욱 축약된 형태로 작성가능하다.
-
-```python
-import numpy as np
-A = np.array([[1, 2], [3, 4]])
-B = np.array([[2, 0], [1, 3]])
-print('6:',A @ B)          # 행렬 곱
-print('7:',np.dot(A, B))   # 동일
-```
-
-# 2. 두 3x3 행렬 곱? 일반화하여, nxn 행렬사이의 곱은?
-
-행렬 $\boldsymbol A$ 와 $\boldsymbol B$ 의 곱 결과가 또 다른 3x3행렬 $\boldsymbol C$ 이라면
-
 $$
-\boldsymbol A\cdot\boldsymbol B = \boldsymbol C
-$$
-
-와 같이 표현할 수 있다. 이를 **index**를 활용한 방식으로 아래와 같이 표기 가능하다.
-
-$$
-\sum_k^3A_{ik}B_{kj}=C_{ij}, \text{ for } i=1,2,3 \text{ and } \   j=1,2,3
-$$
-
-# 3. 예제
-
-## 3.1. Loop 표현
-
-```python
-# For loop 3개를 활용해서 표현
-C=np.zeros((3,3))
-for i in range(3):
-    for j in range(3):
-        for k in range(3):
-            for l in range(3):
-                C[i,j]=C[i,j]+A[i,k]*B[k,j]
-```
-
-## 3.2. 일반적 행렬곱
-
-```python
-# 두 nxn 행렬 사이의 곱을 구하는 python 함수를 작성해 보세요.
-# 규칙성을 찾고, 그 규칙성을 구현해 보세요.
-```
-
-## 3.3. 예제 3.
-
-격자 상수 $(a,b,c)$가 주어진 Tetragonal에서의 격자 위치 $(p_1,p_2,p_3)$가 주어질 때,
-격자 위치를 행렬을 활용해 unit cell내에서의 위치로 표현할 수 있다.
-
-우선 아래와 같이 행렬 $A$를 구한다.
-
-$$
-A=\begin{bmatrix}
-a & 0 & 0 \\
-0 & b & 0 \\
-0 & 0 & c \\
-\end{bmatrix}
-$$
-
-다음으로 격자 위치로 이루어진 벡터를 곱한다.
-
-$$
-A\cdot p =\begin{bmatrix}
-a & 0 & 0 \\
-0 & b & 0 \\
-0 & 0 & c \\
-\end{bmatrix}\cdot
+\boldsymbol C
+=
+\boldsymbol A\cdot\boldsymbol B
+=
 \begin{bmatrix}
-p_1\\p_2\\p_3
+4&6\\
+10&12
 \end{bmatrix}
 $$
 
-그 결과 벡터가 실제 unit cell내의 위치가 된다.
+이다.
 
-## 3.4. 예제 4.
+~~~python
+A = np.array([
+    [1.0, 2.0],
+    [3.0, 4.0],
+])
+B = np.array([
+    [2.0, 0.0],
+    [1.0, 3.0],
+])
 
-격자 상수 $(a,b,c)$가 주어진 Tetragonal에서의 두 격자 위치 $p=(p_1,p_2,p_3)$와
-$q=(q_1,q_2,q_3)$가 주어질 때, 두 격자 위치 사이의 거리를 구해보자.
+C = A @ B
 
-우선 아래와 같이 행렬 $A$를 구한다.
+print(C)
+~~~
+
+일반적으로 $A$가 $(l,m)$ 행렬이고 $B$가 $(m,n)$ 행렬이면
 
 $$
-A=\begin{bmatrix}
-a & 0 & 0 \\
-0 & b & 0 \\
-0 & 0 & c \\
-\end{bmatrix}
+C_{ij}
+=
+\sum_{k=1}^{m}A_{ik}B_{kj}
 $$
 
-다음으로 격자 위치로 이루어진 벡터를 곱한다.
+이고 결과 $C$의 크기는 $(l,n)$이다.
 
 $$
-p^\prime=A\cdot p =\begin{bmatrix}
-a & 0 & 0 \\
-0 & b & 0 \\
-0 & 0 & c \\
-\end{bmatrix}\cdot
+C_{ij}
+=
+\sum_{k=1}^{m}A_{ik}B_{kj}
+
+\text{ with } i=1,2,..., l \ \ j=1,2,...,n
+$$
+
+
+학습을 위해 반복문으로 같은 계산을 구현하면 다음과 같다.
+
+~~~python
+rows_a, columns_a = A.shape
+rows_b, columns_b = B.shape
+
+C_loop = np.zeros((rows_a, columns_b))
+
+for i in range(rows_a):
+    for j in range(columns_b):
+        for k in range(columns_a):
+            C_loop[i, j] += A[i, k] * B[k, j]
+
+print(C_loop)
+print(np.allclose(C, C_loop))
+~~~
+
+실제 계산에서는 반복문보다 <code>A @ B</code>를 사용한다. 연산 속도가 더 빠르다.
+
+# 6. 행렬곱의 shape
+
+행렬곱에서는 안쪽 크기가 같아야 한다.
+
+$$
+(l,m)(m,n)\rightarrow(l,n)
+$$
+
+예를 들어 다음 곱은 가능하다.
+
+~~~python
+A = np.ones((2, 3))
+B = np.ones((3, 4))
+
+C = A @ B
+
+print(C.shape)
+~~~
+
+$(2,3)(3,4)$의 안쪽 크기 3이 같고 결과 shape은 $(2,4)$이다.
+
+다음 곱은 안쪽 크기가 다르므로 계산할 수 없다.
+
+~~~text
+(2, 3) @ (2, 4)
+~~~
+
+행렬곱은 일반적으로 순서를 바꿀 수 없다.
+
+$$
+\boldsymbol A\cdot \boldsymbol B
+\ne
+\boldsymbol B\cdot \boldsymbol A
+$$
+
+shape에 따라 한쪽 순서의 곱만 가능한 경우도 있다.
+
+# 7. 단위행렬과 전치행렬
+
+## 7.1. 단위행렬
+
+단위행렬(identity matrix)은 대각성분이 1이고 나머지가 0인 정사각행렬이다.
+
+~~~python
+I = np.eye(3)
+x = np.array([2.0, 3.0, 4.0])
+
+print(I)
+print(I @ x)
+~~~
+
+단위행렬을 곱하면 원래 벡터나 행렬이 유지된다.
+
+$$
+\boldsymbol I\cdot \boldsymbol x=\boldsymbol x
+$$
+
+## 7.2. 전치행렬
+
+전치(transpose)는 행과 열을 바꾼다.
+
+~~~python
+A = np.array([
+    [1.0, 2.0, 3.0],
+    [4.0, 5.0, 6.0],
+])
+
+A_transpose = A.T
+
+print(A.shape)
+print(A_transpose.shape)
+print(A_transpose)
+~~~
+
+$(2,3)$ 행렬의 전치는 $(3,2)$ 행렬이다.
+
+# 8. 행렬식과 역행렬
+
+## 8.1. 행렬식
+
+행렬식(determinant)은 정사각행렬에 대해 정의되는 스칼라이다. 2×2 행렬에서는
+
+$$
+\det
 \begin{bmatrix}
-p_1\\p_2\\p_3
+a&b\\c&d
 \end{bmatrix}
+=ad-bc
 $$
 
+이다.
+
+~~~python
+A = np.array([
+    [2.0, 1.0],
+    [1.0, 3.0],
+])
+
+determinant = np.linalg.det(A)
+print(determinant)
+~~~
+
+행렬식이 0이면 역행렬이 존재하지 않는다.
+
+## 8.2. 역행렬
+
+역행렬은 다음 관계를 만족한다.
+
 $$
-q^\prime=A\cdot q =\begin{bmatrix}
-a & 0 & 0 \\
-0 & b & 0 \\
-0 & 0 & c \\
-\end{bmatrix}\cdot
+\boldsymbol A^{-1}\boldsymbol A
+=
+\boldsymbol I
+$$
+
+~~~python
+A_inverse = np.linalg.inv(A)
+
+print(A_inverse)
+print(A_inverse @ A)
+~~~
+
+부동소수점 계산 결과는 정확한 정수 대신 0에 매우 가깝거나 1에 매우 가까운 값으로
+나타날 수 있다. 두 배열이 가까운지 확인할 때는 <code>np.allclose()</code>를 사용한다.
+
+~~~python
+print(
+    np.allclose(
+        A_inverse @ A,
+        np.eye(2),
+    )
+)
+~~~
+
+# 9. 연립방정식 풀기
+
+다음 연립방정식을 생각하자.
+
+$$
+\begin{aligned}
+2x+y&=5,\\
+x+3y&=6.
+\end{aligned}
+$$
+
+행렬 형태는
+
+$$
+\boldsymbol A\cdot \boldsymbol x=\boldsymbol b
+$$
+
+이며
+
+$$
+\boldsymbol A=
+\begin{bmatrix}2&1\\1&3\end{bmatrix},
+\quad
+\boldsymbol x=
+\begin{bmatrix}x\\y\end{bmatrix},
+\quad
+\boldsymbol b=
+\begin{bmatrix}5\\6\end{bmatrix}
+$$
+
+이다.
+
+~~~python
+A = np.array([
+    [2.0, 1.0],
+    [1.0, 3.0],
+])
+b = np.array([5.0, 6.0])
+
+x = np.linalg.solve(A, b)
+
+print(x)
+print(A @ x)
+~~~
+
+해는 $x=1.8$, $y=1.4$이고 <code>A @ x</code>는 원래 우변 $b$와 같다.
+
+연립방정식을 풀 때는 역행렬을 직접 계산하여 <code>np.linalg.inv(A) @ b</code>로
+구하기보다 <code>np.linalg.solve(A, b)</code>를 사용하는 것이 좋다.
+
+# 10. 재료공학 예제
+
+## 10.1. 격자 좌표를 실제 위치로 변환하기
+
+직교하는 격자축의 길이가 $a=2$, $b=3$, $c=4$라고 하자. 격자 좌표
+$\boldsymbol p=(0.5,0.5,0.25)$를 실제 위치로 바꾸는 행렬은
+
+$$
+\boldsymbol L=
 \begin{bmatrix}
-q_1\\q_2\\q_3
+2&0&0\\
+0&3&0\\
+0&0&4
 \end{bmatrix}
 $$
 
-두 점 $p^\prime$과 $q^\prime$ 사이의 거리는
+이다.
 
-$$
-|p^\prime - q^\prime]
-$$
+~~~python
+lattice_matrix = np.diag([2.0, 3.0, 4.0])
+fractional_position = np.array([
+    0.5,
+    0.5,
+    0.25,
+])
 
-에 해당한다.
+cartesian_position = (
+    lattice_matrix @ fractional_position
+)
 
-## 3.5. 예제 5. 세 행렬의 곱
+print(cartesian_position)
+~~~
 
-세 행렬 사이의 곱이 다음과 같다.
+결과는 $(1,1.5,1)$이다.
 
-$$
-\boldsymbol D=\boldsymbol A \cdot \boldsymbol B \cdot \boldsymbol C
-$$
+## 10.2. 두 격자점 사이의 거리
 
-이를 인덱스 notation으로 표현하면
+~~~python
+fractional_p = np.array([0.0, 0.0, 0.0])
+fractional_q = np.array([0.5, 0.5, 0.25])
 
-$$
-D_{ij}=A_{ik}B_{kl}C_{lj}=\sum_k\sum_l A_{ik}B_{kl}C_{lj} \text{ for } (i,j) = (1,1), (1,2), ..., (3,3)
-$$
+cartesian_p = lattice_matrix @ fractional_p
+cartesian_q = lattice_matrix @ fractional_q
 
-```python
-# 세 nxn 행렬 사이의 곱을 구하는 python 함수를 작성해 보세요.
-```
+distance = np.linalg.norm(
+    cartesian_q - cartesian_p
+)
 
-# 4. [Broadcasting](https://numpy.org/devdocs/user/basics.broadcasting.html#basics-broadcasting)
+print(distance)
+~~~
 
-- 브로드캐스팅은 서로 다른 shape의 배열끼리 연산할 때 NumPy가 자동으로 차원을 맞춰주는 기능
+두 점 사이의 거리는 $\sqrt{1^2+1.5^2+1^2}\approx2.062$이다.
 
-- 예시 (1차원+0차원(스칼라))
+# 11. 자주 하는 실수
 
-  ```python
-  arr = np.array([1, 2, 3, 4, 5, 6, 7, 8, 9])
-  print(arr + 10)  # [11 12 13 ... 19] ## stretched ..
-  ```
+- <code>A * B</code>를 행렬곱이라고 생각한다.
+- 행렬곱 전에 두 행렬의 shape을 확인하지 않는다.
+- 수학의 첨자와 Python 인덱스의 시작 번호를 혼동한다.
+- $AB=BA$라고 생각한다.
+- 정사각행렬이 아닌 행렬의 행렬식이나 역행렬을 구하려 한다.
+- 행렬식이 0인 행렬의 역행렬을 구하려 한다.
+- 연립방정식 계산에서 역행렬을 불필요하게 직접 구한다.
 
-- 예시 (2차원 + 1차원)
+# 12. 정리
 
-  ```python
-  mat = np.array([[1, 2, 3],
-  			  [4, 5, 6]])
-  vec = np.array([10, 20, 30])
+- 행렬은 2차원 NumPy 배열로 나타낼 수 있다.
+- <code>*</code>는 원소별 곱이고 <code>@</code>는 행렬곱이다.
+- 행렬–벡터곱은 각 행과 벡터의 내적으로 계산한다.
+- $(l,m)$ 행렬과 $(m,n)$ 행렬의 곱은 $(l,n)$ 행렬이다.
+- <code>np.eye()</code>는 단위행렬을 만든다.
+- <code>A.T</code>는 전치행렬이다.
+- <code>np.linalg.det()</code>와 <code>np.linalg.inv()</code>로 행렬식과 역행렬을 계산한다.
+- 연립방정식은 <code>np.linalg.solve()</code>로 푼다.
 
-  print(mat + vec)
-  # [[11 22 33]
-  #  [14 25 36]]
-  ```
-
-- 주의!
-
-  뒤에서부터 비교하며 차원이 같거나 1이면 확장 가능
-  하나라도 불가능하면 에러 발생
-
-# 5. Other various features
-
-```python
-arr = np.array([1, 4, 9, 16])
-
-print(np.sqrt(arr))   # 제곱근 → [1. 2. 3. 4.]
-print(np.exp(arr))    # e^x
-print(np.log(arr))    # 자연로그
-print(np.sin(arr))    # 사인 함수
-print(np.mean(arr))   # 평균
-print(np.sum(arr))    # 합
-print(np.min(arr))    # 최소값
-print(np.max(arr))    # 최대값
-print(np.std(arr))    # 표준편차
-
-arr = np.array([3, 1, 2])
-
-print(np.sort(arr))        # 정렬된 배열
-print(np.argsort(arr))     # 정렬 인덱스
-print(np.argmax(arr))      # 최대값 인덱스
-print(np.argmin(arr))      # 최소값 인덱스
-
-ind=np.argsort(arr)
-arr[ind] ## sorting 이 된 배열
-
-# 추가 예제
-names=['Michael','Jim','Pam','Dwight','Kevin','Creed']
-scores=[5, 30, 20, 40, 10, 25]
-
-inds=np.argsort(scores)
-print(names[inds]) ## score에 따라 정렬된 배열
-```
-
-# 쉬운 연습 문제
+# 13. 쉬운 연습 문제
 
 ## 문제 1
 
-2행 3열 행렬의 shape을 튜플로 쓰시오.
+다음 행렬의 shape을 쓰시오.
+
+$$
+\begin{bmatrix}
+1&2&3\\
+4&5&6
+\end{bmatrix}
+$$
 
 <!--
 풀이와 해답:
-(2, 3)
+2행 3열이므로 shape은 (2,3)이다.
 -->
 
 ## 문제 2
 
-단위행렬과 벡터를 곱하면 어떤 결과가 나오는가?
+NumPy에서 원소별 곱과 행렬곱에 사용하는 연산자를 각각 쓰시오.
 
 <!--
 풀이와 해답:
-원래 벡터가 나온다.
+원소별 곱은 *이고 행렬곱은 @이다.
 -->
 
 ## 문제 3
 
-NumPy에서 행렬곱에 사용하는 연산자를 쓰시오.
+다음 행렬–벡터곱을 계산하라.
+
+$$
+\begin{bmatrix}
+1&0\\
+0&2
+\end{bmatrix}
+\begin{bmatrix}
+3\\4
+\end{bmatrix}
+$$
 
 <!--
 풀이와 해답:
-@ 연산자를 사용한다.
+결과는 (3,8)^T이다.
+-->
+
+## 문제 4
+
+shape이 $(2,3)$인 행렬과 $(3,4)$인 행렬을 곱할 수 있는가? 결과 shape도 쓰시오.
+
+<!--
+풀이와 해답:
+안쪽 크기 3이 같으므로 곱할 수 있고 결과 shape은 (2,4)이다.
+-->
+
+## 문제 5
+
+단위행렬 $\boldsymbol I$와 벡터 $\boldsymbol x$의 곱은 무엇인가?
+
+<!--
+풀이와 해답:
+I x=x이므로 원래 벡터 x이다.
+-->
+
+## 문제 6
+
+2×2 행렬
+$\begin{bmatrix}2&1\\1&3\end{bmatrix}$의 행렬식을 구하라.
+
+<!--
+풀이와 해답:
+2 곱하기 3에서 1 곱하기 1을 빼면 5이다.
+-->
+
+## 문제 7
+
+행렬 $A$와 벡터 $b$로 이루어진 연립방정식 $Ax=b$를 푸는 NumPy 함수를 쓰시오.
+
+<!--
+풀이와 해답:
+np.linalg.solve(A, b)를 사용한다.
 -->
