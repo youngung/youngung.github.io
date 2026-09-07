@@ -191,7 +191,6 @@ xxxx5298  53.0
     <span class="nf">print</span><span class="p">(</span><span class="n">path</span><span class="p">.</span><span class="n">name</span><span class="p">)</span>
 </code></pre></div></div> <p>다음 압축 파일을 내려받아 여러 성적 파일을 대상으로 실습할 수 있다.</p> <ul> <li><a href="/assets/dat_files/lectures/1_2_data_mse/score_records/all_scores/scores.zip">여러 성적 파일</a></li> </ul> <p>처음에는 파일 이름만 출력하여 선택된 파일이 맞는지 확인한다. 그다음 각 파일을 읽는 함수를 만들어 반복 적용할 수 있다.</p> <h1 id="10-파일-이름-안전하게-바꾸기">10. 파일 이름 안전하게 바꾸기</h1> <p>다음 <a href="/assets/dat_files/lectures/1_2_data_mse/tensile_test_results.zip">인장시험 파일</a>의 파일 이름에서 <code>WZ</code>를 <code>EX</code>로 바꾼다고 하자.</p> <p>파일 이름 변경은 원래 경로를 바꾸는 작업이므로 먼저 변경 계획만 출력한다.</p> <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="n">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
 
-
 <span class="n">data_folder</span> <span class="o">=</span> <span class="nc">Path</span><span class="p">(</span><span class="sh">"</span><span class="s">tensile_test_results</span><span class="sh">"</span><span class="p">)</span>
 
 <span class="k">for</span> <span class="n">old_path</span> <span class="ow">in</span> <span class="n">data_folder</span><span class="p">.</span><span class="nf">glob</span><span class="p">(</span><span class="sh">"</span><span class="s">*WZ*.csv</span><span class="sh">"</span><span class="p">):</span>
@@ -201,12 +200,8 @@ xxxx5298  53.0
     <span class="nf">print</span><span class="p">(</span><span class="sa">f</span><span class="sh">"</span><span class="si">{</span><span class="n">old_path</span><span class="p">.</span><span class="n">name</span><span class="si">}</span><span class="s"> -&gt; </span><span class="si">{</span><span class="n">new_path</span><span class="p">.</span><span class="n">name</span><span class="si">}</span><span class="sh">"</span><span class="p">)</span>
 </code></pre></div></div> <p>출력된 대상과 새 이름이 모두 올바른지 확인한 뒤에만 다음 줄을 반복문 안에 추가한다.</p> <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">old_path</span><span class="p">.</span><span class="nf">rename</span><span class="p">(</span><span class="n">new_path</span><span class="p">)</span>
 </code></pre></div></div> <blockquote> <p><strong>안전 확인:</strong> 원본 파일이 중요하면 먼저 폴더 전체를 복사해 두고 연습한다. 새 이름의 파일이 이미 존재하는지도 확인해야 한다.</p> </blockquote> <p>복사하려면 <code>shutil.copy()</code>를 사용한다.</p> <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="n">shutil</span> <span class="kn">import</span> <span class="n">copy</span>
-
-
 <span class="nf">copy</span><span class="p">(</span><span class="n">old_path</span><span class="p">,</span> <span class="n">new_path</span><span class="p">)</span>
 </code></pre></div></div> <h1 id="11-오류가-발생했을-때">11. 오류가 발생했을 때</h1> <h2 id="111-filenotfounderror">11.1. FileNotFoundError</h2> <p>지정한 위치에 파일이 없을 때 발생한다.</p> <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="n">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
-
-
 <span class="n">path</span> <span class="o">=</span> <span class="nc">Path</span><span class="p">(</span><span class="sh">"</span><span class="s">materials.txt</span><span class="sh">"</span><span class="p">)</span>
 <span class="nf">print</span><span class="p">(</span><span class="n">path</span><span class="p">.</span><span class="nf">exists</span><span class="p">())</span>
 <span class="nf">print</span><span class="p">(</span><span class="n">path</span><span class="p">.</span><span class="nf">resolve</span><span class="p">())</span>

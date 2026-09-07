@@ -98,7 +98,6 @@
 python square.py 3
 </code></pre></div></div> <p>두 번째 명령은 9를 출력한다. <code>type=int</code>를 지정했기 때문에 입력 문자열을 정수로 변환한다.</p> <h2 id="82-선택-인자-추가하기">8.2. 선택 인자 추가하기</h2> <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="n">argparse</span>
 
-
 <span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
     <span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="p">.</span><span class="nc">ArgumentParser</span><span class="p">()</span>
     <span class="n">parser</span><span class="p">.</span><span class="nf">add_argument</span><span class="p">(</span><span class="sh">"</span><span class="s">x</span><span class="sh">"</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span>
@@ -124,13 +123,11 @@ python square.py 3
 python calculate.py 3 4 <span class="nt">--operation</span> multiply
 </code></pre></div></div> <p>첫 명령은 기본 연산인 덧셈 결과 7을, 두 번째 명령은 곱셈 결과 12를 출력한다.</p> <h1 id="9-재료공학-cli-예제">9. 재료공학 CLI 예제</h1> <p>질량과 부피를 입력받아 밀도를 계산하는 프로그램을 만들어 보자. 다음 코드를 <code>density_cli.py</code>에 저장한다.</p> <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="n">argparse</span>
 
-
 <span class="k">def</span> <span class="nf">density</span><span class="p">(</span><span class="n">mass_g</span><span class="p">,</span> <span class="n">volume_cm3</span><span class="p">):</span>
     <span class="k">if</span> <span class="n">volume_cm3</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">:</span>
         <span class="k">raise</span> <span class="nc">ValueError</span><span class="p">(</span><span class="sh">"</span><span class="s">volume must be positive</span><span class="sh">"</span><span class="p">)</span>
 
     <span class="k">return</span> <span class="n">mass_g</span> <span class="o">/</span> <span class="n">volume_cm3</span>
-
 
 <span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
     <span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="p">.</span><span class="nc">ArgumentParser</span><span class="p">(</span>
