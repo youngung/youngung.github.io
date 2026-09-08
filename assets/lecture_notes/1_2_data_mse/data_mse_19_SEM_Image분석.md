@@ -160,7 +160,7 @@ ax2.imshow(img,cmap='gray')
   [imag2](/assets/dat_files/lectures/1_2_data_mse/edgecenter.png)
   [imag3](/assets/dat_files/lectures/1_2_data_mse/edgeedge.png)
 
-# 쉬운 연습 문제
+# 연습 문제
 
 ## 문제 1
 

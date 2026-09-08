@@ -31,7 +31,7 @@ authors:
   - [8.3. 표준편차](#83-표준편차)
 - [9. 여러 입력값 받기](#9-여러-입력값-받기)
 - [10. 함수를 작성할 때의 점검 사항](#10-함수를-작성할-때의-점검-사항)
-- [11. 쉬운 연습 문제](#11-쉬운-연습-문제)
+- [11. 연습 문제](#11-연습-문제)
   - [문제 1](#문제-1)
   - [문제 2](#문제-2)
   - [문제 3](#문제-3)
@@ -100,7 +100,6 @@ def add(a, b):
     result = a + b
     return result
 
-
 value = add(3, 5)
 print(value)
 ~~~
@@ -144,10 +143,8 @@ print(rho)
 def show_double(x):
     print(2 * x)
 
-
 def calculate_double(x):
     return 2 * x
-
 
 show_double(4)
 value = calculate_double(4)
@@ -327,7 +324,7 @@ print_material(name="Aluminum", structure="FCC", density=2.70)
 - 간단한 입력값으로 결과를 직접 확인했는가?
 - 0으로 나누는 경우(혹은 자연로그 0, 즉 $\ln 0$)처럼 허용되지 않는 입력은 없는가?
 
-# 11. 쉬운 연습 문제
+# 11. 연습 문제
 
 ## 문제 1
 
@@ -364,7 +361,6 @@ print(subtract(7, 2))
 def square(x):
     return x**2
 
-
 square(4)
 ~~~
 
@@ -380,7 +376,6 @@ square(4)
 ~~~python
 def power(base, exponent=2):
     return base**exponent
-
 
 print(power(3))
 print(power(3, 3))

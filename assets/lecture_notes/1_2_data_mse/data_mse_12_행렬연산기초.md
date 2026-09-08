@@ -539,7 +539,7 @@ print(distance)
 - <code>np.linalg.det()</code>와 <code>np.linalg.inv()</code>로 행렬식과 역행렬을 계산한다.
 - 연립방정식은 <code>np.linalg.solve()</code>로 푼다.
 
-# 13. 쉬운 연습 문제
+# 13. 연습 문제
 
 ## 문제 1
 

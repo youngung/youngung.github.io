@@ -38,7 +38,7 @@ authors:
 
 # Schmid factor map?
 
-# 쉬운 연습 문제
+# 연습 문제
 
 ## 문제 1
 

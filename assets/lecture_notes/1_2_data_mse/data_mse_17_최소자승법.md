@@ -420,7 +420,7 @@ print(f"Intercept: {coefficients[1]:.3f}")
 - 응력–변형률 탄성구간의 기울기로 영률을 추정할 수 있다.
 - 행렬 형태의 일반적인 최소제곱 문제는 <code>np.linalg.lstsq()</code>로 풀 수 있다.
 
-# 13. 쉬운 연습 문제
+# 13. 연습 문제
 
 ## 문제 1
 
