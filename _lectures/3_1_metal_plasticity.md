@@ -6,16 +6,8 @@ target: 3학년 1학기
 permalink:
 featured: true
 prerequisite: 재료공학개론1, 대학수학, 데이터 재료과학, 수치해석
-#toc:
-#sidebar: left
-#- name: Orientation
-#- name: Week1
-#- name: Week2
-#- name: Week3
-#- name: Week4
-#- name: Week5
-#- name: Week6
-
+toc:
+  sidebar: left
 mermaid:
   enabled: true
   zoomable: true

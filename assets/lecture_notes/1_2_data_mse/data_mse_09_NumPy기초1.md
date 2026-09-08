@@ -74,7 +74,6 @@ NumPy 배열에서는 배열 전체에 2를 곱할 수 있다.
 ~~~python
 import numpy as np
 
-
 values = np.array([1, 2, 3])
 doubled = 2 * values
 
