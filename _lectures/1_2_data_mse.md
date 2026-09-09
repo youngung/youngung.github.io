@@ -43,3 +43,4 @@ authors:
 - [제19강 SEM image 분석]({% link assets/lecture_notes/1_2_data_mse/data_mse_19_SEM_Image분석.md %})
 - [제20강 EBSD 분석]({% link assets/lecture_notes/1_2_data_mse/data_mse_20_EBSD_분석.md %})
 - [제21강 Misc]({% link assets/lecture_notes/1_2_data_mse/data_mse_21_misc.md %})
+- [제22강 고유값과 고유벡터]({% link assets/lecture_notes/1_2_data_mse/data_mse_22_고유값.md %})
