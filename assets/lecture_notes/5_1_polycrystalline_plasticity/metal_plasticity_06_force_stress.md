@@ -27,8 +27,10 @@ authors:
 - [2. 응력](#2-응력)
 - [3. 수직 및 전단 응력](#3-수직-및-전단-응력)
 - [4. 응력 텐서](#4-응력-텐서)
-- [5. 요약](#5-요약)
-- [6. 연습 문제](#6-연습-문제)
+- [5. 응력 분포에서 합력 구하기](#5-응력-분포에서-합력-구하기)
+- [6. traction 방향이 변하는 경우](#6-traction-방향이-변하는-경우)
+- [7. 요약](#7-요약)
+- [8. 연습 문제](#8-연습-문제)
 
 # 1. 힘
 
@@ -186,8 +188,142 @@ $$
 이다. 수직응력은 $\sigma_n=100$ MPa이고 전단응력벡터는
 $\boldsymbol t_s=(0,20,0)^T$ MPa이므로 전단응력의 크기는 20 MPa이다.
 
+# 5. 응력 분포에서 합력 구하기
 
-# 5. 요약
+앞의 계산은 한 점에서의 응력상태를 다룬다. 실제 구조물의 면에 작용하는 힘을 구하려면
+면의 각 위치에서 traction을 계산한 뒤 면적 전체에 대해 적분해야 한다. 다음과 같이 $x=0$
+인 직사각형 면을 생각하자. 면의 크기는 $0\le y\le H$, $0\le z\le b$이고, 바깥쪽
+단위법선벡터는 $\boldsymbol n=\boldsymbol e_x$이다.
+
+다음 그림은 전체 3차원 큐브와 우리가 선택한 $x=0$ 면을 함께 보여준다. $x=0$ 면은
+$yz$ 평면에 해당하므로 면 위의 위치를 $(y,z)$로 나타낸다. 비교를 위해 주황색으로
+$z=0$인 실제 $yx$ 면도 표시하였다. 아래의 두 예제에서는 파란색으로 표시된 $x=0$
+면에 작용하는 traction을 계산한다. 큐브 안의 아홉 개 화살표는 $x$ 방향으로 세 위치,
+각 위치에서 $y$ 방향으로 세 높이를 선택해 traction을 표시한 것이다. 이 그림에서는
+모든 traction이 $z$축과 평행하므로, 화살표의 방향은 같고 위치에 따른 크기만 비교할 수 있다.
+
+![3차원 큐브와 x=0 면 및 yx 면의 관계](/assets/img/lecture_notes/stress/surface_geometry.png)
+
+물체 내부의 응력 텐서가 다음과 같이 $y$의 함수로 주어진다고 하자.
+
+$$
+\boldsymbol\sigma(y)=
+\begin{bmatrix}
+p_0\left(1+\dfrac{y}{H}\right)&0&0\\
+0&0&0\\
+0&0&0
+\end{bmatrix}.
+$$
+
+이 응력장은 면의 아래쪽에서 $p_0$이고 위쪽에서 $2p_0$가 되는 선형적인 정상응력
+분포를 뜻한다. Cauchy 공식으로 면의 위치 $(y,z)$에서 traction은
+
+$$
+\boldsymbol t(y,z)=\boldsymbol\sigma(y)\boldsymbol n
+=\begin{bmatrix}
+p_0\left(1+\dfrac{y}{H}\right)\\0\\0
+\end{bmatrix}.
+$$
+
+![직사각형 면의 위치별 traction 분포와 미소 힘](/assets/img/lecture_notes/stress/traction_magnitude_distribution.png)
+
+따라서 traction 벡터들은 모두 $x$ 방향을 향하지만, 그 크기는 $y$에 따라 달라진다.
+면적요소 $dA=dy\,dz$에 작용하는 미소 힘은
+
+$$
+d\boldsymbol F=\boldsymbol t(y,z)\,dA
+$$
+
+이고, 면 전체의 합력은
+
+$$
+\begin{aligned}
+\boldsymbol F
+&=\int_A\boldsymbol t\,dA\\
+&=\int_0^b\int_0^H
+\begin{bmatrix}p_0(1+y/H)\\0\\0\end{bmatrix}\,dy\,dz\\
+&=\begin{bmatrix}\dfrac{3}{2}p_0Hb\\0\\0\end{bmatrix}.
+\end{aligned}
+$$
+
+즉 평균 traction은
+
+$$
+\boldsymbol t_{avg}=\frac{\boldsymbol F}{Hb}
+=\begin{bmatrix}\dfrac{3}{2}p_0\\0\\0\end{bmatrix}
+$$
+
+이다. 이 결과는 평균 응력 $1.5p_0$가 단순히 임의로 정해진 값이 아니라, 실제 traction
+분포를 면적에 대해 적분한 결과임을 보여준다. 예를 들어 $p_0=10$ MPa, $H=20$ mm,
+$b=30$ mm이면
+
+$$
+F_x=\frac{3}{2}(10\ \mathrm{N/mm^2})(20\ \mathrm{mm})(30\ \mathrm{mm})
+=9000\ \mathrm{N}.
+$$
+
+여기서 $1\ \mathrm{MPa}=1\ \mathrm{N/mm^2}$를 사용하였다. 응력 텐서가 공간에 따라
+변하면 각 위치에서 $\boldsymbol t=\boldsymbol\sigma\boldsymbol n$을 먼저 구하고,
+그 결과를 적분해야 한다.
+
+# 6. traction 방향이 변하는 경우
+
+이번에는 앞의 예시와 같은 $x=0$ 직사각형 면에서 traction의 크기는 일정하지만 방향이
+$y$에 따라 서서히 바뀌는 경우를 생각하자. 방향각을
+
+$$
+	heta(y)=\frac{\pi}{2}\frac{y}{H}
+$$
+
+로 두면, $y=0$에서 $x$ 방향이고 $y=H$에서 $y$ 방향이 된다. 물체 내부의 대칭 응력
+텐서는
+
+$$
+\boldsymbol\sigma(y)=
+\begin{bmatrix}
+p_0\cos\theta(y)&p_0\sin\theta(y)&0\\
+p_0\sin\theta(y)&0&0\\
+0&0&0
+\end{bmatrix}
+$$
+
+이고, Cauchy 공식에 따라
+
+$$
+\boldsymbol t(y,z)=
+\begin{bmatrix}
+p_0\cos\theta(y)\\
+p_0\sin\theta(y)\\0
+\end{bmatrix}
+$$
+
+이다. 따라서 $\|\boldsymbol t\|=p_0$이지만, traction의 방향은 면의 높이에 따라
+회전한다.
+
+![y 위치에 따라 방향이 변하는 traction 벡터 분포](/assets/img/lecture_notes/stress/traction_direction_distribution.png)
+
+면적요소 $dA=dy\,dz$에 작용하는 미소 힘은 $d\boldsymbol F=\boldsymbol t\,dA$이고,
+면 전체의 합력은
+
+$$
+\begin{aligned}
+\boldsymbol F
+&=\int_0^b\int_0^H
+\begin{bmatrix}p_0\cos(\pi y/2H)\\p_0\sin(\pi y/2H)\\0\end{bmatrix}\,dy\,dz\\
+&=\begin{bmatrix}\dfrac{2}{\pi}p_0Hb\\\dfrac{2}{\pi}p_0Hb\\0\end{bmatrix}.
+\end{aligned}
+$$
+
+따라서 합력은 $x$ 및 $y$ 방향 성분을 모두 가지며, $F_x=F_y$이므로 그 방향은 $x$와
+$y$ 사이의 45°이다. $p_0=10$ MPa, $H=20$ mm, $b=30$ mm이면
+
+$$
+F_x=F_y=\frac{2}{\pi}(10\ \mathrm{N/mm^2})(20\ \mathrm{mm})(30\ \mathrm{mm})
+\simeq3820\ \mathrm{N}.
+$$
+
+
+# 7. 요약
 
 | 개념 | 공식 |
 |------|------|
@@ -198,7 +334,7 @@ $\boldsymbol t_s=(0,20,0)^T$ MPa이므로 전단응력의 크기는 20 MPa이다
 | 전단응력의 대칭성 | $\sigma_{12} = \sigma_{21}$ 모멘트(힘) 평형에 의한 결과|
 | Cauchy 공식 | $\boldsymbol t(\boldsymbol n)=\boldsymbol\sigma\boldsymbol n$ |
 
-# 6. 연습 문제
+# 8. 연습 문제
 
 ## 문제 1
 
