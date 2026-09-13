@@ -55,14 +55,14 @@
 \begin{scope}[shift={(0.5,-2.6)}]
   \node[font=\bfseries] at (2.1,3.60) {(d) Weld and equilibrate};
   \matrixbox{0}{0}
-  \draw[inclusion,very thick] (2.1,1.55) circle (0.83);
+  \draw[inclusion,very thick] (2.1,1.75) circle (0.83);
   \foreach \ang in {0,45,...,315}{
     \draw[->,stress]
-      ({2.1+0.35*cos(\ang)},{1.55+0.35*sin(\ang)})
-      --({2.1+0.72*cos(\ang)},{1.55+0.72*sin(\ang)});
+      ({2.1+0.35*cos(\ang)},{1.75+0.35*sin(\ang)})
+      --({2.1+0.72*cos(\ang)},{1.75+0.72*sin(\ang)});
   }
   \node[align=center,font=\small] at (2.1,0.43)
-    {$\boldsymbol\varepsilon^c=\mathsf S:\boldsymbol\varepsilon^*$;\\
+    {$\boldsymbol\varepsilon^c=\boldsymbol S:\boldsymbol\varepsilon^*$;\\
      residual stress remains};
 \end{scope}
 
