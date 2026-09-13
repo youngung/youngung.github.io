@@ -37,3 +37,4 @@ authors:
 - [제13강 Flow rule]({% link assets/lecture_notes/5_1_polycrystalline_plasticity/metal_plasticity_13_flow_rule.md %})
 - [제14강 Hardening]({% link assets/lecture_notes/5_1_polycrystalline_plasticity/metal_plasticity_14_hardening.md %})
 - [제15강 Kinematics]({% link assets/lecture_notes/5_1_polycrystalline_plasticity/metal_plasticity_15_kinematics.md %})
+- [제16강 Eshelby inclusion]({% link assets/lecture_notes/5_1_polycrystalline_plasticity/metal_plasticity_16_eshelby_inclusion.md %})

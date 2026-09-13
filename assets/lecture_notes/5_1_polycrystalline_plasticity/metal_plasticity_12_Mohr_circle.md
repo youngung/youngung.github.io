@@ -27,6 +27,11 @@ authors:
 - [2. 평면 응력상태의 좌표 변환](#2-평면-응력상태의-좌표-변환)
 - [3. 삼각함수 정리](#3-삼각함수-정리)
 - [4. Mohr Circle, 원의 방정식](#4-mohr-circle-원의-방정식)
+- [5. 연습 문제](#5-연습-문제)
+  - [문제 1](#문제-1)
+  - [문제 2](#문제-2)
+  - [문제 3](#문제-3)
+  - [문제 4](#문제-4)
 
 
 # 1. 좌표 변환 행렬 복습
@@ -77,7 +82,7 @@ $$
   응력상태는 아래 $2\times2$ 행렬로 표현할 수 있다.
 
 $$
-\boldsymbol\sigma=
+[\boldsymbol\sigma]_{\boldsymbol e}=
 \begin{bmatrix}
 \sigma_{11} &\sigma_{12}\\
 \sigma_{12} &\sigma_{22}\\
@@ -117,7 +122,8 @@ $$
 \end{bmatrix}
 $$
 
-- 자 이제, 랭크 2 텐서의 좌표 변환법칙을 적용해보자.
+- 자 이제, 랭크 2 텐서의 좌표 변환법칙을 적용해보자. $\tilde{\boldsymbol e}_i$ 축으로
+표현된 응력 성분을 $\tilde{\sigma}_{ij}$라 하면, 다음과 같이 주어진다.
 
 $$
 \tilde{\sigma}_{ij} = \sum_k^2\sum_l^2 R_{ik} R_{jl} \sigma_{kl}, \text{ with } i=1,2\ \ \ j=1,2
@@ -147,9 +153,9 @@ $$
 
 $$
 \therefore
-\tilde{\sigma}_{11}=\cos^2\theta \sigma_{11}
+\textcolor{red}{\tilde{\sigma}_{11}=\cos^2\theta \sigma_{11}
 +\sin^2\theta\sigma_{22}
-+2\cos\theta\sin\theta\sigma_{12}
++2\cos\theta\sin\theta\sigma_{12}}
 $$
 
 
@@ -177,8 +183,8 @@ $$
 
 $$
 \therefore
-\tilde{\sigma}_{22}=
-\sin^2\theta\sigma_{11}+\cos^2\theta\sigma_{22}-2\sin\theta\cos\theta\sigma_{12}
+\textcolor{red}{\tilde{\sigma}_{22}=
+\sin^2\theta\sigma_{11}+\cos^2\theta\sigma_{22}-2\sin\theta\cos\theta\sigma_{12}}
 $$
 
 
@@ -207,7 +213,7 @@ $$
 
 $$
 \therefore
-\tilde{\sigma}_{12}=(\sigma_{22}-\sigma_{11})\cos\theta\sin\theta+\sigma_{12}(\cos^2\theta-\sin^2\theta)
+\textcolor{red}{\tilde{\sigma}_{12}=(\sigma_{22}-\sigma_{11})\cos\theta\sin\theta+\sigma_{12}(\cos^2\theta-\sin^2\theta)}
 $$
 
 # 3. 삼각함수 정리
@@ -261,6 +267,8 @@ $$
 $$
 (\sigma-C)^2+\tau^2=R^2
 $$
+
+![Mohr 원의 중심, 반지름, 응력점과 원의 방정식의 기하학적 의미](/assets/img/lecture_notes/stress/mohr_circle_equation.png)
 
 따라서 두 주응력과 최대 면내 전단응력은
 
