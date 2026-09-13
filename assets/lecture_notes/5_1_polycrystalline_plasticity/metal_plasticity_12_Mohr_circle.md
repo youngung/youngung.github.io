@@ -67,7 +67,7 @@ $$
 따라서, 좌표 변환 매트릭스는 $\cos \theta_{ij}$로 이루어져 있음을 알 수 있다.
 
 $$
-\boldsymbol{R} = \begin{bmatrix}
+[\boldsymbol{R}] = \begin{bmatrix}
 \cos\theta_{11}&\cos\theta_{12}&\cos\theta_{13}\\
 \cos\theta_{21}&\cos\theta_{22}&\cos\theta_{23}\\
 \cos\theta_{31}&\cos\theta_{32}&\cos\theta_{33}\\
@@ -92,7 +92,7 @@ $$
 - 좌표 변환 매트릭스의 경우, $\boldsymbol e_3=\tilde{\boldsymbol e}_3$으로 고정된 경우,
 
 $$
-\boldsymbol{R} = \begin{bmatrix}
+[\boldsymbol{R}] = \begin{bmatrix}
 \cos\theta_{11}&\cos\theta_{12}&0\\
 \cos\theta_{21}&\cos\theta_{22}&0\\
 0&0&1\\
@@ -102,7 +102,7 @@ $$
 이 되고, 이는 응력과 마찬가지로 $2\times2$행렬로 축약하여
 
 $$
-\boldsymbol{R} = \begin{bmatrix}
+[\boldsymbol{R}] = \begin{bmatrix}
 \cos\theta_{11}&\cos\theta_{12}\\
 \cos\theta_{21}&\cos\theta_{22}\\
 \end{bmatrix}
@@ -111,7 +111,7 @@ $$
 가 된다. 그런데 먄약 $\theta_{11}$를 기준이되는 회전된 각도 $\theta$라 하면
 
 $$
-\boldsymbol{R} = \begin{bmatrix}
+[\boldsymbol{R}] = \begin{bmatrix}
 \cos\theta&\cos{(90^\circ-\theta)}\\
 \cos(90^\circ+\theta)&\cos\theta\\
 \end{bmatrix}

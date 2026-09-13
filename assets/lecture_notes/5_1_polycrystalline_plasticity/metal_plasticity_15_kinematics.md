@@ -75,9 +75,9 @@ $$
 - $\boldsymbol R$은 회전, $\boldsymbol U$와 $\boldsymbol V$는 우·좌 신장텐서다.
 
 $$
-\boldsymbol C=\boldsymbol F^T\boldsymbol F=\boldsymbol U^2,
+\boldsymbol C=\boldsymbol F^T\cdot \boldsymbol F=\boldsymbol U^2,
 \qquad
-\boldsymbol B=\boldsymbol F\boldsymbol F^T=\boldsymbol V^2
+\boldsymbol B=\boldsymbol F\cdot \boldsymbol F^T=\boldsymbol V^2
 $$
 
 # 4. 점의 속도
@@ -88,11 +88,11 @@ $$
 
 - Definition
 $$
-\boldsymbol L = \nabla \boldsymbol v=\dot{\boldsymbol F}\boldsymbol F^{-1}
+\boldsymbol L = \nabla \boldsymbol v=\dot{\boldsymbol F}\cdot\boldsymbol F^{-1}
 $$
 
 $$
-\boldsymbol L=
+[\boldsymbol L]=
 \begin{bmatrix}
 \frac{\partial v_1}{\partial x_1} & \frac{\partial v_1}{\partial x_2} & \frac{\partial v_1}{\partial x_3} \\
 \frac{\partial v_2}{\partial x_1} & \frac{\partial v_2}{\partial x_2} & \frac{\partial v_2}{\partial x_3} \\
@@ -131,7 +131,7 @@ $$
 미소변형에서는 전체 변형률을 탄성분과 소성분의 합으로 분해하지만, 큰 변형에서는
 
 $$
-\boxed{\boldsymbol F=\boldsymbol F^e\boldsymbol F^p}
+\boxed{\boldsymbol F=\boldsymbol F^e\cdot \boldsymbol F^p}
 $$
 
 와 같이 변형구배를 곱셈 분해한다. $\boldsymbol F^p$는 슬립에 의한 국소 소성변형을,

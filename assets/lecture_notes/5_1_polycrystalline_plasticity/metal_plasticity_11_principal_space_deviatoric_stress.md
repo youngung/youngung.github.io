@@ -121,7 +121,7 @@ $$
 - $\boldsymbol I$는 랭크2 단위 텐서이며, 아래와 같은 매트릭스 형태로 표현된다.
 
 $$
-\boldsymbol I = \begin{bmatrix}1 &0 &0 \\0 &1 &0 \\0 &0 &1 \\\end{bmatrix}
+[\boldsymbol I] = \begin{bmatrix}1 &0 &0 \\0 &1 &0 \\0 &0 &1 \\\end{bmatrix}
 $$
 
 - 평균 응력값 $\sigma_m$은 아래와 같이 정의된다.

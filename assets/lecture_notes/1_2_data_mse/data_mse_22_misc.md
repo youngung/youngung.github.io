@@ -19,6 +19,9 @@ authors:
 
 # 8. Week6
 
+이 자료에서 $[\boldsymbol A]$, $[\boldsymbol x]$는 행렬·벡터의 성분 배열을 뜻하며, 배열의 행렬곱은 $[\boldsymbol A][\boldsymbol x]$처럼 붙여 쓴다. 물리적 벡터·텐서의 단일수축은 $\cdot$로 표시한다.
+
+
 - NumPy 03, Eigenvalue, ANN
 
 ## 8.1. 수업 06-1 (Eigenvalue)
@@ -32,13 +35,13 @@ authors:
 - 수식:
 
   $$
-  \boldsymbol A\cdot \boldsymbol v = \lambda \boldsymbol v
+  [\boldsymbol A][\boldsymbol v] = \lambda [\boldsymbol v]
   $$
 
   를 만족시키는 스칼라 $$\lambda$$ 값을 고유값이라 한다.
   3차원 행렬의 고유값이 $\lambda_1,\lambda_2,\lambda_3$이고 이에 대응하는
   벡터가 각각 $\boldsymbol v_1,\boldsymbol v_2,\boldsymbol v_3$라면
-  $\boldsymbol A\boldsymbol v_i=\lambda_i\boldsymbol v_i$를 만족하는
+  $[\boldsymbol A][\boldsymbol v_i]=\lambda_i[\boldsymbol v_i]$를 만족하는
   $\boldsymbol v_i$를 고유벡터라 한다.
 
 ### 8.1.2. 선형 변환(linear transformation; linear map)
@@ -54,12 +57,12 @@ authors:
 - 아래와 같은 두 조건을 만족시키는 행렬 $$\boldsymbol A$$를 선형변환 행렬이라 한다.
 
   $$
-  \boldsymbol A\cdot (\boldsymbol a+\boldsymbol b)
-  = \boldsymbol A\cdot \boldsymbol a+ \boldsymbol A\cdot \boldsymbol b
+  [\boldsymbol A]([\boldsymbol a]+[\boldsymbol b])
+  = [\boldsymbol A][\boldsymbol a]+ [\boldsymbol A][\boldsymbol b]
   $$
 
   $$
-  \boldsymbol A\cdot (\lambda\boldsymbol a)=\lambda A\cdot\boldsymbol a
+  [\boldsymbol A](\lambda[\boldsymbol a])=\lambda[\boldsymbol A][\boldsymbol a]
   $$
 
 <p align="center">
@@ -163,15 +166,15 @@ $$\lambda_2=0.71-0.71i$$
 - 2차원 예시02
 
   $$
-  \boldsymbol A\cdot \boldsymbol v = \lambda \boldsymbol v
+  [\boldsymbol A][\boldsymbol v] = \lambda [\boldsymbol v]
   \ \ \
   \rightarrow
   \ \ \
-  (\boldsymbol A-\lambda\boldsymbol I)\cdot v=0
+  ([\boldsymbol A]-\lambda[\boldsymbol I])[\boldsymbol v]=[\boldsymbol 0]
   $$
 
   $$
-  \boldsymbol A =
+  [\boldsymbol A] =
   \begin{bmatrix}
   A_{11}& A_{12}\\
   A_{21}& A_{22}
@@ -181,7 +184,7 @@ $$\lambda_2=0.71-0.71i$$
   그리고
 
   $$
-  \boldsymbol I =
+  [\boldsymbol I] =
   \begin{bmatrix}
   1& 0\\
   0& 1
@@ -412,7 +415,7 @@ $$
   - 행렬곱과 더하기 조합. 아래 수식은 실제로 Artifical Neutral Network(ANN)에서 널리 활용되는 형태의 연산이다.
 
     $$
-    \boldsymbol y=\boldsymbol W\cdot \boldsymbol x + \boldsymbol b
+    [\boldsymbol y]=[\boldsymbol W][\boldsymbol x] + [\boldsymbol b]
     $$
 
     $$
@@ -439,7 +442,7 @@ $$
   `W[n,m]`행렬과 `x[m]`벡터, 그리고 `b[n]`벡터로 구성된
   배열을 활용해 위 수식
 
-  $$\boldsymbol v=\boldsymbol W\cdot \boldsymbol x + \boldsymbol b$$
+  $$[\boldsymbol v]=[\boldsymbol W][\boldsymbol x] + [\boldsymbol b]$$
 
   을 계산하여 리턴하는 함수를 만드시오.
 
@@ -900,7 +903,7 @@ plt.show()
 
 ## 문제 1
 
-행렬 $\boldsymbol A$와 벡터 $\boldsymbol v$가 $\boldsymbol A\boldsymbol v=\lambda\boldsymbol v$를 만족할 때 $\lambda$를 무엇이라고 하는가?
+행렬 $\boldsymbol A$와 벡터 $\boldsymbol v$가 $[\boldsymbol A][\boldsymbol v]=\lambda[\boldsymbol v]$를 만족할 때 $\lambda$를 무엇이라고 하는가?
 
 <!--
 풀이와 해답:

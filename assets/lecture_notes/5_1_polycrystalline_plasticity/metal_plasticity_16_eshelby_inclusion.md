@@ -147,15 +147,15 @@ $$
 \varepsilon^c_{ij}=S_{ijkl}\varepsilon^*_{kl}}
 \qquad\text{또는}\qquad
 \boxed{
-\boldsymbol\varepsilon^c=\mathsf S:\boldsymbol\varepsilon^*}
+\boldsymbol\varepsilon^c=\boldsymbol S:\boldsymbol\varepsilon^*}
 \tag{2}
 $$
 
-로 쓸 수 있다. $\mathsf S$가 **Eshelby tensor**다. 위 첨자 $c$는 주변에 의해
+로 쓸 수 있다. $\boldsymbol S$가 **Eshelby tensor**다. 위 첨자 $c$는 주변에 의해
 구속된(constrained) 전체 변형률을 뜻한다.
 
-- $\mathsf S$는 무차원(dimensionless) 4차 텐서다.
-- **등방성 기지**에서는 inclusion의 형상, 방향 및 기지의 Poisson 비에 의해 정해진다. 즉 $\mathsf S=f(\text{inclusion shape, orientation, Poisson's ratio})$
+- $\boldsymbol S$는 무차원(dimensionless) 4차 텐서다.
+- **등방성 기지**에서는 inclusion의 형상, 방향 및 기지의 Poisson 비에 의해 정해진다. 즉 $\boldsymbol S=f(\text{inclusion shape, orientation, Poisson's ratio})$
 - inclusion의 크기 자체에는 의존하지 않는다. 이는 내부 길이척도가 없는 고전
   선형탄성 및 무한영역 가정의 결과다.
 - inclusion 내부응력은
@@ -164,13 +164,13 @@ $$
 \boxed{
 \boldsymbol\sigma^I
 =\boldsymbol C:(\boldsymbol\varepsilon^c-\boldsymbol\varepsilon^*)
-=\boldsymbol C:(\mathsf S:\boldsymbol\varepsilon^*-\boldsymbol\varepsilon^*)
-=\boldsymbol C:(\mathsf S-\mathsf I^s):
+=\boldsymbol C:(\boldsymbol S:\boldsymbol\varepsilon^*-\boldsymbol\varepsilon^*)
+=\boldsymbol C:(\boldsymbol S-\boldsymbol I^s):
 \boldsymbol\varepsilon^*}
 \tag{3}
 $$
 
-이다. 여기서 $\mathsf I^s$는 대칭 2계 텐서 공간의 4계 항등텐서로
+이다. 여기서 $\boldsymbol I^s$는 대칭 2계 텐서 공간의 4계 항등텐서로
 
 $$
 I^s_{ijkl}=\frac{1}{2}
@@ -200,15 +200,15 @@ $$
 이다. 체적 투영텐서와 편차 투영텐서(전체에서 체적을 제외한 부분)를 각각
 
 $$
-\mathsf I^V=\frac{1}{3}\boldsymbol I\otimes\boldsymbol I,
+\boldsymbol I^V=\frac{1}{3}\boldsymbol I\otimes\boldsymbol I,
 \qquad
-\mathsf I^D=\mathsf I^s-\mathsf I^V
+\boldsymbol I^D=\boldsymbol I^s-\boldsymbol I^V
 $$
 
 로 정의하면 식 (4)는
 
 $$
-\mathsf S=s_V\mathsf I^V+s_D\mathsf I^D
+\boldsymbol S=s_V\boldsymbol I^V+s_D\boldsymbol I^D
 $$
 
 로 쓸 수 있으며
@@ -239,7 +239,7 @@ $$
 \qquad \varepsilon_0=0.001
 $$
 
-을 가지려 한다고 하자. 체적 고유변형률에는 $\mathsf I^V$ 성분만 있으므로
+을 가지려 한다고 하자. 체적 고유변형률에는 $\boldsymbol I^V$ 성분만 있으므로
 
 $$
 \boldsymbol\varepsilon^c
@@ -297,9 +297,9 @@ $$
 inhomogeneity를 다음 두 효과가 동일하도록 가상의 inclusion으로 바꾼다.
 
 $$
-\mathsf C^I:(\boldsymbol\varepsilon^I-
+\boldsymbol C^I:(\boldsymbol\varepsilon^I-
 \boldsymbol\varepsilon^T)
-=\mathsf C^M:(\boldsymbol\varepsilon^I-
+=\boldsymbol C^M:(\boldsymbol\varepsilon^I-
 \boldsymbol\varepsilon^{**})
 $$
 
@@ -338,10 +338,10 @@ $\boldsymbol\varepsilon^{**}$는 탄성계수 차이까지 대신하도록 정�
 | Inclusion | 기지와 탄성계수는 같고 고유변형률을 갖는 영역 |
 | Inhomogeneity | 기지와 탄성계수가 다른 영역 |
 | Eshelby 결과 | 타원체 inclusion의 균일 고유변형률은 균일한 내부 변형률을 생성 |
-| 내부 변형률 | $\boldsymbol\varepsilon^c=\mathsf S:\boldsymbol\varepsilon^*$ |
-| 내부응력 | $\boldsymbol\sigma^I=\mathsf C:(\mathsf S-\mathsf I^s):\boldsymbol\varepsilon^*$ |
-| 구형 inclusion | $\mathsf S=s_V\mathsf I^V+s_D\mathsf I^D$ |
-| 크기효과 | 고전 무한영역 해의 $\mathsf S$는 inclusion 크기에 무관 |
+| 내부 변형률 | $\boldsymbol\varepsilon^c=\boldsymbol S:\boldsymbol\varepsilon^*$ |
+| 내부응력 | $\boldsymbol\sigma^I=\boldsymbol C:(\boldsymbol S-\boldsymbol I^s):\boldsymbol\varepsilon^*$ |
+| 구형 inclusion | $\boldsymbol S=s_V\boldsymbol I^V+s_D\boldsymbol I^D$ |
+| 크기효과 | 고전 무한영역 해의 $\boldsymbol S$는 inclusion 크기에 무관 |
 
 # 11. 연습 문제
 

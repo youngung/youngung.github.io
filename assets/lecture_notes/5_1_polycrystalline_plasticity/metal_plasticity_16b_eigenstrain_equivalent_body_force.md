@@ -141,7 +141,7 @@ $$
 
 $$
 \boldsymbol\sigma
-=\mathsf C:(\boldsymbol\varepsilon-\boldsymbol\varepsilon^*)
+=\boldsymbol C:(\boldsymbol\varepsilon-\boldsymbol\varepsilon^*)
 $$
 
 로 계산해야 한다.
@@ -188,7 +188,7 @@ $$
 \boxed{
 \boldsymbol f^{\mathrm{eq}}
 =-\nabla\cdot\boldsymbol\sigma^*
-=-\nabla\cdot(\mathsf C:\boldsymbol\varepsilon^*)}
+=-\nabla\cdot(\boldsymbol C:\boldsymbol\varepsilon^*)}
 \tag{10}
 $$
 
@@ -564,7 +564,7 @@ $$
 $$
 \boxed{
 \boldsymbol\sigma^I
-=\mathsf C:(\boldsymbol\varepsilon^c-
+=\boldsymbol C:(\boldsymbol\varepsilon^c-
 \boldsymbol\varepsilon^*)}
 \tag{22}
 $$
@@ -625,7 +625,7 @@ $$
 
 $$
 \boxed{
-\mathsf S=\mathsf P:\mathsf C}
+\boldsymbol S=\boldsymbol P:\boldsymbol C}
 \tag{27}
 $$
 
@@ -687,7 +687,7 @@ $$
 | 등가 체적력 | $\boldsymbol f^{\mathrm{eq}}=-\nabla\cdot\boldsymbol\sigma^*$ | eigenstrain을 Navier 방정식의 source로 변환 |
 | 균일한 inclusion | $\boldsymbol f^{\mathrm{eq}}=(\boldsymbol\sigma^*\boldsymbol n)\delta_{\partial\Omega}$ | 계면에 집중된 등가 traction |
 | Green 함수 | $\boldsymbol u=\boldsymbol G*\boldsymbol f^{\mathrm{eq}}$ | 등가 하중으로 변위 계산 |
-| Eshelby tensor | $\mathsf S=\mathsf P:\boldsymbol C$ | eigenstrain을 구속변형률로 변환 |
+| Eshelby tensor | $\boldsymbol S=\boldsymbol P:\boldsymbol C$ | eigenstrain을 구속변형률로 변환 |
 
 # 12. 연습 문제
 

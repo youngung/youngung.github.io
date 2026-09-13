@@ -119,7 +119,7 @@ $$
 
 - 응력은 2차 텐서이며, 선택한 좌표계에서 그 성분을 행렬로 표현할 수 있다.
 
-$$ \boldsymbol\sigma =\begin{bmatrix}
+$$ [\boldsymbol\sigma] =\begin{bmatrix}
 \sigma_{11} & \sigma_{12} & \sigma_{13} \\
 \sigma_{21} & \sigma_{22} & \sigma_{23} \\
 \sigma_{31} & \sigma_{32} & \sigma_{33}
@@ -187,7 +187,7 @@ $3\times3$ 응력 텐서의 독립 성분은 6개다.
 다음 응력상태를 생각하자.
 
 $$
-\boldsymbol\sigma=
+[\boldsymbol\sigma]=
 \begin{bmatrix}
 100&20&0\\
 20&60&0\\
@@ -198,7 +198,7 @@ $$
 법선이 $\boldsymbol n=(1,0,0)^T$인 면의 면력벡터는
 
 $$
-\boldsymbol t=\boldsymbol\sigma\cdot\boldsymbol n
+\boldsymbol t=\boldsymbol\sigma\cdot[\boldsymbol n]
 =\begin{bmatrix}100\\20\\0\end{bmatrix}\ \mathrm{MPa}
 $$
 
@@ -233,7 +233,7 @@ $$
 분포를 뜻한다. Cauchy 공식으로 면의 위치 $(y,z)$에서 면력은
 
 $$
-\boldsymbol t(y,z)=\boldsymbol\sigma(y)\boldsymbol n
+\boldsymbol t(y,z)=\boldsymbol\sigma(y)[\boldsymbol n]
 =\begin{bmatrix}
 p_0\left(1+\dfrac{y}{H}\right)\\0\\0
 \end{bmatrix}.
@@ -346,7 +346,7 @@ $$
 | 수직 및 전단응력 | 면력벡터를 면 법선과 나란한 성분과 면에 평행한 성분으로 분해 |
 | 응력의 단위 | $1 Pa = 1 N/m²$ |
 | 응력 텐서의 대칭성 | $\sigma_{ij}=\sigma_{ji}$, 각운동량 평형에 의한 결과 |
-| Cauchy 공식 | $\boldsymbol t(\boldsymbol n)=\boldsymbol\sigma\boldsymbol n$ |
+| Cauchy 공식 | $\boldsymbol t(\boldsymbol n)=\boldsymbol\sigma\cdot \boldsymbol n$ |
 
 # 8. 연습 문제
 
@@ -423,7 +423,7 @@ sigma_ij=sigma_ji이므로 응력 텐서는 대칭이다.
 다음 응력 텐서에서 수직응력 성분과 서로 독립인 전단응력 성분을 쓰시오.
 
 $$
-\boldsymbol\sigma=
+[\boldsymbol\sigma]=
 \begin{bmatrix}
 80&15&0\\
 15&50&5\\
@@ -463,7 +463,7 @@ t_s=t-t_n=(20,0,0)^T MPa이므로 전단응력의 크기는 20 MPa이다.
 $\boldsymbol n=(1/\sqrt{2},1/\sqrt{2},0)^T$인 면의 면력벡터를 구하시오.
 
 $$
-\boldsymbol\sigma=
+[\boldsymbol\sigma]=
 \begin{bmatrix}
 120&0&0\\
 0&40&0\\

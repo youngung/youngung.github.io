@@ -42,6 +42,9 @@ authors:
 
 # 1. 학습 목표
 
+이 자료에서 $[\boldsymbol A]$, $[\boldsymbol x]$는 행렬·벡터의 성분 배열을 뜻하며, 배열의 행렬곱은 $[\boldsymbol A][\boldsymbol x]$처럼 붙여 쓴다. 물리적 벡터·텐서의 단일수축은 $\cdot$로 표시한다.
+
+
 이번 강의가 끝나면 다음을 할 수 있어야 한다.
 
 - 측정 데이터에 정확히 하나의 직선이 지나지 않는 이유를 설명할 수 있다.
@@ -376,12 +379,12 @@ $$
 간단히 쓰면
 
 $$
-\boldsymbol y\approx\boldsymbol A\boldsymbol c
+[\boldsymbol y]\approx[\boldsymbol A][\boldsymbol c]
 $$
 
 이다. 여기서 $\boldsymbol c=[a,b]^T$다. 데이터가 직선 위에 정확히 놓이지 않으면 모든
 식을 동시에 정확히 만족하는 해가 없을 수 있다. <code>np.linalg.lstsq()</code>는
-$\|\boldsymbol y-\boldsymbol A\boldsymbol c\|_2^2$를 가장 작게 만드는 해를 구한다.
+$\|[\boldsymbol y]-[\boldsymbol A][\boldsymbol c]\|_2^2$를 가장 작게 만드는 해를 구한다.
 
 ~~~python
 design_matrix = np.column_stack((x, np.ones(x.size)))

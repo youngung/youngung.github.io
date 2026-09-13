@@ -174,7 +174,7 @@ $I_{ij}$의 성분 형태가 같아야 한다. 여기서 회전은 물체를 실
 $$
 I'_{ij}=Q_{ip}Q_{jq}I_{pq},
 \qquad
-\boldsymbol I'=\boldsymbol Q\boldsymbol I\boldsymbol Q^{\mathsf T}.
+\boldsymbol I'=\boldsymbol Q\cdot \boldsymbol I\cdot \boldsymbol Q^{\mathsf T}.
 $$
 
 단위구와 $d\Omega$는 좌표축 방향에 의존하지 않으므로 모든 수동적 좌표계 회전에
@@ -205,7 +205,7 @@ $i\ne j$인 성분은 한 좌표의 부호를 반전하는 대칭점끼리 상�
 
 [^so3]: $SO(3)$는 3차원 공간의 **특수 직교군**(special orthogonal group)을
     뜻한다. $\boldsymbol Q\in SO(3)$는
-    $\boldsymbol Q^{\mathsf T}\boldsymbol Q=\boldsymbol 1$과
+    $\boldsymbol Q^{\mathsf T}\cdot \boldsymbol Q=\boldsymbol 1$과
     $\det\boldsymbol Q=+1$을 동시에 만족한다는 의미이다. 첫째 조건은 길이와 각도가
     보존됨을 뜻하고, 둘째 조건은 거울반사를 제외한다. 따라서 $\boldsymbol Q$는
     반사를 포함하지 않는 순수한 3차원 좌표계 회전을 나타낸다.

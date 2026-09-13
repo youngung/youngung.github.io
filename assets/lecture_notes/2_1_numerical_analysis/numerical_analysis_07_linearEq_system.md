@@ -17,9 +17,7 @@ toc:
 - [3. 3원 연립방정식](#3-3원-연립방정식)
 - [4. 행렬 형태로 표현하기](#4-행렬-형태로-표현하기)
   - [4.1. 2원 연립방정식](#41-2원-연립방정식)
-- [\\end{bmatrix}}\_{\\boldsymbol x}](#endbmatrix_boldsymbol-x)
   - [4.2. 3원 연립방정식](#42-3원-연립방정식)
-- [\\end{bmatrix}](#endbmatrix)
 - [5. 해의 개수](#5-해의-개수)
   - [5.1. 유일한 해](#51-유일한-해)
   - [5.2. 해가 없는 경우](#52-해가-없는-경우)
@@ -31,13 +29,15 @@ toc:
 - [8. 연립방정식의 수치해법](#8-연립방정식의-수치해법)
 - [9. 정리](#9-정리)
 - [10. 연습 문제](#10-연습-문제)
-- [\\end{bmatrix}](#endbmatrix-1)
 
 # 1. 학습 목표
 
+이 자료에서 $[\boldsymbol A]$, $[\boldsymbol x]$는 행렬·벡터의 성분 배열을 뜻하며, 배열의 행렬곱은 $[\boldsymbol A][\boldsymbol x]$처럼 붙여 쓴다. 물리적 벡터·텐서의 단일수축은 $\cdot$로 표시한다.
+
+
 이번 강의가 끝나면 다음을 할 수 있어야 한다.
 
-- 선형 연립방정식을 행렬 형태 $\boldsymbol A\boldsymbol x=\boldsymbol b$로 나타낼 수 있다.
+- 선형 연립방정식을 행렬 형태 $[\boldsymbol A][\boldsymbol x]=[\boldsymbol b]$로 나타낼 수 있다.
 - 계수행렬, 미지수 벡터와 우변 벡터를 구분할 수 있다.
 - 2원 연립방정식의 해를 대수적·기하학적으로 설명할 수 있다.
 - 행렬식을 계산하고 유일한 해의 존재 여부를 판단할 수 있다.
@@ -208,7 +208,7 @@ $n$개의 미지수를 갖는 $n$개의 선형방정식은 다음과 같이 간�
 
 $$
 \boxed{
-\boldsymbol A \cdot \boldsymbol x=\boldsymbol b
+[\boldsymbol A][\boldsymbol x]=[\boldsymbol b]
 }
 $$
 
@@ -336,7 +336,7 @@ $$
 행렬식(determinant)은 정사각행렬에 대응하는 하나의 수이며
 $\det(\boldsymbol A)$ 또는 $|\boldsymbol A|$로 표기한다.
 
-정사각 연립방정식 $\boldsymbol A\boldsymbol x=\boldsymbol b$에서
+정사각 연립방정식 $[\boldsymbol A][\boldsymbol x]=[\boldsymbol b]$에서
 
 $$
 \det(\boldsymbol A)\ne0
@@ -355,7 +355,7 @@ $$
 ## 6.1. 2×2 행렬식
 
 $$
-\boldsymbol A=
+[\boldsymbol A]=
 \begin{bmatrix}
 a&b\\
 c&d
@@ -384,7 +384,7 @@ $$
 ## 6.2. 3×3 행렬식
 
 $$
-\boldsymbol A=
+[\boldsymbol A]=
 \begin{bmatrix}
 a&b&c\\
 d&e&f\\
@@ -433,7 +433,7 @@ b: [ 5. -1.]
 계산된 해가 방정식을 얼마나 잘 만족하는지는 잔차 벡터로 확인할 수 있다.
 
 $$
-\boldsymbol r=\boldsymbol A\boldsymbol x-\boldsymbol b
+[\boldsymbol r]=[\boldsymbol A][\boldsymbol x]-[\boldsymbol b]
 $$
 
 ~~~python
@@ -459,12 +459,12 @@ print("residual norm:", np.linalg.norm(residual))
   - 초기값에서 시작하여 해를 반복적으로 개선한다.
   - 행렬의 성질과 알고리듬에 따라 수렴하거나 발산할 수 있다.
 
-다음 강의에서는 가우스 소거법으로 $\boldsymbol A\boldsymbol x=\boldsymbol b$를
+다음 강의에서는 가우스 소거법으로 $[\boldsymbol A][\boldsymbol x]=[\boldsymbol b]$를
 직접 푸는 과정을 살펴본다.
 
 # 9. 정리
 
-- 선형 연립방정식은 $\boldsymbol A\boldsymbol x=\boldsymbol b$로 표현할 수 있다.
+- 선형 연립방정식은 $[\boldsymbol A][\boldsymbol x]=[\boldsymbol b]$로 표현할 수 있다.
 - 2원 연립방정식의 해는 두 직선의 교점이다.
 - $\det(\boldsymbol A)\ne0$이면 정사각 연립방정식은 유일한 해를 갖는다.
 - $\det(\boldsymbol A)=0$이면 해가 없거나 무한히 많을 수 있다.
@@ -488,7 +488,7 @@ print("residual norm:", np.linalg.norm(residual))
    선형방정식이 아니다.
    -->
 
-2. 다음 연립방정식을 $\boldsymbol A\boldsymbol x=\boldsymbol b$ 형태로 나타내라.
+2. 다음 연립방정식을 $[\boldsymbol A][\boldsymbol x]=[\boldsymbol b]$ 형태로 나타내라.
 
    $$
    \begin{aligned}
@@ -542,7 +542,7 @@ print("residual norm:", np.linalg.norm(residual))
 5. 다음 행렬의 행렬식을 계산하고 유일한 해의 존재 여부를 판단하라.
 
    $$
-   \boldsymbol A=
+   [\boldsymbol A]=
    \begin{bmatrix}
    2&1\\
    1&3
@@ -606,19 +606,19 @@ print("residual norm:", np.linalg.norm(residual))
 9. 계산된 해가 $\boldsymbol x=(1,2)$이고
 
    $$
-   \boldsymbol A=
+   [\boldsymbol A]=
    \begin{bmatrix}
    2&1\\
    1&-1
    \end{bmatrix},
    \qquad
-   \boldsymbol b=
+   [\boldsymbol b]=
    \begin{bmatrix}
    4\\-1
    \end{bmatrix}
    $$
 
-   일 때 잔차 $\boldsymbol r=\boldsymbol A\boldsymbol x-\boldsymbol b$를 구하라.
+   일 때 잔차 $[\boldsymbol r]=[\boldsymbol A][\boldsymbol x]-[\boldsymbol b]$를 구하라.
 
    <!--
    풀이 및 정답:

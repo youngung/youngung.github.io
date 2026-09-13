@@ -46,7 +46,7 @@ $$
 - 그런데 응력과 변형률은 텐서 물리량이다.
 
 $$
-dW=\boldsymbol \sigma d\boldsymbol \varepsilon
+dW=\boldsymbol \sigma:d\boldsymbol \varepsilon
 =\sum_i^3 \sum_j^3\sigma_{ij}\varepsilon_{ij}
 $$
 

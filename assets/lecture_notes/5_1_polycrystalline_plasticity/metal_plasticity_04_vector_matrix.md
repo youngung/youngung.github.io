@@ -118,7 +118,7 @@ $\{\boldsymbol e_1,\boldsymbol e_2,\boldsymbol e_3\}$로 정의한다. 기저벡
 좌표축의 양의 방향과 단위 길이를 동시에 정하며,
 
 $$
-\boldsymbol e_i\cdot\boldsymbol e_j=\delta_{ij}
+{\boldsymbol e}_i\cdot{\boldsymbol e}_j=\delta_{ij}
 $$
 
 를 만족한다. 즉 같은 기저벡터끼리의 내적은 1이고 서로 다른 기저벡터끼리의 내적은
@@ -158,6 +158,36 @@ $$
 $\boldsymbol a$는 물리적 벡터이고, 위 열벡터는 특정 기저에서 그 벡터를 나타낸
 수의 배열이라는 차이가 있다.
 
+**열벡터 (column vector)**는 성분을 세로로 배열한 $n\times1$ 행렬이고,
+**행벡터 (row vector)**는 성분을 가로로 배열한 $1\times n$ 행렬이다.
+한 정규직교 기저에서 3차원 벡터의 성분을 나타내면
+
+$$
+[\boldsymbol a]=\begin{bmatrix}a_1\\a_2\\a_3\end{bmatrix}
+\quad(3\times1),
+\qquad
+[\boldsymbol a]^T=\begin{bmatrix}a_1&a_2&a_3\end{bmatrix}
+\quad(1\times3).
+$$
+
+여기서 위첨자 $T$는 **전치 (transpose)**로, 행과 열을 서로 바꾸는 연산이다.
+행벡터·열벡터라는 구분은 성분의 배열 방식이며, 공간에서 벡터가 수평·수직으로
+향한다는 뜻은 아니다. 성분 배열에는 대괄호를 유지하여 물리적 벡터와 구분한다.
+
+배열의 방향에 따라 곱의 결과도 달라진다. 같은 정규직교 기저의 실수 성분에 대해
+
+$$
+[\boldsymbol a]^T[\boldsymbol b]
+=\begin{bmatrix}a_1&a_2&a_3\end{bmatrix}
+\begin{bmatrix}b_1\\b_2\\b_3\end{bmatrix}
+=\sum_{i=1}^3 a_i b_i
+\quad(1\times1)
+$$
+
+은 내적을 나타내는 스칼라이고, $[\boldsymbol a][\boldsymbol b]^T$는
+$([\boldsymbol a][\boldsymbol b]^T)_{ij}=a_i b_j$인 $3\times3$ 행렬로서 다이아딕 곱을 표현한다.
+성분 배열의 행렬곱에서는 **왼쪽 행렬의 열 수와 오른쪽 행렬의 행 수가 같아야 한다.**
+
 ![동일한 벡터를 두 정규직교 기저에서 서로 다른 성분으로 나타낸 그림](/assets/img/lecture_notes/vector_basis_coordinates.png)
 
 그림에서 검은색 화살표 $\boldsymbol a$는 하나의 동일한 벡터이다. 파란색 기저에서는
@@ -171,13 +201,15 @@ $\boldsymbol a=a_1\boldsymbol e_1+a_2\boldsymbol e_2$로 분해되고, 회전된
 기저를 이용해
 
 $$
-A_{ij}=\boldsymbol e_i\cdot(\boldsymbol A\boldsymbol e_j)
+A_{ij}=\boldsymbol e_i\cdot(\boldsymbol A\cdot\boldsymbol e_j)
 $$
 
 로 정의한다. 이 성분을 행과 열로 배열한 것이 행렬 $[\boldsymbol A]$이다. 따라서
 **텐서와 행렬은 같은 말이 아니다.** 텐서는 좌표계와 무관한 대상이고, 행렬은 그
-텐서를 특정 기저에서 표현한 성분 배열이다. 이후의 벡터·행렬 연산은 모두 같은
-기저에서 표시된 성분끼리 계산한다고 가정한다.
+텐서를 특정 기저에서 표현한 성분 배열이다. 이후의 성분 계산은 모두 같은 기저에서 수행한다. 물리적 단일수축에는 $\cdot$,
+다이아딕 곱에는 $\otimes$, 이중수축에는 $:$를 사용한다. 성분 배열은
+$[\boldsymbol a]$, $[\boldsymbol A]$처럼 대괄호로 표시하고, 배열의 행렬곱은 붙여 쓴다.
+스칼라와 벡터·텐서의 곱은 $c\boldsymbol a$, $c\boldsymbol A$처럼 표기한다.
 
 이 강의에서는 주로 직각좌표계를 사용하지만, 원통좌표계나 구면좌표계처럼 위치에 따라
 기저벡터의 방향이 달라지는 좌표계도 있다.
@@ -405,7 +437,10 @@ $$\boldsymbol c = \boldsymbol v \cdot \boldsymbol B$$
 
 - 위를 앞선 인덱스 표기법을 적용하면 아래와 같다.
 
-$$c_i = v_i B_{ij} $$
+$$c_j = \sum_{i=1}^3 v_i B_{ij},\qquad j=1,2,3.$$
+
+이를 성분 배열로 계산할 때는 행벡터 곱 $[\boldsymbol c]^T=[\boldsymbol v]^T[\boldsymbol B]$로 쓴다.
+따라서 열벡터로 나타내면 $[\boldsymbol c]=[\boldsymbol B]^T[\boldsymbol v]$이다.
 
 - 교환 법칙이 성립하지 않는다.
 
@@ -427,17 +462,72 @@ $$
 c=\boldsymbol A : \boldsymbol B
 $$
 
-- 랭크가 3인 매트릭스 $A_{ijk}$와 벡터 $\boldsymbol v$ 사이의 single contraction 곱을 생각해보자.
+- 랭크가 3인 매트릭스 $A_{ijk}$와 벡터 $\boldsymbol b$ 사이의 single contraction 곱을 생각해보자.
 
 $$B_{ij} = \sum_{k=1}^3A_{ijk} b_k \text{ with } i=1,2,3,\ \ \ j=1,2,3$$
 
 ## 6.5. 매트릭스 전치 (transpose)
 
-- 한 매트릭스 $\boldsymbol A$의 전치는 $\boldsymbol A^T$라 표기하고, 다음과 같이 정의된다.
+이 절에서는 같은 정규직교 기저의 실수 성분 배열로 계산한다.
+텐서 표기로는 $(\boldsymbol A\cdot\boldsymbol B)^T=\boldsymbol B^T\cdot\boldsymbol A^T$이며,
+아래에서는 대괄호를 사용해 대응하는 행렬곱을 설명한다.
+
+행렬 $[\boldsymbol A]$의 전치는 $[\boldsymbol A]^T$로 표기한다. 행과 열을 서로 바꾸므로,
+$m\times n$ 행렬의 전치는 $n\times m$ 행렬이며 성분은
 
 $$
-A^T_{ij}=A_{ji}, \text{ with } i=1,2,3 \ \ \ j=1,2,3
+([\boldsymbol A]^T)_{ij}=A_{ji}
 $$
+
+로 정의한다. 예를 들어
+
+$$
+[\boldsymbol A]=\begin{bmatrix}1&2&3\\4&5&6\end{bmatrix},
+\qquad
+[\boldsymbol A]^T=\begin{bmatrix}1&4\\2&5\\3&6\end{bmatrix}.
+$$
+
+전치를 두 번 적용하면 원래 행렬이 된다: $([\boldsymbol A]^T)^T=[\boldsymbol A]$.
+
+**곱의 전치 법칙**에서는 각 행렬을 전치하는 것과 함께 **곱의 순서를 뒤집어야 한다.**
+$[\boldsymbol A]$가 $m\times n$, $[\boldsymbol B]$가 $n\times p$ 행렬이면
+
+$$
+\boxed{([\boldsymbol A][\boldsymbol B])^T=[\boldsymbol B]^T[\boldsymbol A]^T}.
+$$
+
+좌변은 $p\times m$ 행렬이고, 우변도 $(p\times n)(n\times m)$의 곱이므로 같은 크기다.
+성분으로도 확인할 수 있다.
+
+$$
+\begin{aligned}
+[([\boldsymbol A][\boldsymbol B])^T]_{ij}
+&=([\boldsymbol A][\boldsymbol B])_{ji}
+=\sum_{k=1}^{n}A_{jk}B_{ki}\\
+&=\sum_{k=1}^{n}([\boldsymbol B]^T)_{ik}([\boldsymbol A]^T)_{kj}
+=([\boldsymbol B]^T[\boldsymbol A]^T)_{ij}.
+\end{aligned}
+$$
+
+일반적으로 $([\boldsymbol A][\boldsymbol B])^T=[\boldsymbol A]^T[\boldsymbol B]^T$는 성립하지 않는다.
+행렬 세 개의 곱에도 같은 규칙을 적용한다.
+
+$$
+([\boldsymbol A][\boldsymbol B][\boldsymbol C])^T
+=[\boldsymbol C]^T[\boldsymbol B]^T[\boldsymbol A]^T.
+$$
+
+열벡터도 행렬의 일종이므로, 행렬과 벡터의 곱에 같은 규칙을 적용할 수 있다.
+
+$$
+([\boldsymbol A][\boldsymbol a])^T=[\boldsymbol a]^T[\boldsymbol A]^T,
+\qquad
+([\boldsymbol A][\boldsymbol a])^T([\boldsymbol A][\boldsymbol a])
+=[\boldsymbol a]^T[\boldsymbol A]^T[\boldsymbol A][\boldsymbol a].
+$$
+
+마지막 식은 변환된 벡터의 길이의 제곱을 나타내는 스칼라이며,
+변형 전후 선분의 길이를 비교할 때에도 사용한다.
 
 ## 6.6. 매트릭스 trace
 
@@ -465,7 +555,7 @@ $$
 ## 7.1. $2\times2$ 행렬
 
 $$
-\boldsymbol A=\begin{bmatrix}
+[\boldsymbol A]=\begin{bmatrix}
 a & b \\
 c & d
 \end{bmatrix}
@@ -478,7 +568,7 @@ $$
 ## 7.2. $3\times3$ 행렬
 
 $$
-\boldsymbol A=\begin{bmatrix}
+[\boldsymbol A]=\begin{bmatrix}
 a & b & c \\
 d & e & f \\
 g & h & i
@@ -530,7 +620,7 @@ $$ a_{ijk} b_{ijk} $$
 | 텐서 이중수축 | $A_{ij}B_{ij}$ | 스칼라 |
 
 예를 들어 $dW=\boldsymbol\sigma:d\boldsymbol\varepsilon$은 단위부피당 일이라는
-스칼라를 만들고, $\boldsymbol t=\boldsymbol\sigma\boldsymbol n$은 면력벡터를 만든다.
+스칼라를 만들고, $\boldsymbol t=\boldsymbol\sigma\cdot\boldsymbol n$은 면력벡터(traction vector)를 만든다.
 수축되는 첨자의 수와 결과의 랭크를 확인해야 한다.
 
 # 10. 연습 문제
@@ -564,7 +654,7 @@ a cross b=(0,0,1)이다.
 
 ## 문제 4
 
-단위행렬 $\boldsymbol I$와 임의의 벡터 $\boldsymbol a$의 곱 $\boldsymbol I\boldsymbol a$는 무엇인가?
+단위행렬 $\boldsymbol I$와 임의의 벡터 $\boldsymbol a$의 곱 $\boldsymbol I\cdot\boldsymbol a$는 무엇인가?
 
 <!--
 풀이와 해답:

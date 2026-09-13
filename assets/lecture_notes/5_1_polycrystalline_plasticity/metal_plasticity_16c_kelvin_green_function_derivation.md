@@ -244,13 +244,13 @@ $$
 비대각 성분이 0이 아니므로 한 방향의 변위를 구할 때 다른 두 방향의 변위도 함께
 결정해야 한다. 이것이 $k_i k_k$ 항이 변위 성분들을 결합한다는 뜻이다.
 
-이를 행렬로 쓰면
+이를 텐서와 벡터의 단일수축으로 쓰면
 
 $$
-\underbrace{\left[
-\mu k^2\mathsf I+(\lambda+\mu)\boldsymbol k\otimes\boldsymbol k
-\right]}_{\mathsf A(\boldsymbol k)}
-\widehat{\boldsymbol G}_{\cdot j}
+\underbrace{\left(
+\mu k^2\boldsymbol I+(\lambda+\mu)\boldsymbol k\otimes\boldsymbol k
+\right)}_{\boldsymbol A(\boldsymbol k)}
+\cdot\widehat{\boldsymbol G}_{\cdot j}
 =\boldsymbol e_j.
 $$
 
@@ -259,7 +259,7 @@ $\boldsymbol e_j$는 $j$번째 단위벡터다. 모든 힘 방향 $j=1,2,3$에 �
 구하는 것은
 
 $$
-\widehat{\mathsf G}(\boldsymbol k)=\mathsf A^{-1}(\boldsymbol k)
+\widehat{\boldsymbol G}(\boldsymbol k)=\boldsymbol A^{-1}(\boldsymbol k)
 $$
 
 을 계산하는 것과 같다. 그래서 각 $\boldsymbol k$에 대해 $3\times3$ 행렬을 역산한다고
@@ -269,7 +269,7 @@ $$
 $\boldsymbol k=(0,0,k)$이면
 
 $$
-\mathsf A
+[\boldsymbol A]
 =\begin{bmatrix}
 \mu k^2&0&0\\
 0&\mu k^2&0\\
@@ -296,20 +296,20 @@ $$
 로 정의한다. 두 투영자는
 
 $$
-\mathsf P^{\mathrm L}+\mathsf P^{\mathrm T}=\mathsf I,
+\boldsymbol P^{\mathrm L}+\boldsymbol P^{\mathrm T}=\boldsymbol I,
 \qquad
-\mathsf P^{\mathrm L}\mathsf P^{\mathrm T}=\mathsf0,
+\boldsymbol P^{\mathrm L}\cdot \boldsymbol P^{\mathrm T}=\boldsymbol 0,
 \qquad
-(\mathsf P^{\mathrm L})^2=\mathsf P^{\mathrm L},
+\boldsymbol P^{\mathrm L}\cdot\boldsymbol P^{\mathrm L}=\boldsymbol P^{\mathrm L},
 \qquad
-(\mathsf P^{\mathrm T})^2=\mathsf P^{\mathrm T}
+\boldsymbol P^{\mathrm T}\cdot\boldsymbol P^{\mathrm T}=\boldsymbol P^{\mathrm T}
 $$
 
 를 만족한다. 식 (3)의 Navier 연산자는 이 투영자들을 사용하여
 
 $$
-\mu k^2\mathsf P^{\mathrm T}
-+(\lambda+2\mu)k^2\mathsf P^{\mathrm L}
+\mu k^2\boldsymbol P^{\mathrm T}
++(\lambda+2\mu)k^2\boldsymbol P^{\mathrm L}
 $$
 
 로 분해된다. 따라서 횡방향 고유값은 $\mu k^2$, 종방향 고유값은
@@ -506,7 +506,7 @@ $$
 로 변위를 구할 수 있다. 균일한 inclusion eigenstrain의 등가 체적력은 계면에 집중되므로
 이 체적적분은 inclusion 계면의 표면적분으로 바뀐다. 그 결과를 다시 미분하고 대칭부분을
 취하면 구속변형률과 Hill polarization tensor를 얻으며, 최종적으로
-$\mathsf S=\mathsf P:\mathsf C$를 계산할 수 있다.
+$\boldsymbol S=\boldsymbol P:\boldsymbol C$를 계산할 수 있다.
 
 # 10. 요약
 
@@ -514,7 +514,7 @@ $\mathsf S=\mathsf P:\mathsf C$를 계산할 수 있다.
 |---|---|---|
 | 집중력 문제 | $\mathcal L_{ik}G_{kj}=-\delta_{ij}\delta$ | Green 함수의 정의 |
 | Fourier 변환 | 미분 $\rightarrow$ $ik_i$ | PDE를 대수문제로 변환 |
-| 투영자 분해 | $\mu k^2\mathsf P^{\mathrm T}+(\lambda+2\mu)k^2\mathsf P^{\mathrm L}$ | 횡ㆍ종방향 응답 분리 |
+| 투영자 분해 | $\mu k^2\boldsymbol P^{\mathrm T}+(\lambda+2\mu)k^2\boldsymbol P^{\mathrm L}$ | 횡ㆍ종방향 응답 분리 |
 | 역연산 | 식 (4)--(5) | Fourier 공간 Green 함수 계산 |
 | 역변환 | $1/k^2\rightarrow1/(4\pi r)$ | 실공간의 $1/r$ 기본해 획득 |
 | 결과 | 식 (9) | 3차원 Kelvin Green 함수 |
@@ -523,7 +523,7 @@ $\mathsf S=\mathsf P:\mathsf C$를 계산할 수 있다.
 
 ## 문제 1
 
-식 (3)의 Navier 연산자를 $\mathsf P^{\mathrm T}$와 $\mathsf P^{\mathrm L}$로 분해하시오.
+식 (3)의 Navier 연산자를 $\boldsymbol P^{\mathrm T}$와 $\boldsymbol P^{\mathrm L}$로 분해하시오.
 
 <!--
 풀이와 해답:

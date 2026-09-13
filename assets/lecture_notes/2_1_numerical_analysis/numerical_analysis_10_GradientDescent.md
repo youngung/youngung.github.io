@@ -27,6 +27,9 @@ toc:
 
 # 1. 학습 목표
 
+이 자료에서 $[\boldsymbol A]$, $[\boldsymbol x]$는 행렬·벡터의 성분 배열을 뜻하며, 배열의 행렬곱은 $[\boldsymbol A][\boldsymbol x]$처럼 붙여 쓴다. 물리적 벡터·텐서의 단일수축은 $\cdot$로 표시한다.
+
+
 이번 강의가 끝나면 다음을 할 수 있어야 한다.
 
 - 다변수 함수의 기울기(gradient)를 계산하고 그 의미를 설명할 수 있다.
@@ -43,7 +46,7 @@ toc:
 지금까지는 주로 다음과 같은 방정식의 해를 구했다.
 
 $$
-f(x)=0, \qquad \boldsymbol A\cdot\boldsymbol x=\boldsymbol b \rightarrow \boldsymbol A\cdot\boldsymbol x -\boldsymbol b=\boldsymbol 0
+f(x)=0, \qquad [\boldsymbol A][\boldsymbol x]=[\boldsymbol b] \rightarrow [\boldsymbol A][\boldsymbol x] -[\boldsymbol b]=[\boldsymbol 0]
 $$
 
 $$
@@ -611,16 +614,16 @@ for weight in [0.0, 0.2, 1.0, 5.0]:
 4. 다음 행렬과 벡터로 정의한 이차함수에 경사하강법을 적용하라.
 
    $$
-   f(\boldsymbol x)
-   =\frac{1}{2}\boldsymbol x^{\mathsf T}\boldsymbol A\boldsymbol x
-   -\boldsymbol b^{\mathsf T}\boldsymbol x
+   f([\boldsymbol x])
+   =\frac{1}{2}[\boldsymbol x]^{\mathsf T}[\boldsymbol A][\boldsymbol x]
+   -[\boldsymbol b]^{\mathsf T}[\boldsymbol x]
    $$
 
    $$
-   \boldsymbol A=
+   [\boldsymbol A]=
    \begin{bmatrix}4&1\\1&3\end{bmatrix},
    \qquad
-   \boldsymbol b=
+   [\boldsymbol b]=
    \begin{bmatrix}1\\2\end{bmatrix}.
    $$
 

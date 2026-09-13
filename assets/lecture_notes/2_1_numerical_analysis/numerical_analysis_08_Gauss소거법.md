@@ -12,7 +12,6 @@ toc:
 - [1. 학습 목표](#1-학습-목표)
 - [2. 가우스 소거법](#2-가우스-소거법)
   - [2.1. 확대행렬](#21-확대행렬)
-- [\[\\boldsymbol A\\mid\\boldsymbol b\]](#boldsymbol-amidboldsymbol-b)
   - [2.2. 기본 행 연산](#22-기본-행-연산)
   - [2.3. 전체 알고리듬](#23-전체-알고리듬)
 - [3. 손으로 계산하는 예제](#3-손으로-계산하는-예제)
@@ -23,7 +22,6 @@ toc:
 - [4. 부분 피벗팅](#4-부분-피벗팅)
 - [5. Python 구현](#5-python-구현)
   - [5.1. 계산 예제](#51-계산-예제)
-- [(x,y,z)](#xyz)
   - [5.2. 잔차 확인](#52-잔차-확인)
 - [6. Gauss–Jordan 소거법과의 차이](#6-gaussjordan-소거법과의-차이)
 - [7. 계산량과 주의 사항](#7-계산량과-주의-사항)
@@ -31,6 +29,9 @@ toc:
 - [9. 연습 문제](#9-연습-문제)
 
 # 1. 학습 목표
+
+이 자료에서 $[\boldsymbol A]$, $[\boldsymbol x]$는 행렬·벡터의 성분 배열을 뜻하며, 배열의 행렬곱은 $[\boldsymbol A][\boldsymbol x]$처럼 붙여 쓴다. 물리적 벡터·텐서의 단일수축은 $\cdot$로 표시한다.
+
 
 이번 강의가 끝나면 다음을 할 수 있어야 한다.
 
@@ -46,7 +47,7 @@ toc:
 가우스 소거법(Gaussian elimination)은 선형 연립방정식
 
 $$
-\boldsymbol A \cdot \boldsymbol x=\boldsymbol b
+[\boldsymbol A][\boldsymbol x]=[\boldsymbol b]
 $$
 
 를 기본 행 연산으로 변형하여 푸는 직접해법이다. 계산 과정은 크게 두 단계로
@@ -131,7 +132,7 @@ $n\times n$ 연립방정식에 대한 과정은 다음과 같다.
 전진 소거가 끝난 계수행렬은 다음 형태이다.
 
 $$
-\boldsymbol U=
+[\boldsymbol U]=
 \begin{bmatrix}
 u_{11}&u_{12}&u_{13}\\
 0&u_{22}&u_{23}\\
@@ -416,7 +417,7 @@ $$
 계산한 해가 원래 연립방정식을 얼마나 잘 만족하는지 잔차 벡터로 확인한다.
 
 $$
-\boldsymbol r=\boldsymbol A \cdot \boldsymbol x-\boldsymbol b
+[\boldsymbol r]=[\boldsymbol A][\boldsymbol x]-[\boldsymbol b]
 $$
 
 ~~~python
@@ -474,7 +475,7 @@ $$
 - 확대행렬의 기본 행 연산은 연립방정식의 해를 바꾸지 않는다.
 - 소거 계수는 $m_{ik}=a_{ik}/a_{kk}$로 계산한다.
 - 부분 피벗팅은 현재 열에서 절댓값이 가장 큰 피벗을 선택한다.
-- 계산 결과는 잔차 $\boldsymbol A \cdot \boldsymbol x-\boldsymbol b$로 확인한다.
+- 계산 결과는 잔차 $[\boldsymbol A][\boldsymbol x]-[\boldsymbol b]$로 확인한다.
 - Gauss–Jordan 소거법은 피벗 위까지 소거한다는 점에서 가우스 소거법과 다르다.
 
 # 9. 연습 문제
@@ -596,13 +597,13 @@ $$
 9. 계산된 해 $\boldsymbol x=(1,2)$와 다음 행렬 및 벡터에 대해 잔차를 구하라.
 
    $$
-   \boldsymbol A=
+   [\boldsymbol A]=
    \begin{bmatrix}
    1&1\\
    2&3
    \end{bmatrix},
    \qquad
-   \boldsymbol b=
+   [\boldsymbol b]=
    \begin{bmatrix}
    3\\8
    \end{bmatrix}.

@@ -16,36 +16,32 @@ toc:
   - [2.3. LU 분해가 유용한 경우](#23-lu-분해가-유용한-경우)
 - [3. 가우스 소거법과 LU 분해](#3-가우스-소거법과-lu-분해)
 - [4. 손으로 계산하는 예제](#4-손으로-계산하는-예제)
-  - [4.1. $\\boldsymbol A=\\boldsymbol L \\cdot \\boldsymbol U$ 구하기](#41-boldsymbol-aboldsymbol-l-cdot-boldsymbol-u-구하기)
+  - [4.1. $[\\boldsymbol A]=[\\boldsymbol L][\\boldsymbol U]$ 구하기](#41-boldsymbol-aboldsymbol-lboldsymbol-u-구하기)
   - [4.2. 전진 대입](#42-전진-대입)
-- [\\end{bmatrix}](#endbmatrix)
   - [4.3. 후진 대입](#43-후진-대입)
-- [\\end{bmatrix}](#endbmatrix-1)
 - [5. Python 구현](#5-python-구현)
   - [5.1. LU 분해 확인](#51-lu-분해-확인)
   - [5.2. 연립방정식 풀이](#52-연립방정식-풀이)
 - [6. 피벗팅이 필요한 경우](#6-피벗팅이-필요한-경우)
 - [7. 보충: Jacobi 반복법](#7-보충-jacobi-반복법)
   - [7.1. 반복식](#71-반복식)
-- [x\_i^{(k+1)}](#x_ik1)
   - [7.2. 간단한 예제](#72-간단한-예제)
-- [\\boldsymbol x^{(1)}](#boldsymbol-x1)
-- [\\boldsymbol x^{(2)}](#boldsymbol-x2)
   - [7.3. Python 구현](#73-python-구현)
 - [8. 직접해법과 반복해법 비교](#8-직접해법과-반복해법-비교)
 - [9. 정리](#9-정리)
 - [10. 연습 문제](#10-연습-문제)
-- [\\end{bmatrix}](#endbmatrix-2)
-- [\\end{bmatrix}](#endbmatrix-3)
 
 # 1. 학습 목표
+
+이 자료에서 $[\boldsymbol A]$, $[\boldsymbol x]$는 행렬·벡터의 성분 배열을 뜻하며, 배열의 행렬곱은 $[\boldsymbol A][\boldsymbol x]$처럼 붙여 쓴다. 물리적 벡터·텐서의 단일수축은 $\cdot$로 표시한다.
+
 
 이번 강의가 끝나면 다음을 할 수 있어야 한다.
 
 - 행렬을 하삼각행렬과 상삼각행렬의 곱으로 나타낼 수 있다.
 - 가우스 소거법의 소거 계수와 $L$ 행렬의 관계를 설명할 수 있다.
-- $L\boldsymbol y=\boldsymbol b$를 전진 대입으로 풀 수 있다.
-- $U\boldsymbol x=\boldsymbol y$를 후진 대입으로 풀 수 있다.
+- $[\boldsymbol L][\boldsymbol y]=[\boldsymbol b]$를 전진 대입으로 풀 수 있다.
+- $[\boldsymbol U][\boldsymbol x]=[\boldsymbol y]$를 후진 대입으로 풀 수 있다.
 - LU 분해를 Python으로 구현하고 결과를 검증할 수 있다.
 - 직접해법인 LU 분해와 반복해법인 Jacobi 방법의 차이를 설명할 수 있다.
 
@@ -56,7 +52,7 @@ LU 분해(LU decomposition)는 정사각행렬 $\boldsymbol A$를 다음 두 삼
 
 $$
 \boxed{
-\boldsymbol A=\boldsymbol L \cdot \boldsymbol U
+[\boldsymbol A]=[\boldsymbol L][\boldsymbol U]
 }
 $$
 
@@ -70,7 +66,7 @@ $$
 4×4 행렬의 일반적인 형태는 다음과 같다.
 
 $$
-\boldsymbol L=
+[\boldsymbol L]=
 \begin{bmatrix}
 1&0&0&0\\
 l_{21}&1&0&0\\
@@ -78,7 +74,7 @@ l_{31}&l_{32}&1&0\\
 l_{41}&l_{42}&l_{43}&1
 \end{bmatrix},
 \qquad
-\boldsymbol U=
+[\boldsymbol U]=
 \begin{bmatrix}
 u_{11}&u_{12}&u_{13}&u_{14}\\
 0&u_{22}&u_{23}&u_{24}\\
@@ -94,35 +90,35 @@ $L$은 대각선 위의 원소가 0이고, $U$는 대각선 아래의 원소가 
 연립방정식
 
 $$
-\boldsymbol A \cdot \boldsymbol x=\boldsymbol b
+[\boldsymbol A][\boldsymbol x]=[\boldsymbol b]
 $$
 
-에서 $\boldsymbol A=\boldsymbol L \cdot \boldsymbol U$를 대입하면
+에서 $[\boldsymbol A]=[\boldsymbol L][\boldsymbol U]$를 대입하면
 
 $$
-\boldsymbol L \cdot \boldsymbol U \cdot \boldsymbol x=\boldsymbol b
+[\boldsymbol L][\boldsymbol U][\boldsymbol x]=[\boldsymbol b]
 $$
 
 이다. 새로운 벡터 $\boldsymbol y$를
 
 $$
-\boldsymbol y=\boldsymbol U \cdot \boldsymbol x
+[\boldsymbol y]=[\boldsymbol U][\boldsymbol x]
 $$
 
 라고 두면 두 개의 삼각 연립방정식으로 나눌 수 있다.
 
 $$
-\boldsymbol L \cdot \boldsymbol y=\boldsymbol b
+[\boldsymbol L][\boldsymbol y]=[\boldsymbol b]
 $$
 
 $$
-\boldsymbol U \cdot \boldsymbol x=\boldsymbol y
+[\boldsymbol U][\boldsymbol x]=[\boldsymbol y]
 $$
 
 따라서 다음 순서로 해를 구한다.
 
-1. $\boldsymbol L \cdot \boldsymbol y=\boldsymbol b$를 **전진 대입(forward substitution)**으로 푼다.
-2. $\boldsymbol U \cdot \boldsymbol x=\boldsymbol y$를 **후진 대입(back substitution)**으로 푼다.
+1. $[\boldsymbol L][\boldsymbol y]=[\boldsymbol b]$를 **전진 대입(forward substitution)**으로 푼다.
+2. $[\boldsymbol U][\boldsymbol x]=[\boldsymbol y]$를 **후진 대입(back substitution)**으로 푼다.
 
 행렬의 역행렬을 직접 계산할 필요가 없다.
 
@@ -131,13 +127,13 @@ $$
 같은 계수행렬 $\boldsymbol A$에 대해 우변 벡터만 다른 여러 연립방정식을 생각해보자.
 
 $$
-\boldsymbol A \cdot \boldsymbol x^{(1)}=\boldsymbol b^{(1)},
+[\boldsymbol A][\boldsymbol x]^{(1)}=[\boldsymbol b]^{(1)},
 \qquad
-\boldsymbol A \cdot \boldsymbol x^{(2)}=\boldsymbol b^{(2)},
+[\boldsymbol A][\boldsymbol x]^{(2)}=[\boldsymbol b]^{(2)},
 \qquad\ldots
 $$
 
-$\boldsymbol A=\boldsymbol L \cdot \boldsymbol U$는 한 번만 계산하고, 새로운 $\boldsymbol b$가 주어질 때마다 전진 대입과 후진 대입만
+$[\boldsymbol A]=[\boldsymbol L][\boldsymbol U]$는 한 번만 계산하고, 새로운 $\boldsymbol b$가 주어질 때마다 전진 대입과 후진 대입만
 수행하면 된다. 행렬 분해에는 약 $O(n^3)$, 각 삼각 연립방정식 풀이에는
 $O(n^2)$의 연산이 필요하므로 우변이 여러 개일 때 특히 유용하다.
 
@@ -176,14 +172,14 @@ $$
 계수행렬과 우변 벡터는
 
 $$
-\boldsymbol A=
+[\boldsymbol A]=
 \begin{bmatrix}
 1&1&1\\
 2&3&1\\
 -1&2&3
 \end{bmatrix},
 \qquad
-\boldsymbol b=
+[\boldsymbol b]=
 \begin{bmatrix}
 6\\11\\12
 \end{bmatrix}
@@ -191,7 +187,7 @@ $$
 
 이다.
 
-## 4.1. $\boldsymbol A=\boldsymbol L \cdot \boldsymbol U$ 구하기
+## 4.1. $[\boldsymbol A]=[\boldsymbol L][\boldsymbol U]$ 구하기
 
 첫 번째 피벗 아래를 소거할 때 사용하는 계수는
 
@@ -229,14 +225,14 @@ $$
 이다. 따라서
 
 $$
-\boldsymbol L=
+[\boldsymbol L]=
 \begin{bmatrix}
 1&0&0\\
 \textcolor{red}{2}&1&0\\
 \textcolor{blue}{-1}&\textcolor{green}{3}&1
 \end{bmatrix},
 \qquad
-\boldsymbol U=
+[\boldsymbol U]=
 \begin{bmatrix}
 1&1&1\\
 0&1&-1\\
@@ -247,20 +243,20 @@ $$
 직접 곱하면
 
 $$
-\boldsymbol L \cdot \boldsymbol U=
+[\boldsymbol L][\boldsymbol U]=
 \begin{bmatrix}
 1&1&1\\
 2&3&1\\
 -1&2&3
 \end{bmatrix}
-=\boldsymbol A
+=[\boldsymbol A]
 $$
 
 임을 확인할 수 있다.
 
 ## 4.2. 전진 대입
 
-먼저 $\boldsymbol L \cdot \boldsymbol y=\boldsymbol b$를 푼다.
+먼저 $[\boldsymbol L][\boldsymbol y]=[\boldsymbol b]$를 푼다.
 
 $$
 \begin{bmatrix}
@@ -298,7 +294,7 @@ $$
 이다. 따라서
 
 $$
-\boldsymbol y=
+[\boldsymbol y]=
 \begin{bmatrix}
 \textcolor{magenta}{6}\\\textcolor{magenta}{-1}\\\textcolor{magenta}{21}
 \end{bmatrix}.
@@ -306,7 +302,7 @@ $$
 
 ## 4.3. 후진 대입
 
-이제 $\boldsymbol U \cdot \boldsymbol x=\textcolor{magenta}{\boldsymbol y}$를 푼다.
+이제 $[\boldsymbol U][\boldsymbol x]=\textcolor{magenta}{[\boldsymbol y]}$를 푼다.
 
 $$
 \begin{bmatrix}

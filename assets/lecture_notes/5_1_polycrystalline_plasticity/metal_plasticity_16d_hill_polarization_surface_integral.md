@@ -47,7 +47,7 @@ Polarization tensor의 표면적분 표현을 단계별로 유도한다. 먼저 
 
 - $\boldsymbol x$는 변위 $\boldsymbol u(\boldsymbol x)$, 구속변형률
   $\boldsymbol\varepsilon^c(\boldsymbol x)$ 및 polarization tensor
-  $\mathsf P(\boldsymbol x)$를 구하려는 **관찰점(field point)**이다. Inclusion 내부의
+  $\boldsymbol P(\boldsymbol x)$를 구하려는 **관찰점(field point)**이다. Inclusion 내부의
   polarization tensor를 구할 때는 $\boldsymbol x\in\Omega$로 둔다.
 - $\boldsymbol y$는 등가 체적력 또는 계면 traction이 작용하는 **하중점(source
   point)**이다. 적분을 수행하는 동안 $\boldsymbol y$가 inclusion의 체적 $V$ 또는 계면
@@ -277,7 +277,7 @@ $n_i$는 inclusion 경계의 바깥쪽 단위법선이다.
 
 Green 함수의 부호를 정의하는 방식에 따라 중간식의 부호가 반대로 보일 수 있지만,
 등가 체적력, Green 함수 및 법선의 정의를 일관되게 사용하면 식 (2)의
-$\mathsf S=\mathsf P:\boldsymbol C$와 같은 최종 관계를 얻는다.
+$\boldsymbol S=\boldsymbol P:\boldsymbol C$와 같은 최종 관계를 얻는다.
 
 # 3. 유도의 핵심
 
@@ -292,7 +292,7 @@ $$
 \longrightarrow
 \text{변위 gradient의 대칭부분}
 \longrightarrow
-\mathsf P.
+\boldsymbol P.
 $$
 
 Surface delta는 하중의 위치를 inclusion 계면으로 제한하고, Green 함수는 각 계면

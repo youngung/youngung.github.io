@@ -79,7 +79,7 @@ $\boldsymbol n=\boldsymbol e_3$이고 Cauchy 공식으로
 
 $$
 \boldsymbol t(\boldsymbol e_3)
-=\boldsymbol\sigma\boldsymbol e_3
+=\boldsymbol\sigma\cdot \boldsymbol e_3
 =\begin{bmatrix}\sigma_{13}\\\sigma_{23}\\\sigma_{33}\end{bmatrix}
 \approx\boldsymbol0
 $$

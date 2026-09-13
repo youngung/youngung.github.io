@@ -30,6 +30,9 @@ authors:
 
 # 1. 학습 목표
 
+이 자료에서 $[\boldsymbol A]$, $[\boldsymbol x]$는 행렬·벡터의 성분 배열을 뜻하며, 배열의 행렬곱은 $[\boldsymbol A][\boldsymbol x]$처럼 붙여 쓴다. 물리적 벡터·텐서의 단일수축은 $\cdot$로 표시한다.
+
+
 이번 강의가 끝나면 다음을 할 수 있어야 한다.
 
 - 고유값과 고유벡터의 의미를 설명할 수 있다.
@@ -43,7 +46,7 @@ authors:
 행렬 $\boldsymbol A$를 벡터 $\boldsymbol v$에 곱하면 일반적으로 벡터의 방향과 크기가 모두 바뀐다. 그러나 특별한 방향의 벡터는 행렬을 곱한 뒤에도 방향이 변하지 않고 크기만 변한다.
 
 $$
-\boldsymbol A\boldsymbol v = \lambda \boldsymbol v
+[\boldsymbol A][\boldsymbol v] = \lambda [\boldsymbol v]
 $$
 
 이 식을 만족하는 0이 아닌 벡터 $\boldsymbol v$를 **고유벡터(eigenvector)**라고 하고, 그때의 스칼라 $\lambda$를 **고유값(eigenvalue)**이라고 한다.
@@ -65,7 +68,7 @@ $$
 다음 행렬을 생각해 보자.
 
 $$
-\boldsymbol A=
+[\boldsymbol A]=
 \begin{bmatrix}
 2&0\\
 0&1
@@ -96,7 +99,7 @@ $$
 고유값 방정식에서 오른쪽 항을 왼쪽으로 옮기면
 
 $$
-(\boldsymbol A-\lambda\boldsymbol I)\boldsymbol v=\boldsymbol 0
+([\boldsymbol A]-\lambda[\boldsymbol I])[\boldsymbol v]=\boldsymbol 0
 $$
 
 이 된다. 0이 아닌 고유벡터가 존재하려면 행렬 $\boldsymbol A-\lambda\boldsymbol I$가 역행렬을 가지지 않아야 한다. 따라서
@@ -110,7 +113,7 @@ $$
 2×2 행렬
 
 $$
-\boldsymbol A=\begin{bmatrix}a&b\\c&d\end{bmatrix}
+[\boldsymbol A]=\begin{bmatrix}a&b\\c&d\end{bmatrix}
 $$
 
 의 특성방정식은
@@ -188,7 +191,7 @@ print(eigenvalues_only)
 변위구배텐서 또는 선형변환 행렬을 $\boldsymbol F$라고 하자. 변환 전 벡터와 변환 후 벡터의 관계는 다음과 같이 쓸 수 있다.
 
 $$
-\boldsymbol v^{\mathrm{new}}=\boldsymbol F\boldsymbol v^{\mathrm{old}}
+[\boldsymbol v]^{\mathrm{new}}=[\boldsymbol F][\boldsymbol v]^{\mathrm{old}}
 $$
 
 고유벡터 방향에서는 방향이 바뀌지 않고 고유값만큼 크기가 변한다.
@@ -216,7 +219,7 @@ for index, stretch in enumerate(eigenvalues):
 행렬을 반복해서 곱하는 문제에서도 고유값이 중요한 역할을 한다.
 
 $$
-\boldsymbol x_{n+1}=\boldsymbol A\boldsymbol x_n
+[\boldsymbol x]_{n+1}=[\boldsymbol A][\boldsymbol x_n]
 $$
 
 예를 들어 두 집단의 인구 변화를 행렬로 표현할 수 있다.

@@ -21,22 +21,12 @@ authors:
 - [1. 학습 목표](#1-학습-목표)
 - [2. 벡터와 NumPy 배열](#2-벡터와-numpy-배열)
 - [3. 벡터의 합과 차](#3-벡터의-합과-차)
-- [\\boldsymbol a+\\boldsymbol b](#boldsymbol-aboldsymbol-b)
 - [4. 스칼라와 벡터의 곱](#4-스칼라와-벡터의-곱)
-- [c\\boldsymbol a](#cboldsymbol-a)
 - [5. 벡터의 크기](#5-벡터의-크기)
-- [|\\boldsymbol a|\_2](#boldsymbol-a_2)
 - [6. 단위벡터](#6-단위벡터)
-- [\\widehat{\\boldsymbol a}](#widehatboldsymbol-a)
 - [7. 내적](#7-내적)
-- [\\boldsymbol a\\mathbin{\\cdot}\\boldsymbol b](#boldsymbol-amathbincdotboldsymbol-b)
 - [8. 두 벡터 사이의 각](#8-두-벡터-사이의-각)
-- [\\boldsymbol a\\mathbin{\\cdot}\\boldsymbol b](#boldsymbol-amathbincdotboldsymbol-b-1)
-- [\\theta](#theta)
 - [9. 외적](#9-외적)
-- [\\boldsymbol a\\times\\boldsymbol b](#boldsymbol-atimesboldsymbol-b)
-- [\\boldsymbol b\\times\\boldsymbol a](#boldsymbol-btimesboldsymbol-a)
-- [|\\boldsymbol a\\times\\boldsymbol b|](#boldsymbol-atimesboldsymbol-b-1)
 - [10. 재료공학 예제](#10-재료공학-예제)
   - [10.1. 두 힘의 합력](#101-두-힘의-합력)
   - [10.2. 입방정에서 결정방향 사이의 각](#102-입방정에서-결정방향-사이의-각)
@@ -68,7 +58,7 @@ authors:
 $\boldsymbol a$는 다음과 같이 세 성분으로 나타낼 수 있다.
 
 $$
-\boldsymbol a=
+[\boldsymbol a]=
 \begin{bmatrix}
 a_x\\a_y\\a_z
 \end{bmatrix}
@@ -97,7 +87,7 @@ print(a[2])
 두 벡터의 합과 차는 같은 위치의 성분끼리 계산한다.
 
 $$
-\boldsymbol a+\boldsymbol b
+\boldsymbol a+[\boldsymbol b]
 =
 \begin{bmatrix}
 a_x+b_x\\
@@ -125,7 +115,7 @@ print(vector_difference)
 벡터에 하나의 수인 스칼라 $c$를 곱하면 모든 성분에 $c$가 곱해진다.
 
 $$
-c\boldsymbol a
+c[\boldsymbol a]
 =
 \begin{bmatrix}
 ca_x\\ca_y\\ca_z
@@ -320,7 +310,7 @@ print(angle_between(a, b))
 3차원 벡터의 외적(cross product)은 두 벡터에 모두 수직인 새로운 벡터이다.
 
 $$
-\boldsymbol a\times\boldsymbol b
+\boldsymbol a\times[\boldsymbol b]
 =
 \begin{bmatrix}
 a_yb_z-a_zb_y\\

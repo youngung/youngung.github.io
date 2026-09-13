@@ -41,6 +41,9 @@ authors:
 
 # 1. 목표
 
+이 자료에서 $[\boldsymbol A]$, $[\boldsymbol x]$는 행렬·벡터의 성분 배열을 뜻하며, 배열의 행렬곱은 $[\boldsymbol A][\boldsymbol x]$처럼 붙여 쓴다. 물리적 벡터·텐서의 단일수축은 $\cdot$로 표시한다.
+
+
 - Einstein summation 을 이해하고, 다양한 벡터 및 행렬 연산에 활용할 수 있다.
 
 # 2. [아인슈타인 표기법](https://ko.wikipedia.org/wiki/아인슈타인_표기법)과 [np.einsum](https://numpy.org/doc/stable/reference/generated/numpy.einsum.html) 함수
@@ -534,7 +537,7 @@ print(np.sum(a*b))
 행과 열이 각각 n인 행렬과 (즉 nxn행렬)과 n성분으로 구성된 벡터간의 곱
 
 $$
-\boldsymbol c = \boldsymbol A \cdot \boldsymbol v
+[\boldsymbol c] = [\boldsymbol A][\boldsymbol v]
 $$
 
 이 index를 활용해 다음과 같이 표기된다.

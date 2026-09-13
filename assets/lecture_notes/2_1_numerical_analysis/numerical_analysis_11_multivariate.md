@@ -11,30 +11,15 @@ toc:
 
 - [1. 학습 목표](#1-학습-목표)
 - [2. 비선형 연립방정식](#2-비선형-연립방정식)
-- [\\boldsymbol F(\\boldsymbol x)](#boldsymbol-fboldsymbol-x)
-- [\\end{bmatrix}](#endbmatrix)
 - [3. Jacobian 행렬](#3-jacobian-행렬)
-- [\\boldsymbol J(x,y)](#boldsymbol-jxy)
-- [\\boldsymbol J(x,y)](#boldsymbol-jxy-1)
 - [4. 다변수 Newton–Raphson 방법](#4-다변수-newtonraphson-방법)
   - [4.1. 선형화](#41-선형화)
-- [\\Delta\\boldsymbol x^{(k)}](#deltaboldsymbol-xk)
-- [\\boldsymbol x^{(k+1)}](#boldsymbol-xk1)
   - [4.2. 알고리듬](#42-알고리듬)
 - [5. 손으로 계산하는 첫 번째 반복](#5-손으로-계산하는-첫-번째-반복)
-- [\\boldsymbol x^{(0)}](#boldsymbol-x0)
-- [\\boldsymbol F(1.5,0.5)](#boldsymbol-f1505)
-- [\\end{bmatrix}](#endbmatrix-1)
-- [\\boldsymbol J(1.5,0.5)](#boldsymbol-j1505)
-- [\\end{bmatrix}](#endbmatrix-2)
-- [\\boldsymbol x^{(1)}](#boldsymbol-x1)
-- [\\end{bmatrix}](#endbmatrix-3)
 - [6. Python 구현](#6-python-구현)
   - [6.1. 두 근 구하기](#61-두-근-구하기)
   - [6.2. 수렴 기록 확인](#62-수렴-기록-확인)
 - [7. 세 변수로 확장](#7-세-변수로-확장)
-- [\\boldsymbol F(x,y,z)](#boldsymbol-fxyz)
-- [\\boldsymbol J(x,y,z)](#boldsymbol-jxyz)
 - [8. 수렴과 주의 사항](#8-수렴과-주의-사항)
 - [9. 경사하강법과의 차이](#9-경사하강법과의-차이)
 - [10. 정리](#10-정리)
@@ -87,7 +72,7 @@ x^2+y^2-5\\
 x-y-1
 \end{bmatrix},
 \qquad
-\boldsymbol x=
+[\boldsymbol x]=
 \begin{bmatrix}
 x\\y
 \end{bmatrix}.

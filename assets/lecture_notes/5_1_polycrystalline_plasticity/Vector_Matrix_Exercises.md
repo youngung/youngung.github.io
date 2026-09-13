@@ -26,11 +26,11 @@ authors:
 # 1. 다음 두 벡터가 있다. 두 벡터간의 연산 결과를 답하시오.
 
 $$
-\boldsymbol a=\begin{bmatrix}2\\2\\-1\end{bmatrix}
+[\boldsymbol a]=\begin{bmatrix}2\\2\\-1\end{bmatrix}
 $$
 
 $$
-\boldsymbol b=\begin{bmatrix}2\\-3\\1\end{bmatrix}
+[\boldsymbol b]=\begin{bmatrix}2\\-3\\1\end{bmatrix}
 $$
 
 ## 1.1. $\boldsymbol a + \boldsymbol b$
@@ -79,7 +79,7 @@ $$
 
 
 $$
-\boldsymbol A=\begin{bmatrix}
+[\boldsymbol A]=\begin{bmatrix}
  1& 1& -1 \\
  3& 4& -4 \\
  3& 1&  2 \\
@@ -87,7 +87,7 @@ $$
 $$
 
 $$
-\boldsymbol B=\begin{bmatrix}
+[\boldsymbol B]=\begin{bmatrix}
   1 &  1& -1 \\
  -1 & -2& -4 \\
  -2 &  2&  2\\
@@ -127,17 +127,17 @@ $$
 ## 3.1. 면력벡터
 
 응력 텐서와 단위법선벡터가 다음과 같을 때
-$\boldsymbol t=\boldsymbol\sigma\boldsymbol n$을 구하시오.
+$\boldsymbol t=\boldsymbol\sigma\cdot \boldsymbol n$을 구하시오.
 
 $$
-\boldsymbol\sigma=
+[\boldsymbol\sigma]=
 \begin{bmatrix}
 100&20&0\\
 20&50&0\\
 0&0&30
 \end{bmatrix}\ \mathrm{MPa},
 \qquad
-\boldsymbol n=
+[\boldsymbol n]=
 \begin{bmatrix}1\\0\\0\end{bmatrix}
 $$
 
@@ -153,10 +153,10 @@ $\sigma_m=\operatorname{tr}(\boldsymbol\sigma)/3$을 구하시오.
 ## 3.3. 단위부피당 일 증분
 
 $$
-\boldsymbol\sigma=
+[\boldsymbol\sigma]=
 \begin{bmatrix}100&0\\0&50\end{bmatrix}\ \mathrm{MPa},
 \qquad
-d\boldsymbol\varepsilon=
+[d\boldsymbol\varepsilon]=
 \begin{bmatrix}0.001&0\\0&-0.0002\end{bmatrix}
 $$
 
@@ -169,11 +169,11 @@ $$
 - 이 절에서는 앞에서 주어진
 
   $$
-  \boldsymbol a=
+  [\boldsymbol a]=
   \begin{bmatrix}2\\2\\-1\end{bmatrix},
 
   \qquad
-  \boldsymbol b=
+  [\boldsymbol b]=
   \begin{bmatrix}2\\-3\\1\end{bmatrix}
   $$
 
@@ -214,7 +214,7 @@ cos(theta)가 음수이므로 두 벡터가 이루는 각은 둔각이다.
 다음 벡터 $\boldsymbol c$가 $\boldsymbol a$와 수직인지 내적으로 확인하시오.
 
 $$
-\boldsymbol c=\begin{bmatrix}1\\0\\2\end{bmatrix}
+[\boldsymbol c]=\begin{bmatrix}1\\0\\2\end{bmatrix}
 $$
 
 <!--
@@ -284,7 +284,7 @@ det(A)=3이고 det(B)=20이다. 두 determinant가 모두 0이 아니므로 두 
 
 ## 5.4. 행렬곱의 교환법칙
 
-앞에서 구한 $\boldsymbol A\boldsymbol B$와 $\boldsymbol B\boldsymbol A$를 비교하여
+앞에서 구한 $\boldsymbol A\cdot \boldsymbol B$와 $\boldsymbol B\cdot \boldsymbol A$를 비교하여
 행렬곱에 교환법칙이 성립하는지 설명하시오.
 
 <!--
@@ -295,7 +295,7 @@ A B와 B A의 성분이 서로 다르므로 일반적인 행렬곱에는 교환�
 ## 5.5. 단위행렬
 
 $3\times3$ 단위행렬을 $\boldsymbol I$라 할 때
-$\boldsymbol A\boldsymbol I$와 $\boldsymbol I\boldsymbol A$를 구하시오.
+$\boldsymbol A\cdot \boldsymbol I$와 $\boldsymbol I\cdot \boldsymbol A$를 구하시오.
 
 <!--
 풀이와 해답:
@@ -327,7 +327,7 @@ A_skw=[[0,-1,-2],[1,0,-2.5],[2,2.5,0]]이다.
 다음 응력 텐서에서 수직응력 성분과 서로 독립적인 전단응력 성분을 각각 쓰시오.
 
 $$
-\boldsymbol\sigma=
+[\boldsymbol\sigma]=
 \begin{bmatrix}
 120&30&0\\
 30&80&10\\
@@ -345,7 +345,7 @@ $$
 
 문제 6.1의 응력 텐서와
 $\boldsymbol n=(0,1,0)^T$에 대해
-$\boldsymbol t=\boldsymbol\sigma\boldsymbol n$을 구하시오.
+$\boldsymbol t=\boldsymbol\sigma\cdot \boldsymbol n$을 구하시오.
 
 <!--
 풀이와 해답:
@@ -368,7 +368,7 @@ t_s=t-t_n=(30,0,10)^T MPa이다.
 다음 응력상태의 평균응력과 편차응력 텐서를 구하시오.
 
 $$
-\boldsymbol\sigma=
+[\boldsymbol\sigma]=
 \begin{bmatrix}
 90&0&0\\
 0&60&0\\
@@ -416,7 +416,7 @@ $\boldsymbol\sigma=100\boldsymbol I$ MPa일 때 편차응력과 von Mises 등가
 $W=\frac{1}{2}\boldsymbol\sigma:\boldsymbol\varepsilon^{el}$을 구하시오.
 
 $$
-\boldsymbol\sigma=
+[\boldsymbol\sigma]=
 \begin{bmatrix}200&0\\0&100\end{bmatrix}\ \mathrm{MPa},
 \qquad
 \boldsymbol\varepsilon^{el}=

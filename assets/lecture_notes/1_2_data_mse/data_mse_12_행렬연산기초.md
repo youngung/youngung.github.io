@@ -22,13 +22,7 @@ authors:
 - [2. 행렬과 NumPy 배열](#2-행렬과-numpy-배열)
 - [3. 행렬의 합과 원소별 곱](#3-행렬의-합과-원소별-곱)
 - [4. 행렬–벡터곱](#4-행렬벡터곱)
-- [\\boldsymbol A\\boldsymbol x](#boldsymbol-aboldsymbol-x)
-- [\\end{bmatrix}](#endbmatrix)
 - [5. 행렬곱](#5-행렬곱)
-- [\\boldsymbol C](#boldsymbol-c)
-- [\\boldsymbol A\\cdot\\boldsymbol B](#boldsymbol-acdotboldsymbol-b)
-- [C\_{ij}](#c_ij)
-- [C\_{ij}](#c_ij-1)
 - [6. 행렬곱의 shape](#6-행렬곱의-shape)
 - [7. 단위행렬과 전치행렬](#7-단위행렬과-전치행렬)
   - [7.1. 단위행렬](#71-단위행렬)
@@ -36,7 +30,6 @@ authors:
 - [8. 행렬식과 역행렬](#8-행렬식과-역행렬)
   - [8.1. 행렬식](#81-행렬식)
   - [8.2. 역행렬](#82-역행렬)
-- [\\boldsymbol A^{-1}\\boldsymbol A](#boldsymbol-a-1boldsymbol-a)
 - [9. 연립방정식 풀기](#9-연립방정식-풀기)
 - [10. 재료공학 예제](#10-재료공학-예제)
   - [10.1. 격자 좌표를 실제 위치로 변환하기](#101-격자-좌표를-실제-위치로-변환하기)
@@ -54,6 +47,9 @@ authors:
 
 # 1. 학습 목표
 
+이 자료에서 $[\boldsymbol A]$, $[\boldsymbol x]$는 행렬·벡터의 성분 배열을 뜻하며, 배열의 행렬곱은 $[\boldsymbol A][\boldsymbol x]$처럼 붙여 쓴다. 물리적 벡터·텐서의 단일수축은 $\cdot$로 표시한다.
+
+
 이번 강의가 끝나면 다음을 할 수 있어야 한다.
 
 - 행렬을 2차원 NumPy 배열로 나타낼 수 있다.
@@ -68,7 +64,7 @@ authors:
 $m$행 $n$열의 행렬은 $m\times n$ 행렬이라고 한다.
 
 $$
-\boldsymbol A=
+[\boldsymbol A]=
 \begin{bmatrix}
 1&2&3\\
 4&5&6
@@ -139,7 +135,7 @@ $$
 행렬
 
 $$
-\boldsymbol A=
+[\boldsymbol A]=
 \begin{bmatrix}
 1&2\\
 3&4
@@ -149,7 +145,7 @@ $$
 와 벡터
 
 $$
-\boldsymbol x=
+[\boldsymbol x]=
 \begin{bmatrix}
 5\\6
 \end{bmatrix}
@@ -158,7 +154,7 @@ $$
 의 곱은 각 행과 벡터의 내적으로 계산한다.
 
 $$
-\boldsymbol A\boldsymbol x
+[\boldsymbol A][\boldsymbol x]
 =
 \begin{bmatrix}
 1\times5+2\times6\\
@@ -190,13 +186,13 @@ $(m,n)$ 행렬과 shape이 $(n,)$인 벡터를 곱하면 shape이 $(m,)$인 벡�
 두 행렬
 
 $$
-\boldsymbol A=
+[\boldsymbol A]=
 \begin{bmatrix}
 1&2\\
 3&4
 \end{bmatrix},
 \qquad
-\boldsymbol B=
+[\boldsymbol B]=
 \begin{bmatrix}
 2&0\\
 1&3
@@ -217,9 +213,9 @@ $$
 따라서
 
 $$
-\boldsymbol C
+[\boldsymbol C]
 =
-\boldsymbol A\cdot\boldsymbol B
+[\boldsymbol A][\boldsymbol B]
 =
 \begin{bmatrix}
 4&6\\
@@ -312,9 +308,9 @@ $(2,3)(3,4)$의 안쪽 크기 3이 같고 결과 shape은 $(2,4)$이다.
 행렬곱은 일반적으로 순서를 바꿀 수 없다.
 
 $$
-\boldsymbol A\cdot \boldsymbol B
+[\boldsymbol A][\boldsymbol B]
 \ne
-\boldsymbol B\cdot \boldsymbol A
+[\boldsymbol B][\boldsymbol A]
 $$
 
 shape에 따라 한쪽 순서의 곱만 가능한 경우도 있다.
@@ -336,7 +332,7 @@ print(I @ x)
 단위행렬을 곱하면 원래 벡터나 행렬이 유지된다.
 
 $$
-\boldsymbol I\cdot \boldsymbol x=\boldsymbol x
+[\boldsymbol I][\boldsymbol x]=[\boldsymbol x]
 $$
 
 ## 7.2. 전치행렬
@@ -391,9 +387,9 @@ print(determinant)
 역행렬은 다음 관계를 만족한다.
 
 $$
-\boldsymbol A^{-1}\boldsymbol A
+[\boldsymbol A]^{-1}[\boldsymbol A]
 =
-\boldsymbol I
+[\boldsymbol I]
 $$
 
 ~~~python
@@ -429,19 +425,19 @@ $$
 행렬 형태는
 
 $$
-\boldsymbol A\cdot \boldsymbol x=\boldsymbol b
+[\boldsymbol A][\boldsymbol x]=[\boldsymbol b]
 $$
 
 이며
 
 $$
-\boldsymbol A=
+[\boldsymbol A]=
 \begin{bmatrix}2&1\\1&3\end{bmatrix},
 \quad
-\boldsymbol x=
+[\boldsymbol x]=
 \begin{bmatrix}x\\y\end{bmatrix},
 \quad
-\boldsymbol b=
+[\boldsymbol b]=
 \begin{bmatrix}5\\6\end{bmatrix}
 $$
 
@@ -473,7 +469,7 @@ print(A @ x)
 $\boldsymbol p=(0.5,0.5,0.25)$를 실제 위치로 바꾸는 행렬은
 
 $$
-\boldsymbol L=
+[\boldsymbol L]=
 \begin{bmatrix}
 2&0&0\\
 0&3&0\\

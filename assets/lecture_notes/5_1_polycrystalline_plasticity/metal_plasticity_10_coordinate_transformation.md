@@ -56,12 +56,12 @@ $$
 
 로 정의한다. 이 행렬의 $i$번째 행은 새 기저벡터
 $\tilde{\boldsymbol e}_i$를 기존 기저로 표현한 성분이다. 두 기저가 오른손
-직교정규 기저이므로 $\boldsymbol R$은 proper orthogonal 행렬이며
+직교정규 기저이므로 $[\boldsymbol R]$은 proper orthogonal 행렬이며
 
 $$
-\boldsymbol R^{-1}=\boldsymbol R^T,
+[\boldsymbol R]^{-1}=[\boldsymbol R]^T,
 \qquad
-\det\boldsymbol R=+1
+\det[\boldsymbol R]=+1
 $$
 
 을 만족한다.
@@ -120,7 +120,7 @@ $$[\boldsymbol v]_{\tilde {\boldsymbol e}}$$
 
 $$
 \boxed{[\boldsymbol v]_{\tilde {\boldsymbol e}}
-=\boldsymbol R[\boldsymbol v]_{\boldsymbol e}}
+=[\boldsymbol R][\boldsymbol v]_{\boldsymbol e}}
 \tag{4}
 $$
 
@@ -128,14 +128,14 @@ $$
 
 $$
 [\boldsymbol v]_{\boldsymbol e}
-=\boldsymbol R^T[\boldsymbol v]_{\tilde {\boldsymbol e}}
+=[\boldsymbol R]^T[\boldsymbol v]_{\tilde {\boldsymbol e}}
 $$
 
 혹은
 
 $$
 [\boldsymbol v]_{\boldsymbol e}
-=\boldsymbol R^{-1}[\boldsymbol v]_{\tilde {\boldsymbol e}}
+=[\boldsymbol R]^{-1}[\boldsymbol v]_{\tilde {\boldsymbol e}}
 $$
 
 이며, 벡터의 크기 $\|\boldsymbol v\|$는 좌표변환 전후에 변하지 않는다.
@@ -154,7 +154,7 @@ $$
 
 $$
 \boxed{[\boldsymbol A]_{\tilde {\boldsymbol e}}
-=\boldsymbol R[\boldsymbol A]_{\boldsymbol e}\boldsymbol R^T}
+=[\boldsymbol R][\boldsymbol A]_{\boldsymbol e}[\boldsymbol R]^T}
 \tag{5}
 $$
 
@@ -162,7 +162,7 @@ $$
 
 $$
 [\boldsymbol\sigma]_{\tilde {\boldsymbol e}}
-=\boldsymbol R[\boldsymbol\sigma]_{\boldsymbol e}\boldsymbol R^T
+=[\boldsymbol R][\boldsymbol\sigma]_{\boldsymbol e}[\boldsymbol R]^T
 $$
 
 로 변환한다.
@@ -206,7 +206,7 @@ $$
 이 강의에서 정의한 수동 변환 행렬(passive transformation matrix; 혹은 coordinate transformation matrix)은
 
 $$
-\boldsymbol R=
+[\boldsymbol R]=
 \begin{bmatrix}
 \cos\theta&\sin\theta\\
 -\sin\theta&\cos\theta
@@ -224,7 +224,7 @@ $$
 
 $$
 [\boldsymbol v]_{\tilde {\boldsymbol e}}
-=\boldsymbol R[\boldsymbol v]_{\boldsymbol e}
+=[\boldsymbol R][\boldsymbol v]_{\boldsymbol e}
 =\begin{bmatrix}
 \sqrt{3}+1/2\\
 -1+\sqrt{3}/2
@@ -251,7 +251,7 @@ $\theta=30^\circ$일 때 식 (5)로부터
 
 $$
 [\boldsymbol A]_{\tilde {\boldsymbol e}}
-=\boldsymbol R[\boldsymbol A]_{\boldsymbol e}\boldsymbol R^T
+=[\boldsymbol R][\boldsymbol A]_{\boldsymbol e}[\boldsymbol R]^T
 \simeq
 \begin{bmatrix}
 102.32&-15.98\\
@@ -267,17 +267,17 @@ $\det(\boldsymbol A)=3600$으로 같으므로 계산 결과를 검산할 수 있
 | 대상 | 좌표변환 |
 |---|---|
 | 스칼라 $a$ | $\tilde a=a$ |
-| 벡터 $\boldsymbol v$ | $[\boldsymbol v]_{\tilde {\boldsymbol e}}=\boldsymbol R[\boldsymbol v]_{\boldsymbol e}$ |
-| 2계 텐서 $\boldsymbol A$ | $[\boldsymbol A]_{\tilde {\boldsymbol e}}=\boldsymbol R[\boldsymbol A]_{\boldsymbol e}\boldsymbol R^T$ |
+| 벡터 $\boldsymbol v$ | $[\boldsymbol v]_{\tilde {\boldsymbol e}}=[\boldsymbol R][\boldsymbol v]_{\boldsymbol e}$ |
+| 2계 텐서 $\boldsymbol A$ | $[\boldsymbol A]_{\tilde {\boldsymbol e}}=[\boldsymbol R][\boldsymbol A]_{\boldsymbol e}[\boldsymbol R]^T$ |
 | $n$계 텐서 $\boldsymbol T$ | 각 첨자에 $R_{ij}$가 한 번씩 작용 (예: $\tilde T_{i_1i_2\cdots i_n}=\sum_{j_1=1}^3\cdots\sum_{j_n=1}^3 R_{i_1j_1}\cdots R_{i_nj_n}T_{j_1j_2\cdots j_n}$) |
-| 직교행렬의 성질 | $\boldsymbol R^{-1}=\boldsymbol R^T$ |
+| 직교행렬의 성질 | $[\boldsymbol R]^{-1}=[\boldsymbol R]^T$ |
 | 좌표변환 불변량 | 벡터의 크기, 2계 텐서의 trace, determinant, 고유값 |
 
 # 6. 연습 문제
 
 ## 문제 1
 
-직교 좌표변환 행렬 $\boldsymbol R$이 만족하는 역행렬 관계를 쓰시오.
+직교 좌표변환 행렬 $[\boldsymbol R]$이 만족하는 역행렬 관계를 쓰시오.
 
 <!--
 풀이와 해답:
@@ -296,22 +296,22 @@ R의 역행렬은 전치행렬과 같으므로 R^{-1}=R^T이다.
 
 ## 문제 3
 
-2계 텐서 $\boldsymbol A$의 변환된 성분행렬을 $\boldsymbol R$로 나타내라.
+2계 텐서 $\boldsymbol A$의 변환된 성분행렬을 $[\boldsymbol R]$로 나타내라.
 
 <!--
 풀이와 해답:
 강의에서 정의한 수동 좌표변환 관례에 따라
-[ \boldsymbol A]_{\tilde {\boldsymbol e}}=\boldsymbol R[\boldsymbol A]_{\boldsymbol e}\boldsymbol R^T로 나타낸다.
+[ \boldsymbol A]_{\tilde {\boldsymbol e}}=[\boldsymbol R][\boldsymbol A]_{\boldsymbol e}[\boldsymbol R]^T로 나타낸다.
 -->
 
 ## 문제 4
 
-$\theta=90^\circ$일 때 2차원 수동 좌표변환 행렬 $\boldsymbol R$을 구하시오.
+$\theta=90^\circ$일 때 2차원 수동 좌표변환 행렬 $[\boldsymbol R]$을 구하시오.
 
 <!--
 풀이와 해답:
 cos(90 deg)=0, sin(90 deg)=1이므로
-\boldsymbol R=\begin{bmatrix}0&1\\-1&0\end{bmatrix}이다.
+[\boldsymbol R]=\begin{bmatrix}0&1\\-1&0\end{bmatrix}이다.
 -->
 
 ## 문제 5
@@ -321,7 +321,7 @@ $[\boldsymbol v]_{\tilde e}$를 구하고, 변환 전후의 벡터 크기를 비
 
 <!--
 풀이와 해답:
-[ \boldsymbol v]_{\tilde {\boldsymbol e}}=\boldsymbol R[\boldsymbol v]_{\boldsymbol e}=(4,-3)^T이다. 변환 전후의 크기는 모두 5이다.
+[ \boldsymbol v]_{\tilde {\boldsymbol e}}=[\boldsymbol R][\boldsymbol v]_{\boldsymbol e}=(4,-3)^T이다. 변환 전후의 크기는 모두 5이다.
 -->
 
 ## 문제 6
@@ -336,6 +336,6 @@ $$
 
 <!--
 풀이와 해답:
-\boldsymbol R=\begin{bmatrix}0&1\\-1&0\end{bmatrix}을 사용하면 [\boldsymbol A]_{\tilde {\boldsymbol e}}=\begin{bmatrix}4&-2\\-2&10\end{bmatrix}이다.
+[\boldsymbol R]=\begin{bmatrix}0&1\\-1&0\end{bmatrix}을 사용하면 [\boldsymbol A]_{\tilde {\boldsymbol e}}=\begin{bmatrix}4&-2\\-2&10\end{bmatrix}이다.
 두 행렬의 trace는 모두 14이고 determinant는 모두 36이다.
 -->

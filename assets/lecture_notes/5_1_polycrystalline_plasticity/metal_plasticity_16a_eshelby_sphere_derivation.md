@@ -90,30 +90,30 @@ $$
 \boldsymbol\sigma^*=\boldsymbol C:\boldsymbol\varepsilon^*
 $$
 
-로 정의한다. Green 함수를 적분해 얻는 Hill polarization tensor $\mathsf P$가
+로 정의한다. Green 함수를 적분해 얻는 Hill polarization tensor $\boldsymbol P$가
 eigenstress를 구속변형률로 바꾼다.
 
 $$
 \boldsymbol\varepsilon^c
-=\mathsf P:\boldsymbol\sigma^*
-=\mathsf P:\boldsymbol C:\boldsymbol\varepsilon^*
+=\boldsymbol P:\boldsymbol\sigma^*
+=\boldsymbol P:\boldsymbol C:\boldsymbol\varepsilon^*
 $$
 
 한편 Eshelby tensor의 정의는
 
 $$
 \boldsymbol\varepsilon^c
-=\mathsf S:\boldsymbol\varepsilon^*
+=\boldsymbol S:\boldsymbol\varepsilon^*
 $$
 
 이므로
 
 $$
-\boxed{\mathsf S=\mathsf P:\boldsymbol C}
+\boxed{\boldsymbol S=\boldsymbol P:\boldsymbol C}
 \tag{2}
 $$
 
-이다. 따라서 문제는 구형 영역의 $\mathsf P$를 구한 뒤 등방 탄성텐서 $\boldsymbol C$와
+이다. 따라서 문제는 구형 영역의 $\boldsymbol P$를 구한 뒤 등방 탄성텐서 $\boldsymbol C$와
 축약하는 것으로 바뀐다.
 
 # 3. 고유변형률을 등가 체적력으로 바꾸기
@@ -254,7 +254,7 @@ $$
 이다. 여기서 inclusion 영역을 나타내는 $\Omega$와 미소 입체각 기호 $d\Omega$는 같은
 그리스 문자를 사용하지만 서로 다른 개념임에 유의해야 한다.
 
-구형 inclusion 내부에서는 $\mathsf P$가 위치에 무관하므로 중심에서 계산한 값이 모든
+구형 inclusion 내부에서는 $\boldsymbol P$가 위치에 무관하므로 중심에서 계산한 값이 모든
 내부점에 적용된다.
 
 ![구형 inclusion에서 중심의 field point, 계면의 source point, 바깥쪽 법선 및 상대위치벡터의 관계](/assets/img/lecture_notes/micromechanics/hill_polarization_geometry.png)
@@ -510,9 +510,9 @@ $$
 - 식 (3)을 미분하여 식 (7)을 얻는 Kronecker delta 항의 전체 전개
 - 일반 타원체의 elliptic integral 계산
 
-이 단계들을 생략해도 핵심 논리는 분명하다. 구의 회전대칭성이 $\mathsf P$를 두 개의
+이 단계들을 생략해도 핵심 논리는 분명하다. 구의 회전대칭성이 $\boldsymbol P$를 두 개의
 등방 텐서로 제한하고, 구면의 2차 및 4차 방향모멘트가 각각 $1/3$과 $1/15$ 계수를
-만들며, 마지막으로 $\mathsf S=\mathsf P:\mathsf C$를 계산하면 식 (1)이 나온다.
+만들며, 마지막으로 $\boldsymbol S=\boldsymbol P:\boldsymbol C$를 계산하면 식 (1)이 나온다.
 
 # 11. 연습 문제
 
