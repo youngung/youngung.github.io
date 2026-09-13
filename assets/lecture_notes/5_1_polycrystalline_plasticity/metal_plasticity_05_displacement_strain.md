@@ -1,11 +1,11 @@
 ---
 layout: distill
-title: 변위와 변형률
-description: 변위장의 좌표 기술법, 미소·유한변형률과 극분해
+title: 변위와 미소변형률
+description: 1·2차원 변위장과 미소변형률의 정의 및 예제
 target: 학부 고학년
 permalink:
 featured: true
-prerequisite: 벡터와 행렬
+prerequisite: 벡터와 좌표계, 행렬과 텐서 연산
 toc:
   sidebar: left
 
@@ -23,49 +23,13 @@ authors:
       name: Changwon National University
 ---
 
-- [1. 위치 (position)와 변위 (displacement)](#1-위치-position와-변위-displacement)
-- [2. 변위와 변형의 차이](#2-변위와-변형의-차이)
-- [3. 강체운동 (rigid body motion)](#3-강체운동-rigid-body-motion)
-- [4. 변위장 (displacement field)](#4-변위장-displacement-field)
-- [5. 1차원 공간에서의 변위와 변형률](#5-1차원-공간에서의-변위와-변형률)
-- [6. 1차원 예제](#6-1차원-예제)
-- [7. 2차원 공간에서의 변위와 미소변형률](#7-2차원-공간에서의-변위와-미소변형률)
-- [8. 변위구배의 대칭부분과 반대칭부분](#8-변위구배의-대칭부분과-반대칭부분)
-- [9. 2차원 예제](#9-2차원-예제)
-- [10. Lagrangian과 Eulerian 기술법](#10-lagrangian과-eulerian-기술법)
-  - [10.1. 같은 물질점과 같은 공간 위치](#101-같은-물질점과-같은-공간-위치)
-  - [10.2. 앞의 1차원 인장을 두 기술법으로 표현하기](#102-앞의-1차원-인장을-두-기술법으로-표현하기)
-- [11. 유한변형률 (finite strain)](#11-유한변형률-finite-strain)
-  - [11.1. 변형구배 (deformation gradient)](#111-변형구배-deformation-gradient)
-  - [11.2. 길이 변화로부터 정의하는 유한변형률](#112-길이-변화로부터-정의하는-유한변형률)
-  - [11.3. 1차원 인장과 강체회전의 비교](#113-1차원-인장과-강체회전의-비교)
-- [12. 극분해 (polar decomposition)](#12-극분해-polar-decomposition)
-  - [12.1. 회전과 신장의 분리](#121-회전과-신장의-분리)
-  - [12.2. 신장 후 회전하는 예제](#122-신장-후-회전하는-예제)
-- [13. 요약](#13-요약)
-- [14. 연습 문제](#14-연습-문제)
-  - [문제 1](#문제-1)
-  - [문제 2](#문제-2)
-  - [문제 3](#문제-3)
-  - [문제 4](#문제-4)
-  - [문제 5](#문제-5)
-  - [문제 6](#문제-6)
-  - [문제 7](#문제-7)
-  - [문제 8](#문제-8)
-  - [문제 9](#문제-9)
-  - [문제 10](#문제-10)
-  - [문제 11](#문제-11)
-  - [문제 12](#문제-12)
-  - [문제 13](#문제-13)
-  - [문제 14](#문제-14)
-  - [문제 15](#문제-15)
-  - [문제 16](#문제-16)
-- [부록 A. 물질미분 (material derivative)](#부록-a-물질미분-material-derivative)
-  - [A.1. 물질점을 따라 관찰하는 변화율](#a1-물질점을-따라-관찰하는-변화율)
-  - [A.2. 시간에 따라 변하지 않는 온도장에서의 물질미분](#a2-시간에-따라-변하지-않는-온도장에서의-물질미분)
-  - [A.3. 공간과 시간에 모두 의존하는 온도장](#a3-공간과-시간에-모두-의존하는-온도장)
-  - [A.4. 속도의 물질미분과 가속도](#a4-속도의-물질미분과-가속도)
-- [부록 B. ALE 기술법](#부록-b-ale-기술법)
+
+관련 자료는 다음 순서로 읽을 수 있다.
+
+- [변위와 미소변형률]({% link assets/lecture_notes/5_1_polycrystalline_plasticity/metal_plasticity_05_displacement_strain.md %})
+- [변위와 미소변형률 연습문제]({% link assets/lecture_notes/5_1_polycrystalline_plasticity/metal_plasticity_05d_displacement_strain_exercises.md %})
+- [유한변형의 운동학]({% link assets/lecture_notes/5_1_polycrystalline_plasticity/metal_plasticity_05b_descriptions_finite_strain.md %})
+- [물질미분과 ALE 기술법]({% link assets/lecture_notes/5_1_polycrystalline_plasticity/metal_plasticity_05c_material_derivative_ale.md %})
 
 # 1. 위치 (position)와 변위 (displacement)
 
@@ -107,7 +71,7 @@ $\boldsymbol X$와 $\boldsymbol x$는 서로 다른 두 점이 아니라 그 점
 
 뒤에서 배우는 **미소변형률 (infinitesimal strain)**은 변위구배가 작다는 근사에 기초한다.
 따라서 강체회전도 회전각이 작을 때만 올바르게 처리한다.
-큰 회전에서도 변형률이 0이 되는 이유는 11절의 유한변형률에서 확인한다.
+큰 회전에서도 변형률이 0이 되는 이유는 [유한변형률]({% link assets/lecture_notes/5_1_polycrystalline_plasticity/metal_plasticity_05b_descriptions_finite_strain.md %}#11-유한변형률-finite-strain)에서 확인한다.
 
 # 4. 변위장 (displacement field)
 
@@ -122,7 +86,7 @@ $$
 
 이 식은 기준 위치가 $\boldsymbol X$인 물질점의 현재 위치를 알려 준다.
 5–9절의 변위장은 모두 이 기준 좌표를 사용하며, 특정 시점의 변형을 다루므로 시간 변수($t$)는 생략한다.
-현재 위치 $\boldsymbol x$를 기준으로 표현하는 방법은 10절에서 비교한다.
+현재 위치 $\boldsymbol x$를 기준으로 표현하는 방법은 [Lagrangian과 Eulerian 기술법]({% link assets/lecture_notes/5_1_polycrystalline_plasticity/metal_plasticity_05b_descriptions_finite_strain.md %})에서 비교한다.
 
 # 5. 1차원 공간에서의 변위와 변형률
 
@@ -278,9 +242,9 @@ $$
 점선은 기준 형상, 실선은 $\boldsymbol x=\boldsymbol X+\boldsymbol u(\boldsymbol X)$로 계산한 현재 형상이다.
 빨간 화살표는 기준 형상 오른쪽 위 꼭짓점의 변위다.
 형상 차이를 보기 쉽게 계수를 크게 잡았으므로, 이 예제에서 미소변형률 공식으로 구한 값은
-정확한 유한변형률과 구분해야 한다. 정확한 길이 변화는 11절에서 다룬다.
+정확한 유한변형률과 구분해야 한다. 정확한 길이 변화는 [유한변형률 자료]({% link assets/lecture_notes/5_1_polycrystalline_plasticity/metal_plasticity_05b_descriptions_finite_strain.md %})에서 다룬다.
 
-[^reference-gradient]: $\nabla_X$는 변형 전 기준좌표 $\boldsymbol X=(X_1,X_2,X_3)$에 대한 공간미분 연산자로, $\nabla_X=\boldsymbol e_1\partial/\partial X_1+\boldsymbol e_2\partial/\partial X_2+\boldsymbol e_3\partial/\partial X_3$이다. 스칼라장에 적용하면 기울기 벡터를, 변위 벡터장에 적용하면 변위구배 텐서를 얻는다. 이 자료에서는 $(\nabla_X\boldsymbol u)_{ij}=\partial u_i/\partial X_j$로 정의하므로, 행 $i$는 변위 성분, 열 $j$는 미분하는 기준좌표 방향을 나타낸다. 아래첨자 $X$는 벡터의 성분 첨자가 아니라 **미분에 사용하는 좌표**를 표시한다. 현재좌표 $\boldsymbol x$에 대한 연산자 $\nabla_x$와는 구분하며, 두 구배의 차이는 10절에서 설명한다. 2차원 문제에서는 $X_1,X_2$ 방향의 미분만 사용한다.
+[^reference-gradient]: $\nabla_X$는 변형 전 기준좌표 $\boldsymbol X=(X_1,X_2,X_3)$에 대한 공간미분 연산자로, $\nabla_X=\boldsymbol e_1\partial/\partial X_1+\boldsymbol e_2\partial/\partial X_2+\boldsymbol e_3\partial/\partial X_3$이다. 스칼라장에 적용하면 기울기 벡터를, 변위 벡터장에 적용하면 변위구배 텐서를 얻는다. 이 자료에서는 $(\nabla_X\boldsymbol u)_{ij}=\partial u_i/\partial X_j$로 정의하므로, 행 $i$는 변위 성분, 열 $j$는 미분하는 기준좌표 방향을 나타낸다. 아래첨자 $X$는 벡터의 성분 첨자가 아니라 **미분에 사용하는 좌표**를 표시한다. 현재좌표 $\boldsymbol x$에 대한 연산자 $\nabla_x$와는 구분하며, 두 구배의 차이는 [Lagrangian과 Eulerian 기술법]({% link assets/lecture_notes/5_1_polycrystalline_plasticity/metal_plasticity_05b_descriptions_finite_strain.md %})에서 설명한다. 2차원 문제에서는 $X_1,X_2$ 방향의 미분만 사용한다.
 
 # 8. 변위구배의 대칭부분과 반대칭부분
 
@@ -301,7 +265,7 @@ $$
 이 additive 분해 자체는 정확한 행렬 항등식이다. 다만 대칭부분을 변형률, 반대칭부분을 회전으로
 해석하는 것은 작은 변위구배를 가정한 근사다. 그 근사에서 $\boldsymbol\varepsilon$은
 길이와 각도의 변화를, $\boldsymbol\omega$는 **미소회전 (infinitesimal rotation)**을 나타낸다.
-유한회전(finite rotation)과 신장(stretch)의 분리는 12절의 극분해(polar decomposition)로 다룬다.
+유한회전(finite rotation)과 신장(stretch)의 분리는 [극분해(polar decomposition)]({% link assets/lecture_notes/5_1_polycrystalline_plasticity/metal_plasticity_05b_descriptions_finite_strain.md %}#12-극분해-polar-decomposition)로 다룬다.
 
 **공학전단변형률 (engineering shear strain)**과 텐서 전단변형률의 관계는
 
@@ -348,740 +312,164 @@ $$
 미소변형률 성분을 위치의 함수로 구하고, $(X_1,X_2)=(2,1)\,\mathrm{mm}$에서 평가하시오.
 이 예제는 해당 위치 주변에서 변위구배가 작다고 가정한다.
 
-# 10. Lagrangian과 Eulerian 기술법
+<span id="13-요약"></span>
 
-앞에서는 변형 전 위치($\boldsymbol X$)를 기준으로 변위를 표현했다. 이제 같은
-운동을 현재 위치($\boldsymbol x$)를 기준으로 표현하면 무엇이 달라지는지
-살펴보자.
-
-## 10.1. 같은 물질점과 같은 공간 위치
-
-**Lagrangian 기술법 (Lagrangian description, 물질 기술법)**은 같은 물질점을 따라간다.
-기준 배치(reference configuration)의 좌표 $\boldsymbol X$를 물질점의 이름표로 삼으면,
-시간 $t$에서의 현재 위치는 운동함수 $\boldsymbol\Phi$로 표현된다.
-
-$$
-\boldsymbol x=\boldsymbol\Phi(\boldsymbol X,t),
-\qquad
-\boldsymbol u_L(\boldsymbol X,t)=\boldsymbol\Phi(\boldsymbol X,t)-\boldsymbol X.
-$$
-
-예를 들어 막대에 표시한 점이 인장 중 어디로 이동하는지 추적하는 관점이다.
-기준 배치는 보통 초기 형상으로 택하지만 반드시 무응력 상태일 필요는 없다.
-
-**Eulerian 기술법 (Eulerian description, 공간 기술법)**은 현재 공간의 위치
-$\boldsymbol x$에서 물리량을 관찰한다. 고정된 관찰 지점을 서로 다른 물질점들이
-지나갈 수 있다. 운동함수가 역변환 가능하면
-$\boldsymbol X=\boldsymbol\Phi^{-1}(\boldsymbol x,t)$이므로,
-
-$$
-\boldsymbol u_E(\boldsymbol x,t)=\boldsymbol x-\boldsymbol\Phi^{-1}(\boldsymbol x,t),
-\qquad
-\boldsymbol u_E(\boldsymbol\Phi(\boldsymbol X,t),t)=\boldsymbol u_L(\boldsymbol X,t).
-$$
-
-두 기술법은 같은 운동을 서로 다른 독립변수로 표현한다. 변위값은 같은 물질점에서
-같지만, $\nabla_X\boldsymbol u_L$과 $\nabla_x\boldsymbol u_E$는 일반적으로 다르다.
-앞의 5–9절은 기준 좌표 구배를 사용했다. 변위구배가 작을 때에는 현재 좌표 구배와
-거의 같지만, 유한변형에서는 두 구배를 구분해야 한다.
-
-두 기술법의 차이를 요약하면 다음과 같다.
-
-| 비교 항목 | Lagrangian 기술법 (물질 기술법) | Eulerian 기술법 (공간 기술법) |
-| --------- | ------------------------------ | ---------------------------- |
-| 관찰 기준 | 같은 물질점을 따라감 | 고정된 공간 위치에서 관찰함 |
-| 독립변수 | 기준 좌표 $\boldsymbol X$와 시간 $t$ | 현재 좌표 $\boldsymbol x$와 시간 $t$ |
-| 좌표의 의미 | 물질점의 이름표 | 물리량을 관찰하는 공간 위치 |
-| 변위 표현 | $\boldsymbol u_L(\boldsymbol X,t)=\boldsymbol\Phi(\boldsymbol X,t)-\boldsymbol X$ | $\boldsymbol u_E(\boldsymbol x,t)=\boldsymbol x-\boldsymbol\Phi^{-1}(\boldsymbol x,t)$ |
-| 공간미분 | 기준 좌표에 대한 구배 $\nabla_X$ | 현재 좌표에 대한 구배 $\nabla_x$ |
-| 관찰 예 | 막대에 표시한 점의 이동을 추적 | 고정된 위치를 지나는 물질의 속도를 측정 |
-
-## 10.2. 앞의 1차원 인장을 두 기술법으로 표현하기
-
-6절의 $u(X)=0.01X$를 다시 생각하자. 이 예제를 일반화하기 위해
-**신장비 (stretch ratio)**를 먼저 정의한다.
-
-$$
-\Lambda=\frac{l}{l_0}>0.
-$$
-
-여기서 $l_0$는 초기 길이, $l$은 변형 후 길이이며, $\Lambda$는 무차원이다.
-$\Lambda=1$이면 길이 변화가 없고, $\Lambda>1$이면 인장, $0<\Lambda<1$이면 압축이다.
-6절의 예제는 $\Lambda=1.01$에 해당한다.
-이 기호를 사용하면 작은 변형과 큰 변형에서 두 기술법을 같은 식으로 비교할 수 있다.
-
-평행이동 없이 원점을 고정한 균일 변형 $x=\Lambda X$에서
-
-$$
-u_L(X)=(\Lambda-1)X,
-\qquad X=\frac{x}{\Lambda},
-\qquad u_E(x)=\left(1-\frac1\Lambda\right)x.
-$$
-
-따라서 같은 운동의 변위구배도 미분에 사용하는 좌표에 따라 달라진다.
-
-$$
-\frac{du_L}{dX}=\Lambda-1,
-\qquad \frac{du_E}{dx}=1-\frac1\Lambda.
-$$
-
-6절처럼 $\Lambda=1.01$이면 두 값은 $0.01$과 약 $0.009901$로 가깝다.
-반면 $\Lambda=1.5$이면 $0.5$와 약 $0.3333$으로 차이가 커진다.
-두 기술법이 다른 변형을 뜻하는 것이 아니라, **미분에 사용하는 좌표가 다르기 때문**이다.
-
-이 구분을 바탕으로 다음 절에서는 기준 배치의 선분이 현재 배치로 어떻게 변환되는지 다룬다.
-물질점을 따라 관찰하는 시간 변화율은 [부록 A](#부록-a-물질미분-material-derivative),
-계산 격자의 운동까지 구분하는 ALE 기술법은 [부록 B](#부록-b-ale-기술법)에서 설명한다.
-
-# 11. 유한변형률 (finite strain)
-
-## 11.1. 변형구배 (deformation gradient)
-
-변위구배가 작지 않거나 회전각이 크면 미소변형 근사를 사용할 수 없다.
-기준 좌표에 대한 현재 위치의 구배인 **변형구배**를 정의하자.
-
-$$
-\boxed{\boldsymbol F=\frac{\partial\boldsymbol x}{\partial\boldsymbol X}
-=\boldsymbol I+\nabla_X\boldsymbol u_L},
-\qquad F_{ij}=\frac{\partial x_i}{\partial X_j}.
-$$
-
-$\boldsymbol I$는 단위텐서다. $F_{ij}$에서 $i$는 현재 위치의 성분이고,
-$j$는 미분하는 기준좌표 방향을 나타낸다. 변위구배의 성분은
-
-$$
-(\nabla_X\boldsymbol u_L)_{ij}=\frac{\partial u_{L,i}}{\partial X_j}
-$$
-
-로 정의한다. 우변의 $\partial u_{L,i}$에서 첨자 $_L$은 Lagrangian 기술법 $_i$는 변위 성분을 뜻한다.
-
-이웃한 물질점 사이의 미소 선분은
-
-$$
-d\boldsymbol x=\boldsymbol F\cdot d\boldsymbol X
-$$
-
-로 변환된다. 이 관계는 유한변형에서도 성립한다.
-$\boldsymbol F$에는 변형과 회전이 함께 들어 있으므로,
-$\boldsymbol F$ 자체를 변형률이라고 부르지는 않는다.
-체적비를 나타내는 스칼라를 $J=\det\boldsymbol F$로 정의한다.
-매끄럽고 방향을 보존하는 국소 변형에서는 $J>0$이고,
-
-$$
-dv=J\,dV,
-\qquad \frac{dv-dV}{dV}=J-1
-$$
-
-이다. $dV$와 $dv$는 기준 배치와 현재 배치의 체적요소(volume element)다.
-$J=dv/dV$는 **체적비**이고, $J-1=(dv-dV)/dV$은 **기준 체적에 대한 상대 체적 변화량**이다.
-$J>1$이면 체적이 증가하고, $0<J<1$이면 감소한다.
-비압축성 변형의 정확한 조건은 $J=1$이다.
-
-현재 좌표 $\boldsymbol x$에 대한 Eulerian 변위구배와의 관계도 확인하자.
-운동함수 $\boldsymbol\Phi$가 매끄럽고 역변환 가능하다고 가정하면,
-현재 위치에 있는 물질점의 기준 위치는
-
-$$
-\boldsymbol X=\boldsymbol\Phi^{-1}(\boldsymbol x,t)
-=\boldsymbol x-\boldsymbol u_E(\boldsymbol x,t)
-$$
-
-이다. 시간을 고정하고 현재좌표로 미분하면
-
-$$
-\boxed{\boldsymbol F^{-1}
-=\frac{\partial\boldsymbol X}{\partial\boldsymbol x}
-=\boldsymbol I-\nabla_x\boldsymbol u_E}
-$$
-
-를 얻는다.
-
-## 11.2. 길이 변화로부터 정의하는 유한변형률
-
-변형 전후 선분 길이의 제곱 차이[^squared-length]는
-
-$$
-d\boldsymbol x\cdot d\boldsymbol x-d\boldsymbol X\cdot d\boldsymbol X
-=d\boldsymbol X\cdot\left((\boldsymbol F^T\cdot\boldsymbol F-\boldsymbol I)\cdot d\boldsymbol X\right)
-=2d\boldsymbol X\cdot(\boldsymbol E\cdot d\boldsymbol X)
-$$
-
-이다.[^line-element-quadratic-form] 따라서 **Green–Lagrange 변형률 (Green–Lagrange strain)**, $\boldsymbol E$는
-
-$$
-\boxed{\boldsymbol E=\frac12(\boldsymbol F^T\cdot \boldsymbol F-\boldsymbol I)}.
-$$
-
-$\boldsymbol H=\nabla_X\boldsymbol u_L$을 대입하면
-
-$$
-\boldsymbol E=\frac12(\boldsymbol H+\boldsymbol H^T+\boldsymbol H^T\cdot \boldsymbol H).
-$$
-
-미소변형률은 이 식에서 이차항 $\boldsymbol H^T\cdot \boldsymbol H$를 무시한 근사다.
-즉 $\|\boldsymbol H\|\ll1$일 때 $\boldsymbol E\approx\boldsymbol\varepsilon$이다.
-병진변위(translational displacement)의 크기(즉 $\|\boldsymbol u_L\|$)보다 **변위구배**($\boldsymbol H=\nabla_X\boldsymbol u_L$)**의 크기**가 근사의 기준이라는 점에 주목하자.
-
-같은 길이 변화를 현재 선분 $d\boldsymbol x$로 표현하면
-**Euler–Almansi 변형률 (Euler–Almansi strain)**, $\boldsymbol e$를 얻는다.
-
-$$
-\boxed{\boldsymbol e=\frac12(\boldsymbol I-\boldsymbol F^{-T}\cdot \boldsymbol F^{-1})},
-\qquad
-d\boldsymbol x\cdot d\boldsymbol x-d\boldsymbol X\cdot d\boldsymbol X
-=2d\boldsymbol x\cdot(\boldsymbol e\cdot d\boldsymbol x).
-$$
-
-$\boldsymbol F^{-T}=(\boldsymbol F^{-1})^T$다. $\boldsymbol E$와 $\boldsymbol e$는 각각 기준 배치와
-현재 배치의 선분으로 같은 길이 변화를 표현하지만 수치는 일반적으로 다르다.
-좌표 기술법을 선택하는 것과 변형률 척도를 선택하는 것은 구분해야 한다.
-
-[^squared-length]: 벡터 $\boldsymbol v$의 길이는 $\|\boldsymbol v\|=\sqrt{\boldsymbol v\cdot\boldsymbol v}$이고, 길이의 제곱은 $\|\boldsymbol v\|^2=\boldsymbol v\cdot\boldsymbol v$다. 따라서 선분의 제곱 길이는 각각 $d\boldsymbol X\cdot d\boldsymbol X$와 $d\boldsymbol x\cdot d\boldsymbol x$로 표현된다. 길이 자체 대신 제곱을 사용하면 제곱근 없이 내적과 텐서로 길이 변화를 표현할 수 있다. 실제 길이는 이 값의 제곱근이며, 제곱 길이와 길이는 구분해야 한다. $d\boldsymbol x=\boldsymbol F\cdot d\boldsymbol X$를 대입하면 $d\boldsymbol x\cdot d\boldsymbol x= [d\boldsymbol X]^T[\boldsymbol F]^T[\boldsymbol F][d\boldsymbol X]$가 되어 본문의 관계를 얻는다.
-
-[^line-element-quadratic-form]: 같은 정규직교 기저에서 미소 선분의 성분을 열벡터 $[d\boldsymbol X]$, $[d\boldsymbol x]$로 배열한다. 대괄호는 성분 배열이며, 내적은 $\boldsymbol a\cdot\boldsymbol b=[\boldsymbol a]^T[\boldsymbol b]$다. 위첨자 $T$는 전치(transpose)로, 열벡터를 행벡터로 바꾼다. $[d\boldsymbol x]=[\boldsymbol F][d\boldsymbol X]$에 곱의 전치 규칙 $([\boldsymbol A][\boldsymbol B])^T=[\boldsymbol B]^T[\boldsymbol A]^T$를 적용하면
-
-    $$
-    \begin{aligned}
-    d\boldsymbol x\cdot d\boldsymbol x
-    &=[d\boldsymbol x]^T[d\boldsymbol x]\\
-    &=([\boldsymbol F][d\boldsymbol X])^T([\boldsymbol F][d\boldsymbol X])\\
-    &=[d\boldsymbol X]^T[\boldsymbol F]^T[\boldsymbol F][d\boldsymbol X].
-    \end{aligned}
-    $$
-
-    기준 선분에 대해서는 $d\boldsymbol X\cdot d\boldsymbol X=[d\boldsymbol X]^T[\boldsymbol I][d\boldsymbol X]$이므로, 제곱 길이의 차이는
-
-    $$
-    \begin{aligned}
-    d\boldsymbol x\cdot d\boldsymbol x-d\boldsymbol X\cdot d\boldsymbol X
-    &=[d\boldsymbol X]^T([\boldsymbol F]^T[\boldsymbol F]-[\boldsymbol I])[d\boldsymbol X]\\
-    &=2[d\boldsymbol X]^T[\boldsymbol E][d\boldsymbol X].
-    \end{aligned}
-    $$
-
-    이는 **이차형식 (quadratic form)**이다. 3차원에서 배열 크기는 $(1\times3)(3\times3)(3\times1)$이므로 결과는 제곱 길이 단위의 스칼라다. 성분으로는 $dX_i(F_{ki}F_{kj}-\delta_{ij})dX_j$이며, 반복 인덱스에 대해 합한다. 여기서 $\boldsymbol E=(\boldsymbol F^T\cdot\boldsymbol F-\boldsymbol I)/2$다. 특히 $d\boldsymbol X=\ell_0\boldsymbol N$인 선분($\|\boldsymbol N\|=1$)에 대해 $\boldsymbol N\cdot(\boldsymbol E\cdot\boldsymbol N)=[\boldsymbol N]^T[\boldsymbol E][\boldsymbol N]=(\ell^2-\ell_0^2)/(2\ell_0^2)$이므로, 이차형식은 기준 방향 $\boldsymbol N$의 선분이 얼마나 늘어나거나 줄어드는지를 나타낸다. $\ell_0$와 $\ell$은 해당 미소 선분의 변형 전후 길이다.
-
-## 11.3. 1차원 인장과 강체회전의 비교
-
-균일 인장 $x=\Lambda X$에서 **신장비 (stretch ratio)**는 $\Lambda=l/l_0>0$이다.
-아래 척도들은 작은 인장에서는 비슷하지만 큰 인장에서는 달라진다.
-
-| 변형률 척도 | 정의 | $\Lambda=1.5$ |
-| ----------- | ---- | ------------ |
-| 공칭·공학변형률 | $\Lambda-1$ | $0.5$ |
-| Green–Lagrange 변형률 | $(\Lambda^2-1)/2$ | $0.625$ |
-| Euler–Almansi 변형률 | $(1-\Lambda^{-2})/2$ | $0.2778$ |
-| 로그변형률 (logarithmic strain) | $\ln\Lambda$ | $0.4055$ |
-
-공칭변형률 $du_L/dX=\Lambda-1$은 이 1차원 문제에서는 큰 인장에도 정확하다.
-다만 이를 일반적인 유한변형률 텐서와 동일시할 수는 없다.
-
-이제 강체운동 $\boldsymbol x=\boldsymbol Q\cdot \boldsymbol X+\boldsymbol c$를 생각하자.
-$\boldsymbol Q^T\cdot \boldsymbol Q=\boldsymbol I$, $\det\boldsymbol Q=1$인 회전텐서에 대해
-
-$$
-\boldsymbol F=\boldsymbol Q,
-\qquad \boldsymbol E=\boldsymbol e=\boldsymbol 0.
-$$
-
-반면 평면에서 $\theta$만큼 회전할 때 미소변형률 공식을 기준 좌표 구배에 적용하면
-
-$$
-\frac12[(\boldsymbol Q-\boldsymbol I)+(\boldsymbol Q-\boldsymbol I)^T]
-=(\cos\theta-1)\boldsymbol I
-$$
-
-가 된다. $90^\circ$ 회전에서는 $-\boldsymbol I$라는 잘못된 변형률이 나온다.
-작은 $\theta$에서는 $\cos\theta-1\approx-\theta^2/2$가 이차항이므로
-미소변형 근사에서 무시할 수 있다.
-
-# 12. 극분해 (polar decomposition)
-
-## 12.1. 회전과 신장의 분리
-
-$\det\boldsymbol F>0$인 변형구배는 다음과 같이 유일하게 분해된다.
-
-$$
-\boxed{\boldsymbol F=\boldsymbol R\cdot \boldsymbol U=\boldsymbol V\cdot \boldsymbol R}.
-$$
-
-$\boldsymbol R$은 $\boldsymbol R^T\cdot \boldsymbol R=\boldsymbol I$, $\det\boldsymbol R=1$을 만족하는
-회전텐서(rotation tensor)다. $\boldsymbol U$와 $\boldsymbol V$는 대칭 양의 정부호인
-우신장텐서(right stretch tensor)와 좌신장텐서(left stretch tensor)다.
-이들의 고유값은 양의 주신장비(principal stretches)다.
-
-텐서의 연속 작용은 오른쪽부터 적용하므로 $\boldsymbol R\cdot \boldsymbol U$는 기준 배치 방향에서 신장한 뒤
-회전하는 표현이고, $\boldsymbol V\cdot \boldsymbol R$는 회전한 뒤 현재 배치 방향에서 신장하는 표현이다.
-이는 같은 국소 변형을 나타내는 두 수학적 표현이며 실제 변형의 시간 순서를 뜻하지 않는다.
-
-$$
-\boldsymbol C=\boldsymbol F^T\cdot \boldsymbol F=\boldsymbol U^2,
-\qquad \boldsymbol B=\boldsymbol F\cdot \boldsymbol F^T=\boldsymbol V^2,
-$$
-
-$$
-\boldsymbol U=\sqrt{\boldsymbol C},
-\qquad \boldsymbol V=\sqrt{\boldsymbol B},
-\qquad \boldsymbol R=\boldsymbol F\cdot \boldsymbol U^{-1},
-\qquad \boldsymbol V=\boldsymbol R\cdot \boldsymbol U\cdot \boldsymbol R^T.
-$$
-
-$\boldsymbol C$와 $\boldsymbol B$는 각각 우·좌 Cauchy–Green 변형텐서다.
-행렬의 제곱근은 성분마다 제곱근을 취하는 것이 아니다. 예를 들어
-$[\boldsymbol C]=[\boldsymbol P]\operatorname{diag}(\Lambda_1^2,\Lambda_2^2,\Lambda_3^2)[\boldsymbol P]^T$에서
-$[\boldsymbol P]$가 정규직교 고유벡터를 열로 갖는 행렬이면,
-$[\boldsymbol U]=[\boldsymbol P]\operatorname{diag}(\Lambda_1,\Lambda_2,\Lambda_3)[\boldsymbol P]^T$다.
-
-텐서의 거듭제곱은 수축의 반복을 뜻한다. 예를 들어 $\boldsymbol U^2=\boldsymbol U\cdot\boldsymbol U$다.
-신장텐서로 유한변형률을 쓰면
-
-$$
-\boldsymbol E=\frac12(\boldsymbol U^2-\boldsymbol I),
-\qquad \boldsymbol e=\frac12(\boldsymbol I-\boldsymbol V^{-2}).
-$$
-
-강체회전에서는 $\boldsymbol U=\boldsymbol V=\boldsymbol I$이므로 변형률은 0이다.
-8절의 $\nabla_X\boldsymbol u=\boldsymbol\varepsilon+\boldsymbol\omega$는
-작은 변형·회전의 **가법적 분해**이고, 극분해는 유한변형의 **곱셈적 분해**다.
-극분해의 회전·신장은 탄성·소성 성분을 분리하는 $\boldsymbol F=\boldsymbol F_e\cdot \boldsymbol F_p$와는
-다른 구분이다.
-
-## 12.2. 신장 후 회전하는 예제
-
-같은 정규직교 기저의 성분 배열로 계산한다. 평면에서 $X_1$방향으로 2배 신장한 뒤 $90^\circ$ 회전하면
-
-$$
-[\boldsymbol U]=\begin{bmatrix}2&0\\0&1\end{bmatrix},
-\qquad [\boldsymbol R]=\begin{bmatrix}0&-1\\1&0\end{bmatrix},
-\qquad [\boldsymbol F]=[\boldsymbol R][\boldsymbol U]=\begin{bmatrix}0&-1\\2&0\end{bmatrix}.
-$$
-
-이때
-
-$$
-[\boldsymbol V]=[\boldsymbol R][\boldsymbol U][\boldsymbol R]^T=\begin{bmatrix}1&0\\0&2\end{bmatrix},
-\qquad [\boldsymbol E]=\frac12([\boldsymbol U]^2-[\boldsymbol I])=\begin{bmatrix}1.5&0\\0&0\end{bmatrix}.
-$$
-
-기준 배치의 $X_1$방향 신장이 회전 후 현재 배치의 $x_2$방향 신장으로 표현된다.
-$\boldsymbol E$는 기준 배치에서의 신장을 나타내며 강체회전 때문에 값이 바뀌지 않는다.
-변형구배·극분해·Green–Lagrange 변형률의 추가 학습은
-[MIT OCW 강의 3](https://ocw.mit.edu/courses/res-2-002-finite-element-procedures-for-solids-and-structures-spring-2010/resources/lecture-3-1/)을 참고한다.
-
-# 13. 요약
+# 10. 요약
 
 | 개념                          | 공식                                                                         |
 | ----------------------------- | ---------------------------------------------------------------------------- |
 | 변위                          | $u = x - X$                                                                  |
-| 1차원 미소변형률                  | $\varepsilon = du_L/dX\approx du_E/dx$                                                        |
+| 1차원 미소변형률                  | $\varepsilon = du/dX$                                                        |
 | $\boldsymbol{e}_1$방향 수직변형률 | $\varepsilon_{11} = \partial u_1/\partial X_1$                               |
 | $\boldsymbol{e}_2$방향 수직변형률 | $\varepsilon_{22} = \partial u_2/\partial X_2$                               |
 | 전단변형률                    | $\varepsilon_{12} =0.5(\partial u_1/\partial X_2+\partial u_2/\partial X_1)$ |
-| 변형구배 | $\boldsymbol F=\partial\boldsymbol x/\partial\boldsymbol X=\boldsymbol I+\nabla_X\boldsymbol u_L$ |
-| 체적비 | $J=\det\boldsymbol F$ |
-| Green–Lagrange 변형률 | $\boldsymbol E=(\boldsymbol F^T\cdot \boldsymbol F-\boldsymbol I)/2$ |
-| Euler–Almansi 변형률 | $\boldsymbol e=(\boldsymbol I-\boldsymbol F^{-T}\cdot \boldsymbol F^{-1})/2$ |
-| 극분해 | $\boldsymbol F=\boldsymbol R\cdot \boldsymbol U=\boldsymbol V\cdot \boldsymbol R$ |
 
-# 14. 연습 문제
 
-## 문제 1
+<details markdown="1">
+<summary>분리 이전 절 링크 안내</summary>
 
-모든 점이 같은 크기와 방향으로 이동하는 병진운동에서 미소변형률이 0인 이유를 설명하시오.
+이전 자료의 절 링크로 들어온 경우 아래에서 이동한 내용을 찾을 수 있다.
 
-<!--
-풀이와 해답:
-점 사이의 상대적인 거리와 각도가 변하지 않고 변위의 공간 미분도 0이기 때문이다.
--->
+<span id="10-lagrangian과-eulerian-기술법"></span>
 
-## 문제 2
+[10. Lagrangian과 Eulerian 기술법]({% link assets/lecture_notes/5_1_polycrystalline_plasticity/metal_plasticity_05b_descriptions_finite_strain.md %}#10-lagrangian과-eulerian-기술법)
 
-1차원 막대의 변위가 $u(X)=0.01X$일 때 미소변형률을 구하시오.
+<span id="101-같은-물질점과-같은-공간-위치"></span>
 
-<!--
-풀이와 해답:
-epsilon=du/dX=0.01이다.
--->
+[10.1. 같은 물질점과 같은 공간 위치]({% link assets/lecture_notes/5_1_polycrystalline_plasticity/metal_plasticity_05b_descriptions_finite_strain.md %}#101-같은-물질점과-같은-공간-위치)
 
-## 문제 3
+<span id="102-앞의-1차원-인장을-두-기술법으로-표현하기"></span>
 
-좌표와 변위를 mm 단위로 측정한다. 변위가 $u(X)=(0.002\,\mathrm{mm}^{-1})X^2$일 때
-$X=10\,\mathrm{mm}$에서의 미소변형률을 구하시오.
+[10.2. 앞의 1차원 인장을 두 기술법으로 표현하기]({% link assets/lecture_notes/5_1_polycrystalline_plasticity/metal_plasticity_05b_descriptions_finite_strain.md %}#102-앞의-1차원-인장을-두-기술법으로-표현하기)
 
-<!--
-풀이와 해답:
-epsilon=du/dX=0.004X이므로 X=10에서 0.04이다.
--->
+<span id="11-유한변형률-finite-strain"></span>
 
-## 문제 4
+[11. 유한변형률 (finite strain)]({% link assets/lecture_notes/5_1_polycrystalline_plasticity/metal_plasticity_05b_descriptions_finite_strain.md %}#11-유한변형률-finite-strain)
 
-강체회전이 물체의 변형률을 만들지 않는 이유를 한 문장으로 설명하시오.
+<span id="111-변형구배-deformation-gradient"></span>
 
-<!--
-풀이와 해답:
-강체회전은 물체 내부의 길이와 각도를 바꾸지 않기 때문이다.
--->
+[11.1. 변형구배 (deformation gradient)]({% link assets/lecture_notes/5_1_polycrystalline_plasticity/metal_plasticity_05b_descriptions_finite_strain.md %}#111-변형구배-deformation-gradient)
 
-## 문제 5
+<span id="112-길이-변화로부터-정의하는-유한변형률"></span>
 
-한 점의 변형 전 위치가 $\boldsymbol X=(1,2,3)^T$ mm이고 변형 후 위치가
-$\boldsymbol x=(2,4,3)^T$ mm이다. 변위벡터를 구하시오.
+[11.2. 길이 변화로부터 정의하는 유한변형률]({% link assets/lecture_notes/5_1_polycrystalline_plasticity/metal_plasticity_05b_descriptions_finite_strain.md %}#112-길이-변화로부터-정의하는-유한변형률)
 
-<!--
-풀이와 해답:
-u=x-X=(2-1,4-2,3-3)^T=(1,2,0)^T mm이다.
--->
+<span id="113-1차원-인장과-강체회전의-비교"></span>
 
-## 문제 6
+[11.3. 1차원 인장과 강체회전의 비교]({% link assets/lecture_notes/5_1_polycrystalline_plasticity/metal_plasticity_05b_descriptions_finite_strain.md %}#113-1차원-인장과-강체회전의-비교)
 
-초기 위치가 $X^a=0$ mm, $X^b=100$ mm인 두 점의 변위가 각각
-$u^a=2$ mm, $u^b=3$ mm이다. 두 점 사이의 공칭변형률을 구하시오.
+<span id="12-극분해-polar-decomposition"></span>
 
-<!--
-풀이와 해답:
-두 점의 상대변위는 3-2=1 mm이고 초기 거리는 100 mm이다.
-따라서 변형률은 1/100=0.01이다. 두 점에 공통인 2 mm 병진성분은 변형률에 기여하지 않는다.
--->
+[12. 극분해 (polar decomposition)]({% link assets/lecture_notes/5_1_polycrystalline_plasticity/metal_plasticity_05b_descriptions_finite_strain.md %}#12-극분해-polar-decomposition)
 
-## 문제 7
+<span id="121-회전과-신장의-분리"></span>
 
-1차원 변위장이 $u(X)=5$ mm로 위치와 관계없이 일정하다. 미소변형률을 구하고 이 운동을
-설명하시오.
+[12.1. 회전과 신장의 분리]({% link assets/lecture_notes/5_1_polycrystalline_plasticity/metal_plasticity_05b_descriptions_finite_strain.md %}#121-회전과-신장의-분리)
 
-<!--
-풀이와 해답:
-du/dX=0이므로 변형률은 0이다. 모든 점이 같은 양만큼 이동하는 강체 병진이다.
--->
+<span id="122-신장-후-회전하는-예제"></span>
 
-## 문제 8
+[12.2. 신장 후 회전하는 예제]({% link assets/lecture_notes/5_1_polycrystalline_plasticity/metal_plasticity_05b_descriptions_finite_strain.md %}#122-신장-후-회전하는-예제)
 
-좌표와 변위를 mm 단위로 측정한다. 1차원 변위장이 $u(X)=(0.001\,\mathrm{mm}^{-1})X^2$일 때
-미소변형률 분포를 구하고 $X=10\,\mathrm{mm}$에서의 값을 계산하시오.
+<span id="14-연습-문제"></span>
 
-<!--
-풀이와 해답:
-epsilon=du/dX=0.002X이다. X=10에서는 epsilon=0.02이다.
-위치에 따라 변형률이 달라지는 비균일 변형이다.
--->
+[14. 연습 문제]({% link assets/lecture_notes/5_1_polycrystalline_plasticity/metal_plasticity_05d_displacement_strain_exercises.md %}#14-연습-문제)
 
-## 문제 9
+<span id="문제-1"></span>
 
-다음 2차원 변위장에서 변위구배와 미소변형률 텐서를 구하시오.
+[문제 1]({% link assets/lecture_notes/5_1_polycrystalline_plasticity/metal_plasticity_05d_displacement_strain_exercises.md %}#문제-1)
 
-$$
-u_1=0.02X_1,
-\qquad
-u_2=-0.01X_2
-$$
+<span id="문제-2"></span>
 
-<!--
-풀이와 해답:
-변위구배는 [[0.02,0],[0,-0.01]]이다. 이미 대칭이므로 변형률 텐서도
-[[0.02,0],[0,-0.01]]이다. 1방향은 인장되고 2방향은 압축된다.
--->
-
-## 문제 10
-
-다음 단순전단 변위장에서 $\varepsilon_{12}$와 공학전단변형률 $\gamma_{12}$를
-구하시오.
-
-$$
-u_1=0.04X_2,
-\qquad
-u_2=0
-$$
-
-<!--
-풀이와 해답:
-partial u1/partial X2=0.04이고 partial u2/partial X1=0이다.
-따라서 epsilon_12=(0.04+0)/2=0.02이고 gamma_12=2epsilon_12=0.04이다.
--->
-
-## 문제 11
-
-다음 미소 강체회전 변위장의 변형률 텐서가 0임을 보이시오. 여기서 $\theta$는 작은
-회전각이다.
-
-$$
-u_1=-\theta X_2,
-\qquad
-u_2=\theta X_1
-$$
-
-<!--
-풀이와 해답:
-변위구배는 [[0,-theta],[theta,0]]으로 반대칭이다.
-대칭부분 (grad u + grad u^T)/2는 영행렬이므로 변형률 텐서는 0이다.
-반대칭부분에는 강체회전만 남는다.
--->
-
-## 문제 12
-
-다음 변위장에서 미소변형률 텐서와 미소회전 텐서를 구하시오.
-
-$$
-u_1=0.01X_1-0.02X_2+1,
-\qquad
-u_2=0.02X_1+0.03X_2-2
-$$
-
-<!--
-풀이와 해답:
-변위구배는 [[0.01,-0.02],[0.02,0.03]]이다.
-대칭부분인 변형률은 [[0.01,0],[0,0.03]]이고,
-반대칭부분인 회전은 [[0,-0.02],[0.02,0]]이다.
-상수 1과 -2는 병진이므로 두 텐서에 영향을 주지 않는다.
--->
-
-## 문제 13
-
-3차원 변위장이 다음과 같을 때 체적변형률의 미소변형 근사
-$\varepsilon_v=\operatorname{tr}(\boldsymbol\varepsilon)$를 구하시오.
-
-$$
-u_1=0.01X_1,
-\qquad
-u_2=0.02X_2,
-\qquad
-u_3=-0.005X_3
-$$
-
-<!--
-풀이와 해답:
-수직변형률은 각각 0.01, 0.02, -0.005이다.
-따라서 체적변형률은 trace(epsilon)=0.01+0.02-0.005=0.025이다.
--->
-
-## 문제 14
-
-다음 변위장이 미소 비압축성 조건을 만족하도록 상수 $a$를 구하시오.
-
-$$
-u_1=0.02X_1,
-\qquad
-u_2=-0.01X_2,
-\qquad
-u_3=aX_3
-$$
-
-<!--
-풀이와 해답:
-미소 비압축성 조건은 trace(epsilon)=0이다.
-0.02-0.01+a=0이므로 a=-0.01이다.
--->
-
-## 문제 15
-
-좌표와 변위를 mm 단위로 측정한다. 다음 비균일 변위장에서 미소변형률 성분을 구하고
-$(X_1,X_2)=(2,1)\,\mathrm{mm}$에서 평가하시오.
-
-$$
-u_1=\left(0.005\,\mathrm{mm}^{-1}\right)X_1X_2,
-\qquad
-u_2=0.01X_2
-$$
-
-<!--
-풀이와 해답:
-epsilon_11=partial u1/partial X1=(0.005 mm^{-1})X2,
-epsilon_22=partial u2/partial X2=0.01,
-epsilon_12=(partial u1/partial X2+partial u2/partial X1)/2=(0.0025 mm^{-1})X1이다.
-(X1,X2)=(2,1) mm에서는 epsilon_11=0.005, epsilon_22=0.01,
-epsilon_12=0.005이다.
--->
-
-## 문제 16
-
-변위장에 임의의 상수 병진벡터 $\boldsymbol c$를 더해
-$\boldsymbol u^{new}(\boldsymbol X)=\boldsymbol u(\boldsymbol X)+\boldsymbol c$로 만들었다.
-변형률 텐서가 바뀌는지 설명하시오.
-
-<!--
-풀이와 해답:
-상수벡터 c의 공간미분은 0이므로 변위구배와 변형률 텐서는 바뀌지 않는다.
-변형률은 절대변위가 아니라 위치에 따른 상대변위 변화로 결정된다.
--->
-
-# 부록 A. 물질미분 (material derivative)
-
-## A.1. 물질점을 따라 관찰하는 변화율
-
-**물질미분은 움직이는 물질점이 경험하는 물리량의 변화율**이다.
-온도장 $T(\boldsymbol x,t)$에서 고정된 위치의 온도 변화율은
-$\left.\partial T/\partial t\right|_{\boldsymbol x}$다. 그러나 물질점은 이동하므로,
-다른 온도의 위치로 이동하며 경험하는 변화도 포함해야 한다.
-
-물질점의 운동을 $\boldsymbol x=\boldsymbol\Phi(\boldsymbol X,t)$로 나타내면,
-같은 물질점이 경험하는 온도는
-
-$$
-T_L(\boldsymbol X,t)=T(\boldsymbol\Phi(\boldsymbol X,t),t)
-$$
-
-이다. 물질점의 이름표 $\boldsymbol X$를 고정하고 연쇄법칙을 적용하면
-
-$$
-\begin{aligned}
-\frac{DT}{Dt}
-&=\left.\frac{\partial T_L}{\partial t}\right|_{\boldsymbol X}\\
-&=\left.\frac{\partial T}{\partial t}\right|_{\boldsymbol x}
-+\frac{\partial T}{\partial x_i}
-\left.\frac{\partial\Phi_i}{\partial t}\right|_{\boldsymbol X}\\
-&=\left.\frac{\partial T}{\partial t}\right|_{\boldsymbol x}
-+v_i\frac{\partial T}{\partial x_i}.
-\end{aligned}
-$$
-
-여기서 $\boldsymbol v=\left.\partial\boldsymbol\Phi/\partial t\right|_{\boldsymbol X}$는
-물질점의 속도다. 반복 첨자 $i$는 세 공간 방향에 대한 합을 뜻하며,
-우변은 해당 물질점의 현재 위치에서 평가한다. 벡터 표기로 쓰면
-
-$$
-\boxed{\frac{DT}{Dt}
-=\left.\frac{\partial T}{\partial t}\right|_{\boldsymbol x}
-+\boldsymbol v\cdot\nabla_xT}.
-$$
-
-첫 항은 고정된 위치에서의 시간 변화이고, 둘째 항은 물질점의 이동에 의한 변화인
-**이송항 (convective term)**이다. 따라서 Lagrangian 기술법에서는 같은 물질점의
-시간 미분이 곧 물질미분이며, Eulerian 기술법에서는 고정 위치의 시간 미분에 이송항을 더한다.
-
-## A.2. 시간에 따라 변하지 않는 온도장에서의 물질미분
-
-$x$를 m 단위로 측정할 때, 시간에 따라 **변하지 않는** 1차원 온도장을
-
-$$
-T(x)=20\,{}^\circ\mathrm C
-+\left(10\,{}^\circ\mathrm C/\mathrm m\right)x
-$$
-
-라고 하자. 물질점이 $v=2\,\mathrm{m/s}$로 이동하면
-
-$$
-\left.\frac{\partial T}{\partial t}\right|_x=0,
-\qquad
-\frac{DT}{Dt}=v\frac{dT}{dx}
-=2\times10=20\,{}^\circ\mathrm C/\mathrm s.
-$$
-
-고정된 온도계의 값은 변하지 않지만, 이동하는 물질점은 더 따뜻한 곳으로 가므로
-초당 $20\,{}^\circ\mathrm C$의 온도 증가를 경험한다.
-
-![정상 온도장에서 고정 관찰점과 이동하는 물질점이 기록하는 온도의 비교](/assets/img/lecture_notes/displacement/material_derivative_temperature.png)
-
-위 그림의 (a)에서 파란 선은 시간에 따라 변하지 않는 온도장이고, 빨간 점들은
-$x(0)=0$에서 출발한 **같은 물질점**의 $t=0,1,2\,\mathrm s$ 위치와 온도를 나타낸다.
-초록색 원은 $x=1\,\mathrm m$에 고정된 관찰점이다. (b)는 각 관찰자가 기록하는 온도를
-시간에 대해 그린 것으로, 고정점에서는 $30\,{}^\circ\mathrm C$로 일정하지만
-이동점에서는 $20,40,60\,{}^\circ\mathrm C$로 상승한다.
-
-## A.3. 공간과 시간에 모두 의존하는 온도장
-
-이번에는 A.2의 온도장이 모든 위치에서 시간에 따라 상승하는 경우를 생각하자.
-$x$는 m, $t$는 s 단위로 측정하며,
-
-$$
-T(x,t)=20\,{}^\circ\mathrm C
-+\left(10\,{}^\circ\mathrm C/\mathrm m\right)x
-+\left(3\,{}^\circ\mathrm C/\mathrm s\right)t
-$$
-
-라고 하자. 고정된 위치에서의 온도 상승률과 공간에 대한 기울기는 각각
-
-$$
-\left.\frac{\partial T}{\partial t}\right|_x
-=3\,{}^\circ\mathrm C/\mathrm s,
-\qquad
-\frac{\partial T}{\partial x}=10\,{}^\circ\mathrm C/\mathrm m
-$$
-
-이다. 물질점이 $v=2\,\mathrm{m/s}$로 이동하면
-
-$$
-\boxed{\frac{DT}{Dt}
-=\left.\frac{\partial T}{\partial t}\right|_x
-+v\frac{\partial T}{\partial x}
-=3+2\times10=23\,{}^\circ\mathrm C/\mathrm s}.
-$$
-
-고정된 온도계는 초당 $3\,{}^\circ\mathrm C$의 상승을 측정한다.
-이동하는 물질점은 이 시간 변화에 더해 더 따뜻한 위치로 이동하는 효과도 경험하므로,
-초당 $23\,{}^\circ\mathrm C$의 상승을 경험한다.
-
-물질점의 경로에 온도장을 직접 대입해도 같은 결과를 확인할 수 있다.
-$t=0$에서 $x=X$인 물질점의 운동은 $x(X,t)=X+vt$이므로,
-
-$$
-\begin{aligned}
-T_L(X,t)&=T(X+vt,t)\\
-&=20\,{}^\circ\mathrm C
-+\left(10\,{}^\circ\mathrm C/\mathrm m\right)X
-+\left(23\,{}^\circ\mathrm C/\mathrm s\right)t,\\
-\left.\frac{\partial T_L}{\partial t}\right|_X
-&=23\,{}^\circ\mathrm C/\mathrm s.
-\end{aligned}
-$$
-
-두 효과가 항상 같은 부호인 것은 아니다. 같은 온도장에서 물질점이 반대 방향으로
-$v=-2\,\mathrm{m/s}$로 이동하면 $DT/Dt=3-20=-17\,{}^\circ\mathrm C/\mathrm s$다.
-각 위치의 온도는 상승하고 있어도, 물질점은 더 차가운 위치로 빠르게 이동하므로
-자신이 경험하는 온도는 감소한다.
-
-## A.4. 속도의 물질미분과 가속도
-
-물질미분은 벡터장의 각 성분에도 적용할 수 있다.
-고정된 Cartesian(직교) 좌표계에서 속도의 물질미분은 물질점의 가속도다.
-
-$$
-\boxed{\boldsymbol a=\frac{D\boldsymbol v}{Dt}
-=\left.\frac{\partial\boldsymbol v}{\partial t}\right|_{\boldsymbol x}
-+(\boldsymbol v\cdot\nabla_x)\boldsymbol v},
-\qquad
- a_i=\frac{\partial v_i}{\partial t}+v_j\frac{\partial v_i}{\partial x_j}.
-$$
-
-속도장이 시간에 따라 일정해도, 물질점이 공간적으로 속도 크기나 방향이 다른 곳으로
-이동하면 가속도가 생길 수 있다. 예를 들어 정상 유동이 좁아지는 통로를 지나며
-빨라지는 경우에는 시간에 대한 편미분이 0이어도 이송항에 의한 가속도가 존재한다.
-
-# 부록 B. ALE 기술법
-
-10절의 두 좌표 기술법과 부록 A의 물질미분을 바탕으로, 계산 격자의 운동을 별도로 다루는
-방법을 살펴보자.
-
-**ALE (Arbitrary Lagrangian–Eulerian, 임의 Lagrangian–Eulerian) 기술법**에서는
-계산 격자(computational mesh)의 운동을 물질의 운동과 별도로 정한다.
-격자좌표 $\boldsymbol\xi$를 사용하여
-
-$$
-\boldsymbol x=\boldsymbol\psi(\boldsymbol\xi,t),
-\qquad
-\boldsymbol w=\left.\frac{\partial\boldsymbol\psi}{\partial t}\right|_{\boldsymbol\xi}
-$$
-
-라고 쓰면, $\boldsymbol w$는 격자 속도이고 $\boldsymbol v$는 물질 속도다.
-
-| 기술법 | 격자의 운동 | 물질의 격자에 대한 상대속도 |
-| ------ | ----------- | -------------------------- |
-| Lagrangian | 물질과 함께 이동: $\boldsymbol w=\boldsymbol v$ | $\boldsymbol 0$ |
-| Eulerian | 공간에 고정: $\boldsymbol w=\boldsymbol 0$ | $\boldsymbol v$ |
-| ALE | 격자 품질과 경계조건에 맞게 이동 | $\boldsymbol v-\boldsymbol w$ |
-
-$q_{ALE}(\boldsymbol\xi,t)=q(\boldsymbol\psi(\boldsymbol\xi,t),t)$라고 정의하면,
-연쇄법칙에 의해
-
-$$
-\frac{Dq}{Dt}=\left.\frac{\partial q_{ALE}}{\partial t}\right|_{\boldsymbol\xi}
-+(\boldsymbol v-\boldsymbol w)\cdot\nabla_x q
-$$
-
-가 된다. 우변은 대응하는 동일한 위치에서 평가한다. 물질이 격자를 통과하므로
-상대속도에 의한 이송을 계산해야 한다.
-
-물질을 따라가는 격자(Lagrangian mesh)는 큰 변형에서 심하게 찌그러질 수 있고, 고정 격자(Eulerian mesh)는 움직이는
-경계를 표현하기 어려울 수 있다. ALE는 격자를 조절하여 이 문제를 줄이는 데 사용되며,
-압출 같은 큰 소성변형이나 유체–구조 상호작용에서 유용하다.
-
-격자 운동은 경계조건을 만족해야 하며, 격자 사상은 역변환 가능해야 한다.
-좌표와 미분에 관한 추가 설명은
-[COMSOL 공식 문서](https://doc.comsol.com/6.3/doc/com.comsol.help.comsol/comsol_ref_deformedmeshes.34.07.html)를 참고한다.
+[문제 2]({% link assets/lecture_notes/5_1_polycrystalline_plasticity/metal_plasticity_05d_displacement_strain_exercises.md %}#문제-2)
+
+<span id="문제-3"></span>
+
+[문제 3]({% link assets/lecture_notes/5_1_polycrystalline_plasticity/metal_plasticity_05d_displacement_strain_exercises.md %}#문제-3)
+
+<span id="문제-4"></span>
+
+[문제 4]({% link assets/lecture_notes/5_1_polycrystalline_plasticity/metal_plasticity_05d_displacement_strain_exercises.md %}#문제-4)
+
+<span id="문제-5"></span>
+
+[문제 5]({% link assets/lecture_notes/5_1_polycrystalline_plasticity/metal_plasticity_05d_displacement_strain_exercises.md %}#문제-5)
+
+<span id="문제-6"></span>
+
+[문제 6]({% link assets/lecture_notes/5_1_polycrystalline_plasticity/metal_plasticity_05d_displacement_strain_exercises.md %}#문제-6)
+
+<span id="문제-7"></span>
+
+[문제 7]({% link assets/lecture_notes/5_1_polycrystalline_plasticity/metal_plasticity_05d_displacement_strain_exercises.md %}#문제-7)
+
+<span id="문제-8"></span>
+
+[문제 8]({% link assets/lecture_notes/5_1_polycrystalline_plasticity/metal_plasticity_05d_displacement_strain_exercises.md %}#문제-8)
+
+<span id="문제-9"></span>
+
+[문제 9]({% link assets/lecture_notes/5_1_polycrystalline_plasticity/metal_plasticity_05d_displacement_strain_exercises.md %}#문제-9)
+
+<span id="문제-10"></span>
+
+[문제 10]({% link assets/lecture_notes/5_1_polycrystalline_plasticity/metal_plasticity_05d_displacement_strain_exercises.md %}#문제-10)
+
+<span id="문제-11"></span>
+
+[문제 11]({% link assets/lecture_notes/5_1_polycrystalline_plasticity/metal_plasticity_05d_displacement_strain_exercises.md %}#문제-11)
+
+<span id="문제-12"></span>
+
+[문제 12]({% link assets/lecture_notes/5_1_polycrystalline_plasticity/metal_plasticity_05d_displacement_strain_exercises.md %}#문제-12)
+
+<span id="문제-13"></span>
+
+[문제 13]({% link assets/lecture_notes/5_1_polycrystalline_plasticity/metal_plasticity_05d_displacement_strain_exercises.md %}#문제-13)
+
+<span id="문제-14"></span>
+
+[문제 14]({% link assets/lecture_notes/5_1_polycrystalline_plasticity/metal_plasticity_05d_displacement_strain_exercises.md %}#문제-14)
+
+<span id="문제-15"></span>
+
+[문제 15]({% link assets/lecture_notes/5_1_polycrystalline_plasticity/metal_plasticity_05d_displacement_strain_exercises.md %}#문제-15)
+
+<span id="문제-16"></span>
+
+[문제 16]({% link assets/lecture_notes/5_1_polycrystalline_plasticity/metal_plasticity_05d_displacement_strain_exercises.md %}#문제-16)
+
+<span id="부록-a-물질미분-material-derivative"></span>
+
+[부록 A. 물질미분 (material derivative)]({% link assets/lecture_notes/5_1_polycrystalline_plasticity/metal_plasticity_05c_material_derivative_ale.md %}#부록-a-물질미분-material-derivative)
+
+<span id="a1-물질점을-따라-관찰하는-변화율"></span>
+
+[A.1. 물질점을 따라 관찰하는 변화율]({% link assets/lecture_notes/5_1_polycrystalline_plasticity/metal_plasticity_05c_material_derivative_ale.md %}#a1-물질점을-따라-관찰하는-변화율)
+
+<span id="a2-시간에-따라-변하지-않는-온도장에서의-물질미분"></span>
+
+[A.2. 시간에 따라 변하지 않는 온도장에서의 물질미분]({% link assets/lecture_notes/5_1_polycrystalline_plasticity/metal_plasticity_05c_material_derivative_ale.md %}#a2-시간에-따라-변하지-않는-온도장에서의-물질미분)
+
+<span id="a3-공간과-시간에-모두-의존하는-온도장"></span>
+
+[A.3. 공간과 시간에 모두 의존하는 온도장]({% link assets/lecture_notes/5_1_polycrystalline_plasticity/metal_plasticity_05c_material_derivative_ale.md %}#a3-공간과-시간에-모두-의존하는-온도장)
+
+<span id="a4-속도의-물질미분과-가속도"></span>
+
+[A.4. 속도의 물질미분과 가속도]({% link assets/lecture_notes/5_1_polycrystalline_plasticity/metal_plasticity_05c_material_derivative_ale.md %}#a4-속도의-물질미분과-가속도)
+
+<span id="부록-b-ale-기술법"></span>
+
+[부록 B. ALE 기술법]({% link assets/lecture_notes/5_1_polycrystalline_plasticity/metal_plasticity_05c_material_derivative_ale.md %}#부록-b-ale-기술법)
+
+</details>
+
+<span id="fn:squared-length"></span>
+<span id="fnref:squared-length"></span>
+
+[유한변형률 각주: 선분의 제곱 길이]({% link assets/lecture_notes/5_1_polycrystalline_plasticity/metal_plasticity_05b_descriptions_finite_strain.md %}#fn:squared-length)
+
+<span id="fn:line-element-quadratic-form"></span>
+<span id="fnref:line-element-quadratic-form"></span>
+
+[유한변형률 각주: 이차형식의 계산]({% link assets/lecture_notes/5_1_polycrystalline_plasticity/metal_plasticity_05b_descriptions_finite_strain.md %}#fn:line-element-quadratic-form)

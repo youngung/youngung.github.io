@@ -5,7 +5,7 @@ description: 주응력 공간, 편차응력과 von Mises 등가응력
 target: 학부 고학년
 permalink:
 featured: true
-prerequisite: 좌표변환, 소성 항복
+prerequisite: 좌표변환, 응력 텐서
 toc:
   sidebar: left
 
@@ -137,6 +137,9 @@ $$
 $$
 
 # 5. Von Mises 등가 응력
+
+이후 절에서는 주응력과 편차응력의 활용을 미리 살펴본다. 항복 조건의 물리적 의미는
+[소성 항복]({% link assets/lecture_notes/5_1_polycrystalline_plasticity/metal_plasticity_09_plastic_yield.md %})에서 이어서 설명한다.
 
 - Von Mises 등가 응력을 편차 응력에 대한 함수로 아래와 같이 표현할 수 있다.
 

@@ -5,7 +5,7 @@ description: 3차원 문제를 단순화하는 두 평면 조건
 target: 학부 고학년
 permalink:
 featured: true
-prerequisite: 힘과 응력, 변위와 변형률
+prerequisite: 힘과 응력, 변위와 미소변형률, 선형 탄성
 toc:
   sidebar: left
 

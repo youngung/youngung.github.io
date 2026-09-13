@@ -31,7 +31,7 @@ authors:
   - [2.1. Hill's yield criterion](#21-hills-yield-criterion)
   - [2.2. Barlat's yield criterion](#22-barlats-yield-criterion)
 - [3. Slip system \& crystal orientation](#3-slip-system--crystal-orientation)
-- [4. 평균장 다결정 소성 모델](#4-평균장-다결정-소성-모델)
+- [평균장 모델 후속 자료](#4-평균장-다결정-소성-모델)
 
 # 1. Hardening
 
@@ -102,6 +102,10 @@ $$
 \tau_c\equiv\tau_c\bigg(\sum_s\int_0^{t}\dot\gamma^s dt\bigg)
 $$
 
+한 슬립계의
+변형이 다른 슬립계의 임계분해전단응력에도 영향을 주는 현상을 잠재경화(latent
+hardening)라 한다.
+
 # 2. Anisotropy
 
 ## 2.1. Hill's yield criterion
@@ -159,43 +163,6 @@ $$
 전위 슬립계가 simple shear 변형을 받아드리면서 lattice 회전이 발생할 수 있다. 이는 집합조직 발달로 이어진다.
 
 
-# 4. 평균장 다결정 소성 모델
-
-- 각 결정립의 평균적인 거동을 바탕으로, 여러 결정립으로 이루어진 다결정의 평균 거동을 계산할 필요가 있다.
-
-- FE 모델의 경우(Type I), 각 유한요소에 다른 결정 방위를 부과하여 그 평균 값을 계산을 통해 하는 방법이 있다.
-
-- VPSC 모델의 경우, Homogeneous Effective Medium 방법을 활용해 계산한다.
-
-  - 우선 아래 비선형 거동을 선형화 형태로 나타내어야 한다.
-
-$$
-\dot{\boldsymbol\varepsilon}^{pl}=\dot\gamma_0\sum_s\boldsymbol m^s\bigg(\frac{|\boldsymbol m^s : \boldsymbol \sigma|}{\tau_c}\bigg)^n \text{sgn}(\boldsymbol m^s : \boldsymbol \sigma)
-$$
-
-  - 다양한 방법중 Secant 방법을 소개하겠다.
-
-$$
-\dot{\boldsymbol\varepsilon}^{pl}=\dot\gamma_0\sum_s\boldsymbol m^s\bigg(\frac{|\boldsymbol m^s : \boldsymbol \sigma|}{\tau_c}\bigg)^{n-1} \bigg(\frac{|\boldsymbol m^s : \boldsymbol \sigma|}{\tau_c}\bigg)\text{sgn}(\boldsymbol m^s : \boldsymbol \sigma)
-$$
-
-$$
-=\dot\gamma_0\sum_s\boldsymbol m^s\bigg(\frac{|\boldsymbol m^s : \boldsymbol \sigma|}{\tau_c}\bigg)^{n-1} \bigg(\frac{\boldsymbol m^s : \boldsymbol \sigma}{\tau_c}\bigg)
-$$
-
-$$
-\dot{\boldsymbol\varepsilon}^{pl}
-=\left[
-\dot\gamma_0\sum_s
-\frac{\boldsymbol m^s\otimes\boldsymbol m^s}{\tau_c}
-\left(\frac{|\boldsymbol m^s:\boldsymbol\sigma|}{\tau_c}\right)^{n-1}
-\right]:\boldsymbol\sigma
-$$
-
-대괄호 안은 현재 응력상태에 의존하는 4차 secant compliance 역할을 한다. 한 슬립계의
-변형이 다른 슬립계의 임계분해전단응력에도 영향을 주는 현상을 잠재경화(latent
-hardening)라 한다.
-
 # 5. 연습 문제
 
 ## 문제 1
@@ -233,3 +200,7 @@ hardening)라 한다.
 풀이와 해답:
 예를 들어 슬립계의 임계분해전단응력 또는 전위밀도를 사용할 수 있다.
 -->
+
+<span id="4-평균장-다결정-소성-모델"></span>
+
+평균화와 secant 선형화는 [평균장 다결정 소성 모델]({% link assets/lecture_notes/5_1_polycrystalline_plasticity/metal_plasticity_17_mean_field_polycrystal.md %})로 분리했다. Eshelby inclusion 이후에 읽는다.

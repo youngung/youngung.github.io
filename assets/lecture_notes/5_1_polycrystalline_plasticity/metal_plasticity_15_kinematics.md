@@ -1,11 +1,11 @@
 ---
 layout: distill
-title: 유한변형 운동학
-description: 속도구배, 변형구배와 극분해
-target: 학부 고학년
+title: VPSC의 운동학
+description: VPSC의 속도구배, 결정립 형상 변화와 격자 회전
+target: 대학원
 permalink:
 featured: true
-prerequisite: 벡터와 행렬, 변위와 변형률
+prerequisite: 유한변형의 운동학, 결정소성의 슬립과 항복 조건, 평균장 다결정 소성 모델
 toc:
   sidebar: left
 
@@ -27,11 +27,15 @@ authors:
   - [1.1. 속도구배](#11-속도구배)
   - [1.2. 운동학](#12-운동학)
 - [2. 변형구배](#2-변형구배)
-- [3. 극분해](#3-극분해)
+- [3. 결정립의 누적 변형과 형상](#3-결정립의-누적-변형과-형상)
 - [4. 점의 속도](#4-점의-속도)
 - [5. 속도구배](#5-속도구배)
 - [6. 연습 문제](#6-연습-문제)
 
+
+이 자료는 VPSC (Visco-Plastic Self-Consistent)에서 사용하는 속도구배, 결정립 형상 변화와 격자 회전을 다룬다.
+기본적인 유한변형의 정의는
+[유한변형의 운동학]({% link assets/lecture_notes/5_1_polycrystalline_plasticity/metal_plasticity_05b_descriptions_finite_strain.md %})을 참고한다.
 
 # 1. 운동학 개요
 
@@ -47,7 +51,9 @@ $$
 
 ## 1.2. 운동학
 
-- 운동학; 점의 운동, 물체의 운동, 힘과 변형
+VPSC에서는 거시적 속도구배와 결정립별 국소 속도구배를 구분한다.
+결정립의 국소 변형률속도와 회전은 자기일관성 계산으로 결정하므로,
+모든 결정립에 같은 속도구배를 부과한다고 가정하지 않는다.
 
 - $\boldsymbol X$ : 초기 위치; Reference configuration
 
@@ -68,27 +74,29 @@ $$
 - 체적비는 $J=\det\boldsymbol F=dv/dV$로 나타낸다. 물리적으로 허용되는 변형에서는
   $J>0$이어야 하고, 비압축성 변형에서는 $J=1$이다.
 
-# 3. 극분해
+<span id="3-극분해"></span>
 
-- $\boldsymbol F = \boldsymbol{R} \cdot \boldsymbol{U}=   \boldsymbol{V}\cdot\boldsymbol{R}$
+# 3. 결정립의 누적 변형과 형상
 
-- $\boldsymbol R$은 회전, $\boldsymbol U$와 $\boldsymbol V$는 우·좌 신장텐서다.
+결정립별 속도구배 $\boldsymbol L^g$로 누적 변형구배 $\boldsymbol F^g$를 갱신한다.
+여기서 $g$는 결정립을 나타낸다.
 
 $$
-\boldsymbol C=\boldsymbol F^T\cdot \boldsymbol F=\boldsymbol U^2,
-\qquad
-\boldsymbol B=\boldsymbol F\cdot \boldsymbol F^T=\boldsymbol V^2
+\dot{\boldsymbol F}^g=\boldsymbol L^g\cdot\boldsymbol F^g.
 $$
+
+이 누적 변형은 결정립을 나타내는 타원체의 형상과 방향을 갱신하는 데 사용된다.
+타원체 축의 회전과 결정격자의 회전은 구분한다.
 
 # 4. 점의 속도
 
-- $\boldsymbol v\equiv\boldsymbol v(\boldsymbol x,t)$
+국소 속도장은 $\boldsymbol v\equiv\boldsymbol v(\boldsymbol x,t)$이며, 그 공간미분이 결정립의 속도구배다.
 
 # 5. 속도구배
 
-- Definition
+- 정의: $(\nabla_x\boldsymbol v)_{ij}=\partial v_i/\partial x_j$. 위의 점은 같은 물질점을 따라가는 시간미분이다.
 $$
-\boldsymbol L = \nabla \boldsymbol v=\dot{\boldsymbol F}\cdot\boldsymbol F^{-1}
+\boldsymbol L = \nabla_x \boldsymbol v=\dot{\boldsymbol F}\cdot\boldsymbol F^{-1}
 $$
 
 $$
@@ -126,17 +134,35 @@ L_{31}&L_{32}&L_{33}
 \end{bmatrix}
 $$
 
-## 유한변형 소성에서의 곱셈 분해
+<span id="유한변형-소성에서의-곱셈-분해"></span>
 
-미소변형에서는 전체 변형률을 탄성분과 소성분의 합으로 분해하지만, 큰 변형에서는
+## 슬립에 의한 변형과 격자 회전
+
+동일한 시료 좌표계에서, 전단에 의한 속도구배는
 
 $$
-\boxed{\boldsymbol F=\boldsymbol F^e\cdot \boldsymbol F^p}
+\boldsymbol L^{\mathrm{slip},g}
+=\sum_s\dot\gamma^{s,g}\boldsymbol b^{s,g}\otimes\boldsymbol n^{s,g}
 $$
 
-와 같이 변형구배를 곱셈 분해한다. $\boldsymbol F^p$는 슬립에 의한 국소 소성변형을,
-$\boldsymbol F^e$는 격자의 탄성 신장과 회전을 나타낸다. 곱셈 순서가 중요하며 이 분해가
-유한변형 결정소성 모델의 운동학적 출발점이다.
+로 쓴다. $\boldsymbol b^{s,g}$와 $\boldsymbol n^{s,g}$는 각각 단위 슬립 방향과 면 법선이다.
+$\dot\gamma^{s,g}$는 해당 계의 전단속도다. 이 절은 슬립을 중심으로 설명한다.
+
+$$
+\boldsymbol W^{\mathrm{slip},g}
+=\frac12(\boldsymbol L^{\mathrm{slip},g}-(\boldsymbol L^{\mathrm{slip},g})^T),
+\qquad
+\boldsymbol W^{\mathrm{lat},g}
+=\boldsymbol W^g-\boldsymbol W^{\mathrm{slip},g}.
+$$
+
+격자 스핀 $\boldsymbol W^{\mathrm{lat},g}$은 결정립의 전체 스핀에서 슬립 스핀을 뺀 값이다.
+따라서 결정방위의 변화는 전체 스핀만으로 결정되지 않는다.
+이는 탄성 변형률속도를 별도로 풀지 않는 점소성 VPSC의 설명이며,
+탄성·소성 변형구배의 곱셈 분해를 사용하는 모델과 구분한다.
+
+VPSC8의 구현은 [공식 소스의 UPDATE_ORIENTATION 및 UPDATE_FIJ](https://github.com/lanl/VPSC_code/blob/main/vpsc8sub.for)를 참고한다.
+쌍정에 의한 별도의 방위 재배향과 결정립 간 공동 회전은 추가 규칙으로 처리된다.
 
 # 6. 연습 문제
 
@@ -169,9 +195,9 @@ D는 변형률속도 텐서이고 W는 스핀 텐서로 국소 회전을 나타�
 
 ## 문제 4
 
-극분해에서 변형구배를 회전과 신장으로 분해하는 식을 하나 쓰시오.
+슬립 스핀이 0이 아닐 때 결정립의 전체 스핀과 격자 스핀이 같은지 설명하시오.
 
 <!--
 풀이와 해답:
-예를 들어 F=R U로 쓸 수 있다. R은 회전 텐서이고 U는 우 신장 텐서이다.
+같지 않다. 격자 스핀은 전체 스핀에서 슬립 스핀을 뺀 값이다.
 -->
