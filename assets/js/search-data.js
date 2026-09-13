@@ -344,8 +344,8 @@ ninja.data = [{
           description: "재료공학도를 위한 운동량, 열 및 물질 전달",
           section: "Lectures",handler: () => {
               window.location.href = "/lectures/2_2_transport/";
-            },},{id: "lectures-소성가공",
-          title: '소성가공',
+            },},{id: "lectures-소성가공역학",
+          title: '소성가공역학',
           description: "",
           section: "Lectures",handler: () => {
               window.location.href = "/lectures/3_1_metal_plasticity/";
