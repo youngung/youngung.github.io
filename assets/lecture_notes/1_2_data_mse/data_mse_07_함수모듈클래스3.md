@@ -39,6 +39,10 @@ authors:
   - [문제 4](#문제-4)
   - [문제 5](#문제-5)
   - [문제 6](#문제-6)
+- [12. 프로젝트형 연습문제: 이진수 변환 모듈과 CLI 만들기](#12-프로젝트형-연습문제-이진수-변환-모듈과-cli-만들기)
+  - [12.1. 두 파일의 역할](#121-두-파일의-역할)
+  - [12.2. 구현 요구사항](#122-구현-요구사항)
+  - [12.3. 실행과 확인 사례](#123-실행과-확인-사례)
 
 # 1. 학습 목표
 
@@ -381,4 +385,105 @@ python density_cli.py 27 10
 <!--
 풀이와 해답:
 27과 10이다. 각각 질량과 부피로 전달된다.
+-->
+
+# 12. 프로젝트형 연습문제: 이진수 변환 모듈과 CLI 만들기
+
+
+[5장 함수 기초]({% link assets/lecture_notes/1_2_data_mse/data_mse_05_함수모듈클래스1.md %})에서 작성한
+`decimal_to_binary(number)` 함수를 **별도 모듈**로 옮기고, 명령행에서 호출하는 프로그램을 작성하시오.
+5장에서는 함수의 재사용을, 이번에는 파일 사이의 재사용과 명령행 입력 처리를 연습한다.
+
+## 12.1. 두 파일의 역할
+
+같은 폴더에 다음 두 파일을 만든다.
+
+| 파일 | 역할 |
+| --- | --- |
+| `binary_tools.py` | `decimal_to_binary(number)` 함수 정의. 계산만 담당 |
+| `binary_cli.py` | 모듈을 가져오고, 명령행 입력을 해석해 결과 출력 |
+
+함수는 양의 정수의 2진수 문자열을 반환하고, 0이면 `'0'`, 음수이면 `None`을 반환한다.
+5장 프로젝트와 동일하게 `while`, `//`, `%`로 변환하며 `bin()`은 사용하지 않는다.
+
+## 12.2. 구현 요구사항
+
+1. `binary_tools.py`에 변환 함수를 정의한다. 이 파일을 `import`할 때 출력이나 입력 요청이 발생하지 않아야 한다.
+2. `binary_cli.py`에서 `import binary_tools`로 모듈을 가져오고, `binary_tools.decimal_to_binary(...)`로 함수를 호출한다.
+3. `argparse`로 위치 인자 `number`를 받고 `type=int`를 지정한다.
+4. 음수이면 반환값 `None`을 확인하고 `parser.error('음수는 지원하지 않습니다.')`로 오류를 알린다.
+5. 정상 입력이면 입력값과 2진수 문자열을 함께 출력한다.
+6. CLI의 실행 코드는 `main()` 함수에 넣고, 메인 가드 아래에서 호출한다.
+
+~~~python
+if __name__ == '__main__':
+    main()
+~~~
+
+`parser.error`는 안내를 출력한 뒤 프로그램을 오류 상태로 종료한다.
+정수가 아닌 입력이나 필수 인자 누락은 `argparse`가 처리한다.
+
+## 12.3. 실행과 확인 사례
+
+터미널에서 두 파일이 있는 폴더로 이동한 뒤 실행한다.
+
+~~~sh
+python binary_cli.py 13
+~~~
+
+기대 출력은 `13 -> 1101`이다.
+
+| 명령 | 기대하는 동작 |
+| --- | --- |
+| `python binary_cli.py 0` | `0 -> 0` 출력 |
+| `python binary_cli.py 32` | `32 -> 100000` 출력 |
+| `python binary_cli.py -3` | 음수를 지원하지 않는다는 오류 안내 |
+| `python binary_cli.py abc` | 정수 입력이 필요하다는 오류 안내 |
+| `python binary_cli.py` | 필수 인자가 없다는 오류 안내 |
+| `python binary_cli.py --help` | 사용법과 인자 설명 출력 |
+
+Python에서 `import binary_tools`와 `import binary_cli`를 실행했을 때 아무것도 출력되지 않는지도 확인한다.
+
+**제출물:** 두 Python 파일, 확인 사례별 실행 결과, 그리고
+‘계산 함수와 CLI를 분리한 이유, `import`와 메인 가드의 역할’에 대한 짧은 설명.
+
+<!--
+풀이 예시:
+파일 1: binary_tools.py
+
+def decimal_to_binary(number):
+    if number < 0:
+        return None
+    if number == 0:
+        return '0'
+    remaining = number
+    binary = ''
+    while remaining > 0:
+        binary = str(remaining % 2) + binary
+        remaining //= 2
+    return binary
+
+파일 2: binary_cli.py
+
+import argparse
+import binary_tools
+
+
+def main():
+    parser = argparse.ArgumentParser(description='10진수 정수를 2진수 문자열로 변환합니다.')
+    parser.add_argument('number', type=int, help='변환할 0 이상의 정수')
+    args = parser.parse_args()
+    result = binary_tools.decimal_to_binary(args.number)
+    if result is None:
+        parser.error('음수는 지원하지 않습니다.')
+    print(args.number, '->', result)
+
+
+if __name__ == '__main__':
+    main()
+
+설명:
+모듈에는 계산 함수를 두어 다른 프로그램에서도 가져다 쓸 수 있게 한다.
+CLI는 입력 해석과 사용자 출력만 담당한다.
+메인 가드는 파일을 직접 실행할 때만 main()을 호출하므로 import 시 CLI가 실행되지 않는다.
 -->

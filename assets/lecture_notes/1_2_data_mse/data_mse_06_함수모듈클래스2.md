@@ -39,6 +39,10 @@ authors:
   - [문제 4](#문제-4)
   - [문제 5](#문제-5)
   - [문제 6](#문제-6)
+- [10. 프로젝트형 연습문제: 경도 시편을 객체로 관리하기](#10-프로젝트형-연습문제-경도-시편을-객체로-관리하기)
+  - [10.1. 판정 함수 만들기](#101-판정-함수-만들기)
+  - [10.2. 시편 클래스 만들기](#102-시편-클래스-만들기)
+  - [10.3. 확인 사례와 제출물](#103-확인-사례와-제출물)
 
 # 1. 학습 목표
 
@@ -408,4 +412,116 @@ iron.density
 <!--
 풀이와 해답:
 self이다.
+-->
+
+# 10. 프로젝트형 연습문제: 경도 시편을 객체로 관리하기
+
+[4장 조건문과 반복문]({% link assets/lecture_notes/1_2_data_mse/data_mse_04_조건문과_반복문.md %})의
+경도 검사 프로젝트를 확장하여, **판정 함수와 시편 클래스**를 작성하시오.
+함수는 공통 판정 규칙을 담당하고, 객체는 각 시편의 이름과 측정값을 함께 저장한다.
+모든 측정값은 동일한 경도 척도와 시험 조건에서 얻었다고 가정한다.
+
+## 10.1. 판정 함수 만들기
+
+`classify_hardness(value)`는 수치 하나를 받아 다음 판정 문자열을 반환한다.
+기준은 프로그래밍 연습을 위한 가상 규격이다.
+
+| 측정값 | 반환값 |
+| --- | --- |
+| 0 이하 | `'잘못된 측정값'` |
+| 0 초과, 120 미만 | `'기준 미달'` |
+| 120 이상, 150 이하 | `'합격'` |
+| 150 초과 | `'기준 초과'` |
+
+입력은 숫자라고 가정한다. 함수 안에서 출력하지 않고 `return`으로 판정 결과를 돌려준다.
+
+## 10.2. 시편 클래스 만들기
+
+`HardnessSample` 클래스를 작성한다.
+
+1. `__init__(self, name, hardness)`에서 시편 이름과 경도를 `self.name`, `self.hardness`에 저장한다.
+2. `classify(self)` 메서드는 자신의 경도 값을 `classify_hardness`에 전달하여 판정 결과를 반환한다.
+3. 객체들을 리스트에 넣고, 반복문으로 시편 이름·경도·판정을 출력한다.
+4. 잘못된 측정값을 제외한 평균과 합격 시편 수를 계산한다. 유효한 값이 없으면 평균 대신 안내를 출력한다.
+
+측정 오류가 있는 시편도 기록으로 남기기 위해 객체 생성은 허용하되, 판정에서 오류를 표시하고 평균에서는 제외한다.
+다음 호출 코드가 동작하도록 구현하시오.
+
+~~~python
+samples = [
+    HardnessSample('A', 110),
+    HardnessSample('B', 130),
+    HardnessSample('C', 166),
+    HardnessSample('D', -1),
+]
+
+for sample in samples:
+    print(sample.name, sample.hardness, sample.classify())
+~~~
+
+## 10.3. 확인 사례와 제출물
+
+위 예제에서 A는 기준 미달, B는 합격, C는 기준 초과, D는 잘못된 측정값이다.
+유효한 측정값은 3개, 합격 시편은 1개이며 평균은 약 135.33이다.
+
+추가로 다음 경우를 확인하시오.
+
+- 경도 120과 150인 객체가 모두 합격으로 판정되는가?
+- 경도 0 이하인 객체만 있으면 평균을 계산하지 않는가?
+- 빈 객체 리스트에서도 오류 없이 안내하는가?
+- 한 객체의 경도를 바꾸어도 다른 객체의 경도가 바뀌지 않는가?
+
+**제출물:** 판정 함수, 클래스 정의, 객체 리스트를 처리하는 코드, 확인 사례별 결과,
+그리고 ‘함수·속성·메서드가 각각 어떤 역할을 하는가?’에 대한 짧은 설명.
+
+<!--
+풀이 예시:
+def classify_hardness(value):
+    if value <= 0:
+        return '잘못된 측정값'
+    elif value < 120:
+        return '기준 미달'
+    elif value <= 150:
+        return '합격'
+    else:
+        return '기준 초과'
+
+
+class HardnessSample:
+    def __init__(self, name, hardness):
+        self.name = name
+        self.hardness = hardness
+
+    def classify(self):
+        return classify_hardness(self.hardness)
+
+
+samples = [
+    HardnessSample('A', 110),
+    HardnessSample('B', 130),
+    HardnessSample('C', 166),
+    HardnessSample('D', -1),
+]
+total = 0
+valid_count = 0
+pass_count = 0
+for sample in samples:
+    status = sample.classify()
+    print(sample.name, sample.hardness, status)
+    if sample.hardness > 0:
+        total += sample.hardness
+        valid_count += 1
+        if status == '합격':
+            pass_count += 1
+
+print('유효값:', valid_count, '합격 시편:', pass_count)
+if valid_count > 0:
+    print('평균:', total / valid_count)
+else:
+    print('평균을 계산할 유효한 측정값이 없습니다.')
+
+설명:
+함수는 공통 판정 규칙을 구현한다. 속성은 객체마다 다른 시편 데이터를 저장한다.
+메서드는 해당 객체의 데이터를 이용하여 공통 판정 함수를 호출한다.
+예시 평균은 (110+130+166)/3=406/3이다.
 -->
