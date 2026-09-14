@@ -628,6 +628,7 @@ for number in numbers:
 
 <!--
 풀이 예시:
+```python
 number = 13
 if number < 0:
     print('음수는 지원하지 않습니다.')
@@ -641,6 +642,7 @@ else:
         binary = str(remainder) + binary
         remaining = remaining // 2
     print(number, '->', binary)
+```
 
 확인: 0, 1, 2, 13, 32는 각각 0, 1, 10, 1101, 100000이다.
 나머지를 문자열 끝에 붙이면 자리 순서가 뒤집히므로 주의한다.
@@ -688,6 +690,7 @@ hardness = [110, 125, -1, 138, 142, 119, 166, 130]
 
 <!--
 풀이 예시:
+```python
 hardness = [110, 125, -1, 138, 142, 119, 166, 130]
 total = 0
 valid_count = 0
@@ -720,8 +723,8 @@ if valid_count > 0:
     print('평균:', total / valid_count)
 else:
     print('평균을 계산할 유효한 측정값이 없습니다.')
-
+```
 예시 데이터: total=930, valid_count=7, invalid_count=1,
 below_count=2, pass_count=4, above_count=1, 평균=930/7.
-합격률은 유효값이 있을 때 pass_count / valid_count * 100으로 계산한다.
+합격률은 유효값이 있을 때 pass_count / valid_count * 100으로 계산한다。
 -->
