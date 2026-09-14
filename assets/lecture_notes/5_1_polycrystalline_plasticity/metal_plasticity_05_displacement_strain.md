@@ -244,7 +244,24 @@ $$
 형상 차이를 보기 쉽게 계수를 크게 잡았으므로, 이 예제에서 미소변형률 공식으로 구한 값은
 정확한 유한변형률과 구분해야 한다. 정확한 길이 변화는 [유한변형률 자료]({% link assets/lecture_notes/5_1_polycrystalline_plasticity/metal_plasticity_05b_descriptions_finite_strain.md %})에서 다룬다.
 
-[^reference-gradient]: $\nabla_X$는 변형 전 기준좌표 $\boldsymbol X=(X_1,X_2,X_3)$에 대한 공간미분 연산자로, $\nabla_X=\boldsymbol e_1\partial/\partial X_1+\boldsymbol e_2\partial/\partial X_2+\boldsymbol e_3\partial/\partial X_3$이다. 스칼라장에 적용하면 기울기 벡터를, 변위 벡터장에 적용하면 변위구배 텐서를 얻는다. 이 자료에서는 $(\nabla_X\boldsymbol u)_{ij}=\partial u_i/\partial X_j$로 정의하므로, 행 $i$는 변위 성분, 열 $j$는 미분하는 기준좌표 방향을 나타낸다. 아래첨자 $X$는 벡터의 성분 첨자가 아니라 **미분에 사용하는 좌표**를 표시한다. 현재좌표 $\boldsymbol x$에 대한 연산자 $\nabla_x$와는 구분하며, 두 구배의 차이는 [Lagrangian과 Eulerian 기술법]({% link assets/lecture_notes/5_1_polycrystalline_plasticity/metal_plasticity_05b_descriptions_finite_strain.md %})에서 설명한다. 2차원 문제에서는 $X_1,X_2$ 방향의 미분만 사용한다.
+[^reference-gradient]: $\nabla_X$는 변형 전 기준좌표에 대한 공간미분 연산자다. 기준좌표와 연산자는
+
+    $$
+    \boldsymbol X=(X_1,X_2,X_3),
+    \qquad
+    \nabla_X=\boldsymbol e_1\frac{\partial}{\partial X_1}
+    +\boldsymbol e_2\frac{\partial}{\partial X_2}
+    +\boldsymbol e_3\frac{\partial}{\partial X_3}
+    $$
+
+    로 나타낸다. 스칼라장에 적용하면 기울기 벡터를, 변위 벡터장에 적용하면 변위구배 텐서를 얻는다. 이 자료에서는 변위구배의 성분을
+
+    $$
+    (\nabla_X\boldsymbol u)_{ij}=\frac{\partial u_i}{\partial X_j}
+    $$
+
+    로 정의한다. 따라서 행 $i$는 변위 성분, 열 $j$는 미분하는 기준좌표 방향을 나타낸다. 아래첨자 $X$는 벡터의 성분 첨자가 아니라 **미분에 사용하는 좌표**를 표시한다. 현재좌표에 대한 연산자 $\nabla_x$와는 구분하며, 두 구배의 차이는 [Lagrangian과 Eulerian 기술법]({% link assets/lecture_notes/5_1_polycrystalline_plasticity/metal_plasticity_05b_descriptions_finite_strain.md %})에서 설명한다. 2차원 문제에서는 두 기준좌표 방향의 미분만 사용한다.
+
 
 # 8. 변위구배의 대칭부분과 반대칭부분
 
@@ -275,7 +292,32 @@ $$
 
 이다. Voigt 표기(Voigt notation)[^voigt-notation]에서 공학전단변형률을 사용할 때 이 2의 계수를 빠뜨리지 않도록 한다.
 
-[^voigt-notation]: Voigt 표기는 대칭인 2차 텐서의 독립 성분을 하나의 열벡터로 배열하는 방법이다. 3차원에서는 독립 성분이 6개이며, 흔히 성분 순서를 $(11,22,33,23,13,12)$로 정한다. 공학전단변형률을 사용하는 변형률 벡터는 $[\boldsymbol\varepsilon]_V=(\varepsilon_{11},\varepsilon_{22},\varepsilon_{33},2\varepsilon_{23},2\varepsilon_{13},2\varepsilon_{12})^T$이고, 대응하는 응력 벡터는 $[\boldsymbol\sigma]_V=(\sigma_{11},\sigma_{22},\sigma_{33},\sigma_{23},\sigma_{13},\sigma_{12})^T$이다. 전단변형률에는 2를 곱하지만 전단응력에는 곱하지 않는다. 이 정의에서는 $[\boldsymbol\sigma]_V^T[\boldsymbol\varepsilon]_V=\boldsymbol\sigma:\boldsymbol\varepsilon$가 되어 응력과 변형률의 텐서 이중내적을 그대로 표현한다. 2차원에서는 $(\varepsilon_{11},\varepsilon_{22},2\varepsilon_{12})^T$로 배열할 수 있다. 성분 순서와 전단성분의 배율은 문헌이나 프로그램에 따라 다르므로, 구성행렬을 사용할 때 같은 관례인지 확인해야 한다. 여기서 열벡터는 텐서 성분을 계산 편의상 배열한 것으로, 공간상의 방향을 나타내는 위치·변위 벡터와는 구분한다.
+[^voigt-notation]: Voigt 표기는 대칭인 2차 텐서의 독립 성분을 하나의 열벡터로 배열하는 방법이다. 3차원에서는 독립 성분이 6개이며, 흔히 성분 순서를 $(11,22,33,23,13,12)$로 정한다. 공학전단변형률을 사용하는 변형률 벡터와 대응하는 응력 벡터는 각각
+
+    $$
+    [\boldsymbol\varepsilon]_V
+    =(\varepsilon_{11},\varepsilon_{22},\varepsilon_{33},2\varepsilon_{23},2\varepsilon_{13},2\varepsilon_{12})^T,
+    $$
+
+    $$
+    [\boldsymbol\sigma]_V
+    =(\sigma_{11},\sigma_{22},\sigma_{33},\sigma_{23},\sigma_{13},\sigma_{12})^T
+    $$
+
+    이다. 전단변형률에는 2를 곱하지만 전단응력에는 곱하지 않는다. 이 정의에서는
+
+    $$
+    [\boldsymbol\sigma]_V^T[\boldsymbol\varepsilon]_V
+    =\boldsymbol\sigma:\boldsymbol\varepsilon
+    $$
+
+    가 되어 응력과 변형률의 텐서 이중내적을 그대로 표현한다. 2차원에서는
+
+    $$
+    (\varepsilon_{11},\varepsilon_{22},2\varepsilon_{12})^T
+    $$
+
+    로 배열할 수 있다. 성분 순서와 전단성분의 배율은 문헌이나 프로그램에 따라 다르므로, 구성행렬을 사용할 때 같은 관례인지 확인해야 한다. 여기서 열벡터는 텐서 성분을 계산 편의상 배열한 것으로, 공간상의 방향을 나타내는 위치·변위 벡터와는 구분한다.
 
 # 9. 2차원 예제
 
