@@ -114,7 +114,7 @@ $$
 두 점의 간격을 0으로 보내면 국소 공칭변형률을 얻는다.
 
 $$
-\boxed{\varepsilon_{\mathrm{eng}}(X)
+\boxed{\varepsilon^{\mathrm{eng}}(X)
 =\lim_{X^b\to X^a}\frac{u^b-u^a}{X^b-X^a}
 =\frac{du}{dX}}.
 $$
