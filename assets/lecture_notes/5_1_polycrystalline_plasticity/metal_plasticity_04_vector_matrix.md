@@ -39,7 +39,7 @@ authors:
 
   - (advanced concept) 텐서가 좌표계에 독립적인 성질을 갖는 방법은, 좌표계에 따라 '변환'하기 때문에 가능하다.
 
-  - 좌표 변환법
+  - 좌표 변환법: 텐서의 랭크에 따라 변환 규칙이 달라진다.
 
 # 2. 스칼라와 벡터
 
@@ -78,7 +78,7 @@ authors:
 존재하는 기하학적·물리적 대상이지만, 벡터의 성분은 선택한 좌표계에 따라 정해진다.
 따라서 벡터와 그 성분을 구분하는 것이 이후의 텐서 및 좌표변환을 이해하는 출발점이다.
 
-## 3.1. 원점과 기저벡터
+## 3.1. 원점과 기저벡터(basis vector)
 
 직각좌표계는 원점 $O$와 서로 수직인 단위 기저벡터
 $\{\boldsymbol e_1,\boldsymbol e_2,\boldsymbol e_3\}$로 정의한다. 기저벡터는 각
@@ -162,7 +162,7 @@ $\boldsymbol a=a_1\boldsymbol e_1+a_2\boldsymbol e_2$로 분해되고, 회전된
 기저에서는 $\boldsymbol a=a'_1\boldsymbol e'_1+a'_2\boldsymbol e'_2$로 분해된다.
 일반적으로 $(a_1,a_2)\ne(a'_1,a'_2)$이지만 두 식이 나타내는 물리적 벡터는 같다.
 
-## 3.3. 행렬도 기저에 의존한다
+## 3.3. 행렬도 기저(basis)에 의존한다
 
 2차 텐서 $\boldsymbol A$도 좌표계와 무관한 물리적 대상이며, 그 성분은 선택한
 기저를 이용해
@@ -368,6 +368,7 @@ a cross b=(0,0,1)이다.
 -->
 
 
+<!--
 <details markdown="1">
 <summary>분리 이전 절 링크 안내</summary>
 
@@ -438,3 +439,5 @@ a cross b=(0,0,1)이다.
 [추가 연습문제]({% link assets/lecture_notes/5_1_polycrystalline_plasticity/metal_plasticity_04b_matrix_tensor_operations.md %}#추가-연습문제)
 
 </details>
+
+-->
