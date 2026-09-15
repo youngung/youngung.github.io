@@ -1,2 +1,2 @@
 **Youngung Jeong** is leading Materials Mechanical Laboratory in Changwon National University.
-His research interests include constitutive modeling using crystal plasticity and phenomenological plasticity models.
+His research interests include constitutive modeling using crystal plasticity and phenomenological plasticity models. He is also investigating the effect of microstructure and its evolution during dynamic recrystallization and trying to incorporate these effects into predictive models based on mean-field crystal plasticity framework.
