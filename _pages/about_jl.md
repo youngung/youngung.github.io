@@ -1,1 +1,2 @@
-**Jaeseong Lee** is a PhD student. He has been studying magnesium alloys under bending and has started recently working on multiaxial loading behavior of steels with using crystal plasticity finite element model. He's currently working on multiaxial flow stress and strain data obtained from the use of DIC and X-ray.
+**Jaeseong Lee** is a PhD student. He has been studying magnesium alloys under bending and has started recently working on multiaxial loading behavior of steels with using crystal plasticity finite element model. He has been working on multiaxial flow stress and strain data obtained from the use of DIC and X-ray.
+He's also interested in the forming limit diagram (FLD) predicted by crystal plasticity models.

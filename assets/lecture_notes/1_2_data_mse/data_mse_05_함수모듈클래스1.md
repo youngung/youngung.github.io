@@ -29,6 +29,7 @@ authors:
   - [8.1. 밀도 계산](#81-밀도-계산)
   - [8.2. 여러 측정값의 평균](#82-여러-측정값의-평균)
   - [8.3. 표준편차](#83-표준편차)
+  - [8.4. 온도에 따른 vacancy 농도](#84-온도에-따른-vacancy-농도)
 - [9. 여러 입력값 받기](#9-여러-입력값-받기)
 - [10. 함수를 작성할 때의 점검 사항](#10-함수를-작성할-때의-점검-사항)
 - [11. 연습 문제](#11-연습-문제)
@@ -290,6 +291,43 @@ def population_std(values):
 print(population_std(masses))
 ~~~
 
+## 8.4. 온도에 따른 vacancy 농도
+
+결정 내 vacancy(원자 공공 결함)의 평형 농도(정확히는 전체 격자점 중 vacancy가 차지하는 분율)를
+간단한 모델로 계산해 보자. 형성 엔트로피를 무시하면 vacancy 분율은 다음과 같이 쓸 수 있다.
+
+$$
+c_v = \exp\left(-\frac{Q_v}{k_B T}\right)
+$$
+
+여기서 $Q_v$는 vacancy 형성 에너지 (vacancy formation energy; 단위: eV), $k_B$는 볼츠만 상수
+($8.617\times10^{-5}$ eV/K), $T$는 절대온도(K)이다. 온도는 섭씨가 아니라 반드시
+켈빈으로 변환해서 식에 넣어야 한다.
+
+~~~python
+import math
+
+def vacancy_fraction(formation_energy_ev, temperature_c):
+    """Return the equilibrium vacancy fraction for a temperature in Celsius."""
+    boltzmann_constant_ev_per_k = 8.617e-5
+    temperature_k = temperature_c + 273.15
+    return math.exp(-formation_energy_ev /
+                    (boltzmann_constant_ev_per_k * temperature_k))
+
+vacancy_formation_energy = 1.0
+temperatures_c = [20, 300, 600, 900]
+
+for temperature_c in temperatures_c:
+    fraction = vacancy_fraction(vacancy_formation_energy, temperature_c)
+    print(f"{temperature_c:>3} degC: c_v = {fraction:.3e}")
+~~~
+
+온도가 높아질수록 지수의 음수 크기가 작아지므로 vacancy 분율이 증가한다. 이 예제에서
+함수의 매개변수는 형성 에너지와 온도이고, 함수의 반환값은 계산된 vacancy 분율이다.
+온도 목록을 바꾸어도 같은 함수를 반복해서 사용할 수 있다. 이 모델은 형성 엔트로피와
+상호작용을 무시한 단순한 근사이므로 실제 재료의 정량적인 값보다는 온도에 따른 경향을
+이해하는 데 사용한다.
+
 # 9. 여러 입력값 받기
 
 입력값의 개수를 미리 정하기 어렵다면 <code>*args</code>를 사용할 수 있다.
@@ -298,7 +336,6 @@ print(population_std(masses))
 ~~~python
 def add_all(*args):
     return sum(args)
-
 
 print(add_all(1, 2))
 print(add_all(1, 2, 3, 4))
@@ -311,7 +348,6 @@ print(add_all(1, 2, 3, 4))
 def print_material(**kwargs):
     for key, value in kwargs.items():
         print(f"{key}: {value}")
-
 
 print_material(name="Aluminum", structure="FCC", density=2.70)
 ~~~
@@ -347,7 +383,6 @@ def multiply(a, b):
 ~~~python
 def subtract(a, b):
     return a - b
-
 
 print(subtract(7, 2))
 ~~~
