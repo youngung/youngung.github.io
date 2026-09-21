@@ -206,7 +206,9 @@ $$
 로 표현된다. 즉 작은 변형에서는 공학전단변형률을 두 선분 사이의 각도 감소량으로
 해석할 수 있다. 큰 각도에서는 $\tan\theta$와 $\theta$를 구분해야 한다.
 
-{% include figure.liquid path="assets/img/lecture_notes/displacement/simple_shear_geometry.png" max-width="34rem" alt="높이 H인 블록의 단순전단: 윗면이 Delta만큼 이동하고 전단각이 theta만큼 변함" %}
+<img src="/assets/img/lecture_notes/displacement/simple_shear_geometry.png"
+  alt="높이 H인 블록의 단순전단: 윗면이 Delta만큼 이동하고 전단각이 theta만큼 변함"
+  style="display: block; width: min(100%, 34rem); height: auto; margin: 1rem auto;">
 
 일반적인 미소변형에서는 두 선분이 모두 기울 수 있다. 원래 $X_2$방향인 선분의
 기울어짐에는 $\partial u_1/\partial X_2$가, 원래 $X_1$방향인 선분의 기울어짐에는
@@ -239,7 +241,10 @@ $$
 \text{(b)}\quad u_1=0.1X_1+0.05X_2,\quad u_2=0.2X_1+0.05X_2.
 $$
 
-![두 가지 선형 변위장에 의한 2차원 물체의 변형 전후 형상](/assets/img/lecture_notes/displacement/displacement_field_2d_examples.png)
+{% include figure.liquid path="/assets/img/lecture_notes/displacement/displacement_field_2d_examples.png" max-width="34rem" alt="두 가지 선형 변위장에 의한 2차원 물체의 변형 전후 형상" %}
+
+
+<!-- ![두 가지 선형 변위장에 의한 2차원 물체의 변형 전후 형상](/assets/img/lecture_notes/displacement/displacement_field_2d_examples.png) -->
 
 점선은 기준 형상, 실선은 $\boldsymbol x=\boldsymbol X+\boldsymbol u(\boldsymbol X)$로 계산한 현재 형상이다.
 빨간 화살표는 기준 형상 오른쪽 위 꼭짓점의 변위다.
