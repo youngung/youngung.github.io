@@ -206,6 +206,8 @@ $$
 로 표현된다. 즉 작은 변형에서는 공학전단변형률을 두 선분 사이의 각도 감소량으로
 해석할 수 있다. 큰 각도에서는 $\tan\theta$와 $\theta$를 구분해야 한다.
 
+{% include figure.liquid path="assets/img/lecture_notes/displacement/simple_shear_geometry.png" max-width="34rem" alt="높이 H인 블록의 단순전단: 윗면이 Delta만큼 이동하고 전단각이 theta만큼 변함" %}
+
 일반적인 미소변형에서는 두 선분이 모두 기울 수 있다. 원래 $X_2$방향인 선분의
 기울어짐에는 $\partial u_1/\partial X_2$가, 원래 $X_1$방향인 선분의 기울어짐에는
 $\partial u_2/\partial X_1$이 기여한다. 두 기여를 부호와 함께 합하면
