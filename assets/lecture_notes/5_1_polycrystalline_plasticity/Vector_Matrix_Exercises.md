@@ -181,7 +181,11 @@ $$
 
 ## 4.1. 벡터의 크기
 
-- $|\boldsymbol a |$ 와 $| \boldsymbol b|$ 를 각각 구하시오.
+- 다음 벡터 $\boldsymbol a$와 $\boldsymbol b$ 의 크기
+$|\boldsymbol{a}|$
+와
+$|{\boldsymbol{b}}|$
+를 각각 구하시오.
 
 <!--
 풀이와 해답:

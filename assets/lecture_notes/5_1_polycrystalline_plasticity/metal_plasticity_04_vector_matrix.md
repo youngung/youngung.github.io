@@ -155,7 +155,7 @@ $$
 $([\boldsymbol a][\boldsymbol b]^T)_{ij}=a_i b_j$인 $3\times3$ 행렬로서 다이아딕 곱을 표현한다.
 성분 배열의 행렬곱에서는 **왼쪽 행렬의 열 수와 오른쪽 행렬의 행 수가 같아야 한다.**
 
-![동일한 벡터를 두 정규직교 기저에서 서로 다른 성분으로 나타낸 그림](/assets/img/lecture_notes/vector_basis_coordinates.png)
+<img src="/assets/img/lecture_notes/vector_basis_coordinates.png" alt="동일한 벡터를 두 정규직교 기저에서 서로 다른 성분으로 나타낸 그림" width="800"/>
 
 그림에서 검은색 화살표 $\boldsymbol a$는 하나의 동일한 벡터이다. 파란색 기저에서는
 $\boldsymbol a=a_1\boldsymbol e_1+a_2\boldsymbol e_2$로 분해되고, 회전된 붉은색

@@ -156,7 +156,7 @@ $1\%$ 인장을 나타낸다.
 $$
 [\boldsymbol X]=\begin{bmatrix}X_1\\X_2\end{bmatrix},
 \qquad
-\boldsymbol u(\boldsymbol X)=\begin{bmatrix}u_1(X_1,X_2)\\u_2(X_1,X_2)\end{bmatrix}.
+[\boldsymbol u(\boldsymbol X)]=\begin{bmatrix}u_1(X_1,X_2)\\u_2(X_1,X_2)\end{bmatrix}.
 $$
 
 기준좌표에 대한 **변위구배 (displacement gradient)**를 $\nabla_X\boldsymbol u$[^reference-gradient]로 나타내고, 성분은
@@ -165,7 +165,7 @@ $$
 (\nabla_X\boldsymbol u)_{ij}=u_{i,j}=\frac{\partial u_i}{\partial X_j}
 $$
 
-로 정의한다. 여기서 쉼표 뒤의 $j$는 $X_j$에 대한 미분을 뜻한다.
+로 정의한다. 여기서 쉼표 뒤의 $j$(즉 $_{,j}$)는 $X_j$에 대한 미분을 뜻한다.
 $\|\nabla_X\boldsymbol u\|\ll1$인 미소변형에서 수직변형률(normal strain) 성분은
 
 $$

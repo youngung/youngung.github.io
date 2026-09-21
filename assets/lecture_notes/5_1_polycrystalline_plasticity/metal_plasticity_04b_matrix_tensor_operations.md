@@ -172,13 +172,14 @@ $$
 성분으로도 확인할 수 있다.
 
 $$
-\begin{aligned}
-[([\boldsymbol A][\boldsymbol B])^T]_{ij}
-&=([\boldsymbol A][\boldsymbol B])_{ji}
+[([{\boldsymbol A}][\boldsymbol B])^T]_{ij}
+=([\boldsymbol A][\boldsymbol B])_{ji}
 =\sum_{k=1}^{n}A_{jk}B_{ki}\\
-&=\sum_{k=1}^{n}([\boldsymbol B]^T)_{ik}([\boldsymbol A]^T)_{kj}
+$$
+
+$$
+=\sum_{k=1}^{n}([\boldsymbol B]^T)_{ik}([\boldsymbol A]^T)_{kj}
 =([\boldsymbol B]^T[\boldsymbol A]^T)_{ij}.
-\end{aligned}
 $$
 
 일반적으로 $([\boldsymbol A][\boldsymbol B])^T=[\boldsymbol A]^T[\boldsymbol B]^T$는 성립하지 않는다.
