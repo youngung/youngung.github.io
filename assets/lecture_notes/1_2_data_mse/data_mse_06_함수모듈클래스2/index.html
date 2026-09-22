@@ -169,9 +169,6 @@
     <span class="k">def</span> <span class="nf">electron_count</span><span class="p">(</span><span class="n">self</span><span class="p">):</span>
         <span class="k">return</span> <span class="n">self</span><span class="p">.</span><span class="n">atomic_number</span> <span class="o">-</span> <span class="n">self</span><span class="p">.</span><span class="n">charge</span>
 
-    <span class="k">def</span> <span class="nf">nuclear_charge_c</span><span class="p">(</span><span class="n">self</span><span class="p">):</span>
-        <span class="k">return</span> <span class="n">self</span><span class="p">.</span><span class="n">atomic_number</span> <span class="o">*</span> \
-            <span class="n">self</span><span class="p">.</span><span class="n">elementary_charge_c</span>
 
     <span class="k">def</span> <span class="nf">describe</span><span class="p">(</span><span class="n">self</span><span class="p">):</span>
         <span class="nf">return </span><span class="p">(</span>
@@ -187,12 +184,11 @@
 <span class="n">chloride_ion</span> <span class="o">=</span> <span class="nc">Atom</span><span class="p">(</span><span class="sh">"</span><span class="s">Cl</span><span class="sh">"</span><span class="p">,</span> <span class="n">atomic_number</span><span class="o">=</span><span class="mi">17</span><span class="p">,</span> <span class="n">mass_number</span><span class="o">=</span><span class="mi">35</span><span class="p">,</span> <span class="n">charge</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
 
 <span class="nf">print</span><span class="p">(</span><span class="n">iron_ion</span><span class="p">.</span><span class="nf">describe</span><span class="p">())</span>
-<span class="nf">print</span><span class="p">(</span><span class="n">iron_ion</span><span class="p">.</span><span class="nf">nuclear_charge_c</span><span class="p">())</span>
 
 <span class="n">atoms</span> <span class="o">=</span> <span class="p">[</span><span class="n">iron_ion</span><span class="p">,</span> <span class="n">aluminum_atom</span><span class="p">,</span> <span class="n">chloride_ion</span><span class="p">]</span>
 <span class="k">for</span> <span class="n">atom</span> <span class="ow">in</span> <span class="n">atoms</span><span class="p">:</span>
     <span class="nf">print</span><span class="p">(</span><span class="n">atom</span><span class="p">.</span><span class="nf">describe</span><span class="p">())</span>
-</code></pre></div></div> <p>중성 원자에서는 <code class="language-plaintext highlighter-rouge">charge=0</code>이므로 전자 수가 양성자 수와 같다. 양이온은 전자를 잃은 상태이므로 전하가 <code class="language-plaintext highlighter-rouge">+2</code>인 철 이온 Fe$^{2+}$의 전자 수는 $26-2=24$개이다. 반대로 음이온은 전자를 얻은 상태이므로 전하가 <code class="language-plaintext highlighter-rouge">-1</code>인 염화 이온 Cl$^-$의 전자 수는 $17-(-1)=18$개이다. 질량수는 양성자 수와 중성자 수의 합이므로, Fe-56의 중성자 수는 $56-26=30$개이다.</p> <h1 id="8-여러-객체-다루기">8. 여러 객체 다루기</h1> <p>같은 클래스로 만든 객체를 리스트에 저장하면 반복문으로 비교할 수 있다.</p> <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">alloys</span> <span class="o">=</span> <span class="p">[</span>
+</code></pre></div></div> <p>중성 원자에서는 <code class="language-plaintext highlighter-rouge">charge=0</code>이므로 전자 수가 양성자 수와 같다. 양이온은 전자를 잃은 상태이므로 전하가 <code class="language-plaintext highlighter-rouge">+2</code>인 철 이온 Fe$^{2+}$의 전자 수는 $26-2=24$개이다. 반대로 음이온은 전자를 얻은 상태이므로 전하가 <code class="language-plaintext highlighter-rouge">-1</code>인 염화 이온 Cl$^-$의 전자 수는 $17-(-1)=18$개이다. 질량수($A$)는 양성자 수와 중성자 수의 합이므로, Fe-56의 중성자 수는 $56-26=30$개이다.</p> <h1 id="8-여러-객체-다루기">8. 여러 객체 다루기</h1> <p>같은 클래스로 만든 객체를 리스트에 저장하면 반복문으로 비교할 수 있다.</p> <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">alloys</span> <span class="o">=</span> <span class="p">[</span>
     <span class="nc">Alloy</span><span class="p">(</span><span class="sh">"</span><span class="s">Ni-Cu</span><span class="sh">"</span><span class="p">,</span> <span class="mf">450.0</span><span class="p">,</span> <span class="mf">8.9</span><span class="p">),</span>
     <span class="nc">Alloy</span><span class="p">(</span><span class="sh">"</span><span class="s">Al-Mg</span><span class="sh">"</span><span class="p">,</span> <span class="mf">320.0</span><span class="p">,</span> <span class="mf">2.7</span><span class="p">),</span>
     <span class="nc">Alloy</span><span class="p">(</span><span class="sh">"</span><span class="s">Ti-6Al-4V</span><span class="sh">"</span><span class="p">,</span> <span class="mf">900.0</span><span class="p">,</span> <span class="mf">4.4</span><span class="p">),</span>
