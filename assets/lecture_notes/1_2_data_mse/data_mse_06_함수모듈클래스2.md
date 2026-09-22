@@ -341,9 +341,6 @@ class Atom:
     def electron_count(self):
         return self.atomic_number - self.charge
 
-    def nuclear_charge_c(self):
-        return self.atomic_number * \
-            self.elementary_charge_c
 
     def describe(self):
         return (
@@ -359,7 +356,6 @@ aluminum_atom = Atom("Al", atomic_number=13, mass_number=27)
 chloride_ion = Atom("Cl", atomic_number=17, mass_number=35, charge=-1)
 
 print(iron_ion.describe())
-print(iron_ion.nuclear_charge_c())
 
 atoms = [iron_ion, aluminum_atom, chloride_ion]
 for atom in atoms:
@@ -369,7 +365,7 @@ for atom in atoms:
 중성 원자에서는 `charge=0`이므로 전자 수가 양성자 수와 같다. 양이온은 전자를 잃은
 상태이므로 전하가 `+2`인 철 이온 Fe$^{2+}$의 전자 수는 $26-2=24$개이다.
 반대로 음이온은 전자를 얻은 상태이므로 전하가 `-1`인 염화 이온 Cl$^-$의 전자 수는
-$17-(-1)=18$개이다. 질량수는 양성자 수와 중성자 수의 합이므로, Fe-56의 중성자
+$17-(-1)=18$개이다. 질량수($A$)는 양성자 수와 중성자 수의 합이므로, Fe-56의 중성자
 수는 $56-26=30$개이다.
 
 # 8. 여러 객체 다루기
