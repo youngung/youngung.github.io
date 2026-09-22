@@ -398,6 +398,30 @@ best = max(
 print(best.name)
 ~~~
 
+여기서 `max`는 `alloys` 리스트를 처음부터 끝까지 살펴보면서 가장 큰 값을 갖는
+객체를 찾아 반환한다. `Alloy` 객체 자체에는 어떤 객체가 더 큰지를 판단하는 기준이
+없으므로, `key`에 비교 기준을 알려 주어야 한다. `key=lambda alloy:
+alloy.specific_strength()`는 각 객체를 비강도 값으로 변환하는 함수이다.
+
+따라서 `max`는 다음과 같이 동작한다.
+
+1. 첫 번째 `alloy` 객체의 `specific_strength()`를 계산한다.
+2. 다음 객체들의 비강도를 차례로 계산하여 현재 최댓값과 비교한다.
+3. 가장 큰 비강도를 만든 **비교값**이 아니라, 그 비교값에 해당하는 **원래 `Alloy`
+   객체**를 반환한다.
+
+예를 들어 `Ti-6Al-4V`의 비강도는 $900/4.4$, `Al-Mg`의 비강도는 $320/2.7$로
+계산된다. `max`는 이 값들을 비교한 뒤 해당 합금 객체를 `best`에 저장한다.
+`best.name`으로 이름을 출력할 수 있는 이유는 `best`가 숫자가 아니라 `Alloy` 객체이기
+때문이다. `max`를 사용하지 않고 같은 작업을 직접 작성하면 다음과 같다.
+
+~~~python
+best = alloys[0]
+for alloy in alloys[1:]:
+    if alloy.specific_strength() > best.specific_strength():
+        best = alloy
+~~~
+
 <code>getattr</code>를 사용하면 속성 이름을 문자열로 지정할 수도 있다.
 
 ~~~python
