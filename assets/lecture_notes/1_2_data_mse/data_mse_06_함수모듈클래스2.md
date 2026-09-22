@@ -194,7 +194,7 @@ print(true_strain(50.0, 55.0))
 
 ## 3.3. Schmid 법칙
 
-일축응력($\sigma$)가 작용할 때 분해전단응력($\tau$)은
+일축 응력(uniaxial stress, $\sigma$)이 작용할 때 분해전단응력(resolved shear stress, $\tau$)은
 
 $$
 \tau=\sigma\cos\phi\cos\lambda
@@ -227,9 +227,9 @@ print(tau)
 # 4. 클래스가 필요한 이유
 
 함수는 하나의 작업을 묶는 데 적합하다. 재료의 이름, 밀도, 탄성계수처럼 서로 관련된
-여러 데이터와 그 데이터를 사용하는 동작을 함께 묶으려면 클래스(class)가 편리하다.
+여러 데이터와 그 데이터를 사용하는 동작, 함수 등을 함께 묶으려면 클래스(class)가 편리하다.
 
-클래스는 객체를 만들기 위한 설계도이고, 클래스로 만든 각각의 실체를 객체(object) 또는
+클래스는 객체(object)를 만들기 위한 설계도이고, 클래스로 만든 각각의 실체를 객체 또는
 인스턴스(instance)라고 한다.
 
 예를 들어 Al과 Fe 객체는 같은 Material 클래스로 만들 수 있지만 서로 다른 밀도와
@@ -245,12 +245,20 @@ class Material:
         self.density = density
 
     def describe(self):
+        """
+        Return a string describing the material,
+        including its name and density.
+        """
         return f"{self.name}: {self.density} g/cm^3"
 
 
+# Instantiating an object of the Material class
 aluminum = Material("Aluminum", 2.70)
-print(aluminum.name)
-print(aluminum.describe())
+# The name "aluminum" refers to an instance of Material class
+
+# Aluminum instance의 속성에 접근하기
+print(aluminum.name) # 'name' 속성 값에 접근
+print(aluminum.describe()) # 'describe' 메서드 호출
 ~~~
 
 각 부분의 의미는 다음과 같다.
@@ -259,12 +267,15 @@ print(aluminum.describe())
 - <code>__init__</code>: 객체를 만들 때 실행되는 초기화 메서드
 - <code>self</code>: 현재 객체 자신
 - <code>self.name</code>, <code>self.density</code>: 객체의 속성(attribute)
-- <code>describe</code>: 객체가 수행할 수 있는 메서드(method)
+- <code>describe</code>: 객체가 수행할 수 있는 메서드(method); 클래스에 소속한 '함수'를 매서드라 부른다.
 - <code>aluminum</code>: Material 클래스의 객체
 
 메서드를 정의할 때 첫 번째 매개변수로 <code>self</code>를 적어야 한다.
 
 # 6. Alloy 클래스 만들기
+
+- 재료의 인장강도와 밀도가 주어진다면, 비강도(specific strength)를 계산할 수 있다.
+- 앞선 Material 클래스와 유사하게 Alloy 클래스를 정의하되, 비강도를 계산하는 메서드를 포함해보자.
 
 ~~~python
 class Alloy:
@@ -320,6 +331,7 @@ for alloy in alloys:
 ~~~
 
 비강도가 가장 큰 객체는 다음과 같이 찾을 수 있다.
+여기서 `lambda`는 간단한 함수를 한 줄로 정의하는 표현이다.[^lambda-function]
 
 ~~~python
 best = max(
@@ -446,6 +458,8 @@ self이다.
 
 측정 오류가 있는 시편도 기록으로 남기기 위해 객체 생성은 허용하되, 판정에서 오류를 표시하고 평균에서는 제외한다.
 다음 호출 코드가 동작하도록 구현하시오.
+
+[^lambda-function]: 람다 함수(lambda function)는 `def` 없이 매개변수와 반환할 식을 한 줄로 작성하는 익명 함수이다. 이 예제의 `lambda alloy: alloy.specific_strength()`는 각 `alloy` 객체의 비강도를 계산해 `max`가 비교하도록 전달한다.
 
 ~~~python
 samples = [
