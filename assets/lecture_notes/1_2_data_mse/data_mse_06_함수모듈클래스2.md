@@ -30,19 +30,20 @@ authors:
 - [4. 클래스가 필요한 이유](#4-클래스가-필요한-이유)
 - [5. 클래스의 기본 구조](#5-클래스의-기본-구조)
 - [6. Alloy 클래스 만들기](#6-alloy-클래스-만들기)
-- [7. 여러 객체 다루기](#7-여러-객체-다루기)
-- [8. 함수와 클래스의 선택](#8-함수와-클래스의-선택)
-- [9. 연습 문제](#9-연습-문제)
+- [7. 원자 구조와 성질 계산](#7-원자-구조와-성질-계산)
+- [8. 여러 객체 다루기](#8-여러-객체-다루기)
+- [9. 함수와 클래스의 선택](#9-함수와-클래스의-선택)
+- [10. 연습 문제](#10-연습-문제)
   - [문제 1](#문제-1)
   - [문제 2](#문제-2)
   - [문제 3](#문제-3)
   - [문제 4](#문제-4)
   - [문제 5](#문제-5)
   - [문제 6](#문제-6)
-- [10. 프로젝트형 연습문제: 경도 시편을 객체로 관리하기](#10-프로젝트형-연습문제-경도-시편을-객체로-관리하기)
-  - [10.1. 판정 함수 만들기](#101-판정-함수-만들기)
-  - [10.2. 시편 클래스 만들기](#102-시편-클래스-만들기)
-  - [10.3. 확인 사례와 제출물](#103-확인-사례와-제출물)
+- [11. 프로젝트형 연습문제: 경도 시편을 객체로 관리하기](#11-프로젝트형-연습문제-경도-시편을-객체로-관리하기)
+  - [11.1. 판정 함수 만들기](#111-판정-함수-만들기)
+  - [11.2. 시편 클래스 만들기](#112-시편-클래스-만들기)
+  - [11.3. 확인 사례와 제출물](#113-확인-사례와-제출물)
 
 # 1. 학습 목표
 
@@ -312,7 +313,66 @@ print(alloy.specific_strength())
 비강도(specific strength)는 여기서 인장강도를 밀도로 나눈 비교용 값이다. 서로 같은
 단위를 사용한 재료끼리 비교해야 한다.
 
-# 7. 여러 객체 다루기
+# 7. 원자 구조와 성질 계산
+
+원자도 클래스로 표현할 수 있다. 원자번호($Z$), 질량수($A$), 이온 전하를 저장하면
+양성자·중성자·전자 수와 핵전하량 같은 성질을 메서드로 계산할 수 있다.
+
+~~~python
+class Atom:
+    elementary_charge_c = 1.602e-19
+
+    def __init__(self, symbol, atomic_number, \
+          mass_number, charge=0):
+        if mass_number < atomic_number:
+            raise ValueError("mass_number must be at least atomic_number")
+
+        self.symbol = symbol
+        self.atomic_number = atomic_number
+        self.mass_number = mass_number
+        self.charge = charge
+
+    def proton_count(self):
+        return self.atomic_number
+
+    def neutron_count(self):
+        return self.mass_number - self.atomic_number
+
+    def electron_count(self):
+        return self.atomic_number - self.charge
+
+    def nuclear_charge_c(self):
+        return self.atomic_number * \
+            self.elementary_charge_c
+
+    def describe(self):
+        return (
+            f"{self.symbol}-{self.mass_number}: "
+            f"protons={self.proton_count()}, "
+            f"neutrons={self.neutron_count()}, "
+            f"electrons={self.electron_count()}"
+        )
+
+
+iron_ion = Atom("Fe", atomic_number=26, mass_number=56, charge=2)
+aluminum_atom = Atom("Al", atomic_number=13, mass_number=27)
+chloride_ion = Atom("Cl", atomic_number=17, mass_number=35, charge=-1)
+
+print(iron_ion.describe())
+print(iron_ion.nuclear_charge_c())
+
+atoms = [iron_ion, aluminum_atom, chloride_ion]
+for atom in atoms:
+    print(atom.describe())
+~~~
+
+중성 원자에서는 `charge=0`이므로 전자 수가 양성자 수와 같다. 양이온은 전자를 잃은
+상태이므로 전하가 `+2`인 철 이온 Fe$^{2+}$의 전자 수는 $26-2=24$개이다.
+반대로 음이온은 전자를 얻은 상태이므로 전하가 `-1`인 염화 이온 Cl$^-$의 전자 수는
+$17-(-1)=18$개이다. 질량수는 양성자 수와 중성자 수의 합이므로, Fe-56의 중성자
+수는 $56-26=30$개이다.
+
+# 8. 여러 객체 다루기
 
 같은 클래스로 만든 객체를 리스트에 저장하면 반복문으로 비교할 수 있다.
 
@@ -355,7 +415,7 @@ for alloy in alloys:
 초급 단계에서는 <code>alloy.tensile_strength_mpa</code>처럼 속성을 직접 쓰는 것이
 더 읽기 쉽다. 속성 이름을 실행 중에 선택해야 할 때 <code>getattr</code>가 유용하다.
 
-# 8. 함수와 클래스의 선택
+# 9. 함수와 클래스의 선택
 
 - 입력값으로 한 번 계산하여 결과를 반환하면 함수가 적합하다.
 - 서로 관련된 여러 데이터만 저장한다면 딕셔너리도 사용할 수 있다.
@@ -365,7 +425,7 @@ for alloy in alloys:
 예를 들어 밀도 하나를 계산하는 작업은 함수로 충분하다. 여러 합금의 이름, 밀도,
 강도와 비교 동작을 함께 관리한다면 클래스가 편리하다.
 
-# 9. 연습 문제
+# 10. 연습 문제
 
 ## 문제 1
 
@@ -426,14 +486,14 @@ iron.density
 self이다.
 -->
 
-# 10. 프로젝트형 연습문제: 경도 시편을 객체로 관리하기
+# 11. 프로젝트형 연습문제: 경도 시편을 객체로 관리하기
 
 [4장 조건문과 반복문]({% link assets/lecture_notes/1_2_data_mse/data_mse_04_조건문과_반복문.md %})의
 경도 검사 프로젝트를 확장하여, **판정 함수와 시편 클래스**를 작성하시오.
 함수는 공통 판정 규칙을 담당하고, 객체는 각 시편의 이름과 측정값을 함께 저장한다.
 모든 측정값은 동일한 경도 척도와 시험 조건에서 얻었다고 가정한다.
 
-## 10.1. 판정 함수 만들기
+## 11.1. 판정 함수 만들기
 
 `classify_hardness(value)`는 수치 하나를 받아 다음 판정 문자열을 반환한다.
 기준은 프로그래밍 연습을 위한 가상 규격이다.
@@ -447,7 +507,7 @@ self이다.
 
 입력은 숫자라고 가정한다. 함수 안에서 출력하지 않고 `return`으로 판정 결과를 돌려준다.
 
-## 10.2. 시편 클래스 만들기
+## 11.2. 시편 클래스 만들기
 
 `HardnessSample` 클래스를 작성한다.
 
@@ -458,7 +518,6 @@ self이다.
 
 측정 오류가 있는 시편도 기록으로 남기기 위해 객체 생성은 허용하되, 판정에서 오류를 표시하고 평균에서는 제외한다.
 다음 호출 코드가 동작하도록 구현하시오.
-
 [^lambda-function]: 람다 함수(lambda function)는 `def` 없이 매개변수와 반환할 식을 한 줄로 작성하는 익명 함수이다. 이 예제의 `lambda alloy: alloy.specific_strength()`는 각 `alloy` 객체의 비강도를 계산해 `max`가 비교하도록 전달한다.
 
 ~~~python
@@ -473,7 +532,7 @@ for sample in samples:
     print(sample.name, sample.hardness, sample.classify())
 ~~~
 
-## 10.3. 확인 사례와 제출물
+## 11.3. 확인 사례와 제출물
 
 위 예제에서 A는 기준 미달, B는 합격, C는 기준 초과, D는 잘못된 측정값이다.
 유효한 측정값은 3개, 합격 시편은 1개이며 평균은 약 135.33이다.
