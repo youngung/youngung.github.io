@@ -40,6 +40,7 @@ authors:
   - [문제 4](#문제-4)
   - [문제 5](#문제-5)
   - [문제 6](#문제-6)
+  - [문제 7](#문제-7)
 - [11. 프로젝트형 연습문제: 경도 시편을 객체로 관리하기](#11-프로젝트형-연습문제-경도-시편을-객체로-관리하기)
   - [11.1. 판정 함수 만들기](#111-판정-함수-만들기)
   - [11.2. 시편 클래스 만들기](#112-시편-클래스-만들기)
@@ -174,20 +175,15 @@ $$
 ~~~python
 import math
 
-
 def engineering_strain(initial_length, final_length):
     if initial_length <= 0:
         raise ValueError("initial_length must be positive")
-
     return (final_length - initial_length) / initial_length
-
 
 def true_strain(initial_length, final_length):
     if initial_length <= 0 or final_length <= 0:
         raise ValueError("lengths must be positive")
-
     return math.log(final_length / initial_length)
-
 
 print(engineering_strain(50.0, 55.0))
 print(true_strain(50.0, 55.0))
@@ -207,17 +203,14 @@ degree 혹은 radian 단위로 나타낼 수 있다.)
 
 ~~~python
 import math
-
 def resolved_shear_stress(stress_mpa, phi_deg, lambda_deg):
     phi_rad = math.radians(phi_deg)
     lambda_rad = math.radians(lambda_deg)
-
     return (
         stress_mpa
         * math.cos(phi_rad)
         * math.cos(lambda_rad)
     )
-
 
 tau = resolved_shear_stress(100.0, 45.0, 45.0)
 print(tau)
@@ -251,7 +244,6 @@ class Material:
         including its name and density.
         """
         return f"{self.name}: {self.density} g/cm^3"
-
 
 # Instantiating an object of the Material class
 aluminum = Material("Aluminum", 2.70)
@@ -325,8 +317,7 @@ class Atom:
     def __init__(self, symbol, atomic_number, \
           mass_number, charge=0):
         if mass_number < atomic_number:
-            raise ValueError("mass_number must be at least atomic_number")
-
+            raise ValueError("Mass_number must be at least atomic_number")
         self.symbol = symbol
         self.atomic_number = atomic_number
         self.mass_number = mass_number
@@ -341,7 +332,6 @@ class Atom:
     def electron_count(self):
         return self.atomic_number - self.charge
 
-
     def describe(self):
         return (
             f"{self.symbol}-{self.mass_number}: "
@@ -349,7 +339,6 @@ class Atom:
             f"neutrons={self.neutron_count()}, "
             f"electrons={self.electron_count()}"
         )
-
 
 iron_ion = Atom("Fe", atomic_number=26, mass_number=56, charge=2)
 aluminum_atom = Atom("Al", atomic_number=13, mass_number=27)
@@ -504,6 +493,25 @@ iron.density
 <!--
 풀이와 해답:
 self이다.
+-->
+
+## 문제 7
+
+위 Material 클래스의 밀도가 $g/cm^3$으로 주어질 때, 이를 $kg/m^3$으로 변환하는 속성을 추가하시오.
+
+
+<!--
+예를 들어 다음과 같이 속성을 추가할 수 있다.
+
+~~~python
+class Material:
+    def __init__(self, name, density):
+        self.name = name
+        self.density = density  # g/cm^3
+
+    def density_kg_m3(self):
+        return self.density * 1000  # kg/m^3
+~~~
 -->
 
 # 11. 프로젝트형 연습문제: 경도 시편을 객체로 관리하기
