@@ -503,3 +503,5 @@ a cross b=(0,0,1)이다.
 풀이와 해답:
 radian이다.
 -->
+
+[이전 강의]({% link assets/lecture_notes/1_2_data_mse/data_mse_10_NumPy기초2.md %}) | [강의 목록]({% link _lectures/1_2_data_mse.md %}) | [다음 강의]({% link assets/lecture_notes/1_2_data_mse/data_mse_12_행렬연산기초.md %})

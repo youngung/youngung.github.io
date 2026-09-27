@@ -188,3 +188,5 @@ ax2.imshow(img,cmap='gray')
 풀이와 해답:
 히스토그램(histogram)이다.
 -->
+
+[이전 강의]({% link assets/lecture_notes/1_2_data_mse/data_mse_18_무게비_원자비_변환.md %}) | [강의 목록]({% link _lectures/1_2_data_mse.md %}) | [다음 강의]({% link assets/lecture_notes/1_2_data_mse/data_mse_20_EBSD_분석.md %})

@@ -487,3 +487,5 @@ if __name__ == '__main__':
 CLI는 입력 해석과 사용자 출력만 담당한다.
 메인 가드는 파일을 직접 실행할 때만 main()을 호출하므로 import 시 CLI가 실행되지 않는다.
 -->
+
+[이전 강의]({% link assets/lecture_notes/1_2_data_mse/data_mse_06_함수모듈클래스2.md %}) | [강의 목록]({% link _lectures/1_2_data_mse.md %}) | [다음 강의]({% link assets/lecture_notes/1_2_data_mse/data_mse_08_IO.md %})

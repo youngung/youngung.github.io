@@ -433,3 +433,5 @@ print(2 * a)
 풀이와 해답:
 a.mean() 또는 np.mean(a)를 사용할 수 있다.
 -->
+
+[이전 강의]({% link assets/lecture_notes/1_2_data_mse/data_mse_08_IO.md %}) | [강의 목록]({% link _lectures/1_2_data_mse.md %}) | [다음 강의]({% link assets/lecture_notes/1_2_data_mse/data_mse_10_NumPy기초2.md %})

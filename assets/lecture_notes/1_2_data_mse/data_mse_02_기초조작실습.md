@@ -366,3 +366,5 @@ Python에서 덧셈과 곱셈에 사용하는 연산자를 각각 쓰시오.
 풀이와 해답:
 5
 -->
+
+[이전 강의]({% link assets/lecture_notes/1_2_data_mse/data_mse_01_orientation.md %}) | [강의 목록]({% link _lectures/1_2_data_mse.md %}) | [다음 강의]({% link assets/lecture_notes/1_2_data_mse/data_mse_03_기초자료구조.md %})

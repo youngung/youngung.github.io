@@ -596,7 +596,6 @@ class HardnessSample:
     def classify(self):
         return classify_hardness(self.hardness)
 
-
 samples = [
     HardnessSample('A', 110),
     HardnessSample('B', 130),
@@ -626,3 +625,5 @@ else:
 메서드는 해당 객체의 데이터를 이용하여 공통 판정 함수를 호출한다.
 예시 평균은 (110+130+166)/3=406/3이다.
 -->
+
+[이전 강의]({% link assets/lecture_notes/1_2_data_mse/data_mse_05_함수모듈클래스1.md %}) | [강의 목록]({% link _lectures/1_2_data_mse.md %}) | [다음 강의]({% link assets/lecture_notes/1_2_data_mse/data_mse_07_함수모듈클래스3.md %})

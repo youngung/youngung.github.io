@@ -309,9 +309,25 @@ ax.set_ylabel("Temperature (K)")
 
 ## 문제 4
 
-초기 길이가 $40$ mm이고 변위가 $0.2$ mm일 때 공칭 변형률을 계산하시오.
+공칭 변형률($\epsilon$)과 진 변형률($\varepsilon$)의 관계는 아래와 같다.
+
+$$
+\varepsilon = \ln(1 + \epsilon)
+$$
+
+진변형률을 y축으로 공칭변형률을 x축으로 하여
+공칭변형률이 -1에서 1까지 변할 때의 진변형률을 계산하고 그래프를 그리는 코드를 작성하시오.
 
 <!--
 풀이와 해답:
-e = 0.2 / 40 = 0.005이다.
+import numpy as np
+eps_engi = np.linspace(-1, 1, 201)
+eps_true = np.log(1 + eps_engi)
+fig, ax = plt.subplots()
+ax.plot(eps_engi, eps_true)
+ax.set_xlabel("공칭 변형률 ($\epsilon$)")
+ax.set_ylabel("진 변형률 ($\varepsilon$)")
+plt.show()
 -->
+
+[이전 강의]({% link assets/lecture_notes/1_2_data_mse/data_mse_13_행렬벡터연산고급_Ein.md %}) | [강의 목록]({% link _lectures/1_2_data_mse.md %}) | [다음 강의]({% link assets/lecture_notes/1_2_data_mse/data_mse_15_기초_matplotlib2.md %})

@@ -618,3 +618,5 @@ kN에 1000을 곱하여 N으로 변환해야 한다.
 풀이와 해답:
 초기의 선형 탄성구간을 사용해야 한다.
 -->
+
+[이전 강의]({% link assets/lecture_notes/1_2_data_mse/data_mse_16_최소자승법.md %}) | [강의 목록]({% link _lectures/1_2_data_mse.md %}) | [다음 강의]({% link assets/lecture_notes/1_2_data_mse/data_mse_18_무게비_원자비_변환.md %})

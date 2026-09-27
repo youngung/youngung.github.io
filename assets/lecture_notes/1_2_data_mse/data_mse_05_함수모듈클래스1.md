@@ -534,3 +534,5 @@ number는 입력을 받는 매개변수다. remaining과 binary는 호출마다 
 return으로 문자열을 돌려주면 호출한 곳에서 저장하거나 출력할 수 있다.
 함수의 계산과 출력 처리를 분리하므로 같은 변환 기능을 여러 입력에 재사용할 수 있다.
 -->
+
+[이전 강의]({% link assets/lecture_notes/1_2_data_mse/data_mse_04_조건문과_반복문.md %}) | [강의 목록]({% link _lectures/1_2_data_mse.md %}) | [다음 강의]({% link assets/lecture_notes/1_2_data_mse/data_mse_06_함수모듈클래스2.md %})

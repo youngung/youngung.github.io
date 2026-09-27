@@ -339,3 +339,5 @@ iron = {"name": "iron", "density": 7.874}
 풀이와 해답:
 iron["density"] 또는 iron.get("density")
 -->
+
+[이전 강의]({% link assets/lecture_notes/1_2_data_mse/data_mse_02_기초조작실습.md %}) | [강의 목록]({% link _lectures/1_2_data_mse.md %}) | [다음 강의]({% link assets/lecture_notes/1_2_data_mse/data_mse_04_조건문과_반복문.md %})

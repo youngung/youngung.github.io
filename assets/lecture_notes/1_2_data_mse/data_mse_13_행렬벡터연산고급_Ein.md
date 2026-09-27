@@ -925,3 +925,5 @@ NumPy에서 Einstein 표기법 계산에 사용하는 함수는 무엇인가?
 풀이와 해답:
 np.einsum이다.
 -->
+
+[이전 강의]({% link assets/lecture_notes/1_2_data_mse/data_mse_12_행렬연산기초.md %}) | [강의 목록]({% link _lectures/1_2_data_mse.md %}) | [다음 강의]({% link assets/lecture_notes/1_2_data_mse/data_mse_14_기초_matplotlib1.md %})

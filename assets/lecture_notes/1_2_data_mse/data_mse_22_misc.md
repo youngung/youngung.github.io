@@ -927,3 +927,5 @@ NumPy에서 행렬의 고유값과 고유벡터를 구하는 함수를 쓰시오
 풀이와 해답:
 np.linalg.eig()이다.
 -->
+
+[이전 강의]({% link assets/lecture_notes/1_2_data_mse/data_mse_21_고유값.md %}) | [강의 목록]({% link _lectures/1_2_data_mse.md %})

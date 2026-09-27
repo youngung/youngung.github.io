@@ -267,3 +267,4 @@ Jupyter Notebook을 사용할 수 있다.
 풀이와 해답:
 직접 실행하고 수정하는 과정에서 프로그램의 동작과 문제 해결 방법을 익힐 수 있기 때문이다.
 -->
+[강의 목록]({% link _lectures/1_2_data_mse.md %}) | [다음 강의]({% link assets/lecture_notes/1_2_data_mse/data_mse_02_기초조작실습.md %})

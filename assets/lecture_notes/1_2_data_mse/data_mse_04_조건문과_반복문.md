@@ -730,3 +730,5 @@ else:
 below_count=2, pass_count=4, above_count=1, 평균=930/7.
 합격률은 유효값이 있을 때 pass_count / valid_count * 100으로 계산한다。
 -->
+
+[이전 강의]({% link assets/lecture_notes/1_2_data_mse/data_mse_03_기초자료구조.md %}) | [강의 목록]({% link _lectures/1_2_data_mse.md %}) | [다음 강의]({% link assets/lecture_notes/1_2_data_mse/data_mse_05_함수모듈클래스1.md %})

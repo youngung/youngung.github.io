@@ -36,7 +36,6 @@ authors:
   - [문제 2](#문제-2)
   - [문제 3](#문제-3)
   - [문제 4](#문제-4)
-  - [문제 5](#문제-5)
 
 # 1. 학습 목표
 
@@ -413,15 +412,6 @@ ax.errorbar(temperature, hardness, yerr=hardness_std, marker="o", capsize=4)
 
 ## 문제 4
 
-결정방향 $[001]$의 단위벡터를 구하시오.
-
-<!--
-풀이와 해답:
-(0, 0, 1)이며 이미 크기가 1이다.
--->
-
-## 문제 5
-
 3차원 Axes를 만드는 다음 코드의 빈칸을 채우시오.
 
 ~~~python
@@ -433,3 +423,5 @@ ax = fig.add_subplot(111, __________)
 풀이와 해답:
 projection="3d"
 -->
+
+[이전 강의]({% link assets/lecture_notes/1_2_data_mse/data_mse_14_기초_matplotlib1.md %}) | [강의 목록]({% link _lectures/1_2_data_mse.md %}) | [다음 강의]({% link assets/lecture_notes/1_2_data_mse/data_mse_16_최소자승법.md %})

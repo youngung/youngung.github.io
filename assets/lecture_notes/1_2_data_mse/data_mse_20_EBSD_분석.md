@@ -66,3 +66,5 @@ Euler 각은 무엇을 나타내는 데 사용하는가?
 풀이와 해답:
 결정방위 또는 두 좌표계 사이의 회전을 나타내는 데 사용한다.
 -->
+
+[이전 강의]({% link assets/lecture_notes/1_2_data_mse/data_mse_19_SEM_Image분석.md %}) | [강의 목록]({% link _lectures/1_2_data_mse.md %}) | [다음 강의]({% link assets/lecture_notes/1_2_data_mse/data_mse_21_고유값.md %})

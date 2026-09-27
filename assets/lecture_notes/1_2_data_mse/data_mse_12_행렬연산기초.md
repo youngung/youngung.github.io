@@ -22,7 +22,13 @@ authors:
 - [2. 행렬과 NumPy 배열](#2-행렬과-numpy-배열)
 - [3. 행렬의 합과 원소별 곱](#3-행렬의-합과-원소별-곱)
 - [4. 행렬–벡터곱](#4-행렬벡터곱)
+- [\[\\boldsymbol A\]\[\\boldsymbol x\]](#boldsymbol-aboldsymbol-x)
+- [\\end{bmatrix}](#endbmatrix)
 - [5. 행렬곱](#5-행렬곱)
+- [\[\\boldsymbol C\]](#boldsymbol-c)
+- [\[\\boldsymbol A\]\[\\boldsymbol B\]](#boldsymbol-aboldsymbol-b)
+- [C\_{ij}](#c_ij)
+- [C\_{ij}](#c_ij-1)
 - [6. 행렬곱의 shape](#6-행렬곱의-shape)
 - [7. 단위행렬과 전치행렬](#7-단위행렬과-전치행렬)
   - [7.1. 단위행렬](#71-단위행렬)
@@ -30,6 +36,7 @@ authors:
 - [8. 행렬식과 역행렬](#8-행렬식과-역행렬)
   - [8.1. 행렬식](#81-행렬식)
   - [8.2. 역행렬](#82-역행렬)
+- [\[\\boldsymbol A\]^{-1}\[\\boldsymbol A\]](#boldsymbol-a-1boldsymbol-a)
 - [9. 연립방정식 풀기](#9-연립방정식-풀기)
 - [10. 재료공학 예제](#10-재료공학-예제)
   - [10.1. 격자 좌표를 실제 위치로 변환하기](#101-격자-좌표를-실제-위치로-변환하기)
@@ -601,8 +608,11 @@ I x=x이므로 원래 벡터 x이다.
 
 ## 문제 6
 
-2×2 행렬
-$\begin{bmatrix}2&1\\1&3\end{bmatrix}$의 행렬식을 구하라.
+다음 2×2 행렬
+
+$$\begin{bmatrix}2&1\\1&3\end{bmatrix}$$
+
+의 행렬식을 구하라.
 
 <!--
 풀이와 해답:
@@ -617,3 +627,5 @@ $\begin{bmatrix}2&1\\1&3\end{bmatrix}$의 행렬식을 구하라.
 풀이와 해답:
 np.linalg.solve(A, b)를 사용한다.
 -->
+
+[이전 강의]({% link assets/lecture_notes/1_2_data_mse/data_mse_11_벡터연산기초.md %}) | [강의 목록]({% link _lectures/1_2_data_mse.md %}) | [다음 강의]({% link assets/lecture_notes/1_2_data_mse/data_mse_13_행렬벡터연산고급_Ein.md %})
