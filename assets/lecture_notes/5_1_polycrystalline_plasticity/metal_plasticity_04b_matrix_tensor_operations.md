@@ -26,8 +26,8 @@ authors:
 
 관련 자료는 다음 순서로 읽을 수 있다.
 
-- [벡터와 좌표계]({% link assets/lecture_notes/5_1_polycrystalline_plasticity/metal_plasticity_04_vector_matrix.md %})
-- [행렬과 텐서 연산]({% link assets/lecture_notes/5_1_polycrystalline_plasticity/metal_plasticity_04b_matrix_tensor_operations.md %})
+- [제4강 벡터와 좌표계]({% link assets/lecture_notes/5_1_polycrystalline_plasticity/metal_plasticity_04_vector_matrix.md %})
+- [제5강 행렬과 텐서 연산]({% link assets/lecture_notes/5_1_polycrystalline_plasticity/metal_plasticity_04b_matrix_tensor_operations.md %})
 
 <span id="6-매트릭스-연산"></span>
 
@@ -114,8 +114,6 @@ $$c_j = \sum_{i=1}^3 v_i B_{ij},\qquad j=1,2,3.$$
 
 $$ \boldsymbol A\cdot \boldsymbol v \ne \boldsymbol v \cdot \boldsymbol A $$
 
-<span id="64-매트릭스-곱하기2-double-contraction"></span>
-
 ## 1.4. 매트릭스 곱하기2 (double contraction)
 
 - 앞서 곱셈이 한 첨자 기호에만 적용된 경우를 살펴보았다. 즉
@@ -136,9 +134,101 @@ $$
 
 $$B_{ij} = \sum_{k=1}^3A_{ijk} b_k \text{ with } i=1,2,3,\ \ \ j=1,2,3$$
 
-<span id="65-매트릭스-전치-transpose"></span>
 
-## 1.5. 매트릭스 전치 (transpose)
+## 1.5. 매트릭스 곱하기3 (2x2 matrix multiplication)
+
+- 2x2 행렬 $\boldsymbol a$와 $\boldsymbol b$의 곱을 생각하자.
+그 결과는 또 다른 2x2 행렬이 되며, 이를 $\boldsymbol c$라 하면
+
+$$
+\boldsymbol c = \boldsymbol a \cdot \boldsymbol b
+$$
+
+- 각 행렬의 성분을 아래와 같이 표현하면
+
+$$
+\boldsymbol a = \begin{bmatrix}a_{11}&a_{12}\\a_{21}&a_{22}\end{bmatrix},\qquad
+\boldsymbol b = \begin{bmatrix}b_{11}&b_{12}\\b_{21}&b_{22}\end{bmatrix},\qquad
+\boldsymbol c = \begin{bmatrix}c_{11}&c_{12}\\c_{21}&c_{22}\end{bmatrix}.
+$$
+
+- 2x2 행렬사이의 곱을 성분별로 나타내면 다음과 같다.
+
+$$
+\begin{bmatrix}a_{11}&a_{12}\\a_{21}&a_{22}\end{bmatrix}
+\begin{bmatrix}b_{11}&b_{12}\\b_{21}&b_{22}\end{bmatrix}
+=
+\begin{bmatrix}c_{11}&c_{12}\\c_{21}&c_{22}\end{bmatrix}
+=
+\begin{bmatrix}a_{11}b_{11}+a_{12}b_{21}&a_{11}b_{12}+a_{12}b_{22}\\a_{21}b_{11}+a_{22}b_{21}&a_{21}b_{12}+a_{22}b_{22}\end{bmatrix}
+$$
+
+- 따라서 위 결과를 행렬 $\boldsymbol c$를 성분별로 나타내면
+
+$$
+c_{11}=a_{11}b_{11}+a_{12}b_{21}
+$$
+
+$$
+c_{12}=a_{11}b_{12}+a_{12}b_{22}
+$$
+
+$$
+c_{21}=a_{21}b_{11}+a_{22}b_{21}
+$$
+
+$$
+c_{22}=a_{21}b_{12}+a_{22}b_{22}
+$$
+
+
+- 위에서 규칙을 찾으면, $\boldsymbol c$ 행렬의 성분 $c_{ij}$는 첫 번째 행렬 $\boldsymbol a$의 $i$번째 행과 두 번째 행렬의 $j$번째 열의 곱의 합으로 계산된다. 즉
+
+$$
+c_{{\color{blue}{i}}{\color{red}{j}}} = a_{{\color{blue}{i}}1}b_{1{\color{red}{j}}}+a_{{\color{blue}{i}}2}b_{2{\color{red}{j}}}
+$$
+
+위를 summation 기호를 사용해 일반화하면 다음과 같다.
+
+$$
+c_{{\color{blue}{i}}{\color{red}{j}}} = \sum_{k=1}^{2} a_{{\color{blue}{i}}k} b_{k{\color{red}{j}}}
+$$
+
+## 1.6. 매트릭스 곱하기4 (3x3 matrix multiplication)
+
+- 3x3 행렬 $\boldsymbol a$와 $\boldsymbol b$의 곱을 생각하자.
+그 결과는 또 다른 3x3 행렬이 되며, 이를 $\boldsymbol c$라 하면
+
+$$
+\boldsymbol c = \boldsymbol a \cdot \boldsymbol b
+$$
+
+- 각 행렬의 성분을 아래와 같이 표현하면
+
+$$
+\boldsymbol a = \begin{bmatrix}a_{11}&a_{12}&a_{13}\\a_{21}&a_{22}&a_{23}\\a_{31}&a_{32}&a_{33}\end{bmatrix},\qquad
+\boldsymbol b = \begin{bmatrix}b_{11}&b_{12}&b_{13}\\b_{21}&b_{22}&b_{23}\\b_{31}&b_{32}&b_{33}\end{bmatrix},\qquad
+\boldsymbol c = \begin{bmatrix}c_{11}&c_{12}&c_{13}\\c_{21}&c_{22}&c_{23}\\c_{31}&c_{32}&c_{33}\end{bmatrix}.
+$$
+
+- 3x3 행렬사이의 곱을 성분별로 나타내면 다음과 같다.
+
+$$
+\begin{bmatrix}a_{11}&a_{12}&a_{13}\\a_{21}&a_{22}&a_{23}\\a_{31}&a_{32}&a_{33}\end{bmatrix}
+\begin{bmatrix}b_{11}&b_{12}&b_{13}\\b_{21}&b_{22}&b_{23}\\b_{31}&b_{32}&b_{33}\end{bmatrix}
+=
+\begin{bmatrix}c_{11}&c_{12}&c_{13}\\c_{21}&c_{22}&c_{23}\\c_{31}&c_{32}&c_{33}\end{bmatrix}
+=
+\begin{bmatrix}a_{11}b_{11}+a_{12}b_{21}+a_{13}b_{31}&a_{11}b_{12}+a_{12}b_{22}+a_{13}b_{32}&a_{11}b_{13}+a_{12}b_{23}+a_{13}b_{33}\\a_{21}b_{11}+a_{22}b_{21}+a_{23}b_{31}&a_{21}b_{12}+a_{22}b_{22}+a_{23}b_{32}&a_{21}b_{13}+a_{22}b_{23}+a_{23}b_{33}\\a_{31}b_{11}+a_{32}b_{21}+a_{33}b_{31}&a_{31}b_{12}+a_{32}b_{22}+a_{33}b_{32}&a_{31}b_{13}+a_{32}b_{23}+a_{33}b_{33}\end{bmatrix}
+$$
+
+앞선 2x2 행렬 곱과 마찬가지로, 3x3 행렬 곱도 각 성분 $c_{ij}$는 첫 번째 행렬 $\boldsymbol a$의 $i$번째 행과 두 번째 행렬 $\boldsymbol b$의 $j$번째 열의 곱의 합으로 계산된다. 즉
+
+$$
+c_{{\color{blue}{i}}{\color{red}{j}}} = \sum_{k=1}^{3} a_{{\color{blue}{i}}k} b_{k{\color{red}{j}}}
+$$
+
+## 1.7. 매트릭스 전치 (transpose)
 
 이 절에서는 같은 정규직교 기저의 실수 성분 배열로 계산한다.
 텐서 표기로는 $(\boldsymbol A\cdot\boldsymbol B)^T=\boldsymbol B^T\cdot\boldsymbol A^T$이며,
@@ -204,7 +294,7 @@ $$
 
 <span id="66-매트릭스-trace"></span>
 
-## 1.6. 매트릭스 trace
+## 1.8. 매트릭스 trace
 
 - 한 매트릭스 $\boldsymbol A$의 trace는 $tr(\boldsymbol A)$라 표기하고, 다음과 같이 정의된다.
 
@@ -212,9 +302,8 @@ $$
 tr(\boldsymbol A) = A_{11}+A_{22}+A_{33}=\sum_{i=1}^3A_{ii}
 $$
 
-<span id="67-역행렬-inverse-matrix"></span>
 
-## 1.7. 역행렬 (inverse matrix)
+## 1.9. 역행렬 (inverse matrix)
 
 - 한 매트릭스 $\boldsymbol A$의 역은 $\boldsymbol A^{-1}$라 표기하고, 다음의 성질을 만족한다.
 
@@ -227,11 +316,8 @@ $$
 \sum_{k=1}^3A_{ik}A^{-1}_{kj}=I_{ij} \text{ with } i=1,2,3\ \ \ \ j=1,2,3
 $$
 
-<span id="7-determinant"></span>
-
 # 2. Determinant
 
-<span id="71-2times2-행렬"></span>
 
 ## 2.1. $2\times2$ 행렬
 
@@ -246,7 +332,6 @@ $$
 \det(\boldsymbol A) = |\boldsymbol A| = ad -bc
 $$
 
-<span id="72-3times3-행렬"></span>
 
 ## 2.2. $3\times3$ 행렬
 
@@ -263,7 +348,6 @@ $$
 $$
 
 
-<span id="8-랭크의-증감"></span>
 
 # 3. 랭크의 증감
 
@@ -278,7 +362,6 @@ $$
 - 랭크가 유지되는 경우
   - $b_i=ca_i \ \ \text{ with } i=1,2,3$
 
-<span id="9-einstein-표기법"></span>
 
 # 4. Einstein 표기법
 
@@ -310,11 +393,9 @@ $$ a_{ijk} b_{ijk} $$
 스칼라를 만들고, $\boldsymbol t=\boldsymbol\sigma\cdot\boldsymbol n$은 면력벡터(traction vector)를 만든다.
 수축되는 첨자의 수와 결과의 랭크를 확인해야 한다.
 
-<span id="10-연습-문제"></span>
 
 # 5. 연습 문제
 
-<span id="문제-4"></span>
 
 ## 문제 1
 
