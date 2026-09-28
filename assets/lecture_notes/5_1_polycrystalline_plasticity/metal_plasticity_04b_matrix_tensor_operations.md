@@ -29,11 +29,7 @@ authors:
 - [제4강 벡터와 좌표계]({% link assets/lecture_notes/5_1_polycrystalline_plasticity/metal_plasticity_04_vector_matrix.md %})
 - [제5강 행렬과 텐서 연산]({% link assets/lecture_notes/5_1_polycrystalline_plasticity/metal_plasticity_04b_matrix_tensor_operations.md %})
 
-<span id="6-매트릭스-연산"></span>
-
 # 1. 매트릭스 연산
-
-<span id="61-더하기-빼기"></span>
 
 ## 1.1. 더하기, 빼기
 
@@ -67,7 +63,6 @@ $$C_{33}=A_{33}+B_{33}$$
 
 $$C_{ij}=A_{ij}+B_{ij} \text{ with } i=1,2,3, \ \ \ j=1,2,3$$
 
-<span id="62-스칼라-곱하기"></span>
 
 ## 1.2. 스칼라 곱하기
 
@@ -78,8 +73,6 @@ $$\boldsymbol B = c \boldsymbol A $$
 - 이는 아래와 같다.
 
 $$B_{ij}=c A_{ij} \text{ with } i=1,2,3, \ \ \ j=1,2,3$$
-
-<span id="63-매트릭스-곱하기1-single-contraction"></span>
 
 ## 1.3. 매트릭스 곱하기1 (single contraction)
 
@@ -185,14 +178,16 @@ $$
 - 위에서 규칙을 찾으면, $\boldsymbol c$ 행렬의 성분 $c_{ij}$는 첫 번째 행렬 $\boldsymbol a$의 $i$번째 행과 두 번째 행렬의 $j$번째 열의 곱의 합으로 계산된다. 즉
 
 $$
-c_{{\color{blue}{i}}{\color{red}{j}}} = a_{{\color{blue}{i}}1}b_{1{\color{red}{j}}}+a_{{\color{blue}{i}}2}b_{2{\color{red}{j}}}
+c_{ {\color{blue}{i}}{\color{red}{j}}} = a_{ {\color{blue}{i}}1}b_{1{\color{red}{j}}}+a_{ {\color{blue}{i}}2}b_{2{\color{red}{j}}}
 $$
 
 위를 summation 기호를 사용해 일반화하면 다음과 같다.
 
 $$
-c_{{\color{blue}{i}}{\color{red}{j}}} = \sum_{k=1}^{2} a_{{\color{blue}{i}}k} b_{k{\color{red}{j}}}
+c_{ {\color{blue}{i}}{\color{red}{j}}} = \sum_{k=1}^{2} a_{ {\color{blue}{i}}k} b_{k{\color{red}{j}}}
 $$
+
+$k$와 같이 summation index는 반복되는 첨자로 나타내며, 같은 첨자가 두 번 나타나면 그 첨자에 대해 합을 취한다. $k$를 dummy index라고도 부른다.
 
 ## 1.6. 매트릭스 곱하기4 (3x3 matrix multiplication)
 
@@ -225,13 +220,67 @@ $$
 앞선 2x2 행렬 곱과 마찬가지로, 3x3 행렬 곱도 각 성분 $c_{ij}$는 첫 번째 행렬 $\boldsymbol a$의 $i$번째 행과 두 번째 행렬 $\boldsymbol b$의 $j$번째 열의 곱의 합으로 계산된다. 즉
 
 $$
-c_{{\color{blue}{i}}{\color{red}{j}}} = \sum_{k=1}^{3} a_{{\color{blue}{i}}k} b_{k{\color{red}{j}}}
+c_{ {\color{blue}{i}}{\color{red}{j}}} = \sum_{k=1}^{3} a_{ {\color{blue}{i}}k} b_{k{\color{red}{j}}}
 $$
 
-## 1.7. 매트릭스 전치 (transpose)
+## 1.7. 매트릭스 곱하기3 (자리를 바꿔 곱하기)
 
-이 절에서는 같은 정규직교 기저의 실수 성분 배열로 계산한다.
-텐서 표기로는 $(\boldsymbol A\cdot\boldsymbol B)^T=\boldsymbol B^T\cdot\boldsymbol A^T$이며,
+이 절에서는 두 행렬의 곱에서 자리를 바꿔 곱하는 경우를 다룬다. 일반적으로 행렬 곱은
+교환법칙이 성립하지 않으므로,
+$$\boldsymbol a \cdot \boldsymbol b \neq \boldsymbol b \cdot \boldsymbol a$$
+이다. 다만 특별한 경우, 예를 들어 두 행렬이 모두 대각행렬이거나, 한 행렬이
+단위행렬인 경우에는 교환법칙이 성립한다.
+
+2x2 행렬 $\boldsymbol a$와 $\boldsymbol b$의 곱이 $\boldsymbol d$ 행렬이라 하자.
+즉,
+$$
+\boldsymbol d = \boldsymbol b \cdot \boldsymbol a
+$$
+$$
+\begin{bmatrix}b_{11}&b_{12}\\b_{21}&b_{22}\end{bmatrix}
+\begin{bmatrix}a_{11}&a_{12}\\a_{21}&a_{22}\end{bmatrix}
+=
+\begin{bmatrix}b_{11}a_{11}+b_{12}a_{21}&b_{11}a_{12}+b_{12}a_{22}\\b_{21}a_{11}+b_{22}a_{21}&b_{21}a_{12}+b_{22}a_{22}\end{bmatrix}
+$$
+
+따라서
+$$
+\begin{bmatrix}\boldsymbol d\end{bmatrix}
+=
+\begin{bmatrix}b_{11}a_{11}+b_{12}a_{21}&b_{11}a_{12}+b_{12}a_{22}\\b_{21}a_{11}+b_{22}a_{21}&b_{21}a_{12}+b_{22}a_{22}\end{bmatrix}
+$$
+
+그런데 일반적으로 $\boldsymbol a \cdot \boldsymbol b$ 곱의 결과 행렬을$\boldsymbol c$라 하고(즉, $\boldsymbol c = \boldsymbol b \cdot \boldsymbol a$) 그 결과를 구하면
+
+$$
+\begin{bmatrix}\boldsymbol c\end{bmatrix}
+=
+\begin{bmatrix}b_{11}a_{11}+b_{21}a_{12}&b_{12}a_{11}+b_{22}a_{12}\\b_{11}a_{21}+b_{21}a_{22}&b_{12}a_{21}+b_{22}a_{22}\end{bmatrix}
+
+$$
+
+여기서 $\boldsymbol c$ 행렬내의 성분들의 곱은 스칼라 값들간의 곱이므로, 교환법칙이 성립하며 따라서
+
+$$
+\begin{bmatrix}\boldsymbol c\end{bmatrix} =
+\begin{bmatrix}a_{11}b_{11}+a_{12}b_{21}&a_{11}b_{12}+a_{12}b_{22}\\a_{21}b_{11}+a_{22}b_{21}&a_{21}b_{12}+a_{22}b_{22}\end{bmatrix}
+$$
+
+위 절에서 두 행렬의 곱 결과 $\boldsymbol d$와 $\boldsymbol c$를 비교하면,
+일반적으로 $\boldsymbol d \neq \boldsymbol c$임을 알 수 있다.
+따라서 일반적으로 행렬 곱은 교환법칙이 성립하지 않는다는 것을 알 수 있다.
+$$
+\begin{bmatrix}a_{11}&a_{12}\\a_{21}&a_{22}\end{bmatrix}
+\begin{bmatrix}b_{11}&b_{12}\\b_{21}&b_{22}\end{bmatrix}
+\neq
+\begin{bmatrix}b_{11}&b_{12}\\b_{21}&b_{22}\end{bmatrix}
+\begin{bmatrix}a_{11}&a_{12}\\a_{21}&a_{22}\end{bmatrix}
+$$
+
+
+## 1.8. 매트릭스 전치(transpose)
+
+
 아래에서는 대괄호를 사용해 대응하는 행렬곱을 설명한다.
 
 행렬 $[\boldsymbol A]$의 전치는 $[\boldsymbol A]^T$로 표기한다. 행과 열을 서로 바꾸므로,
@@ -250,6 +299,10 @@ $$
 $$
 
 전치를 두 번 적용하면 원래 행렬이 된다: $([\boldsymbol A]^T)^T=[\boldsymbol A]$.
+
+## 1.9. 매트릭스 곱에서의 전치 적용
+
+텐서 표기로는 $(\boldsymbol A\cdot\boldsymbol B)^T=\boldsymbol B^T\cdot\boldsymbol A^T$이며,
 
 **곱의 전치 법칙**에서는 각 행렬을 전치하는 것과 함께 **곱의 순서를 뒤집어야 한다.**
 $[\boldsymbol A]$가 $m\times n$, $[\boldsymbol B]$가 $n\times p$ 행렬이면
@@ -292,9 +345,8 @@ $$
 마지막 식은 변환된 벡터의 길이의 제곱을 나타내는 스칼라이며,
 변형 전후 선분의 길이를 비교할 때에도 사용한다.
 
-<span id="66-매트릭스-trace"></span>
 
-## 1.8. 매트릭스 trace
+## 1.10. 매트릭스 trace
 
 - 한 매트릭스 $\boldsymbol A$의 trace는 $tr(\boldsymbol A)$라 표기하고, 다음과 같이 정의된다.
 
@@ -303,7 +355,7 @@ tr(\boldsymbol A) = A_{11}+A_{22}+A_{33}=\sum_{i=1}^3A_{ii}
 $$
 
 
-## 1.9. 역행렬 (inverse matrix)
+## 1.11. 역행렬 (inverse matrix)
 
 - 한 매트릭스 $\boldsymbol A$의 역은 $\boldsymbol A^{-1}$라 표기하고, 다음의 성질을 만족한다.
 
