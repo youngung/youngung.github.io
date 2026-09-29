@@ -48,6 +48,10 @@ authors:
   - [문제 4](#문제-4)
   - [문제 5](#문제-5)
   - [문제 6](#문제-6)
+- [14. 프로젝트형 연습문제: 경도 데이터 파일과 검사 보고서](#14-프로젝트형-연습문제-경도-데이터-파일과-검사-보고서)
+  - [14.1. 입력 파일 준비](#141-입력-파일-준비)
+  - [14.2. 구현 요구사항](#142-구현-요구사항)
+  - [14.3. 기대 보고서와 확인 사례](#143-기대-보고서와-확인-사례)
 
 # 1. 학습 목표
 
@@ -191,12 +195,10 @@ with open("example.txt", "w", encoding="utf-8") as file:
 
 - 즉 아래 둘 중 하나의 방법을 사용해야 한다.
 ~~~python
-with open("example.txt", "w", encoding="utf-8") as file:
+with open("example.txt", "w") as file:
     file.write("Hello, file!\n"
-
-# 또는
-
-file = open("example.txt", "w", encoding="utf-8")
+# or
+file = open("example.txt", "w")
 file.write("Hello, file!\n")
 file.close()
 ~~~

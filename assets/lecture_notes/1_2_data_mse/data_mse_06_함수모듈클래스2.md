@@ -295,7 +295,6 @@ class Alloy:
             f"density={self.density_g_cm3} g/cm^3"
         )
 
-
 alloy = Alloy("Ti-6Al-4V", 900.0, 4.4)
 
 print(alloy.describe())
@@ -466,10 +465,13 @@ Young 계수가 70 GPa이고 탄성변형률이 0.002일 때
 
 ## 문제 4
 
-다음 코드에서 클래스, 객체와 속성을 각각 하나씩 쓰시오.
+앞선 <code>Material</code> class 정의를 참고하여 다음 코드에서 클래스, 객체와 속성을 각각 하나씩 쓰시오.
 
 ~~~python
 iron = Material("Iron", 7.87)
+print(iron.name)
+print(iron.density)
+print(iron.describe())
 ~~~
 
 <!--
@@ -478,8 +480,7 @@ iron = Material("Iron", 7.87)
 -->
 
 ## 문제 5
-
-<code>Material</code> 객체 <code>iron</code>의 밀도를 읽는 표현을 쓰시오.
+앞선 <code>Material</code> class 정의를 참고하여, 객체 <code>iron</code>의 밀도를 읽는 표현을 쓰시오.
 
 <!--
 풀이와 해답:
@@ -497,8 +498,9 @@ self이다.
 
 ## 문제 7
 
-위 Material 클래스의 밀도가 $g/cm^3$으로 주어질 때, 이를 $kg/m^3$으로 변환하는 속성을 추가하시오.
-
+위 Material 클래스의 밀도가 $g/cm^3$으로 주어질 때, 이를 $kg/m^3$으로 변환하는 매소드를
+추가하여, 그 결과를 속성으로 저장하시오. 그 매소드의 이름을 `get_rho_si`로 하고,
+속성의 이름을 `rho_si`로 하시오.
 
 <!--
 예를 들어 다음과 같이 속성을 추가할 수 있다.
@@ -509,8 +511,8 @@ class Material:
         self.name = name
         self.density = density  # g/cm^3
 
-    def density_kg_m3(self):
-        return self.density * 1000  # kg/m^3
+    def get_rho_si(self):
+        self.rho_si = self.density * 1000  # kg/m^3
 ~~~
 -->
 

@@ -76,10 +76,8 @@ authors:
 def add(a, b):
     return a + b
 
-
 def multiply(a, b):
     return a * b
-
 
 def power(base, exponent):
     return base**exponent
@@ -89,7 +87,6 @@ def power(base, exponent):
 
 ~~~python
 import calculator
-
 
 print(calculator.add(3, 4))
 print(calculator.multiply(3, 4))
@@ -113,19 +110,16 @@ python main.py
 
 ~~~python
 import math
-
 print(math.sqrt(9))
 ~~~
 
 ~~~python
 from math import sqrt
-
 print(sqrt(9))
 ~~~
 
 ~~~python
 import math as m
-
 print(m.sqrt(9))
 ~~~
 
@@ -145,7 +139,7 @@ print(m.sqrt(9))
 현재 폴더는 터미널에서 다음 명령으로 확인할 수 있다.
 
 ~~~sh
-pwd # pring working directory
+pwd # print working directory
 ~~~
 
 Windows 명령 프롬프트에서는 다음 명령을 사용할 수 있다.
