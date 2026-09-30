@@ -6,8 +6,7 @@ target: 학부 고학년
 permalink:
 featured: true
 prerequisite: 변위와 미소변형률
-toc:
-  sidebar: left
+toc: false
 
 mermaid:
   enabled: true
@@ -34,6 +33,11 @@ VPSC에 적용하는 속도구배와 결정립의 운동은
 - [변위와 미소변형률 연습문제]({% link assets/lecture_notes/5_1_polycrystalline_plasticity/metal_plasticity_05d_displacement_strain_exercises.md %})
 - [유한변형의 운동학]({% link assets/lecture_notes/5_1_polycrystalline_plasticity/metal_plasticity_05b_descriptions_finite_strain.md %})
 - [물질미분과 ALE 기술법]({% link assets/lecture_notes/5_1_polycrystalline_plasticity/metal_plasticity_05c_material_derivative_ale.md %})
+
+**목차**
+
+* 목차
+{:toc}
 
 <span id="10-lagrangian과-eulerian-기술법"></span>
 
@@ -197,21 +201,82 @@ $$
 
 ## 2.2. 길이 변화로부터 정의하는 유한변형률
 
-변형 전후 선분 길이의 제곱 차이[^squared-length]는
+### 2.2.1. Green–Lagrange 변형률의 정의
+
+기준 배치의 미소 선분을 $d\boldsymbol X$, 변형 후 선분을 $d\boldsymbol x$라 하자.
+각 선분의 길이를 $\ell_0=\|d\boldsymbol X\|$, $\ell=\|d\boldsymbol x\|$라 하면,
+벡터와 자기 자신의 내적은 길이의 제곱이므로
 
 $$
-d\boldsymbol x\cdot d\boldsymbol x-d\boldsymbol X\cdot d\boldsymbol X
-=d\boldsymbol X\cdot\left((\boldsymbol F^T\cdot\boldsymbol F-\boldsymbol I)\cdot d\boldsymbol X\right)
-=2d\boldsymbol X\cdot(\boldsymbol E\cdot d\boldsymbol X)
+\ell_0^2=d\boldsymbol X\cdot d\boldsymbol X,
+\qquad
+\ell^2=d\boldsymbol x\cdot d\boldsymbol x.
 $$
 
-이다.[^line-element-quadratic-form] 따라서 **Green–Lagrange 변형률 (Green–Lagrange strain)**, $\boldsymbol E$는
+**길이 자체 대신 제곱 길이를 사용하면 제곱근 없이 내적과 텐서로 길이 변화를 표현할 수 있다.**
+여기서 $\ell^2-\ell_0^2$는 제곱 길이의 차이이며,
+길이 차이 $\ell-\ell_0$나 그 제곱 $(\ell-\ell_0)^2$와는 다르다.
+
+앞 절의 $d\boldsymbol x=\boldsymbol F\cdot d\boldsymbol X$를 이용하여 이 차이를 계산하자.
+같은 정규직교 기저에서 선분의 성분을 열벡터 $[d\boldsymbol X]$, $[d\boldsymbol x]$로
+배열한다. 대괄호는 성분 배열이고, 내적은
+$\boldsymbol a\cdot\boldsymbol b=[\boldsymbol a]^T[\boldsymbol b]$로 계산한다.
+곱의 전치 규칙 $([\boldsymbol A][\boldsymbol B])^T=[\boldsymbol B]^T[\boldsymbol A]^T$를 적용하면
 
 $$
-\boxed{\boldsymbol E=\frac12(\boldsymbol F^T\cdot \boldsymbol F-\boldsymbol I)}.
+\begin{aligned}
+\ell^2
+&=[d\boldsymbol x]^T[d\boldsymbol x]\\
+&=([\boldsymbol F][d\boldsymbol X])^T([\boldsymbol F][d\boldsymbol X])\\
+&=[d\boldsymbol X]^T[\boldsymbol F]^T[\boldsymbol F][d\boldsymbol X].
+\end{aligned}
 $$
 
-### Green–Lagrange 변형률과 미소변형률의 관계
+기준 선분의 제곱 길이는
+$\ell_0^2=[d\boldsymbol X]^T[\boldsymbol I][d\boldsymbol X]$이므로
+
+$$
+\ell^2-\ell_0^2
+=[d\boldsymbol X]^T
+\left([\boldsymbol F]^T[\boldsymbol F]-[\boldsymbol I]\right)
+[d\boldsymbol X].
+$$
+
+이 식에서 기준 선분의 제곱 길이 변화를 나타내는 텐서를
+**Green–Lagrange 변형률 (Green–Lagrange strain)**로 정의한다.
+
+$$
+\boxed{\boldsymbol E=\frac12(\boldsymbol F^T\cdot\boldsymbol F-\boldsymbol I)}.
+$$
+
+따라서 제곱 길이 차이는 다음과 같이 쓸 수 있다.
+
+$$
+\boxed{\ell^2-\ell_0^2
+=2[d\boldsymbol X]^T[\boldsymbol E][d\boldsymbol X]
+=2d\boldsymbol X\cdot(\boldsymbol E\cdot d\boldsymbol X)}.
+$$
+
+이는 벡터가 행렬의 양쪽에 나타나는 **이차형식 (quadratic form)**이다.
+3차원에서 배열 크기는 $(1\times3)(3\times3)(3\times1)$이므로 결과는 스칼라이며,
+$\boldsymbol E$는 무차원이고 결과의 단위는 길이의 제곱이다.
+성분으로 쓰면 $\ell^2-\ell_0^2=2dX_iE_{ij}dX_j$이며, 반복 첨자에 대해 합한다.
+
+기준 선분의 단위방향을 $\boldsymbol N$이라 하여
+$d\boldsymbol X=\ell_0\boldsymbol N$, $\|\boldsymbol N\|=1$을 대입하면
+
+$$
+\boldsymbol N\cdot(\boldsymbol E\cdot\boldsymbol N)
+=\frac{\ell^2-\ell_0^2}{2\ell_0^2}
+=\frac12\left[\left(\frac{\ell}{\ell_0}\right)^2-1\right].
+$$
+
+즉 $\boldsymbol E$는 **기준 방향별 선분의 신장 또는 수축**을 나타낸다.
+앞의 $1/2$ 계수는 작은 신장 $\ell/\ell_0=1+\eta$에서
+$[(1+\eta)^2-1]/2=\eta+\eta^2/2\approx\eta$가 되어
+기존 미소변형률과 일차항이 일치하도록 한다. 다음 절에서 이를 텐서식으로 확인한다.
+
+### 2.2.2. Green–Lagrange 변형률과 미소변형률의 관계
 
 위의 길이 관계에는 변위구배가 작다는 가정이 없다. 여기서 **미소 선분**은 서로 매우
 가까운 두 물질점을 잇는 선분을 뜻하며, 그 선분의 **신장비까지 작다는 뜻은 아니다**.
@@ -270,7 +335,7 @@ $$
 $\boldsymbol H$가 작지 않을 수 있다. 이 경우 이차항을 생략하면 잘못된 변형률이
 나올 수 있으며, 2.3절에서 강체회전으로 확인한다.
 
-### 현재 배치를 기준으로 표현하는 변형률
+### 2.2.3. 현재 배치를 기준으로 표현하는 Euler–Almansi 변형률
 
 같은 길이 변화를 현재 선분 $d\boldsymbol x$로 표현하면
 **Euler–Almansi 변형률 (Euler–Almansi strain)**, $\boldsymbol e$를 얻는다.
@@ -286,30 +351,40 @@ $\boldsymbol F^{-T}=(\boldsymbol F^{-1})^T$다. $\boldsymbol E$와 $\boldsymbol 
 현재 배치의 선분으로 같은 길이 변화를 표현하지만 수치는 일반적으로 다르다.
 좌표 기술법을 선택하는 것과 변형률 척도를 선택하는 것은 구분해야 한다.
 
-[^squared-length]: 벡터 $\boldsymbol v$의 길이는 $\|\boldsymbol v\|=\sqrt{\boldsymbol v\cdot\boldsymbol v}$이고, 길이의 제곱은 $\|\boldsymbol v\|^2=\boldsymbol v\cdot\boldsymbol v$다. 따라서 선분의 제곱 길이는 각각 $d\boldsymbol X\cdot d\boldsymbol X$와 $d\boldsymbol x\cdot d\boldsymbol x$로 표현된다. 길이 자체 대신 제곱을 사용하면 제곱근 없이 내적과 텐서로 길이 변화를 표현할 수 있다. 실제 길이는 이 값의 제곱근이며, 제곱 길이와 길이는 구분해야 한다. $d\boldsymbol x=\boldsymbol F\cdot d\boldsymbol X$를 대입하면 $d\boldsymbol x\cdot d\boldsymbol x= [d\boldsymbol X]^T[\boldsymbol F]^T[\boldsymbol F][d\boldsymbol X]$가 되어 본문의 관계를 얻는다.
 
-[^line-element-quadratic-form]: 같은 정규직교 기저에서 미소 선분의 성분을 열벡터 $[d\boldsymbol X]$, $[d\boldsymbol x]$로 배열한다. 대괄호는 성분 배열이며, 내적은 $\boldsymbol a\cdot\boldsymbol b=[\boldsymbol a]^T[\boldsymbol b]$다. 위첨자 $T$는 전치(transpose)로, 열벡터를 행벡터로 바꾼다. $[d\boldsymbol x]=[\boldsymbol F][d\boldsymbol X]$에 곱의 전치 규칙 $([\boldsymbol A][\boldsymbol B])^T=[\boldsymbol B]^T[\boldsymbol A]^T$를 적용하면
+### 2.2.4. 실험과의 연결: DIC로 측정한 변위장에서 변형률 구하기
 
-    $$
-    \begin{aligned}
-    d\boldsymbol x\cdot d\boldsymbol x
-    &=[d\boldsymbol x]^T[d\boldsymbol x]\\
-    &=([\boldsymbol F][d\boldsymbol X])^T([\boldsymbol F][d\boldsymbol X])\\
-    &=[d\boldsymbol X]^T[\boldsymbol F]^T[\boldsymbol F][d\boldsymbol X].
-    \end{aligned}
-    $$
+**DIC (Digital Image Correlation, 디지털 영상 상관법)**는 변형 전후의 시편 표면 영상을
+비교하여 스페클(speckle) 무늬의 이동을 추적하고, 표면의 변위장을 구하는 방법이다.
+기준 영상의 물질점 위치를 $\boldsymbol X$, 변형 후 대응 위치를 $\boldsymbol x$로 보면,
+이 측정은 앞서 배운 $\boldsymbol u_L(\boldsymbol X)=\boldsymbol x-\boldsymbol X$와 연결된다.
 
-    기준 선분에 대해서는 $d\boldsymbol X\cdot d\boldsymbol X=[d\boldsymbol X]^T[\boldsymbol I][d\boldsymbol X]$이므로, 제곱 길이의 차이는
+평평한 시편의 면내 운동을 측정하는 2D DIC에서는, 보정된 물리 좌표에 대한
+두 변위 성분 $u_{L,1},u_{L,2}$로부터 면내 변형구배를 계산할 수 있다.
 
-    $$
-    \begin{aligned}
-    d\boldsymbol x\cdot d\boldsymbol x-d\boldsymbol X\cdot d\boldsymbol X
-    &=[d\boldsymbol X]^T([\boldsymbol F]^T[\boldsymbol F]-[\boldsymbol I])[d\boldsymbol X]\\
-    &=2[d\boldsymbol X]^T[\boldsymbol E][d\boldsymbol X].
-    \end{aligned}
-    $$
+$$
+[\boldsymbol F]=
+\begin{bmatrix}
+1+\dfrac{\partial u_{L,1}}{\partial X_1}&\dfrac{\partial u_{L,1}}{\partial X_2}\\
+\dfrac{\partial u_{L,2}}{\partial X_1}&1+\dfrac{\partial u_{L,2}}{\partial X_2}
+\end{bmatrix},
+\qquad
+\boldsymbol E=\frac12(\boldsymbol F^T\boldsymbol F-\boldsymbol I).
+$$
 
-    이는 **이차형식 (quadratic form)**이다. 3차원에서 배열 크기는 $(1\times3)(3\times3)(3\times1)$이므로 결과는 제곱 길이 단위의 스칼라다. 성분으로는 $dX_i(F_{ki}F_{kj}-\delta_{ij})dX_j$이며, 반복 인덱스에 대해 합한다. 여기서 $\boldsymbol E=(\boldsymbol F^T\cdot\boldsymbol F-\boldsymbol I)/2$다. 특히 $d\boldsymbol X=\ell_0\boldsymbol N$인 선분($\|\boldsymbol N\|=1$)에 대해 $\boldsymbol N\cdot(\boldsymbol E\cdot\boldsymbol N)=[\boldsymbol N]^T[\boldsymbol E][\boldsymbol N]=(\ell^2-\ell_0^2)/(2\ell_0^2)$이므로, 이차형식은 기준 방향 $\boldsymbol N$의 선분이 얼마나 늘어나거나 줄어드는지를 나타낸다. $\ell_0$와 $\ell$은 해당 미소 선분의 변형 전후 길이다.
+즉 **영상의 대응점 탐색 → 변위장 → 변위구배 → 변형률**이라는 계산 흐름이다.
+예를 들어 균일 인장에서 $u_{L,1}=0.2X_1$, $u_{L,2}=0$을 얻었다면
+$\varepsilon_{11}=0.2$인 반면 $E_{11}=0.2+0.2^2/2=0.22$다.
+따라서 DIC 결과의 “strain”을 읽을 때에는 소프트웨어가 출력한 값이
+미소변형률, Green–Lagrange 변형률, 로그변형률 중 무엇인지 확인해야 한다.
+
+실제 변형률 계산에는 이산 변위 자료의 국소 근사와 미분이 필요하므로,
+변위의 측정 잡음과 평활화 범위가 결과에 영향을 준다.
+또한 일반적인 단일 카메라 2D DIC는 면외 이동·회전에 민감하다.
+스테레오 DIC는 표면의 3차원 위치와 변위를 측정할 수 있지만,
+그것만으로 시편 내부의 전체 3차원 변형구배까지 얻는 것은 아니다.
+측정 원리와 면외 운동의 영향은
+[Correlated Solutions의 DIC 설명](https://www.correlatedsolutions.com/technology)을 참고한다.
 
 <span id="113-1차원-인장과-강체회전의-비교"></span>
 
@@ -329,7 +404,7 @@ $\boldsymbol F^{-T}=(\boldsymbol F^{-1})^T$다. $\boldsymbol E$와 $\boldsymbol 
 다만 이를 일반적인 유한변형률 텐서와 동일시할 수는 없다.
 
 1차원에서 $u_L=(\Lambda-1)X$이므로 미소변형률 식에 대입한 값은
-$\varepsilon=du_L/dX=\Lambda-1$이다. 따라서 2.2절의 관계는
+$\varepsilon=du_L/dX=\Lambda-1$이다. 따라서 2.2.2절의 관계는
 
 $$
 \boxed{E=\frac12(\Lambda^2-1)
@@ -664,10 +739,17 @@ $J=1$이며 $\boldsymbol E=\operatorname{diag}(1.5,-0.375)$이다.
 ## 문제 9. 변형 후 강체회전을 더하면
 
 어떤 변형 $\boldsymbol F$에 강체회전 $\boldsymbol Q$를 추가하여
-$\boldsymbol F^*=\boldsymbol Q\boldsymbol F$가 되었다.
-$\boldsymbol Q^T\boldsymbol Q=\boldsymbol I$일 때
-$\boldsymbol E^*=\boldsymbol E$와
-$\boldsymbol e^*=\boldsymbol Q\boldsymbol e\boldsymbol Q^T$를 증명하시오.
+
+$$\boldsymbol F^*=\boldsymbol Q\boldsymbol F$$
+
+가 되었다.
+$$\boldsymbol Q^T\boldsymbol Q=\boldsymbol I$$
+일 때
+$$\boldsymbol E^*=\boldsymbol E$$
+와
+$$\boldsymbol e^*=\boldsymbol Q\boldsymbol e\boldsymbol Q^T$$
+를 증명하시오.
+
 기준 배치와 현재 배치의 차이로 이 결과를 설명하시오.
 
 <!--
