@@ -211,15 +211,66 @@ $$
 \boxed{\boldsymbol E=\frac12(\boldsymbol F^T\cdot \boldsymbol F-\boldsymbol I)}.
 $$
 
-$\boldsymbol H=\nabla_X\boldsymbol u_L$을 대입하면
+### Green–Lagrange 변형률과 미소변형률의 관계
+
+위의 길이 관계에는 변위구배가 작다는 가정이 없다. 여기서 **미소 선분**은 서로 매우
+가까운 두 물질점을 잇는 선분을 뜻하며, 그 선분의 **신장비까지 작다는 뜻은 아니다**.
+Green–Lagrange 변형률은 이러한 선분의 제곱 길이 변화를 기준 배치에서 표현한다.
+
+변위구배 $\boldsymbol H=\nabla_X\boldsymbol u_L$와
+$\boldsymbol F=\boldsymbol I+\boldsymbol H$를 대입하여 전개하면
 
 $$
-\boldsymbol E=\frac12(\boldsymbol H+\boldsymbol H^T+\boldsymbol H^T\cdot \boldsymbol H).
+\begin{aligned}
+\boldsymbol E
+&=\frac12\left[(\boldsymbol I+\boldsymbol H)^T
+\cdot(\boldsymbol I+\boldsymbol H)-\boldsymbol I\right]\\
+&=\frac12\left(\boldsymbol H+\boldsymbol H^T
++\boldsymbol H^T\cdot\boldsymbol H\right).
+\end{aligned}
 $$
 
-미소변형률은 이 식에서 이차항 $\boldsymbol H^T\cdot \boldsymbol H$를 무시한 근사다.
-즉 $\|\boldsymbol H\|\ll1$일 때 $\boldsymbol E\approx\boldsymbol\varepsilon$이다.
-병진변위(translational displacement)의 크기(즉 $\|\boldsymbol u_L\|$)보다 **변위구배**($\boldsymbol H=\nabla_X\boldsymbol u_L$)**의 크기**가 근사의 기준이라는 점에 주목하자.
+[기본 자료]({% link assets/lecture_notes/5_1_polycrystalline_plasticity/metal_plasticity_05_displacement_strain.md %})에서
+정의한 미소변형률은 변위구배의 대칭부분이므로
+
+$$
+\boldsymbol\varepsilon=\frac12(\boldsymbol H+\boldsymbol H^T),
+\qquad
+\boxed{\boldsymbol E=\boldsymbol\varepsilon
++\frac12\boldsymbol H^T\cdot\boldsymbol H}.
+$$
+
+마지막 식은 정확한 항등식이다. 성분으로 쓰면
+
+$$
+E_{ij}=\underbrace{\frac12\left(
+\frac{\partial u_{L,i}}{\partial X_j}
++\frac{\partial u_{L,j}}{\partial X_i}\right)}_{\varepsilon_{ij}}
++\frac12\sum_{k=1}^3
+\frac{\partial u_{L,k}}{\partial X_i}
+\frac{\partial u_{L,k}}{\partial X_j}.
+$$
+
+따라서 **미소변형률은 Green–Lagrange 변형률에서 변위구배의 이차항을 생략한 근사**다.
+$\|\boldsymbol H\|\ll1$이면 일차항에 비해 이차항이 작아서
+$\boldsymbol E\approx\boldsymbol\varepsilon$로 계산할 수 있다.
+예를 들어 변위구배의 크기가 $10^{-2}$ 수준이면 이차항은 $10^{-4}$ 수준이다.
+다만 특정 성분의 일차항이 0이면, 그 성분에서는 이차항이 첫 번째로 나타나는 기여일 수 있다.
+
+근사의 기준은 **변위 자체의 크기가 아니라 변위구배의 크기**다.
+모든 점이 같은 상수벡터 $\boldsymbol c$만큼 이동하는 병진운동에서는
+
+$$
+\boldsymbol u_L=\boldsymbol c,
+\qquad \boldsymbol H=\boldsymbol0,
+\qquad \boldsymbol E=\boldsymbol\varepsilon=\boldsymbol0.
+$$
+
+따라서 병진 거리가 커도 변형률은 0이다. 반면 실제 늘어남이 작더라도 회전이 크면
+$\boldsymbol H$가 작지 않을 수 있다. 이 경우 이차항을 생략하면 잘못된 변형률이
+나올 수 있으며, 2.3절에서 강체회전으로 확인한다.
+
+### 현재 배치를 기준으로 표현하는 변형률
 
 같은 길이 변화를 현재 선분 $d\boldsymbol x$로 표현하면
 **Euler–Almansi 변형률 (Euler–Almansi strain)**, $\boldsymbol e$를 얻는다.
@@ -277,6 +328,27 @@ $\boldsymbol F^{-T}=(\boldsymbol F^{-1})^T$다. $\boldsymbol E$와 $\boldsymbol 
 공칭변형률 $du_L/dX=\Lambda-1$은 이 1차원 문제에서는 큰 인장에도 정확하다.
 다만 이를 일반적인 유한변형률 텐서와 동일시할 수는 없다.
 
+1차원에서 $u_L=(\Lambda-1)X$이므로 미소변형률 식에 대입한 값은
+$\varepsilon=du_L/dX=\Lambda-1$이다. 따라서 2.2절의 관계는
+
+$$
+\boxed{E=\frac12(\Lambda^2-1)
+=\varepsilon+\frac12\varepsilon^2}
+$$
+
+로 단순해진다. 길이가 1% 증가하면 $\varepsilon=0.01$, $E=0.01005$로 가깝지만,
+50% 증가하면 $\varepsilon=0.5$, $E=0.625$로 차이가 커진다.
+여기서 $E=0.625$를 길이가 62.5% 증가했다는 뜻으로 해석하면 안 된다.
+초기 길이 $l_0$와 현재 길이 $l$에 대해 두 척도의 정의는
+
+$$
+\varepsilon=\frac{l-l_0}{l_0},
+\qquad E=\frac{l^2-l_0^2}{2l_0^2}
+$$
+
+로 다르다. $E$로부터 실제 신장비를 구하려면 $\Lambda=\sqrt{1+2E}$를 사용한다.
+
+
 이제 강체운동 $\boldsymbol x=\boldsymbol Q\cdot \boldsymbol X+\boldsymbol c$를 생각하자.
 $\boldsymbol Q^T\cdot \boldsymbol Q=\boldsymbol I$, $\det\boldsymbol Q=1$인 회전텐서에 대해
 
@@ -295,6 +367,32 @@ $$
 가 된다. $90^\circ$ 회전에서는 $-\boldsymbol I$라는 잘못된 변형률이 나온다.
 작은 $\theta$에서는 $\cos\theta-1\approx-\theta^2/2$가 이차항이므로
 미소변형 근사에서 무시할 수 있다.
+
+이 예에서 이차항의 역할을 직접 확인할 수 있다. 2차원 회전에서는
+$\boldsymbol H=\boldsymbol Q-\boldsymbol I$이므로
+
+$$
+\begin{aligned}
+\frac12\boldsymbol H^T\cdot\boldsymbol H
+&=\frac12(\boldsymbol Q^T-\boldsymbol I)
+\cdot(\boldsymbol Q-\boldsymbol I)\\
+&=\frac12(2\boldsymbol I-\boldsymbol Q-\boldsymbol Q^T)\\
+&=(1-\cos\theta)\boldsymbol I.
+\end{aligned}
+$$
+
+따라서 미소변형률 식에서 나온 항을 이차항이 정확히 상쇄한다.
+
+$$
+\boldsymbol E
+=\underbrace{(\cos\theta-1)\boldsymbol I}_{\boldsymbol\varepsilon}
++\underbrace{(1-\cos\theta)\boldsymbol I}_{\boldsymbol H^T\cdot\boldsymbol H/2}
+=\boldsymbol0.
+$$
+
+즉 이차항은 큰 신장에서의 수치 보정뿐 아니라, **유한한 강체회전을 변형으로
+잘못 계산하지 않도록 하는 데에도 필요하다**. 다음 절의 극분해는
+$\boldsymbol F$에 함께 들어 있는 회전과 신장을 분리하는 방법이다.
 
 <span id="12-극분해-polar-decomposition"></span>
 
@@ -385,3 +483,204 @@ $\boldsymbol E$는 기준 배치에서의 신장을 나타내며 강체회전 �
 | Green–Lagrange 변형률 | $\boldsymbol E=(\boldsymbol F^T\cdot \boldsymbol F-\boldsymbol I)/2$ |
 | Euler–Almansi 변형률 | $\boldsymbol e=(\boldsymbol I-\boldsymbol F^{-T}\cdot \boldsymbol F^{-1})/2$ |
 | 극분해 | $\boldsymbol F=\boldsymbol R\cdot \boldsymbol U=\boldsymbol V\cdot \boldsymbol R$ |
+
+# 5. 연습문제
+
+문제 1–3은 좌표 기술법과 변형구배, 문제 4–7은 유한변형률과 미소변형 근사의 차이,
+문제 8–9는 극분해와 회전의 영향을 다룬다.
+행렬은 같은 정규직교 기저에서의 성분 배열이며, 별도 언급이 없으면 변형은 균일하다.
+2차원 문제의 $J$는 면적비다. 이를 $x_3=X_3$인 3차원 운동으로 확장하면 체적비와 같다.
+
+## 문제 1. 같은 운동을 두 좌표로 표현하기
+
+좌표와 변위의 단위가 mm일 때, 1차원 운동이 $x=1.5X+2$로 주어진다.
+$u_L(X)$, 역변환 $X(x)$, $u_E(x)$를 구하시오.
+$X=4\,\mathrm{mm}$인 물질점에서 두 표현의 변위값이 같음을 확인하고,
+$du_L/dX$와 $du_E/dx$가 다른 이유를 설명하시오.
+
+<!--
+풀이와 해답:
+$u_L=0.5X+2$, $X=(x-2)/1.5$, $u_E=x-(x-2)/1.5=x/3+4/3$이다.
+$X=4$인 점은 $x=8$로 이동하므로 두 식 모두 변위 $4$ mm를 준다.
+$du_L/dX=1/2$, $du_E/dx=1/3$이다. 같은 운동이지만 미분 좌표가 다르다.
+$F=1.5$이고 $1-du_E/dx=2/3=F^{-1}$도 성립한다.
+-->
+
+## 문제 2. 변형구배와 선분의 변화
+
+2차원 운동이 다음과 같다.
+
+$$
+x_1=1.2X_1+0.3X_2,\qquad x_2=0.8X_2.
+$$
+
+$\boldsymbol F$와 $J$를 구하시오. 기준 선분
+$d\boldsymbol X=\ell_0(0,1)^T$의 변형 후 벡터와 신장비를 구하고,
+면적 변화율 $J-1$을 계산하시오. 여기서 $\ell_0>0$은 미소 선분의 초기 길이다.
+
+<!--
+풀이와 해답:
+$$
+[\boldsymbol F]=\begin{bmatrix}1.2&0.3\\0&0.8\end{bmatrix},
+\qquad J=1.2\times0.8=0.96.
+$$
+$d\boldsymbol x=\ell_0(0.3,0.8)^T$이므로 신장비는
+$\sqrt{0.3^2+0.8^2}=\sqrt{0.73}\approx0.8544$다.
+$J-1=-0.04$이므로 면적은 4% 감소한다.
+-->
+
+## 문제 3. 정확한 비압축성 조건
+
+3차원 변형구배가 $\boldsymbol F=\operatorname{diag}(1.2,1.2,a)$이며 $a>0$이다.
+체적이 보존되도록 $a$를 정하시오. 이때
+$\boldsymbol\varepsilon=(\boldsymbol F+\boldsymbol F^T)/2-\boldsymbol I$의
+대각합을 계산하고, 유한변형에서 $\operatorname{tr}\boldsymbol\varepsilon=0$을
+정확한 비압축성 조건으로 사용할 수 있는지 설명하시오.
+
+<!--
+풀이와 해답:
+$J=1.44a=1$이므로 $a=25/36\approx0.694444$이다.
+$\operatorname{tr}\boldsymbol\varepsilon=0.2+0.2+(25/36-1)=17/180\approx0.094444$로 0이 아니다.
+정확한 조건은 $\det\boldsymbol F=1$이다.
+$J\approx1+\operatorname{tr}\boldsymbol\varepsilon$는 변위구배가 작을 때의 일차 근사다.
+-->
+
+## 문제 4. 1차원 변형률 척도의 비교
+
+길이 $100\,\mathrm{mm}$인 막대가 균일하게 늘어나 $120\,\mathrm{mm}$가 되었다.
+신장비 $\Lambda$, 공칭변형률, Green–Lagrange 변형률 $E$,
+Euler–Almansi 변형률 $e$, 로그변형률을 구하시오.
+$E=\varepsilon+\varepsilon^2/2$를 확인하고, $E$를 길이 증가율로 읽으면 안 되는 이유를 설명하시오.
+
+<!--
+풀이와 해답:
+$\Lambda=1.2$, $\varepsilon=0.2$, $E=(1.44-1)/2=0.22$,
+$e=(1-1/1.44)/2=11/72\approx0.152778$, $\ln\Lambda\approx0.182322$이다.
+$0.2+0.2^2/2=0.22$다. 길이는 20% 증가했으며,
+$E$는 제곱 길이의 차이를 $2l_0^2$로 나눈 값이다.
+-->
+
+## 문제 5. 큰 병진과 큰 회전
+
+2차원에서 다음 두 운동의 $\boldsymbol H$, $\boldsymbol\varepsilon$, $\boldsymbol E$를 구하시오.
+
+$$
+\text{(가)}\quad \boldsymbol x=\boldsymbol X+\boldsymbol c,
+\qquad
+\text{(나)}\quad \boldsymbol x=\boldsymbol Q\boldsymbol X,
+\qquad
+[\boldsymbol Q]=\begin{bmatrix}0&-1\\1&0\end{bmatrix}.
+$$
+
+$\boldsymbol c$는 위치에 무관한 상수벡터다.
+(나)에서 $\boldsymbol H^T\boldsymbol H/2$를 계산하여 이차항의 역할을 확인하시오.
+두 운동의 결과로부터 미소변형 근사의 적용 기준을 설명하시오.
+
+<!--
+풀이와 해답:
+(가)는 $\boldsymbol H=\boldsymbol0$이고 두 변형률 모두 0이다.
+(나)는 $\boldsymbol H=\boldsymbol Q-\boldsymbol I$,
+$\boldsymbol\varepsilon=-\boldsymbol I$, $\boldsymbol E=\boldsymbol0$이다.
+$\boldsymbol H^T\boldsymbol H/2=\boldsymbol I$가 미소변형률 식의 값을 상쇄한다.
+큰 병진은 변위구배를 만들지 않지만 큰 회전은 큰 변위구배를 만든다.
+미소변형 근사의 기준은 변위의 크기가 아니라 $\|\boldsymbol H\|\ll1$이다.
+-->
+
+## 문제 6. 유한 단순전단
+
+2차원 운동이 $x_1=X_1+\gamma X_2$, $x_2=X_2$로 주어진다.
+$\boldsymbol F$, $J$, $\boldsymbol\varepsilon$, $\boldsymbol E$를 구하시오.
+$\gamma=0.5$일 때 $E_{22}$를 계산하고, 처음에 $X_2$방향이었던 선분의
+신장비와 연결하여 이 성분이 0이 아닌 이유를 설명하시오.
+
+<!--
+풀이와 해답:
+$$
+[\boldsymbol F]=\begin{bmatrix}1&\gamma\\0&1\end{bmatrix},\qquad J=1,
+$$
+$$
+[\boldsymbol\varepsilon]=\begin{bmatrix}0&\gamma/2\\\gamma/2&0\end{bmatrix},
+\qquad
+[\boldsymbol E]=\begin{bmatrix}0&\gamma/2\\\gamma/2&\gamma^2/2\end{bmatrix}.
+$$
+$E_{22}=0.125$다. 초기 선분 $\ell_0(0,1)^T$는 $\ell_0(\gamma,1)^T$가 되므로
+신장비가 $\sqrt{1+\gamma^2}$다. 따라서 $E_{22}=[(1+\gamma^2)-1]/2$이다.
+면적 보존은 모든 방향의 길이 보존을 뜻하지 않는다.
+-->
+
+## 문제 7. 기준 배치와 현재 배치의 변형률 연결하기
+
+$\boldsymbol E=(\boldsymbol F^T\boldsymbol F-\boldsymbol I)/2$와
+$\boldsymbol e=(\boldsymbol I-\boldsymbol F^{-T}\boldsymbol F^{-1})/2$를 이용하여
+
+$$
+\boldsymbol e=\boldsymbol F^{-T}\boldsymbol E\boldsymbol F^{-1}
+$$
+
+을 증명하시오. 문제 6의 단순전단에 대해 $\boldsymbol e$를 구하고,
+$\boldsymbol E$와 값이 달라도 같은 길이 변화를 표현하는 이유를 설명하시오.
+
+<!--
+풀이와 해답:
+$$
+\boldsymbol F^{-T}\boldsymbol E\boldsymbol F^{-1}
+=\frac12(\boldsymbol I-\boldsymbol F^{-T}\boldsymbol F^{-1})=\boldsymbol e.
+$$
+단순전단에서는
+$$
+[\boldsymbol e]=\begin{bmatrix}0&\gamma/2\\\gamma/2&-\gamma^2/2\end{bmatrix}.
+$$
+$d\boldsymbol x=\boldsymbol Fd\boldsymbol X$이므로
+$d\boldsymbol x^T\boldsymbol e\,d\boldsymbol x=d\boldsymbol X^T\boldsymbol E\,d\boldsymbol X$다.
+두 텐서는 같은 제곱 길이 변화를 각각 현재 선분과 기준 선분으로 표현한다.
+-->
+
+## 문제 8. 신장과 회전의 극분해
+
+2차원 변형구배가 다음과 같다.
+
+$$
+[\boldsymbol F]=\begin{bmatrix}0&-0.5\\2&0\end{bmatrix}.
+$$
+
+$\boldsymbol C$, $\boldsymbol U$, $\boldsymbol R$, $\boldsymbol V$를 구하고,
+$\boldsymbol F=\boldsymbol R\boldsymbol U=\boldsymbol V\boldsymbol R$를 확인하시오.
+주신장비, 회전각, $J$, $\boldsymbol E$를 구하시오.
+
+<!--
+풀이와 해답:
+$\boldsymbol C=\operatorname{diag}(4,0.25)$,
+$\boldsymbol U=\operatorname{diag}(2,0.5)$이다.
+$$
+[\boldsymbol R]=\begin{bmatrix}0&-1\\1&0\end{bmatrix},
+\qquad \boldsymbol V=\operatorname{diag}(0.5,2).
+$$
+행렬곱을 취하면 두 분해 모두 주어진 F를 얻는다.
+주신장비는 2와 0.5이고, 회전각은 반시계방향 90도다.
+$J=1$이며 $\boldsymbol E=\operatorname{diag}(1.5,-0.375)$이다.
+면적이 보존되어도 방향별 신장은 존재한다.
+-->
+
+## 문제 9. 변형 후 강체회전을 더하면
+
+어떤 변형 $\boldsymbol F$에 강체회전 $\boldsymbol Q$를 추가하여
+$\boldsymbol F^*=\boldsymbol Q\boldsymbol F$가 되었다.
+$\boldsymbol Q^T\boldsymbol Q=\boldsymbol I$일 때
+$\boldsymbol E^*=\boldsymbol E$와
+$\boldsymbol e^*=\boldsymbol Q\boldsymbol e\boldsymbol Q^T$를 증명하시오.
+기준 배치와 현재 배치의 차이로 이 결과를 설명하시오.
+
+<!--
+풀이와 해답:
+$$
+\boldsymbol E^*=\frac12(\boldsymbol F^T\boldsymbol Q^T\boldsymbol Q\boldsymbol F-\boldsymbol I)
+=\boldsymbol E.
+$$
+$(\boldsymbol F^*)^{-1}=\boldsymbol F^{-1}\boldsymbol Q^T$이므로
+$$
+\boldsymbol e^*=\frac12(\boldsymbol I-\boldsymbol Q\boldsymbol F^{-T}\boldsymbol F^{-1}\boldsymbol Q^T)
+=\boldsymbol Q\boldsymbol e\boldsymbol Q^T.
+$$
+기준 배치에서 표현한 E는 변하지 않는다. 현재 배치에서 표현한 e의 성분은 회전에 따라
+변환되지만, 고유값과 길이 변화의 물리적 내용은 변하지 않는다.
+-->

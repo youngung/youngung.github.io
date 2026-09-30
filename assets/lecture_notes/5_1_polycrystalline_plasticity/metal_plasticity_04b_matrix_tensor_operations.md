@@ -250,12 +250,12 @@ $$
 \begin{bmatrix}b_{11}a_{11}+b_{12}a_{21}&b_{11}a_{12}+b_{12}a_{22}\\b_{21}a_{11}+b_{22}a_{21}&b_{21}a_{12}+b_{22}a_{22}\end{bmatrix}
 $$
 
-그런데 일반적으로 $\boldsymbol a \cdot \boldsymbol b$ 곱의 결과 행렬을$\boldsymbol c$라 하고(즉, $\boldsymbol c = \boldsymbol b \cdot \boldsymbol a$) 그 결과를 구하면
+그런데 일반적으로 $\boldsymbol a \cdot \boldsymbol b$ 곱의 결과 행렬을$\boldsymbol c$라 하고(즉, $\boldsymbol c = \boldsymbol a \cdot \boldsymbol b$) 그 결과를 구하면
 
 $$
 \begin{bmatrix}\boldsymbol c\end{bmatrix}
 =
-\begin{bmatrix}b_{11}a_{11}+b_{21}a_{12}&b_{12}a_{11}+b_{22}a_{12}\\b_{11}a_{21}+b_{21}a_{22}&b_{12}a_{21}+b_{22}a_{22}\end{bmatrix}
+\begin{bmatrix}a_{11}b_{11}+a_{12}b_{21}&a_{11}b_{12}+a_{12}b_{22}\\a_{21}b_{11}+a_{22}b_{21}&a_{21}b_{12}+a_{22}b_{22}\end{bmatrix}
 
 $$
 
@@ -446,18 +446,6 @@ $$ a_{ijk} b_{ijk} $$
 수축되는 첨자의 수와 결과의 랭크를 확인해야 한다.
 
 
-# 5. 연습 문제
-
-
-## 문제 1
-
-단위행렬 $\boldsymbol I$와 임의의 벡터 $\boldsymbol a$의 곱 $\boldsymbol I\cdot\boldsymbol a$는 무엇인가?
-
-<!--
-풀이와 해답:
-원래 벡터 a와 같다.
--->
-
-# 추가 연습문제
+# 연습문제
 
 [링크]({% link assets/lecture_notes/5_1_polycrystalline_plasticity/Vector_Matrix_Exercises.md %})를 활용하세요

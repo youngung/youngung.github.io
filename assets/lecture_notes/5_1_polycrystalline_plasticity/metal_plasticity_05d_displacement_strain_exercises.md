@@ -42,6 +42,40 @@ authors:
 <!--
 풀이와 해답:
 점 사이의 상대적인 거리와 각도가 변하지 않고 변위의 공간 미분도 0이기 때문이다.
+
+모든 점이 동일한 벡터 \(\boldsymbol c\)만큼 이동하면, 초기 위치 \(\boldsymbol X\)와 이동 후 위치 \(\boldsymbol x\)의 관계는
+\[
+\boldsymbol x=\boldsymbol X+\boldsymbol c
+\]입니다. 따라서 변위장은
+\[
+\boldsymbol u(\boldsymbol X)
+=\boldsymbol x-\boldsymbol X
+=\boldsymbol c
+\]가 됩니다. \(\boldsymbol c\)는 위치에 관계없이 일정하므로 모든 변위 성분의 공간 미분이 0입니다.
+\[
+\frac{\partial u_i}{\partial X_j}
+=\frac{\partial c_i}{\partial X_j}
+=0
+\qquad(i,j=1,2,3)
+\]이를 미소변형률의 정의에 대입하면
+\[
+\boxed{
+\varepsilon_{ij}
+=\frac12
+\left(
+\frac{\partial u_i}{\partial X_j}
++\frac{\partial u_j}{\partial X_i}
+\right)
+=0
+}
+\]이므로 모든 미소변형률 성분이 0입니다.
+기하학적으로도 두 점 \(A,B\) 사이의 상대위치는
+\[
+\boldsymbol x_B-\boldsymbol x_A
+=(\boldsymbol X_B+\boldsymbol c)
+-(\boldsymbol X_A+\boldsymbol c)
+=\boldsymbol X_B-\boldsymbol X_A
+\]로 변하지 않습니다. 즉, 물체 전체의 위치만 바뀌고 내부의 길이와 각도는 그대로이므로 변형이 없습니다.
 -->
 
 ## 문제 2
