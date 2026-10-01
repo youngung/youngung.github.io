@@ -681,8 +681,6 @@ $$
 
 기준 배치의 $X_1$방향 신장이 회전 후 현재 배치의 $x_2$방향 신장으로 표현된다.
 $\boldsymbol E$는 기준 배치에서의 신장을 나타내며 강체회전 때문에 값이 바뀌지 않는다.
-변형구배·극분해·Green–Lagrange 변형률의 추가 학습은
-[MIT OCW 강의 3](https://ocw.mit.edu/courses/res-2-002-finite-element-procedures-for-solids-and-structures-spring-2010/resources/lecture-3-1/)을 참고한다.
 
 # 4. 요약
 
