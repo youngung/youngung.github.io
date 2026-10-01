@@ -262,13 +262,55 @@ $$
 $\boldsymbol E$는 무차원이고 결과의 단위는 길이의 제곱이다.
 성분으로 쓰면 $\ell^2-\ell_0^2=2dX_iE_{ij}dX_j$이며, 반복 첨자에 대해 합한다.
 
-기준 선분의 단위방향을 $\boldsymbol N$이라 하여
-$d\boldsymbol X=\ell_0\boldsymbol N$, $\|\boldsymbol N\|=1$을 대입하면
+기준 선분의 길이와 방향을 분리해 보자. 길이가 $\ell_0>0$인 선분의 단위방향을
+$\boldsymbol N$이라 정의하면
 
 $$
+\boldsymbol N=\frac{d\boldsymbol X}{\ell_0},
+\qquad \|\boldsymbol N\|=1,
+\qquad d\boldsymbol X=\ell_0\boldsymbol N.
+$$
+
+이를 앞에서 구한 제곱 길이 차이에 대입하면
+
+$$
+\begin{aligned}
+\ell^2-\ell_0^2
+&=2d\boldsymbol X\cdot(\boldsymbol E\cdot d\boldsymbol X)\\
+&=2(\ell_0\boldsymbol N)\cdot
+\left[\boldsymbol E\cdot(\ell_0\boldsymbol N)\right]\\
+&=2(\ell_0\boldsymbol N)\cdot
+\left[\ell_0(\boldsymbol E\cdot\boldsymbol N)\right]\\
+&=2\ell_0^2\,\boldsymbol N\cdot(\boldsymbol E\cdot\boldsymbol N).
+\end{aligned}
+$$
+
+세 번째 줄에서는 텐서의 선형성에 의해
+$\boldsymbol E\cdot(\ell_0\boldsymbol N)=\ell_0(\boldsymbol E\cdot\boldsymbol N)$을 사용했다.
+네 번째 줄에서는 내적의 양쪽 벡터에 곱해진 스칼라 $\ell_0$를 각각 밖으로 꺼냈다.
+따라서 두 계수가 곱해져 $\ell_0^2$이 된다.
+
+이제 양변을 $2\ell_0^2$으로 나누면
+
+$$
+\begin{aligned}
 \boldsymbol N\cdot(\boldsymbol E\cdot\boldsymbol N)
-=\frac{\ell^2-\ell_0^2}{2\ell_0^2}
-=\frac12\left[\left(\frac{\ell}{\ell_0}\right)^2-1\right].
+&=\frac{\ell^2-\ell_0^2}{2\ell_0^2}\\
+&=\frac12\left(\frac{\ell^2}{\ell_0^2}-1\right)\\
+&=\frac12\left[\left(\frac{\ell}{\ell_0}\right)^2-1\right].
+\end{aligned}
+$$
+
+왼쪽 식은 먼저 $\boldsymbol E\cdot\boldsymbol N$이라는 벡터를 구한 뒤,
+이를 $\boldsymbol N$과 내적한 **스칼라**다. 성분 배열로는
+$[\boldsymbol N]^T[\boldsymbol E][\boldsymbol N]$, 첨자 표기로는 $N_iE_{ij}N_j$이다.
+특히 $\boldsymbol N=(1,0,0)^T$이면 이 값은 $E_{11}$이지만,
+임의의 방향에서는 여러 변형률 성분이 함께 기여한다.
+해당 방향 선분의 신장비 $\Lambda=\ell/\ell_0$를 사용하면
+
+$$
+\boxed{\boldsymbol N\cdot(\boldsymbol E\cdot\boldsymbol N)
+=\frac12(\Lambda^2-1)}.
 $$
 
 즉 $\boldsymbol E$는 **기준 방향별 선분의 신장 또는 수축**을 나타낸다.
@@ -337,20 +379,143 @@ $\boldsymbol H$가 작지 않을 수 있다. 이 경우 이차항을 생략하�
 
 ### 2.2.3. 현재 배치를 기준으로 표현하는 Euler–Almansi 변형률
 
-같은 길이 변화를 현재 선분 $d\boldsymbol x$로 표현하면
-**Euler–Almansi 변형률 (Euler–Almansi strain)**, $\boldsymbol e$를 얻는다.
+2.2.1절에서는 제곱 길이 차이 $\ell^2-\ell_0^2$를 **기준 선분** $d\boldsymbol X$로
+표현하여 Green–Lagrange 변형률 $\boldsymbol E$를 정의했다.
+같은 차이를 **현재 선분** $d\boldsymbol x$로 표현하면
+Euler–Almansi 변형률 $\boldsymbol e$를 얻는다.
+여기서도 $\ell_0=\|d\boldsymbol X\|$, $\ell=\|d\boldsymbol x\|$이다.
+
+**현재 선분으로 기준 선분의 길이 표현하기**
+
+$\boldsymbol F$가 가역이면 $d\boldsymbol x=\boldsymbol F\cdot d\boldsymbol X$로부터
 
 $$
-\boxed{\boldsymbol e=\frac12(\boldsymbol I-\boldsymbol F^{-T}\cdot \boldsymbol F^{-1})},
+d\boldsymbol X=\boldsymbol F^{-1}\cdot d\boldsymbol x
+$$
+
+를 얻는다. 같은 정규직교 기저에서 성분을 배열하고 곱의 전치 규칙을 적용하면
+
+$$
+\begin{aligned}
+\ell_0^2
+&=[d\boldsymbol X]^T[d\boldsymbol X]\\
+&=([\boldsymbol F]^{-1}[d\boldsymbol x])^T
+([\boldsymbol F]^{-1}[d\boldsymbol x])\\
+&=[d\boldsymbol x]^T[\boldsymbol F]^{-T}
+[\boldsymbol F]^{-1}[d\boldsymbol x].
+\end{aligned}
+$$
+
+여기서 $\boldsymbol F^{-T}=(\boldsymbol F^{-1})^T$다.
+현재 선분에 대해서는 $\ell^2=[d\boldsymbol x]^T[\boldsymbol I][d\boldsymbol x]$이므로
+
+$$
+\ell^2-\ell_0^2
+=[d\boldsymbol x]^T
+\left([\boldsymbol I]-[\boldsymbol F]^{-T}[\boldsymbol F]^{-1}\right)
+[d\boldsymbol x].
+$$
+
+따라서 **Euler–Almansi 변형률 (Euler–Almansi strain)**을
+
+$$
+\boxed{\boldsymbol e=\frac12
+(\boldsymbol I-\boldsymbol F^{-T}\cdot\boldsymbol F^{-1})}
+$$
+
+로 정의하면
+
+$$
+\boxed{\ell^2-\ell_0^2
+=2[d\boldsymbol x]^T[\boldsymbol e][d\boldsymbol x]
+=2d\boldsymbol x\cdot(\boldsymbol e\cdot d\boldsymbol x)}
+$$
+
+가 된다. $\boldsymbol E$와 마찬가지로 $\boldsymbol e$도 대칭인 무차원 텐서다.
+
+**현재 방향의 신장과 변형률 값의 의미**
+
+현재 선분의 단위방향을 $\boldsymbol n$이라 하여
+$d\boldsymbol x=\ell\boldsymbol n$을 대입하고, 해당 선분의 신장비를
+$\Lambda=\ell/\ell_0$라 하면
+
+$$
+\boldsymbol n\cdot(\boldsymbol e\cdot\boldsymbol n)
+=\frac{\ell^2-\ell_0^2}{2\ell^2}
+=\frac12(1-\Lambda^{-2}).
+$$
+
+2.2.1절의 $\boldsymbol N\cdot(\boldsymbol E\cdot\boldsymbol N)
+=(\ell^2-\ell_0^2)/(2\ell_0^2)$와 비교하면,
+**같은 제곱 길이 차이를 각각 기준 길이와 현재 길이의 제곱으로 나누고 있다**.
+여기서 $\boldsymbol N$과 $\boldsymbol n$은 같은 물질 선분의 변형 전후 방향이며,
+일반적으로 서로 다르다.
+예를 들어 1차원에서 $\Lambda=1.5$이면 $E=0.625$, $e\approx0.2778$이다.
+두 값이 다른 것은 서로 다른 운동을 뜻해서가 아니라 변형률의 정의가 다르기 때문이다.
+
+**Green–Lagrange 변형률과의 정확한 관계**
+
+$\boldsymbol E=(\boldsymbol F^T\boldsymbol F-\boldsymbol I)/2$의 왼쪽에
+$\boldsymbol F^{-T}$, 오른쪽에 $\boldsymbol F^{-1}$을 곱하면
+
+$$
+\begin{aligned}
+\boldsymbol F^{-T}\boldsymbol E\boldsymbol F^{-1}
+&=\frac12\boldsymbol F^{-T}
+(\boldsymbol F^T\boldsymbol F-\boldsymbol I)\boldsymbol F^{-1}\\
+&=\frac12\left[
+(\boldsymbol F^{-T}\boldsymbol F^T)(\boldsymbol F\boldsymbol F^{-1})
+-\boldsymbol F^{-T}\boldsymbol F^{-1}\right]\\
+&=\frac12(\boldsymbol I-\boldsymbol F^{-T}\boldsymbol F^{-1})
+=\boldsymbol e.
+\end{aligned}
+$$
+
+따라서
+
+$$
+\boxed{\boldsymbol e=\boldsymbol F^{-T}\boldsymbol E\boldsymbol F^{-1}},
 \qquad
-d\boldsymbol x\cdot d\boldsymbol x-d\boldsymbol X\cdot d\boldsymbol X
-=2d\boldsymbol x\cdot(\boldsymbol e\cdot d\boldsymbol x).
+\boxed{\boldsymbol E=\boldsymbol F^T\boldsymbol e\boldsymbol F}.
 $$
 
-$\boldsymbol F^{-T}=(\boldsymbol F^{-1})^T$다. $\boldsymbol E$와 $\boldsymbol e$는 각각 기준 배치와
-현재 배치의 선분으로 같은 길이 변화를 표현하지만 수치는 일반적으로 다르다.
-좌표 기술법을 선택하는 것과 변형률 척도를 선택하는 것은 구분해야 한다.
+이 관계를 통해 두 텐서는 같은 길이 변화를 서로 다른 배치의 선분으로 표현한다.
 
+**현재 좌표의 변위구배로 전개하기**
+
+2.1절에서 구한 $\boldsymbol F^{-1}=\boldsymbol I-\nabla_x\boldsymbol u_E$를 이용하자.
+현재 좌표에 대한 변위구배를 $\boldsymbol h=\nabla_x\boldsymbol u_E$라 쓰면
+
+$$
+\begin{aligned}
+\boldsymbol e
+&=\frac12\left[\boldsymbol I
+-(\boldsymbol I-\boldsymbol h)^T(\boldsymbol I-\boldsymbol h)\right]\\
+&=\frac12\left[\boldsymbol I
+-(\boldsymbol I-\boldsymbol h^T)(\boldsymbol I-\boldsymbol h)\right]\\
+&=\frac12\left[\boldsymbol I
+-(\boldsymbol I-\boldsymbol h-\boldsymbol h^T+\boldsymbol h^T\boldsymbol h)\right]\\
+&=\frac12(\boldsymbol h+\boldsymbol h^T-\boldsymbol h^T\boldsymbol h).
+\end{aligned}
+$$
+
+기준 좌표 구배 $\boldsymbol H=\nabla_X\boldsymbol u_L$로 쓴
+$\boldsymbol E=(\boldsymbol H+\boldsymbol H^T+\boldsymbol H^T\boldsymbol H)/2$와 달리
+이차항 앞에 음수가 붙는다. 다만 $\boldsymbol h$와 $\boldsymbol H$도 서로 다르므로,
+같은 구배를 넣고 부호만 바꾸어 두 변형률을 계산하면 안 된다.
+
+실제로 $\boldsymbol h=\boldsymbol I-\boldsymbol F^{-1}
+=\boldsymbol H(\boldsymbol I+\boldsymbol H)^{-1}$이므로,
+$\|\boldsymbol H\|\ll1$이면 $\boldsymbol h\approx\boldsymbol H$이고
+이차항을 생략하여
+
+$$
+\boldsymbol e\approx\frac12(\boldsymbol h+\boldsymbol h^T)
+\approx\frac12(\boldsymbol H+\boldsymbol H^T)
+=\boldsymbol\varepsilon\approx\boldsymbol E
+$$
+
+를 얻는다. 즉 작은 변위구배의 범위에서는 두 유한변형률이 모두 기존 미소변형률로 근사된다.
 
 ### 2.2.4. 실험과의 연결: DIC로 측정한 변위장에서 변형률 구하기
 
@@ -383,8 +548,6 @@ $\varepsilon_{11}=0.2$인 반면 $E_{11}=0.2+0.2^2/2=0.22$다.
 또한 일반적인 단일 카메라 2D DIC는 면외 이동·회전에 민감하다.
 스테레오 DIC는 표면의 3차원 위치와 변위를 측정할 수 있지만,
 그것만으로 시편 내부의 전체 3차원 변형구배까지 얻는 것은 아니다.
-측정 원리와 면외 운동의 영향은
-[Correlated Solutions의 DIC 설명](https://www.correlatedsolutions.com/technology)을 참고한다.
 
 <span id="113-1차원-인장과-강체회전의-비교"></span>
 
@@ -492,33 +655,6 @@ $\boldsymbol R$은 $\boldsymbol R^T\cdot \boldsymbol R=\boldsymbol I$, $\det\bol
 회전하는 표현이고, $\boldsymbol V\cdot \boldsymbol R$는 회전한 뒤 현재 배치 방향에서 신장하는 표현이다.
 이는 같은 국소 변형을 나타내는 두 수학적 표현이며 실제 변형의 시간 순서를 뜻하지 않는다.
 
-$$
-\boldsymbol C=\boldsymbol F^T\cdot \boldsymbol F=\boldsymbol U^2,
-\qquad \boldsymbol B=\boldsymbol F\cdot \boldsymbol F^T=\boldsymbol V^2,
-$$
-
-$$
-\boldsymbol U=\sqrt{\boldsymbol C},
-\qquad \boldsymbol V=\sqrt{\boldsymbol B},
-\qquad \boldsymbol R=\boldsymbol F\cdot \boldsymbol U^{-1},
-\qquad \boldsymbol V=\boldsymbol R\cdot \boldsymbol U\cdot \boldsymbol R^T.
-$$
-
-$\boldsymbol C$와 $\boldsymbol B$는 각각 우·좌 Cauchy–Green 변형텐서다.
-행렬의 제곱근은 성분마다 제곱근을 취하는 것이 아니다. 예를 들어
-$[\boldsymbol C]=[\boldsymbol P]\operatorname{diag}(\Lambda_1^2,\Lambda_2^2,\Lambda_3^2)[\boldsymbol P]^T$에서
-$[\boldsymbol P]$가 정규직교 고유벡터를 열로 갖는 행렬이면,
-$[\boldsymbol U]=[\boldsymbol P]\operatorname{diag}(\Lambda_1,\Lambda_2,\Lambda_3)[\boldsymbol P]^T$다.
-
-텐서의 거듭제곱은 수축의 반복을 뜻한다. 예를 들어 $\boldsymbol U^2=\boldsymbol U\cdot\boldsymbol U$다.
-신장텐서로 유한변형률을 쓰면
-
-$$
-\boldsymbol E=\frac12(\boldsymbol U^2-\boldsymbol I),
-\qquad \boldsymbol e=\frac12(\boldsymbol I-\boldsymbol V^{-2}).
-$$
-
-강체회전에서는 $\boldsymbol U=\boldsymbol V=\boldsymbol I$이므로 변형률은 0이다.
 [기본 자료 8절]({% link assets/lecture_notes/5_1_polycrystalline_plasticity/metal_plasticity_05_displacement_strain.md %}#8-변위구배의-대칭부분과-반대칭부분)의 $\nabla_X\boldsymbol u=\boldsymbol\varepsilon+\boldsymbol\omega$는
 작은 변형·회전의 **가법적 분해**이고, 극분해는 유한변형의 **곱셈적 분해**다.
 극분해의 회전·신장은 탄성·소성 성분을 분리하는 $\boldsymbol F=\boldsymbol F_e\cdot \boldsymbol F_p$와는
@@ -560,11 +696,6 @@ $\boldsymbol E$는 기준 배치에서의 신장을 나타내며 강체회전 �
 | 극분해 | $\boldsymbol F=\boldsymbol R\cdot \boldsymbol U=\boldsymbol V\cdot \boldsymbol R$ |
 
 # 5. 연습문제
-
-문제 1–3은 좌표 기술법과 변형구배, 문제 4–7은 유한변형률과 미소변형 근사의 차이,
-문제 8–9는 극분해와 회전의 영향을 다룬다.
-행렬은 같은 정규직교 기저에서의 성분 배열이며, 별도 언급이 없으면 변형은 균일하다.
-2차원 문제의 $J$는 면적비다. 이를 $x_3=X_3$인 3차원 운동으로 확장하면 체적비와 같다.
 
 ## 문제 1. 같은 운동을 두 좌표로 표현하기
 
@@ -681,88 +812,4 @@ $$
 $E_{22}=0.125$다. 초기 선분 $\ell_0(0,1)^T$는 $\ell_0(\gamma,1)^T$가 되므로
 신장비가 $\sqrt{1+\gamma^2}$다. 따라서 $E_{22}=[(1+\gamma^2)-1]/2$이다.
 면적 보존은 모든 방향의 길이 보존을 뜻하지 않는다.
--->
-
-## 문제 7. 기준 배치와 현재 배치의 변형률 연결하기
-
-$\boldsymbol E=(\boldsymbol F^T\boldsymbol F-\boldsymbol I)/2$와
-$\boldsymbol e=(\boldsymbol I-\boldsymbol F^{-T}\boldsymbol F^{-1})/2$를 이용하여
-
-$$
-\boldsymbol e=\boldsymbol F^{-T}\boldsymbol E\boldsymbol F^{-1}
-$$
-
-을 증명하시오. 문제 6의 단순전단에 대해 $\boldsymbol e$를 구하고,
-$\boldsymbol E$와 값이 달라도 같은 길이 변화를 표현하는 이유를 설명하시오.
-
-<!--
-풀이와 해답:
-$$
-\boldsymbol F^{-T}\boldsymbol E\boldsymbol F^{-1}
-=\frac12(\boldsymbol I-\boldsymbol F^{-T}\boldsymbol F^{-1})=\boldsymbol e.
-$$
-단순전단에서는
-$$
-[\boldsymbol e]=\begin{bmatrix}0&\gamma/2\\\gamma/2&-\gamma^2/2\end{bmatrix}.
-$$
-$d\boldsymbol x=\boldsymbol Fd\boldsymbol X$이므로
-$d\boldsymbol x^T\boldsymbol e\,d\boldsymbol x=d\boldsymbol X^T\boldsymbol E\,d\boldsymbol X$다.
-두 텐서는 같은 제곱 길이 변화를 각각 현재 선분과 기준 선분으로 표현한다.
--->
-
-## 문제 8. 신장과 회전의 극분해
-
-2차원 변형구배가 다음과 같다.
-
-$$
-[\boldsymbol F]=\begin{bmatrix}0&-0.5\\2&0\end{bmatrix}.
-$$
-
-$\boldsymbol C$, $\boldsymbol U$, $\boldsymbol R$, $\boldsymbol V$를 구하고,
-$\boldsymbol F=\boldsymbol R\boldsymbol U=\boldsymbol V\boldsymbol R$를 확인하시오.
-주신장비, 회전각, $J$, $\boldsymbol E$를 구하시오.
-
-<!--
-풀이와 해답:
-$\boldsymbol C=\operatorname{diag}(4,0.25)$,
-$\boldsymbol U=\operatorname{diag}(2,0.5)$이다.
-$$
-[\boldsymbol R]=\begin{bmatrix}0&-1\\1&0\end{bmatrix},
-\qquad \boldsymbol V=\operatorname{diag}(0.5,2).
-$$
-행렬곱을 취하면 두 분해 모두 주어진 F를 얻는다.
-주신장비는 2와 0.5이고, 회전각은 반시계방향 90도다.
-$J=1$이며 $\boldsymbol E=\operatorname{diag}(1.5,-0.375)$이다.
-면적이 보존되어도 방향별 신장은 존재한다.
--->
-
-## 문제 9. 변형 후 강체회전을 더하면
-
-어떤 변형 $\boldsymbol F$에 강체회전 $\boldsymbol Q$를 추가하여
-
-$$\boldsymbol F^*=\boldsymbol Q\boldsymbol F$$
-
-가 되었다.
-$$\boldsymbol Q^T\boldsymbol Q=\boldsymbol I$$
-일 때
-$$\boldsymbol E^*=\boldsymbol E$$
-와
-$$\boldsymbol e^*=\boldsymbol Q\boldsymbol e\boldsymbol Q^T$$
-를 증명하시오.
-
-기준 배치와 현재 배치의 차이로 이 결과를 설명하시오.
-
-<!--
-풀이와 해답:
-$$
-\boldsymbol E^*=\frac12(\boldsymbol F^T\boldsymbol Q^T\boldsymbol Q\boldsymbol F-\boldsymbol I)
-=\boldsymbol E.
-$$
-$(\boldsymbol F^*)^{-1}=\boldsymbol F^{-1}\boldsymbol Q^T$이므로
-$$
-\boldsymbol e^*=\frac12(\boldsymbol I-\boldsymbol Q\boldsymbol F^{-T}\boldsymbol F^{-1}\boldsymbol Q^T)
-=\boldsymbol Q\boldsymbol e\boldsymbol Q^T.
-$$
-기준 배치에서 표현한 E는 변하지 않는다. 현재 배치에서 표현한 e의 성분은 회전에 따라
-변환되지만, 고유값과 길이 변화의 물리적 내용은 변하지 않는다.
 -->
