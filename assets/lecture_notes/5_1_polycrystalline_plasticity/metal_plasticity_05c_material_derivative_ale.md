@@ -48,10 +48,16 @@ $\left.\partial T/\partial t\right|_{\boldsymbol x}$다. 그러나 물질점은 
 같은 물질점이 경험하는 온도는
 
 $$
-T_L(\boldsymbol X,t)=T(\boldsymbol\Phi(\boldsymbol X,t),t)
+T_L(\boldsymbol X,t)=T_E(\boldsymbol\Phi(\boldsymbol X,t),t)
 $$
 
-이다. 물질점의 이름표 $\boldsymbol X$를 고정하고 연쇄법칙을 적용하면
+이다.
+
+앞으로 공간 $\boldsymbol x$에서 정의된 (Eulerian description) 온도 $T_E(\boldsymbol x,t)$를 단순히 $T$라 쓰겠다.
+
+물질점 미분 (material derivative) operator를 $\frac{D}{Dt}$라 표기하겠다.
+
+물질점의 이름표 $\boldsymbol X$를 고정하고 연쇄법칙(chain rule)을 적용하면
 
 $$
 \begin{aligned}
@@ -59,14 +65,23 @@ $$
 &=\left.\frac{\partial T_L}{\partial t}\right|_{\boldsymbol X}\\
 &=\left.\frac{\partial T}{\partial t}\right|_{\boldsymbol x}
 +\frac{\partial T}{\partial x_i}
-\left.\frac{\partial\Phi_i}{\partial t}\right|_{\boldsymbol X}\\
+\left.\frac{dx_i}{dt}\right|_{\boldsymbol X}\\
 &=\left.\frac{\partial T}{\partial t}\right|_{\boldsymbol x}
 +v_i\frac{\partial T}{\partial x_i}.
 \end{aligned}
 $$
 
-여기서 $\boldsymbol v=\left.\partial\boldsymbol\Phi/\partial t\right|_{\boldsymbol X}$는
-물질점의 속도다. 반복 첨자 $i$는 세 공간 방향에 대한 합을 뜻하며,
+여기서 $\left.d\boldsymbol x/dt\right|_{\boldsymbol X}$는 **같은 물질점
+$\boldsymbol X$를 따라가며 현재 위치를 시간미분한 값**, 즉 물질점의 속도다.
+$\boldsymbol x=\boldsymbol\Phi(\boldsymbol X,t)$이므로 두 표기는 다음과 같이 연결된다.
+
+$$
+\boldsymbol v
+=\left.\frac{d\boldsymbol x}{dt}\right|_{\boldsymbol X}
+=\left.\frac{\partial\boldsymbol\Phi}{\partial t}\right|_{\boldsymbol X}.
+$$
+
+반복 첨자 $i$는 세 공간 방향에 대한 합을 뜻하며,
 우변은 해당 물질점의 현재 위치에서 평가한다. 벡터 표기로 쓰면
 
 $$
@@ -114,7 +129,8 @@ $x(0)=0$에서 출발한 **같은 물질점**의 $t=0,1,2\,\mathrm s$ 위치와 
 
 ## 1.3. 공간과 시간에 모두 의존하는 온도장
 
-이번에는 A.2의 온도장이 모든 위치에서 시간에 따라 상승하는 경우를 생각하자.
+이번에는 앞의 1.2절에서 사용한 온도장에 시간에 따른 온도 상승을 추가하자.
+공간에 따른 온도 기울기는 그대로 두고, 모든 고정 위치에서 온도가 초당 $3\,{}^\circ\mathrm C$씩 상승한다고 가정한다.
 $x$는 m, $t$는 s 단위로 측정하며,
 
 $$
@@ -224,5 +240,3 @@ $$
 압출 같은 큰 소성변형이나 유체–구조 상호작용에서 유용하다.
 
 격자 운동은 경계조건을 만족해야 하며, 격자 사상은 역변환 가능해야 한다.
-좌표와 미분에 관한 추가 설명은
-[COMSOL 공식 문서](https://doc.comsol.com/6.3/doc/com.comsol.help.comsol/comsol_ref_deformedmeshes.34.07.html)를 참고한다.
