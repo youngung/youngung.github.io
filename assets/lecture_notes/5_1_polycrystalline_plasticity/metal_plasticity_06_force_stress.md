@@ -314,7 +314,7 @@ $$
 이다. 따라서 $\|\boldsymbol t\|=p_0$이지만, 면력의 방향은 면의 높이에 따라
 회전한다.
 
-![y 위치에 따라 방향이 변하는 면력벡터 분포](/assets/img/lecture_notes/stress/traction_direction_distribution.png)
+![y 위치에 따라 방향이 변하는 면력벡터 분포](/assets/img/lecture_notes/stress/traction_distribution.png)
 
 면적요소 $dA=dy\,dz$에 작용하는 미소 힘은 $d\boldsymbol F=\boldsymbol t\,dA$이고,
 면 전체의 합력은
