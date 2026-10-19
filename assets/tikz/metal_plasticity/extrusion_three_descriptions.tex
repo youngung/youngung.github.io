@@ -12,10 +12,12 @@
 \draw[black!70,thick] (3.6,-1.4)--(5,-.55)--(7,-.55);
 }
 \begin{document}
+\hyphenpenalty=10000
+\exhyphenpenalty=10000
 \begin{tikzpicture}[>=Latex,font=\sffamily,line join=round]
-\node[font=\Large\bfseries] at (3.6,4) {Extrusion: Eulerian, Lagrangian and ALE};
-\node[text=gray!80!black,align=center] at (3.6,3.35) {Same instantaneous material shape and die in every panel.\\Schematic meshes, not simulation results.};
-\foreach \dy/\title in {0/{(a) Eulerian: fixed background mesh},-6.2/{(b) Lagrangian: mesh follows material},-12.4/{(c) ALE: mesh motion chosen independently}}{
+\node[font=\Large\bfseries,align=center] at (3.5,4.8) {Extrusion\\Eulerian, Lagrangian and ALE};
+\node[text=gray!80!black,align=center] at (3.6,3.55) {Same material shape and die in every panel.\\Schematic meshes, not simulation results.};
+\foreach \dy/\title in {0/{(a) Eulerian: fixed background mesh},-8.3/{(b) Lagrangian: mesh follows material},-16.6/{(c) ALE: mesh motion chosen independently}}{
 \begin{scope}[shift={(0,\dy)}]
  \node[font=\bfseries,anchor=west] at (-.6,2.6) {\title};
  \fill[body] \bodypath;
@@ -28,13 +30,11 @@
 \draw[flow,->,very thick] (1.1,0)--(2.3,0);
 \draw[flow,->,very thick] (5.5,0)--(6.9,0);
 \node[flow,fill=white,inner sep=2pt,font=\small] at (1.8,.45) {Material flow};
-\draw[flow,->] (8.2,-.9)--(4.25,-1.0);
-\node[anchor=west,font=\small,align=left] at (7.9,1.1) {$\boldsymbol w=\boldsymbol 0$\\Material moves through cells.\\The material boundary can cut cells.};
-\node[anchor=west,font=\small,align=left,text=flow] at (8,-1.25) {Material interface\\tracked separately};
-\node[font=\small,align=center] at (3.5,-2.65) {Fixed cells avoid deformation-induced mesh distortion.\\Moving material interfaces and contact require separate treatment.};
+\node[font=\small,align=center,text width=8cm] at (3.5,-2.8) {$\boldsymbol w=\boldsymbol0$: material moves through fixed cells.\\Material interfaces can cut cells and need separate tracking.};
+\node[font=\small,align=center,text width=8cm] at (3.5,-4.5) {Fixed cells avoid deformation-induced mesh distortion.\\Moving material interfaces and contact require separate treatment.};
 \end{scope}
 % LAGRANGIAN: a stylized convected mesh with skewed elements.
-\begin{scope}[shift={(0,-6.2)}]
+\begin{scope}[shift={(0,-8.3)}]
 \begin{scope}
 \clip \bodypath;
 \foreach \f in {-.75,-.5,-.25,0,.25,.5,.75}{
@@ -46,13 +46,11 @@
 \draw[flow,very thick] \bodypath;
 \draw[flow,->,very thick] (1.1,0)--(2.3,0);
 \draw[flow,->,very thick] (5.5,0)--(6.9,0);
-\node[anchor=west,font=\small,align=left] at (7.9,1.1) {$\boldsymbol w=\boldsymbol v$\\Mesh points follow material.\\Material history stays with the mesh.};
-\draw[meshblue,->] (8,-1)--(4.2,-.4);
-\node[anchor=west,font=\small,align=left,text=meshblue] at (8,-1.45) {Skewed elements near\\the reduction zone};
-\node[font=\small,align=center] at (3.5,-2.65) {A conforming mesh follows the material boundary.\\Large nonuniform deformation can severely distort elements.};
+\node[font=\small,align=center,text width=8cm] at (3.5,-2.8) {$\boldsymbol w=\boldsymbol v$: mesh points follow material.\\Material history stays with the mesh.};
+\node[font=\small,align=center,text width=8cm] at (3.5,-4.5) {A conforming mesh follows the material boundary.\\Large nonuniform deformation can severely distort elements.};
 \end{scope}
 % ALE: boundary fitted but interior mesh need not follow material.
-\begin{scope}[shift={(0,-12.4)}]
+\begin{scope}[shift={(0,-16.6)}]
 \begin{scope}
 \clip \bodypath;
 \foreach \f in {-.75,-.5,-.25,0,.25,.5,.75}{
@@ -63,16 +61,15 @@
 \draw[flow,very thick] \bodypath;
 \draw[flow,->,very thick] (1.1,0)--(2.3,0);
 \draw[flow,->,very thick] (5.5,0)--(6.9,0);
-\node[anchor=west,font=\small,align=left] at (7.9,1.1) {$\boldsymbol w$ set by mesh quality\\and boundary constraints.\\Material crosses mesh at\\relative velocity $\boldsymbol v-\boldsymbol w$.};
-\draw[meshblue,->] (8,-1)--(4.25,-.35);
-\node[anchor=west,font=\small,align=left,text=meshblue] at (8,-1.5) {Adjusted interior mesh;\\state variables need advection};
-\node[font=\small,align=center] at (3.5,-2.65) {Boundary-conforming mesh with controlled interior distortion.\\Mesh adjustment requires consistent transport of material history.};
+\node[font=\small,align=center,text width=8cm] at (3.5,-2.8) {Mesh velocity is chosen using quality and boundary constraints.\\Material crosses the mesh at $\boldsymbol v-\boldsymbol w$.};
+\node[font=\small,align=center,text width=8cm] at (3.5,-4.5) {Boundary-conforming mesh with controlled interior distortion.\\Mesh adjustment requires consistent transport of material history.};
 \end{scope}
-\draw[flow,very thick] (.2,-16.1)--(.9,-16.1);
-\node[anchor=west,font=\small] at (1.1,-16.1) {Material boundary};
-\draw[meshblue,thin] (5.3,-16.1)--(6,-16.1);
-\node[anchor=west,font=\small] at (6.2,-16.1) {Computational mesh};
-\fill[pattern=north east lines,pattern color=gray!65] (10.6,-16.3) rectangle (11.3,-15.9);
-\node[anchor=west,font=\small] at (11.5,-16.1) {Fixed die};
+
+\draw[flow,very thick] (.3,-22.8)--(1,-22.8);
+\node[anchor=west,font=\small] at (1.3,-22.8) {Material boundary};
+\draw[meshblue,thin] (.3,-23.5)--(1,-23.5);
+\node[anchor=west,font=\small] at (1.3,-23.5) {Computational mesh};
+\fill[pattern=north east lines,pattern color=gray!65] (.3,-24.4) rectangle (1,-24);
+\node[anchor=west,font=\small] at (1.3,-24.2) {Fixed die};
 \end{tikzpicture}
 \end{document}
