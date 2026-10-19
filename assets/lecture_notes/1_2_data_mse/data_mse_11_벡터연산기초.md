@@ -218,8 +218,17 @@ print(np.dot(a, b))
 print(a @ b)
 ~~~
 
-결과는 모두 스칼라 32이다. <code>a * b</code>만 계산하면 합을 하지 않으므로
-내적이 아니라 원소별 곱 배열이 나온다.
+여기서 <code>@</code>는 NumPy 배열의 **행렬곱 연산자**이며,
+<code>a @ b</code>는 <code>np.matmul(a, b)</code>와 같다.
+이 예제처럼 두 배열이 길이가 같은 **1차원 실수 배열**이면, 대응하는 성분을 곱해
+더한 내적을 계산한다. 따라서 <code>(a * b).sum()</code>,
+<code>np.dot(a, b)</code>, <code>a @ b</code>의 결과는 모두 스칼라 32이다.
+즉, $1\times4+2\times5+3\times6=32$이다.
+
+반면 <code>a * b</code>만 계산하면 합을 하지 않으므로
+내적이 아니라 원소별 곱 배열 <code>[4., 10., 18.]</code>이 나온다.
+<code>@</code>를 항상 내적 연산자로 해석해서는 안 된다.
+두 배열이 2차원이면 행렬곱을 계산하며, 이는 다음 행렬 연산 강의에서 다룬다.
 
 두 벡터가 모두 영벡터가 아니고 내적이 0이면 두 벡터는 서로 수직이다.
 
@@ -331,6 +340,25 @@ $$
 \sin\theta
 $$
 
+![두 벡터가 만드는 평행사변형의 밑변, 높이, 끼인각과 외적의 방향](/assets/img/lecture_notes/data_mse/cross_product_area.png)
+
+그림에서 파란 벡터 $\boldsymbol a$를 밑변으로 잡으면 밑변의 길이는
+$|\boldsymbol a|$이다. 빨간 벡터 $\boldsymbol b$의 끝에서 밑변에 수선을 내리면
+높이는 $h=|\boldsymbol b|\sin\theta$가 된다. 따라서 넓이 $S$는
+
+$$
+S=\text{밑변}\times\text{높이}
+=|\boldsymbol a|h
+=|\boldsymbol a|\,|\boldsymbol b|\sin\theta
+=|\boldsymbol a\times\boldsymbol b|
+$$
+
+이다. **외적 자체는 벡터이고, 그 크기가 평행사변형의 넓이**라는 점을 구분하자.
+그림의 초록색 원 안의 점은 외적 벡터가 종이 밖, 즉 독자 쪽을 향함을 뜻한다.
+이 방향은 $\boldsymbol a$에서 $\boldsymbol b$로 손가락을 감는 오른손 법칙으로 정한다.
+순서를 바꾸면 외적의 방향은 반대가 되지만 넓이는 같다.
+두 벡터가 평행하면 평행사변형이 선분으로 퇴화하여 넓이와 외적의 크기가 모두 0이 된다.
+
 # 10. 재료공학 예제
 
 ## 10.1. 두 힘의 합력
@@ -371,7 +399,8 @@ print(angle_deg)
 
 ## 10.3. 평행사변형의 넓이
 
-두 격자벡터가 만드는 평행사변형의 넓이는 외적의 크기로 구할 수 있다.
+두 격자벡터가 만드는 평행사변형의 넓이는 외적의 크기로 구할 수 있다. 아래 예제에서는
+두 벡터가 수직이므로 $\sin\theta=1$이며, 넓이는 두 벡터의 크기를 곱한 값이다.
 
 ~~~python
 lattice_a = np.array([2.0, 0.0, 0.0])
