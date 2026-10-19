@@ -6,8 +6,7 @@ target: 1학년 2학기
 permalink:
 featured: true
 prerequisite: 벡터 연산, 결정학 기초
-toc:
-  sidebar: left
+toc: false
 
 mermaid:
   enabled: true
@@ -22,6 +21,11 @@ authors:
     affiliations:
       name: Changwon National University
 ---
+
+**Contents**
+
+* TOC
+{:toc}
 
 # EBSD 분석 및 시각화
 

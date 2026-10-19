@@ -6,8 +6,7 @@ target: 1학년 2학기
 permalink:
 featured: true
 prerequisite: 데이터 재료과학 개요
-toc:
-  sidebar: left
+toc: false
 
 mermaid:
   enabled: true
@@ -23,24 +22,10 @@ authors:
       name: Changwon National University
 ---
 
-- [1. 목표](#1-목표)
-- [2. Python 환경 확인](#2-python-환경-확인)
-  - [2.1. 파이썬](#21-파이썬)
-  - [2.2. VS Code에서 Jupyter 셋업 \& 구동되어 있는가?](#22-vs-code에서-jupyter-셋업--구동되어-있는가)
-  - [2.3. CLI (command line interface 기초)](#23-cli-command-line-interface-기초)
-  - [2.4. Source / version control via Git](#24-source--version-control-via-git)
-- [3. 모듈 만들기 및 실습](#3-모듈-만들기-및-실습)
-- [4. 간단한 조작 실습](#4-간단한-조작-실습)
-- [5. 변수와 연산자](#5-변수와-연산자)
-- [6. 예시](#6-예시)
-  - [6.1. 실습 예시 2-1](#61-실습-예시-2-1)
-  - [6.2. 실습 예시 2-2](#62-실습-예시-2-2)
-  - [6.3. 실습 예시 2-3](#63-실습-예시-2-3)
-  - [6.4. 실습 예시 2-4](#64-실습-예시-2-4)
-- [7. 연습 문제](#7-연습-문제)
-  - [7.1. 문제 1](#71-문제-1)
-  - [7.2. 문제 2](#72-문제-2)
-  - [7.3. 문제 3](#73-문제-3)
+**Contents**
+
+* TOC
+{:toc}
 
 # 1. 목표
 

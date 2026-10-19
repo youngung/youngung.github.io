@@ -6,8 +6,7 @@ target: 1학년 2학기
 permalink:
 featured: true
 prerequisite: NumPy, Matplotlib
-toc:
-  sidebar: left
+toc: false
 
 mermaid:
   enabled: true
@@ -23,12 +22,10 @@ authors:
       name: Changwon National University
 ---
 
-- [1. 목표](#1-목표)
-- [2. 색과 image 그리기](#2-색과-image-그리기)
-  - [2.1. 색표현을 설명](#21-색표현을-설명)
-  - [2.2. 이미지 그리기](#22-이미지-그리기)
-  - [2.3. 미세조직 사진 활용 실습](#23-미세조직-사진-활용-실습)
-- [3. 상분리 실습](#3-상분리-실습)
+**Contents**
+
+* TOC
+{:toc}
 
 # 1. 목표
 

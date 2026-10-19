@@ -6,8 +6,7 @@ target: 1학년 2학기
 permalink:
 featured: true
 prerequisite: 재료공학개론1
-toc:
-  sidebar: left
+toc: false
 
 mermaid:
   enabled: true
@@ -23,17 +22,10 @@ authors:
       name: Changwon National University
 ---
 
-- [1 수업 소개](#1-수업-소개)
-- [2. 세부 수업 목표](#2-세부-수업-목표)
-- [3. 강의 자료 및 수업 진행 방식](#3-강의-자료-및-수업-진행-방식)
-- [4. 실습 / 코딩](#4-실습--코딩)
-- [5. 평가 방법](#5-평가-방법)
-- [6. Take home](#6-take-home)
-- [7. 책임있는 AI 활용](#7-책임있는-ai-활용)
-- [8. 연습 문제](#8-연습-문제)
-  - [문제 1](#문제-1)
-  - [문제 2](#문제-2)
-  - [문제 3](#문제-3)
+**Contents**
+
+* TOC
+{:toc}
 
 # 1 수업 소개
 

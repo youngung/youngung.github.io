@@ -6,8 +6,7 @@ target: 1학년 2학기
 permalink:
 featured: true
 prerequisite: NumPy 배열 활용, 벡터 연산 기초
-toc:
-  sidebar: left
+toc: false
 hidden: true
 tabs: true
 tikzjax: true
@@ -18,39 +17,10 @@ authors:
       name: Changwon National University
 ---
 
-- [1. 학습 목표](#1-학습-목표)
-- [2. 행렬과 NumPy 배열](#2-행렬과-numpy-배열)
-- [3. 행렬의 합과 원소별 곱](#3-행렬의-합과-원소별-곱)
-- [4. 행렬–벡터곱](#4-행렬벡터곱)
-- [\[\\boldsymbol A\]\[\\boldsymbol x\]](#boldsymbol-aboldsymbol-x)
-- [\\end{bmatrix}](#endbmatrix)
-- [5. 행렬곱](#5-행렬곱)
-- [\[\\boldsymbol C\]](#boldsymbol-c)
-- [\[\\boldsymbol A\]\[\\boldsymbol B\]](#boldsymbol-aboldsymbol-b)
-- [C\_{ij}](#c_ij)
-- [C\_{ij}](#c_ij-1)
-- [6. 행렬곱의 shape](#6-행렬곱의-shape)
-- [7. 단위행렬과 전치행렬](#7-단위행렬과-전치행렬)
-  - [7.1. 단위행렬](#71-단위행렬)
-  - [7.2. 전치행렬](#72-전치행렬)
-- [8. 행렬식과 역행렬](#8-행렬식과-역행렬)
-  - [8.1. 행렬식](#81-행렬식)
-  - [8.2. 역행렬](#82-역행렬)
-- [\[\\boldsymbol A\]^{-1}\[\\boldsymbol A\]](#boldsymbol-a-1boldsymbol-a)
-- [9. 연립방정식 풀기](#9-연립방정식-풀기)
-- [10. 재료공학 예제](#10-재료공학-예제)
-  - [10.1. 격자 좌표를 실제 위치로 변환하기](#101-격자-좌표를-실제-위치로-변환하기)
-  - [10.2. 두 격자점 사이의 거리](#102-두-격자점-사이의-거리)
-- [11. 자주 하는 실수](#11-자주-하는-실수)
-- [12. 정리](#12-정리)
-- [13. 연습 문제](#13-연습-문제)
-  - [문제 1](#문제-1)
-  - [문제 2](#문제-2)
-  - [문제 3](#문제-3)
-  - [문제 4](#문제-4)
-  - [문제 5](#문제-5)
-  - [문제 6](#문제-6)
-  - [문제 7](#문제-7)
+**Contents**
+
+* TOC
+{:toc}
 
 # 1. 학습 목표
 

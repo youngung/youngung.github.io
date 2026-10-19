@@ -6,8 +6,7 @@ target: 1학년 2학기
 permalink:
 featured: true
 prerequisite: Python 기초 조작
-toc:
-  sidebar: left
+toc: false
 
 mermaid:
   enabled: true
@@ -23,20 +22,10 @@ authors:
       name: Changwon National University
 ---
 
-- [1. 목표](#1-목표)
-- [2. List (리스트)](#2-list-리스트)
-- [3. Tuple (튜플)](#3-tuple-튜플)
-- [4. Set (집합)](#4-set-집합)
-- [5. Dictionary (딕셔너리)](#5-dictionary-딕셔너리)
-- [6. Misc.](#6-misc)
-- [7. Take-home 실습](#7-take-home-실습)
-- [연습 문제](#연습-문제)
-  - [문제 1](#문제-1)
-  - [문제 2](#문제-2)
-  - [문제 3](#문제-3)
-  - [문제 4](#문제-4)
-  - [문제 5](#문제-5)
-  - [문제 6](#문제-6)
+**Contents**
+
+* TOC
+{:toc}
 
 # 1. 목표
 

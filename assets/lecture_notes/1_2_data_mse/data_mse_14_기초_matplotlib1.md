@@ -6,8 +6,7 @@ target: 1학년 2학기
 permalink:
 featured: true
 prerequisite: NumPy 배열 기초, NumPy 배열 활용
-toc:
-  sidebar: left
+toc: false
 hidden: true
 tabs: true
 tikzjax: true
@@ -18,24 +17,10 @@ authors:
       name: Changwon National University
 ---
 
-- [1. 학습 목표](#1-학습-목표)
-- [2. Matplotlib 시작하기](#2-matplotlib-시작하기)
-- [3. 선 그래프](#3-선-그래프)
-- [4. Figure와 Axes](#4-figure와-axes)
-- [5. 그래프 꾸미기](#5-그래프-꾸미기)
-- [6. 산점도 (scatter plot)](#6-산점도-scatter-plot)
-- [7. 여러 데이터 비교하기](#7-여러-데이터-비교하기)
-- [8. 재료공학 예제: 응력–변형률 곡선](#8-재료공학-예제-응력변형률-곡선)
-- [9. 일차 함수 그려보기](#9-일차-함수-그려보기)
-  - [삼각함수](#삼각함수)
-- [9. 그림 저장하기](#9-그림-저장하기)
-- [10. 자주 하는 실수](#10-자주-하는-실수)
-- [11. 정리](#11-정리)
-- [12. 연습 문제](#12-연습-문제)
-  - [문제 1](#문제-1)
-  - [문제 2](#문제-2)
-  - [문제 3](#문제-3)
-  - [문제 4](#문제-4)
+**Contents**
+
+* TOC
+{:toc}
 
 # 1. 학습 목표
 

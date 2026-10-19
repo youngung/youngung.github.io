@@ -6,8 +6,7 @@ target: 1학년 2학기
 permalink:
 featured: true
 prerequisite: NumPy, 벡터와 행렬 연산
-toc:
-  sidebar: left
+toc: false
 hidden: true
 tikzjax: true
 authors:
@@ -16,6 +15,11 @@ authors:
     affiliations:
       name: Changwon National University
 ---
+
+**Contents**
+
+* TOC
+{:toc}
 
 # 8. Week6
 
