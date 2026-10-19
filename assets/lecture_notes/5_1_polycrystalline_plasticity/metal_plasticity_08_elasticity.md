@@ -49,13 +49,13 @@ $$\boldsymbol\sigma=\boldsymbol E : \boldsymbol \varepsilon$$
 
 - Hooke의 법칙에서 보이는 스칼라 $E$를 영률이라 부른다.
 
-- 변형률이 단위가 없으므로, 영률은 응력과 같은 단위를 가진다 ($Pa, MPa$ 등)
+- 변형률이 단위가 없으므로, 영률은 응력과 같은 단위를 가진다 (Pa, MPa 등)
 
 - 영률은 재료의 성질이다. 강철과 고무에 동일한 응력을 가했을 때, 강철의 변형률이 훨씬 작다. 따라서 강철의 영률이 고무의 영률에 비해 매우 크다.
 
 # 3. 포아송 효과 (Poisson effect)
 
-- 인장하는 길이가 $\mathbf e_1$ 방향일 때, 수직 변형이 $\mathbf e_1$축으로만 발생하지 않는다. 그에 수직한 방향, 예를 들어 $\mathbf e_2$로는 길이가 줄어드는 수직 변형이 발생할 수 있다.
+- 인장하는 길이가 $\mathbf {\boldsymbol{e}}_1$ 방향일 때, 수직 변형이 $\mathbf {\boldsymbol{e}}_1$축으로만 발생하지 않는다. 그에 수직한 방향, 예를 들어 $\mathbf {\boldsymbol{e}}_2$로는 길이가 줄어드는 수직 변형이 발생할 수 있다.
 
 - 이럴 때, 적어도 두 수직 변형률 성분 $\varepsilon_{11}$, $\varepsilon_{22}$가 0이 아님을 알 수 있다. 더욱 구체적으로는 아래와 같은 값의 범위를 가지게 된다.
 
@@ -101,7 +101,7 @@ $$
 \end{bmatrix}
 $$
 
-- $\delta_{ij}$는 크로네커 델타로 불리며 아래 성질을 가진다.
+- $\delta_{ij}$는 크로네커 델타(Kronecker delta)로 불리며 아래 성질을 가진다.
 
   - $\delta_{ij}=0, \text{ if } i\ne j$
   - $\delta_{ij}=1, \text{ if } i=j$

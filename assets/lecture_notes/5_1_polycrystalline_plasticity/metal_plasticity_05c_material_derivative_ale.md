@@ -71,6 +71,11 @@ $$
 \end{aligned}
 $$
 
+$\left.\partial T_L/\partial t\right|_{\boldsymbol X}$는 물질점의 이름표
+$\boldsymbol X$를 고정하고 같은 물질점을 따라 관찰하는 시간변화율을 의미한다. 이를 **Lagrangian 기술법에서의 시간 미분**이라고 부르기도 한다.
+그런데, 이를 공간에 고정된 관찰점에서의 시간 변화율로 바꾸면, 이송항을 더해야 한다. 즉, 공간에
+고정된 위치에서의 시간에 대한 변화율($\left.\frac{\partial T}{\partial t}\right|_{\boldsymbol x}$) 더하기, 이송항($\boldsymbol v\cdot\nabla_xT=\sum_i v_i \frac{\partial T}{\partial x_i}$)으로 표현할 수 있다.
+
 여기서 $\left.d\boldsymbol x/dt\right|_{\boldsymbol X}$는 **같은 물질점
 $\boldsymbol X$를 따라가며 현재 위치를 시간미분한 값**, 즉 물질점의 속도다.
 $\boldsymbol x=\boldsymbol\Phi(\boldsymbol X,t)$이므로 두 표기는 다음과 같이 연결된다.
@@ -90,9 +95,9 @@ $$
 +\boldsymbol v\cdot\nabla_xT}.
 $$
 
-첫 항은 고정된 위치에서의 시간 변화이고, 둘째 항은 물질점의 이동에 의한 변화인
+첫 항($\left.\frac{\partial T}{\partial t}\right|_{\boldsymbol x}$)은 고정된 위치에서의 시간 변화이고, 둘째 항은 물질점의 이동에 의한 변화인
 **이송항 (convective term)**이다. 따라서 Lagrangian 기술법에서는 같은 물질점의
-시간 미분이 곧 물질미분이며, Eulerian 기술법에서는 고정 위치의 시간 미분에 이송항을 더한다.
+시간 미분이 곧 물질미분이며, Eulerian 기술법에서는 고정 위치의 시간 미분($\left.\frac{\partial T}{\partial t}\right|_{\boldsymbol x}$)에 이송항($\boldsymbol v\cdot\nabla_xT$)을 더한다.
 
 <span id="a2-시간에-따라-변하지-않는-온도장에서의-물질미분"></span>
 
@@ -105,47 +110,50 @@ T(x)=20\,{}^\circ\mathrm C
 +\left(10\,{}^\circ\mathrm C/\mathrm m\right)x
 $$
 
-라고 하자. 물질점이 $v=2\,\mathrm{m/s}$로 이동하면
+라고 하자. 한 물질점이 $v=2\,\mathrm{m/s}$로 이동하면
 
 $$
 \left.\frac{\partial T}{\partial t}\right|_x=0,
 \qquad
 \frac{DT}{Dt}=v\frac{dT}{dx}
-=2\times10=20\,{}^\circ\mathrm C/\mathrm s.
+=2\ [m/s]\times 10\ [{}^\circ\mathrm C/\mathrm m]=20\ [{}^\circ\mathrm C/\mathrm s].
 $$
 
-고정된 온도계의 값은 변하지 않지만, 이동하는 물질점은 더 따뜻한 곳으로 가므로
-초당 $20\,{}^\circ\mathrm C$의 온도 증가를 경험한다.
+고정된 위치에 붙어있는 온도계의 값은 변하지 않지만, 공간에서 2 $\mathrm{m/s}$의 속도로
+이동하는 물질점은 더 따뜻한 곳으로 가므로, 초당 $20\,{}^\circ\mathrm C$의 온도 증가를 경험한다.
 
 ![정상 온도장에서 고정 관찰점과 이동하는 물질점이 기록하는 온도의 비교](/assets/img/lecture_notes/displacement/material_derivative_temperature.png)
 
-위 그림의 (a)에서 파란 선은 시간에 따라 변하지 않는 온도장이고, 빨간 점들은
-$x(0)=0$에서 출발한 **같은 물질점**의 $t=0,1,2\,\mathrm s$ 위치와 온도를 나타낸다.
-초록색 원은 $x=1\,\mathrm m$에 고정된 관찰점이다. (b)는 각 관찰자가 기록하는 온도를
-시간에 대해 그린 것으로, 고정점에서는 $30\,{}^\circ\mathrm C$로 일정하지만
-이동점에서는 $20,40,60\,{}^\circ\mathrm C$로 상승한다.
+위 그림의 (a)에서 파란 선은 시간에 따라 변하지 않는 온도장, 즉 온도 장 $T(x)$는
+시간에 따라 공간(x)에서 변하지 않는다. 그에 비해 빨간 점들은 $x(0)=0$에서 출발한
+**같은 물질점**의 $t=0,1,2\,\mathrm s$ 위치와 온도를 나타낸다.
+초록색 원은 공간에 고정된 관찰점($x=1\,\mathrm m$)이다. (b)는 (a)의 녹색점에 고정된 관찰자
+그리고 물질과 함께 이동하는 관찰자(빨간 점)가 기록하는 온도를 시간에 대해 그린 것으로,
+녹색 고정점에서는 $30\,{}^\circ\mathrm C$로 시간에 따라 달라지지 않는 온도를 관찰하지만
+빨간색 이동점에서는 시간이 0, 1, 2초로 흐름에 따라 온도가 $20,40,60\,{}^\circ\mathrm C$로 상승한다.
 
 <span id="a3-공간과-시간에-모두-의존하는-온도장"></span>
 
 ## 1.3. 공간과 시간에 모두 의존하는 온도장
 
 이번에는 앞의 1.2절에서 사용한 온도장에 시간에 따른 온도 상승을 추가하자.
-공간에 따른 온도 기울기는 그대로 두고, 모든 고정 위치에서 온도가 초당 $3\,{}^\circ\mathrm C$씩 상승한다고 가정한다.
-$x$는 m, $t$는 s 단위로 측정하며,
+공간에 따른 온도 기울기는 그대로 두고, 모든 고정 위치에서 온도가 초당
+$3\,{}^\circ\mathrm C$씩 상승한다고 가정한다. $x$는 m, $t$는 s 단위로 측정하며,
 
 $$
 T(x,t)=20\,{}^\circ\mathrm C
-+\left(10\,{}^\circ\mathrm C/\mathrm m\right)x
-+\left(3\,{}^\circ\mathrm C/\mathrm s\right)t
++10 \,[{}^\circ\mathrm C/\mathrm m] x
++3\,[{}^\circ\mathrm C/\mathrm s] t
 $$
 
-라고 하자. 고정된 위치에서의 온도 상승률과 공간에 대한 기울기는 각각
+라고 하자. 공간 $\boldsymbol x$에 고정된 한 위치에서의 온도 상승률과 공간에 대한
+온도 변화에 대한 기울기는 각각
 
 $$
 \left.\frac{\partial T}{\partial t}\right|_x
-=3\,{}^\circ\mathrm C/\mathrm s,
+=3\,[{}^\circ\mathrm C/\mathrm s],
 \qquad
-\frac{\partial T}{\partial x}=10\,{}^\circ\mathrm C/\mathrm m
+\frac{\partial T}{\partial x}=10\,[{}^\circ\mathrm C/\mathrm m]
 $$
 
 이다. 물질점이 $v=2\,\mathrm{m/s}$로 이동하면
@@ -154,12 +162,12 @@ $$
 \boxed{\frac{DT}{Dt}
 =\left.\frac{\partial T}{\partial t}\right|_x
 +v\frac{\partial T}{\partial x}
-=3+2\times10=23\,{}^\circ\mathrm C/\mathrm s}.
+=3\,[{}^\circ\mathrm C/\mathrm s]+2\,[\mathrm{m/s}]\times10\,[{}^\circ\mathrm C/\mathrm m]=23\,[{}^\circ\mathrm C/\mathrm s]}.
 $$
 
-고정된 온도계는 초당 $3\,{}^\circ\mathrm C$의 상승을 측정한다.
+공간 $\boldsymbol x$에 고정된 온도계는 초당 $3\,[{}^\circ\mathrm C/\mathrm s]$의 상승을 측정한다.
 이동하는 물질점은 이 시간 변화에 더해 더 따뜻한 위치로 이동하는 효과도 경험하므로,
-초당 $23\,{}^\circ\mathrm C$의 상승을 경험한다.
+초당 $23\,[{}^\circ\mathrm C/\mathrm s]$의 상승을 경험한다.
 
 물질점의 경로에 온도장을 직접 대입해도 같은 결과를 확인할 수 있다.
 $t=0$에서 $x=X$인 물질점의 운동은 $x(X,t)=X+vt$이므로,
@@ -176,13 +184,84 @@ T_L(X,t)&=T(X+vt,t)\\
 $$
 
 두 효과가 항상 같은 부호인 것은 아니다. 같은 온도장에서 물질점이 반대 방향으로
-$v=-2\,\mathrm{m/s}$로 이동하면 $DT/Dt=3-20=-17\,{}^\circ\mathrm C/\mathrm s$다.
+$v=-2\,\mathrm{m/s}$로 이동하면 물질미분은
+$DT/Dt=3\,[{}^\circ\mathrm C/\mathrm s]-20\,[{}^\circ\mathrm C/\mathrm s]=-17\,[{}^\circ\mathrm C/\mathrm s]$다.
 각 위치의 온도는 상승하고 있어도, 물질점은 더 차가운 위치로 빠르게 이동하므로
 자신이 경험하는 온도는 감소한다.
 
+## 1.4. 2차원 온도장에서의 물질미분
+
+이번에는 온도가 두 공간 좌표 $x_1$, $x_2$에 따라 달라지는 경우를 생각하자.
+고정된 직교좌표계에서 $x_1$, $x_2$는 m, $t$는 s 단위로 측정하며, 온도장을
+
+$$
+T(x_1,x_2,t)=20\,{}^\circ\mathrm C
++\left(10\,{}^\circ\mathrm C/\mathrm m\right)x_1
+-\left(5\,{}^\circ\mathrm C/\mathrm m\right)x_2
++\left(3\,{}^\circ\mathrm C/\mathrm s\right)t
+$$
+
+로 둔다. 즉, $x_1$이 증가하는 방향으로는 따뜻해지고, $x_2$가 증가하는 방향으로는
+차가워진다. 고정된 위치에서는 온도가 초당 $3\,{}^\circ\mathrm C$씩 상승한다.
+물질점의 속도는 일정한 벡터
+
+$$
+\boldsymbol v=(v_1,v_2)=(2,1)\,\mathrm{m/s}
+$$
+
+라고 하자. 2차원에서는 이송항에 두 방향의 기여가 모두 들어가므로
+
+$$
+\begin{aligned}
+\frac{DT}{Dt}
+&=\left.\frac{\partial T}{\partial t}\right|_{x_1,x_2}
++v_1\frac{\partial T}{\partial x_1}
++v_2\frac{\partial T}{\partial x_2}\\
+&=3\,[{}^\circ\mathrm C/\mathrm s]
++\left(2\,[\mathrm{m/s}]\right)\left(10\,[{}^\circ\mathrm C/\mathrm m]\right)
++\left(1\,[\mathrm{m/s}]\right)\left(-5\,[{}^\circ\mathrm C/\mathrm m]\right)\\
+&=\boxed{18\,{}^\circ\mathrm C/\mathrm s}.
+\end{aligned}
+$$
+
+$x_1$ 방향의 이동은 초당 $20\,[{}^\circ\mathrm C/\mathrm s]$의 온도 증가에,
+$x_2$ 방향의 이동은 초당 $5\,[{}^\circ\mathrm C/\mathrm s]$의 온도 감소에 기여한다.
+따라서 이송항은 $15\,[{}^\circ\mathrm C/\mathrm s]$이고, 고정 위치의 시간 변화율
+$3\,[{}^\circ\mathrm C/\mathrm s]$를 더하면 물질점이 경험하는 변화율은
+$18\,[{}^\circ\mathrm C/\mathrm s]$이다.
+
+물질점의 이름표를 $\boldsymbol X=(X_1,X_2)$, 즉 $t=0$에서의 위치로 두면,
+그 물질점의 경로는
+
+$$
+x_1(\boldsymbol X,t)=X_1+\left(2\,[\mathrm{m/s}]\right)t,
+\qquad
+x_2(\boldsymbol X,t)=X_2+\left(1\,[\mathrm{m/s}]\right)t
+$$
+
+이다. 이 경로를 온도장에 직접 대입하면
+
+$$
+\begin{aligned}
+T_L(\boldsymbol X,t)
+&=T\bigl(x_1(\boldsymbol X,t),x_2(\boldsymbol X,t),t\bigr)\\
+&=20\,{}^\circ\mathrm C
++\left(10\,[{}^\circ\mathrm C/\mathrm m]\right)X_1
+-\left(5\,[{}^\circ\mathrm C/\mathrm m]\right)X_2
++\left(18\,[{}^\circ\mathrm C/\mathrm s]\right)t,\\
+\left.\frac{\partial T_L}{\partial t}\right|_{\boldsymbol X}
+&=18\,[{}^\circ\mathrm C/\mathrm s]
+=\frac{DT}{Dt}.
+\end{aligned}
+$$
+
+여기서 $\boldsymbol X$를 고정한다는 것은 $X_1$, $X_2$를 모두 고정하여 같은 물질점을
+따라간다는 뜻이다. 반면 $x_1$, $x_2$를 고정하면 공간의 같은 위치를 관찰하므로
+온도 변화율은 $3\,{}^\circ\mathrm C/\mathrm s$이다.
+
 <span id="a4-속도의-물질미분과-가속도"></span>
 
-## 1.4. 속도의 물질미분과 가속도
+## 1.5. 속도의 물질미분과 가속도
 
 물질미분은 벡터장의 각 성분에도 적용할 수 있다.
 고정된 Cartesian(직교) 좌표계에서 속도의 물질미분은 물질점의 가속도다.
@@ -222,7 +301,21 @@ $$
 | ------ | ----------- | -------------------------- |
 | Lagrangian | 물질과 함께 이동: $\boldsymbol w=\boldsymbol v$ | $\boldsymbol 0$ |
 | Eulerian | 공간에 고정: $\boldsymbol w=\boldsymbol 0$ | $\boldsymbol v$ |
-| ALE | 격자 품질과 경계조건에 맞게 이동 | $\boldsymbol v-\boldsymbol w$ |
+| ALE | 격자 품질과 경계조건에 맞게 격자 속도 $\boldsymbol w$를 정한다. | $\boldsymbol v-\boldsymbol w$ |
+
+![Eulerian, Lagrangian, ALE 기술법에서 같은 물질점과 격자점의 이동 비교](/assets/img/lecture_notes/displacement/ale_mesh_comparison.png)
+
+위 그림은 같은 물질점이 $\boldsymbol v=(2,1)\,\mathrm{m/s}$로 이동할 때,
+격자 속도를 다르게 선택한 결과이다. 빨간 점은 같은 물질점, 파란 원은 처음에 그
+물질점과 겹쳐 있던 같은 격자점이다. 각 패널의 위와 아래는 각각 $t=0$과
+$t=1\,\mathrm s$이며, 아래의 옅은 점선은 초기 격자와 물질점 위치를 나타낸다.
+
+Eulerian에서는 격자가 고정되어 물질점만 이동한다. Lagrangian에서는 물질점과
+격자점이 함께 이동하므로 두 표시가 계속 겹친다. ALE에서는 격자가
+$\boldsymbol w=(1,0)\,\mathrm{m/s}$로 이동하므로 물질점은 격자에 대해
+$\boldsymbol v-\boldsymbol w=(1,1)\,\mathrm{m/s}$로 이동한다.
+오른쪽 아래의 속도 삼각형은 $\boldsymbol v=\boldsymbol w+(\boldsymbol v-\boldsymbol w)$를 보여준다.
+이 그림은 격자와 물질의 상대운동을 설명하기 위한 균일 병진운동의 예이다.
 
 $q_{ALE}(\boldsymbol\xi,t)=q(\boldsymbol\psi(\boldsymbol\xi,t),t)$라고 정의하면,
 연쇄법칙에 의해
@@ -240,3 +333,160 @@ $$
 압출 같은 큰 소성변형이나 유체–구조 상호작용에서 유용하다.
 
 격자 운동은 경계조건을 만족해야 하며, 격자 사상은 역변환 가능해야 한다.
+
+## 2.1. 이동하는 격자에서 온도를 관찰하는 예제
+
+1.4절의 2차원 온도장과 물질 속도를 다시 사용하자.
+
+$$
+T(x_1,x_2,t)=20\,{}^\circ\mathrm C
++\left(10\,{}^\circ\mathrm C/\mathrm m\right)x_1
+-\left(5\,{}^\circ\mathrm C/\mathrm m\right)x_2
++\left(3\,{}^\circ\mathrm C/\mathrm s\right)t,
+\qquad
+\boldsymbol v=(2,1)\,\mathrm{m/s}.
+$$
+
+이번에는 계산 격자를 $x_1$ 방향으로 $1\,\mathrm{m/s}$의 속도로 이동시킨다.
+격자좌표 $\boldsymbol\xi=(\xi_1,\xi_2)$를 길이 단위 m로 정의하면 격자의 운동은
+
+$$
+x_1=\xi_1+\left(1\,\mathrm{m/s}\right)t,
+\qquad x_2=\xi_2,
+\qquad \boldsymbol w=(1,0)\,\mathrm{m/s}
+$$
+
+이다. $\boldsymbol\xi$를 고정한다는 것은 **같은 격자점을 따라간다**는 뜻이다.
+이 예제에서는 격자점의 속도 $\boldsymbol w$와 물질점의 속도 $\boldsymbol v$가
+다르므로, 같은 격자점을 따라가는 관찰자는 계속 같은 물질점을 관찰하는 것이 아니다.
+
+먼저 격자의 경로를 온도장에 대입하면
+
+$$
+\begin{aligned}
+T_{ALE}(\boldsymbol\xi,t)
+&=T\bigl(\xi_1+(1\,\mathrm{m/s})t,\xi_2,t\bigr)\\
+&=20\,{}^\circ\mathrm C
++\left(10\,{}^\circ\mathrm C/\mathrm m\right)\xi_1
+-\left(5\,{}^\circ\mathrm C/\mathrm m\right)\xi_2
++\left(13\,{}^\circ\mathrm C/\mathrm s\right)t.
+\end{aligned}
+$$
+
+따라서 같은 격자점에서 기록하는 온도의 시간 변화율은
+
+$$
+\left.\frac{\partial T_{ALE}}{\partial t}\right|_{\boldsymbol\xi}
+=13\,{}^\circ\mathrm C/\mathrm s
+$$
+
+이다. 이 값에는 고정 위치의 온도 상승률 $3\,{}^\circ\mathrm C/\mathrm s$에 더해,
+격자 자체가 따뜻한 쪽으로 이동하는 효과 $10\,{}^\circ\mathrm C/\mathrm s$가 포함된다.
+
+물질의 격자에 대한 상대속도는
+
+$$
+\boldsymbol v-\boldsymbol w=(1,1)\,\mathrm{m/s}
+$$
+
+이므로, 격자를 기준으로 물질이 이동하면서 경험하는 추가 변화율은
+
+$$
+\begin{aligned}
+(\boldsymbol v-\boldsymbol w)\cdot\nabla_xT
+&=\left(1\,\mathrm{m/s}\right)\left(10\,{}^\circ\mathrm C/\mathrm m\right)
++\left(1\,\mathrm{m/s}\right)\left(-5\,{}^\circ\mathrm C/\mathrm m\right)\\
+&=5\,{}^\circ\mathrm C/\mathrm s.
+\end{aligned}
+$$
+
+두 항을 더하면 물질미분은
+
+$$
+\boxed{\frac{DT}{Dt}
+=\left.\frac{\partial T_{ALE}}{\partial t}\right|_{\boldsymbol\xi}
++(\boldsymbol v-\boldsymbol w)\cdot\nabla_xT
+=13+5=18\,{}^\circ\mathrm C/\mathrm s}
+$$
+
+가 된다. 이는 1.4절에서 물질점을 직접 따라가며 계산한 결과와 같다.
+
+같은 온도장과 물질 운동에 대해 격자 속도를 달리 선택하면 다음과 같다.
+표의 변화율 단위는 모두 ${}^\circ\mathrm C/\mathrm s$이다.
+
+| 기술법 | 격자 속도 $\boldsymbol w$ ($\mathrm{m/s}$) | 같은 격자점의 온도 변화율 | 상대속도에 의한 이송항 | 물질미분 $DT/Dt$ |
+| ------ | --------------------------------------- | ----------------------- | --------------------- | --------------- |
+| Eulerian | $(0,0)$ | $3$ | $15$ | $18$ |
+| 이 예제의 ALE | $(1,0)$ | $13$ | $5$ | $18$ |
+| Lagrangian | $(2,1)=\boldsymbol v$ | $18$ | $0$ | $18$ |
+
+즉, **격자 속도에 따라 두 항에 나뉘어 들어가는 값은 달라져도, 같은 물질점의
+물질미분은 변하지 않는다.** 특히 ALE 격자점에서의 시간 변화율 $13$을 그대로
+물질미분으로 사용하면 상대속도에 의한 변화율 $5$를 빠뜨리게 된다.
+
+
+## 2.2. 압출에서 ALE가 유용한 이유
+
+압출(extrusion)은 램(ram)이 소재를 밀어 좁은 금형 출구로 통과시키는 공정이다.
+소재가 금형 입구에서 방향을 바꾸고 단면이 줄어들면서 큰 소성변형이 발생한다.
+이처럼 공간적으로 변형이 불균일한 경우에는, 앞의 균일 병진운동 예제와 달리
+재료를 따라가는 격자가 크게 찌그러질 수 있다.
+
+![같은 압출 형상에서 Eulerian 고정 격자, Lagrangian 변형 격자, ALE 조정 격자를 비교한 개념도](/assets/img/lecture_notes/displacement/extrusion_three_descriptions.png)
+
+위 그림은 **같은 순간의 재료 형상과 금형을 세 기술법으로 표현한 개념도**이며,
+실제 해석 결과는 아니다. 빨간 윤곽선은 재료 경계, 파란 선은 계산 격자,
+빗금 영역은 고정된 금형이다. 세 패널은 시간에 따른 연속 장면이 아니다.
+
+- **(a) Eulerian:** 재료가 고정된 배경 격자를 통과한다. 재료 경계는 격자선과 일치할 필요가 없으며, 경계가 요소 내부를 지날 수 있다. 금형 영역에 겹쳐 보이는 배경 격자는 재료가 금형 내부로 흐른다는 뜻이 아니다.
+- **(b) Lagrangian:** 격자가 재료를 따라 움직인다. 재료 경계를 따라가지만, 금형 입구에서 불균일한 변형을 받아 요소가 기울어질 수 있다.
+- **(c) ALE:** 재료 경계를 표현하면서 내부 격자의 운동을 조절한다. 격자가 물질점을 그대로 따라갈 필요가 없으므로 요소의 왜곡을 줄일 수 있으며, 상대운동에 따른 재료 이력의 이송이 필요하다.
+
+Lagrangian 기술법은 재료의 표면과 이력을 따라가기 쉽지만, 변형이 집중되면 요소의
+심한 왜곡이 계산의 정확도와 안정성에 영향을 줄 수 있다. Eulerian 기술법에서는
+격자가 고정되므로 재료 변형에 따른 격자 왜곡은 없지만, 움직이는 재료 표면과
+금형 접촉을 별도로 표현해야 한다. ALE에서는 경계조건에 맞게 경계 격자의 운동을
+정하면서 내부 격자의 운동을 조절하여, 재료 형상 표현과 격자 품질을 함께 고려할 수 있다.
+
+예를 들어 고정된 금형과 접촉하는 경계에서는 격자가 금형을 관통하지 않도록 하되,
+접선 방향 이동은 허용할 수 있다. 재료의 자유표면을 추적하는 경계에서는 격자와
+재료의 법선 속도를 일치시키고, 내부에서는 요소의 왜곡을 줄이도록 격자점을 이동시킬 수 있다.
+따라서 ALE의 격자 속도는 경계조건과 격자 품질을 고려하여 정하며, 모든 곳에서
+물질 속도와 격자 속도가 같을 필요는 없다.
+
+## 2.3. 격자 재배치와 재료 이력의 전달
+
+소성변형 해석에서는 적분점에 응력, 누적 소성변형률, 경화변수 등 재료의 현재 상태와
+이력이 저장된다. 격자점을 이동시키면 적분점의 공간 위치도 바뀌므로, 기존 값을
+같은 요소·적분점 번호에 그대로 남겨두어서는 재료 이력을 올바르게 표현할 수 없다.
+**격자를 재배치할 때는 기존 재료 상태를 새 격자에 전달하는 remapping도 필요하다.**
+
+![압출에서 격자 재배치 전후와 적분점 상태변수 전달을 비교한 개념도](/assets/img/lecture_notes/displacement/ale_extrusion_remapping.png)
+
+이 그림은 앞의 세 기술법 비교와 달리 **ALE에서 격자를 재배치하기 전과 후**를
+비교한다. 왼쪽은 재료를 따라 찌그러진 격자이고, 오른쪽은 **같은 물리적 시각과
+같은 재료 형상에서** 내부 격자점을 재배치한 상태이다. 이 과정은 재료의 추가적인
+압출이나 변형을 뜻하지 않는다. 두 패널의 요소 수와 연결 관계는 같으며,
+격자선의 배치만 달라진다.
+
+격자 재배치와 이송을 분리하는 ALE 구현은 다음과 같이 이해할 수 있다.
+
+1. **재료의 변형 계산:** 한 시간 증분 동안 재료를 따라 운동과 구성식을 계산하여 응력과 상태변수를 갱신한다.
+2. **격자 재배치(rezoning):** 해당 시각의 재료 형상을 유지하면서 격자점을 이동시켜 요소의 모양을 개선한다.
+3. **상태 전달(remapping):** 기존 격자에서 표현한 물리량과 재료 이력을 새 격자로 옮긴다.
+
+위 격자 재배치 그림의 빨간 점과 원은 재배치 전후에 상태를 저장하는 적분점을 개념적으로
+표시한다. 같은 재료 이력을 표현해야 하지만, 전후의 적분점을 번호에 따라 일대일로
+대응시켜 값을 복사한다는 뜻은 아니다. 기존 상태의 공간 분포로부터 새 적분점에
+필요한 값을 재구성해야 한다. 배경의 같은 색 분포는 재배치만으로 물리적 상태가
+바뀌어서는 안 된다는 의도를 나타내며, 실제 전달에는 수치 오차가 생길 수 있다.
+
+이 과정은 앞의 ALE 식에서 상대속도 $\boldsymbol v-\boldsymbol w$에 의한 이송을
+수치적으로 처리하는 것과 연결된다. 다만 모든 ALE 구현이 위의 세 단계를 별도로
+수행하는 것은 아니며, 이송항을 방정식에서 직접 처리하는 구현도 있다.
+상태 전달에서는 질량·운동량·에너지의 보존과 재료 모델의 상태변수 사이의 일관성을
+고려해야 한다. 특히 이력 의존성이 강한 재료 모델에서는 단순한 값의 보간만으로
+충분한지 검토해야 하므로, ALE에는 격자 품질 개선의 이점과 함께 추가 계산 및 전달 오차가 따른다.
+
+격자 조정과 해 변수의 이송을 분리하는 구현의 예는
+[Abaqus/Explicit의 ALE 격자 재배치 및 remapping 설명](https://docs.software.vt.edu/abaqusv2025/English/SIMACAEANLRefMap/simaanl-c-aleremesh.htm)을 참고할 수 있다.
