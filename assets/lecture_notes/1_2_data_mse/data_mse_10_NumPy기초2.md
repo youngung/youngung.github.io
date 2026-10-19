@@ -26,34 +26,44 @@ authors:
 - [6. reshape과 전치](#6-reshape과-전치)
 - [7. axis를 이용한 계산](#7-axis를-이용한-계산)
 - [8. 브로드캐스팅](#8-브로드캐스팅)
+  - [8.1. 배열과 스칼라](#81-배열과-스칼라)
+  - [8.2. 각 열에 서로 다른 값 더하기](#82-각-열에-서로-다른-값-더하기)
 - [9. 텍스트와 CSV 파일 읽기](#9-텍스트와-csv-파일-읽기)
 - [10. 배열 저장하기](#10-배열-저장하기)
 - [11. 재료공학 예제](#11-재료공학-예제)
 - [12. 자주 만나는 오류](#12-자주-만나는-오류)
+  - [12.1. IndexError](#121-indexerror)
+  - [12.2. ValueError: cannot reshape](#122-valueerror-cannot-reshape)
+  - [12.3. 브로드캐스팅 오류](#123-브로드캐스팅-오류)
 - [13. 정리](#13-정리)
 - [14. 연습 문제](#14-연습-문제)
+  - [문제 1](#문제-1)
+  - [문제 2](#문제-2)
+  - [문제 3](#문제-3)
+  - [문제 4](#문제-4)
+  - [문제 5](#문제-5)
+  - [문제 6](#문제-6)
+  - [문제 7](#문제-7)
 
 # 1. 학습 목표
 
 이번 강의가 끝나면 다음을 할 수 있어야 한다.
 
-- 인덱싱과 슬라이싱으로 원하는 배열 원소를 선택할 수 있다.
+- 인덱싱(indexing)과 슬라이싱(slicing)으로 원하는 배열 원소를 선택할 수 있다.
 - 슬라이싱으로 만든 view와 독립적인 copy의 차이를 설명할 수 있다.
-- <code>reshape()</code>와 전치행렬을 사용할 수 있다.
+- <code>reshape()</code>와 전치행렬(transpose, <code>.T</code>)을 사용할 수 있다. (reshape: 배열의 모양 변경, transpose: 행과 열을 바꿈)
 - <code>axis</code>를 지정하여 행별·열별 계산을 수행할 수 있다.
 - 간단한 브로드캐스팅을 활용할 수 있다.
-- 공백 구분 파일과 CSV 파일을 읽고 저장할 수 있다.
+- 공백 구분 파일과 CSV (Comma Separated Values) 파일을 읽고 저장할 수 있다.
 
 # 2. 1차원 배열 인덱싱과 슬라이싱
 
 ~~~python
 import numpy as np
-
-
 array = np.array([3, 3, 4, 3, 3, 4, 5, 6])
 ~~~
 
-Python의 인덱스는 0부터 시작한다.
+Python의 인덱스는, list와 마찬가지로 0부터 시작한다.
 
 ~~~python
 print(array[0])
@@ -64,6 +74,10 @@ print(array[-1])
 - <code>array[0]</code>: 첫 번째 원소 3
 - <code>array[2]</code>: 세 번째 원소 4
 - <code>array[-1]</code>: 마지막 원소 6
+
+- <code>start</code>: 시작 인덱스 (포함)
+- <code>stop</code>: 종료 인덱스 (포함하지 않음)
+- <code>step</code>: 증가분
 
 슬라이싱은 <code>array[start:stop:step]</code> 형식을 사용한다. <code>stop</code>
 위치의 원소는 포함하지 않는다.
@@ -92,7 +106,7 @@ matrix = np.array([
 ])
 ~~~
 
-2차원 배열에서는 쉼표 앞이 행 인덱스, 뒤가 열 인덱스이다.
+2차원 배열에서는 쉼표 앞이 행 인덱스, 뒤가 열 인덱스이다 (행, 열 순서).
 
 ~~~python
 print(matrix[0, 0])
@@ -104,10 +118,9 @@ print(matrix[0:2, 1:3])
 각 결과는 다음과 같다.
 
 - <code>matrix[0, 0]</code>: 첫 행 첫 열의 값 1
-- <code>matrix[1, :]</code>: 두 번째 행 <code>[4 5 6]</code>
-- <code>matrix[:, 1]</code>: 두 번째 열 <code>[2 5 8]</code>
+- <code>matrix[1, :]</code>: 두 번째 행의 모든 원소 <code>[4 5 6]</code>
+- <code>matrix[:, 1]</code>: 두 번째 열의 모든 원소 <code>[2 5 8]</code>
 - <code>matrix[0:2, 1:3]</code>: 첫 두 행과 마지막 두 열
-
 ~~~text
 [[2 3]
  [5 6]]
@@ -115,12 +128,12 @@ print(matrix[0:2, 1:3])
 
 # 4. 조건을 이용한 선택
 
-배열에 비교 연산을 적용하면 각 원소에 대한 Boolean 배열을 얻는다.
+배열에 비교 연산을 적용하면 각 원소에 대한 Boolean (True or False) 배열을 얻는다.
 
 ~~~python
 temperatures = np.array([300, 450, 700, 550])
 
-is_high = temperatures >= 500
+is_high = temperatures >= 500 # 제일 왼쪽 '='가 오른쪽 조건식 결과를 assignment
 print(is_high)
 print(temperatures[is_high])
 ~~~
@@ -134,7 +147,7 @@ print(temperatures[temperatures >= 500])
 
 # 5. 슬라이싱의 view와 copy
 
-NumPy의 기본 슬라이싱은 원본 데이터의 일부를 공유하는 view를 반환하는 경우가 많다.
+NumPy의 기본 슬라이싱은 원본 데이터의 일부를 공유하는 view(같은 데이터를 참조하는 배열)를 반환하는 경우가 많다.
 
 ~~~python
 original = np.array([10, 20, 30, 40])
@@ -216,14 +229,15 @@ print(row_mean.shape)
 # 8. 브로드캐스팅
 
 브로드캐스팅(broadcasting)은 shape이 다른 배열 사이의 연산을 가능한 형태로 확장하여
-계산하는 규칙이다.
+계산하는 규칙이다. 두 배열의 **마지막 축**부터 크기를 비교하여, 크기가 같거나 한쪽이 1이면
+브로드캐스팅할 수 있다.
 
 ## 8.1. 배열과 스칼라
 
 ~~~python
 celsius = np.array([0.0, 25.0, 100.0])
 kelvin = celsius + 273.15
-
+# 273.15의 크기가 1이므로 브로드캐스팅되어 모든 원소에 더해진다.
 print(kelvin)
 ~~~
 
@@ -238,6 +252,8 @@ data = np.array([
 ])
 
 offset = np.array([10.0, 20.0, 30.0])
+# data의 shape (2, 3)인 배열에, shape (3,)인 offset이 각 행에 반복 적용되어 브로드캐스팅된다.
+# data의 마지막 축의 크기(3)와 offset의 크기(3)가 맞아서 브로드캐스팅이 가능하다.
 corrected = data + offset
 
 print(corrected)
@@ -250,8 +266,9 @@ shape <code>(3,)</code>인 <code>offset</code>이 각 행에 반복 적용된다
  [14. 25. 36.]]
 ~~~
 
-두 배열의 마지막 축부터 크기를 비교하여, 크기가 같거나 한쪽이 1이면 브로드캐스팅할 수 있다.
-처음에는 연산 전후의 <code>shape</code>을 출력하면서 확인하는 것이 좋다.
+다시 한번 말하지만, 두 배열의 **마지막 축**부터 크기를 비교하여 크기가 같거나
+한쪽이 1이면 브로드캐스팅할 수 있다. 처음에는 연산 전후의 <code>shape</code>을
+출력하면서 확인하는 것이 좋다.
 
 # 9. 텍스트와 CSV 파일 읽기
 
@@ -273,11 +290,7 @@ print(matrix_txt.dtype)
 쉼표로 구분된 CSV 파일은 <code>delimiter=","</code>를 지정한다.
 
 ~~~python
-matrix_csv = np.loadtxt(
-    "matrix_01.csv",
-    delimiter=",",
-)
-
+matrix_csv = np.loadtxt("matrix_01.csv",delimiter=",")
 print(matrix_csv)
 ~~~
 
@@ -293,22 +306,12 @@ matrix = np.array([
     [7, 8, 9],
 ])
 
-np.savetxt(
-    "saved_matrix.txt",
-    matrix,
-    fmt="%.2f",
-)
-
-np.savetxt(
-    "saved_matrix.csv",
-    matrix,
-    delimiter=",",
-    fmt="%d",
-)
+np.savetxt("saved_matrix.txt",matrix,fmt="%.2f")
+np.savetxt("saved_matrix.csv",matrix,delimiter=",",fmt="%d")
 ~~~
 
 - <code>fmt="%.2f"</code>: 실수를 소수점 아래 둘째 자리까지 저장
-- <code>fmt="%d"</code>: 정수 형식으로 저장
+- <code>fmt="%d"</code>: 정수(integer) 형식으로 저장
 - <code>delimiter=","</code>: 원소 사이를 쉼표로 구분
 
 저장한 뒤 다시 읽어 원래 shape과 값이 유지되는지 확인하는 것이 좋다.
@@ -329,6 +332,7 @@ area_mm2 = np.array([
     [12.0],
     [20.0],
 ])
+# area_mm2.shape: (3,1)
 ~~~
 
 <code>force_n</code>의 shape은 <code>(3, 3)</code>이고 <code>area_mm2</code>의
@@ -346,6 +350,24 @@ print(mean_stress_mpa)
 $1\ \mathrm{N/mm^2}=1\ \mathrm{MPa}$이므로 응력 단위는 MPa이다. 각 행의 평균을
 구했으므로 시편별 평균응력 세 개가 나온다.
 
+위의 예제를 아래와 비교해보자.
+~~~python
+force_n = np.array([
+    [1000.0, 1020.0, 980.0],
+    [1500.0, 1530.0, 1470.0],
+    [2000.0, 1980.0, 2020.0],
+])
+
+area_mm2 = np.array([10.0, 12.0, 20.0])
+## area_mm2.shape: (3,)
+
+stress_mpa = force_n / area_mm2
+mean_stress_mpa = stress_mpa.mean(axis=1)
+
+print(stress_mpa)
+print(mean_stress_mpa)
+~~~
+
 # 12. 자주 만나는 오류
 
 ## 12.1. IndexError
@@ -359,6 +381,8 @@ $1\ \mathrm{N/mm^2}=1\ \mathrm{MPa}$이므로 응력 단위는 MPa이다. 각 �
 ~~~python
 values = np.arange(12)
 print(values.size)
+values.reshape(3,4)
+values.reshape(5,3)  # ValueError 발생
 ~~~
 
 12개 원소는 <code>(3, 4)</code>로 바꿀 수 있지만 <code>(5, 3)</code>으로는 바꿀 수 없다.
@@ -429,10 +453,19 @@ a[a > 5]
 ## 문제 5
 
 shape이 <code>(2, 3)</code>인 배열의 행별 평균을 구할 때 사용할 axis를 쓰시오.
+예를 들어, 아래와 같이 2,3 행렬이 주어질 때의 경우를 생각해보자.
+
+~~~python
+A = np.array([
+    [1, 2, 3],
+    [4, 5, 6]
+])
+~~~
 
 <!--
 풀이와 해답:
-axis=1을 사용한다.
+np.mean(A, axis=1)을 사용한다.
+A.mean(axis=1)
 -->
 
 ## 문제 6
@@ -446,7 +479,7 @@ np.loadtxt("data.csv", delimiter=",")
 
 ## 문제 7
 
-슬라이싱한 배열을 원본과 독립적으로 만들 때 사용하는 메서드는 무엇인가?
+슬라이싱한 배열을 원본과 독립적으로 만들 때 사용하는 Numpy의 메서드는 무엇인가?
 
 <!--
 풀이와 해답:
