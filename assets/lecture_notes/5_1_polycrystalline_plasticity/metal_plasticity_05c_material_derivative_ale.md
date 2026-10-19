@@ -6,8 +6,7 @@ target: 학부 고학년
 permalink:
 featured: true
 prerequisite: 유한변형의 운동학
-toc:
-  sidebar: left
+toc: false
 
 mermaid:
   enabled: true
@@ -23,6 +22,10 @@ authors:
       name: Changwon National University
 ---
 
+**Contents**
+
+* TOC
+{:toc}
 
 관련 자료는 다음 순서로 읽을 수 있다.
 
@@ -41,8 +44,7 @@ authors:
 
 **물질미분은 움직이는 물질점이 경험하는 물리량의 변화율**이다.
 온도장 $T(\boldsymbol x,t)$에서 고정된 위치의 온도 변화율은
-$\left.\partial T/\partial t\right\vert_{\boldsymbol x}$
-다. 그러나 물질점은 이동하므로,
+$\left.\partial T/\partial t\right\vert_{\boldsymbol x}$이다. 그러나 물질점은 이동하므로,
 다른 온도의 위치로 이동하며 경험하는 변화도 포함해야 한다.
 
 물질점의 운동을 $\boldsymbol x=\boldsymbol\Phi(\boldsymbol X,t)$로 나타내면,
@@ -54,9 +56,9 @@ $$
 
 이다.
 
-앞으로 공간 $\boldsymbol x$에서 정의된 (Eulerian description) 온도 $T_E(\boldsymbol x,t)$를 단순히 $T$라 쓰겠다.
+앞으로 공간좌표 $\boldsymbol x$로 표현한 Eulerian 온도 $T_E(\boldsymbol x,t)$를 단순히 $T$라 쓰겠다.
 
-물질점 미분 (material derivative) operator를 $\frac{D}{Dt}$라 표기하겠다.
+물질미분 연산자를 $D/Dt$로 표기하겠다.
 
 물질점의 이름표 $\boldsymbol X$를 고정하고 연쇄법칙(chain rule)을 적용하면
 
@@ -72,10 +74,8 @@ $$
 \end{aligned}
 $$
 
-$\left.\partial T_L/\partial t\right\vert_{\boldsymbol X}$
-는 물질점의 이름표
-$\boldsymbol X$
-를 고정하고 같은 물질점을 따라 관찰하는 시간변화율을 의미한다. 이를 **Lagrangian 기술법에서의 시간 미분**이라고 부르기도 한다.
+$\left.\partial T_L/\partial t\right\vert_{\boldsymbol X}$는 물질점의 이름표
+$\boldsymbol X$를 고정하고 같은 물질점을 따라 관찰하는 시간변화율을 의미한다. 이를 **Lagrangian 기술법에서의 시간 미분**이라고 부르기도 한다.
 그런데, 이를 공간에 고정된 관찰점에서의 시간 변화율로 바꾸면, 이송항을 더해야 한다. 즉, 공간에
 고정된 위치에서의 시간에 대한 변화율($\left.\frac{\partial T}{\partial t}\right\vert_{\boldsymbol x}$) 더하기, 이송항($\boldsymbol v\cdot\nabla_xT=\sum_i v_i \frac{\partial T}{\partial x_i}$)으로 표현할 수 있다.
 
@@ -89,7 +89,7 @@ $$
 =\left.\frac{\partial\boldsymbol\Phi}{\partial t}\right|_{\boldsymbol X}.
 $$
 
-반복 첨자 $i$는 세 공간 방향에 대한 합을 뜻하며,
+반복 첨자 $i$는 공간 방향에 대한 합을 뜻한다(3차원에서는 $i=1,2,3$).
 우변은 해당 물질점의 현재 위치에서 평가한다. 벡터 표기로 쓰면
 
 $$
@@ -119,7 +119,7 @@ $$
 \left.\frac{\partial T}{\partial t}\right|_x=0,
 \qquad
 \frac{DT}{Dt}=v\frac{dT}{dx}
-=2\ [m/s]\times 10\ [{}^\circ\mathrm C/\mathrm m]=20\ [{}^\circ\mathrm C/\mathrm s].
+=2\,\mathrm{m/s}\times 10\,{}^\circ\mathrm C/\mathrm m=20\,{}^\circ\mathrm C/\mathrm s.
 $$
 
 고정된 위치에 붙어있는 온도계의 값은 변하지 않지만, 공간에서 2 $\mathrm{m/s}$의 속도로
@@ -127,8 +127,8 @@ $$
 
 ![정상 온도장에서 고정 관찰점과 이동하는 물질점이 기록하는 온도의 비교](/assets/img/lecture_notes/displacement/material_derivative_temperature.png)
 
-위 그림의 (a)에서 파란 선은 시간에 따라 변하지 않는 온도장, 즉 온도 장 $T(x)$는
-시간에 따라 공간(x)에서 변하지 않는다. 그에 비해 빨간 점들은 $x(0)=0$에서 출발한
+위 그림의 (a)에서 파란 선은 각 고정 위치에서 시간에 따라 변하지 않는 온도장
+$T(x)$를 나타낸다. 온도는 위치 $x$에 따라 달라진다. 그에 비해 빨간 점들은 $x(0)=0$에서 출발한
 **같은 물질점**의 $t=0,1,2\,\mathrm s$ 위치와 온도를 나타낸다.
 초록색 원은 공간에 고정된 관찰점($x=1\,\mathrm m$)이다. (b)는 (a)의 녹색점에 고정된 관찰자
 그리고 물질과 함께 이동하는 관찰자(빨간 점)가 기록하는 온도를 시간에 대해 그린 것으로,
@@ -145,8 +145,8 @@ $3\,{}^\circ\mathrm C$씩 상승한다고 가정한다. $x$는 m, $t$는 s 단�
 
 $$
 T(x,t)=20\,{}^\circ\mathrm C
-+10 \,[{}^\circ\mathrm C/\mathrm m] x
-+3\,[{}^\circ\mathrm C/\mathrm s] t
++\left(10\,{}^\circ\mathrm C/\mathrm m\right)x
++\left(3\,{}^\circ\mathrm C/\mathrm s\right)t
 $$
 
 라고 하자. 공간 $\boldsymbol x$에 고정된 한 위치에서의 온도 상승률과 공간에 대한
@@ -154,23 +154,27 @@ $$
 
 $$
 \left.\frac{\partial T}{\partial t}\right|_x
-=3\,[{}^\circ\mathrm C/\mathrm s],
+=3\,{}^\circ\mathrm C/\mathrm s,
 \qquad
-\frac{\partial T}{\partial x}=10\,[{}^\circ\mathrm C/\mathrm m]
+\frac{\partial T}{\partial x}=10\,{}^\circ\mathrm C/\mathrm m
 $$
 
 이다. 물질점이 $v=2\,\mathrm{m/s}$로 이동하면
 
 $$
-\boxed{\frac{DT}{Dt}
-=\left.\frac{\partial T}{\partial t}\right|_x
-+v\frac{\partial T}{\partial x}
-=3\,[{}^\circ\mathrm C/\mathrm s]+2\,[\mathrm{m/s}]\times10\,[{}^\circ\mathrm C/\mathrm m]=23\,[{}^\circ\mathrm C/\mathrm s]}.
+\begin{aligned}
+\frac{DT}{Dt}
+&=\left.\frac{\partial T}{\partial t}\right|_x
++v\frac{\partial T}{\partial x}\\
+&=3\,{}^\circ\mathrm C/\mathrm s
++\left(2\,\mathrm{m/s}\right)\left(10\,{}^\circ\mathrm C/\mathrm m\right)\\
+&=\boxed{23\,{}^\circ\mathrm C/\mathrm s}.
+\end{aligned}
 $$
 
-공간 $\boldsymbol x$에 고정된 온도계는 초당 $3\,[{}^\circ\mathrm C/\mathrm s]$의 상승을 측정한다.
+공간 $\boldsymbol x$에 고정된 온도계는 $3\,{}^\circ\mathrm C/\mathrm s$의 온도 상승률을 측정한다.
 이동하는 물질점은 이 시간 변화에 더해 더 따뜻한 위치로 이동하는 효과도 경험하므로,
-초당 $23\,[{}^\circ\mathrm C/\mathrm s]$의 상승을 경험한다.
+$23\,{}^\circ\mathrm C/\mathrm s$의 온도 상승률을 경험한다.
 
 물질점의 경로에 온도장을 직접 대입해도 같은 결과를 확인할 수 있다.
 $t=0$에서 $x=X$인 물질점의 운동은 $x(X,t)=X+vt$이므로,
@@ -188,7 +192,7 @@ $$
 
 두 효과가 항상 같은 부호인 것은 아니다. 같은 온도장에서 물질점이 반대 방향으로
 $v=-2\,\mathrm{m/s}$로 이동하면 물질미분은
-$DT/Dt=3\,[{}^\circ\mathrm C/\mathrm s]-20\,[{}^\circ\mathrm C/\mathrm s]=-17\,[{}^\circ\mathrm C/\mathrm s]$다.
+$DT/Dt=3\,{}^\circ\mathrm C/\mathrm s-20\,{}^\circ\mathrm C/\mathrm s=-17\,{}^\circ\mathrm C/\mathrm s$다.
 각 위치의 온도는 상승하고 있어도, 물질점은 더 차가운 위치로 빠르게 이동하므로
 자신이 경험하는 온도는 감소한다.
 
@@ -220,26 +224,26 @@ $$
 &=\left.\frac{\partial T}{\partial t}\right|_{x_1,x_2}
 +v_1\frac{\partial T}{\partial x_1}
 +v_2\frac{\partial T}{\partial x_2}\\
-&=3\,[{}^\circ\mathrm C/\mathrm s]
-+\left(2\,[\mathrm{m/s}]\right)\left(10\,[{}^\circ\mathrm C/\mathrm m]\right)
-+\left(1\,[\mathrm{m/s}]\right)\left(-5\,[{}^\circ\mathrm C/\mathrm m]\right)\\
+&=3\,{}^\circ\mathrm C/\mathrm s
++\left(2\,\mathrm{m/s}\right)\left(10\,{}^\circ\mathrm C/\mathrm m\right)
++\left(1\,\mathrm{m/s}\right)\left(-5\,{}^\circ\mathrm C/\mathrm m\right)\\
 &=\boxed{18\,{}^\circ\mathrm C/\mathrm s}.
 \end{aligned}
 $$
 
-$x_1$ 방향의 이동은 초당 $20\,[{}^\circ\mathrm C/\mathrm s]$의 온도 증가에,
-$x_2$ 방향의 이동은 초당 $5\,[{}^\circ\mathrm C/\mathrm s]$의 온도 감소에 기여한다.
-따라서 이송항은 $15\,[{}^\circ\mathrm C/\mathrm s]$이고, 고정 위치의 시간 변화율
-$3\,[{}^\circ\mathrm C/\mathrm s]$를 더하면 물질점이 경험하는 변화율은
-$18\,[{}^\circ\mathrm C/\mathrm s]$이다.
+$x_1$ 방향의 이동은 $20\,{}^\circ\mathrm C/\mathrm s$의 온도 상승률에,
+$x_2$ 방향의 이동은 $5\,{}^\circ\mathrm C/\mathrm s$의 온도 감소율에 기여한다.
+따라서 이송항은 $15\,{}^\circ\mathrm C/\mathrm s$이고, 고정 위치의 시간 변화율
+$3\,{}^\circ\mathrm C/\mathrm s$를 더하면 물질점이 경험하는 변화율은
+$18\,{}^\circ\mathrm C/\mathrm s$이다.
 
 물질점의 이름표를 $\boldsymbol X=(X_1,X_2)$, 즉 $t=0$에서의 위치로 두면,
 그 물질점의 경로는
 
 $$
-x_1(\boldsymbol X,t)=X_1+\left(2\,[\mathrm{m/s}]\right)t,
+x_1(\boldsymbol X,t)=X_1+\left(2\,\mathrm{m/s}\right)t,
 \qquad
-x_2(\boldsymbol X,t)=X_2+\left(1\,[\mathrm{m/s}]\right)t
+x_2(\boldsymbol X,t)=X_2+\left(1\,\mathrm{m/s}\right)t
 $$
 
 이다. 이 경로를 온도장에 직접 대입하면
@@ -249,11 +253,11 @@ $$
 T_L(\boldsymbol X,t)
 &=T\bigl(x_1(\boldsymbol X,t),x_2(\boldsymbol X,t),t\bigr)\\
 &=20\,{}^\circ\mathrm C
-+\left(10\,[{}^\circ\mathrm C/\mathrm m]\right)X_1
--\left(5\,[{}^\circ\mathrm C/\mathrm m]\right)X_2
-+\left(18\,[{}^\circ\mathrm C/\mathrm s]\right)t,\\
++\left(10\,{}^\circ\mathrm C/\mathrm m\right)X_1
+-\left(5\,{}^\circ\mathrm C/\mathrm m\right)X_2
++\left(18\,{}^\circ\mathrm C/\mathrm s\right)t,\\
 \left.\frac{\partial T_L}{\partial t}\right|_{\boldsymbol X}
-&=18\,[{}^\circ\mathrm C/\mathrm s]
+&=18\,{}^\circ\mathrm C/\mathrm s
 =\frac{DT}{Dt}.
 \end{aligned}
 $$
@@ -327,15 +331,33 @@ $q_{ALE}(\boldsymbol\xi,t)=q(\boldsymbol\psi(\boldsymbol\xi,t),t)$로 정의하�
 이때 $\boldsymbol\xi$를 고정한 시간미분
 $\left.\partial q_{ALE}/\partial t\right\vert_{\boldsymbol\xi}$는
 같은 격자점을 따라 관찰하는 변화율이다. 격자좌표가 고정되어 있어도
-그 격자점의 공간 위치는 이동할 수 있다. 연쇄법칙(chain rule)에 의해
+그 격자점의 공간 위치는 이동할 수 있다. 연쇄법칙(chain rule)을 적용하면
+
+$$
+\left.\frac{\partial q_{ALE}}{\partial t}\right|_{\boldsymbol\xi}
+=\left.\frac{\partial q}{\partial t}\right|_{\boldsymbol x}
++\frac{\partial q}{\partial x_i}
+\left.\frac{\partial\psi_i}{\partial t}\right|_{\boldsymbol\xi}
+=\left.\frac{\partial q}{\partial t}\right|_{\boldsymbol x}
++\boldsymbol w\cdot\nabla_xq
+$$
+
+이다. 따라서 $Dq/Dt=\left.\partial q/\partial t\right\vert_{\boldsymbol x}+\boldsymbol v\cdot\nabla_xq$에서 고정 위치의 시간미분을 위 식으로 대체하면
 
 $$
 \frac{Dq}{Dt}=\left.\frac{\partial q_{ALE}}{\partial t}\right|_{\boldsymbol\xi}
 +(\boldsymbol v-\boldsymbol w)\cdot\nabla_x q
 $$
 
-가 된다. 우변은 대응하는 동일한 위치에서 평가한다. 물질이 격자를 통과하므로
-상대속도에 의한 이송을 계산해야 한다.
+가 된다. 두 식의 우변은 모두 $\boldsymbol x=\boldsymbol\psi(\boldsymbol\xi,t)$인
+동일한 공간 위치와 시각에서 평가하며, $\nabla_xq$는 **공간좌표에 대한 기울기**이다.
+$\boldsymbol w=\boldsymbol v$이면 이송항이 사라지고, $\boldsymbol w=\boldsymbol0$이면
+Eulerian 표현으로 돌아간다. 즉, Lagrangian과 Eulerian은 ALE의 두 특수한 선택이다.
+
+여기서 $\boldsymbol v-\boldsymbol w$는 공간좌표로 표현한 상대속도이다.
+일반적인 변형 격자에서는 이것을 물질점의 격자좌표 변화율 $D\boldsymbol\xi/Dt$와
+그대로 동일시할 수 없다. 아래 예제처럼 격자가 균일하게 병진하고 두 좌표계의
+축 방향과 길이 척도가 같을 때에는 두 값이 일치한다.
 
 물질을 따라가는 격자(Lagrangian mesh)는 큰 변형에서 심하게 찌그러질 수 있고, 고정 격자(Eulerian mesh)는 움직이는
 경계를 표현하기 어려울 수 있다. ALE는 격자를 조절하여 이 문제를 줄이는 데 사용되며,
@@ -457,10 +479,11 @@ Lagrangian 기술법은 재료의 표면과 이력을 따라가기 쉽지만, �
 금형 접촉을 별도로 표현해야 한다. ALE에서는 경계조건에 맞게 경계 격자의 운동을
 정하면서 내부 격자의 운동을 조절하여, 재료 형상 표현과 격자 품질을 함께 고려할 수 있다.
 
-예를 들어 고정된 금형과 접촉하는 경계에서는 격자가 금형을 관통하지 않도록 하되,
+여기서 $\boldsymbol n$을 경계의 단위 법선벡터라 하자.
+고정된 금형과 접촉하는 경계에서는 격자가 금형을 관통하지 않도록 하되,
 접선 방향 이동은 허용할 수 있다. 재료의 자유표면을 추적하는 경계에서는 격자와
 재료의 법선 속도를 일치시키고(즉 $\boldsymbol v\cdot\boldsymbol n=\boldsymbol w\cdot\boldsymbol n$), 내부에서는 요소의 왜곡을 줄이도록 격자점을 이동시킬 수 있다.
-즉 $\boldsymbol w$를 위치, 경계 조건에 따라 결정할 수 있다. 따라서 ALE의 격자 속도는
+자유표면의 접선 방향 격자 속도는 경계 형상을 유지하는 범위에서 조절할 수 있다. 따라서 ALE의 격자 속도는
 경계조건과 격자 품질을 고려하여 정하며, 모든 곳에서 물질 속도와 격자 속도가 같을 필요는 없다.
 
 ## 2.3. 격자 재배치와 재료 이력의 전달
@@ -468,7 +491,7 @@ Lagrangian 기술법은 재료의 표면과 이력을 따라가기 쉽지만, �
 소성변형 해석에서는 적분점에 응력, 누적 소성변형률, 경화변수 등 재료의 현재 상태와
 이력이 저장된다. 격자점을 이동시키면 적분점의 공간 위치도 바뀌므로, 기존 값을
 같은 요소·적분점 번호에 그대로 남겨두어서는 재료 이력을 올바르게 표현할 수 없다.
-**격자를 재배치할 때는 기존 재료 상태를 새 격자에 전달하는 remapping도 필요하다.**
+**재료에 대해 격자를 재배치할 때는 기존 재료 상태를 새 격자에 전달하는 remapping도 필요하다.**
 
 ![압출에서 격자 재배치 전후와 적분점 상태변수 전달을 비교한 개념도](/assets/img/lecture_notes/displacement/ale_extrusion_remapping.png)
 
@@ -606,4 +629,4 @@ v=0.5 곱하기 4=2 m/s이다.
 물질점이 이동하면서 공간적으로 더 큰 속도를 갖는 위치로 가기 때문에 가속된다.
 -->
 
-[^mesh-inverse]: 격자 사상 $\boldsymbol x=\boldsymbol\psi(\boldsymbol\xi,t)$의 역변환 $\boldsymbol\xi=\boldsymbol\psi^{-1}(\boldsymbol x,t)$는 같은 시각의 공간 위치에서 격자좌표를 찾는 것이다. 예를 들어 $x_1=\xi_1+w_1t$, $x_2=\xi_2$이면 $\xi_1=x_1-w_1t$, $\xi_2=x_2$이다. 이는 물질점의 이름표 $\boldsymbol X$를 구하는 것과 다르다. 미분 가능한 국소 역변환에는 $\det(\partial\boldsymbol\psi/\partial\boldsymbol\xi)\ne0$이 필요하며, 전체 영역에서는 격자가 겹치지 않는 일대일 대응도 확보해야 한다.
+[^mesh-inverse]: 격자 사상 $\boldsymbol x=\boldsymbol\psi(\boldsymbol\xi,t)$의 역변환 $\boldsymbol\xi=\boldsymbol\psi^{-1}(\boldsymbol x,t)$는 같은 시각의 공간 위치에서 격자좌표를 찾는 것이다. 예를 들어 일정한 격자 속도 $w_1$에 대해 $x_1=\xi_1+w_1t$, $x_2=\xi_2$이면 $\xi_1=x_1-w_1t$, $\xi_2=x_2$이다. 이는 물질점의 이름표 $\boldsymbol X$를 구하는 것과 다르다. 미분 가능한 국소 역변환에는 $\det(\partial\boldsymbol\psi/\partial\boldsymbol\xi)\ne0$이 필요하며, 전체 영역에서는 격자가 겹치지 않는 일대일 대응도 확보해야 한다.
