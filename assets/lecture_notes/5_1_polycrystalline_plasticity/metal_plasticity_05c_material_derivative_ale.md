@@ -41,7 +41,8 @@ authors:
 
 **물질미분은 움직이는 물질점이 경험하는 물리량의 변화율**이다.
 온도장 $T(\boldsymbol x,t)$에서 고정된 위치의 온도 변화율은
-$\left.\partial T/\partial t\right|_{\boldsymbol x}$다. 그러나 물질점은 이동하므로,
+$\left.\partial T/\partial t\right\vert_{\boldsymbol x}$
+다. 그러나 물질점은 이동하므로,
 다른 온도의 위치로 이동하며 경험하는 변화도 포함해야 한다.
 
 물질점의 운동을 $\boldsymbol x=\boldsymbol\Phi(\boldsymbol X,t)$로 나타내면,
@@ -71,12 +72,14 @@ $$
 \end{aligned}
 $$
 
-$\left.\partial T_L/\partial t\right|_{\boldsymbol X}$는 물질점의 이름표
-$\boldsymbol X$를 고정하고 같은 물질점을 따라 관찰하는 시간변화율을 의미한다. 이를 **Lagrangian 기술법에서의 시간 미분**이라고 부르기도 한다.
+$\left.\partial T_L/\partial t\right\vert_{\boldsymbol X}$
+는 물질점의 이름표
+$\boldsymbol X$
+를 고정하고 같은 물질점을 따라 관찰하는 시간변화율을 의미한다. 이를 **Lagrangian 기술법에서의 시간 미분**이라고 부르기도 한다.
 그런데, 이를 공간에 고정된 관찰점에서의 시간 변화율로 바꾸면, 이송항을 더해야 한다. 즉, 공간에
-고정된 위치에서의 시간에 대한 변화율($\left.\frac{\partial T}{\partial t}\right|_{\boldsymbol x}$) 더하기, 이송항($\boldsymbol v\cdot\nabla_xT=\sum_i v_i \frac{\partial T}{\partial x_i}$)으로 표현할 수 있다.
+고정된 위치에서의 시간에 대한 변화율($\left.\frac{\partial T}{\partial t}\right\vert_{\boldsymbol x}$) 더하기, 이송항($\boldsymbol v\cdot\nabla_xT=\sum_i v_i \frac{\partial T}{\partial x_i}$)으로 표현할 수 있다.
 
-여기서 $\left.d\boldsymbol x/dt\right|_{\boldsymbol X}$는 **같은 물질점
+여기서 $\left.d\boldsymbol x/dt\right\vert_{\boldsymbol X}$는 **같은 물질점
 $\boldsymbol X$를 따라가며 현재 위치를 시간미분한 값**, 즉 물질점의 속도다.
 $\boldsymbol x=\boldsymbol\Phi(\boldsymbol X,t)$이므로 두 표기는 다음과 같이 연결된다.
 
@@ -95,9 +98,9 @@ $$
 +\boldsymbol v\cdot\nabla_xT}.
 $$
 
-첫 항($\left.\frac{\partial T}{\partial t}\right|_{\boldsymbol x}$)은 고정된 위치에서의 시간 변화이고, 둘째 항은 물질점의 이동에 의한 변화인
+첫 항($\left.\frac{\partial T}{\partial t}\right\vert_{\boldsymbol x}$)은 고정된 위치에서의 시간 변화이고, 둘째 항은 물질점의 이동에 의한 변화인
 **이송항 (convective term)**이다. 따라서 Lagrangian 기술법에서는 같은 물질점의
-시간 미분이 곧 물질미분이며, Eulerian 기술법에서는 고정 위치의 시간 미분($\left.\frac{\partial T}{\partial t}\right|_{\boldsymbol x}$)에 이송항($\boldsymbol v\cdot\nabla_xT$)을 더한다.
+시간 미분이 곧 물질미분이며, Eulerian 기술법에서는 고정 위치의 시간 미분($\left.\frac{\partial T}{\partial t}\right\vert_{\boldsymbol x}$)에 이송항($\boldsymbol v\cdot\nabla_xT$)을 더한다.
 
 <span id="a2-시간에-따라-변하지-않는-온도장에서의-물질미분"></span>
 
@@ -306,19 +309,25 @@ $$
 ![Eulerian, Lagrangian, ALE 기술법에서 같은 물질점과 격자점의 이동 비교](/assets/img/lecture_notes/displacement/ale_mesh_comparison.png)
 
 위 그림은 같은 물질점이 $\boldsymbol v=(2,1)\,\mathrm{m/s}$로 이동할 때,
-격자 속도를 다르게 선택한 결과이다. 빨간 점은 같은 물질점, 파란 원은 처음에 그
-물질점과 겹쳐 있던 같은 격자점이다. 각 패널의 위와 아래는 각각 $t=0$과
-$t=1\,\mathrm s$이며, 아래의 옅은 점선은 초기 격자와 물질점 위치를 나타낸다.
+격자 속도를 다르게 선택한 세 결과(Eulerian, Lagrangian, ALE)를 비교하여 보여준다.
+빨간 점은 같은 물질점, 파란 원은 처음에 그 물질점과 겹쳐 있던 같은 격자점이다.
+각 패널의 위와 아래는 각각 $t=0$과 $t=1\,\mathrm s$이며, 아래의 옅은 점선은 초기
+격자와 물질점 위치를 나타낸다.
 
 Eulerian에서는 격자가 고정되어 물질점만 이동한다. Lagrangian에서는 물질점과
 격자점이 함께 이동하므로 두 표시가 계속 겹친다. ALE에서는 격자가
 $\boldsymbol w=(1,0)\,\mathrm{m/s}$로 이동하므로 물질점은 격자에 대해
 $\boldsymbol v-\boldsymbol w=(1,1)\,\mathrm{m/s}$로 이동한다.
-오른쪽 아래의 속도 삼각형은 $\boldsymbol v=\boldsymbol w+(\boldsymbol v-\boldsymbol w)$를 보여준다.
+오른쪽 아래의 속도 삼각형은
+$\boldsymbol v=\boldsymbol w+(\boldsymbol v-\boldsymbol w)$를 보여준다.
 이 그림은 격자와 물질의 상대운동을 설명하기 위한 균일 병진운동의 예이다.
 
-$q_{ALE}(\boldsymbol\xi,t)=q(\boldsymbol\psi(\boldsymbol\xi,t),t)$라고 정의하면,
-연쇄법칙에 의해
+물리량 $q$를 격자좌표로 표현하여
+$q_{ALE}(\boldsymbol\xi,t)=q(\boldsymbol\psi(\boldsymbol\xi,t),t)$로 정의하자.
+이때 $\boldsymbol\xi$를 고정한 시간미분
+$\left.\partial q_{ALE}/\partial t\right\vert_{\boldsymbol\xi}$는
+같은 격자점을 따라 관찰하는 변화율이다. 격자좌표가 고정되어 있어도
+그 격자점의 공간 위치는 이동할 수 있다. 연쇄법칙(chain rule)에 의해
 
 $$
 \frac{Dq}{Dt}=\left.\frac{\partial q_{ALE}}{\partial t}\right|_{\boldsymbol\xi}
@@ -332,7 +341,7 @@ $$
 경계를 표현하기 어려울 수 있다. ALE는 격자를 조절하여 이 문제를 줄이는 데 사용되며,
 압출 같은 큰 소성변형이나 유체–구조 상호작용에서 유용하다.
 
-격자 운동은 경계조건을 만족해야 하며, 격자 사상은 역변환 가능해야 한다.
+격자 운동은 경계조건을 만족해야 하며, 격자 사상은 역변환 가능해야 한다.[^mesh-inverse]
 
 ## 2.1. 이동하는 격자에서 온도를 관찰하는 예제
 
@@ -439,7 +448,7 @@ $$
 빗금 영역은 고정된 금형이다. 세 패널은 시간에 따른 연속 장면이 아니다.
 
 - **(a) Eulerian:** 재료가 고정된 배경 격자를 통과한다. 재료 경계는 격자선과 일치할 필요가 없으며, 경계가 요소 내부를 지날 수 있다. 금형 영역에 겹쳐 보이는 배경 격자는 재료가 금형 내부로 흐른다는 뜻이 아니다.
-- **(b) Lagrangian:** 격자가 재료를 따라 움직인다. 재료 경계를 따라가지만, 금형 입구에서 불균일한 변형을 받아 요소가 기울어질 수 있다.
+- **(b) Lagrangian:** 격자가 재료를 따라 움직인다. 재료 경계를 따라가지만, 금형 입구에서 불균일한 변형을 받아 요소의 형상이 심하게 찌그러질 수 있다.
 - **(c) ALE:** 재료 경계를 표현하면서 내부 격자의 운동을 조절한다. 격자가 물질점을 그대로 따라갈 필요가 없으므로 요소의 왜곡을 줄일 수 있으며, 상대운동에 따른 재료 이력의 이송이 필요하다.
 
 Lagrangian 기술법은 재료의 표면과 이력을 따라가기 쉽지만, 변형이 집중되면 요소의
@@ -450,9 +459,9 @@ Lagrangian 기술법은 재료의 표면과 이력을 따라가기 쉽지만, �
 
 예를 들어 고정된 금형과 접촉하는 경계에서는 격자가 금형을 관통하지 않도록 하되,
 접선 방향 이동은 허용할 수 있다. 재료의 자유표면을 추적하는 경계에서는 격자와
-재료의 법선 속도를 일치시키고, 내부에서는 요소의 왜곡을 줄이도록 격자점을 이동시킬 수 있다.
-따라서 ALE의 격자 속도는 경계조건과 격자 품질을 고려하여 정하며, 모든 곳에서
-물질 속도와 격자 속도가 같을 필요는 없다.
+재료의 법선 속도를 일치시키고(즉 $\boldsymbol v\cdot\boldsymbol n=\boldsymbol w\cdot\boldsymbol n$), 내부에서는 요소의 왜곡을 줄이도록 격자점을 이동시킬 수 있다.
+즉 $\boldsymbol w$를 위치, 경계 조건에 따라 결정할 수 있다. 따라서 ALE의 격자 속도는
+경계조건과 격자 품질을 고려하여 정하며, 모든 곳에서 물질 속도와 격자 속도가 같을 필요는 없다.
 
 ## 2.3. 격자 재배치와 재료 이력의 전달
 
@@ -463,7 +472,7 @@ Lagrangian 기술법은 재료의 표면과 이력을 따라가기 쉽지만, �
 
 ![압출에서 격자 재배치 전후와 적분점 상태변수 전달을 비교한 개념도](/assets/img/lecture_notes/displacement/ale_extrusion_remapping.png)
 
-이 그림은 앞의 세 기술법 비교와 달리 **ALE에서 격자를 재배치하기 전과 후**를
+위 그림은 앞의 세 기술법 비교와 달리 **ALE에서 격자를 재배치하기 전과 후**를
 비교한다. 왼쪽은 재료를 따라 찌그러진 격자이고, 오른쪽은 **같은 물리적 시각과
 같은 재료 형상에서** 내부 격자점을 재배치한 상태이다. 이 과정은 재료의 추가적인
 압출이나 변형을 뜻하지 않는다. 두 패널의 요소 수와 연결 관계는 같으며,
@@ -488,5 +497,4 @@ Lagrangian 기술법은 재료의 표면과 이력을 따라가기 쉽지만, �
 고려해야 한다. 특히 이력 의존성이 강한 재료 모델에서는 단순한 값의 보간만으로
 충분한지 검토해야 하므로, ALE에는 격자 품질 개선의 이점과 함께 추가 계산 및 전달 오차가 따른다.
 
-격자 조정과 해 변수의 이송을 분리하는 구현의 예는
-[Abaqus/Explicit의 ALE 격자 재배치 및 remapping 설명](https://docs.software.vt.edu/abaqusv2025/English/SIMACAEANLRefMap/simaanl-c-aleremesh.htm)을 참고할 수 있다.
+[^mesh-inverse]: 격자 사상 $\boldsymbol x=\boldsymbol\psi(\boldsymbol\xi,t)$의 역변환 $\boldsymbol\xi=\boldsymbol\psi^{-1}(\boldsymbol x,t)$는 같은 시각의 공간 위치에서 격자좌표를 찾는 것이다. 예를 들어 $x_1=\xi_1+w_1t$, $x_2=\xi_2$이면 $\xi_1=x_1-w_1t$, $\xi_2=x_2$이다. 이는 물질점의 이름표 $\boldsymbol X$를 구하는 것과 다르다. 미분 가능한 국소 역변환에는 $\det(\partial\boldsymbol\psi/\partial\boldsymbol\xi)\ne0$이 필요하며, 전체 영역에서는 격자가 겹치지 않는 일대일 대응도 확보해야 한다.
