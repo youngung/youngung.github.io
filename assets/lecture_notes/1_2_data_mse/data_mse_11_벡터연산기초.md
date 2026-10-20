@@ -340,7 +340,7 @@ $$
 \sin\theta
 $$
 
-![두 벡터가 만드는 평행사변형의 밑변, 높이, 끼인각과 외적의 방향](/assets/img/lecture_notes/data_mse/cross_product_area.png)
+![두 벡터가 만드는 평행사변형의 밑변, 높이, 끼인각과 외적의 방향](/assets/img/lecture_notes/data_mse/cross_product_area.png){: style="max-width: 100%; height: auto;"}
 
 그림에서 파란 벡터 $\boldsymbol a$를 밑변으로 잡으면 밑변의 길이는
 $|\boldsymbol a|$이다. 빨간 벡터 $\boldsymbol b$의 끝에서 밑변에 수선을 내리면

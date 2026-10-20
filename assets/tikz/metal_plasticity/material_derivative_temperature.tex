@@ -4,10 +4,17 @@
 \definecolor{field}{RGB}{45,95,160}
 \definecolor{particle}{RGB}{185,60,40}
 \definecolor{observer}{RGB}{40,130,105}
+
+% Web figure typography: 220 dpi gives about 18 px for 6 pt text
+% at natural PNG size. Keep text smaller than diagram geometry.
+\newcommand{\figtext}{\fontsize{6}{7.5}\selectfont}
+\newcommand{\fignote}{\fontsize{5.5}{7}\selectfont}
+\newcommand{\figmath}{\fontsize{7}{8.5}\selectfont}
+\newcommand{\figtitle}{\fontsize{7.5}{9}\selectfont}
 \begin{document}
-\begin{tikzpicture}[>=Latex,font=\sffamily,thick]
+\begin{tikzpicture}[>=Latex,font=\sffamily\figtext,thick]
 % Vertical coordinates represent (T - 20 deg C) / 10.
-\node[anchor=west,font=\bfseries] at (0,6.0) {(a) One stationary temperature field};
+\node[anchor=west,font=\figtext\bfseries] at (0,6.0) {(a) One stationary temperature field};
 \draw[->] (0,0)--(7.1,0) node[right] {$x\ [\mathrm m]$};
 \draw[->] (0,0)--(0,4.8) node[above] {$T\ [^\circ\mathrm C]$};
 \foreach \x in {0,1,2,3,4} {
@@ -29,7 +36,7 @@
       {$t=\time\,\mathrm s$};
   \fi
 }
-\node[particle,anchor=north west,font=\small,inner sep=2pt] at (0.25,-0.35) {$t=0\,\mathrm s$};
+\node[particle,anchor=north west,font=\fignote,inner sep=2pt] at (0.25,-0.35) {$t=0\,\mathrm s$};
 \draw[observer,fill=white,very thick] (1.5,1) circle (3.5pt);
 \draw[observer,->] (1.8,2.75)--(1.5,1.13);
 \node[observer,align=center] at (1.8,3.25) {Fixed observer\\$x=1\,\mathrm m$, $T=30^\circ\mathrm C$};
@@ -37,7 +44,7 @@
   node[midway,below] {Same material point: $x(t)=2t$, $v=2\,\mathrm{m/s}$};
 
 \begin{scope}[shift={(0,-8.0)}]
-  \node[anchor=west,font=\bfseries] at (0,5.7) {(b) Temperature recorded by each observer};
+  \node[anchor=west,font=\figtext\bfseries] at (0,5.7) {(b) Temperature recorded by each observer};
   \draw[->] (0,0)--(7.1,0) node[right] {$t\ [\mathrm s]$};
   \draw[->] (0,0)--(0,4.6) node[above] {$T\ [^\circ\mathrm C]$};
   \foreach \x/\time in {0/0,3/1,6/2} {

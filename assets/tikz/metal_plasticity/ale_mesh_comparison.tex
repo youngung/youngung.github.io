@@ -4,9 +4,16 @@
 \definecolor{mesh}{RGB}{40,105,170}
 \definecolor{particle}{RGB}{195,60,50}
 \definecolor{relative}{RGB}{20,135,105}
+
+% Web figure typography: 220 dpi gives about 18 px for 6 pt text
+% at natural PNG size. Keep text smaller than diagram geometry.
+\newcommand{\figtext}{\fontsize{6}{7.5}\selectfont}
+\newcommand{\fignote}{\fontsize{5.5}{7}\selectfont}
+\newcommand{\figmath}{\fontsize{7}{8.5}\selectfont}
+\newcommand{\figtitle}{\fontsize{7.5}{9}\selectfont}
 \begin{document}
-\begin{tikzpicture}[>=Latex,font=\sffamily,line cap=round]
-\node[font=\Large\bfseries] [align=center] at (2.25,8.3) {Material and mesh motion\\Three descriptions};
+\begin{tikzpicture}[>=Latex,font=\sffamily\figtext,line cap=round]
+\node[font=\figtitle\bfseries] [align=center] at (2.25,8.3) {Material and mesh motion\\Three descriptions};
 \node[text=gray!80!black,align=center] at (2.25,7.4) {$\boldsymbol v=(2,1)\,\mathrm{m/s}$\\$\Delta t=1\,\mathrm s$ in every panel};
 % One metre is represented by 0.7 cm in every spatial diagram.
 \foreach \offset/\title/\sx/\sy/\w/\rel in {
@@ -14,17 +21,17 @@
 -9/Lagrangian/1.4/0.7/{(2,1)}/{(0,0)},
 -18/ALE/0.7/0/{(1,0)}/{(1,1)}}{
 \begin{scope}[shift={(0,\offset)}]
-\node[font=\large\bfseries] at (2.25,6.7) {\title};
+\node[font=\figmath\bfseries] at (2.25,6.7) {\title};
 \node[mesh] at (2.25,6.2) {$\boldsymbol w=\w\,\mathrm{m/s}$};
-\node[anchor=west,font=\small\bfseries] at (0,5.7) {$t=0$};
+\node[anchor=west,font=\fignote\bfseries] at (0,5.7) {$t=0$};
 \begin{scope}[shift={(.2,3.8)}]\draw[mesh,step=.7,thin] (0,0) grid (2.8,1.4);\end{scope}
 % Highlight a specific mesh node, initially coincident with the material point.
 \draw[mesh,fill=white,line width=1pt] (.9,4.5) circle (4pt);
 \fill[particle] (.9,4.5) circle (2.4pt);
-\node[particle,anchor=west,font=\small,fill=white,inner sep=2pt] at (1.1,4.75) {Same material point};
+\node[particle,anchor=west,font=\fignote,fill=white,inner sep=2pt] at (1.1,4.75) {Same material point};
 \draw[->,gray] (4.4,4.9)--(4.4,3.55);
-\node[anchor=east,font=\small,text=gray] at (4.2,4) {$\Delta t$};
-\node[anchor=west,font=\small\bfseries] at (0,3.1) {$t=1\,\mathrm s$};
+\node[anchor=east,font=\fignote,text=gray] at (4.2,4) {$\Delta t$};
+\node[anchor=west,font=\fignote\bfseries] at (0,3.1) {$t=1\,\mathrm s$};
 % Old mesh is retained as a light reference; current mesh is solid blue.
 \begin{scope}[shift={(.2,.5)}]\draw[gray!35,dashed,step=.7,thin] (0,0) grid (2.8,1.4);\end{scope}
 \begin{scope}[shift={(\sx,\sy)}]
@@ -34,25 +41,25 @@
 \draw[particle!45,dashed,->] (.9,1.2)--(2.3,1.9);
 \draw[particle!45,fill=white] (.9,1.2) circle (2pt);
 \fill[particle] (2.3,1.9) circle (2.8pt);
-\node[particle,anchor=south,font=\small] at (2.3,2.12) {Material point};
-\node[mesh,anchor=north,font=\small] at (.9+\sx,.5+\sy-.14) {Same mesh node};
-\node[font=\small] at (2.25,-.35) {$\boldsymbol v-\boldsymbol w=\rel\,\mathrm{m/s}$};
+\node[particle,anchor=south,font=\fignote] at (2.3,2.12) {Material point};
+\node[mesh,anchor=north,font=\fignote] at (.9+\sx,.5+\sy-.14) {Same mesh node};
+\node[font=\fignote] at (2.25,-.35) {$\boldsymbol v-\boldsymbol w=\rel\,\mathrm{m/s}$};
 \end{scope}}
 
-\node[align=center,font=\small] at (2.25,-1.15) {Mesh stays fixed.\\Material passes through the mesh.};
-\node[align=center,font=\small] at (2.25,-10.15) {Mesh follows the material.\\The two markers stay together.};
-\node[align=center,font=\small] at (2.25,-19.15) {Mesh and material move differently.};
+\node[align=center,font=\fignote] at (2.25,-1.15) {Mesh stays fixed.\\Material passes through the mesh.};
+\node[align=center,font=\fignote] at (2.25,-10.15) {Mesh follows the material.\\The two markers stay together.};
+\node[align=center,font=\fignote] at (2.25,-19.15) {Mesh and material move differently.};
 \begin{scope}[shift={(.6,-22)}]
 \draw[mesh,->,very thick] (0,0)--(1.4,0) node[midway,below] {$\boldsymbol w$};
 \draw[draw=relative,->,very thick] (1.4,0)--(2.8,1.4) node[midway,right] {$\boldsymbol v-\boldsymbol w$};
 \draw[particle,->,very thick] (0,0)--(2.8,1.4) node[midway,above left] {$\boldsymbol v$};
 \end{scope}
-\node[font=\small,align=center,text=gray!80!black] at (2.25,-22.8) {Velocity triangle\\(separate scale)};
+\node[font=\fignote,align=center,text=gray!80!black] at (2.25,-22.8) {Velocity triangle\\(separate scale)};
 \fill[particle] (.3,-24) circle (2.8pt);
-\node[anchor=west,font=\small] at (.6,-24) {Material point};
+\node[anchor=west,font=\fignote] at (.6,-24) {Material point};
 \draw[mesh,fill=white,line width=1.2pt] (.3,-24.7) circle (4pt);
-\node[anchor=west,font=\small] at (.6,-24.7) {Tracked mesh node};
+\node[anchor=west,font=\fignote] at (.6,-24.7) {Tracked mesh node};
 \draw[gray!45,dashed] (.1,-25.4)--(.5,-25.4);
-\node[anchor=west,font=\small] at (.6,-25.4) {Initial mesh / position};
+\node[anchor=west,font=\fignote] at (.6,-25.4) {Initial mesh / position};
 \end{tikzpicture}
 \end{document}

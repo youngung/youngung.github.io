@@ -12,13 +12,20 @@
  \draw[thick] (3.6,-1.4)--(5,-.55)--(7,-.55);
 }
 
+
+% Web figure typography: 220 dpi gives about 18 px for 6 pt text
+% at natural PNG size. Keep text smaller than diagram geometry.
+\newcommand{\figtext}{\fontsize{6}{7.5}\selectfont}
+\newcommand{\fignote}{\fontsize{5.5}{7}\selectfont}
+\newcommand{\figmath}{\fontsize{7}{8.5}\selectfont}
+\newcommand{\figtitle}{\fontsize{7.5}{9}\selectfont}
 \begin{document}
-\begin{tikzpicture}[>=Latex,font=\sffamily,line join=round]
-\node[font=\Large\bfseries,align=center] at (3.5,5.7) {Extrusion\\ALE mesh rezoning};
-\node[font=\small,text=gray!80!black,align=center,text width=8cm] at (3.5,4.4) {Same physical time and material shape.\\Same mesh topology.\\Schematic meshes, not simulation results.};
+\begin{tikzpicture}[>=Latex,font=\sffamily\figtext,line join=round]
+\node[font=\figtitle\bfseries,align=center] at (3.5,5.7) {Extrusion\\ALE mesh rezoning};
+\node[font=\fignote,text=gray!80!black,align=center,text width=8cm] at (3.5,4.4) {Same physical time and material shape.\\Same mesh topology.\\Schematic meshes, not simulation results.};
 \foreach \panel/\dy/\title in {0/0/{(a) Before mesh smoothing},1/-9/{(b) After ALE mesh smoothing}}{
 \begin{scope}[shift={(0,\dy)}]
-\node[font=\bfseries] at (3.5,3.4) {\title};
+\node[font=\figtext\bfseries] at (3.5,3.4) {\title};
 \fill[material!40] \boundary;
 \begin{scope}
 \clip \boundary;
@@ -43,26 +50,26 @@
 \fill[gray!30] (-.35,-1.4) rectangle (0,1.4);
 \draw[thick] (-.35,-1.4) rectangle (0,1.4);
 \draw[->,very thick] (-.9,0)--(.8,0);
-\node[anchor=south,font=\small] at (.3,.2) {Ram};
+\node[anchor=south,font=\fignote] at (.3,.2) {Ram};
 \draw[->,very thick] (6.1,0)--(7.7,0);
-\node[anchor=south,font=\small] at (6.9,.2) {Flow};
-\node[font=\small,fill=white,inner sep=2pt] at (5.9,1.5) {Fixed die};
+\node[anchor=south,font=\fignote] at (6.9,.2) {Flow};
+\node[font=\fignote,fill=white,inner sep=2pt] at (5.9,1.5) {Fixed die};
 \ifnum\panel=0
 \fill[history] (3.65,.34) circle (2.8pt);
-\node[history,align=center,font=\small] at (3.5,2.65) {Old integration-point samples};
+\node[history,align=center,font=\fignote] at (3.5,2.65) {Old integration-point samples};
 \draw[history,->] (3.5,2.35)--(3.65,.43);
-\node[align=center,font=\small,text width=8cm] at (3.5,-2.65) {Material-following elements become distorted.\\Samples store stress, hardening and $\bar\varepsilon^p$.};
+\node[align=center,font=\fignote,text width=8cm] at (3.5,-2.65) {Material-following elements become distorted.\\Samples store stress, hardening and $\bar\varepsilon^p$.};
 \else
 \foreach \x/\y in {3.75/.25,4.25/.22,4.75/.18}{\draw[history,fill=white,line width=1pt] (\x,\y) circle (2.8pt);}
-\node[history,align=center,font=\small] at (3.5,2.65) {New integration-point samples};
+\node[history,align=center,font=\fignote] at (3.5,2.65) {New integration-point samples};
 \draw[history,->] (3.5,2.35)--(3.75,.34);
-\node[align=center,font=\small,text width=8cm] at (3.5,-2.65) {Interior nodes are repositioned.\\Material history is transferred to the new sampling locations.};
+\node[align=center,font=\fignote,text width=8cm] at (3.5,-2.65) {Interior nodes are repositioned.\\Material history is transferred to the new sampling locations.};
 \fi
 \end{scope}}
 \draw[->,very thick,black!70] (3.5,-3.5)--(3.5,-4.8);
-\node[align=center,font=\small,fill=white,inner sep=3pt] at (3.5,-4.15) {Rezone mesh\\and remap state};
+\node[align=center,font=\fignote,fill=white,inner sep=3pt] at (3.5,-4.15) {Rezone mesh\\and remap state};
 \draw[history!25,line width=8pt] (.8,-13)--(1.5,-13);
-\node[anchor=west,align=left,font=\small] at (1.8,-13) {Same physical state field\\before and after remapping};
-\node[align=center,font=\small,text width=8cm,text=gray!85!black] at (3.5,-14.3) {Rezoning is a numerical mesh change,\\not additional material deformation.\\State transfer must respect history and conservation.};
+\node[anchor=west,align=left,font=\fignote] at (1.8,-13) {Same physical state field\\before and after remapping};
+\node[align=center,font=\fignote,text width=8cm,text=gray!85!black] at (3.5,-14.3) {Rezoning is a numerical mesh change,\\not additional material deformation.\\State transfer must respect history and conservation.};
 \end{tikzpicture}
 \end{document}

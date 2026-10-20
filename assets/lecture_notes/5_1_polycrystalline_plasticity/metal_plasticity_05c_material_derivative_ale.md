@@ -125,7 +125,7 @@ $$
 고정된 위치에 붙어있는 온도계의 값은 변하지 않지만, 공간에서 2 $\mathrm{m/s}$의 속도로
 이동하는 물질점은 더 따뜻한 곳으로 가므로, 초당 $20\,{}^\circ\mathrm C$의 온도 증가를 경험한다.
 
-![정상 온도장에서 고정 관찰점과 이동하는 물질점이 기록하는 온도의 비교](/assets/img/lecture_notes/displacement/material_derivative_temperature.png)
+![정상 온도장에서 고정 관찰점과 이동하는 물질점이 기록하는 온도의 비교](/assets/img/lecture_notes/displacement/material_derivative_temperature.png){: style="max-width: 100%; height: auto;"}
 
 위 그림의 (a)에서 파란 선은 각 고정 위치에서 시간에 따라 변하지 않는 온도장
 $T(x)$를 나타낸다. 온도는 위치 $x$에 따라 달라진다. 그에 비해 빨간 점들은 $x(0)=0$에서 출발한
@@ -310,7 +310,7 @@ $$
 | Eulerian | 공간에 고정: $\boldsymbol w=\boldsymbol 0$ | $\boldsymbol v$ |
 | ALE | 격자 품질과 경계조건에 맞게 격자 속도 $\boldsymbol w$를 정한다. | $\boldsymbol v-\boldsymbol w$ |
 
-![Eulerian, Lagrangian, ALE 기술법에서 같은 물질점과 격자점의 이동 비교](/assets/img/lecture_notes/displacement/ale_mesh_comparison.png)
+![Eulerian, Lagrangian, ALE 기술법에서 같은 물질점과 격자점의 이동 비교](/assets/img/lecture_notes/displacement/ale_mesh_comparison.png){: style="max-width: 100%; height: auto;"}
 
 위 그림은 같은 물질점이 $\boldsymbol v=(2,1)\,\mathrm{m/s}$로 이동할 때,
 격자 속도를 다르게 선택한 세 결과(Eulerian, Lagrangian, ALE)를 비교하여 보여준다.
@@ -463,7 +463,7 @@ $$
 이처럼 공간적으로 변형이 불균일한 경우에는, 앞의 균일 병진운동 예제와 달리
 재료를 따라가는 격자가 크게 찌그러질 수 있다.
 
-![같은 압출 형상에서 Eulerian 고정 격자, Lagrangian 변형 격자, ALE 조정 격자를 비교한 개념도](/assets/img/lecture_notes/displacement/extrusion_three_descriptions.png)
+![같은 압출 형상에서 Eulerian 고정 격자, Lagrangian 변형 격자, ALE 조정 격자를 비교한 개념도](/assets/img/lecture_notes/displacement/extrusion_three_descriptions.png){: style="max-width: 100%; height: auto;"}
 
 위 그림은 **같은 순간의 재료 형상과 금형을 세 기술법으로 표현한 개념도**이며,
 실제 해석 결과는 아니다. 빨간 윤곽선은 재료 경계, 파란 선은 계산 격자,
@@ -493,7 +493,7 @@ Lagrangian 기술법은 재료의 표면과 이력을 따라가기 쉽지만, �
 같은 요소·적분점 번호에 그대로 남겨두어서는 재료 이력을 올바르게 표현할 수 없다.
 **재료에 대해 격자를 재배치할 때는 기존 재료 상태를 새 격자에 전달하는 remapping도 필요하다.**
 
-![압출에서 격자 재배치 전후와 적분점 상태변수 전달을 비교한 개념도](/assets/img/lecture_notes/displacement/ale_extrusion_remapping.png)
+![압출에서 격자 재배치 전후와 적분점 상태변수 전달을 비교한 개념도](/assets/img/lecture_notes/displacement/ale_extrusion_remapping.png){: style="max-width: 100%; height: auto;"}
 
 위 그림은 앞의 세 기술법 비교와 달리 **ALE에서 격자를 재배치하기 전과 후**를
 비교한다. 위쪽 (a)는 재료를 따라 찌그러진 격자이고, 아래쪽 (b)는 **같은 물리적 시각과
