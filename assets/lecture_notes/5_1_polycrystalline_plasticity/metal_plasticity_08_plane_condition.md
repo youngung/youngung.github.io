@@ -173,8 +173,8 @@ $$
 }
 $$
 
-이다. 이는 면외 변형을 막기 위해 생기는 구속응력이다. 두 식은 다음 선형 탄성 강의에서
-자세히 유도한다.
+이다. 이는 면외 변형을 막기 위해 생기는 구속응력이다. 두 식은 앞서 배운 [선형 탄성]({% link assets/lecture_notes/5_1_polycrystalline_plasticity/metal_plasticity_07_elasticity.md %})의
+3차원 Hooke 법칙으로 얻을 수 있다.
 
 # 6. 계산 예제
 
