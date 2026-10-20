@@ -1,5 +1,6 @@
 \documentclass[tikz,border=12pt]{standalone}
 \usepackage{amsmath}
+\usepackage{kotex}
 \usetikzlibrary{arrows.meta,angles,quotes}
 \definecolor{avec}{RGB}{35,100,175}
 \definecolor{bvec}{RGB}{195,70,45}
@@ -11,7 +12,7 @@
 \coordinate (B) at (1.8,3.2);
 \coordinate (C) at (6.6,3.2);
 \coordinate (H) at (1.8,0);
-\node[font=\large\bfseries] [align=center] at (3.2,4.55) {Cross product\\and parallelogram area};
+\node[font=\large\bfseries] [align=center] at (3.2,4.55) {벡터 외적와 평행사변형의 넓이};
 \fill[avec!12] (O)--(A)--(C)--(B)--cycle;
 \draw[gray!75,dashed,thick] (A)--(C)--(B);
 \draw[avec,->,very thick] (O)--(A) node[midway,below=5pt] {$\boldsymbol a$};
@@ -28,11 +29,11 @@
 \node[below right=3pt] at (A) {$\boldsymbol a$};
 % For the displayed orientation a to b is counterclockwise: a x b points out.
 
-\draw[normal,very thick] (1.3,-1.35) circle (0.19);
-\fill[normal] (1.3,-1.35) circle (2pt);
-\node[normal,align=left,anchor=west] at (1.8,-1.35) {$\boldsymbol a\times\boldsymbol b$ points out of the page.};
-\node[align=center,font=\small,text=gray!80!black] at (3.2,-2.1) {The cross product is perpendicular\\to the vector plane.};
+\draw[normal,very thick] (0.8,-1.35) circle (0.19);
+\fill[normal] (0.8,-1.35) circle (2pt);
+\node[normal,align=left,anchor=west] at (1.0,-1.35) {$\boldsymbol a\times\boldsymbol b$의 결과 벡터는 보는 이를 향함};
+\node[align=center,font=\small,text=gray!80!black] at (3.2,-2.1) {벡터 외적은 벡터 평면에 수직.};
 \node[font=\large,align=center] at (3.2,-3.1) {$S=|\boldsymbol a|\,|\boldsymbol b|\sin\theta$\\$\boxed{S=|\boldsymbol a\times\boldsymbol b|}$};
-\node[font=\small,align=center,text=gray!80!black] at (3.2,-4.25) {The cross product is a vector.\\Its magnitude is the parallelogram area.};
+\node[font=\small,align=center,text=gray!80!black] at (3.2,-4.25) {벡터 외적은 벡터이다.\\그 크기는 평행사변형의 넓이.};
 \end{tikzpicture}
 \end{document}
