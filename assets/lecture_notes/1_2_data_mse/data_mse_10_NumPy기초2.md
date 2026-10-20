@@ -429,7 +429,9 @@ a[a > 5]
 
 ## 문제 5
 
-shape이 <code>(2, 3)</code>인 배열의 행별 평균을 구할 때 사용할 axis를 쓰시오.
+shape이 <code>(2, 3)</code>인 배열의 행별 평균을 구할 때 사용할 axis를 설명하시오. 즉,
+각 행에 있는 값들의 평균을 구하기 위해 <code>np.mean</code> method에 활용할
+<code>axis</code> argument가 무엇이어야 하나?
 예를 들어, 아래와 같이 2,3 행렬이 주어질 때의 경우를 생각해보자.
 
 ~~~python

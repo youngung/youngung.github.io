@@ -52,6 +52,7 @@ a = np.array([3.0, 4.0, 5.0])
 print(a)
 print(a.shape)
 print(a.ndim)
+print(a.size)
 ~~~
 
 벡터 성분은 앞선 강의에서 배운 인덱싱으로 선택한다.
@@ -61,6 +62,19 @@ print(a[0])
 print(a[1])
 print(a[2])
 ~~~
+
+앞선 배열 <code>a</code>는 1차원 배열이었다. 아래는 2차원 배열이다. 둘을 구분할 수 있어야
+한다.
+
+~~~python
+import numpy as np
+a = np.array([[3.0], [4.0], [5.0]])
+print(a)
+print(a.shape)
+print(a.ndim)
+print(a.size)
+~~~
+
 
 # 3. 벡터의 합과 차
 
@@ -203,6 +217,8 @@ $$
 
 이다.
 
+NumPy 배열은 인덱스가 0부터 시작하므로, 이의 수식을 0부터 시작하는 인덱스로 바꾸어야 한다. 즉, $a_1b_1+a_2b_2+a_3b_3$는 NumPy에서는 $a[0]*b[0]+a[1]*b[1]+a[2]*b[2]$가 된다.
+
 ~~~python
 a = np.array([1.0, 2.0, 3.0])
 b = np.array([4.0, 5.0, 6.0])
@@ -228,7 +244,7 @@ print(a @ b)
 반면 <code>a * b</code>만 계산하면 합을 하지 않으므로
 내적이 아니라 원소별 곱 배열 <code>[4., 10., 18.]</code>이 나온다.
 <code>@</code>를 항상 내적 연산자로 해석해서는 안 된다.
-두 배열이 2차원이면 행렬곱을 계산하며, 이는 다음 행렬 연산 강의에서 다룬다.
+두 배열이 2차원이면 행렬곱을 계산하며, 이는 다음 기회에 다루도록 하자.
 
 두 벡터가 모두 영벡터가 아니고 내적이 0이면 두 벡터는 서로 수직이다.
 
@@ -312,6 +328,13 @@ $$
 a = np.array([1.0, 0.0, 0.0])
 b = np.array([0.0, 1.0, 0.0])
 
+# manual calculation. # x->0; y->1; z->2
+cross_product=np.zeros(3)
+cross_product[0]=a[1]*b[2]-a[2]*b[1]
+cross_product[1]=a[2]*b[0]-a[0]*b[2]
+cross_product[2]=a[0]*b[1]-a[1]*b[0]
+
+# np.cross 메소드를 사용하여 외적 계산
 cross_product = np.cross(a, b)
 print(cross_product)
 ~~~
@@ -330,7 +353,7 @@ $$
 print(np.cross(b, a))
 ~~~
 
-외적의 크기는 두 벡터가 만드는 평행사변형의 넓이이다.
+외적의 크기는 두 벡터가 만드는 평행사변형(parallelogram)의 넓이이다.
 
 $$
 |\boldsymbol a\times\boldsymbol b|
