@@ -6,8 +6,7 @@ target: 학부 고학년 및 대학원 입문
 permalink:
 featured: true
 prerequisite: 응력과 변형률, 선형 탄성, 텐서와 좌표변환
-toc:
-  sidebar: left
+toc: false
 
 mermaid:
   enabled: true
@@ -23,25 +22,10 @@ authors:
       name: Changwon National University
 ---
 
-- [1. 왜 Eshelby 문제를 배우는가?](#1-왜-eshelby-문제를-배우는가)
-- [2. Inclusion, inhomogeneity, eigenstrain](#2-inclusion-inhomogeneity-eigenstrain)
-- [3. Eshelby의 사고실험](#3-eshelby의-사고실험)
-- [4. 지배방정식](#4-지배방정식)
-- [5. Eshelby의 핵심 결과](#5-eshelby의-핵심-결과)
-- [6. 등방성 기지 속 구형 inclusion](#6-등방성-기지-속-구형-inclusion)
-- [7. 체적 고유변형률 계산 예제](#7-체적-고유변형률-계산-예제)
-- [8. Inclusion과 inhomogeneity의 연결](#8-inclusion과-inhomogeneity의-연결)
-- [9. 적용과 한계](#9-적용과-한계)
-  - [주요 적용](#주요-적용)
-  - [고전 해의 주요 가정](#고전-해의-주요-가정)
-- [10. 요약](#10-요약)
-- [11. 연습 문제](#11-연습-문제)
-  - [문제 1](#문제-1)
-  - [문제 2](#문제-2)
-  - [문제 3](#문제-3)
-  - [문제 4](#문제-4)
-  - [문제 5](#문제-5)
-- [참고문헌](#참고문헌)
+**Contents**
+
+* TOC
+{:toc}
 
 # 1. 왜 Eshelby 문제를 배우는가?
 

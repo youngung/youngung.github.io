@@ -6,8 +6,7 @@ target: 대학원
 permalink:
 featured: true
 prerequisite: 힘과 응력, 유한변형의 운동학
-toc:
-  sidebar: left
+toc: false
 
 mermaid:
   enabled: true
@@ -23,6 +22,10 @@ authors:
       name: Changwon National University
 ---
 
+**Contents**
+
+* TOC
+{:toc}
 
 # 1. 왜 서로 다른 응력 척도를 사용하는가?
 

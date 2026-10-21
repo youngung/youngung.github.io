@@ -6,8 +6,7 @@ target: 학부 고학년
 permalink:
 featured: true
 prerequisite: 선형 탄성, 응력 텐서
-toc:
-  sidebar: left
+toc: false
 
 mermaid:
   enabled: true
@@ -23,14 +22,10 @@ authors:
       name: Changwon National University
 ---
 
-- [1. 탄성 한계와 항복(yielding)](#1-탄성-한계와-항복yielding)
-- [2. 항복 응력 (yield stress)](#2-항복-응력-yield-stress)
-- [3. 항복 응력의 중요성](#3-항복-응력의-중요성)
-- [4. 항복 조건 (스칼라 응력 환경)](#4-항복-조건-스칼라-응력-환경)
-- [5. 항복 조건](#5-항복-조건)
-- [6. 등가 응력 (equivalent stress)](#6-등가-응력-equivalent-stress)
-- [7. Tresca 항복 조건](#7-tresca-항복-조건)
-- [8. Von Mises 항복 조건](#8-von-mises-항복-조건)
+**Contents**
+
+* TOC
+{:toc}
 
 # 1. 탄성 한계와 항복(yielding)
 

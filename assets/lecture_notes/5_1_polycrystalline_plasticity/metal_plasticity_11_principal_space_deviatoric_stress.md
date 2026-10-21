@@ -6,8 +6,7 @@ target: 학부 고학년
 permalink:
 featured: true
 prerequisite: 좌표변환, 응력 텐서
-toc:
-  sidebar: left
+toc: false
 
 mermaid:
   enabled: true
@@ -23,16 +22,10 @@ authors:
       name: Changwon National University
 ---
 
+**Contents**
 
-- [1. 좌표 변환(coordinate transformation)과 주 공간 (principal space)](#1-좌표-변환coordinate-transformation과-주-공간-principal-space)
-- [2. 주 응력 (principal stress)](#2-주-응력-principal-stress)
-- [3. 주 응력 값 구하기](#3-주-응력-값-구하기)
-- [4. 편차 응력(deviatoric stress)](#4-편차-응력deviatoric-stress)
-- [5. Von Mises 등가 응력](#5-von-mises-등가-응력)
-- [6. 주 응력값으로 표현된 Von Mises 항복 함수](#6-주-응력값으로-표현된-von-mises-항복-함수)
-- [7. 항복면 (yield surface)](#7-항복면-yield-surface)
-- [8. 요약](#8-요약)
-
+* TOC
+{:toc}
 
 # 1. 좌표 변환(coordinate transformation)과 주 공간 (principal space)
 

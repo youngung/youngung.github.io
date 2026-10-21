@@ -6,8 +6,7 @@ target: 학부 고학년
 permalink:
 featured: true
 prerequisite: 소성 항복, 소성 유동법칙
-toc:
-  sidebar: left
+toc: false
 
 mermaid:
   enabled: true
@@ -23,15 +22,10 @@ authors:
       name: Changwon National University
 ---
 
+**Contents**
 
-- [1. Hardening](#1-hardening)
-  - [1.1. Phenomenological plasticity에서의 가공경화](#11-phenomenological-plasticity에서의-가공경화)
-  - [1.2. strain hardening described in crystal plasticity framework.](#12-strain-hardening-described-in-crystal-plasticity-framework)
-- [2. Anisotropy](#2-anisotropy)
-  - [2.1. Hill's yield criterion](#21-hills-yield-criterion)
-  - [2.2. Barlat's yield criterion](#22-barlats-yield-criterion)
-- [3. Slip system \& crystal orientation](#3-slip-system--crystal-orientation)
-- [평균장 모델 후속 자료](#4-평균장-다결정-소성-모델)
+* TOC
+{:toc}
 
 # 1. Hardening
 

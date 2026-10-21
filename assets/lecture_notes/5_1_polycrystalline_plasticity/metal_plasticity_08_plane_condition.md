@@ -201,6 +201,93 @@ $$
 
 이다. 면외 변형률은 0이지만 면외 응력은 0이 아니다.
 
+## 6.3. Voigt 표기법을 이용한 평면응력 계산
+
+평면응력 조건에서는 $\sigma_{33}=\sigma_{13}=\sigma_{23}=0$이므로, 면내 성분만
+모은 Voigt 벡터를 다음과 같이 정의할 수 있다.
+
+$$
+[\boldsymbol\sigma]_{\mathrm{2D}}^{\mathrm{voigt}}
+=\begin{bmatrix}\sigma_{11}\\\sigma_{22}\\\sigma_{12}\end{bmatrix},
+\qquad
+[\boldsymbol\varepsilon]_{\mathrm{2D}}^{\mathrm{voigt}}
+=\begin{bmatrix}\varepsilon_{11}\\\varepsilon_{22}\\\gamma_{12}\end{bmatrix},
+\qquad
+\gamma_{12}=2\varepsilon_{12}.
+$$
+
+등방 선형탄성체의 평면응력 구성방정식은
+
+$$
+\begin{bmatrix}
+\sigma_{11}\\
+\sigma_{22}\\
+\sigma_{12}
+\end{bmatrix}
+=\frac{E}{1-\nu^2}
+\begin{bmatrix}
+1 & \nu & 0\\
+\nu & 1 & 0\\
+0 & 0 & (1-\nu)/2
+\end{bmatrix}
+\begin{bmatrix}
+\varepsilon_{11}\\
+\varepsilon_{22}\\
+\gamma_{12}
+\end{bmatrix}
+$$
+
+이다. 예를 들어 $E=200\,\mathrm{GPa}$, $\nu=0.30$인 얇은 판에서
+
+$$
+\varepsilon_{11}=1.0\times10^{-3},\qquad
+\varepsilon_{22}=-2.0\times10^{-4},\qquad
+\gamma_{12}=6.0\times10^{-4}
+$$
+
+라고 하자. $E=200\,000\,\mathrm{MPa}$를 사용하면
+
+$$
+\begin{aligned}
+\sigma_{11}
+&=\frac{200\,000}{1-0.3^2}
+\left(1.0\times10^{-3}+0.3(-2.0\times10^{-4})\right)
+\approx206.59\,\mathrm{MPa},\\
+\sigma_{22}
+&=\frac{200\,000}{1-0.3^2}
+\left(0.3(1.0\times10^{-3})-2.0\times10^{-4}\right)
+\approx21.98\,\mathrm{MPa},\\
+\sigma_{12}
+&=\frac{200\,000}{2(1+0.3)}\left(6.0\times10^{-4}\right)
+\approx46.15\,\mathrm{MPa}.
+\end{aligned}
+$$
+
+따라서 면내 응력 텐서는
+
+$$
+\begin{bmatrix}
+\sigma_{11} & \sigma_{12}\\
+\sigma_{12} & \sigma_{22}
+\end{bmatrix}
+=
+\begin{bmatrix}
+206.59 & 46.15\\
+46.15 & 21.98
+\end{bmatrix}\mathrm{MPa}
+$$
+
+이다. 또한 평면응력은 $\varepsilon_{33}=0$을 뜻하지 않는다. 이 예제에서는
+
+$$
+\varepsilon_{33}
+=-\frac{\nu}{1-\nu}(\varepsilon_{11}+\varepsilon_{22})
+=-3.43\times10^{-4}
+$$
+
+이다. 이처럼 2차원 Voigt 행렬은 면내 계산을 줄여 주지만, Poisson 효과로 생기는
+면외 변형률은 별도로 계산해야 한다.
+
 # 7. 요약
 
 | 항목 | 평면응력 | 평면변형률 |

@@ -6,8 +6,7 @@ target: 대학원
 permalink:
 featured: true
 prerequisite: 유한변형의 운동학, 결정소성의 슬립과 항복 조건, 평균장 다결정 소성 모델
-toc:
-  sidebar: left
+toc: false
 
 mermaid:
   enabled: true
@@ -23,15 +22,10 @@ authors:
       name: Changwon National University
 ---
 
-- [1. 운동학 개요](#1-운동학-개요)
-  - [1.1. 속도구배](#11-속도구배)
-  - [1.2. 운동학](#12-운동학)
-- [2. 변형구배](#2-변형구배)
-- [3. 결정립의 누적 변형과 형상](#3-결정립의-누적-변형과-형상)
-- [4. 점의 속도](#4-점의-속도)
-- [5. 속도구배](#5-속도구배)
-- [6. 연습 문제](#6-연습-문제)
+**Contents**
 
+* TOC
+{:toc}
 
 이 자료는 VPSC (Visco-Plastic Self-Consistent)에서 사용하는 속도구배, 결정립 형상 변화와 격자 회전을 다룬다.
 기본적인 유한변형의 정의는

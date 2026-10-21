@@ -6,8 +6,7 @@ target: 학부 고학년
 permalink:
 featured: true
 prerequisite: 벡터와 좌표계
-toc:
-  sidebar: left
+toc: false
 
 mermaid:
   enabled: true
@@ -23,6 +22,10 @@ authors:
       name: Changwon National University
 ---
 
+**Contents**
+
+* TOC
+{:toc}
 
 관련 자료는 다음 순서로 읽을 수 있다.
 

@@ -6,8 +6,7 @@ target: 학부 고학년
 permalink:
 featured: true
 prerequisite: 좌표변환, 평면 응력
-toc:
-  sidebar: left
+toc: false
 
 mermaid:
   enabled: true
@@ -23,16 +22,10 @@ authors:
       name: Changwon National University
 ---
 
-- [1. 좌표 변환 행렬 복습](#1-좌표-변환-행렬-복습)
-- [2. 평면 응력상태의 좌표 변환](#2-평면-응력상태의-좌표-변환)
-- [3. 삼각함수 정리](#3-삼각함수-정리)
-- [4. Mohr Circle, 원의 방정식](#4-mohr-circle-원의-방정식)
-- [5. 연습 문제](#5-연습-문제)
-  - [문제 1](#문제-1)
-  - [문제 2](#문제-2)
-  - [문제 3](#문제-3)
-  - [문제 4](#문제-4)
+**Contents**
 
+* TOC
+{:toc}
 
 # 1. 좌표 변환 행렬 복습
 

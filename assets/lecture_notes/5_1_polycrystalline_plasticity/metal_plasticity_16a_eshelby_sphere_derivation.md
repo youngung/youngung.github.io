@@ -6,8 +6,7 @@ target: 대학원 입문
 permalink:
 featured: false
 prerequisite: 선형 탄성, 텐서와 좌표변환, Eshelby inclusion 문제
-toc:
-  sidebar: left
+toc: false
 
 mermaid:
   enabled: true
@@ -23,26 +22,10 @@ authors:
       name: Changwon National University
 ---
 
-- [1. 유도의 목표와 가정](#1-유도의-목표와-가정)
-- [2. 전체 계산의 구조](#2-전체-계산의-구조)
-- [3. 고유변형률을 등가 체적력으로 바꾸기](#3-고유변형률을-등가-체적력으로-바꾸기)
-- [4. Kelvin Green 함수](#4-kelvin-green-함수)
-- [5. Hill polarization tensor](#5-hill-polarization-tensor)
-- [6. 구면 적분의 계산](#6-구면-적분의-계산)
-- [7. Eshelby tensor 계산](#7-eshelby-tensor-계산)
-- [8. Lamé 상수에서 Poisson 비로 변환](#8-lamé-상수에서-poisson-비로-변환)
-- [9. 결과 검산](#9-결과-검산)
-  - [9.1. 텐서 대칭성](#91-텐서-대칭성)
-  - [9.2. 독립 성분](#92-독립-성분)
-  - [9.3. 체적 고유변형률](#93-체적-고유변형률)
-  - [9.4. 편차 고유변형률](#94-편차-고유변형률)
-- [10. 이 유도에서 생략한 부분](#10-이-유도에서-생략한-부분)
-- [11. 연습 문제](#11-연습-문제)
-  - [문제 1](#문제-1)
-  - [문제 2](#문제-2)
-  - [문제 3](#문제-3)
-  - [문제 4](#문제-4)
-- [참고문헌](#참고문헌)
+**Contents**
+
+* TOC
+{:toc}
 
 # 1. 유도의 목표와 가정
 

@@ -6,8 +6,7 @@ target: 학부 고학년
 permalink:
 featured: true
 prerequisite: 소성 항복, 선형 탄성
-toc:
-  sidebar: left
+toc: false
 
 mermaid:
   enabled: true
@@ -22,6 +21,11 @@ authors:
     affiliations:
       name: Changwon National University
 ---
+
+**Contents**
+
+* TOC
+{:toc}
 
 # 1. 영구 변형 (permanent deformation)
 

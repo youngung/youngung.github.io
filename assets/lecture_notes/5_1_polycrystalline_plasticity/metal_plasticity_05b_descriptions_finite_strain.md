@@ -22,6 +22,10 @@ authors:
       name: Changwon National University
 ---
 
+**Contents**
+
+* TOC
+{:toc}
 
 이 자료는 연속체의 좌표 기술법, 변형구배, 유한변형률과 극분해를 다룬다.
 VPSC에 적용하는 속도구배와 결정립의 운동은
@@ -33,11 +37,6 @@ VPSC에 적용하는 속도구배와 결정립의 운동은
 - [변위와 미소변형률 연습문제]({% link assets/lecture_notes/5_1_polycrystalline_plasticity/metal_plasticity_05d_displacement_strain_exercises.md %})
 - [유한변형의 운동학]({% link assets/lecture_notes/5_1_polycrystalline_plasticity/metal_plasticity_05b_descriptions_finite_strain.md %})
 - [물질미분과 ALE 기술법]({% link assets/lecture_notes/5_1_polycrystalline_plasticity/metal_plasticity_05c_material_derivative_ale.md %})
-
-**목차**
-
-* 목차
-{:toc}
 
 <span id="10-lagrangian과-eulerian-기술법"></span>
 

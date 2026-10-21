@@ -6,8 +6,7 @@ target: 학부 고학년
 permalink:
 featured: true
 prerequisite: 금속 소성학 개요
-toc:
-  sidebar: left
+toc: false
 
 mermaid:
   enabled: true
@@ -23,22 +22,10 @@ authors:
       name: Changwon National University
 ---
 
-- [1. Rolling (압연)](#1-rolling-압연)
-  - [1.1. Hot rolling (열간 압연 - 열연)](#11-hot-rolling-열간-압연---열연)
-  - [1.2. Cold rolling (냉간 압연 - 냉연)](#12-cold-rolling-냉간-압연---냉연)
-- [2. Forging (단조)](#2-forging-단조)
-- [3. Extrusion (압출)](#3-extrusion-압출)
-- [4. Drawing (인발)](#4-drawing-인발)
-- [5. Deep Drawing](#5-deep-drawing)
-- [6. Stamping (스탬핑)](#6-stamping-스탬핑)
-- [7. Hydroforming](#7-hydroforming)
-- [8. 공정들의 조합](#8-공정들의-조합)
-  - [공정을 비교하는 기준](#공정을-비교하는-기준)
-- [9. 연습 문제](#9-연습-문제)
-  - [문제 1](#문제-1)
-  - [문제 2](#문제-2)
-  - [문제 3](#문제-3)
-  - [문제 4](#문제-4)
+**Contents**
+
+* TOC
+{:toc}
 
 # 1. Rolling (압연)
 

@@ -6,8 +6,7 @@ target: 대학원
 permalink:
 featured: true
 prerequisite: 소성 유동법칙, 경화와 이방성, Eshelby inclusion
-toc:
-  sidebar: left
+toc: false
 
 mermaid:
   enabled: true
@@ -23,6 +22,10 @@ authors:
       name: Changwon National University
 ---
 
+**Contents**
+
+* TOC
+{:toc}
 
 이 자료는 [Eshelby inclusion]({% link assets/lecture_notes/5_1_polycrystalline_plasticity/metal_plasticity_16_eshelby_inclusion.md %}) 이후에 읽는다.
 결정립의 국소 거동과 다결정의 평균 거동을 연결하고, secant 선형화를 소개한다.

@@ -6,8 +6,7 @@ target: 학부 고학년
 permalink:
 featured: true
 prerequisite: 벡터와 행렬
-toc:
-  sidebar: left
+toc: false
 
 mermaid:
   enabled: true
@@ -22,6 +21,11 @@ authors:
     affiliations:
       name: Changwon National University
 ---
+
+**Contents**
+
+* TOC
+{:toc}
 
 # 1. 다음 두 벡터가 있다. 두 벡터간의 연산 결과를 답하시오.
 

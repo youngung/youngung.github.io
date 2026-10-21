@@ -6,8 +6,7 @@ target: 대학원 입문
 permalink:
 featured: false
 prerequisite: Kelvin Green 함수, 텐서와 좌표변환, 구형 inclusion
-toc:
-  sidebar: left
+toc: false
 
 mermaid:
   enabled: true
@@ -23,11 +22,10 @@ authors:
       name: Changwon National University
 ---
 
-- [1. 이 보충자료의 목표](#1-이-보충자료의-목표)
-- [2. Kelvin Green 함수의 미분](#2-kelvin-green-함수의-미분)
-- [3. 구면 모멘트만 남는 과정](#3-구면-모멘트만-남는-과정)
-- [4. 2차 구면 모멘트](#4-2차-구면-모멘트)
-- [5. 4차 구면 모멘트](#5-4차-구면-모멘트)
+**Contents**
+
+* TOC
+{:toc}
 
 # 1. 이 보충자료의 목표
 

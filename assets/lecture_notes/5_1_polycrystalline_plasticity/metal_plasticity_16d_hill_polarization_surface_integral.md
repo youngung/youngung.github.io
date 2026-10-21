@@ -6,8 +6,7 @@ target: 대학원 입문
 permalink:
 featured: false
 prerequisite: 선형 탄성, Kelvin Green 함수, eigenstrain의 등가 체적력
-toc:
-  sidebar: left
+toc: false
 
 mermaid:
   enabled: true
@@ -23,9 +22,10 @@ authors:
       name: Changwon National University
 ---
 
-- [1. 이 보충자료의 질문](#1-이-보충자료의-질문)
-- [2. 표면적분 표현의 단계별 유도](#2-표면적분-표현의-단계별-유도)
-- [3. 유도의 핵심](#3-유도의-핵심)
+**Contents**
+
+* TOC
+{:toc}
 
 # 1. 이 보충자료의 질문
 

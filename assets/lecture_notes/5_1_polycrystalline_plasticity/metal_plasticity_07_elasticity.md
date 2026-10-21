@@ -113,18 +113,15 @@ $$
 
 # 6. 선형 등방 Hooke 법칙 상세 설명
 
-- 체적변형과 형상변형의 역할을 정확히 나누려면 변형률을 평균성분과 편차성분으로
-  분해하는 것이 좋다. 체적탄성계수를 $K=\lambda+2G/3$라 하면
+- 체적탄성계수를 $K=\lambda+2G/3$라 하면, 세 수직응력의 평균(평균응력)은
+  체적변화율 $\operatorname{tr}(\boldsymbol\varepsilon)$와 다음 관계를 갖는다.
 
 $$
-[\boldsymbol\sigma]
-=K \boldsymbol I\operatorname{tr}(\boldsymbol\varepsilon)
-+2G[\boldsymbol\varepsilon]
+\frac{\operatorname{tr}(\boldsymbol\sigma)}{3}=K\operatorname{tr}(\boldsymbol\varepsilon)
 $$
 
-이다. 첫 항은 체적변화에, 두 번째 항은 형상변화에 대응한다. 원래 식의
-$2G\boldsymbol\varepsilon$에는 체적성분도 포함되므로 그 항 전체를 형상변화 성분이라고
-부르면 정확하지 않다.
+  전단 성분은 체적변화와 무관하게 $\sigma_{ij}=2G\varepsilon_{ij}\ (i\ne j)$로
+  주어진다.
 
 - 응력 성분을 각기 풀어 표현하면
 
@@ -145,18 +142,109 @@ $$ \sigma_{23}=2G\varepsilon_{23} $$
 
 # 7. 선형 등방 Hooke 법칙에서의 상수 관계
 
-- 등방성을 고려하지 않은 Hooke 법칙에서 랭크 4의 탄성계수 텐서$E_{ijkl}$가 81개의 성분을 가질 수 있는 것으로 보인다 (3x3x3x3=81).
-- 하지만 등방성을 고려한 Hooke의 법칙에서는 단 2개의 스칼라 값을 활용했다 ($\lambda, G$)
-- 실제로는 $\lambda$와 $G$의 쌍보다 영률 $E$와 Poisson 비 $\nu$를 활용하는 경우가
-  많으며, 두 상수 집합은 서로 변환할 수 있다.
+여기서는 **등방 선형탄성체의 기계적 응력–변형률 관계**에 사용하는 탄성상수들을
+정리한다. 아래 변환식은 이방성 재료의 방향별 탄성계수에 그대로 적용할 수 없다.
 
-$$G=\frac{E}{2(1+\nu)}$$
+| 기호 | 이름 | 의미와 정의 |
+| ---- | ---- | ----------- |
+| $E$ | 영률 또는 Young 계수 (Young's modulus) | 일축 응력에서 축 방향 응력과 변형률의 비: $E=\sigma_{11}/\varepsilon_{11}$ |
+| $\nu$ | Poisson 비 (Poisson's ratio) | 일축 응력에서 축 방향 변형률에 대한 횡변형률의 음의 비: $\nu=-\varepsilon_{22}/\varepsilon_{11}$ |
+| $G=\mu$ | 전단탄성계수, Lamé의 제2 상수 (shear modulus) | 전단응력과 공학전단변형률의 비: $G=\sigma_{12}/\gamma_{12}$, $\gamma_{12}=2\varepsilon_{12}$ |
+| $K$ | 체적탄성계수 (bulk modulus) | 정수압에 대한 체적변형의 저항: $K=-p/\varepsilon_v$, $\varepsilon_v=\operatorname{tr}(\boldsymbol\varepsilon)$ |
+| $\lambda$ | Lamé의 제1 상수 (first Lamé parameter) | $\boldsymbol\sigma=\lambda\boldsymbol I\operatorname{tr}(\boldsymbol\varepsilon)+2G\boldsymbol\varepsilon$에서 체적변형률에 곱해지는 상수 |
+| $M$ | 구속탄성계수 또는 P파 탄성계수 (constrained / P-wave modulus) | 횡방향 변형을 막은 일축 변형률 상태에서 $M=\sigma_{11}/\varepsilon_{11}$ |
 
-$$\lambda = \frac{E\nu}{(1+\nu)(1-2\nu)}$$
+$E$, $G$, $K$, $\lambda$, $M$의 단위는 모두 응력과 같은 Pa이며,
+$\nu$는 단위가 없는 비이다. $\mu$는 $G$의 다른 기호이므로 별도의 독립 상수가 아니다.
+체적탄성계수의 역수 $\beta=1/K$는 **압축률(compressibility)**이며 단위는
+$\mathrm{Pa^{-1}}$이다.
 
-등방 선형탄성체의 에너지가 안정하려면 일반적으로 $E>0$이고
-$-1<\nu<0.5$여야 한다. 금속의 Poisson 비는 흔히 약 0.3이며, $\nu$가 0.5에
-가까울수록 탄성 체적변화에 더 강하게 저항한다.
+$E$와 $\nu$의 정의에서 일축 응력이란 $\sigma_{11}$만 0이 아닌 상태이다.
+반면 $M$의 정의에서는 $\varepsilon_{11}$만 0이 아니며, 횡방향 응력이 발생할 수 있다.
+따라서 **횡방향이 자유로운 인장시험의 $E$와 횡변형을 구속한 경우의 $M$은 다르다.**
+
+일반적인 이방성 탄성체에서는 탄성계수 텐서에 최대 21개의 독립 상수가 필요하지만,
+등방 선형탄성체에서는 **서로 독립인 두 탄성상수**로 나머지를 결정할 수 있다.
+대표적인 선택은 $(E,\nu)$, $(K,G)$, $(\lambda,G)$이다.
+
+**영률 $E$와 Poisson 비 $\nu$를 알고 있을 때**
+
+$$
+G=\mu=\frac{E}{2(1+\nu)},
+\qquad
+K=\frac{E}{3(1-2\nu)}
+$$
+
+$$
+\lambda=\frac{E\nu}{(1+\nu)(1-2\nu)},
+\qquad
+M=\frac{E(1-\nu)}{(1+\nu)(1-2\nu)}
+$$
+
+**체적탄성계수 $K$와 전단탄성계수 $G$를 알고 있을 때**
+
+$$
+E=\frac{9KG}{3K+G},
+\qquad
+\nu=\frac{3K-2G}{2(3K+G)}
+$$
+
+$$
+\lambda=K-\frac{2G}{3},
+\qquad
+M=K+\frac{4G}{3}
+$$
+
+**Lamé 상수 $\lambda$와 $G=\mu$를 알고 있을 때**
+
+$$
+E=\frac{G(3\lambda+2G)}{\lambda+G},
+\qquad
+\nu=\frac{\lambda}{2(\lambda+G)}
+$$
+
+$$
+K=\lambda+\frac{2G}{3},
+\qquad
+M=\lambda+2G
+$$
+
+위 관계에서 자주 사용하는 식을 모으면 다음과 같다.
+
+$$
+\boxed{E=2G(1+\nu)=3K(1-2\nu)}
+$$
+
+$$
+\boxed{M=\lambda+2G=K+\frac{4G}{3}},
+\qquad
+\frac{1}{E}=\frac{1}{9K}+\frac{1}{3G}
+$$
+
+
+
+예를 들어 $E=210\,\mathrm{GPa}$, $\nu=0.30$이면
+
+$$
+\begin{aligned}
+G&\approx80.77\,\mathrm{GPa}, & K&=175\,\mathrm{GPa},\\
+\lambda&\approx121.15\,\mathrm{GPa}, & M&\approx282.69\,\mathrm{GPa}.
+\end{aligned}
+$$
+
+이다. 이 값들을 $E=9KG/(3K+G)$에 대입하면 원래 영률 $210\,\mathrm{GPa}$를 얻는다.
+
+등방 선형탄성체의 탄성에너지가 양의 정부호이려면 $K>0$, $G>0$이어야 한다.
+이는 $E>0$, $-1<\nu<0.5$와 동등하다. $\lambda$는 이 조건 안에서도 음수가 될 수 있다.
+$E$를 고정하고 $\nu$가 $0.5$에 가까워지면 $K$가 커져 체적변형이 어려워진다.
+정확히 비압축성인 $\nu=0.5$에는 위의 분모가 있는 변환식을 직접 대입할 수 없다.
+
+<!--
+탄성상수의 기본 관계는
+[A. F. Bower, Applied Mechanics of Solids, 3.2절](https://solidmechanics.org/Text/Chapter3_2/Chapter3_2.php)을,
+$M=\lambda+2G$를 포함한 변환 구현은
+[SfePy의 탄성계수 변환 코드](https://sfepy.org/doc/_modules/sfepy/mechanics/matcoefs.html)를 참고할 수 있다.
+-->
 
 ## 7.1. 정수압과 체적탄성계수 {#hydrostatic-pressure}
 
@@ -301,7 +389,148 @@ $$
 $$
 
 
-# 10. 연습 문제
+# 10. VPSC에서 사용하는 b-basis
+
+Voigt 표기는 대칭 텐서를 6성분 벡터로 나타내는 방법이다. 그러나 이 강의의 Voigt
+변형률 벡터에는 공학전단변형률 $2\varepsilon_{ij}$가 들어가므로, 응력과 변형률의
+전단 성분에 서로 다른 배율을 적용한다. VPSC에서 사용하는 **b-basis**는 대칭
+2차 텐서 공간에 정규직교 기저를 두어 응력과 변형률에 같은 변환을 적용하는 방법이다.
+여기서 b-basis는 공간의 세 좌표축을 바꾸는 것이 아니라, **대칭 텐서를 표현하는
+6개의 기저 텐서를 선택하는 것**이다.
+
+**기저 텐서의 정의**
+
+고정된 직교좌표계의 단위벡터를 $\boldsymbol e_1$, $\boldsymbol e_2$,
+$\boldsymbol e_3$라 하자. $\boldsymbol e_i\otimes\boldsymbol e_j$는
+$(i,j)$ 성분만 1인 기저 텐서이다. VPSC8의 <code>CHG_BASIS</code>에서 사용하는
+부호와 순서에 맞추면 다음과 같다.
+
+$$
+\begin{aligned}
+\boldsymbol b^{(1)}&=\frac{-\boldsymbol e_1\otimes\boldsymbol e_1+\boldsymbol e_2\otimes\boldsymbol e_2}{\sqrt2},\\
+\boldsymbol b^{(2)}&=\frac{-\boldsymbol e_1\otimes\boldsymbol e_1-\boldsymbol e_2\otimes\boldsymbol e_2+2\boldsymbol e_3\otimes\boldsymbol e_3}{\sqrt6}.
+\end{aligned}
+$$
+
+$$
+\begin{aligned}
+\boldsymbol b^{(3)}&=\frac{\boldsymbol e_2\otimes\boldsymbol e_3+\boldsymbol e_3\otimes\boldsymbol e_2}{\sqrt2},\\
+\boldsymbol b^{(4)}&=\frac{\boldsymbol e_1\otimes\boldsymbol e_3+\boldsymbol e_3\otimes\boldsymbol e_1}{\sqrt2},\\
+\boldsymbol b^{(5)}&=\frac{\boldsymbol e_1\otimes\boldsymbol e_2+\boldsymbol e_2\otimes\boldsymbol e_1}{\sqrt2},\\
+\boldsymbol b^{(6)}&=\frac{\boldsymbol I}{\sqrt3}.
+\end{aligned}
+$$
+
+이 기저는 이중수축에 대해 정규직교한다.
+
+$$
+\boldsymbol b^{(\alpha)}:\boldsymbol b^{(\beta)}=\delta_{\alpha\beta},
+\qquad \alpha,\beta=1,\ldots,6
+$$
+
+따라서 대칭 텐서 $\boldsymbol A$의 b-basis 성분과 역변환은
+
+$$
+A_\alpha^{(b)}=\boldsymbol A:\boldsymbol b^{(\alpha)},
+\qquad
+\boldsymbol A=\sum_{\alpha=1}^{6}A_\alpha^{(b)}\boldsymbol b^{(\alpha)}
+$$
+
+이며, 실제 6성분 벡터는 다음과 같다.
+
+$$
+[\boldsymbol A]^{(b)}=
+\begin{bmatrix}
+(A_{22}-A_{11})/\sqrt2\\
+(2A_{33}-A_{11}-A_{22})/\sqrt6\\
+\sqrt2 A_{23}\\
+\sqrt2 A_{13}\\
+\sqrt2 A_{12}\\
+(A_{11}+A_{22}+A_{33})/\sqrt3
+\end{bmatrix}
+$$
+
+**대각합이 0인 5성분과 구형 1성분**
+
+첫 다섯 기저의 대각합은 0이므로 처음 5성분은 체적변화와 무관한 부분을 나타낸다.
+6번째 성분은 $A_6^{(b)}=\operatorname{tr}(\boldsymbol A)/\sqrt3$으로,
+구형 부분 $\frac{\operatorname{tr}(\boldsymbol A)}{3}\boldsymbol I$을 나타낸다.
+체적변화가 없는 소성 변형률속도처럼 대각합이 0인 텐서는 5성분으로 표현할 수 있다.
+VPSC의 응력–소성 변형률속도 관계는 이 5차원 표현을 활용할 수 있지만,
+**일반적인 탄성 응력과 변형률을 표현할 때는 구형 성분을 포함한 6성분이 필요하다.**
+코드의 <code>KDIM=5</code>와 <code>KDIM=6</code>은 이 차이에 대응한다.
+
+예를 들어 정수압 응력 $\boldsymbol\sigma=-p\boldsymbol I$는
+
+$$
+[\boldsymbol\sigma]^{(b)}=
+\begin{bmatrix}0&0&0&0&0&-\sqrt3p\end{bmatrix}^{T}
+$$
+
+이므로, 첫 다섯 성분만으로는 정수압을 나타낼 수 없다.
+
+**Voigt 표기와 다른 점: 전단 배율과 내적 보존**
+
+b-basis에서는 응력과 변형률의 전단 성분 모두에 $\sqrt2$를 곱한다.
+예를 들어 $\sigma_{12}=\sigma_{21}=\tau$만 0이 아닌 순수 전단응력에서는
+$\sigma_5^{(b)}=\sqrt2\tau$이다. $\tau=30\,\mathrm{MPa}$이면
+$\sigma_5^{(b)}\approx42.43\,\mathrm{MPa}$이고 다른 성분은 모두 0이다.
+
+정규직교성 때문에 대칭 텐서의 이중수축은 b-basis 벡터의 보통 내적과 같다.
+
+$$
+\boldsymbol A:\boldsymbol B
+=\sum_{\alpha=1}^{6}A_\alpha^{(b)}B_\alpha^{(b)},
+\qquad
+\boldsymbol A:\boldsymbol A
+=\sum_{\alpha=1}^{6}\left(A_\alpha^{(b)}\right)^2
+$$
+
+따라서 탄성에너지 밀도도
+
+$$
+W=\frac12\boldsymbol\sigma:\boldsymbol\varepsilon
+=\frac12\sum_{\alpha=1}^{6}\sigma_\alpha^{(b)}\varepsilon_\alpha^{(b)}
+$$
+
+로 계산할 수 있다. 이 강의의 응력 Voigt 벡터와 공학전단변형률 Voigt 벡터 사이의
+내적도 일률 밀도 또는 에너지 계산에 사용할 수 있지만, 각각의 Voigt 벡터의
+유클리드 노름이 텐서의 노름과 같지는 않다. b-basis는 같은 정규직교 변환으로
+내적과 노름을 모두 보존한다.
+
+**b-basis에서의 탄성 stiffness와 compliance**
+
+탄성계수 텐서를 $\mathbb C$라 쓰면, 기저 변환한 행렬 성분은
+
+$$
+C_{\alpha\beta}^{(b)}
+=b_{ij}^{(\alpha)}C_{ijkl}b_{kl}^{(\beta)},
+\qquad
+[\boldsymbol\sigma]^{(b)}=[\mathbb C]^{(b)}[\boldsymbol\varepsilon]^{(b)}
+$$
+
+이다. $[\mathbb S]^{(b)}$도 같은 기저로 변환하며,
+$[\mathbb S]^{(b)}=\left([\mathbb C]^{(b)}\right)^{-1}$이다.
+**등방 선형탄성체**에서는 처음 5성분(대각합이 0인 변형)에 $2G$, 구형 변형에 $3K$가 대응하므로
+
+$$
+[\mathbb C]^{(b)}=\operatorname{diag}(2G,2G,2G,2G,2G,3K)
+$$
+
+$$
+[\mathbb S]^{(b)}
+=\operatorname{diag}\left(\frac1{2G},\frac1{2G},\frac1{2G},\frac1{2G},\frac1{2G},\frac1{3K}\right)
+$$
+
+가 된다. 앞의 Voigt stiffness에서 전단 대각성분이 $G$였던 것과 달리,
+b-basis에서는 $2G$이다. 이는 물성이 달라진 것이 아니라 **변형률 성분의 정의가
+공학전단변형률에서 정규직교 성분으로 바뀌었기 때문**이다.
+이방성 탄성체에서는 b-basis를 사용해도 stiffness가 일반적으로 대각행렬은 아니다.
+
+기저의 부호·순서는 구현에 따라 달라질 수 있으므로 실제 코드와 일치시켜야 한다.
+위 정의는 [LANL VPSC8의 CHG_BASIS 원본](https://github.com/lanl/VPSC_code/blob/main/vpsc8sub.for#L182-L284)에 맞췄다.
+
+# 11. 연습 문제
 
 ## 문제 1
 
