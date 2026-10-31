@@ -195,3 +195,5 @@ D는 변형률속도 텐서이고 W는 스핀 텐서로 국소 회전을 나타�
 풀이와 해답:
 같지 않다. 격자 스핀은 전체 스핀에서 슬립 스핀을 뺀 값이다.
 -->
+
+[이전 강의]({% link assets/lecture_notes/5_1_polycrystalline_plasticity/metal_plasticity_17_mean_field_polycrystal.md %}) | [강의 목록]({% link _lectures/5_1_polycrystalline_Plasticity.md %})

@@ -222,3 +222,5 @@ sigma_m=(sigma_1+sigma_2+sigma_3)/3이다.
 풀이와 해답:
 von Mises 등가응력은 편차응력에만 의존하고 정수압 응력은 편차응력을 바꾸지 않기 때문이다.
 -->
+
+[이전 강의]({% link assets/lecture_notes/5_1_polycrystalline_plasticity/metal_plasticity_10_coordinate_transformation.md %}) | [강의 목록]({% link _lectures/5_1_polycrystalline_Plasticity.md %}) | [다음 강의]({% link assets/lecture_notes/5_1_polycrystalline_plasticity/metal_plasticity_12_Mohr_circle.md %})

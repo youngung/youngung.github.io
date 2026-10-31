@@ -112,3 +112,5 @@ $\dot Q=100\ \mathrm W$이다. 벽에서 4 K, 양쪽 대류층에서 각각 10 K
 5. R=L/(kA)이므로 두 배가 된다.
 6. 같은 두께에서 열저항이 더 큰, 열전도도가 작은 재료가 적합하다.
 -->
+
+[이전 강의]({% link assets/lecture_notes/2_2_transport_phenomena/transport_03_newtonian_viscosity.md %}) | [강의 목록]({% link _lectures/2_2_transport.md %}) | [다음 강의]({% link assets/lecture_notes/2_2_transport_phenomena/transport_05_heat_equation.md %})

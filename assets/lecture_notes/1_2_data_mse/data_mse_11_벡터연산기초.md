@@ -35,7 +35,7 @@ authors:
 # 2. 벡터와 NumPy 배열
 
 벡터(vector)는 크기와 방향을 함께 나타내는 물리량이다. 3차원 벡터
-$\boldsymbol a$는 다음과 같이 세 성분으로 나타낼 수 있다.
+$$\boldsymbol a$$는 다음과 같이 세 성분으로 나타낼 수 있다.
 
 $$
 [\boldsymbol a]=
@@ -76,6 +76,42 @@ print(a.size)
 ~~~
 
 
+## 2.1. 벡터 자체와 좌표성분 구분하기
+
+온도는 하나의 값으로 나타내는 스칼라이고, 힘과 변위는 방향도 필요한 벡터다.
+벡터의 성분을 쓰려면 먼저 기준 방향인 **기저벡터(basis vector)**를 정해야 한다.
+서로 수직이고 길이가 1인 기저를 사용하면
+
+$$
+\boldsymbol a=a_x\boldsymbol e_x+a_y\boldsymbol e_y+a_z\boldsymbol e_z
+$$
+
+로 쓴다. 예를 들어 $$\boldsymbol a=3\boldsymbol e_x+4\boldsymbol e_y$$는
+첫 번째 방향으로 3, 두 번째 방향으로 4만큼의 성분을 갖는다.
+좌표축을 바꾸면 같은 벡터도 성분값이 달라질 수 있지만, 벡터의 크기와 물리적 의미는 유지된다.
+이 강의의 길이·내적 공식은 **같은 직교정규 기저에서 표현한 실수 성분**에 적용한다.
+
+측정값 세 개를 배열에 저장했다고 해서 반드시 공간상의 벡터인 것은 아니다.
+서로 다른 세 시편의 온도를 저장한 배열과 한 힘의 세 방향 성분을 저장한 배열은 모양이 같아도 의미가 다르다.
+배열을 만들기 전에 각 원소의 의미와 단위를 먼저 적자.
+
+## 2.2. 1차원 배열과 행·열 배열의 차이
+
+수학에서 열벡터로 표기해도 NumPy의 shape이 자동으로 열 배열이 되는 것은 아니다.
+
+~~~python
+vector = np.array([3.0, 4.0, 0.0])
+column = vector[:, None]
+row = vector[None, :]
+print(vector.shape, column.shape, row.shape)
+print(vector.T.shape)
+~~~
+
+결과는 각각 <code>(3,)</code>, <code>(3, 1)</code>, <code>(1, 3)</code>이며,
+1차원 배열의 <code>.T</code>는 shape을 바꾸지 않는다.
+특히 <code>vector + column</code>은 브로드캐스팅 때문에 <code>(3, 3)</code> 배열이 된다.
+성분별 덧셈을 의도했다면 두 배열을 모두 <code>(3,)</code>으로 맞춰야 한다.
+
 # 3. 벡터의 합과 차
 
 두 벡터의 합과 차는 같은 위치의 성분끼리 계산한다.
@@ -101,12 +137,22 @@ print(vector_sum)
 print(vector_difference)
 ~~~
 
-결과는 각각 $[6,-1,3]$과 $[0,9,7]$이다. 두 배열의 shape이 같아야 성분별로
+결과는 각각 $$[6,-1,3]$$과 $$[0,9,7]$$이다. 두 배열의 shape이 같아야 성분별로
 자연스럽게 더하고 뺄 수 있다.
+
+![벡터의 합은 끝점에 다음 벡터를 이어 구하고, 차는 반대 벡터를 더하거나 두 끝점을 연결하여 구하는 그림](/assets/img/lecture_notes/data_mse/vector_addition_subtraction.png){: style="width: 1000px; max-width: 100%; height: auto;"}
+
+그림은 기하학적 의미를 보기 위한 별도의 2차원 예제다.
+$$\boldsymbol a=(3,1)$$, $$\boldsymbol b=(1,2)$$일 때 합은 $$(4,3)$$, 차는 $$(2,-1)$$이다.
+합을 구할 때는 $$\boldsymbol a$$의 끝점에 $$\boldsymbol b$$의 시작점을 옮겨 붙인다.
+이때 벡터의 길이와 방향은 유지한다.
+차는 $$\boldsymbol a+(-\boldsymbol b)$$로 계산한다.
+두 벡터를 같은 시작점에서 그렸다면 **$$\boldsymbol b$$의 끝점에서 $$\boldsymbol a$$의 끝점으로 향하는 화살표**도
+$$\boldsymbol a-\boldsymbol b$$를 나타낸다. 순서를 바꾸면 차의 방향이 반대가 된다.
 
 # 4. 스칼라와 벡터의 곱
 
-벡터에 하나의 수인 스칼라 $c$를 곱하면 모든 성분에 $c$가 곱해진다.
+벡터에 하나의 수인 스칼라 $$c$$를 곱하면 모든 성분에 $$c$$가 곱해진다.
 
 $$
 c[\boldsymbol a]
@@ -126,9 +172,24 @@ print(scaled)
 이는 앞선 NumPy 강의에서 배운 배열과 스칼라의 브로드캐스팅이다. 양의 값을 곱하면
 방향은 같고 크기가 변한다. 음의 값을 곱하면 방향도 반대가 된다.
 
+![같은 벡터에 양수 0.5와 2를 곱하면 길이만 변하고 음수 -1.5를 곱하면 길이와 방향이 함께 변하는 그림](/assets/img/lecture_notes/data_mse/vector_scalar_multiplication.png){: style="width: 680px; max-width: 100%; height: auto;"}
+
+그림에서는 $$\boldsymbol a=(2,1)$$을 기준으로 배율을 비교했다.
+$$\tfrac12\boldsymbol a=(1,0.5)$$는 같은 방향으로 길이가 절반이며,
+$$2\boldsymbol a=(4,2)$$는 같은 방향으로 길이가 두 배다.
+$$-\tfrac32\boldsymbol a=(-3,-1.5)$$는 반대 방향이고 길이는 원래의 1.5배다.
+이를 일반화하면
+
+$$
+\|c\boldsymbol a\|=|c|\,\|\boldsymbol a\|
+$$
+
+이다. **크기는 음수가 될 수 없으므로 배율의 절댓값을 사용한다.**
+$$c=0$$이면 영벡터가 되며 방향은 정의되지 않는다.
+
 # 5. 벡터의 크기
 
-벡터 $\boldsymbol a$의 크기(Euclidean norm)는
+벡터 $$\boldsymbol a$$의 크기(Euclidean norm)는
 
 $$
 \|\boldsymbol a\|_2
@@ -144,7 +205,7 @@ $$
 |\boldsymbol a|
 $$
 
-벡터 $(3,4,0)$의 크기를 직접 계산하면
+벡터 $$(3,4,0)$$의 크기를 직접 계산하면
 
 $$
 \sqrt{3^2+4^2+0^2}=5
@@ -217,7 +278,7 @@ $$
 
 이다.
 
-NumPy 배열은 인덱스가 0부터 시작하므로, 이의 수식을 0부터 시작하는 인덱스로 바꾸어야 한다. 즉, $a_1b_1+a_2b_2+a_3b_3$는 NumPy에서는 $a[0]*b[0]+a[1]*b[1]+a[2]*b[2]$가 된다.
+NumPy 배열은 인덱스가 0부터 시작하므로, 이의 수식을 0부터 시작하는 인덱스로 바꾸어야 한다. 즉, $$a_1b_1+a_2b_2+a_3b_3$$는 NumPy에서는 $$a[0]*b[0]+a[1]*b[1]+a[2]*b[2]$$가 된다.
 
 ~~~python
 a = np.array([1.0, 2.0, 3.0])
@@ -239,7 +300,7 @@ print(a @ b)
 이 예제처럼 두 배열이 길이가 같은 **1차원 실수 배열**이면, 대응하는 성분을 곱해
 더한 내적을 계산한다. 따라서 <code>(a * b).sum()</code>,
 <code>np.dot(a, b)</code>, <code>a @ b</code>의 결과는 모두 스칼라 32이다.
-즉, $1\times4+2\times5+3\times6=32$이다.
+즉, $$1\times4+2\times5+3\times6=32$$이다.
 
 반면 <code>a * b</code>만 계산하면 합을 하지 않으므로
 내적이 아니라 원소별 곱 배열 <code>[4., 10., 18.]</code>이 나온다.
@@ -255,9 +316,65 @@ y_direction = np.array([0.0, 1.0, 0.0])
 print(x_direction @ y_direction)
 ~~~
 
+## 7.1. 내적의 부호와 단위
+
+영벡터가 아닌 두 벡터의 끼인각을 $$0\le\theta\le180^\circ$$로 정하면 다음과 같다.
+
+| 내적 | 끼인각 | 방향의 관계 |
+|---|---|---|
+| 양수 | 예각 | 같은 방향 성분이 우세하다. |
+| 0 | 직각 | 서로 수직이다. |
+| 음수 | 둔각 | 반대 방향 성분이 우세하다. |
+
+내적의 단위는 두 입력 벡터 단위의 곱이다.
+힘과 변위의 내적은 힘이 한 일이며 단위는 $$\mathrm{N\,m}=\mathrm J$$다.
+힘 $$\boldsymbol F=(3,4,0)\,\mathrm N$$이 작용하는 동안 변위가
+$$\boldsymbol u=(2,0,0)\,\mathrm m$$이면
+
+$$
+W=\boldsymbol F\cdot\boldsymbol u=3(2)+4(0)+0(0)=6\,\mathrm J.
+$$
+
+여기서는 힘이 일정하다고 가정했다. 경로를 따라 힘이 변하면 작은 구간의 일을 더하거나 적분해야 한다.
+
+## 7.2. 한 방향으로의 투영과 수직 성분
+
+단위벡터 $$\boldsymbol n$$ 방향으로 벡터 $$\boldsymbol a$$가 얼마나 향하는지 나타내는
+**부호 있는 스칼라 성분**은 $$a_n=\boldsymbol a\cdot\boldsymbol n$$이다.
+그 방향의 벡터 투영과 나머지 성분은
+
+$$
+\boldsymbol a_{\parallel}=(\boldsymbol a\cdot\boldsymbol n)\boldsymbol n,
+\qquad
+\boldsymbol a_{\perp}=\boldsymbol a-\boldsymbol a_{\parallel}
+$$
+
+이다. $$\boldsymbol a=(3,4,0)$$이고 $$\boldsymbol n=(1,0,0)$$이면
+스칼라 성분은 3, 벡터 투영은 $$(3,0,0)$$, 수직 성분은 $$(0,4,0)$$다.
+방향벡터 $$\boldsymbol b\ne\boldsymbol0$$가 단위벡터가 아니라면
+
+$$
+\boldsymbol a_{\parallel}
+=\frac{\boldsymbol a\cdot\boldsymbol b}{\boldsymbol b\cdot\boldsymbol b}\boldsymbol b
+$$
+
+로 계산한다. 분모를 생략하면 투영의 크기가 잘못된다.
+
+~~~python
+a = np.array([3.0, 4.0, 0.0])
+b = np.array([1.0, 1.0, 0.0])
+parallel = (a @ b) / (b @ b) * b
+perpendicular = a - parallel
+print(parallel)       # [3.5, 3.5, 0.0]
+print(perpendicular)  # [-0.5, 0.5, 0.0]
+print(np.isclose(perpendicular @ b, 0.0))
+~~~
+
+수직 성분과 방향벡터의 내적이 0에 가까운지 확인하면 투영 계산을 검산할 수 있다.
+
 # 8. 두 벡터 사이의 각
 
-내적은 두 벡터 사이의 각 $\theta$와 다음 관계를 갖는다.
+내적은 두 벡터 사이의 각 $$\theta$$와 다음 관계를 갖는다.
 
 $$
 \boldsymbol a\mathbin{\cdot}\boldsymbol b
@@ -339,7 +456,7 @@ cross_product = np.cross(a, b)
 print(cross_product)
 ~~~
 
-결과는 $[0,0,1]$이다. 방향은 오른손 법칙을 따른다.
+결과는 $$[0,0,1]$$이다. 방향은 오른손 법칙을 따른다.
 
 외적은 순서를 바꾸면 부호가 바뀐다.
 
@@ -365,9 +482,9 @@ $$
 
 ![두 벡터가 만드는 평행사변형의 밑변, 높이, 끼인각과 외적의 방향](/assets/img/lecture_notes/data_mse/cross_product_area.png){: style="max-width: 100%; height: auto;"}
 
-그림에서 파란 벡터 $\boldsymbol a$를 밑변으로 잡으면 밑변의 길이는
-$|\boldsymbol a|$이다. 빨간 벡터 $\boldsymbol b$의 끝에서 밑변에 수선을 내리면
-높이는 $h=|\boldsymbol b|\sin\theta$가 된다. 따라서 넓이 $S$는
+그림에서 파란 벡터 $$\boldsymbol a$$를 밑변으로 잡으면 밑변의 길이는
+$$|\boldsymbol a|$$이다. 빨간 벡터 $$\boldsymbol b$$의 끝에서 밑변에 수선을 내리면
+높이는 $$h=|\boldsymbol b|\sin\theta$$가 된다. 따라서 넓이 $$S$$는
 
 $$
 S=\text{밑변}\times\text{높이}
@@ -378,9 +495,24 @@ $$
 
 이다. **외적 자체는 벡터이고, 그 크기가 평행사변형의 넓이**라는 점을 구분하자.
 그림의 초록색 원 안의 점은 외적 벡터가 종이 밖, 즉 독자 쪽을 향함을 뜻한다.
-이 방향은 $\boldsymbol a$에서 $\boldsymbol b$로 손가락을 감는 오른손 법칙으로 정한다.
+이 방향은 $$\boldsymbol a$$에서 $$\boldsymbol b$$로 손가락을 감는 오른손 법칙으로 정한다.
 순서를 바꾸면 외적의 방향은 반대가 되지만 넓이는 같다.
 두 벡터가 평행하면 평행사변형이 선분으로 퇴화하여 넓이와 외적의 크기가 모두 0이 된다.
+
+## 9.1. 내적·외적·원소별 곱 구분하기
+
+| 연산 | NumPy 표현 | 결과 | 대표적인 용도 |
+|---|---|---|---|
+| 원소별 곱 | <code>a * b</code> | 같은 길이의 배열 | 원소별 가중치 적용 |
+| 내적 | <code>a @ b</code> | 스칼라 | 각도, 투영, 일 |
+| 외적 | <code>np.cross(a, b)</code> | 3성분 벡터 | 면의 법선, 넓이 |
+
+여기서 외적은 **cross product**를 뜻한다.
+<code>np.outer(a, b)</code>가 계산하는 outer product는 $$a_i b_j$$를 성분으로 갖는 행렬이며 다른 연산이다.
+평면 벡터의 외적을 구할 때도 이 자료에서는 $$z$$성분을 0으로 두어 3성분 배열로 입력한다.
+
+외적의 방향은 입력 순서에 따라 달라진다. 평행한 두 벡터의 외적은 영벡터이므로,
+그 외적을 정규화하여 면의 단위법선을 만들 수 없다.
 
 # 10. 재료공학 예제
 
@@ -399,12 +531,12 @@ print(resultant)
 print(resultant_magnitude)
 ~~~
 
-합력은 $[100,50,0]$ N이고 크기는 약 111.8 N이다.
+합력은 $$[100,50,0]$$ N이고 크기는 약 111.8 N이다.
 
 ## 10.2. 입방정에서 결정방향 사이의 각
 
-입방정(cubic crystal)에서는 결정방향 $[uvw]$를 성분이 $(u,v,w)$인 벡터로
-다룰 수 있다. $[100]$과 $[110]$ 사이의 각을 계산해 보자.
+입방정(cubic crystal)에서는 결정방향 $$[uvw]$$를 성분이 $$(u,v,w)$$인 벡터로
+다룰 수 있다. $$[100]$$과 $$[110]$$ 사이의 각을 계산해 보자.
 
 ~~~python
 direction_1 = np.array([1.0, 0.0, 0.0])
@@ -423,7 +555,7 @@ print(angle_deg)
 ## 10.3. 평행사변형의 넓이
 
 두 격자벡터가 만드는 평행사변형의 넓이는 외적의 크기로 구할 수 있다. 아래 예제에서는
-두 벡터가 수직이므로 $\sin\theta=1$이며, 넓이는 두 벡터의 크기를 곱한 값이다.
+두 벡터가 수직이므로 $$\sin\theta=1$$이며, 넓이는 두 벡터의 크기를 곱한 값이다.
 
 ~~~python
 lattice_a = np.array([2.0, 0.0, 0.0])
@@ -437,6 +569,24 @@ print(area)
 ~~~
 
 넓이는 6이다. 격자벡터의 단위가 nm라면 넓이 단위는 nm²이다.
+
+## 10.4. 여러 변위벡터의 크기를 한 번에 계산하기
+
+영상에서 추적한 세 점의 변위가 다음과 같다고 하자. 각 **행은 한 점**, 각 열은 $$x,y,z$$ 성분이며 단위는 $$\mu\mathrm m$$다.
+
+~~~python
+displacements = np.array([
+    [3.0, 4.0, 0.0],
+    [0.0, 0.0, 2.0],
+    [1.0, 2.0, 2.0],
+])
+lengths = np.linalg.norm(displacements, axis=1)
+print(lengths)  # [5.0, 2.0, 3.0]
+~~~
+
+<code>axis=1</code>은 각 행의 성분을 모아 크기를 구한다는 뜻이다.
+<code>np.linalg.norm(displacements)</code>처럼 축을 생략하면 이 예제에서는 모든 원소의 제곱합에 제곱근을 취한 **하나의 값**이 나오므로,
+점별 변위 크기와 구분해야 한다.
 
 # 11. 자주 하는 실수
 
@@ -456,11 +606,15 @@ print(area)
 - 내적 결과는 스칼라이며 두 벡터의 끼인 각과 관계된다.
 - 외적 결과는 두 입력 벡터에 모두 수직인 벡터이다.
 
+## 12.1. 두 강의를 연결하는 종합 실습
+
+[기울어진 격자와 원자 이동 실습]({% link assets/lecture_notes/1_2_data_mse/data_mse_supp_vector_matrix_lab.md %})에서 위치 변환, 변위, 투영, 넓이와 역변환을 함께 연습할 수 있다.
+
 # 13. 연습 문제
 
 ## 문제 1
 
-두 벡터 $\boldsymbol a=(1,2,3)$과 $\boldsymbol b=(2,0,1)$의 합을 구하라.
+두 벡터 $$\boldsymbol a=(1,2,3)$$과 $$\boldsymbol b=(2,0,1)$$의 합을 구하라.
 
 <!--
 풀이와 해답:
@@ -469,7 +623,7 @@ a+b=(3,2,4)이다.
 
 ## 문제 2
 
-벡터 $(3,4,0)$의 크기를 구하라.
+벡터 $$(3,4,0)$$의 크기를 구하라.
 
 <!--
 풀이와 해답:
@@ -487,7 +641,7 @@ np.linalg.norm(a)
 
 ## 문제 4
 
-$\boldsymbol a=(1,0,0)$과 $\boldsymbol b=(0,2,0)$의 내적을 구하라.
+$$\boldsymbol a=(1,0,0)$$과 $$\boldsymbol b=(0,2,0)$$의 내적을 구하라.
 
 <!--
 풀이와 해답:
@@ -510,7 +664,7 @@ a*b는 [4,10,18]이고 a@b는 32이다.
 
 ## 문제 6
 
-$\boldsymbol a=(1,0,0)$과 $\boldsymbol b=(0,1,0)$의 외적을 구하라.
+$$\boldsymbol a=(1,0,0)$$과 $$\boldsymbol b=(0,1,0)$$의 외적을 구하라.
 
 <!--
 풀이와 해답:
@@ -524,6 +678,126 @@ a cross b=(0,0,1)이다.
 <!--
 풀이와 해답:
 radian이다.
+-->
+
+## 문제 8: 위치와 변위
+
+두 점의 위치가 $$\boldsymbol r_P=(1,2,0)\,\mathrm{mm}$$,
+$$\boldsymbol r_Q=(4,6,0)\,\mathrm{mm}$$다.
+$$P$$에서 $$Q$$로 향하는 변위, 거리와 단위방향벡터를 손으로 구하고 NumPy로 확인하라.
+
+<!--
+풀이와 해답:
+변위 r_Q-r_P=(3,4,0) mm, 거리 5 mm, 단위방향벡터 (0.6,0.8,0)이다.
+delta = np.array([4.,6.,0.]) - np.array([1.,2.,0.])
+length = np.linalg.norm(delta); direction = delta / length
+-->
+
+## 문제 9: 배열의 shape과 브로드캐스팅
+
+다음 코드에서 세 배열의 shape과 <code>a + column</code>의 결과를 예상한 뒤 실행하라.
+성분별 합 $$(2,4,6)$$을 얻으려면 어떻게 고쳐야 하는가?
+
+~~~python
+a = np.array([1.0, 2.0, 3.0])
+column = a[:, None]
+result = a + column
+~~~
+
+<!--
+풀이와 해답:
+a는 (3,), column은 (3,1), result는 (3,3)이다.
+결과는 [[2,3,4],[3,4,5],[4,5,6]]이다.
+a + column[:,0] 또는 a + column.ravel()로 두 입력을 (3,)으로 맞추면 된다.
+-->
+
+## 문제 10: 투영과 수직 성분
+
+$$\boldsymbol a=(4,2,0)$$를 $$\boldsymbol b=(1,1,0)$$ 방향으로 투영하라.
+평행 성분과 수직 성분을 구하고, 두 성분의 합과 내적으로 검산하라.
+
+<!--
+풀이와 해답:
+(a dot b)/(b dot b)=6/2=3이다.
+평행 성분은 (3,3,0), 수직 성분은 (1,-1,0)이다.
+합은 (4,2,0)이고 두 성분의 내적은 3-3=0이다.
+-->
+
+## 문제 11: 힘이 한 일
+
+일정한 힘 $$\boldsymbol F=(10,-5,0)\,\mathrm N$$ 아래에서
+변위가 $$\boldsymbol u=(0.2,0.1,0)\,\mathrm m$$일 때 일을 구하라.
+같은 힘 아래에서 변위를 $$-\boldsymbol u$$로 바꾸면 일의 부호는 어떻게 되는가?
+
+<!--
+풀이와 해답:
+일은 10(0.2)-5(0.1)=1.5 J이다.
+반대 변위에서는 -1.5 J이다. 힘의 변위방향 성분과 변위의 상대 방향이 바뀐다.
+-->
+
+## 문제 12: 예각·직각·둔각 구분하기
+
+$$\boldsymbol a=(1,0,0)$$에 대하여
+$$(1,1,0)$$, $$(0,2,0)$$, $$(-1,1,0)$$과의 내적과 끼인각을 각각 구하라.
+<code>angle_between()</code>으로 확인하고, 영벡터를 입력했을 때 각도를 구할 수 없는 이유도 설명하라.
+
+<!--
+풀이와 해답:
+내적은 각각 1, 0, -1이며 각은 45도, 90도, 135도이다.
+영벡터는 방향이 없고 각도 공식의 분모가 0이 된다.
+-->
+
+## 문제 13: 외적·면적·법선
+
+두 변이 $$\boldsymbol a=(2,0,0)\,\mathrm{nm}$$,
+$$\boldsymbol b=(1,3,0)\,\mathrm{nm}$$인 삼각형을 생각하자.
+외적, 삼각형의 넓이, 오른손 법칙에 따른 단위법선을 구하라.
+외적의 입력 순서를 바꾸면 넓이와 법선은 각각 어떻게 되는가?
+
+<!--
+풀이와 해답:
+a cross b=(0,0,6) nm^2, 삼각형 넓이는 외적 크기의 절반인 3 nm^2이다.
+단위법선은 (0,0,1)이다. 순서를 바꾸면 법선은 (0,0,-1)이지만 넓이는 같다.
+-->
+
+## 문제 14: 점별 크기와 배열 전체의 크기
+
+다음 배열의 각 행은 하나의 변위벡터이며 단위는 mm다.
+<code>np.linalg.norm(D, axis=1)</code>과 <code>np.linalg.norm(D)</code>를 각각 구하고 의미를 비교하라.
+
+~~~python
+D = np.array([[3.0, 4.0, 0.0], [0.0, 0.0, 12.0]])
+~~~
+
+<!--
+풀이와 해답:
+axis=1 결과는 [5,12] mm로 두 점의 변위 크기이다.
+축을 생략한 결과는 sqrt(9+16+144)=13 mm로 전체 배열의 제곱합에 제곱근을 취한 값이다.
+13 mm를 어느 한 점의 변위 크기로 해석하면 안 된다.
+-->
+
+## 문제 15: 결정방향과 잘못된 정규화
+
+입방정에서 $$[110]$$과 $$[111]$$ 사이의 각을 구하라.
+또한 다음 코드의 <code>normal</code>이 유효한 단위법선인지 설명하고,
+영벡터의 정규화를 막는 조건을 추가하라.
+
+~~~python
+a = np.array([1.0, 2.0, 3.0])
+b = 2.0 * a
+cross = np.cross(a, b)
+# normal = cross / np.linalg.norm(cross)
+~~~
+
+<!--
+풀이와 해답:
+cos(theta)=2/(sqrt(2)*sqrt(3))이므로 약 35.2644도다.
+a와 b는 평행하므로 외적이 영벡터이며 단위법선은 정의되지 않는다.
+magnitude = np.linalg.norm(cross)
+if magnitude == 0:
+    raise ValueError("parallel vectors do not define a unique plane normal")
+normal = cross / magnitude
+실제 측정값에서 거의 평행한지 판정할 때는 데이터의 크기와 오차에 맞는 허용오차가 필요하다.
 -->
 
 [이전 강의]({% link assets/lecture_notes/1_2_data_mse/data_mse_10_NumPy기초2.md %}) | [강의 목록]({% link _lectures/1_2_data_mse.md %}) | [다음 강의]({% link assets/lecture_notes/1_2_data_mse/data_mse_12_행렬연산기초.md %})

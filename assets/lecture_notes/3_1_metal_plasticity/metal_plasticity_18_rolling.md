@@ -181,7 +181,7 @@ $$
 \varepsilon_3=-\varepsilon_1
 $$
 
-로 나타낼 수 있다. 이때 [von Mises 동등변형률]({% link assets/lecture_notes/3_1_metal_plasticity/metal_plasticity_plastic_work.md %})은
+로 나타낼 수 있다. 이때 [von Mises 동등변형률]({% link assets/lecture_notes/3_1_metal_plasticity/metal_plasticity_14_plastic_work.md %})은
 
 $$
 \boxed{
@@ -685,3 +685,5 @@ F = 200 x 300 x 15 = 900000 N = 0.9 MN이다.
     $(\Delta h)^2/4$가 $R\Delta h$보다 매우 작다. 이 항을 무시하면
     $L\approx\sqrt{R\Delta h}$를 얻는다. 예를 들어 $R=200$ mm,
     $\Delta h=2$ mm이면 정확한 값은 약 $19.975$ mm이고 근삿값은 $20.000$ mm이다.
+
+[이전 강의]({% link assets/lecture_notes/3_1_metal_plasticity/metal_plasticity_16_necking.md %}) | [강의 목록]({% link _lectures/3_1_metal_plasticity.md %})

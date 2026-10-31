@@ -149,3 +149,5 @@ $$
 5. Qdot=q''*A=200*0.5=100 W이다.
 6. Fourier 법칙의 음수 부호에 따라 -x 방향으로 흐른다.
 -->
+
+[강의 목록]({% link _lectures/2_2_transport.md %}) | [다음 강의]({% link assets/lecture_notes/2_2_transport_phenomena/transport_02_fluid_statics.md %})

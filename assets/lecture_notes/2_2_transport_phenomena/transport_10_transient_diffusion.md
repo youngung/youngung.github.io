@@ -155,3 +155,5 @@ $$
 6. sqrt(4e-12*2500)=sqrt(1e-8)=1e-4 m, 즉 0.1 mm이다.
 7. 아직 확산의 영향을 받지 않았으므로 초기농도 c_i에 가까워진다.
 -->
+
+[이전 강의]({% link assets/lecture_notes/2_2_transport_phenomena/transport_09_steady_diffusion.md %}) | [강의 목록]({% link _lectures/2_2_transport.md %})

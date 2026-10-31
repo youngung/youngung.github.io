@@ -272,3 +272,5 @@ Jacobian 행렬의 두 행이 거의 같은 방향을 가리킬 때 계산이 �
 풀이와 해답:
 두 행이 거의 선형종속이 되어 Jacobian이 특이행렬에 가까워지고 보정량이 오차에 매우 민감해지기 때문이다.
 -->
+
+[이전 강의]({% link assets/lecture_notes/2_1_numerical_analysis/numerical_analysis_11_multivariate.md %}) | [강의 목록]({% link _lectures/2_1_numerical_analysis.md %}) | [다음 강의]({% link assets/lecture_notes/2_1_numerical_analysis/numerical_analysis_13_integration.md %})

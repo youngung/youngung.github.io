@@ -130,3 +130,5 @@ $$
 5. |tau|=mu*U/H이므로 두 배가 된다.
 6. 점착조건으로 벽의 속도는 0이고 대칭면인 중앙에서 최대이다.
 -->
+
+[이전 강의]({% link assets/lecture_notes/2_2_transport_phenomena/transport_02_fluid_statics.md %}) | [강의 목록]({% link _lectures/2_2_transport.md %}) | [다음 강의]({% link assets/lecture_notes/2_2_transport_phenomena/transport_04_heat_transfer.md %})

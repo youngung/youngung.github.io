@@ -1,0 +1,146 @@
+---
+layout: distill
+title: 금속 소성가공 공정
+description: 압연, 단조, 압출, 인발과 판재 성형 공정의 개요
+target: 학부 고학년
+permalink:
+featured: true
+prerequisite: 금속 소성학 개요
+toc: false
+
+mermaid:
+  enabled: true
+  zoomable: true
+typograms: true
+hidden: true
+tabs: true
+tikzjax: true
+authors:
+  - name: Youngung Jeong
+    url: "https://youngung.github.io/"
+    affiliations:
+      name: Changwon National University
+---
+
+**Contents**
+
+* TOC
+{:toc}
+
+# 1. Rolling (압연)
+
+## 1.1. Hot rolling (열간 압연 - 열연)
+
+- 재결정(recrystallization)온도 이상의 온도에서 수행한다.
+
+## 1.2. Cold rolling (냉간 압연 - 냉연)
+
+- 강한 집합조직(crystallographic texture) 발달하기 쉽다.
+
+- 열간 압연에 비해 저렴한 공정 비용이 예상된다.
+
+- 공정 후, 높은 전위 밀도 예상된다. 따라서, 완료후 제품의 강도가 높아진다.
+
+- 열연 제품과 비교해 표면 마감이 매끄럽다.
+
+# 2. Forging (단조)
+
+- 해머나 프레스를 통해 압축 변형을 가한다.
+
+- Refined 결정립 구조를 보이며, 피로에 대한 저항성이 높다. 따라서
+  피로 파괴에 대한 높은 저항성이 필요한 Aircraft 구조물 성형 공정에 활용된다.
+
+# 3. Extrusion (압출)
+
+- Billet나, rod 등을 다이(die)에 밀어 넣어 단면적 모양이 같은 형상의 제품을 만드는 공정
+
+- 치약을 짜서 좁은 구멍을 통과시키는 형태를 생각해보자.
+
+- 알루미늄 창틀, 튜브 등
+
+# 4. Drawing (인발)
+
+- 다이를 통해 Rod, Billet 등을 당겨(pull) 형상을 만드는 공정
+
+# 5. Deep Drawing
+
+- 평평한 판재를 컵 모양으로 만드는 공정이며, 비어 있는 실린더 형태의 금형 공간으로
+  펀치(punch)를 활용해 판재를 눌러 형태를 만든다.
+
+- 음료 캔 (콜라, 사이다)을 만들거나, 싱크대, 자동차 판넬 등을 만들때 활용한다.
+
+# 6. Stamping (스탬핑)
+
+- blanking, piercing, bending, embossing, coining 등 다양한 작업으로 구성되며
+  판재를 복잡한 형태의 패널로 만들때 활용된다.
+
+- 자동차 내/외부 판넬이나, 텔레비전의 기반 등에 활용되며 대량생산에 적극 도입되는 공정이다.
+
+# 7. Hydroforming
+
+- 고압의 유체를 활용해 모양을 만드는 공정
+
+
+# 8. 공정들의 조합
+
+- 관(pipe)형상의 제품을 만드는 방법을 크게 두 가지 방법으로 나눌 수 있다.
+  - welded pipe
+    - 강판 코일 $\rightarrow$ roll forming $\rightarrow$ 용접
+  - seamless pipe
+    - Billet $\rightarrow$ 가열 후 Piercing $\rightarrow$ Mill / Drawing
+
+## 공정을 비교하는 기준
+
+공정 이름만 외우기보다 다음 기준으로 비교하면 공정 선택의 이유를 이해하기 쉽다.
+
+| 기준 | 확인할 질문 |
+|---|---|
+| 소재 형태 | 판재인가, 벌크 소재인가, 봉·선재인가? |
+| 주된 하중 | 압축, 인장, 굽힘 중 무엇이 지배적인가? |
+| 변형 경로 | 두께, 길이, 직경 중 어느 방향이 주로 변하는가? |
+| 온도 | 열간, 온간, 냉간 중 어느 조건인가? |
+| 제품 요구 | 형상, 치수 정밀도, 표면 품질과 생산량은 어떠한가? |
+
+압연·단조·압출은 주로 압축응력을 활용하므로 큰 소성변형에 유리하다. 인발에서는 소재를
+당기지만 다이 접촉부의 압축응력도 중요하다. 판재 성형에서는 인장과 압축이 위치에 따라
+함께 나타나므로 주름과 파단을 동시에 고려해야 한다.
+
+# 9. 연습 문제
+
+## 문제 1
+
+두 회전 롤 사이로 소재를 통과시켜 두께를 줄이는 공정의 이름을 쓰시오.
+
+<!--
+풀이와 해답:
+압연(rolling)이다.
+-->
+
+## 문제 2
+
+열간가공과 냉간가공을 구분하는 기준을 쓰시오.
+
+<!--
+풀이와 해답:
+재료의 재결정온도보다 높은 온도에서 가공하면 열간가공, 낮은 온도에서 가공하면 냉간가공이다.
+-->
+
+## 문제 3
+
+봉이나 선재를 다이를 통과시켜 단면을 줄이는 공정의 이름을 쓰시오.
+
+<!--
+풀이와 해답:
+인발(drawing)이다.
+-->
+
+## 문제 4
+
+판재로 컵 모양의 제품을 만드는 대표적인 공정을 쓰시오.
+
+<!--
+풀이와 해답:
+딥 드로잉(deep drawing)이다.
+-->
+
+[이전 강의]({% link assets/lecture_notes/3_1_metal_plasticity/metal_plasticity_01_orientation.md %}) | [강의 목록]({% link _lectures/3_1_metal_plasticity.md %}) | [다음 강의]({% link assets/lecture_notes/3_1_metal_plasticity/metal_plasticity_03_stress_strain.md %})

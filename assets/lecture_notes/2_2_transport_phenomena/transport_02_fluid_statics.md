@@ -138,3 +138,5 @@ $$
 5. p_abs=101+20=121 kPa이다.
 6. 가라앉기 시작하면 잠긴 부피와 부력이 증가한다. 부력이 무게와 같아지는 위치에서 뜬다.
 -->
+
+[이전 강의]({% link assets/lecture_notes/2_2_transport_phenomena/transport_01_orientation.md %}) | [강의 목록]({% link _lectures/2_2_transport.md %}) | [다음 강의]({% link assets/lecture_notes/2_2_transport_phenomena/transport_03_newtonian_viscosity.md %})

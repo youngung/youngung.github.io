@@ -80,3 +80,5 @@ authors:
   활용한 기초 소성역학 이론을 배운다.
 
 - 결정 소성 모델의 기초를 배우고, 간단한 역학 시뮬레이션에 활용할 수 있다.
+
+[강의 목록]({% link _lectures/3_1_metal_plasticity.md %}) | [다음 강의]({% link assets/lecture_notes/3_1_metal_plasticity/metal_plasticity_02_forming_processes.md %})

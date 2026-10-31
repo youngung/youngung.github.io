@@ -159,3 +159,5 @@ Tresca 항복조건이 사용하는 주응력의 조합을 설명하라.
 풀이와 해답:
 최대 주응력과 최소 주응력의 차이, 즉 최대전단응력에 해당하는 값을 사용한다.
 -->
+
+[이전 강의]({% link assets/lecture_notes/5_1_polycrystalline_plasticity/metal_plasticity_12_Mohr_circle.md %}) | [강의 목록]({% link _lectures/5_1_polycrystalline_Plasticity.md %}) | [다음 강의]({% link assets/lecture_notes/5_1_polycrystalline_plasticity/metal_plasticity_13_flow_rule.md %})

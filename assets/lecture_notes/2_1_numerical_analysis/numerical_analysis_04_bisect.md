@@ -405,3 +405,5 @@ print("iterations:", iterations)
    f(-1)=2이고 f(1)=2이므로 양 끝점의 함수값 부호가 같다.
    따라서 ValueError가 발생한다. 이 함수는 모든 실수 x에서 양수이므로 실근도 없다.
    -->
+
+[이전 강의]({% link assets/lecture_notes/2_1_numerical_analysis/numerical_analysis_03_유한정밀도.md %}) | [강의 목록]({% link _lectures/2_1_numerical_analysis.md %}) | [다음 강의]({% link assets/lecture_notes/2_1_numerical_analysis/numerical_analysis_05_NewtonRaphson1.md %})

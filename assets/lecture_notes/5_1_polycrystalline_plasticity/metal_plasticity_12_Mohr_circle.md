@@ -312,3 +312,5 @@ $\sigma_x=100$ MPa, $\sigma_y=40$ MPa, $\tau_{xy}=0$인 평면응력 상태에�
 풀이와 해답:
 Mohr 원에서는 크기가 2 theta인 각도만큼 이동한다.
 -->
+
+[이전 강의]({% link assets/lecture_notes/5_1_polycrystalline_plasticity/metal_plasticity_11_principal_space_deviatoric_stress.md %}) | [강의 목록]({% link _lectures/5_1_polycrystalline_Plasticity.md %}) | [다음 강의]({% link assets/lecture_notes/5_1_polycrystalline_plasticity/metal_plasticity_09_plastic_yield.md %})

@@ -1,0 +1,24 @@
+\documentclass[tikz,border=12pt]{standalone}
+\usepackage{amsmath}
+\usepackage{kotex}
+\usetikzlibrary{arrows.meta}
+\definecolor{avec}{RGB}{35,100,175}
+\definecolor{scaled}{RGB}{30,130,95}
+\definecolor{opposite}{RGB}{195,70,45}
+\begin{document}
+\begin{tikzpicture}[>=Latex,font=\sffamily,line cap=round,line join=round]
+\node[font=\large\bfseries] at (1.3,2.25) {스칼라 곱: $\boldsymbol a=(2,1)$, $\|\boldsymbol a\|=\sqrt5$};
+\draw[dashed,gray!50] (0,-7.35)--(0,1.35);
+\foreach \y in {0,-2.2,-4.4,-6.6} {\fill (0,\y) circle (1.6pt);}
+\draw[avec,->,very thick] (0,0)--(2,1) node[midway,above left=3pt] {$\boldsymbol a$};
+\node[anchor=west,align=left] at (5.4,.5) {기준 벡터\\크기: $\sqrt5$};
+\draw[scaled,->,very thick] (0,-2.2)--(1,-1.7) node[midway,above left=3pt] {$\tfrac12\boldsymbol a$};
+\node[anchor=west,align=left] at (5.4,-1.7) {같은 방향, 길이 $\tfrac12$배\\크기: $\tfrac12\sqrt5$};
+\draw[scaled,->,very thick] (0,-4.4)--(4,-2.4) node[midway,above left=3pt] {$2\boldsymbol a$};
+\node[anchor=west,align=left] at (5.4,-3.9) {같은 방향, 길이 2배\\크기: $2\sqrt5$};
+\draw[opposite,->,very thick] (0,-6.6)--(-3,-8.1) node[midway,below right=3pt] {$-\tfrac32\boldsymbol a$};
+\node[anchor=west,align=left] at (5.4,-6.6) {반대 방향, 길이 $\tfrac32$배\\크기: $\tfrac32\sqrt5$};
+\node[align=center,font=\large] at (1.8,-9.25) {$\boxed{\|c\boldsymbol a\|=|c|\,\|\boldsymbol a\|}$};
+\node[align=center,text=gray!80!black,font=\small] at (1.8,-10.25) {비교를 위해 각 벡터의 시작점을 위아래로 옮겨 그렸다.\\$c=0$이면 영벡터가 되어 방향이 정의되지 않는다.};
+\end{tikzpicture}
+\end{document}

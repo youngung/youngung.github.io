@@ -438,3 +438,5 @@ n=e3인 면에서 t=sigma e3=(sigma_13,sigma_23,sigma_33)^T이다.
 항상 그렇지는 않다. 형상, 하중, 경계조건과 관심 위치에 따라 적절한 평면조건이 달라질
 수 있으며 필요하면 3차원 해석을 사용해야 한다.
 -->
+
+[이전 강의]({% link assets/lecture_notes/5_1_polycrystalline_plasticity/metal_plasticity_07_elasticity.md %}) | [강의 목록]({% link _lectures/5_1_polycrystalline_Plasticity.md %}) | [다음 강의]({% link assets/lecture_notes/5_1_polycrystalline_plasticity/metal_plasticity_10_coordinate_transformation.md %})

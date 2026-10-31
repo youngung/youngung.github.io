@@ -591,3 +591,5 @@ print(1.0 + eps/2 == 1.0)
     float64가 가수에 더 많은 비트를 사용하므로 float32보다 더 많은 유효숫자를
     표현하고 일반적으로 반올림 오차도 더 작다.
     -->
+
+[이전 강의]({% link assets/lecture_notes/2_1_numerical_analysis/numerical_analysis_02_수와오차.md %}) | [강의 목록]({% link _lectures/2_1_numerical_analysis.md %}) | [다음 강의]({% link assets/lecture_notes/2_1_numerical_analysis/numerical_analysis_04_bisect.md %})

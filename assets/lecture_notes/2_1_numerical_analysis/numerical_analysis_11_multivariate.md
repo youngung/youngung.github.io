@@ -500,3 +500,5 @@ print(root)
    경사하강법은 스칼라 함수의 최솟값을 찾고, 다변수 Newton 방법은 벡터 함수가
    영벡터가 되는 근을 찾는다.
    -->
+
+[이전 강의]({% link assets/lecture_notes/2_1_numerical_analysis/numerical_analysis_10_GradientDescent.md %}) | [강의 목록]({% link _lectures/2_1_numerical_analysis.md %}) | [다음 강의]({% link assets/lecture_notes/2_1_numerical_analysis/numerical_analysis_12_multivariate_geometric_interpretation.md %})

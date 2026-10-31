@@ -573,3 +573,5 @@ plt.show()
        ~~~
 
     4. 계산된 `error`가 두 벡터가 완전히 같을 때는 어떤 값을 갖는지 답하라.
+
+[이전 강의]({% link assets/lecture_notes/2_1_numerical_analysis/numerical_analysis_01_orientation.md %}) | [강의 목록]({% link _lectures/2_1_numerical_analysis.md %}) | [다음 강의]({% link assets/lecture_notes/2_1_numerical_analysis/numerical_analysis_03_유한정밀도.md %})

@@ -121,3 +121,5 @@ authors:
 풀이와 해답:
 외부 하중에 의해 발생하는 내부 힘의 상태를 응력으로, 그 결과 생기는 형상 변화를 변형률로 나타내기 때문이다.
 -->
+
+[강의 목록]({% link _lectures/5_1_polycrystalline_Plasticity.md %}) | [다음 강의]({% link assets/lecture_notes/5_1_polycrystalline_plasticity/metal_plasticity_02_forming_processes.md %})

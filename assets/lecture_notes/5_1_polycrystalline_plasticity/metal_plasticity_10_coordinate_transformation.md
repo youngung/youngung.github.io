@@ -330,3 +330,5 @@ $$
 [\boldsymbol R]=\begin{bmatrix}0&1\\-1&0\end{bmatrix}을 사용하면 [\boldsymbol A]_{\tilde {\boldsymbol e}}=\begin{bmatrix}4&-2\\-2&10\end{bmatrix}이다.
 두 행렬의 trace는 모두 14이고 determinant는 모두 36이다.
 -->
+
+[이전 강의]({% link assets/lecture_notes/5_1_polycrystalline_plasticity/metal_plasticity_08_plane_condition.md %}) | [강의 목록]({% link _lectures/5_1_polycrystalline_Plasticity.md %}) | [다음 강의]({% link assets/lecture_notes/5_1_polycrystalline_plasticity/metal_plasticity_11_principal_space_deviatoric_stress.md %})

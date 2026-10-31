@@ -128,3 +128,5 @@ $$
 5. J=D*Delta c/L이므로 두 배가 된다.
 6. 플럭스는 단위 면적당 전달률로 mol/(m^2 s), 총 몰전달률은 면적 전체를 통과하는 양으로 mol/s이다.
 -->
+
+[이전 강의]({% link assets/lecture_notes/2_2_transport_phenomena/transport_08_diffusion_basics.md %}) | [강의 목록]({% link _lectures/2_2_transport.md %}) | [다음 강의]({% link assets/lecture_notes/2_2_transport_phenomena/transport_10_transient_diffusion.md %})

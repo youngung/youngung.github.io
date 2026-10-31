@@ -44,3 +44,7 @@ authors:
 - [제20강 EBSD 분석]({% link assets/lecture_notes/1_2_data_mse/data_mse_20_EBSD_분석.md %})
 - [제21강 고유값과 고유벡터]({% link assets/lecture_notes/1_2_data_mse/data_mse_21_고유값.md %})
 - [제22강 Misc]({% link assets/lecture_notes/1_2_data_mse/data_mse_22_misc.md %})
+
+## 보충 실습
+
+- [벡터·행렬 종합 실습 — 기울어진 격자와 원자 이동]({% link assets/lecture_notes/1_2_data_mse/data_mse_supp_vector_matrix_lab.md %})

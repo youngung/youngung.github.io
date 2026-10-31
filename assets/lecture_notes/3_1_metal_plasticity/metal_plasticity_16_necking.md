@@ -451,3 +451,5 @@ d sigma / d epsilon > sigma일 때 하중이 증가한다.
 네킹 이후에는 변형이 목 부분에 집중되어 표점부의 변형과 단면적이 균일하지 않기
 때문이다.
 -->
+
+[이전 강의]({% link assets/lecture_notes/3_1_metal_plasticity/metal_plasticity_15_strain_hardening.md %}) | [강의 목록]({% link _lectures/3_1_metal_plasticity.md %}) | [다음 강의]({% link assets/lecture_notes/3_1_metal_plasticity/metal_plasticity_18_rolling.md %})

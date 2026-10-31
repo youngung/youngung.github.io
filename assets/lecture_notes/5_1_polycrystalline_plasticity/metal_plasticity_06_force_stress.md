@@ -503,3 +503,5 @@ t(n)=sigma n에 대입하면 그 면의 면력벡터를 얻을 수 있기 때문
 풀이와 해답:
 1 MPa=10^6 N/m^2이고 1 m^2=10^6 mm^2이므로 1 MPa=1 N/mm^2이다.
 -->
+
+[이전 강의]({% link assets/lecture_notes/5_1_polycrystalline_plasticity/metal_plasticity_05c_material_derivative_ale.md %}) | [강의 목록]({% link _lectures/5_1_polycrystalline_Plasticity.md %}) | [다음 강의]({% link assets/lecture_notes/5_1_polycrystalline_plasticity/metal_plasticity_06b_stress_measures.md %})

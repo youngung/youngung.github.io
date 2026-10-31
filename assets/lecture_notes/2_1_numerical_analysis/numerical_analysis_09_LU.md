@@ -796,3 +796,5 @@ $$
     풀이 및 정답:
     x_1^(1)=7/4=1.75이고 x_2^(1)=8/3≈2.667이다.
     -->
+
+[이전 강의]({% link assets/lecture_notes/2_1_numerical_analysis/numerical_analysis_08_Gauss소거법.md %}) | [강의 목록]({% link _lectures/2_1_numerical_analysis.md %}) | [다음 강의]({% link assets/lecture_notes/2_1_numerical_analysis/numerical_analysis_10_GradientDescent.md %})

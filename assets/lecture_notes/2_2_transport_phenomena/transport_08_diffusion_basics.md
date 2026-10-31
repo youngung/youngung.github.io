@@ -128,3 +128,5 @@ $$
 5. x_A+x_B=1이므로 x_B=0.65이다.
 6. 농도구배가 +x 방향이므로 확산은 반대인 -x 방향이다.
 -->
+
+[이전 강의]({% link assets/lecture_notes/2_2_transport_phenomena/transport_07_transient_heat.md %}) | [강의 목록]({% link _lectures/2_2_transport.md %}) | [다음 강의]({% link assets/lecture_notes/2_2_transport_phenomena/transport_09_steady_diffusion.md %})

@@ -124,3 +124,5 @@ $$
 5. 0.02<0.1이므로 일반적으로 적용할 수 있다.
 6. t=0에서 (T_i-T_inf)/(T_i-T_inf)=1이다.
 -->
+
+[이전 강의]({% link assets/lecture_notes/2_2_transport_phenomena/transport_06_heat_fdm.md %}) | [강의 목록]({% link _lectures/2_2_transport.md %}) | [다음 강의]({% link assets/lecture_notes/2_2_transport_phenomena/transport_08_diffusion_basics.md %})

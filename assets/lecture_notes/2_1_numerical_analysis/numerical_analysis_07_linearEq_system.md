@@ -637,3 +637,5 @@ print("residual norm:", np.linalg.norm(residual))
     가우스 소거법과 LU 분해는 직접해법이다.
     Jacobi 방법과 Gauss–Seidel 방법은 반복해법이다.
     -->
+
+[이전 강의]({% link assets/lecture_notes/2_1_numerical_analysis/numerical_analysis_06_NewtonRaphson2.md %}) | [강의 목록]({% link _lectures/2_1_numerical_analysis.md %}) | [다음 강의]({% link assets/lecture_notes/2_1_numerical_analysis/numerical_analysis_08_Gauss소거법.md %})

@@ -117,3 +117,5 @@ $$
 5. 일차함수의 이계 미분이므로 0이다.
 6. rho와 c_p이며 alpha=k/(rho*c_p)이다.
 -->
+
+[이전 강의]({% link assets/lecture_notes/2_2_transport_phenomena/transport_04_heat_transfer.md %}) | [강의 목록]({% link _lectures/2_2_transport.md %}) | [다음 강의]({% link assets/lecture_notes/2_2_transport_phenomena/transport_06_heat_fdm.md %})

@@ -562,3 +562,5 @@ x는 차례로 약 1.666667, 1.166667, 1.019608, 1.001996이다.
 후보 B는 위반량 0.001이 허용오차보다 작으므로 B를 선택해야 한다.
 목적함수값뿐 아니라 제약조건 위반량도 함께 확인해야 한다.
 -->
+
+[이전 강의]({% link assets/lecture_notes/2_1_numerical_analysis/numerical_analysis_13_integration.md %}) | [강의 목록]({% link _lectures/2_1_numerical_analysis.md %})

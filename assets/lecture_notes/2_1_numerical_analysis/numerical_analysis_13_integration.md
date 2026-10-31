@@ -640,3 +640,5 @@ $x=0,1,3$에서 얻은 함수값에 $h(y_0+4y_1+y_2)/3$을 바로 적용해도 �
 Lagrange 보간은 가능하지만, 해당 점 위치에 맞는 기저다항식을 만들고
 적분하여 새로운 가중치를 구해야 한다.
 -->
+
+[이전 강의]({% link assets/lecture_notes/2_1_numerical_analysis/numerical_analysis_12_multivariate_geometric_interpretation.md %}) | [강의 목록]({% link _lectures/2_1_numerical_analysis.md %}) | [다음 강의]({% link assets/lecture_notes/2_1_numerical_analysis/numerical_analysis_14_penalty_method.md %})

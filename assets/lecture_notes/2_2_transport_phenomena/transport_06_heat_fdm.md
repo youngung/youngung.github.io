@@ -129,3 +129,5 @@ $T_{i-1}=T_{i+1}=50\ ^\circ\mathrm C$이면 $T_i=55\ ^\circ\mathrm C$이다.
 5. 60-2(50)+40=0이다. 따라서 이 절점은 열생성이 없는 정상 차분식을 만족한다.
 6. 연속 해를 더 잘 근사할 수 있지만 미지수와 계산량이 증가한다.
 -->
+
+[이전 강의]({% link assets/lecture_notes/2_2_transport_phenomena/transport_05_heat_equation.md %}) | [강의 목록]({% link _lectures/2_2_transport.md %}) | [다음 강의]({% link assets/lecture_notes/2_2_transport_phenomena/transport_07_transient_heat.md %})

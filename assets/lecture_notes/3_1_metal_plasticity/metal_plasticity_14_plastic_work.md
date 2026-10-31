@@ -85,3 +85,5 @@ $$
 $$
 \varepsilon^{eq}=\sqrt{\frac{2}{3}\sum_i^3(\varepsilon_{i}^{pl})^2}
 $$
+
+[이전 강의]({% link assets/lecture_notes/3_1_metal_plasticity/metal_plasticity_13_flow_rule.md %}) | [강의 목록]({% link _lectures/3_1_metal_plasticity.md %}) | [다음 강의]({% link assets/lecture_notes/3_1_metal_plasticity/metal_plasticity_15_strain_hardening.md %})
