@@ -47,4 +47,6 @@ authors:
 
 ## 보충 실습
 
+{% comment %}TODO: data_mse_supp_vector_matrix_lab.md 파일 추가 후 복구
 - [벡터·행렬 종합 실습 — 기울어진 격자와 원자 이동]({% link assets/lecture_notes/1_2_data_mse/data_mse_supp_vector_matrix_lab.md %})
+{% endcomment %}
