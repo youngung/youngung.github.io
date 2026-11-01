@@ -608,7 +608,9 @@ print(lengths)  # [5.0, 2.0, 3.0]
 
 ## 12.1. 두 강의를 연결하는 종합 실습
 
+{% comment %}TODO: 파일 추가 후 복구
 [기울어진 격자와 원자 이동 실습]({% link assets/lecture_notes/1_2_data_mse/data_mse_supp_vector_matrix_lab.md %})에서 위치 변환, 변위, 투영, 넓이와 역변환을 함께 연습할 수 있다.
+{% endcomment %}
 
 # 13. 연습 문제
 
