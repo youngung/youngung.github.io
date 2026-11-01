@@ -1,0 +1,53 @@
+\documentclass[tikz,border=12pt]{standalone}
+\usepackage{amsmath}
+\usepackage{kotex}
+\usetikzlibrary{arrows.meta}
+\definecolor{avec}{RGB}{35,100,175}
+\definecolor{bvec}{RGB}{195,70,45}
+\definecolor{result}{RGB}{30,130,95}
+\begin{document}
+\begin{tikzpicture}[>=Latex,font=\sffamily,line cap=round,line join=round,
+  vec/.style={->,very thick},guide/.style={dashed,thick,gray!65}]
+\node[font=\large\bfseries] at (5.6,5.15) {벡터의 합과 차: $\boldsymbol a=(3,1)$, $\boldsymbol b=(1,2)$};
+\begin{scope}
+\coordinate (O) at (0,0);
+\coordinate (A) at (3,1);
+\coordinate (B) at (1,2);
+\coordinate (C) at (4,3);
+\node[font=\bfseries] at (2,4.15) {(a) 합: 끝점에 다음 벡터를 잇기};
+\fill[result!7] (O)--(A)--(C)--(B)--cycle;
+\draw[guide] (B)--(C);
+\draw[avec,vec] (O)--(A) node[midway,below=5pt] {$\boldsymbol a$};
+\draw[bvec,vec] (O)--(B) node[midway,left=5pt] {$\boldsymbol b$};
+\draw[bvec,vec,dashed] (A)--(C) node[midway,right=5pt] {$\boldsymbol b$};
+\draw[result,vec] (O)--(C) node[pos=.55,below=7pt] {$\boldsymbol a+\boldsymbol b$};
+\fill (O) circle (1.5pt);
+\node[below left] at (O) {$O$};
+\node[below right] at (A) {$(3,1)$};
+\node[above left] at (B) {$(1,2)$};
+\node[above right] at (C) {$(4,3)$};
+\node[align=center] at (2,-1.2) {$\boldsymbol a+\boldsymbol b=(4,3)$\\시작점에서 마지막 끝점으로 향하는 벡터};
+\end{scope}
+\begin{scope}[xshift=7.3cm]
+\coordinate (O) at (0,0);
+\coordinate (A) at (3,1);
+\coordinate (B) at (1,2);
+\coordinate (D) at (2,-1);
+\node[font=\bfseries] at (1.8,4.15) {(b) 차: 반대 벡터를 더하기};
+\draw[avec,vec] (O)--(A) node[midway,above=4pt] {$\boldsymbol a$};
+\draw[bvec,vec] (O)--(B) node[midway,left=5pt] {$\boldsymbol b$};
+\draw[bvec,vec,dashed] (A)--(D) node[midway,right=5pt] {$-\boldsymbol b$};
+\draw[result,vec] (O)--(D) node[midway,below left=3pt] {$\boldsymbol a-\boldsymbol b$};
+\draw[result,vec,densely dotted] (B)--(A) node[midway,above right=3pt] {$\boldsymbol a-\boldsymbol b$};
+\fill (O) circle (1.5pt);
+\node[below left] at (O) {$O$};
+\node[right=4pt] at (A) {$(3,1)$};
+\node[above left] at (B) {$(1,2)$};
+\node[below right] at (D) {$(2,-1)$};
+\node[align=center] at (1.8,-2.15) {$\boldsymbol a-\boldsymbol b=\boldsymbol a+(-\boldsymbol b)=(2,-1)$\\같은 시작점에서는 $\boldsymbol b$의 끝점에서 $\boldsymbol a$의 끝점으로 향함
+};
+\end{scope}
+\node[align=center,text=gray!80!black,font=\small] at (5.6,-3.1) {점선 화살표는 방향과 길이를 유지하여 옮긴 벡터를 나타낸다.\\초록 점선: 같은 시작점에서 두 벡터의 차를 읽는 방법.
+};
+\end{tikzpicture}
+\end{document}

@@ -58,7 +58,18 @@ ninja.data = [{
           handler: () => {
             window.location.href = "/cv/";
           },
-        },{id: "post-ictp-학회-참석",
+        },{id: "post-대한금속재료학회-참석",
+        
+          title: "대한금속재료학회 참석",
+        
+        description: "",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2026/KIM/";
+          
+        },
+      },{id: "post-ictp-학회-참석",
         
           title: "ICTP 학회 참석",
         
@@ -376,6 +387,9 @@ ninja.data = [{
           description: "",
           section: "News",},{id: "news-전보혜-학생-박사학위-디펜스를-성공적으로-마무리-했습니다-trophy",
           title: '전보혜 학생 박사학위 디펜스를 성공적으로 마무리 했습니다 :trophy:',
+          description: "",
+          section: "News",},{id: "news-대한금속재료학회-청웅상-수상-beers",
+          title: '대한금속재료학회 청웅상 수상 :beers:',
           description: "",
           section: "News",},{id: "projects-vpsc-evpsc-기반-마그네슘-이원계-합금의-전위활성도-평가",
           title: 'VPSC/EVPSC 기반 마그네슘 이원계 합금의 전위활성도 평가',
