@@ -1,7 +1,7 @@
 ---
 layout: distill
 title: 좌표변환
-description: 벡터와 텐서 성분의 좌표변환
+description: 방향코사인과 Euler 각, 벡터와 텐서 성분의 좌표변환
 target: 학부 고학년
 permalink:
 featured: true
@@ -61,6 +61,145 @@ $$
 기저에서 새 기저로 바꾸는 **수동적 변환(passive transformation)**을 사용한다.
 물체 자체를 회전시키는 능동적 회전(active rotation)에서는 행렬 또는 전치행렬의
 위치가 달라질 수 있으므로 행렬의 정의와 회전 방향을 먼저 확인해야 한다.
+
+## 1.1. 좌표변환 행렬과 방향코사인 (direction cosine)
+
+두 단위벡터의 내적은 두 벡터 사이 각도의 코사인이다.
+새 축 $\tilde{\boldsymbol e}_i$와 기존 축 $\boldsymbol e_j$ 사이의 각도를
+$\theta_{ij}$라 하면
+
+$$
+\boxed{R_{ij}=\tilde{\boldsymbol e}_i\cdot\boldsymbol e_j
+=\cos\theta_{ij}}
+$$
+
+이다. 이 값을 **방향코사인(direction cosine)**이라 하며, 이들을 모은
+$[\boldsymbol R]$을 방향코사인 행렬(direction cosine matrix)이라고도 한다.
+즉, 좌표변환 행렬과 방향코사인 행렬은 여기서 같은 행렬을 뜻한다.
+각 성분은 새 축을 기존 축에 정사영한 값이므로 무차원이다.
+
+예를 들어 새 첫째 축이
+$\tilde{\boldsymbol e}_1=(\boldsymbol e_1+\boldsymbol e_2)/\sqrt{2}$이면,
+기존 세 축과 이루는 각도는 각각 $45^\circ,45^\circ,90^\circ$이다. 따라서
+
+$$
+(R_{11},R_{12},R_{13})
+=(\cos45^\circ,\cos45^\circ,\cos90^\circ)
+=\left(\frac{1}{\sqrt{2}},\frac{1}{\sqrt{2}},0\right)
+$$
+
+이 첫 번째 행이 된다. 행과 열의 의미는 다음과 같이 구분된다.
+
+| 배열 | 기하학적 의미 |
+| --- | --- |
+| $i$번째 행 $(R_{i1},R_{i2},R_{i3})$ | 새 축 $\tilde{\boldsymbol e}_i$의 기존 기저 성분 |
+| $j$번째 열 $(R_{1j},R_{2j},R_{3j})^T$ | 기존 축 $\boldsymbol e_j$의 새 기저 성분 |
+
+아홉 성분을 임의로 정할 수는 없다. 축의 단위길이와 직교성 때문에
+
+$$
+\sum_{j=1}^3R_{ij}R_{kj}=\delta_{ik},\qquad
+\sum_{i=1}^3R_{ij}R_{ik}=\delta_{jk}
+$$
+
+을 만족한다. 특히 각 행에 대해 $R_{i1}^2+R_{i2}^2+R_{i3}^2=1$이다.
+오른손 기저 사이의 회전에는 독립적인 매개변수가 세 개만 필요하다.
+
+문헌에서 **좌표변환 텐서** 또는 **회전 텐서**라는 용어도 쓰지만,
+무엇을 변환하는지 구분해야 한다. 여기서 $[\boldsymbol R]$은 동일한 물리적
+벡터의 성분을 두 기저 사이에서 변환하는 행렬이다.
+반면 기존 기저벡터를 실제로 새 기저벡터로 회전시키는 2계 텐서를
+$\boldsymbol Q=\sum_i\tilde{\boldsymbol e}_i\otimes\boldsymbol e_i$로 정의하면,
+$\boldsymbol Q\boldsymbol e_i=\tilde{\boldsymbol e}_i$이고 기존 기저에서
+$[\boldsymbol Q]_{\boldsymbol e}=[\boldsymbol R]^T$이다.
+따라서 능동 회전 텐서의 성분행렬과 수동 좌표변환 행렬을 같은 방향으로
+곱하지 않도록 주의한다.
+
+## 1.2. Euler 각으로 방향코사인 행렬 구성하기
+
+**Euler 각(Euler angles)**은 두 기저의 상대 방위를 세 번의 회전 각도로
+표현하는 방법이다. 방향코사인은 축 사이의 내적으로 행렬을 직접 나타내고,
+Euler 각은 같은 행렬을 세 각도로 매개화한다.
+Euler 각은 아홉 개의 $\theta_{ij}$ 중 세 개를 단순히 고른 값이 아니다.
+
+여기서는 결정방위 표현에 널리 쓰이는 **Bunge 관례**
+$(\varphi_1,\Phi,\varphi_2)$를 사용한다. 기존 기저에서 시작하여 기저를
+오른손 법칙의 양의 방향으로 다음 순서로 회전시킨다.
+
+1. 기존 $z$축 둘레로 $\varphi_1$만큼 회전한다.
+2. 첫 회전 후의 $x'$축 둘레로 $\Phi$만큼 회전한다.
+3. 두 번째 회전 후의 $z''$축 둘레로 $\varphi_2$만큼 회전한다.
+
+즉, 회전축도 앞선 회전을 따라 움직이는 $z$–$x'$–$z''$ 순서이다.
+각 단계에서 성분을 새 기저로 바꾸는 수동 변환 행렬은
+
+$$
+[\boldsymbol P_z(\alpha)]=
+\begin{bmatrix}
+\cos\alpha&\sin\alpha&0\\
+-\sin\alpha&\cos\alpha&0\\
+0&0&1
+\end{bmatrix},\qquad
+[\boldsymbol P_x(\beta)]=
+\begin{bmatrix}
+1&0&0\\
+0&\cos\beta&\sin\beta\\
+0&-\sin\beta&\cos\beta
+\end{bmatrix}
+$$
+
+이다. 각 단계의 성분변환을 차례로 적용하므로
+
+$$
+\boxed{[\boldsymbol R]
+=[\boldsymbol P_z(\varphi_2)]
+[\boldsymbol P_x(\Phi)]
+[\boldsymbol P_z(\varphi_1)]}
+$$
+
+을 얻는다. 행렬곱은 오른쪽부터 작용한다.
+$c_1=\cos\varphi_1$, $s_1=\sin\varphi_1$,
+$c_2=\cos\varphi_2$, $s_2=\sin\varphi_2$,
+$c=\cos\Phi$, $s=\sin\Phi$로 줄여 쓰면
+
+$$
+[\boldsymbol R]=
+\begin{bmatrix}
+c_1c_2-s_1s_2c & s_1c_2+c_1s_2c & s_2s\\
+-c_1s_2-s_1c_2c & -s_1s_2+c_1c_2c & c_2s\\
+s_1s & -c_1s & c
+\end{bmatrix}.
+$$
+
+이 행렬의 각 원소가 바로 $\cos\theta_{ij}$이다.
+기존 기저를 시편 기저, 새 기저를 결정 기저로 선택하면
+$[\boldsymbol v]_{\mathrm{crystal}}=[\boldsymbol R][\boldsymbol v]_{\mathrm{sample}}$이며,
+반대 방향의 변환에는 $[\boldsymbol R]^T$를 쓴다.
+
+### 예: $(\varphi_1,\Phi,\varphi_2)=(90^\circ,90^\circ,0^\circ)$
+
+이 경우 $c_1=c=0$, $s_1=s=c_2=1$, $s_2=0$이므로
+
+$$
+[\boldsymbol R]=
+\begin{bmatrix}0&1&0\\0&0&1\\1&0&0\end{bmatrix}.
+$$
+
+행을 읽으면 $\tilde{\boldsymbol e}_1=\boldsymbol e_2$,
+$\tilde{\boldsymbol e}_2=\boldsymbol e_3$,
+$\tilde{\boldsymbol e}_3=\boldsymbol e_1$이다.
+따라서 기존 성분이 $(1,2,3)^T$인 벡터의 새 성분은 $(2,3,1)^T$이고,
+크기는 두 표현에서 모두 $\sqrt{14}$이다.
+
+Euler 각은 유일하지 않다. 특히 $\Phi=0$에서는
+$[\boldsymbol R]=[\boldsymbol P_z(\varphi_1+\varphi_2)]$이므로
+두 각을 개별적으로 구분할 수 없다.
+또한 회전축 순서, 능동·수동 관례, 시편→결정인지 결정→시편인지,
+각도의 단위(degree 또는 radian)를 확인해야 다른 자료의 식과 비교할 수 있다.
+단순히 “Euler 각”이라는 이름만 같다고 동일한 행렬이 되는 것은 아니다.
+
+참고: [pymicro의 Bunge Euler 각과 방위행렬 설명](https://pymicro.readthedocs.io/en/latest/cookbook/euler_angles.html),
+[orix의 시편→결정 변환 관례](https://orix.readthedocs.io/en/latest/reference/generated/orix.quaternion.Orientation.from_euler.html).
 
 # 2. 벡터 성분의 좌표변환
 
