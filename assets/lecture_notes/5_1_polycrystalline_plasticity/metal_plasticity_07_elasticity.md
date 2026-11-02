@@ -29,8 +29,8 @@ authors:
 
 # 1. 선형 탄성 (linear elasticity) 거동
 
-- 힘->응력
-- 변위->변형률
+- 힘$\rightarrow$응력
+- 변위$\rightarrow$변형률
 
 - 응력과 변형률로 표현된 자극과 반응 사이의 관계는?
   - 많은 금속 재료의 경우, 매우 높은 응력 값이 가해지는 게 아니라면 탄성 거동만을 보인다.
@@ -74,6 +74,7 @@ $$ [\boldsymbol\sigma]_{ij} = \sum_{k=1}^3\sum_{l=1}^3 [\boldsymbol E]_{ijkl} [\
 
 - 응력과 변형률 텐서는 각각 랭크2의 매트릭스로, 탄성계수 텐서 $E$는 랭크 4의 매트릭스로 표현됨을 알 수 있다.
 
+
 # 5. 등방성 재료의 경우
 
 - 재료의 물성이 방향에 관계 없을 때, 앞선 3차원 Hooke의 법칙에 활용된 랭크4의 $E$텐서를 두 스칼라 $\lambda$와 $G$로 표현할 수 있다.
@@ -111,9 +112,32 @@ $$
 
 - $\lambda$는 Lame의 제1 상수이다.
 
+- 위를 매트릭스로 표현하면
+
+$$
+\begin{bmatrix}
+\sigma_{11} & \sigma_{12} & \sigma_{13} \\
+\sigma_{21} & \sigma_{22} & \sigma_{23} \\
+\sigma_{31} & \sigma_{32} & \sigma_{33} \\
+\end{bmatrix}
+=
+\lambda(\varepsilon_{11}+\varepsilon_{22}+\varepsilon_{33})
+\begin{bmatrix}
+1 & 0 & 0 \\
+0 & 1 & 0 \\
+0 & 0 & 1 \\
+\end{bmatrix} + 2G
+
+\begin{bmatrix}
+\varepsilon_{11} & \varepsilon_{12} & \varepsilon_{13} \\
+\varepsilon_{21} & \varepsilon_{22} & \varepsilon_{23} \\
+\varepsilon_{31} & \varepsilon_{32} & \varepsilon_{33} \\
+\end{bmatrix}
+$$
+
 # 6. 선형 등방 Hooke 법칙 상세 설명
 
-- 체적탄성계수를 $K=\lambda+2G/3$라 하면, 세 수직응력의 평균(평균응력)은
+- 체적탄성계수를 $K=\lambda+2G/3$라 하면, 세 수직응력의 평균(평균응력; $\sigma_m=\frac{\sigma_{11}+\sigma_{22}+\sigma_{33}}{3}$)은
   체적변화율 $\operatorname{tr}(\boldsymbol\varepsilon)$와 다음 관계를 갖는다.
 
 $$
@@ -374,7 +398,7 @@ $$
 \boldsymbol \varepsilon=\boldsymbol S : \boldsymbol \sigma
 $$
 
-- Voigt 표현을 활용하면
+- Voigt 표현을 활용하면[^compliance-derivation]
 
 $$
 [\boldsymbol S]^{voigt}=
@@ -626,5 +650,65 @@ G=80.7692 GPa, lambda=121.1538 GPa이므로 K=175 GPa이다.
 -p/K=-100/175000=-0.000571429로 앞의 결과와 일치한다.
 체적변형률이 음수이므로 체적이 감소한다.
 -->
+
+[^compliance-derivation]: **Compliance matrix의 유도.** 위 $[\boldsymbol S]^{voigt}$는 두 가지 방법으로 유도할 수 있다.
+
+  **방법 1: 단축 인장과 Poisson 효과의 중첩.** 선형 탄성이므로 세 수직응력이 각각 만드는 변형률을 더할 수 있다. $\sigma_{11}$ 만 작용하면
+
+  $$
+  \varepsilon_{11}=\frac{\sigma_{11}}{E},\qquad
+  \varepsilon_{22}=\varepsilon_{33}=-\nu\frac{\sigma_{11}}{E}
+  $$
+
+  이다. $\sigma_{22}$, $\sigma_{33}$ 에 대해서도 같은 방식이 성립하므로 세 응력을 모두 더하면
+
+  $$
+  \varepsilon_{11}=\frac{1}{E}\left[\sigma_{11}-\nu(\sigma_{22}+\sigma_{33})\right],\quad
+  \varepsilon_{22}=\frac{1}{E}\left[\sigma_{22}-\nu(\sigma_{11}+\sigma_{33})\right],\quad
+  \varepsilon_{33}=\frac{1}{E}\left[\sigma_{33}-\nu(\sigma_{11}+\sigma_{22})\right]
+  $$
+
+  이 되고, 이 식의 계수가 $[\boldsymbol S]^{voigt}$ 의 왼쪽 위 $3\times3$ 블록($1/E$, $-\nu/E$)이다. 전단 성분은 $\sigma_{ij}=2G\varepsilon_{ij}\ (i\ne j)$ 에서 바로 얻는다. Voigt 변형률 벡터의 전단 성분이 $2\varepsilon_{ij}$ 이므로
+
+  $$
+  2\varepsilon_{23}=\frac{\sigma_{23}}{G},\quad
+  2\varepsilon_{13}=\frac{\sigma_{13}}{G},\quad
+  2\varepsilon_{12}=\frac{\sigma_{12}}{G}
+  $$
+
+  이고, 이것이 오른쪽 아래 대각 성분 $1/G$ 이다. 수직 성분과 전단 성분은 서로 연성되지 않으므로 나머지 성분은 0이다. 참고로 $G=E/[2(1+\nu)]$ 이므로 $1/G=2(1+\nu)/E$ 이다.
+
+  **방법 2: 강성 행렬 $[\boldsymbol E]^{voigt}$ 의 역행렬.** $[\boldsymbol S]^{voigt}=\left([\boldsymbol E]^{voigt}\right)^{-1}$ 이다. $[\boldsymbol E]^{voigt}$ 는 $3\times3$ 수직 블록과 $3\times3$ 전단 블록으로 나뉘므로 각 블록의 역행렬을 따로 구하면 된다. 전단 블록은 $G\boldsymbol I_3$ 이므로 역행렬은 $\boldsymbol I_3/G$ 이다. 수직 블록은 $2G\boldsymbol I_3+\lambda\,\boldsymbol u\boldsymbol u^T$ ($\boldsymbol u=(1,1,1)^T$) 이다. 역행렬을 $a\boldsymbol I_3+b\,\boldsymbol u\boldsymbol u^T$ 꼴로 놓고 $\boldsymbol u^T\boldsymbol u=3$ 을 이용하면
+
+  $$
+  \left(2G\boldsymbol I_3+\lambda\boldsymbol u\boldsymbol u^T\right)
+  \left(a\boldsymbol I_3+b\boldsymbol u\boldsymbol u^T\right)
+  =2Ga\,\boldsymbol I_3+\left[2Gb+\lambda a+3\lambda b\right]\boldsymbol u\boldsymbol u^T
+  =\boldsymbol I_3
+  $$
+
+  이므로
+
+  $$
+  a=\frac{1}{2G},\qquad
+  b=-\frac{\lambda}{2G(2G+3\lambda)}
+  $$
+
+  이다. 따라서 역행렬의 대각 성분과 비대각 성분은
+
+  $$
+  a+b=\frac{G+\lambda}{G(2G+3\lambda)},\qquad
+  b=-\frac{\lambda}{2G(2G+3\lambda)}
+  $$
+
+  이다. 7장의 관계
+
+  $$
+  E=\frac{G(3\lambda+2G)}{\lambda+G},\qquad
+  \nu=\frac{\lambda}{2(\lambda+G)}
+  $$
+
+  를 쓰면 $a+b=1/E$, $b=-\nu/E$ 가 되어 방법 1의 결과와 일치한다.
+
 
 [이전 강의]({% link assets/lecture_notes/5_1_polycrystalline_plasticity/metal_plasticity_06b_stress_measures.md %}) | [강의 목록]({% link _lectures/5_1_polycrystalline_Plasticity.md %}) | [다음 강의]({% link assets/lecture_notes/5_1_polycrystalline_plasticity/metal_plasticity_08_plane_condition.md %})
