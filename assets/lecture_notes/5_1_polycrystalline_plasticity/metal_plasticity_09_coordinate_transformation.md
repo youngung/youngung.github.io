@@ -78,43 +78,6 @@ $[\boldsymbol R]$을 방향코사인 행렬(direction cosine matrix)이라고도
 즉, 좌표변환 행렬과 방향코사인 행렬은 여기서 같은 행렬을 뜻한다.
 각 성분은 새 축을 기존 축에 정사영한 값이므로 무차원이다.
 
-예를 들어 새 첫째 축이
-$\tilde{\boldsymbol e}_1=(\boldsymbol e_1+\boldsymbol e_2)/\sqrt{2}$이면,
-기존 세 축과 이루는 각도는 각각 $45^\circ,45^\circ,90^\circ$이다. 따라서
-
-$$
-(R_{11},R_{12},R_{13})
-=(\cos45^\circ,\cos45^\circ,\cos90^\circ)
-=\left(\frac{1}{\sqrt{2}},\frac{1}{\sqrt{2}},0\right)
-$$
-
-이 첫 번째 행이 된다. 행과 열의 의미는 다음과 같이 구분된다.
-
-| 배열 | 기하학적 의미 |
-| --- | --- |
-| $i$번째 행 $(R_{i1},R_{i2},R_{i3})$ | 새 축 $\tilde{\boldsymbol e}_i$의 기존 기저 성분 |
-| $j$번째 열 $(R_{1j},R_{2j},R_{3j})^T$ | 기존 축 $\boldsymbol e_j$의 새 기저 성분 |
-
-아홉 성분을 임의로 정할 수는 없다. 축의 단위길이와 직교성 때문에
-
-$$
-\sum_{j=1}^3R_{ij}R_{kj}=\delta_{ik},\qquad
-\sum_{i=1}^3R_{ij}R_{ik}=\delta_{jk}
-$$
-
-을 만족한다. 특히 각 행에 대해 $R_{i1}^2+R_{i2}^2+R_{i3}^2=1$이다.
-오른손 기저 사이의 회전에는 독립적인 매개변수가 세 개만 필요하다.
-
-문헌에서 **좌표변환 텐서** 또는 **회전 텐서**라는 용어도 쓰지만,
-무엇을 변환하는지 구분해야 한다. 여기서 $[\boldsymbol R]$은 동일한 물리적
-벡터의 성분을 두 기저 사이에서 변환하는 행렬이다.
-반면 기존 기저벡터를 실제로 새 기저벡터로 회전시키는 2계 텐서를
-$\boldsymbol Q=\sum_i\tilde{\boldsymbol e}_i\otimes\boldsymbol e_i$로 정의하면,
-$\boldsymbol Q\boldsymbol e_i=\tilde{\boldsymbol e}_i$이고 기존 기저에서
-$[\boldsymbol Q]_{\boldsymbol e}=[\boldsymbol R]^T$이다.
-따라서 능동 회전 텐서의 성분행렬과 수동 좌표변환 행렬을 같은 방향으로
-곱하지 않도록 주의한다.
-
 ## 1.2. Euler 각으로 방향코사인 행렬 구성하기
 
 **Euler 각(Euler angles)**은 두 기저의 상대 방위를 세 번의 회전 각도로
@@ -198,8 +161,10 @@ $[\boldsymbol R]=[\boldsymbol P_z(\varphi_1+\varphi_2)]$이므로
 각도의 단위(degree 또는 radian)를 확인해야 다른 자료의 식과 비교할 수 있다.
 단순히 “Euler 각”이라는 이름만 같다고 동일한 행렬이 되는 것은 아니다.
 
+<!--
 참고: [pymicro의 Bunge Euler 각과 방위행렬 설명](https://pymicro.readthedocs.io/en/latest/cookbook/euler_angles.html),
 [orix의 시편→결정 변환 관례](https://orix.readthedocs.io/en/latest/reference/generated/orix.quaternion.Orientation.from_euler.html).
+-->
 
 # 2. 벡터 성분의 좌표변환
 
