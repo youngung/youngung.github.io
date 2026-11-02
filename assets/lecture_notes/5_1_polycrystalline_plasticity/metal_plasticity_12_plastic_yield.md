@@ -1,11 +1,11 @@
 ---
 layout: distill
 title: 소성 항복
-description: 항복응력과 Tresca 및 von Mises 항복조건
+description: 항복응력과 Tresca, von Mises 및 Hosford 항복조건
 target: 학부 고학년
 permalink:
 featured: true
-prerequisite: 선형 탄성, 응력 텐서
+prerequisite: 선형 탄성, 주응력과 편차응력, Mohr 원
 toc: false
 
 mermaid:
@@ -122,7 +122,116 @@ $$
 따라서 모든 주응력에 같은 정수압 응력을 더해도 von Mises 등가응력은 변하지 않는다.
 다만 정수압 응력은 연성파괴, 공극 성장과 압력 의존 재료의 항복에는 영향을 줄 수 있다.
 
-# 9. 연습 문제
+# 9. Hosford 항복 함수
+
+## 9.1. 정의와 지수의 의미
+
+von Mises 항복조건은 여러 응력상태를 하나의 등가응력으로 표현하지만, 항복면의
+형태가 정해져 있다. Hosford 항복함수는 **지수 $a$로 항복면의 형태를 조절하는
+등방성 항복모델**이다. 세 주응력 $\sigma_1,\sigma_2,\sigma_3$
+(응력 텐서의 고유값)을 이용하여 다음과 같이 정의한다.
+
+$$
+\boxed{\sigma^{H}=\left[\frac{
+|\sigma_1-\sigma_2|^a+|\sigma_2-\sigma_3|^a+|\sigma_3-\sigma_1|^a
+}{2}\right]^{1/a}},\qquad a\geq1
+$$
+
+$$
+\boxed{f_H(\boldsymbol\sigma)=\sigma^{H}-\sigma^Y}
+$$
+
+여기서 $a$는 무차원 재료 매개변수이고 $\sigma^Y$는 일축 인장 항복응력이다.
+$f_H<0$이면 항복면 내부, $f_H=0$이면 항복면 위이다.
+위 식의 $\sigma_i$는 임의 좌표계에서의 수직응력 $\sigma_{ii}$와 구분해야 한다.
+전단응력이 존재하면 먼저 주응력을 구한 뒤 대입한다.
+
+일축 인장 $(\sigma,0,0)$에서는
+
+$$
+\sigma^{H}=\left[\frac{|\sigma|^a+0+|\sigma|^a}{2}\right]^{1/a}
+=|\sigma|
+$$
+
+이므로 모든 $a$에 대해 같은 일축 항복응력으로 보정된다.
+또한 주응력의 **차이**만 사용하므로 정수압 응력에 무관하고,
+주응력의 순서나 응력의 부호를 모두 바꾸어도 값이 같다.
+따라서 이 모델은 등방성이며 인장과 압축의 항복강도가 같다.
+
+## 9.2. von Mises 및 Tresca 조건과의 관계
+
+$a=2$를 대입하면
+
+$$
+\sigma^{H}\big|_{a=2}
+=\sqrt{\frac{(\sigma_1-\sigma_2)^2+(\sigma_2-\sigma_3)^2+(\sigma_3-\sigma_1)^2}{2}}
+=\sigma^{VM}
+$$
+
+로서 von Mises 등가응력과 정확히 일치한다. 이는 8절의 식을 주응력 좌표계에서
+쓴 것이다. $a=4$도 세 주응력 차이 사이의 대수적 관계로 인해 von Mises와
+일치하므로, 지수를 바꾸면 항상 다른 항복면이 생기는 것은 아니다.
+한편 $a\to\infty$이면 가장 큰 주응력 차이가 지배하여
+
+$$
+\lim_{a\to\infty}\sigma^{H}
+=\max\{|\sigma_1-\sigma_2|,|\sigma_2-\sigma_3|,|\sigma_3-\sigma_1|\}
+=\sigma_{\max}-\sigma_{\min}
+$$
+
+이 되어 Tresca 조건으로 수렴한다.
+정수압축에 수직인 편차응력 평면에서 von Mises 항복면의 단면은 원이며,
+$a=6,8$인 Hosford 단면은 이 원과 Tresca의 내접 정육각형 사이에 놓인다.
+
+| 비교 항목 | von Mises | Hosford |
+| --- | --- | --- |
+| 항복면 형태의 조절 | 별도의 형상 매개변수 없음 | 지수 $a$로 조절 |
+| 정수압 응력의 영향 | 없음 | 없음 |
+| 방향에 따른 항복강도 | 동일 (등방성) | 동일 (등방성) |
+| 같은 일축 항복응력으로 보정 후 다축 예측 | 고정된 형태 | $a$에 따라 달라짐 |
+
+무작위 결정방위를 가진 입방정 다결정의 항복면을 근사할 때
+BCC에는 $a=6$, FCC에는 $a=8$이 흔히 사용된다.
+이는 결정구조만으로 모든 재료의 지수가 확정된다는 뜻은 아니며,
+실제 적용에서는 다축 항복 데이터와 비교해야 한다.
+집합조직에 의한 방향별 항복강도 차이는 이 등방성 식만으로 표현할 수 없다.
+
+## 9.3. 순수전단에서의 수치 비교
+
+순수전단 $\sigma_{12}=\sigma_{21}=\tau$이고 나머지 성분이 0이면,
+주응력은 $(\tau,0,-\tau)$이다 ($\tau\geq0$).
+따라서
+
+$$
+\sigma^{H}=\left[\frac{\tau^a+\tau^a+(2\tau)^a}{2}\right]^{1/a}
+=(1+2^{a-1})^{1/a}\tau
+$$
+
+이므로 전단 항복응력 $\tau^Y$는
+
+$$
+\boxed{\frac{\tau^Y}{\sigma^Y}=(1+2^{a-1})^{-1/a}}
+$$
+
+이다. 같은 일축 항복응력 $\sigma^Y=100\ \mathrm{MPa}$로 보정하면 다음과 같다.
+
+| 항복조건 | $\tau^Y/\sigma^Y$ | $\tau^Y$ (MPa) |
+| --- | --- | --- |
+| von Mises ($a=2$) | $1/\sqrt{3}\approx0.5774$ | 57.74 |
+| Hosford ($a=6$) | $33^{-1/6}\approx0.5584$ | 55.84 |
+| Hosford ($a=8$) | $129^{-1/8}\approx0.5453$ | 54.53 |
+| Tresca ($a\to\infty$) | $1/2$ | 50.00 |
+
+예를 들어 $\tau=56\ \mathrm{MPa}$이면 von Mises 등가응력은
+$\sqrt{3}\times56\approx97.0\ \mathrm{MPa}$이므로 항복면 내부이다.
+반면 $a=6$인 Hosford 등가응력은 $33^{1/6}\times56\approx100.3\ \mathrm{MPa}$로
+항복면을 넘는다. 속도 비의존 탄소성 모델에서는 소성보정이 필요하다.
+이처럼 **일축 인장에서는 일치해도 순수전단 등 다축 응력상태에서는 항복 예측이 달라진다.**
+
+참고: [Hosford (1972), *A Generalized Isotropic Yield Criterion*](https://doi.org/10.1115/1.3422732),
+[Sandia Sierra/SM 사용자 설명서의 Hosford 모델](https://www.sandia.gov/files/sierra/SM_Users_5_30/user_manual/materials/materials.html).
+
+# 10. 연습 문제
 
 ## 문제 1
 
@@ -160,4 +269,4 @@ Tresca 항복조건이 사용하는 주응력의 조합을 설명하라.
 최대 주응력과 최소 주응력의 차이, 즉 최대전단응력에 해당하는 값을 사용한다.
 -->
 
-[이전 강의]({% link assets/lecture_notes/5_1_polycrystalline_plasticity/metal_plasticity_12_Mohr_circle.md %}) | [강의 목록]({% link _lectures/5_1_polycrystalline_Plasticity.md %}) | [다음 강의]({% link assets/lecture_notes/5_1_polycrystalline_plasticity/metal_plasticity_13_flow_rule.md %})
+[이전 강의]({% link assets/lecture_notes/5_1_polycrystalline_plasticity/metal_plasticity_11_Mohr_circle.md %}) | [강의 목록]({% link _lectures/5_1_polycrystalline_Plasticity.md %}) | [다음 강의]({% link assets/lecture_notes/5_1_polycrystalline_plasticity/metal_plasticity_13_flow_rule.md %})
