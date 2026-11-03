@@ -94,6 +94,26 @@ $(\varphi_1,\Phi,\varphi_2)$를 사용한다. 기존 기저에서 시작하여 �
 3. 두 번째 회전 후의 $z''$축 둘레로 $\varphi_2$만큼 회전한다.
 
 즉, 회전축도 앞선 회전을 따라 움직이는 $z$–$x'$–$z''$ 순서이다.
+
+![Bunge Euler 각 애니메이션: z축, 회전 후 x축, 다시 회전 후 z축 둘레의 순차적인 기저 회전](/assets/img/lecture_notes/coordinate_transformation/bunge_euler_angles.gif){: style="max-width: 900px; width: 100%; height: auto;"}
+
+애니메이션은 세 회전을 순서대로 보여주며 약 10초마다 반복된다.
+회색 점선은 각 단계 시작 시의 기저이고, 주황색 축은 해당 단계의 회전축이다.
+표시되는 각도는 현재까지 진행된 회전각이며, 최종값은 $(35^\circ,50^\circ,30^\circ)$이다.
+물리적 벡터를 회전시키는 것이 아니라 좌표기저를 회전시키는 과정이다.
+[GIF 생성 코드](/assets/tikz/metal_plasticity/bunge_euler_animation.py)
+
+세 단계의 최종 기저를 정지 그림으로 비교하면 다음과 같다.
+
+![Bunge Euler 각의 세 단계: 기존 z축, 회전 후 x축, 다시 회전 후 z축 둘레의 기저 회전](/assets/img/lecture_notes/coordinate_transformation/bunge_euler_angles.png){: style="max-width: 100%; height: auto;"}
+
+그림에서 회색 점선은 각 단계 직전의 기저, 파란 실선은 회전 후의 기저이며,
+주황색은 해당 단계의 회전축과 회전각이다. 회전축 자체는 그 단계에서 변하지 않는다.
+세 패널은 동일한 시점에서 본 그림이며, 예시 각도는
+$(\varphi_1,\Phi,\varphi_2)=(35^\circ,50^\circ,30^\circ)$이다.
+아래 식의 $\boldsymbol v^{(1)},\boldsymbol v^{(2)}$는 각 단계의 **성분 열벡터**를 뜻한다.
+[TikZ 소스](/assets/tikz/metal_plasticity/bunge_euler_angles.tex)
+
 각 단계에서 성분을 새 기저로 바꾸는 수동 변환 행렬은
 
 $$
