@@ -92,6 +92,13 @@ $$
 좌표축을 바꾸면 같은 벡터도 성분값이 달라질 수 있지만, 벡터의 크기와 물리적 의미는 유지된다.
 이 강의의 길이·내적 공식은 **같은 직교정규 기저에서 표현한 실수 성분**에 적용한다.
 
+![기저를 90도 회전하면 같은 벡터의 성분이 (3, 4)에서 (4, -3)으로 바뀌지만 벡터의 방향과 크기는 유지된다.](/assets/img/lecture_notes/data_mse/vector_basis_components.png){: style="width: 1000px; max-width: 100%; height: auto;"}
+
+그림의 오른쪽에서는 기저를 반시계 방향으로 $90^\circ$ 회전했다.
+새 기저는 $\boldsymbol e'_x=\boldsymbol e_y$, $\boldsymbol e'_y=-\boldsymbol e_x$이므로,
+같은 벡터를 $\boldsymbol a=4\boldsymbol e'_x-3\boldsymbol e'_y$로 나타낸다.
+화살표는 그대로지만 좌표성분은 $(3,4)$에서 $(4,-3)$으로 바뀐다.
+
 측정값 세 개를 배열에 저장했다고 해서 반드시 공간상의 벡터인 것은 아니다.
 서로 다른 세 시편의 온도를 저장한 배열과 한 힘의 세 방향 성분을 저장한 배열은 모양이 같아도 의미가 다르다.
 배열을 만들기 전에 각 원소의 의미와 단위를 먼저 적자.
@@ -139,7 +146,7 @@ print(vector_difference)
 ~~~
 
 결과는 각각 $[6,-1,3]$과 $[0,9,7]$이다. 두 배열의 shape이 같아야 성분별로
-자연스럽게 더하고 뺄 수 있다.
+자연스럽게 더하고 뺄 수 있다 (Broadcasting 규칙에 따르는 것을 주의해야 한다).
 
 ![벡터의 합은 끝점에 다음 벡터를 이어 구하고, 차는 반대 벡터를 더하거나 두 끝점을 연결하여 구하는 그림](/assets/img/lecture_notes/data_mse/vector_addition_subtraction.png){: style="width: 1000px; max-width: 100%; height: auto;"}
 
@@ -276,7 +283,9 @@ $$
 
 이다.
 
-NumPy 배열은 인덱스가 0부터 시작하므로, 이의 수식을 0부터 시작하는 인덱스로 바꾸어야 한다. 즉, $a_1b_1+a_2b_2+a_3b_3$ 는 NumPy에서는 <code>a[0]*b[0]+a[1]*b[1]+a[2]*b[2]</code> 가 된다.
+NumPy 배열은 인덱스가 0부터 시작하므로, 이의 수식을 0부터 시작하는 인덱스로 바꾸어야 한다.
+즉, $a_1b_1+a_2b_2+a_3b_3$ 는 NumPy에서는
+<code>a[0]*b[0]+a[1]*b[1]+a[2]*b[2]</code> 가 된다.
 
 ~~~python
 a = np.array([1.0, 2.0, 3.0])
@@ -308,10 +317,10 @@ print(a @ b)         # 내적
 두 벡터가 모두 영벡터가 아니고 내적이 0이면 두 벡터는 서로 수직이다.
 
 ~~~python
-x_direction = np.array([1.0, 0.0, 0.0])
-y_direction = np.array([0.0, 1.0, 0.0])
+x_direc = np.array([1.0, 0.0, 0.0])
+y_direc = np.array([0.0, 1.0, 0.0])
 
-print(x_direction @ y_direction)
+print(x_direc @ y_direc)
 ~~~
 
 # 8. 두 벡터 사이의 각
@@ -341,7 +350,7 @@ $$
 이다.
 
 ~~~python
-def angle_between(vect_a, vect_b):
+def angle_btwn(vect_a, vect_b):
     mag_a = np.linalg.norm(vect_a)
     mag_b = np.linalg.norm(vect_b)
 
@@ -353,7 +362,7 @@ def angle_between(vect_a, vect_b):
         / (mag_a * mag_b)
     )
 
-    cosine = np.clip(cosine, -1.0, 1.0)
+    cosine = np.clip(cosine, -1.0, 1.0) ##최소 -1, 최대 1로 제한.
     angle_rad = np.arccos(cosine)
 
     return np.degrees(angle_rad)
@@ -361,7 +370,7 @@ def angle_between(vect_a, vect_b):
 a = np.array([1.0, 0.0, 0.0])
 b = np.array([0.0, 1.0, 0.0])
 
-print(angle_between(a, b))
+print(angle_btwn(a, b))
 ~~~
 
 결과는 90도이다. <code>np.arccos()</code>의 결과는 radian이고,
@@ -370,7 +379,14 @@ print(angle_between(a, b))
 
 # 9. 외적
 
-3차원 벡터의 외적(cross product)은 두 벡터에 모두 수직인 새로운 벡터이다.
+3차원 벡터의 외적(cross product)은 두 벡터에 모두 수직인 새로운 벡터이다. 두 벡터 $\boldsymbol a$와
+$\boldsymbol b$의 외적이 $\boldsymbol c$라 하자. 이때 각 성분 $c_i$는 다음과 같이 계산된다.
+
+$$c_i=\epsilon_{ijk} a_j b_k$$
+
+여기서 $\epsilon_{ijk}$는 레비치비타 기호(Levi-Civita symbol; 혹은 permutation symbol)로, $i,j,k$가 모두 다르면 1 또는 -1의 값을 갖고, 하나라도 같으면 0이 된다. 즉, 외적의 각 성분은 이 기호를 이용하여 계산할 수 있다.
+
+더욱 간략하게, 아래와 같이 3차원 벡터의 외적은 각 성분을 계산하여 새로운 벡터를 만든다고 생각할 수 있다.
 
 $$
 [\boldsymbol a]\times[\boldsymbol b]
@@ -387,14 +403,14 @@ a = np.array([1.0, 0.0, 0.0])
 b = np.array([0.0, 1.0, 0.0])
 
 # manual calculation. # x->0; y->1; z->2
-cross_product=np.zeros(3)
-cross_product[0]=a[1]*b[2]-a[2]*b[1]
-cross_product[1]=a[2]*b[0]-a[0]*b[2]
-cross_product[2]=a[0]*b[1]-a[1]*b[0]
+cross_prd=np.zeros(3)
+cross_prd[0]=a[1]*b[2]-a[2]*b[1]
+cross_prd[1]=a[2]*b[0]-a[0]*b[2]
+cross_prd[2]=a[0]*b[1]-a[1]*b[0]
 
 # np.cross 메소드를 사용하여 외적 계산
-cross_product = np.cross(a, b)
-print(cross_product)
+cross_prd = np.cross(a, b)
+print(cross_prd)
 ~~~
 
 결과는 $[0,0,1]$이다. 방향은 오른손 법칙을 따른다.
@@ -436,7 +452,7 @@ $$
 
 이다. **외적 자체는 벡터이고, 그 크기가 평행사변형의 넓이**라는 점을 구분하자.
 그림의 초록색 원 안의 점은 외적 벡터가 종이 밖, 즉 독자 쪽을 향함을 뜻한다.
-이 방향은 $$\boldsymbol a$$에서 $$\boldsymbol b$$로 손가락을 감는 오른손 법칙으로 정한다.
+이 방향은 $\boldsymbol a$에서 $\boldsymbol b$로 손가락을 감는 오른손 법칙으로 정한다.
 순서를 바꾸면 외적의 방향은 반대가 되지만 넓이는 같다.
 두 벡터가 평행하면 평행사변형이 선분으로 퇴화하여 넓이와 외적의 크기가 모두 0이 된다.
 
@@ -449,8 +465,8 @@ $$
 | 외적 | <code>np.cross(a, b)</code> | 3성분 벡터 | 면의 법선, 넓이 |
 
 여기서 외적은 **cross product**를 뜻한다.
-<code>np.outer(a, b)</code>가 계산하는 outer product는 $$a_i b_j$$를 성분으로 갖는 행렬이며 다른 연산이다.
-평면 벡터의 외적을 구할 때도 이 자료에서는 $$z$$성분을 0으로 두어 3성분 배열로 입력한다.
+<code>np.outer(a, b)</code>가 계산하는 outer product는 $a_i b_j$를 성분으로 갖는 행렬이며 다른 연산이다.
+평면 벡터의 외적을 구할 때도 이 자료에서는 $z$성분을 0으로 두어 3성분 배열로 입력한다.
 
 외적의 방향은 입력 순서에 따라 달라진다. 평행한 두 벡터의 외적은 영벡터이므로,
 그 외적을 정규화하여 면의 단위법선을 만들 수 없다.
@@ -483,7 +499,7 @@ print(resultant_magnitude)
 direction_1 = np.array([1.0, 0.0, 0.0])
 direction_2 = np.array([1.0, 1.0, 0.0])
 
-angle_deg = angle_between(
+angle_deg = angle_btwn(
     direction_1,
     direction_2,
 )
@@ -491,7 +507,8 @@ angle_deg = angle_between(
 print(angle_deg)
 ~~~
 
-결과는 45도이다. 비입방정(non-cubic)에서는 격자상수를 고려해야 하므로 같은 방법을 그대로 적용할 수 없다.
+결과는 45도이다. 비입방정(non-cubic)에서는 격자상수(lattice constants)를 고려해야
+하므로 같은 방법을 그대로 적용할 수 없다.
 
 ## 10.3. 평행사변형의 넓이
 
@@ -526,8 +543,8 @@ print(lengths)  # [5.0, 2.0, 3.0]
 ~~~
 
 <code>axis=1</code>은 각 행의 성분을 모아 크기를 구한다는 뜻이다.
-<code>np.linalg.norm(displacements)</code>처럼 축을 생략하면 이 예제에서는 모든 원소의 제곱합에 제곱근을 취한 **하나의 값**이 나오므로,
-점별 변위 크기와 구분해야 한다.
+<code>np.linalg.norm(displacements)</code>처럼 축을 생략하면 이 예제에서는 모든
+원소의 제곱합에 제곱근을 취한 **하나의 값**이 나오므로, 점별 변위 크기와 구분해야 한다.
 
 # 11. 자주 하는 실수
 
@@ -557,20 +574,20 @@ print(lengths)  # [5.0, 2.0, 3.0]
 
 ## 문제 1
 
-두 벡터 $$\boldsymbol a=(1,2,3)$$과 $$\boldsymbol b=(2,0,1)$$의 합을 구하라.
+두 벡터 $\boldsymbol a=(1,2,3)$과 $\boldsymbol b=(2,0,1)$의 합을 구하라.
 
 <!--
 풀이와 해답:
-a+b=(3,2,4)이다.
+\boldsymbol a+\boldsymbol b=(3,2,4)이다.
 -->
 
 ## 문제 2
 
-벡터 $$(3,4,0)$$의 크기를 구하라.
+벡터 $(3,4,0)$의 크기를 구하라.
 
 <!--
 풀이와 해답:
-sqrt(3^2+4^2)=5이다.
+\sqrt{3^2+4^2}=5이다.
 -->
 
 ## 문제 3

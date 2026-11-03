@@ -24,7 +24,7 @@ authors:
 
 # 1. 학습 목표
 
-이 자료에서 $$[\boldsymbol A]$$, $$[\boldsymbol x]$$는 행렬·벡터의 성분 배열을 뜻하며, 배열의 행렬곱은 $$[\boldsymbol A][\boldsymbol x]$$처럼 붙여 쓴다. 물리적 벡터·텐서의 단일수축은 $$\cdot$$로 표시한다.
+이 자료에서 $[\boldsymbol A]$, $[\boldsymbol x]$는 행렬·벡터의 성분 배열을 뜻하며, 배열의 행렬곱은 $[\boldsymbol A][\boldsymbol x]$처럼 붙여 쓴다. 물리적 벡터·텐서의 단일수축은 $\cdot$로 표시한다.
 
 
 이번 강의가 끝나면 다음을 할 수 있어야 한다.
@@ -38,7 +38,7 @@ authors:
 
 # 2. 행렬과 NumPy 배열
 
-$$m$$행 $$n$$열의 행렬은 $$m\times n$$ 행렬이라고 한다.
+$m$행 $n$열의 행렬은 $m\times n$ 행렬이라고 한다.
 
 $$
 [\boldsymbol A]=
