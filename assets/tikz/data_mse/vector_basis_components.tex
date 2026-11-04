@@ -1,0 +1,38 @@
+\documentclass[tikz,border=12pt]{standalone}
+\usepackage{amsmath}
+\usepackage{kotex}
+\usetikzlibrary{arrows.meta}
+\definecolor{avec}{RGB}{35,100,175}
+\definecolor{basis}{RGB}{30,130,95}
+\begin{document}
+\begin{tikzpicture}[>=Latex,font=\sffamily,line cap=round,line join=round]
+\node[font=\large\bfseries] at (5,6.2) {같은 벡터, 다른 좌표성분};
+\foreach \shift/\title in {0/원래 기저,7/90도 회전한 기저} {
+ \begin{scope}[xshift=\shift cm]
+ \node[font=\bfseries] at (1.5,5.4) {\title};
+ \draw[gray!55,->] (-1.5,0)--(4.2,0);
+ \draw[gray!55,->] (0,-.5)--(0,4.8);
+ \fill (0,0) circle (1.6pt);
+ \node[below right] at (0,0) {$O$};
+ \draw[avec,->,very thick] (0,0)--(3,4) node[midway,left=5pt] {$\boldsymbol a$};
+ \fill[avec] (3,4) circle (2pt);
+ \end{scope}
+}
+\draw[gray,dashed] (0,4)--(3,4)--(3,0);
+\node[below] at (1.5,0) {$a_x=3$};
+\node[left] at (0,2.5) {$a_y=4$};
+\draw[basis,->,very thick] (0,0)--(1,0) node[above] {$\boldsymbol e_x$};
+\draw[basis,->,very thick] (0,0)--(0,1) node[left] {$\boldsymbol e_y$};
+\begin{scope}[xshift=7cm]
+\draw[gray,dashed] (0,4)--(3,4)--(3,0);
+\node[left] at (0,2.5) {$a'_x=4$};
+\node[above] at (1.5,4) {$a'_y=-3$};
+\draw[basis,->,very thick] (0,0)--(0,1) node[right] {$\boldsymbol e'_x$};
+\draw[basis,->,very thick] (0,0)--(-1,0) node[below] {$\boldsymbol e'_y$};
+\end{scope}
+\node[align=center] at (1.5,-1) {$\boldsymbol a=3\boldsymbol e_x+4\boldsymbol e_y$\\성분: $(3,4)$};
+\node[align=center] at (8.5,-1) {$\boldsymbol a=4\boldsymbol e'_x-3\boldsymbol e'_y$\\성분: $(4,-3)$};
+\node[align=center,text=avec,font=\large] at (5,-2.3) {벡터의 방향과 크기는 그대로, 성분값은 기저에 따라 달라진다.};
+\node at (5,-3) {$|\boldsymbol a|=\sqrt{3^2+4^2}=\sqrt{4^2+(-3)^2}=5$};
+\end{tikzpicture}
+\end{document}
