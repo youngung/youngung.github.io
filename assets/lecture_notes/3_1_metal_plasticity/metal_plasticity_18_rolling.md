@@ -34,7 +34,7 @@ authors:
   - [8.3. 동력: 단위 시간당 회전하는 데 필요한 일](#83-동력-단위-시간당-회전하는-데-필요한-일)
 - [9. 열간압연과 냉간압연](#9-열간압연과-냉간압연)
 - [10. 압연 결함과 공정 설계](#10-압연-결함과-공정-설계)
-- [11. Python 실습](#11-python-실습)
+- [11. 계산 예제](#11-계산-예제)
   - [11.1. 압연 기본량 계산](#111-압연-기본량-계산)
   - [11.2. 마찰계수와 최대 압하량](#112-마찰계수와-최대-압하량)
   - [11.3. 압연하중과 동력 추정](#113-압연하중과-동력-추정)
@@ -500,83 +500,67 @@ $$
 실제 공정에서는 롤 크라운, 롤 벤딩, 장력, 냉각과 패스 스케줄을 조절하여 두께와 평탄도를
 관리한다.
 
-# 11. Python 실습
+# 11. 계산 예제
 
 ## 11.1. 압연 기본량 계산
 
-초기 두께 10 mm인 폭 500 mm 판재를 반지름 200 mm인 롤로 최종 두께 8 mm까지
-압연한다고 하자.
+초기 두께 $h_0=10\,\mathrm{mm}$인 폭 $500\,\mathrm{mm}$ 판재를
+반지름 $R=200\,\mathrm{mm}$인 롤로 최종 두께 $h_f=8\,\mathrm{mm}$까지 압연하자.
+입구 속도는 $v_0=1.0\,\mathrm{m/s}$이고 폭 변화는 무시한다.
 
-~~~python
-import numpy as np
+$$
+\begin{aligned}
+\Delta h&=h_0-h_f=2\,\mathrm{mm},\\
+r&=\frac{\Delta h}{h_0}=0.20,\\
+L&\approx\sqrt{R\Delta h}=20\,\mathrm{mm},\\
+v_f&=\frac{h_0}{h_f}v_0=1.25\,\mathrm{m/s},\\
+\bar\varepsilon&=\frac{2}{\sqrt3}\ln\frac{h_0}{h_f}\simeq0.258.
+\end{aligned}
+$$
 
-
-initial_thickness = 10.0  # mm
-final_thickness = 8.0     # mm
-roll_radius = 200.0       # mm
-entry_speed = 1.0         # m/s
-
-draft = initial_thickness - final_thickness
-reduction = draft / initial_thickness
-contact_length = np.sqrt(roll_radius * draft)
-exit_speed = initial_thickness / final_thickness * entry_speed
-compressive_strain = np.log(initial_thickness / final_thickness)
-equivalent_strain = 2.0 / np.sqrt(3.0) * compressive_strain
-
-print(f"Draft: {draft:.2f} mm")
-print(f"Reduction: {100 * reduction:.1f}%")
-print(f"Contact length: {contact_length:.2f} mm")
-print(f"Exit speed: {exit_speed:.2f} m/s")
-print(f"Equivalent strain: {equivalent_strain:.3f}")
-~~~
+동등변형률은 평면변형과 소성 체적 일정 조건을 가정한 값이다.
 
 ## 11.2. 마찰계수와 최대 압하량
 
-롤 반지름이 일정할 때 마찰계수에 따라 가능한 최대 압하량이 어떻게 달라지는지 그려
-보자.
+장력이 없는 단순 물림 모델에서 $\Delta h_{max}\approx\mu^2R$이다.
+$R=200\,\mathrm{mm}$일 때 다음과 같다.
 
-~~~python
-import matplotlib.pyplot as plt
+| 마찰계수 $\mu$ | 최대 압하량 $\Delta h_{max}$ (mm) |
+|---|---:|
+| 0.05 | 0.5 |
+| 0.10 | 2.0 |
+| 0.20 | 8.0 |
 
-
-friction_coefficient = np.linspace(0.02, 0.20, 100)
-maximum_draft = friction_coefficient**2 * roll_radius
-
-fig, ax = plt.subplots(figsize=(6, 4))
-ax.plot(friction_coefficient, maximum_draft)
-ax.set_xlabel("Friction coefficient")
-ax.set_ylabel("Maximum draft (mm)")
-ax.set_title("Biting Limit")
-ax.grid(True, alpha=0.3)
-fig.tight_layout()
-plt.show()
-~~~
-
-이 단순 모델에서는 마찰계수가 두 배가 되면 최대 압하량은 네 배가 된다. 하지만 실제
-공정에서는 마찰 증가에 따른 하중과 표면 품질의 변화도 함께 고려해야 한다.
+이 근사식에서는 마찰계수가 두 배가 되면 최대 압하량은 네 배가 된다.
+앞의 압하량 $2\,\mathrm{mm}$에 필요한 마찰계수는 약 $0.10$ 이상이다.
+실제 공정에서는 마찰 증가에 따른 하중과 표면 품질의 변화도 함께 고려해야 한다.
 
 ## 11.3. 압연하중과 동력 추정
 
-평균 압연압력이 300 MPa, 판 폭이 500 mm, 롤 회전속도가 60 rpm이라고 하자.
+평균 압연압력이 $\bar p=300\,\mathrm{MPa}$이고 롤 회전속도가
+$N=60\,\mathrm{rpm}$이라고 하자. 앞의 판 폭 $w=500\,\mathrm{mm}$와
+접촉길이 $L=20\,\mathrm{mm}$를 사용하면
 
-~~~python
-mean_pressure = 300.0  # MPa = N/mm^2
-strip_width = 500.0    # mm
-roll_speed_rpm = 60.0
+$$
+F\approx\bar p wL=3.0\times10^6\,\mathrm N=3.0\,\mathrm{MN}.
+$$
 
-rolling_force = mean_pressure * strip_width * contact_length
-contact_length_m = contact_length / 1000.0
-torque_per_roll = rolling_force * contact_length_m / 2.0
-angular_speed = 2.0 * np.pi * roll_speed_rpm / 60.0
-total_power = 2.0 * torque_per_roll * angular_speed
+롤 하나의 토크를 $T\approx FL/2$로 근사하고 접촉길이를 m로 환산하면
 
-print(f"Rolling force: {rolling_force / 1e6:.2f} MN")
-print(f"Torque per roll: {torque_per_roll / 1000:.1f} kN m")
-print(f"Total power: {total_power / 1000:.1f} kW")
-~~~
+$$
+T\approx\frac{(3.0\times10^6)(0.020)}{2}
+=30\,\mathrm{kN\,m}.
+$$
 
-계산 결과는 단순 근사에 기반한다. 특히 정확한 평균 압연압력을 얻으려면 재료거동과
-마찰을 포함한 압연이론이 필요하다.
+두 롤이 같은 각속도로 구동될 때 총 동력은
+
+$$
+\omega=\frac{2\pi N}{60}=2\pi\,\mathrm{rad/s},
+\qquad P\approx2T\omega\simeq377\,\mathrm{kW}
+$$
+
+이다. 계산 결과는 단순 근사에 기반한다. 특히 평균 압연압력을 얻으려면
+재료거동과 마찰을 포함한 압연이론이 필요하다.
 
 # 12. 핵심 정리
 

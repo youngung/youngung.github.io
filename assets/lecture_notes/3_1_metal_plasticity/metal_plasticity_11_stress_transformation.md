@@ -35,22 +35,22 @@ authors:
 **좌표변환은 물체나 하중을 바꾸는 것이 아니라, 같은 물리량을 나타내는 기준 방향을 바꾸는 과정**이다.
 이를 수동적 변환(passive transformation)이라 한다.
 
-이 강의에서는 기존 기저 $$\lbrace\boldsymbol e_1,\boldsymbol e_2,\boldsymbol e_3\rbrace$$와
-새 기저 $$\lbrace\tilde{\boldsymbol e}_1,\tilde{\boldsymbol e}_2,\tilde{\boldsymbol e}_3\rbrace$$가
+이 강의에서는 기존 기저 $\{\boldsymbol e_1,\boldsymbol e_2,\boldsymbol e_3\}$ 와
+새 기저 $\{\tilde{\boldsymbol e}_1,\tilde{\boldsymbol e}_2,\tilde{\boldsymbol e}_3\}$ 가
+
 모두 오른손 직교정규 기저라고 가정한다. 즉, 각 기저벡터의 길이는 1이고 서로 수직이다.
-대괄호 $$[\,\cdot\,]_{\mathrm{old}}$$, $$[\,\cdot\,]_{\mathrm{new}}$$는 각각 기존 기저와 새 기저에서의 성분 배열을 나타낸다.
 
 # 2. 좌표변환 행렬은 어떻게 만드는가?
 
 ## 2.1. 성분은 기저 방향으로의 투영이다
 
-벡터 $$\boldsymbol v$$를 기존 기저로 쓰면
+벡터 $\boldsymbol v$를 기존 기저로 쓰면
 
 $$
 \boldsymbol v=v_1\boldsymbol e_1+v_2\boldsymbol e_2+v_3\boldsymbol e_3
 $$
 
-이다. 새 기저의 첫 번째 성분은 같은 벡터를 $$\tilde{\boldsymbol e}_1$$ 방향으로 투영하여 구한다.
+이다. 새 기저의 첫 번째 성분은 같은 벡터를 $\tilde{\boldsymbol e}_1$ 방향으로 투영하여 구한다.
 
 $$
 \begin{aligned}
@@ -75,9 +75,9 @@ $$
 \end{bmatrix}.
 $$
 
-단위벡터 사이의 내적은 두 방향 사이 각도의 코사인이므로 $$R_{ij}$$를 **방향코사인(direction cosine)**이라고도 한다.
-행 첨자 $$i$$는 새 방향, 열 첨자 $$j$$는 기존 방향에 해당한다.
-특히 **$$i$$번째 행은 새 기저벡터 $$\tilde{\boldsymbol e}_i$$를 기존 기저로 표현한 성분**이다.
+단위벡터 사이의 내적은 두 방향 사이 각도의 코사인이므로 $R_{ij}$를 **방향코사인(direction cosine)**이라고도 한다.
+행 첨자 $i$는 새 방향, 열 첨자 $j$는 기존 방향에 해당한다.
+특히 **$i$번째 행은 새 기저벡터 $\tilde{\boldsymbol e}_i$를 기존 기저로 표현한 성분**이다.
 
 세 성분의 투영식을 모으면
 
@@ -91,8 +91,8 @@ $$
 
 ## 2.2. 평면에서 좌표축을 반시계방향으로 회전시키기
 
-기존 $$\boldsymbol e_1$$축에서 $$\boldsymbol e_2$$축으로 향하는 반시계방향을 양의 회전으로 정한다.
-새 좌표축을 $$\theta$$만큼 회전시키면
+기존 $\boldsymbol e_1$축에서 $\boldsymbol e_2$축으로 향하는 반시계방향을 양의 회전으로 정한다.
+새 좌표축을 $\theta$만큼 회전시키면
 
 $$
 \begin{aligned}
@@ -101,7 +101,7 @@ $$
 \end{aligned}
 $$
 
-예를 들어 $$\theta=90^\circ$$이면 새 첫 번째 축은 기존 두 번째 축 방향이고,
+예를 들어 $\theta=90^\circ$이면 새 첫 번째 축은 기존 두 번째 축 방향이고,
 새 두 번째 축은 기존 첫 번째 축의 반대 방향이다. 따라서 두 번째 행의 첫 성분에는 음수가 붙는다.
 위 두 벡터의 성분을 행으로 쓰면
 
@@ -109,18 +109,18 @@ $$
 \boxed{[\boldsymbol R]=\begin{bmatrix}\cos\theta&\sin\theta\\-\sin\theta&\cos\theta\end{bmatrix}}.
 $$
 
-3차원에서 $$\boldsymbol e_3$$축을 그대로 두고 같은 회전을 하면
+3차원에서 $\boldsymbol e_3$축을 그대로 두고 같은 회전을 하면
 
 $$
 [\boldsymbol R]=\begin{bmatrix}\cos\theta&\sin\theta&0\\-\sin\theta&\cos\theta&0\\0&0&1\end{bmatrix}
 $$
 
 이다. 물체 자체를 고정된 좌표계 안에서 반시계방향으로 회전시키는 **능동적 회전(active rotation)**은
-여기서 다루는 좌표축의 회전과 다르다. 이 관례에서 같은 각도의 능동적 회전에는 $$[\boldsymbol R]^T$$가 사용된다.
+여기서 다루는 좌표축의 회전과 다르다. 이 관례에서 같은 각도의 능동적 회전에는 $[\boldsymbol R]^T$가 사용된다.
 
 ## 2.3. 역변환과 벡터 계산 예제
 
-$$\theta=90^\circ$$이고 기존 성분이 $$(3,4)^T$$라면
+$\theta=90^\circ$이고 기존 성분이 $(3,4)^T$라면
 
 $$
 [\boldsymbol v]_{\mathrm{new}}
@@ -128,10 +128,10 @@ $$
 =\begin{bmatrix}4\\-3\end{bmatrix}.
 $$
 
-새 첫 번째 축 방향의 성분은 4, 새 두 번째 축 방향의 성분은 $$-3$$이다.
-두 성분 배열은 다르지만, 벡터의 길이는 모두 $$\sqrt{3^2+4^2}=5$$다.
+새 첫 번째 축 방향의 성분은 4, 새 두 번째 축 방향의 성분은 $-3$이다.
+두 성분 배열은 다르지만, 벡터의 길이는 모두 $\sqrt{3^2+4^2}=5$다.
 
-직교정규 기저로 만든 $$[\boldsymbol R]$$의 각 행은 길이가 1이고 서로 수직이므로
+직교정규 기저로 만든 $[\boldsymbol R]$의 각 행은 길이가 1이고 서로 수직이므로
 
 $$
 [\boldsymbol R][\boldsymbol R]^T=[\boldsymbol I],
@@ -144,20 +144,25 @@ $$
 [\boldsymbol v]_{\mathrm{old}}=[\boldsymbol R]^T[\boldsymbol v]_{\mathrm{new}}
 $$
 
-이다. 두 기저가 모두 오른손 기저이면 $$\det[\boldsymbol R]=+1$$도 만족한다.
+이다. 두 기저가 모두 오른손 기저이면 $\det[\boldsymbol R]=+1$도 만족한다.
 
 # 3. 응력텐서에는 왜 행렬을 두 번 곱하는가?
 
 ## 3.1. 면의 방향과 면력의 방향을 함께 변환하기
 
-응력텐서는 면의 단위법선 $$\boldsymbol n$$을 그 면에 작용하는 면력 $$\boldsymbol t$$로 연결한다.
+이 강의에서는 인장응력을 양수로 정하고, 응력텐서가 대칭인 고전 연속체를 다룬다.
+즉, $\sigma_{ij}=\sigma_{ji}$이며, $\sigma_{ij}$의 첫 첨자는 면력의 성분 방향,
+두 번째 첨자는 면의 법선 방향을 나타낸다.
+
+응력텐서는 면의 단위법선 $\boldsymbol n$을 그 면에 작용하는 면력 $\boldsymbol t$로 연결한다.
 기존 기저에서 Cauchy 면력 공식은
 
 $$
 [\boldsymbol t]_{\mathrm{old}}=[\boldsymbol\sigma]_{\mathrm{old}}[\boldsymbol n]_{\mathrm{old}}
 $$
 
-이다. 면력과 법선은 모두 벡터이므로
+이다. 여기서 면력(traction)은 단위면적당 힘이므로 단위는 응력과 같은 $\mathrm{Pa}$다.
+면력과 법선은 모두 벡터이므로
 
 $$
 [\boldsymbol t]_{\mathrm{new}}=[\boldsymbol R][\boldsymbol t]_{\mathrm{old}},
@@ -184,8 +189,8 @@ $$
 $$
 
 응력은 면력의 성분 방향과 면의 법선 방향이라는 **두 방향**을 연결하므로, 두 첨자에 각각 좌표변환이 필요하다.
-왼쪽의 $$[\boldsymbol R]$$은 면력 성분을 새 기저로 바꾸고,
-오른쪽의 $$[\boldsymbol R]^T$$는 새 기저의 법선 성분을 기존 기저의 성분으로 바꾸는 역할을 한다.
+왼쪽의 $[\boldsymbol R]$은 면력 성분을 새 기저로 바꾸고,
+오른쪽의 $[\boldsymbol R]^T$는 새 기저의 법선 성분을 기존 기저의 성분으로 바꾸는 역할을 한다.
 
 ## 3.2. 평면 응력성분의 변환식
 
@@ -196,7 +201,9 @@ $$
 \qquad c=\cos\theta,\quad s=\sin\theta
 $$
 
-로 쓰자. 먼저 왼쪽 행렬곱을 계산하면
+로 쓰자. 이 식은 면내 성분의 변환식이다. 평면응력 상태라면
+$\sigma_{13}=\sigma_{23}=\sigma_{33}=0$이며, $\boldsymbol e_3$축을 고정한 회전에서는 이 조건이 유지된다.
+먼저 왼쪽 행렬곱을 계산하면
 
 $$
 [\boldsymbol R][\boldsymbol\sigma]_{\mathrm{old}}
@@ -222,9 +229,9 @@ $$
 \end{aligned}
 $$
 
-$$\tilde\sigma_{11}$$은 새 첫 번째 축에 수직인 면의 수직응력이며,
-$$\tilde\sigma_{12}=\tilde\sigma_{21}$$은 새 좌표축에서의 전단응력 성분이다.
-새 첫 번째 축에 수직인 면의 면력 성분은 $$(\tilde\sigma_{11},\tilde\sigma_{21})^T$$이다.
+$\tilde\sigma_{11}$은 새 첫 번째 축에 수직인 면의 수직응력이며,
+$\tilde\sigma_{12}=\tilde\sigma_{21}$은 새 좌표축에서의 전단응력 성분이다.
+새 첫 번째 축에 수직인 면의 면력 성분은 $(\tilde\sigma_{11},\tilde\sigma_{21})^T$이다.
 
 ## 3.3. 45° 회전의 수치 예제와 검산
 
@@ -234,7 +241,7 @@ $$
 [\boldsymbol\sigma]_{\mathrm{old}}=\begin{bmatrix}80&20\\20&50\end{bmatrix}\,\mathrm{MPa}
 $$
 
-이고 새 좌표축을 반시계방향으로 $$45^\circ$$ 회전시키면 $$c=s=1/\sqrt2$$이므로
+이고 새 좌표축을 반시계방향으로 $45^\circ$ 회전시키면 $c=s=1/\sqrt2$이므로
 
 $$
 \begin{aligned}
@@ -251,7 +258,7 @@ $$
 $$
 
 전단응력의 부호와 수직응력 성분은 바뀌었지만, 같은 물리적 응력 상태다.
-검산을 위해 두 평면 내 성분행렬의 대각합과 행렬식을 비교하면
+검산을 위해 두 평면 내 성분행렬의 대각합(trace)과 행렬식(determinant)을 비교하면
 
 $$
 80+50=85+45=130\,\mathrm{MPa},
@@ -261,22 +268,45 @@ $$
 80(50)-20^2=85(45)-(-15)^2=3600\,\mathrm{MPa}^2
 $$
 
-으로 같다. 좌표변환 전후에는 응력텐서의 대각합, 행렬식, 고유값이 보존된다.
-위 행렬식은 $$2\times2$$ 평면 내 부분행렬의 값이며, 면외 성분까지 포함한 $$3\times3$$ 평면응력 행렬의 행렬식은 0이다.
+으로 같다. 좌표변환 전후에는 응력텐서의 대각합(trace), 행렬식(determinant), 고유값(eigenvalue)이 보존된다.
+위 행렬식은 $2\times2$ 평면 내 부분행렬의 값이며, 면외 성분까지 포함한 $3\times3$ 평면응력 행렬의 행렬식은 0이다.
 
-# 4. 주응력과 최대 전단응력
+# 4. 주응력(principal stresses)과 최대 전단응력(maximum shear stress)
 
-전단응력 성분이 0이 되는 좌표축을 **주축 (principal axes)**이라 한다.
-이 축에 대한 수직응력이 **주응력 (principal stresses)**이며, 응력텐서의 고유값이다.
-평면의 두 주응력은
+좌표축에 수직인 면들에서 전단응력 성분이 모두 0이 되는 좌표축을 **주축 (principal axes)**이라 한다.
+이 축에 대한 수직응력이 **주응력 (principal stresses)**이며, 응력텐서의 고유값(eigenvalue)이다.
+
+## 4.1. 평면응력의 주응력과 최대 전단응력
+
+먼저 면외 응력성분이 0인 평면응력 상태를 생각하자.
+평면 내 주응력 $\lambda$는 다음 2차 방정식을 만족한다.
+
+$$
+\begin{vmatrix}
+\sigma_{11}-\lambda&\sigma_{12}\\
+\sigma_{12}&\sigma_{22}-\lambda
+\end{vmatrix}
+=(\sigma_{11}-\lambda)(\sigma_{22}-\lambda)-\sigma_{12}^2=0.
+$$
+
+이를 전개하면
+
+$$
+\lambda^2-(\sigma_{11}+\sigma_{22})\lambda
++\sigma_{11}\sigma_{22}-\sigma_{12}^2=0
+$$
+
+이며, 근의 공식을 적용하면 아래의 두 평면 내 주응력을 얻는다.
+
+평면응력 조건(plane stress condition)에서 두 주응력(principal stresses)은
 
 $$
 \sigma_{\pm}=\frac{\sigma_{11}+\sigma_{22}}{2}
 \pm\sqrt{\left(\frac{\sigma_{11}-\sigma_{22}}{2}\right)^2+\sigma_{12}^2}
 $$
 
-로 구한다. 평면응력에서는 면외 주응력 0도 포함해 세 주응력을 크기순으로 정리한다.
-3차원 최대 전단응력은 $$\tau_{\max}=(\sigma_{\max}-\sigma_{\min})/2$$다.
+로 구한다. 평면응력에서는 면외 주응력 0도 포함해 세 주응력을 크기순(부호를 고려하여, 가령 -80과 50 이라면 50이 최대, -80이 최소)으로 정리한다.
+3차원 최대 전단응력(maximum shear stress)은 $\tau_{\max}=(\sigma_{\max}-\sigma_{\min})/2$다.
 
 예를 들어
 
@@ -284,11 +314,11 @@ $$
 [\boldsymbol\sigma]=\begin{bmatrix}80&20&0\\20&50&0\\0&0&0\end{bmatrix}\,\mathrm{MPa}
 $$
 
-이면 평면 내 주응력은 $$65\pm25$$, 즉 $$90$$과 $$40\,\mathrm{MPa}$$다.
-세 주응력은 $$(90,40,0)\,\mathrm{MPa}$$이므로 최대 전단응력은 $$45\,\mathrm{MPa}$$다.
-평면 내 최대 전단응력 $$25\,\mathrm{MPa}$$와 구분해야 한다.
+이면 평면 내 주응력은 $65\pm25$, 즉 $90$과 $40\,\mathrm{MPa}$다.
+세 주응력은 $(90,40,0)\,\mathrm{MPa}$이므로 최대 전단응력은 $45\,\mathrm{MPa}$다.
+평면 내 최대 전단응력 $25\,\mathrm{MPa}$와 구분해야 한다.
 
-위 예제에서 주축의 방향도 좌표변환 행렬로 구할 수 있다. $$\tilde\sigma_{12}=0$$인 조건을 쓰면
+위 예제에서 주축의 방향도 좌표변환 행렬로 구할 수 있다. $\tilde\sigma_{12}=0$인 조건을 쓰면
 
 $$
 0=-\frac{\sigma_{11}-\sigma_{22}}{2}\sin2\theta_p+\sigma_{12}\cos2\theta_p,
@@ -296,8 +326,8 @@ $$
 \tan2\theta_p=\frac{2\sigma_{12}}{\sigma_{11}-\sigma_{22}}=\frac{40}{30}.
 $$
 
-이 예제에서는 $$\theta_p\simeq26.565^\circ$$를 선택하면
-$$\cos\theta_p=2/\sqrt5$$, $$\sin\theta_p=1/\sqrt5$$다. 따라서
+이 예제에서는 $\theta_p\simeq26.565^\circ$를 선택하면
+$\cos\theta_p=2/\sqrt5$, $\sin\theta_p=1/\sqrt5$다. 따라서
 
 $$
 [\boldsymbol R_p]=\frac1{\sqrt5}\begin{bmatrix}2&1\\-1&2\end{bmatrix},
@@ -308,26 +338,159 @@ $$
 
 이 좌표계에서는 전단응력이 0이고, 대각성분이 주응력이 된다.
 
-일반적으로 주축 방향은 $$90^\circ$$ 차이로 두 개 존재한다. 탄젠트 식만으로는 어느 축이 최대 주응력 방향인지 정해지지 않으므로,
-구한 각도를 변환식에 대입해 확인한다. 평면 내 응력이 $$\sigma_{11}=\sigma_{22}$$, $$\sigma_{12}=0$$이면 모든 평면 내 방향이 주축이다.
+평면 내 두 주응력이 서로 다르면 주축 방향은 $90^\circ$ 차이로 두 개 존재한다. 탄젠트 식만으로는 어느 축이 최대 주응력 방향인지 정해지지 않으므로,
+구한 각도를 변환식에 대입해 확인한다. 최대 평면 내 주응력에 해당하는 축의 각도는
+
+$$
+\theta_p=\frac12\operatorname{atan2}(2\sigma_{12},\sigma_{11}-\sigma_{22})
+$$
+
+로 구할 수 있다. $\operatorname{atan2}(y,x)$는 두 입력의 부호로 사분면을 구분한다.
+주축은 축의 양쪽 방향을 같은 축으로 보므로 각도는 $180^\circ$ 주기로 해석한다.
+평면 내 응력이 $\sigma_{11}=\sigma_{22}$, $\sigma_{12}=0$이면 모든 평면 내 방향이 주축이다.
+
+평면응력에서는 면외 방향이 이미 주축이고 그 주응력이 0이므로,
+평면 내 두 주응력만 2차 방정식으로 구하면 된다.
+일반적인 3차원 응력 상태에서는 면외 수직응력과 전단응력도 존재할 수 있어,
+세 주응력을 $3\times3$ 응력행렬에서 함께 구해야 한다.
+이때 같은 행렬식 조건을 3차원으로 확장하면 3차 방정식이 된다.
+
+## 4.2. 3차원 응력텐서의 특성방정식
+
+주축에 수직인 면에서는 면력이 법선과 평행하다. 따라서 주응력 $\lambda$와
+그 주축의 단위방향벡터 $\boldsymbol n$은
+
+$$
+\boldsymbol\sigma\boldsymbol n=\lambda\boldsymbol n,
+\qquad (\boldsymbol\sigma-\lambda\boldsymbol I)\boldsymbol n=\boldsymbol0
+$$
+
+을 만족한다. $\boldsymbol n\ne\boldsymbol0$인 해가 존재하려면 계수행렬의 행렬식이 0이어야 한다.
+대칭인 3차원 응력텐서에 대해 이를 쓰면
+
+$$
+\det(\boldsymbol\sigma-\lambda\boldsymbol I)
+=\begin{vmatrix}
+\sigma_{11}-\lambda&\sigma_{12}&\sigma_{13}\\
+\sigma_{12}&\sigma_{22}-\lambda&\sigma_{23}\\
+\sigma_{13}&\sigma_{23}&\sigma_{33}-\lambda
+\end{vmatrix}=0.
+$$
+
+행렬식을 전개하고 양변에 $-1$을 곱하면 다음 **3차 특성방정식(characteristic equation)**을 얻는다.
+
+$$
+\boxed{\lambda^3-I_1\lambda^2+I_2\lambda-I_3=0}
+$$
+
+계수 $I_1$, $I_2$, $I_3$는 **응력 불변량(stress invariants)**이며 다음과 같다.
+
+$$
+\begin{aligned}
+I_1&=\operatorname{tr}\boldsymbol\sigma
+=\sigma_{11}+\sigma_{22}+\sigma_{33},\\
+I_2&=\frac12\left[(\operatorname{tr}\boldsymbol\sigma)^2
+-\operatorname{tr}(\boldsymbol\sigma^2)\right]\\
+&=\sigma_{11}\sigma_{22}+\sigma_{22}\sigma_{33}+\sigma_{33}\sigma_{11}
+-\sigma_{12}^2-\sigma_{23}^2-\sigma_{13}^2,\\
+I_3&=\det\boldsymbol\sigma\\
+&=\sigma_{11}\sigma_{22}\sigma_{33}
++2\sigma_{12}\sigma_{23}\sigma_{13}
+-\sigma_{11}\sigma_{23}^2-\sigma_{22}\sigma_{13}^2-\sigma_{33}\sigma_{12}^2.
+\end{aligned}
+$$
+
+$\lambda$의 단위는 응력이고, $I_1$, $I_2$, $I_3$의 단위는 각각 응력, 응력의 제곱,
+응력의 세제곱이다. 따라서 특성방정식의 모든 항은 같은 단위를 갖는다.
+
+이 3차 방정식의 세 근이 주응력 $\sigma_1$, $\sigma_2$, $\sigma_3$이다.
+실수 대칭 응력텐서이므로 세 근은 모두 실수이며 중근도 가능하다.
+주응력으로 계수를 나타내면
+
+$$
+I_1=\sigma_1+\sigma_2+\sigma_3,\qquad
+I_2=\sigma_1\sigma_2+\sigma_2\sigma_3+\sigma_3\sigma_1,\qquad
+I_3=\sigma_1\sigma_2\sigma_3.
+$$
+
+좌표축을 바꾸어도 주응력은 같으므로 이 세 계수도 변하지 않는다.
+평균응력은 $\sigma_m=I_1/3$이고, 세 근을 부호를 포함하여
+$\sigma_1\ge\sigma_2\ge\sigma_3$으로 정렬하면 최대 전단응력은
+$\tau_{\max}=(\sigma_1-\sigma_3)/2$이다.
+
+예를 들어 다음은 면외 압축응력이 있는 3차원 응력 상태다.
+
+$$
+[\boldsymbol\sigma]=\begin{bmatrix}80&20&0\\20&50&0\\0&0&-30\end{bmatrix}\,\mathrm{MPa}.
+$$
+
+이때 $I_1=100\,\mathrm{MPa}$, $I_2=-300\,\mathrm{MPa}^2$,
+$I_3=-108000\,\mathrm{MPa}^3$이다. 응력을 MPa 단위의 수치로 표시하면 특성방정식은
+
+$$
+\lambda^3-100\lambda^2-300\lambda+108000
+=(\lambda-90)(\lambda-40)(\lambda+30)=0
+$$
+
+이 된다. 따라서 세 주응력은 $(90,40,-30)\,\mathrm{MPa}$이고,
+최대 전단응력은 $[90-(-30)]/2=60\,\mathrm{MPa}$이다.
+주축 방향이 필요하면 각 근을 $(\boldsymbol\sigma-\lambda\boldsymbol I)\boldsymbol n=\boldsymbol0$에
+대입하여 방향벡터를 구하고 길이를 1로 정규화한다.
+
+평면응력은 이 3차원 식의 특수한 경우다. 면외 응력성분이 모두 0이면
+
+$$
+I_1=\sigma_{11}+\sigma_{22},\qquad
+I_2=\sigma_{11}\sigma_{22}-\sigma_{12}^2,\qquad I_3=0
+$$
+
+이므로 특성방정식은
+
+$$
+\lambda\left[\lambda^2-(\sigma_{11}+\sigma_{22})\lambda
++\sigma_{11}\sigma_{22}-\sigma_{12}^2\right]=0
+$$
+
+으로 분해된다. 첫 번째 인자는 면외 주응력 0을 주고,
+대괄호 안은 4.1절에서 사용한 평면 내 2차 방정식과 같다.
 
 # 5. 평균응력과 편차응력
 
-응력은 평균응력과 나머지 부분으로 나눈다.
+응력텐서는 모든 방향에 같은 수직응력을 주는 등방 부분과 편차 부분으로 나눈다.
+등방 부분의 크기인 **평균응력(mean stress)**은 세 수직응력의 평균이다.
 
 $$
 \sigma_m=\frac{\sigma_{11}+\sigma_{22}+\sigma_{33}}{3},
 \qquad \boldsymbol s=\boldsymbol\sigma-\sigma_m\boldsymbol I.
 $$
 
-$$\boldsymbol I$$는 단위텐서이고, $$\boldsymbol s$$는 **편차응력 (deviatoric stress)**이다.
+$\boldsymbol I$는 단위텐서이고, $\boldsymbol s$는 **편차응력 (deviatoric stress)**이다.
+따라서 $\boldsymbol\sigma=\sigma_m\boldsymbol I+\boldsymbol s$이며,
+편차응력의 대각합은 $\operatorname{tr}\boldsymbol s=0$이다.
+인장을 양수로 정했으므로, 압축을 양수로 정의하는 정수압 $p$와는 $p=-\sigma_m$의 관계가 있다.
+
+4.1절의 평면응력 예제에서는
+
+$$
+\sigma_m=\frac{80+50+0}{3}=\frac{130}{3}\,\mathrm{MPa},
+\qquad
+[\boldsymbol s]=\begin{bmatrix}
+110/3&20&0\\
+20&20/3&0\\
+0&0&-130/3
+\end{bmatrix}\,\mathrm{MPa}.
+$$
+
+평면응력 상태에서도 $s_{33}=\sigma_{33}-\sigma_m=-\sigma_m$이므로,
+편차응력의 면외 성분은 0이 아닐 수 있다. 평균응력을 구할 때도 면외 성분을 포함하여 **3으로 나눈다.**
+좌표축을 바꾸어도 평균응력은 같고, 편차응력은 전체 응력과 같은 방식으로 변환된다.
 다음 항복 조건 자료에서는 주응력으로 Tresca 조건을, 편차응력으로 von Mises 조건을 이해한다.
 
 # 6. 연습 문제
 
 ## 문제 1: 평균응력과 최대 전단응력
 
-주응력이 $$(120,60,0)\,\mathrm{MPa}$$일 때 평균응력과 3차원 최대 전단응력을 구하시오.
+주응력이 $(120,60,0)\,\mathrm{MPa}$일 때 평균응력과 3차원 최대 전단응력을 구하시오.
 
 <!--
 풀이와 해답:
@@ -337,9 +500,9 @@ $$\boldsymbol I$$는 단위텐서이고, $$\boldsymbol s$$는 **편차응력 (de
 
 ## 문제 2: 기저벡터로 행렬 만들기
 
-새 기저가 $$\tilde{\boldsymbol e}_1=(\boldsymbol e_1+\boldsymbol e_2)/\sqrt2$$,
-$$\tilde{\boldsymbol e}_2=(-\boldsymbol e_1+\boldsymbol e_2)/\sqrt2$$일 때 좌표변환 행렬을 구하라.
-기존 성분이 $$(10,0)^T$$인 벡터의 새 성분과 크기를 구하라.
+새 기저가 $\tilde{\boldsymbol e}_1=(\boldsymbol e_1+\boldsymbol e_2)/\sqrt2$,
+$\tilde{\boldsymbol e}_2=(-\boldsymbol e_1+\boldsymbol e_2)/\sqrt2$일 때 좌표변환 행렬을 구하라.
+기존 성분이 $(10,0)^T$인 벡터의 새 성분과 크기를 구하라.
 
 <!--
 풀이와 해답:
@@ -349,8 +512,8 @@ R=(1/sqrt(2))[[1,1],[-1,1]]이다.
 
 ## 문제 3: 일축 인장 상태의 좌표변환
 
-평면응력 상태에서 $$\sigma_{11}=100\,\mathrm{MPa}$$이고 나머지 성분은 모두 0이다.
-새 좌표축을 반시계방향으로 $$45^\circ$$ 회전시켰을 때 평면 내 응력성분을 구하라.
+평면응력 상태에서 $\sigma_{11}=100\,\mathrm{MPa}$이고 나머지 성분은 모두 0이다.
+새 좌표축을 반시계방향으로 $45^\circ$ 회전시켰을 때 평면 내 응력성분을 구하라.
 수직응력과 전단응력이 함께 나타나는 이유를 면의 방향과 연결하여 설명하라.
 
 <!--
@@ -362,7 +525,7 @@ R=(1/sqrt(2))[[1,1],[-1,1]]이다.
 
 ## 문제 4: 올바른 좌표변환 행렬 고르기
 
-다음 두 행렬 중 이 강의의 반시계방향 $$30^\circ$$ **좌표축 회전**에 해당하는 행렬을 고르고,
+다음 두 행렬 중 이 강의의 반시계방향 $30^\circ$ **좌표축 회전**에 해당하는 행렬을 고르고,
 새 첫 번째 기저벡터의 방향을 근거로 설명하라. 다른 행렬이 나타내는 좌표축 회전 각도도 구하라.
 
 $$
@@ -408,9 +571,9 @@ $$
 =\begin{bmatrix}60&15\\15&20\end{bmatrix}\,\mathrm{MPa}.
 $$
 
-1. 새 좌표축을 반시계방향으로 $$90^\circ$$ 회전시켰을 때 응력성분을 구하라.
+1. 새 좌표축을 반시계방향으로 $90^\circ$ 회전시켰을 때 응력성분을 구하라.
 2. 두 평면 내 성분행렬의 대각합과 행렬식을 비교하라.
-3. $$[\boldsymbol R]^T[\boldsymbol\sigma]_{\mathrm{new}}[\boldsymbol R]$$을 계산하여 기존 성분으로 돌아오는지 확인하라.
+3. $[\boldsymbol R]^T[\boldsymbol\sigma]_{\mathrm{new}}[\boldsymbol R]$을 계산하여 기존 성분으로 돌아오는지 확인하라.
 
 <!--
 풀이와 해답:
@@ -431,7 +594,7 @@ $$
 =\begin{bmatrix}0&30&0\\30&0&0\\0&0&0\end{bmatrix}\,\mathrm{MPa}.
 $$
 
-1. 면외 축은 고정하고 평면 내 좌표축을 반시계방향으로 $$45^\circ$$ 회전시켰을 때 $$3\times3$$ 응력행렬을 구하라.
+1. 면외 축은 고정하고 평면 내 좌표축을 반시계방향으로 $45^\circ$ 회전시켰을 때 $3\times3$ 응력행렬을 구하라.
 2. 세 주응력을 큰 순서로 정리하고 3차원 최대 전단응력을 구하라.
 3. 전단응력 성분이 모두 0이 된 좌표계에서도 최대 전단응력이 0이 아닌 이유를 설명하라.
 
@@ -445,7 +608,7 @@ $$
 
 ## 문제 8: 평면 내 최대 전단응력과 3차원 최대 전단응력
 
-평면응력 상태에서 두 평면 내 주응력이 $$100\,\mathrm{MPa}$$와 $$40\,\mathrm{MPa}$$이다.
+평면응력 상태에서 두 평면 내 주응력이 $100\,\mathrm{MPa}$와 $40\,\mathrm{MPa}$이다.
 
 1. 세 주응력을 큰 순서로 정리하라.
 2. 평면 내 최대 전단응력과 3차원 최대 전단응력을 각각 구하라.
@@ -469,7 +632,7 @@ $$
 $$
 
 1. 평균응력과 편차응력 행렬을 구하고 편차응력의 대각합이 0인지 확인하라.
-2. 평면 내 좌표축을 반시계방향으로 $$45^\circ$$ 회전시킨 응력행렬을 구하라.
+2. 평면 내 좌표축을 반시계방향으로 $45^\circ$ 회전시킨 응력행렬을 구하라.
 3. 변환된 응력행렬에서 다시 평균응력과 편차응력을 구하라.
 4. 평면응력 상태에서도 편차응력의 면외 성분이 0이 아닐 수 있는 이유를 설명하라.
 
@@ -493,12 +656,12 @@ $$
 $$
 
 새 기저벡터를
-$$\tilde{\boldsymbol e}_1=(2\boldsymbol e_1+\boldsymbol e_2)/\sqrt5$$,
-$$\tilde{\boldsymbol e}_2=(-\boldsymbol e_1+2\boldsymbol e_2)/\sqrt5$$로 정한다.
+$\tilde{\boldsymbol e}_1=(2\boldsymbol e_1+\boldsymbol e_2)/\sqrt5$,
+$\tilde{\boldsymbol e}_2=(-\boldsymbol e_1+2\boldsymbol e_2)/\sqrt5$로 정한다.
 새 첫 번째 축에 수직인 면을 생각하자.
 
 1. 이 면의 단위법선을 두 기저에서 각각 나타내라.
-2. 기존 기저에서 $$[\boldsymbol t]_{\mathrm{old}}=[\boldsymbol\sigma]_{\mathrm{old}}[\boldsymbol n]_{\mathrm{old}}$$를 계산하라.
+2. 기존 기저에서 $[\boldsymbol t]_{\mathrm{old}}=[\boldsymbol\sigma]_{\mathrm{old}}[\boldsymbol n]_{\mathrm{old}}$를 계산하라.
 3. 면력의 성분을 새 기저로 변환하고, 이 면에 작용하는 수직응력과 전단응력을 구하라.
 4. 본문의 주응력 계산 결과와 비교하라.
 

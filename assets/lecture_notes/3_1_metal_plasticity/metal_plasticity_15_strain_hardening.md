@@ -27,7 +27,7 @@ authors:
 - [7. 소성일과 변형경화](#7-소성일과-변형경화)
 - [8. 다른 경화식과 모델의 한계](#8-다른-경화식과-모델의-한계)
 - [9. 소성가공에서 변형경화가 중요한 이유](#9-소성가공에서-변형경화가-중요한-이유)
-- [10. Python 실습](#10-python-실습)
+- [10. 계산 예제](#10-계산-예제)
   - [10.1. 소성변형률에 따른 유동응력](#101-소성변형률에-따른-유동응력)
   - [10.2. 실험값으로 $K$와 $n$ 구하기](#102-실험값으로-k와-n-구하기)
 - [11. 핵심 정리](#11-핵심-정리)
@@ -265,98 +265,48 @@ hardening)의 기초 형태다. 하중 방향이 바뀔 때 나타나는 Bauschi
 즉, 변형경화는 단순히 “재료가 강해지는 현상”이 아니라 **공정에 필요한 힘과 최종
 제품의 성질을 연결하는 핵심 재료거동**이다.
 
-# 10. Python 실습
+# 10. 계산 예제
 
 ## 10.1. 소성변형률에 따른 유동응력
 
-$K=600$ MPa이고 $n=0.10$, $0.20$, $0.30$인 세 경우를 비교해 보자.
+Hollomon 법칙 $\sigma=K(\varepsilon^{pl})^n$에서 $K=600\,\mathrm{MPa}$로 두고,
+소성변형률 $\varepsilon^{pl}=0.10$일 때 경화지수에 따른 유동응력을 비교하자.
 
-~~~python
-import numpy as np
-import matplotlib.pyplot as plt
+| 경화지수 $n$ | 유동응력 $\sigma$ (MPa) |
+|---|---:|
+| 0.10 | 476.6 |
+| 0.20 | 378.6 |
+| 0.30 | 300.7 |
 
-
-plastic_strain = np.linspace(0.001, 0.30, 200)
-strength_coefficient = 600.0  # MPa
-hardening_exponents = [0.10, 0.20, 0.30]
-
-fig, ax = plt.subplots(figsize=(6, 4))
-
-for exponent in hardening_exponents:
-    flow_stress = strength_coefficient * plastic_strain**exponent
-    ax.plot(
-        plastic_strain,
-        flow_stress,
-        label=f"n = {exponent:.2f}",
-    )
-
-ax.set_xlabel("Plastic strain")
-ax.set_ylabel("Flow stress (MPa)")
-ax.set_title("Hollomon Hardening Law")
-ax.grid(True, alpha=0.3)
-ax.legend()
-fig.tight_layout()
-plt.show()
-~~~
-
-그래프를 보면 $n$에 따라 곡선의 모양이 달라진다. 다만 모든 곡선에 같은 $K$를
-사용했기 때문에 작은 변형률 구간의 응력 순서는 단순히 “$n$이 클수록 크다”가 아니다.
-이 점이 $K$와 $n$을 함께 비교해야 하는 이유다.
+같은 $K$를 사용하고 $0<\varepsilon^{pl}<1$이면, $n$이 클수록 해당 변형률의
+응력값은 작다. 따라서 경화지수만으로 재료의 유동응력 크기를 비교하지 않고
+$K$와 $n$을 함께 보아야 한다.
 
 ## 10.2. 실험값으로 $K$와 $n$ 구하기
 
-다음은 소성변형 구간에서 얻었다고 가정한 진응력–진소성변형률 데이터다. 로그를 취하고
-<code>np.polyfit()</code>으로 직선을 맞추면 $n$과 $K$를 구할 수 있다.
+다음은 소성변형 구간에서 얻었다고 가정한 진응력–진소성변형률 데이터다.
 
-~~~python
-plastic_strain_data = np.array([0.02, 0.04, 0.08, 0.12, 0.18])
-true_stress_data = np.array([280, 322, 370, 402, 435])  # MPa
+| 진소성변형률 $\varepsilon^{pl}$ | 진응력 $\sigma$ (MPa) |
+|---|---:|
+| 0.02 | 280 |
+| 0.04 | 322 |
+| 0.08 | 370 |
+| 0.12 | 402 |
+| 0.18 | 435 |
 
-log_strain = np.log(plastic_strain_data)
-log_stress = np.log(true_stress_data)
+Hollomon 법칙의 양변에 로그를 취하면
 
-hardening_exponent, log_strength_coefficient = np.polyfit(
-    log_strain,
-    log_stress,
-    1,
-)
-strength_coefficient = np.exp(log_strength_coefficient)
+$$
+\ln\sigma=\ln K+n\ln\varepsilon^{pl}
+$$
 
-print(f"n = {hardening_exponent:.3f}")
-print(f"K = {strength_coefficient:.1f} MPa")
-~~~
+이다. 응력과 $K$의 수치는 같은 단위인 MPa로 표시한다.
+$\ln\varepsilon^{pl}$을 가로축, $\ln\sigma$를 세로축으로 놓고 최소제곱법으로
+직선을 맞추면 기울기가 $n$, 절편이 $\ln K$가 된다.
+위 데이터에서는 $n\simeq0.201$, $K\simeq614.6\,\mathrm{MPa}$를 얻는다.
 
-구한 상수로 예측 곡선을 그리고 실험값과 비교하자.
-
-~~~python
-strain_for_curve = np.linspace(0.01, 0.20, 200)
-predicted_stress = (
-    strength_coefficient * strain_for_curve**hardening_exponent
-)
-
-fig, ax = plt.subplots(figsize=(6, 4))
-ax.scatter(
-    plastic_strain_data,
-    true_stress_data,
-    color="black",
-    label="Experimental data",
-)
-ax.plot(
-    strain_for_curve,
-    predicted_stress,
-    color="tab:red",
-    label="Hollomon fit",
-)
-ax.set_xlabel("Plastic strain")
-ax.set_ylabel("True stress (MPa)")
-ax.grid(True, alpha=0.3)
-ax.legend()
-fig.tight_layout()
-plt.show()
-~~~
-
-모델이 모든 측정점을 정확히 지나지 않아도 전체적인 변형경화 경향을 잘 나타내는지
-확인해야 한다. 적용할 변형률 범위 밖으로 지나치게 외삽하지 않도록 주의한다.
+구한 상수로 예측한 응력을 실험값과 비교하여 전체적인 변형경화 경향을 확인한다.
+적용할 변형률 범위 밖으로 지나치게 외삽하지 않도록 주의한다.
 
 # 11. 핵심 정리
 

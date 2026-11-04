@@ -27,7 +27,7 @@ authors:
 - [7. 공칭변형률과 균일연신율](#7-공칭변형률과-균일연신율)
 - [8. 네킹 이후에는 무엇이 달라지는가?](#8-네킹-이후에는-무엇이-달라지는가)
 - [9. 소성가공에서 네킹이 중요한 이유](#9-소성가공에서-네킹이-중요한-이유)
-- [10. Python 실습](#10-python-실습)
+- [10. 계산 예제](#10-계산-예제)
   - [10.1. 유동응력, 단면적과 하중 계산](#101-유동응력-단면적과-하중-계산)
   - [10.2. 진응력과 하중을 함께 그리기](#102-진응력과-하중을-함께-그리기)
   - [10.3. 경화지수와 균일연신율 비교](#103-경화지수와-균일연신율-비교)
@@ -297,82 +297,52 @@ Bridgman 보정 또는 유한요소 역해석 등이 필요할 수 있다.
 이번 강의의 Considere 조건은 일축인장의 균일 네킹을 설명하는 기초 조건이다. 판재의
 다축 변형에서 발생하는 국부 네킹은 응력상태와 변형경로를 함께 고려해야 한다.
 
-# 10. Python 실습
+# 10. 계산 예제
 
 ## 10.1. 유동응력, 단면적과 하중 계산
 
-Hollomon 재료에 대해 진변형률이 증가할 때 유동응력, 단면적과 하중이 어떻게 변하는지
-계산해 보자. 초기 단면적은 $100\ \mathrm{mm^2}$, $K=600$ MPa, $n=0.20$으로 둔다.
+탄성변형을 무시한 균일 일축인장에서 초기 단면적을 $A_0=100\,\mathrm{mm^2}$,
+$K=600\,\mathrm{MPa}$, $n=0.20$으로 두자. 체적 일정 조건과 Hollomon 법칙을 쓰면
 
-~~~python
-import numpy as np
-import matplotlib.pyplot as plt
+$$
+\sigma=600\varepsilon^{0.20}\,\mathrm{MPa},
+\qquad A=100e^{-\varepsilon}\,\mathrm{mm^2},
+\qquad F=\sigma A
+$$
 
+이다. $1\,\mathrm{MPa}=1\,\mathrm{N/mm^2}$이므로 하중의 단위는 N이다.
+Considère 조건에 따라 네킹 시작 진변형률은 $\varepsilon_{neck}=n=0.20$이다.
+이때 $\sigma\simeq434.9\,\mathrm{MPa}$, $A\simeq81.87\,\mathrm{mm^2}$이고,
+최대하중은 $F_{max}\simeq35.60\,\mathrm{kN}$이다.
 
-true_strain = np.linspace(0.001, 0.60, 500)
-strength_coefficient = 600.0  # MPa
-hardening_exponent = 0.20
-initial_area = 100.0          # mm^2
+## 10.2. 진응력 증가와 최대하중의 관계
 
-true_stress = strength_coefficient * true_strain**hardening_exponent
-current_area = initial_area * np.exp(-true_strain)
-load = true_stress * current_area  # N because MPa = N/mm^2
+균일변형을 가정한 하중식을 미분하면
 
-necking_strain = hardening_exponent
-necking_index = np.argmax(load)
+$$
+F=KA_0\varepsilon^n e^{-\varepsilon},
+\qquad
+\frac{dF}{d\varepsilon}
+=KA_0e^{-\varepsilon}\varepsilon^{n-1}(n-\varepsilon)
+$$
 
-print(f"Calculated maximum-load strain: {true_strain[necking_index]:.3f}")
-print(f"Considere prediction: {necking_strain:.3f}")
-~~~
-
-수치적으로 계산한 최대하중 변형률이 $n=0.20$과 가까운지 확인한다.
-
-## 10.2. 진응력과 하중을 함께 그리기
-
-유동응력은 계속 증가하지만 하중은 최대점 이후 감소할 수 있다. 두 값을 별도의 Axes에
-그려 비교하자.
-
-~~~python
-fig, axes = plt.subplots(1, 2, figsize=(10, 4))
-
-axes[0].plot(true_strain, true_stress, color="tab:blue")
-axes[0].axvline(necking_strain, color="black", linestyle="--")
-axes[0].set_xlabel("True strain")
-axes[0].set_ylabel("True stress (MPa)")
-axes[0].set_title("Flow Stress")
-axes[0].grid(True, alpha=0.3)
-
-axes[1].plot(true_strain, load / 1000.0, color="tab:red")
-axes[1].axvline(necking_strain, color="black", linestyle="--", label="Necking")
-axes[1].set_xlabel("True strain")
-axes[1].set_ylabel("Load (kN)")
-axes[1].set_title("Tensile Load")
-axes[1].grid(True, alpha=0.3)
-axes[1].legend()
-
-fig.tight_layout()
-plt.show()
-~~~
-
-왼쪽 그림에서는 변형경화 때문에 진응력이 계속 증가한다. 오른쪽 그림에서는 진변형률이
-약 0.20일 때 하중이 최대가 되고 이후 감소한다. 이것이 “공칭응력이 감소하므로 재료가
-즉시 약해졌다”라고 해석하면 안 되는 이유다.
+이다. 따라서 $0<\varepsilon<n$에서는 하중이 증가하고, $\varepsilon=n$에서
+최대가 된다. 진응력이 계속 증가하더라도 단면 감소의 영향으로 최대하중에 도달할 수 있다.
+네킹 이후에는 변형이 불균일하므로 위 균일변형 식을 시편 전체에 그대로 적용할 수 없다.
 
 ## 10.3. 경화지수와 균일연신율 비교
 
-~~~python
-hardening_exponents = np.array([0.10, 0.20, 0.30, 0.40])
-uniform_true_strain = hardening_exponents
-uniform_engineering_strain = np.exp(hardening_exponents) - 1.0
+이상적인 Hollomon 재료에서 균일 진변형률은 $n$이고,
+대응하는 공칭 균일변형률은 $e_{uniform}=e^n-1$이다.
 
-for exponent, elongation in zip(
-    hardening_exponents,
-    uniform_engineering_strain,
-):
-    print(f"n = {exponent:.2f}: uniform elongation = {100 * elongation:.1f}%")
-~~~
+| 경화지수 $n$ | 균일연신율 $100(e^n-1)$ (%) |
+|---|---:|
+| 0.10 | 10.5 |
+| 0.20 | 22.1 |
+| 0.30 | 35.0 |
+| 0.40 | 49.2 |
 
-이상적인 Hollomon 재료에서는 $n$이 증가할수록 균일연신율도 증가한다.
+이 가정 아래에서는 $n$이 증가할수록 균일연신율도 증가한다.
 
 # 11. 핵심 정리
 
