@@ -131,11 +131,58 @@ $$
 새 첫 번째 축 방향의 성분은 4, 새 두 번째 축 방향의 성분은 $-3$이다.
 두 성분 배열은 다르지만, 벡터의 길이는 모두 $\sqrt{3^2+4^2}=5$다.
 
-직교정규 기저로 만든 $[\boldsymbol R]$의 각 행은 길이가 1이고 서로 수직이므로
+여기서 역변환에 전치행렬을 쓸 수 있는 이유를 살펴보자.
+2.1절에서 보았듯이 $[\boldsymbol R]$의 각 행은 **새 기저벡터를 기존 기저로 표현한 성분**이다.
+새 기저가 직교정규 기저이므로 각 행의 길이는 1이고, 서로 다른 행은 수직이다.
+
+이 두 조건이 행렬곱에 어떻게 나타나는지 보기 위해, 2차원 변환행렬의 행벡터를
+$\boldsymbol r_1=(R_{11},R_{12})$, $\boldsymbol r_2=(R_{21},R_{22})$로 쓰자.
+전치하면 이 행들이 열로 바뀌므로
 
 $$
-[\boldsymbol R][\boldsymbol R]^T=[\boldsymbol I],
-\qquad [\boldsymbol R]^{-1}=[\boldsymbol R]^T.
+\begin{aligned}
+[\boldsymbol R][\boldsymbol R]^T
+&=\begin{bmatrix}R_{11}&R_{12}\\R_{21}&R_{22}\end{bmatrix}
+\begin{bmatrix}R_{11}&R_{21}\\R_{12}&R_{22}\end{bmatrix}\\
+&=\begin{bmatrix}
+R_{11}^2+R_{12}^2&R_{11}R_{21}+R_{12}R_{22}\\
+R_{21}R_{11}+R_{22}R_{12}&R_{21}^2+R_{22}^2
+\end{bmatrix}\\
+&=\begin{bmatrix}
+\boldsymbol r_1\cdot\boldsymbol r_1&\boldsymbol r_1\cdot\boldsymbol r_2\\
+\boldsymbol r_2\cdot\boldsymbol r_1&\boldsymbol r_2\cdot\boldsymbol r_2
+\end{bmatrix}.
+\end{aligned}
+$$
+
+즉, **$[\boldsymbol R][\boldsymbol R]^T$의 $(i,j)$ 성분은 $i$번째 행과 $j$번째 행의 내적**이다.
+대각성분은 각 행의 길이의 제곱이므로 1이고,
+비대각성분은 서로 수직인 두 행의 내적이므로 0이다. 따라서
+
+$$
+[\boldsymbol R][\boldsymbol R]^T
+=\begin{bmatrix}1&0\\0&1\end{bmatrix}=[\boldsymbol I].
+$$
+
+**행의 길이가 1이라는 조건만으로는 충분하지 않다.** 예를 들어 두 행이 모두 $(1,0)$이면
+각각의 길이는 1이지만, 두 행의 내적도 1이어서 서로 수직이 아니다.
+길이 1은 **정규화 조건**, 서로 다른 행의 내적 0은 **직교 조건**이며, 두 조건이 함께 필요하다.
+
+3차원에서도 같은 원리로
+
+$$
+\bigl([\boldsymbol R][\boldsymbol R]^T\bigr)_{ij}
+=\sum_{k=1}^{3}R_{ik}R_{jk}
+=\boldsymbol r_i\cdot\boldsymbol r_j
+=\begin{cases}1&i=j,\\0&i\ne j\end{cases}
+$$
+
+이다. 이처럼 $[\boldsymbol R][\boldsymbol R]^T=[\boldsymbol I]$를 만족하는 정사각행렬을
+**직교행렬(orthogonal matrix)**이라고 한다.
+전치행렬을 곱해서 단위행렬이 되므로 전치행렬이 곧 역행렬이다.
+
+$$
+[\boldsymbol R]^{-1}=[\boldsymbol R]^T.
 $$
 
 따라서 새 성분에서 기존 성분으로 돌아가는 역변환은
@@ -505,9 +552,78 @@ $\tilde{\boldsymbol e}_2=(-\boldsymbol e_1+\boldsymbol e_2)/\sqrt2$일 때 좌�
 기존 성분이 $(10,0)^T$인 벡터의 새 성분과 크기를 구하라.
 
 <!--
-풀이와 해답:
-R=(1/sqrt(2))[[1,1],[-1,1]]이다.
-새 성분은 (5 sqrt(2), -5 sqrt(2))^T이고 크기는 10으로 보존된다.
+<details markdown="1">
+<summary>풀이와 해답 보기</summary>
+
+**1. 새 기저벡터의 기존 좌표성분을 행으로 배치한다.**
+
+이 강의에서는 $R_{ij}=\tilde{\boldsymbol e}_i\cdot\boldsymbol e_j$이므로,
+변환행렬의 첫 번째 행은 $\tilde{\boldsymbol e}_1$의 기존 성분,
+두 번째 행은 $\tilde{\boldsymbol e}_2$의 기존 성분이다.
+기존 기저가 직교정규 기저이므로 같은 기저벡터끼리의 내적은 1, 서로 다른 기저벡터끼리의 내적은 0이다.
+예를 들어
+
+$$
+R_{21}=\tilde{\boldsymbol e}_2\cdot\boldsymbol e_1
+=\frac{(-\boldsymbol e_1+\boldsymbol e_2)\cdot\boldsymbol e_1}{\sqrt2}
+=-\frac1{\sqrt2}.
+$$
+
+따라서
+
+$$
+[\boldsymbol R]
+=\begin{bmatrix}
+1/\sqrt2&1/\sqrt2\\
+-1/\sqrt2&1/\sqrt2
+\end{bmatrix}
+=\frac1{\sqrt2}\begin{bmatrix}1&1\\-1&1\end{bmatrix}.
+$$
+
+새 첫 번째 기저는 기존 첫 번째 축에서 반시계방향으로 $45^\circ$ 기울어져 있다.
+이 행렬은 벡터 자체를 회전시키는 것이 아니라 같은 벡터의 성분을 새 기저로 바꾼다.
+
+**2. 변환행렬에 기존 성분을 곱한다.**
+
+$$
+\begin{aligned}
+[\boldsymbol v]_{\mathrm{new}}
+&=[\boldsymbol R][\boldsymbol v]_{\mathrm{old}}\\
+&=\frac1{\sqrt2}\begin{bmatrix}1&1\\-1&1\end{bmatrix}
+\begin{bmatrix}10\\0\end{bmatrix}\\
+&=\frac1{\sqrt2}\begin{bmatrix}10\\-10\end{bmatrix}
+=\begin{bmatrix}5\sqrt2\\-5\sqrt2\end{bmatrix}.
+\end{aligned}
+$$
+
+기존 벡터는 $\boldsymbol v=10\boldsymbol e_1$이다.
+새 첫 번째 축 방향으로는 양의 성분을 가지지만,
+새 두 번째 축은 기존 첫 번째 축과 $135^\circ$를 이루므로 그 방향 성분은 음수다.
+실제로 $\tilde v_1=10\cos45^\circ=5\sqrt2$,
+$\tilde v_2=10\cos135^\circ=-5\sqrt2$로도 확인할 수 있다.
+
+**3. 변환 전후의 크기를 비교한다.**
+
+$$
+|\boldsymbol v|_{\mathrm{old}}=\sqrt{10^2+0^2}=10,
+\qquad
+|\boldsymbol v|_{\mathrm{new}}
+=\sqrt{(5\sqrt2)^2+(-5\sqrt2)^2}=10.
+$$
+
+성분은 달라져도 같은 벡터이므로 크기는 유지된다.
+마지막으로 새 기저로 벡터를 다시 조립하면
+
+$$
+5\sqrt2\,\tilde{\boldsymbol e}_1-5\sqrt2\,\tilde{\boldsymbol e}_2
+=5(\boldsymbol e_1+\boldsymbol e_2)-5(-\boldsymbol e_1+\boldsymbol e_2)
+=10\boldsymbol e_1
+$$
+
+이 되어 원래 벡터와 같음을 확인할 수 있다.
+
+</details>
+
 -->
 
 ## 문제 3: 일축 인장 상태의 좌표변환
@@ -525,8 +641,7 @@ R=(1/sqrt(2))[[1,1],[-1,1]]이다.
 
 ## 문제 4: 올바른 좌표변환 행렬 고르기
 
-다음 두 행렬 중 이 강의의 반시계방향 $30^\circ$ **좌표축 회전**에 해당하는 행렬을 고르고,
-새 첫 번째 기저벡터의 방향을 근거로 설명하라. 다른 행렬이 나타내는 좌표축 회전 각도도 구하라.
+다음 두 행렬 중 이 강의의 반시계방향 $30^\circ$ **좌표축 회전**에 해당하는 행렬을 고르시오.
 
 $$
 [\boldsymbol A]=\begin{bmatrix}\sqrt3/2&1/2\\-1/2&\sqrt3/2\end{bmatrix},
@@ -537,7 +652,7 @@ $$
 <!--
 풀이와 해답:
 A이다. 첫 행의 성분에 따라 새 첫 번째 기저벡터는 (sqrt(3)/2)e_1+(1/2)e_2이며,
-기존 첫 번째 축에서 반시계방향으로 30도 기울어져 있다.
+기존 첫 번째 축에서 반시계방향으로 $30^\circ$ 기울어져 있다.
 B는 시계방향 30도, 즉 theta=-30도의 좌표축 회전에 해당하며 B=A^T=A^{-1}이다.
 -->
 
