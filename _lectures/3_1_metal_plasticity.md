@@ -35,7 +35,7 @@ authors:
 - [제11강 좌표변환과 주응력의 기초]({% link assets/lecture_notes/3_1_metal_plasticity/metal_plasticity_11_stress_transformation.md %})
 - [제12강 plastic yield]({% link assets/lecture_notes/3_1_metal_plasticity/metal_plasticity_12_plastic_yield.md %})
 - [제13강 flow rule]({% link assets/lecture_notes/3_1_metal_plasticity/metal_plasticity_13_flow_rule.md %})
-- [제14강 plastic work]({%     link assets/lecture_notes/3_1_metal_plasticity/metal_plasticity_14_plastic_work.md %})
+- [제14강 소성일과 등가소성변형률]({% link assets/lecture_notes/3_1_metal_plasticity/metal_plasticity_14_plastic_work.md %})
 - [제15강 Strain hardening]({% link assets/lecture_notes/3_1_metal_plasticity/metal_plasticity_15_strain_hardening.md %})
 - [제16강 Necking]({% link assets/lecture_notes/3_1_metal_plasticity/metal_plasticity_16_necking.md %})
 - [제17강 마찰과 윤활]

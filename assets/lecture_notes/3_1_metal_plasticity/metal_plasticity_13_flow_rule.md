@@ -257,9 +257,16 @@ $$
 \sigma^{VM}=\sqrt{\frac{1}{2}\bigg((\sigma_1-\sigma_2)^2+(\sigma_2-\sigma_3)^2+(\sigma_3-\sigma_1)^2\bigg)}
 $$
 
-이를 응력으로 미분하자. $\sigma^{VM}$은 편차응력만의 함수이므로
-$\partial(\boldsymbol s:\boldsymbol s)/\partial\boldsymbol\sigma=2\boldsymbol s$를 이용하면[^deviatoric-derivative]
-평균응력 부분은 결과에 나타나지 않고 편차응력만 남는다.
+편차응력도 응력의 함수이므로 평균응력을 미분한 항이 생긴다.
+그러나 $\operatorname{tr}(\boldsymbol s)=0$이어서 그 항이 사라지고,
+다음을 얻는다.[^deviatoric-components][^deviatoric-derivative]
+
+$$
+\frac{\partial(\boldsymbol s:\boldsymbol s)}{\partial\boldsymbol\sigma}=2\boldsymbol s
+$$
+
+항복강도를 정하는 내부변수를 고정하고 제곱근을 미분하면,
+$\sigma^{VM}>0$인 항복면 위에서 다음과 같다.[^mises-chain-rule]
 
 $$
 \frac{\partial f}{\partial\boldsymbol\sigma}
@@ -761,6 +768,56 @@ $\mathrm{sgn}(\tau^s)$가 필요한 이유를 설명하라.
 0이다.
 tr m=n·b=0이므로 슬립에 의한 소성변형률은 부피를 바꾸지 않는다.
 -->
+
+[^deviatoric-components]: **성분으로 확인하는 평균응력 항의 소거.**
+    이를 응력으로 미분할 때, 편차응력 $\boldsymbol s$도 응력 $\boldsymbol\sigma$의
+    함수라는 점을 고려해야 한다. 먼저 평균응력과 편차응력의 정의를 성분으로 쓰면
+
+    $$
+    \sigma_m=\frac13\sum_{k=1}^{3}\sigma_{kk},
+    \qquad s_{ij}=\sigma_{ij}-\sigma_m\delta_{ij},
+    \qquad \sum_{i=1}^{3}s_{ii}=0
+    $$
+
+    이다. 여기서 $\delta_{ij}$는 $i=j$이면 1, 아니면 0인 Kronecker delta다.
+    이하 반복 첨자는 1부터 3까지 합한다. 평균응력의 미분까지 포함하면
+
+    $$
+    \frac{\partial\sigma_m}{\partial\sigma_{kl}}=\frac13\delta_{kl},
+    \qquad
+    \frac{\partial s_{ij}}{\partial\sigma_{kl}}
+    =\delta_{ik}\delta_{jl}-\frac13\delta_{ij}\delta_{kl}
+    $$
+
+    을 얻는다. 이 성분 미분은 텐서의 전체 성분에 대해 쓴 것이며,
+    전단 성분을 하나로 묶는 Voigt 표기의 미분과는 구분한다.
+    이제 $\boldsymbol s:\boldsymbol s=s_{ij}s_{ij}$에 연쇄법칙을 적용한다.
+
+    $$
+    \begin{aligned}
+    \frac{\partial(\boldsymbol s:\boldsymbol s)}{\partial\sigma_{kl}}
+    &=2s_{ij}\frac{\partial s_{ij}}{\partial\sigma_{kl}}\\
+    &=2s_{ij}\left(\delta_{ik}\delta_{jl}-\frac13\delta_{ij}\delta_{kl}\right)\\
+    &=2s_{kl}-\frac23\left(s_{11}+s_{22}+s_{33}\right)\delta_{kl}\\
+    &=2s_{kl}.
+    \end{aligned}
+    $$
+
+[^mises-chain-rule]: **von Mises 등가응력의 제곱근 미분.**
+    마지막으로 제곱근의 미분을 적용한다. 이때 항복강도 $\sigma^Y$를 정하는
+    내부변수는 고정하고 응력만 미분하므로 $\partial\sigma^Y/\partial\boldsymbol\sigma=0$이다.
+    $\sigma^{VM}>0$인 항복면 위에서
+
+    $$
+    \begin{aligned}
+    \frac{\partial f}{\partial\boldsymbol\sigma}
+    &=\frac{\partial}{\partial\boldsymbol\sigma}
+    \left(\sqrt{\frac32\boldsymbol s:\boldsymbol s}-\sigma^Y\right)\\
+    &=\frac{1}{2\sqrt{\frac32\boldsymbol s:\boldsymbol s}}
+    \frac32\,(2\boldsymbol s)\\
+    &=\frac{3}{2}\frac{\boldsymbol s}{\sigma^{VM}}.
+    \end{aligned}
+    $$
 
 [^deviatoric-derivative]: **편차응력의 이중내적을 응력텐서로 미분하기.**
     $\Phi(\boldsymbol\sigma)=\boldsymbol s:\boldsymbol s$라 두자.
