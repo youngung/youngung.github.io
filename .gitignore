@@ -11,3 +11,10 @@ assets/libs/
 node_modules/
 vendor
 .idea
+*.fls
+*.pdf
+*.aux
+*.fdb_latexmk
+*.gif
+*.gz
+*.log
