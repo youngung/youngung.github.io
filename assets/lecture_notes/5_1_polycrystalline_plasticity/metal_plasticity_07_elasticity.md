@@ -538,12 +538,27 @@ $[\mathbb S]^{(b)}=\left([\mathbb C]^{(b)}\right)^{-1}$이다.
 **등방 선형탄성체**에서는 처음 5성분(대각합이 0인 변형)에 $2G$, 구형 변형에 $3K$가 대응하므로
 
 $$
-[\mathbb C]^{(b)}=\operatorname{diag}(2G,2G,2G,2G,2G,3K)
+[\mathbb C]^{(b)}=
+\begin{bmatrix}
+2G&0&0&0&0&0\\
+0&2G&0&0&0&0\\
+0&0&2G&0&0&0\\
+0&0&0&2G&0&0\\
+0&0&0&0&2G&0\\
+0&0&0&0&0&3K
+\end{bmatrix}
 $$
 
 $$
-[\mathbb S]^{(b)}
-=\operatorname{diag}\left(\frac1{2G},\frac1{2G},\frac1{2G},\frac1{2G},\frac1{2G},\frac1{3K}\right)
+[\mathbb S]^{(b)}=
+\begin{bmatrix}
+\dfrac1{2G}&0&0&0&0&0\\
+0&\dfrac1{2G}&0&0&0&0\\
+0&0&\dfrac1{2G}&0&0&0\\
+0&0&0&\dfrac1{2G}&0&0\\
+0&0&0&0&\dfrac1{2G}&0\\
+0&0&0&0&0&\dfrac1{3K}
+\end{bmatrix}
 $$
 
 가 된다. 앞의 Voigt stiffness에서 전단 대각성분이 $G$였던 것과 달리,

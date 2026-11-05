@@ -737,7 +737,19 @@ $J-1=-0.04$이므로 면적은 4% 감소한다.
 
 ## 문제 3. 정확한 비압축성 조건
 
-3차원 변형구배가 $\boldsymbol F=\operatorname{diag}(1.2,1.2,a)$이며 $a>0$이다.
+3차원 변형구배가
+
+$$
+[\boldsymbol F]=
+\begin{bmatrix}
+1.2&0&0\\
+0&1.2&0\\
+0&0&a
+\end{bmatrix},
+\qquad a>0
+$$
+
+로 주어져 있다.
 체적이 보존되도록 $a$를 정하시오. 이때
 $\boldsymbol\varepsilon=(\boldsymbol F+\boldsymbol F^T)/2-\boldsymbol I$의
 대각합을 계산하고, 유한변형에서 $\operatorname{tr}\boldsymbol\varepsilon=0$을

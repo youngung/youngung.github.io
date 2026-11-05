@@ -86,13 +86,27 @@ $$
 신장비를 $\Lambda=l/l_0$라 하자. 회전 없이 체적을 보존하며 1방향으로 늘어나는 경우
 
 $$
-[\boldsymbol F]=\operatorname{diag}(\Lambda,\Lambda^{-1/2},\Lambda^{-1/2}),
-\qquad J=1,
-\qquad
-[\boldsymbol\sigma]=\operatorname{diag}(\sigma,0,0).
+[\boldsymbol F]=
+\begin{bmatrix}
+\Lambda&0&0\\
+0&\Lambda^{-1/2}&0\\
+0&0&\Lambda^{-1/2}
+\end{bmatrix},
+\qquad J=1.
 $$
 
-이면 $\tau_{11}=\sigma$, $P_{11}=\sigma/\Lambda$, $S_{11}=\sigma/\Lambda^2$다.
+이때 Cauchy 응력은
+
+$$
+[\boldsymbol\sigma]=
+\begin{bmatrix}
+\sigma&0&0\\
+0&0&0\\
+0&0&0
+\end{bmatrix}.
+$$
+
+이므로 $\tau_{11}=\sigma$, $P_{11}=\sigma/\Lambda$, $S_{11}=\sigma/\Lambda^2$다.
 예를 들어 $\Lambda=1.5$, $\sigma=150\,\mathrm{MPa}$이면 각각 $150$, $100$, $66.7\,\mathrm{MPa}$다.
 일축 인장력의 크기를 $f$라 하면, 이때 $P_{11}$은 공칭응력 $f/A_0$에 해당하고, $\sigma$는 진응력 $f/A$다.
 응력 척도의 차이는 다른 하중을 의미하는 것이 아니라 같은 하중을 다른 기준으로 표현한 결과다.

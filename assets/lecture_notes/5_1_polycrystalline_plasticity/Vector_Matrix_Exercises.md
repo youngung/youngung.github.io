@@ -387,7 +387,12 @@ $$
 <!--
 풀이와 해답:
 평균응력은 (90+60+30)/3=60 MPa이다.
-편차응력은 s=sigma-60I=diag(30,0,-30) MPa이다.
+편차응력은
+$$
+[\boldsymbol s]=[\boldsymbol\sigma]-60[\boldsymbol I]
+=\begin{bmatrix}30&0&0\\0&0&0\\0&0&-30\end{bmatrix}\,\mathrm{MPa}
+$$
+이다.
 편차응력의 trace는 0이다.
 -->
 
