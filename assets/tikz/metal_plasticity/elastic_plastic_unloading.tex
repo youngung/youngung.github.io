@@ -1,0 +1,49 @@
+\documentclass[tikz,border=12pt]{standalone}
+\usepackage{amsmath}
+\usepackage{kotex}
+\usetikzlibrary{arrows.meta,decorations.markings}
+\definecolor{elastic}{RGB}{35,100,175}
+\definecolor{loading}{RGB}{30,130,95}
+\definecolor{plastic}{RGB}{195,70,45}
+\begin{document}
+\begin{tikzpicture}[>=Latex,font=\sffamily,line cap=round,line join=round]
+% 가로축 1 cm는 변형률 1/900, 세로축 1 cm는 응력 1/0.013 MPa이다.
+% A=(0.010,300 MPa), B=(0.0085,0), 기울기 E=200000 MPa.
+\coordinate (O) at (0,0);
+\coordinate (A) at (9,3.9);
+\coordinate (B) at (7.65,0);
+\node[font=\large\bfseries] at (5,5.7) {하중 증가와 제거: 탄성변형과 소성변형};
+\draw[->,thick] (0,-.1)--(0,4.9) node[above] {응력 $\sigma$ (MPa)};
+\draw[->,thick] (-.1,0)--(11,0) node[right] {변형률 $\varepsilon$};
+\node[below left] at (O) {$0$};
+\draw[gray!65,dashed] (0,3.9)--(A)--(9,0);
+\node[left] at (0,3.9) {$300$};
+\draw[gray!65,dashed] (B)--(7.65,-.95);
+\draw[gray!65,dashed] (9,0)--(9,-.95);
+% 하중 증가 경로는 개략도이다. 초기 직선의 기울기는 제하선과 같은 E이다.
+% (0.65,1.8777778)에서 직선과 곡선의 접선 기울기를 연속으로 맞췄다.
+\draw[loading,very thick,postaction={decorate},
+ decoration={markings,mark=at position 0.60 with {\arrow{Latex}}}]
+ (O)--(0.65,1.8777778)
+ .. controls (0.95,2.7444444) and (2.3,3.3) .. (A);
+\node[loading,align=center] at (4.6,2.45) {하중 증가 방향\\탄성구간 이후 완만한 변형경화};
+\node[loading,align=left,anchor=west,font=\small] at (1.3,0.85) {초기 기울기도 $E$};
+\draw[elastic,very thick] (A)--(B);
+\draw[elastic,->,very thick] (8.67,2.95)--(8.03,1.10);
+\fill[elastic] (A) circle (2.5pt);
+\fill[plastic] (B) circle (2.5pt);
+\node[above right=3pt,elastic] at (A) {$A$};
+\node[above left=3pt,plastic] at (B) {$B$};
+\node[below=5pt] at (9,0) {$0.010$};
+\node[below left=5pt] at (B) {$0.0085$};
+\node[align=left,anchor=west] at (2.2,4.65) {$A$: 하중을 제거하기 직전의 상태\\$B$: 하중을 모두 제거한 뒤의 상태};
+\node[elastic,align=left,anchor=west] at (9.5,2.3) {하중 제거 방향\\기울기 $E=200\,\mathrm{GPa}$};
+\draw[plastic,<->,thick] (0,-1.05)--(7.65,-1.05);
+\node[plastic,align=center,below=5pt] at (3.825,-1.05) {남는 소성변형률\\$\varepsilon^{pl}=0.0085$};
+\draw[elastic,<->,thick] (7.65,-1.05)--(9,-1.05);
+\node[elastic,align=center,below=5pt] at (8.325,-1.05) {회복되는 탄성변형률\\$\varepsilon^{el}=0.0015$};
+\draw[<->,thick] (0,-2.55)--(9,-2.55);
+\node[align=center,below=5pt] at (4.5,-2.55) {$A$에서의 전체 변형률: $\varepsilon=0.010=0.0085+0.0015$};
+\node[align=center,text=gray!80!black,font=\small] at (5.5,-4.0) {하중을 제거하는 동안 추가 소성변형이 발생하지 않는 경우이다.\\하중 증가 곡선은 개략도이며, 특정 항복응력이나 경화법칙을 지정한 것은 아니다.};
+\end{tikzpicture}
+\end{document}

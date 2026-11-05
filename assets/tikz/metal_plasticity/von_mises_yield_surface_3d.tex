@@ -1,0 +1,87 @@
+\documentclass[tikz,border=12pt]{standalone}
+\usepackage{amsmath}
+\usepackage{kotex}
+\usetikzlibrary{arrows.meta}
+\definecolor{surface}{RGB}{35,100,175}
+\definecolor{piplane}{RGB}{135,75,160}
+\definecolor{planestress}{RGB}{205,105,25}
+\definecolor{hydro}{RGB}{30,130,95}
+\begin{document}
+\begin{tikzpicture}[>=Latex,font=\sffamily,line cap=round,line join=round,
+ x={(.804984cm,-.896891cm)},y={(1.609969cm,.448445cm)},z={(0cm,1.494818cm)},
+ declare function={
+ sx(\m,\t)=\m+cos(\t)/sqrt(3)+sin(\t)/3;
+ sy(\m,\t)=\m-cos(\t)/sqrt(3)+sin(\t)/3;
+ sz(\m,\t)=\m-2*sin(\t)/3;
+ }]
+% 직교 단위벡터 h=(2,4,0)/sqrt(20), v=(-12,6,20)/sqrt(580)에 정사영한다.
+% 세 좌표축 모두 같은 배율 1.8 cm로 투영한다. 시선 방향은 (4,-2,3)/sqrt(29)이다.
+% s=(cos(t)/sqrt(3)+sin(t)/3, -cos(t)/sqrt(3)+sin(t)/3, -2sin(t)/3).
+% tr(s)=0, s:s=2/3이므로 정규화 von Mises 등가응력은 1이다.
+\node[font=\large\bfseries] at (canvas cs:x=3.4cm,y=5.2cm) {von Mises 항복면: $\pi$-plane과 평면응력 단면};
+\foreach \t in {150,160,140,170,130,180,120,190,110,200,100,210,90,220,80,230,70,240,60,250,50,260,40,270,30,280,20,290,10,300,0,310,350,320,340,330} {
+ \pgfmathsetmacro{\u}{\t+10}
+ \pgfmathsetmacro{\shade}{14+10*(1+sin(\t))/2}
+ \fill[surface!\shade!white,draw=surface!15,line width=.12pt]
+ ({sx(-1.5,\t)},{sy(-1.5,\t)},{sz(-1.5,\t)})--
+ ({sx(1.5,\t)},{sy(1.5,\t)},{sz(1.5,\t)})--
+ ({sx(1.5,\u)},{sy(1.5,\u)},{sz(1.5,\u)})--
+ ({sx(-1.5,\u)},{sy(-1.5,\u)},{sz(-1.5,\u)})--cycle;
+}
+\foreach \m in {-1.5,1.5} {
+ \draw[surface,thick] plot[domain=0:360,samples=91,variable=\t]
+ ({sx(\m,\t)},{sy(\m,\t)},{sz(\m,\t)});
+}
+% 원점을 지나는 pi-plane: sigma_1+sigma_2+sigma_3=0.
+% e=(1,-1,0)/sqrt(2), g=(1,1,-2)/sqrt(6)는 이 평면의 직교정규 기저이다.
+\filldraw[piplane,fill=piplane!15,fill opacity=.55,draw opacity=.7]
+ ({1.05/sqrt(2)+1.05/sqrt(6)},{-1.05/sqrt(2)+1.05/sqrt(6)},{-2.1/sqrt(6)})--
+ ({-1.05/sqrt(2)+1.05/sqrt(6)},{1.05/sqrt(2)+1.05/sqrt(6)},{-2.1/sqrt(6)})--
+ ({-1.05/sqrt(2)-1.05/sqrt(6)},{1.05/sqrt(2)-1.05/sqrt(6)},{2.1/sqrt(6)})--
+ ({1.05/sqrt(2)-1.05/sqrt(6)},{-1.05/sqrt(2)-1.05/sqrt(6)},{2.1/sqrt(6)})--cycle;
+\draw[piplane,very thick] plot[domain=0:360,samples=121,variable=\t]
+ ({sx(0,\t)},{sy(0,\t)},{sz(0,\t)});
+% 원통과 sigma_3=0 평면의 교선. m=2sin(t)/3을 대입했다.
+\draw[planestress,very thick] plot[domain=0:360,samples=121,variable=\t]
+ ({cos(\t)/sqrt(3)+sin(\t)},{-cos(\t)/sqrt(3)+sin(\t)},0);
+\fill[planestress] ({2/sqrt(3)},{1/sqrt(3)},0) circle (2.5pt);
+\node[planestress,below right=4pt] at ({2/sqrt(3)},{1/sqrt(3)},0) {$B$};
+\fill[planestress] (0,1,0) circle (2.5pt);
+\node[planestress,above left=3pt] at (0,1,0) {$Q$};
+\draw[hydro,dashed,very thick,<->] (-2,-2,-2)--(2,2,2);
+\fill (0,0,0) circle (1.8pt);
+\node[below left=4pt] at (0,0,0) {$O$};
+\draw[black!80,->,thick] (0,0,0)--(2.3,0,0) node[below right] {$\sigma_1/\sigma^Y$};
+\draw[black!80,->,thick] (0,0,0)--(0,2.3,0) node[right] {$\sigma_2/\sigma^Y$};
+\draw[black!80,->,thick] (0,0,0)--(0,0,2.3) node[above] {$\sigma_3/\sigma^Y$};
+\node[hydro,align=left,anchor=west] at (canvas cs:x=5.15cm,y=4.05cm) {정수압 축\\$\sigma_1=\sigma_2=\sigma_3$};
+\node[surface,align=center] at (canvas cs:x=-3.5cm,y=2.5cm) {파란 원통: 항복면 $f=0$\\원통 내부: $f<0$};
+\node[font=\small,align=center,text=black!70] at (canvas cs:x=-.2cm,y=-5.1cm) {\textcolor{piplane}{$\pi$-plane: $\sigma_1+\sigma_2+\sigma_3=0$}\\
+\textcolor{piplane}{보라색 교선은 실제 3차원 공간에서 원이다.}\\[4pt]
+\textcolor{planestress}{주황색 교선: $\sigma_3=0$에서의 항복 경계}\\
+\textcolor{planestress}{앞의 2차원 타원과 같은 경계이며 $B,Q$도 같은 상태다.}};
+% 같은 투영으로 그린 보조 정육면체: 대각선 OH의 성분은 (q,q,q)이다.
+\begin{scope}[xshift=9.5cm,yshift=-.8cm,scale=.85]
+\node[font=\bfseries] at (canvas cs:x=1.2cm,y=4.8cm) {정수압 축은 정육면체의 대각선 방향};
+\foreach \a/\b/\c/\d/\e/\f in {
+0/0/0/1/0/0,0/0/0/0/1/0,0/0/0/0/0/1,
+1/0/0/1/1/0,1/0/0/1/0/1,0/1/0/1/1/0,
+0/1/0/0/1/1,0/0/1/1/0/1,0/0/1/0/1/1,
+1/1/0/1/1/1,1/0/1/1/1/1,0/1/1/1/1/1} {
+ \draw[gray!65,dashed] (\a,\b,\c)--(\d,\e,\f);
+}
+\draw[->,thick] (0,0,0)--(1.7,0,0) node[below right] {$\sigma_1$};
+\draw[->,thick] (0,0,0)--(0,1.7,0) node[right] {$\sigma_2$};
+\draw[->,thick] (0,0,0)--(0,0,1.7) node[above] {$\sigma_3$};
+\draw[hydro,->,very thick] (0,0,0)--(1.45,1.45,1.45);
+\fill[hydro] (1,1,1) circle (2.8pt);
+\node[hydro,above=8pt] at (1,1,1) {$H=(q,q,q)$};
+\node[below left] at (0,0,0) {$O$};
+\node[below] at (1,0,0) {$q$};
+\node[right] at (0,1,0) {$q$};
+\node[left] at (0,0,1) {$q$};
+\node[align=center] at (canvas cs:x=1.8cm,y=-3.5cm) {$\displaystyle\boldsymbol h=\frac{1}{\sqrt3}(1,1,1)$\\[5pt]세 주응력 축과 이루는 실제 각도\\$\displaystyle\cos^{-1}(1/\sqrt3)\simeq54.74^\circ$};
+\end{scope}
+\node[align=center,font=\small] at (canvas cs:x=3.8cm,y=-7.0cm) {화면에 투영된 각도는 실제 3차원 각도와 다르다.\\원통 양 끝의 타원은 표시 구간의 단면이며 항복면의 뚜껑이 아니다.};
+\end{tikzpicture}
+\end{document}

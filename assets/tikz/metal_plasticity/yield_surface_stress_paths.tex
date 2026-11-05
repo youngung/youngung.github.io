@@ -1,0 +1,53 @@
+\documentclass[tikz,border=12pt]{standalone}
+\usepackage{amsmath}
+\usepackage{kotex}
+\usetikzlibrary{arrows.meta,decorations.markings}
+\definecolor{boundary}{RGB}{205,105,25}
+\definecolor{pathcol}{RGB}{30,130,95}
+\definecolor{otherpath}{RGB}{35,100,175}
+\definecolor{outside}{RGB}{195,70,45}
+\begin{document}
+\begin{tikzpicture}[>=Latex,font=\sffamily,line cap=round,line join=round]
+% 평면응력의 주응력 단면. 좌표는 일축 항복응력으로 정규화했다.
+% x^2-xy+y^2=1을 x=cos(t)+sin(t)/sqrt(3), y=cos(t)-sin(t)/sqrt(3)으로 그린다.
+\node[font=\large\bfseries] at (2.0,5.05) {응력 공간에서의 경로와 항복 경계};
+\fill[boundary!8] plot[domain=0:360,samples=181,smooth,variable=\t]
+ ({3.1*(cos(\t)+sin(\t)/sqrt(3))},{3.1*(cos(\t)-sin(\t)/sqrt(3))})--cycle;
+\draw[gray!80,->] (-4.35,0)--(4.35,0);
+\node[below] at (3.95,-.25) {$\sigma_1/\sigma^Y$};
+\draw[gray!80,->] (0,-4.2)--(0,4.15) node[above] {$\sigma_2/\sigma^Y$};
+\foreach \x in {-3.1,3.1} {\draw[gray] (\x,-.07)--(\x,.07);}
+\node[below] at (-3.1,0) {$-1$};
+\node[below] at (3.1,0) {$1$};
+\draw[gray] (-.07,-3.1)--(.07,-3.1);
+\node[left] at (0,-3.1) {$-1$};
+\draw[boundary,very thick] plot[domain=0:360,samples=181,smooth,variable=\t]
+ ({3.1*(cos(\t)+sin(\t)/sqrt(3))},{3.1*(cos(\t)-sin(\t)/sqrt(3))});
+\coordinate (O) at (0,0);
+\coordinate (B) at ({6.2/sqrt(3)},{3.1/sqrt(3)});
+\coordinate (P) at ({.55*6.2/sqrt(3)},{.55*3.1/sqrt(3)});
+\coordinate (C) at ({1.35*6.2/sqrt(3)},{1.35*3.1/sqrt(3)});
+\coordinate (Q) at (0,3.1);
+\draw[pathcol,very thick,postaction={decorate},decoration={markings,mark=at position .72 with {\arrow{Latex}}}] (O)--(B);
+\draw[outside,dashed,thick] (B)--(C);
+\draw[otherpath,very thick,postaction={decorate},decoration={markings,mark=at position .6 with {\arrow{Latex}}}]
+ (O)..controls(-.6,1.1)and(-.8,2.5)..(Q);
+\fill (O) circle (2pt);
+\node[below left] at (O) {$O$};
+\fill[pathcol] (P) circle (2.5pt);
+\node[pathcol,below right=2pt] at (P) {$P$};
+\fill[boundary] (B) circle (2.8pt);
+\node[boundary,below right=3pt] at (B) {$B$};
+\fill[outside] (C) circle (2.5pt);
+\node[outside,above=4pt] at (C) {$C$};
+\fill[boundary] (Q) circle (2.8pt);
+\node[boundary,above left=4pt] at (Q) {$Q$};
+\node[boundary,align=center] at (-1.7,-1.35) {탄성 영역\\$f<0$};
+\node[anchor=west,align=left,font=\small] at (6.0,3.55) {평면응력: 면외 주응력 $\sigma_3=0$\\$\sigma_1,\sigma_2$: 평면 내 두 주응력\\숫자 첨자는 크기순을 뜻하지 않는다.\\축은 위치가 아니라 응력값이다.};
+\node[pathcol,anchor=west,align=left] at (6.0,1.85) {$O\to P\to B$: 비례하중\\성분의 비율이 일정한 직선 경로};
+\node[otherpath,anchor=west,align=left] at (6.0,.25) {$O\to Q$: 비례하지 않는 하중\\성분의 비율이 달라지는 곡선 경로};
+\node[boundary,anchor=west,align=left] at (6.0,-1.3) {$B,Q$: 항복 경계에 처음 도달\\주황색 경계: $f=0$};
+\node[outside,anchor=west,align=left,font=\small] at (6.0,-3.0) {$C$: 현재 항복 경계의 바깥, $f>0$\\점선은 직선의 연장이며, 항복 이후의\\실제 응력 경로를 뜻하지 않는다.};
+\node[align=center,font=\small] at (2,-4.8) {주황색 타원은 아래 3차원 그림의 주황색 교선과 같은 경계다.\\항복조건은 8장, 평면응력 경계의 식과 모양은 9.2절에서 설명한다.};
+\end{tikzpicture}
+\end{document}
