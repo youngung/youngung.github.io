@@ -141,7 +141,7 @@ $\boldsymbol r_1=(R_{11},R_{12})$, $\boldsymbol r_2=(R_{21},R_{22})$로 쓰자.
 
 $$
 \begin{aligned}
-[\boldsymbol R][\boldsymbol R]^T
+{}[\boldsymbol R][\boldsymbol R]^T
 &=\begin{bmatrix}R_{11}&R_{12}\\R_{21}&R_{22}\end{bmatrix}
 \begin{bmatrix}R_{11}&R_{21}\\R_{12}&R_{22}\end{bmatrix}\\
 &=\begin{bmatrix}
