@@ -15,7 +15,7 @@ toc: false
 
 # 1. 정상상태 물질수지
 
-화학반응이 없고 축적도 없는 일차원 정상 확산에서
+정지한 매질에서 화학반응이 없고 단면적이 일정한 일차원 정상 확산에서
 
 $$\frac{dJ_A}{dx}=0$$
 
@@ -56,6 +56,28 @@ $$\boxed{\dot n_A=
 
 이다. 원통에서는 전달면적 $2\pi rL_z$가 위치에 따라 변하므로 농도분포가
 $r$에 대해 선형이 아니라 $\ln r$에 대해 선형이다.
+
+## 3.1. 원통에서 일정한 것은 총 전달률이다
+
+동심 원통면 사이에서 축적과 반응이 없으면
+
+$$\dot n_A=2\pi rL_zJ_{A,r}=-2\pi rL_zD\frac{dc_A}{dr}$$
+
+가 모든 $r$에서 같다. 이를 변수분리하여 적분하면
+
+$$
+\int_{c_{A,1}}^{c_A(r)}dc_A
+=-\frac{\dot n_A}{2\pi L_zD}\int_{r_1}^{r}\frac{dr}{r},
+$$
+
+$$
+c_A(r)=c_{A,1}+(c_{A,2}-c_{A,1})
+\frac{\ln(r/r_1)}{\ln(r_2/r_1)}.
+$$
+
+따라서 $J_{A,r}=\dot n_A/(2\pi rL_z)$는 바깥쪽으로 갈수록 감소한다.
+정상상태에서 플럭스가 일정하다는 말은 단면적이 일정한 경우에만 성립한다.
+얇은 원통벽 $r_2-r_1\ll r_1$에서는 로그항을 전개하여 평판 근사를 회복할 수 있다.
 
 # 4. 물질전달 저항
 
@@ -108,6 +130,41 @@ $$
 제한한다. 복합재료나 산화막에서는 가장 큰 확산저항을 가진 층을 찾는 것이
 중요하다.
 
+## 복합층에서 농도는 반드시 연속인가?
+
+위의 두 층 예제는 동일한 기준의 농도를 사용하고, 계면에서 농도가 연속이며,
+계면 자체의 전달 저항과 반응이 없다고 가정한다. 이 경우 각 층의 농도강하는
+$\Delta c_i=\dot n_AR_i$이고 예제에서는 각각 24, 96 $\mathrm{mol/m^3}$이다.
+
+서로 다른 상 사이에서는 국소 평형이어도 용해도 차이로 농도가 불연속일 수
+있다. 예를 들어 계면의 분배계수를 $K=c_{2,int}/c_{1,int}$라 하면
+
+$$
+\dot n_A=\frac{D_1A}{L_1}(c_{left}-c_{1,int})
+=\frac{D_2A}{L_2}(Kc_{1,int}-c_{right}).
+$$
+
+이를 정리하면
+
+$$
+\dot n_A=\frac{Kc_{left}-c_{right}}{KR_1+R_2}.
+$$
+
+$K=1$일 때만 앞의 단순한 $R_1+R_2$ 식으로 돌아간다. 계면에서 연속인 것은
+반응·축적이 없을 때의 총 전달률이며 농도 자체는 추가 조건이 필요하다.
+산화막이나 코팅층에 모델을 적용할 때는 $D$만 비교하지 말고 용해도와 계면
+조건도 확인한다.
+
+## 정상상태가 형성되기까지
+
+처음 균일했던 평판 양면의 농도를 갑자기 바꾸면 즉시 선형 농도분포가 되는
+것은 아니다. 대표 완화시간 $L^2/D$에 비해 충분히 긴 시간이 지나고 경계농도가
+유지될 때 정상해에 가까워진다. 시간이 짧으면
+[제10강의 비정상 확산식]({% link assets/lecture_notes/2_2_transport_phenomena/transport_10_transient_diffusion.md %})을
+사용해야 한다. 표면 공급이 느리면 일정 표면농도 대신
+$N_A=k_m(c_{bulk}-c_s)$ 같은 표면 전달조건이 필요하다. 이때
+$k_m$의 단위는 $\mathrm{m/s}$이며 $D\ [\mathrm{m^2/s}]$와 구분한다.
+
 # 5. 연습 문제
 
 1. 평판 두께가 두 배가 되면 같은 농도차에서 확산 플럭스는 어떻게 되는가?
@@ -126,5 +183,12 @@ $$
 5. J=D*Delta c/L이므로 두 배가 된다.
 6. 플럭스는 단위 면적당 전달률로 mol/(m^2 s), 총 몰전달률은 면적 전체를 통과하는 양으로 mol/s이다.
 -->
+
+## 관련자료와 이어 읽기
+
+- [MIT OCW 3.185: Diffusion](https://ocw.mit.edu/courses/3-185-transport-phenomena-in-materials-engineering-fall-2003/resources/chap2/): PDF의 2.1절에서 평판과 원통의 정상 확산을 비교한다.
+
+- [제4강: 열전달 기초]({% link assets/lecture_notes/2_2_transport_phenomena/transport_04_heat_transfer.md %})
+- [제10강: 비정상 확산]({% link assets/lecture_notes/2_2_transport_phenomena/transport_10_transient_diffusion.md %})
 
 [이전 강의]({% link assets/lecture_notes/2_2_transport_phenomena/transport_08_diffusion_basics.md %}) | [강의 목록]({% link _lectures/2_2_transport.md %}) | [다음 강의]({% link assets/lecture_notes/2_2_transport_phenomena/transport_10_transient_diffusion.md %})

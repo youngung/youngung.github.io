@@ -46,6 +46,30 @@ $$\boxed{\frac{T(t)-T_\infty}{T_i-T_\infty}
 
 이다.
 
+## 3.1. Biot 수로 내부 온도차를 판단하기
+
+집중용량법에서 사용하는 특성길이는 $L_c=V/A_s$이고,
+
+$$\mathrm{Bi}=\frac{hL_c}{k}$$
+
+이다. Bi는 내부 전도 저항과 표면 대류 저항의 상대적인 크기를 나타낸다.
+$\mathrm{Bi}\ll1$이면 표면에서 열을 빼앗기는 속도에 비해 내부의 열전도가
+빨라 내부 온도차가 작다. 보통 $\mathrm{Bi}<0.1$을 집중용량 근사의 판단
+기준으로 사용하지만 허용오차와 형상도 함께 고려한다.
+
+반지름 $R$인 구는 $L_c=R/3$, 옆면으로만 열을 교환하는 긴 원기둥은
+$L_c=R/2$, 양쪽 넓은 면으로 열을 교환하는 두께 $2L$인 평판은 $L_c=L$이다.
+Fourier 수에서 사용하는 길이도 문제마다 명시해야 하며, 항상 $V/A_s$인 것은 아니다.
+
+앞의 에너지 수지에서 $\theta=T-T_\infty$로 놓으면
+$d\theta/\theta=-dt/\tau$, $\tau=\rho c_pV/(hA_s)$이다. 이를 초기상태부터
+적분하면 $\ln(\theta/\theta_i)=-t/\tau$가 되어 지수함수 해를 얻는다.
+목표 온도 $T_f$까지 냉각하는 시간은
+
+$$t=\tau\ln\left(\frac{T_i-T_\infty}{T_f-T_\infty}\right)$$
+
+이다. 여기서는 주변온도와 $h$, 물성이 일정하고 복사 및 열생성이 없다고 가정한다.
+
 # 4. 반무한고체
 
 가열 또는 냉각의 영향이 아직 반대쪽 경계에 도달하지 않은 두꺼운 고체를
@@ -104,6 +128,37 @@ $$
 
 이다. 시간상수는 초기 온도차가 약 36.8%로 줄어드는 데 걸리는 시간이다.
 
+## 오차함수와 반무한 근사를 해석하기
+
+오차함수는 다음 적분으로 정의한다.
+
+$$\operatorname{erf}(\eta)=\frac{2}{\sqrt\pi}\int_0^\eta e^{-u^2}\,du.$$
+
+$\operatorname{erf}(0)=0$, $\operatorname{erf}(\infty)=1$이므로 표면에서는
+$T=T_s$, 멀리서는 $T=T_i$를 만족한다. $t\to0^+$에서 **고정된 $x>0$**의
+온도는 $T_i$로 수렴한다. 표면 $x=0$에서는 $t>0$에 즉시 $T_s$를 지정하므로
+초기조건과 경계조건이 만나는 점에는 이상적인 온도 불연속이 있다.
+
+침투깊이에 정확한 경계가 있는 것은 아니다. 표면에서 두께 $H$만큼 떨어진
+반대면의 온도 변화가 전체 온도차의 1% 미만이기를 원한다면
+
+$$
+\frac{\lvert T(H,t)-T_i\rvert}{\lvert T_s-T_i\rvert}
+=\operatorname{erfc}\left(\frac{H}{2\sqrt{\alpha t}}\right)<0.01
+$$
+
+을 반무한 근사의 판단 기준으로 삼을 수 있다. 예를 들어
+$H/(2\sqrt{\alpha t})\ge2$이면 이 비율은 약 0.0047 이하이다.
+이는 유한 두께 문제의 오차에 대한 엄밀한 상한이라기보다 반대면 영향이
+작은지를 판단하는 실용적인 기준이다.
+
+표면을 통해 들어가는 열유속은 위의 해를 미분하여
+
+$$q_{in}''(t)=\frac{k(T_s-T_i)}{\sqrt{\pi\alpha t}}$$
+
+로 얻는다. 초기의 $t^{-1/2}$ 발산은 표면온도를 순간적으로 바꾼 이상화의
+결과이다. 실제로는 표면 열전달 저항이나 가열 장치의 응답시간이 존재한다.
+
 # 5. 연습 문제
 
 1. $L=0.01\ \mathrm m$, $\alpha=10^{-5}\ \mathrm{m^2/s}$일 때 $L^2/\alpha$를 구하라.
@@ -122,5 +177,13 @@ $$
 5. 0.02<0.1이므로 일반적으로 적용할 수 있다.
 6. t=0에서 (T_i-T_inf)/(T_i-T_inf)=1이다.
 -->
+
+## 관련자료와 이어 읽기
+
+- [MIT OCW 3.185: Heat Conduction](https://ocw.mit.edu/courses/3-185-transport-phenomena-in-materials-engineering-fall-2003/resources/chap3/): Newtonian cooling 부분을 본문의 집중용량 에너지 수지와 연결해 읽는다.
+- [MIT OCW 3.205: 확산·열방정식 해법](https://ocw.mit.edu/courses/3-205-thermodynamics-and-kinetics-of-materials-fall-2006/pages/lecture-notes/): L3의 Solutions to the Diffusion/Heat Equation은 해법을 더 공부하기 위한 심화자료이다.
+
+- [제5강: 열전도 방정식]({% link assets/lecture_notes/2_2_transport_phenomena/transport_05_heat_equation.md %})
+- [제10강: 비정상 확산]({% link assets/lecture_notes/2_2_transport_phenomena/transport_10_transient_diffusion.md %})
 
 [이전 강의]({% link assets/lecture_notes/2_2_transport_phenomena/transport_06_heat_fdm.md %}) | [강의 목록]({% link _lectures/2_2_transport.md %}) | [다음 강의]({% link assets/lecture_notes/2_2_transport_phenomena/transport_08_diffusion_basics.md %})

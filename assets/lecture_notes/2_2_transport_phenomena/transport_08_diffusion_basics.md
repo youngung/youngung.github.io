@@ -31,6 +31,21 @@ $$x_A=\frac{n_A}{\sum_i n_i},\qquad \sum_i x_i=1$$
 이다. 질량농도, 질량분율 및 원자분율을 사용할 수도 있으므로 계산에서 농도의
 정의와 단위를 명확히 해야 한다.
 
+## 2.1. 몰농도, 질량분율 및 단위 환산
+
+A의 몰질량을 $M_A\ [\mathrm{kg/mol}]$, 혼합물 밀도를 $\rho$, 질량분율을
+$w_A$라 하면
+
+$$c_A=\frac{\rho w_A}{M_A}.$$
+
+예를 들어 0.20 wt.%는 $w_A=0.0020$이다. 질량분율과 몰분율은 일반적으로
+다르므로 숫자를 그대로 대입해서는 안 된다. 밀도가 일정할 때는
+$dc_A/dx=(\rho/M_A)dw_A/dx$로 바꿀 수 있지만, 밀도도 변하면 곱의 미분이 필요하다.
+
+침탄 예제에서 wt.% 농도를 직접 사용할 수 있는 것은 밀도를 일정하게
+근사하면 정규화 농도비에서 변환 계수가 상쇄되기 때문이다. 그 농도구배를
+몰플럭스 계산에 사용할 때는 위 변환을 별도로 수행해야 한다.
+
 # 3. Fick의 제1법칙
 
 일차원에서 A의 확산 몰플럭스는
@@ -49,6 +64,36 @@ $dc_A/dx=-5.0\times10^4\ \mathrm{mol/m^4}$이면
 $$J_{A,x}=1.0\times10^{-5}\ \mathrm{mol/(m^2\,s)}$$
 
 이다. 양수이므로 A는 $+x$ 방향으로 확산한다.
+
+## 3.1. 기준 속도와 총플럭스
+
+이성분 혼합물에서 전체 몰농도를 $c=c_A+c_B$, 몰평균 속도를
+$\boldsymbol v^*=x_A\boldsymbol v_A+x_B\boldsymbol v_B$라고 정의한다.
+몰평균 속도에 대한 확산 플럭스는
+
+$$
+\boldsymbol J_A=c_A(\boldsymbol v_A-\boldsymbol v^*),\qquad
+\boldsymbol N_A=c_A\boldsymbol v^*+\boldsymbol J_A
+$$
+
+이다. $\boldsymbol N_A$는 고정된 관찰자에 대한 총 몰플럭스이며
+$\boldsymbol J_A+\boldsymbol J_B=0$이다. 일정 온도·압력의 단순 이성분계에서
+$\boldsymbol J_A=-cD_{AB}\nabla x_A$이고, $c$가 일정하면 본문의
+$-D_{AB}\nabla c_A$와 같다.
+
+따라서 유체가 움직이는 문제에서는 총플럭스와 확산 플럭스를 구분해야 한다.
+정지한 고체의 단순 확산에서는 고체에 고정된 기준을 쓰되, 치환형 합금의
+상호확산에서 격자 이동까지 다룰 때는 기준 좌표계에 더 주의해야 한다.
+
+## 3.2. 농도구배 법칙의 적용 범위
+
+온도·응력·전기장 등의 추가 구동력이 없고 단순한 조성 범위에서 Fick 법칙을
+사용하면 농도구배의 반대방향으로 확산한다. 더 일반적인 열역학적 구동력은
+화학퍼텐셜 구배이다. 비이상 합금이나 다성분계에서는 단순한 일정 $D$ 식으로
+설명되지 않는 상향확산이나 결합 확산이 가능하다. 이 강의에서는 우선
+일정 온도의 단상 재료에 대한 단순 농도 확산 모델을 사용한다.[^diffusivity]
+
+[^diffusivity]: 자기확산계수, 추적자 확산계수, 고유확산계수, 상호확산계수는 측정과 정의가 다르다. 문헌의 값을 가져올 때에는 원소명뿐 아니라 상, 조성, 온도 범위와 계수의 정의가 현재 문제에 맞는지 확인한다.
 
 # 4. 확산계수
 
@@ -107,6 +152,25 @@ $$
 얻는다. 실험으로 여러 온도의 확산계수를 측정하면 이 기울기에서 활성화에너지를
 구할 수 있다.
 
+## Arrhenius 식의 단위와 두 온도 비교
+
+$Q_d$가 $\mathrm{J/mol}$이면 $R$도 $\mathrm{J/(mol\,K)}$ 단위를 사용하고
+$T$에는 절대온도를 넣어야 한다. $Q_d$를 kJ/mol로 읽고 그대로 대입하면 지수의
+크기가 천 배 달라진다. 원자당 활성화에너지를 쓰는 경우에는 $R$ 대신
+Boltzmann 상수와 일관된 에너지 단위를 사용한다.
+
+예시 물성으로 $Q_d=100\ \mathrm{kJ/mol}$, $T_1=800\ \mathrm K$,
+$T_2=900\ \mathrm K$라 하면
+
+$$
+\ln\frac{D_2}{D_1}=\frac{100000}{8.314}
+\left(\frac{1}{800}-\frac{1}{900}\right)\approx1.671,
+\qquad D_2/D_1\approx5.31.
+$$
+
+이 값은 단위 연습을 위한 가정값이며 특정 합금의 실험 물성이 아니다.
+같은 확산기구와 상이 유지되는 온도 범위에서 비교해야 한다.
+
 # 6. 연습 문제
 
 1. $D=10^{-9}\ \mathrm{m^2/s}$, $dc/dx=2\times10^5\ \mathrm{mol/m^4}$일 때 플럭스를 구하라.
@@ -125,5 +189,13 @@ $$
 5. x_A+x_B=1이므로 x_B=0.65이다.
 6. 농도구배가 +x 방향이므로 확산은 반대인 -x 방향이다.
 -->
+
+## 관련자료와 이어 읽기
+
+- [MIT OCW 3.205: 확산 관련 강의](https://ocw.mit.edu/courses/3-205-thermodynamics-and-kinetics-of-materials-fall-2006/pages/lecture-notes/): L2의 확산계수 구분, L4의 원자 이동기구와 온도 의존성, L6의 미세조직에 따른 확산을 심화자료로 활용한다.
+- [MIT OCW 3.185: Diffusion](https://ocw.mit.edu/courses/3-185-transport-phenomena-in-materials-engineering-fall-2003/resources/chap2/): 평판·원통 확산과 경계조건을 다음 두 강의와 함께 공부한다.
+
+- [제1강: 이동현상 개요]({% link assets/lecture_notes/2_2_transport_phenomena/transport_01_orientation.md %})
+- [제9강: 정상상태 확산]({% link assets/lecture_notes/2_2_transport_phenomena/transport_09_steady_diffusion.md %})
 
 [이전 강의]({% link assets/lecture_notes/2_2_transport_phenomena/transport_07_transient_heat.md %}) | [강의 목록]({% link _lectures/2_2_transport.md %}) | [다음 강의]({% link assets/lecture_notes/2_2_transport_phenomena/transport_09_steady_diffusion.md %})

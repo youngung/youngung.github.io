@@ -48,6 +48,18 @@ $$
 이며, 온도가 가장 빠르게 증가하는 방향을 가리키는 벡터이다. 시간 변화율
 $\partial T/\partial t$와 공간 구배 $\nabla T$는 서로 다른 양이다.
 
+## 3.1. 구배와 변화율을 숫자로 읽기
+
+두께가 $0.01\ \mathrm m$인 벽의 왼쪽 온도가 400 K, 오른쪽 온도가 300 K이고
+온도분포가 선형이면 $dT/dx=-10^4\ \mathrm{K/m}$이다. 이 값은 온도가
+매초 얼마나 변하는지가 아니라, 오른쪽으로 단위 길이만큼 이동할 때 온도가
+얼마나 변하는지를 나타낸다. 벽의 온도가 시간에 따라 바뀌지 않아도 이 공간
+구배는 존재할 수 있다.
+
+반대로 잘 저어 주는 물의 온도가 전체적으로 상승하면 공간 구배는 작아도
+$\partial T/\partial t>0$일 수 있다. **공간적으로 균일함**과 **정상상태**는
+서로 다른 조건이다.
+
 # 4. 세 가지 구성방정식
 
 가장 단순한 일차원 전달법칙은 다음과 같다.
@@ -63,6 +75,26 @@ $$
 왼쪽은 단위 면적과 단위 시간당 전달량인 플럭스(flux)이다. 음수 부호는
 전달 방향이 해당 물리량이 증가하는 방향과 반대임을 뜻한다.
 
+## 4.1. 세 법칙을 비교할 때의 범위
+
+위 식은 등방성 재료의 단순한 선형 전달을 나타낸다. 유체가 덩어리째 움직이면
+그 운동에 의한 전달인 **이류(advection)**도 생긴다. 예를 들어 A의 전체
+몰플럭스는 몰평균 속도 $\boldsymbol v^*$를 기준으로
+
+$$
+\boldsymbol N_A=c_A\boldsymbol v^*+\boldsymbol J_A
+$$
+
+로 나눌 수 있다. 첫 항은 유동에 의한 전달, 둘째 항은 그 평균 운동에 대한
+상대 확산이다. 정지한 고체에서는 고체에 고정된 좌표계를 사용하여 확산만
+고려하는 경우가 많다. 확산과 이류를 더 자세히 구분하는 내용은
+[제8강]({% link assets/lecture_notes/2_2_transport_phenomena/transport_08_diffusion_basics.md %})에서 다룬다.
+
+이 강의의 $\tau_{yx}$는 **$+y$ 방향으로 전달되는 $x$ 운동량의 점성 플럭스**로
+정의한다. 고체역학의 면에 작용하는 전단응력과는 부호 관례가 다를 수 있다.[^momentum-sign]
+
+[^momentum-sign]: 인장응력을 양수로 하는 Cauchy 응력에서 $+y$ 법선면에 작용하는 $x$ 방향 점성 응력 성분을 $s_{xy}$라 하면, 단순 전단에서 $s_{xy}=\mu\,dv_x/dy$이다. 본문의 운동량 플럭스는 $\tau_{yx}=-s_{xy}$이다. 따라서 두 식의 부호가 달라도 서로 모순이 아니다. 첨자의 순서까지 포함하여 정의를 확인해야 한다.
+
 # 5. 보존 원리
 
 검사체적(control volume)에 대한 보존 원리는
@@ -73,6 +105,27 @@ $$
 
 으로 정리할 수 있다. 정상상태(steady state)에서는 시간에 따른 축적량이
 0이다. 입력과 출력이 같다면 전달은 계속되어도 내부의 양은 변하지 않는다.
+
+## 5.1. 작은 검사체적에서 국소 보존식으로
+
+일정한 단면적 $A$를 갖는 구간 $[x,x+\Delta x]$에서, 단위 부피당 저장량을
+$b$, $+x$ 방향 플럭스를 $j$, 단위 부피당 순생성률을 $s$라고 하자.
+
+$$
+j(x)A-j(x+\Delta x)A+sA\Delta x
+=A\Delta x\frac{\partial b}{\partial t}.
+$$
+
+$A\Delta x$로 나눈 뒤 $\Delta x\to0$의 극한을 취하면
+
+$$
+\boxed{\frac{\partial b}{\partial t}=-\frac{\partial j}{\partial x}+s}
+$$
+
+이다. 플럭스 자체가 크다는 사실보다 **입구와 출구의 플럭스 차이**가 축적을
+결정한다는 점이 핵심이다. 열전도에서는 $b$의 시간 변화가
+$\rho c_p\partial T/\partial t$에 해당하고, 화학종 보존에서는 $b=c_A$이다.
+보존식만으로는 $j$를 정할 수 없기 때문에 Fourier 법칙이나 Fick 법칙이 필요하다.
 
 # 6. 문제를 푸는 순서
 
@@ -101,7 +154,9 @@ $$
 | $\nabla T$ | 온도구배 | $\mathrm{K/m}$ |
 
 점 하나의 값은 장(field)이 아니다. 여러 위치에서 값이 정의될 때 장이 된다.
-또한 플럭스에 면적을 곱하면 단위 시간당 총 전달량을 얻는다.
+또한 플럭스가 면 전체에서 균일하고 면에 수직이면 면적을 곱하여 단위 시간당
+총 전달량을 얻는다. 일반적으로는 $\dot Q=\int_A\boldsymbol q''\cdot\boldsymbol n\,dA$처럼
+면의 바깥쪽 단위법선 $\boldsymbol n$에 대한 성분을 적분한다.
 
 # 9. 크기량과 세기량
 
@@ -142,5 +197,13 @@ $$
 5. Qdot=q''*A=200*0.5=100 W이다.
 6. Fourier 법칙의 음수 부호에 따라 -x 방향으로 흐른다.
 -->
+
+## 관련자료와 이어 읽기
+
+- [MIT OCW 3.185 강의노트 목록](https://ocw.mit.edu/courses/3-185-transport-phenomena-in-materials-engineering-fall-2003/pages/lecture-notes/): 운동량·열·물질 전달을 함께 공부할 때 사용할 공개 강의자료이다. 확산, 열전도, 유체 유동 순으로 나뉘어 있다.
+- [MIT OCW 3.205 강의노트 목록](https://ocw.mit.edu/courses/3-205-thermodynamics-and-kinetics-of-materials-fall-2006/pages/lecture-notes/): 심화 학습에서는 L1의 장·구배·플럭스·연속방정식 항목을 살펴본다.
+
+- [제5강: 열전도 방정식]({% link assets/lecture_notes/2_2_transport_phenomena/transport_05_heat_equation.md %})
+- [제8강: 확산 기초]({% link assets/lecture_notes/2_2_transport_phenomena/transport_08_diffusion_basics.md %})
 
 [강의 목록]({% link _lectures/2_2_transport.md %}) | [다음 강의]({% link assets/lecture_notes/2_2_transport_phenomena/transport_02_fluid_statics.md %})

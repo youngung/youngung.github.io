@@ -29,6 +29,17 @@ $$p=\frac{F_n}{A},\qquad 1\ \mathrm{Pa}=1\ \mathrm{N/m^2}$$
 정지 유체에서는 한 점의 압력이 모든 방향에서 같다. 전단응력이 존재하면
 유체가 변형되므로 정지 상태를 유지할 수 없다.
 
+## 2.1. 압력은 스칼라이고, 압력에 의한 힘은 벡터이다
+
+$p=F_n/A$는 압력이 면 위에서 균일할 때의 식이다. 국소 압력은 작은 면적에
+작용하는 수직력의 극한으로 정의한다. 검사체적의 바깥쪽 법선이
+$\boldsymbol n$이면 외부 유체가 그 면을 누르는 힘은
+
+$$d\boldsymbol F=-p\boldsymbol n\,dA$$
+
+이다. 압력은 방향을 갖지 않지만 힘의 방향은 면의 방향에 따라 달라진다.
+이 때문에 닫힌 물체의 위쪽 면에는 아래쪽 힘, 아래쪽 면에는 위쪽 힘이 작용한다.
+
 # 3. 정수압 방정식
 
 $z$축을 위쪽으로 정하고 높이 $\Delta z$, 면적 $A$인 작은 유체요소에 힘의 평형을
@@ -77,6 +88,29 @@ $$F_R=\int_Ap\,dA$$
 이다. 수평면에서는 $F_R=pA$이다. 수직 평면에서는 깊이에 따라 압력이
 증가하므로 합력의 작용점이 도심보다 아래에 놓인다.
 
+## 6.1. 수직 직사각형 수문: 합력과 압력중심
+
+폭 $b$, 높이 $H$인 수문의 위쪽 끝이 물의 자유표면에 있고, 반대편은 대기라고
+하자. 아래쪽으로 깊이 $h$를 재면 순압력은 $p_g=\rho gh$이다. 얇은 띠의
+면적 $dA=b\,dh$에 대해
+
+$$
+F_R=\int_0^H\rho ghb\,dh=\frac{\rho gbH^2}{2}
+$$
+
+이고, 자유표면에 대한 힘의 모멘트는
+
+$$
+F_Rh_{cp}=\int_0^Hh(\rho gh)b\,dh
+=\frac{\rho gbH^3}{3},\qquad h_{cp}=\frac{2H}{3}.
+$$
+
+압력분포가 아래쪽으로 커지므로 압력중심은 도심 $H/2$보다 깊다.
+$b=1\ \mathrm m$, $H=2\ \mathrm m$, $\rho=1000\ \mathrm{kg/m^3}$이면
+$F_R=19.62\ \mathrm{kN}$, $h_{cp}=1.333\ \mathrm m$이다.
+판 양쪽의 대기압을 함께 계산하면 상쇄되므로 이 경우 게이지압력을 사용할 수 있다.
+반면 한쪽이 진공인 판에서는 대기압의 힘도 포함해야 한다.
+
 # 7. 부력
 
 아르키메데스 원리에 따르면 부력은 물체가 밀어낸 유체의 무게와 같다.
@@ -114,6 +148,22 @@ $$
 여러 유체가 들어 있는 액주계에서는 아래로 이동할 때 $\rho g\Delta h$를
 더하고 위로 이동할 때 뺀다. 같은 높이에 있는 동일한 연속 유체의 압력은 같다.
 
+## 부력을 압력차로 이해하기
+
+높이 $H$, 수평 단면적 $A$인 직육면체가 완전히 잠겨 있으면, 아래쪽과 위쪽의
+압력차는 $\rho_f gH$이다. 따라서 수직방향 순압력 힘은
+
+$$F_B=(p_{bottom}-p_{top})A=\rho_f gHA=\rho_f gV$$
+
+이다. 옆면의 수평방향 힘은 서로 상쇄된다. 일반 형상에서도 압력을 표면에
+적분하면 같은 결론을 얻는다. 부력은 물체 재료의 밀도가 아니라 **유체의 밀도와
+밀어낸 부피**로 결정되고, 뜨는지는 이 부력과 물체 무게를 비교하여 판단한다.
+균일한 물체가 떠 있을 때는 $V_{sub}/V=\rho_{body}/\rho_f$이다.
+
+> 액주계에서 서로 다른 유체의 경계 압력이 같다는 설명은 표면장력에 의한
+> 압력차를 무시할 수 있을 때의 근사이다. 가는 모세관이나 작은 기포에서는
+> 계면 곡률에 따른 압력차를 추가로 고려해야 한다.
+
 # 8. 연습 문제
 
 1. 물속 5 m 깊이의 게이지압력을 구하라. $\rho=1000\ \mathrm{kg/m^3}$이다.
@@ -132,5 +182,13 @@ $$
 5. p_abs=101+20=121 kPa이다.
 6. 가라앉기 시작하면 잠긴 부피와 부력이 증가한다. 부력이 무게와 같아지는 위치에서 뜬다.
 -->
+
+## 관련자료와 이어 읽기
+
+- [OpenStax: Fluids, Density, and Pressure](https://openstax.org/books/university-physics-volume-1/pages/14-1-fluids-density-and-pressure): 압력과 깊이의 관계를 복습할 수 있다.
+- [OpenStax: Archimedes’ Principle and Buoyancy](https://openstax.org/books/university-physics-volume-1/pages/14-4-archimedes-principle-and-buoyancy): 부력과 잠긴 부피의 관계를 예제와 함께 확인한다.
+
+- [제1강: 이동현상 개요]({% link assets/lecture_notes/2_2_transport_phenomena/transport_01_orientation.md %})
+- [제3강: 뉴턴 유체와 운동량 전달]({% link assets/lecture_notes/2_2_transport_phenomena/transport_03_newtonian_viscosity.md %})
 
 [이전 강의]({% link assets/lecture_notes/2_2_transport_phenomena/transport_01_orientation.md %}) | [강의 목록]({% link _lectures/2_2_transport.md %}) | [다음 강의]({% link assets/lecture_notes/2_2_transport_phenomena/transport_03_newtonian_viscosity.md %})
