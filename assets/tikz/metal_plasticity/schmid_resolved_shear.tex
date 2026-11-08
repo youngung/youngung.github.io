@@ -1,0 +1,34 @@
+\documentclass[tikz,border=12pt]{standalone}
+\usepackage{amsmath}
+\usepackage{kotex}
+\usetikzlibrary{arrows.meta,angles,quotes}
+\definecolor{plane}{RGB}{35,100,175}
+\definecolor{slip}{RGB}{195,70,45}
+\definecolor{axis}{RGB}{30,130,95}
+\begin{document}
+\begin{tikzpicture}[>=Latex,font=\sffamily,line cap=round,line join=round]
+% 인장축은 수직이다. 슬립면 법선 n은 인장축과 phi=50도, 슬립방향 b는 lambda=40도를 이룬다.
+\node[font=\large\bfseries] at (2.0,6.2) {Schmid 법칙: 분해전단응력 $\tau^s=\sigma\cos\phi\cos\lambda$};
+\coordinate (O) at (0,0);
+\draw[axis,dashed,thick] (0,-3.3)--(0,3.8);
+\draw[axis,->,ultra thick] (0,3.1)--(0,4.6) node[above] {$\sigma$ (인장)};
+\draw[axis,->,ultra thick] (0,-3.1)--(0,-4.6) node[below] {$\sigma$ (인장)};
+% 슬립면: 방향 b를 따르는 띠
+\begin{scope}[rotate=-50]
+  \fill[plane!15] (-3.6,-0.12) rectangle (3.6,0.12);
+\end{scope}
+\draw[plane,very thick] ({-3.3*cos(50)},{3.3*sin(50)})--({3.3*cos(50)},{-3.3*sin(50)});
+\node[plane,anchor=west] at ({3.3*cos(50)+0.1},{-3.3*sin(50)-0.1}) {슬립면};
+% 법선 n과 슬립방향 b
+\draw[plane,->,very thick] (O)--({3.0*sin(50)},{3.0*cos(50)}) node[right] {$\boldsymbol n^s$ (슬립면 법선)};
+\draw[slip,->,very thick] (O)--({-3.0*cos(50)},{3.0*sin(50)}) node[left] {$\boldsymbol b^s$ (슬립방향)};
+\fill (O) circle (2pt);
+% 각도 표시
+\draw[axis] (0,1.4) arc[start angle=90,end angle=40,radius=1.4];
+\node[plane] at (0.62,1.8) {$\phi$};
+\draw[axis] (0,1.0) arc[start angle=90,end angle=130,radius=1.0];
+\node[slip] at (-0.62,1.45) {$\lambda$};
+\node[align=left,anchor=west,font=\small] at (4.2,-1.3) {$\tau^s=\boldsymbol\sigma:\boldsymbol m^s$\\$\boldsymbol m^s=\tfrac12(\boldsymbol n^s\otimes\boldsymbol b^s+\boldsymbol b^s\otimes\boldsymbol n^s)$\\Schmid 인자 $=\cos\phi\cos\lambda\le0.5$};
+\node[align=center,text=gray!80!black,font=\small] at (2.0,-6.0) {인장축, $\boldsymbol n^s$, $\boldsymbol b^s$가 한 평면 위에 있도록 그린 단면도이다.\\이 경우 $\phi+\lambda=90^\circ$이고, 일반적으로는 세 벡터가 한 평면에 있지 않다.};
+\end{tikzpicture}
+\end{document}
