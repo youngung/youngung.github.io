@@ -5,13 +5,13 @@ description: 재료공학도를 위한 수치해석
 target: 2학년 1학기
 permalink:
 prerequisite: 재료공학개론1, 데이터 재료과학
-toc:
-  sidebar: left
+toc: false
 ---
 
-- [1. 강의 소개](#1-강의-소개)
-- [2. 수업 목표](#2-수업-목표)
-- [3. 수강 준비 확인](#3-수강-준비-확인)
+**목차**
+
+* TOC
+{:toc}
 
 # 1. 강의 소개
 

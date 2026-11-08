@@ -5,9 +5,14 @@ description: 재료공학도를 위한 운동량, 열 및 물질 전달
 target: 2학년 2학기
 permalink:
 prerequisite: 재료공학개론1, 데이터 재료과학, 수치해석, 대학수학
-toc:
-  sidebar: left
+toc: false
 ---
+
+**목차**
+
+* TOC
+{:toc}
+
 - [제1강 이동현상 개요]({% link assets/lecture_notes/2_2_transport_phenomena/transport_01_orientation.md %})
 - [제2강 유체정역학]({% link assets/lecture_notes/2_2_transport_phenomena/transport_02_fluid_statics.md %})
 - [제3강 뉴턴 유체와 운동량 전달]({% link assets/lecture_notes/2_2_transport_phenomena/transport_03_newtonian_viscosity.md %})

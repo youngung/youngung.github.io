@@ -23,7 +23,7 @@ authors:
 ---
 
 
-**Contents**
+**목차**
 
 * TOC
 {:toc}

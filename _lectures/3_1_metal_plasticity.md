@@ -6,8 +6,7 @@ target: 3학년 1학기
 permalink:
 featured: true
 prerequisite: 재료공학개론1, 대학수학, 데이터 재료과학, 수치해석
-toc:
-  sidebar: left
+toc: false
 mermaid:
   enabled: true
   zoomable: true
@@ -21,6 +20,11 @@ authors:
     affiliations:
       name: Changwon National University
 ---
+
+**목차**
+
+* TOC
+{:toc}
 
 - [제1강 orientation]({%     link assets/lecture_notes/3_1_metal_plasticity/metal_plasticity_01_orientation.md %})
 - [제2강 forming process]({% link assets/lecture_notes/3_1_metal_plasticity/metal_plasticity_02_forming_processes.md %})

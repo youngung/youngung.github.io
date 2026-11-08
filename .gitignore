@@ -18,3 +18,5 @@ vendor
 *.gif
 *.gz
 *.log
+*midterm*
+*final*

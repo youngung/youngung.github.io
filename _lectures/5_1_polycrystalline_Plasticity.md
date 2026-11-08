@@ -6,8 +6,7 @@ target: 대학원 1학기
 permalink:
 featured: true
 prerequisite: 재료공학개론1, 대학수학, 데이터 재료과학, 수치해석, 소성가공
-toc:
-  sidebar: left
+toc: false
 mermaid:
   enabled: true
   zoomable: true

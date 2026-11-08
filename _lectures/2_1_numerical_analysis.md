@@ -5,8 +5,7 @@ description: 재료공학도를 위한 수치해석
 target: 2학년 1학기
 permalink:
 prerequisite: 재료공학개론1, 데이터 재료과학
-toc:
-  sidebar: left
+toc: false
 ---
 
 - [제1강 orientation]({% link assets/lecture_notes/2_1_numerical_analysis/numerical_analysis_01_orientation.md %})
