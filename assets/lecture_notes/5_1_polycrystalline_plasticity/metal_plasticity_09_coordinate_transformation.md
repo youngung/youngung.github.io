@@ -95,7 +95,7 @@ $(\varphi_1,\Phi,\varphi_2)$를 사용한다. 기존 기저에서 시작하여 �
 
 즉, 회전축도 앞선 회전을 따라 움직이는 $z$–$x'$–$z''$ 순서이다.
 
-![Bunge Euler 각 애니메이션: z축, 회전 후 x축, 다시 회전 후 z축 둘레의 순차적인 기저 회전](/assets/img/lecture_notes/coordinate_transformation/bunge_euler_angles.gif){: style="max-width: 900px; width: 100%; height: auto;"}
+![Bunge Euler 각 애니메이션: z축, 회전 후 x축, 다시 회전 후 z축 둘레의 순차적인 기저 회전](/assets/img/lecture_notes/coordinate_transformation/bunge_euler_angles_animation.gif){: style="max-width: 900px; width: 100%; height: auto;"}
 
 애니메이션은 세 회전을 순서대로 보여주며 약 10초마다 반복된다.
 회색 점선은 각 단계 시작 시의 기저이고, 주황색 축은 해당 단계의 회전축이다.
