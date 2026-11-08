@@ -17,7 +17,7 @@ authors:
       name: Changwon National University
 ---
 
-**Contents**
+**목차**
 
 * TOC
 {:toc}

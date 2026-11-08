@@ -6,8 +6,7 @@ target: 1학년 2학기
 permalink:
 featured: true
 prerequisite: 재료공학개론1
-toc:
-  sidebar: left
+toc: false
 mermaid:
   enabled: true
   zoomable: true
@@ -21,6 +20,11 @@ authors:
     affiliations:
       name: Changwon National University
 ---
+
+**목차**
+
+* TOC
+{:toc}
 
 - [제1강 orientation]({% link assets/lecture_notes/1_2_data_mse/data_mse_01_orientation.md %})
 - [제2강 기초 조작 및 실습]({% link assets/lecture_notes/1_2_data_mse/data_mse_02_기초조작실습.md %})

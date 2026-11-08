@@ -17,7 +17,7 @@ authors:
       name: Changwon National University
 ---
 
-**Contents**
+**목차**
 
 * TOC
 {:toc}
@@ -27,10 +27,15 @@ authors:
 이번 강의가 끝나면 다음을 할 수 있어야 한다.
 
 - 벡터를 1차원 NumPy 배열로 나타낼 수 있다.
-- 벡터의 합, 차와 스칼라 곱을 계산할 수 있다.
+- 벡터의 합과 차, 벡터와 스칼라의 곱을 계산할 수 있다.
 - 벡터의 크기와 단위벡터를 구할 수 있다.
 - 내적을 이용하여 두 벡터의 수직 여부와 끼인 각을 구할 수 있다.
 - 외적의 방향과 크기를 설명하고 NumPy로 계산할 수 있다.
+
+9·10장에서 배열을 저장하고 축별로 계산하는 방법을 배웠다.
+이번 장에서는 1차원 배열의 값이 한 벡터의 성분을 나타낼 때,
+합·크기·내적·외적에 어떤 수학적 의미가 있는지 살펴본다.
+다음 12장에서는 이 내적을 바탕으로 행렬–벡터곱을 구성한다.
 
 # 2. 벡터와 NumPy 배열
 
@@ -80,7 +85,7 @@ print(a.size)
 
 온도(temperature)는 하나의 값으로 나타내는 스칼라(scalar)이고, 힘(force)과
 변위(displacement)는 방향도 필요한 벡터다. 벡터의 성분을 쓰려면 먼저 기준 방향인
- **기저벡터(basis vector)**를 정해야 한다.
+ **[기저벡터(basis vector)](https://ko.wikipedia.org/wiki/기저_%28선형대수학%29)**를 정해야 한다.
 서로 수직이고 길이가 1인 기저($\boldsymbol e_x, \boldsymbol e_y, \boldsymbol e_z$)를 사용하면
 
 $$
@@ -90,7 +95,7 @@ $$
 로 쓴다. 예를 들어 $\boldsymbol a=3\boldsymbol e_x+4\boldsymbol e_y$는
 첫 번째 방향으로 3, 두 번째 방향으로 4만큼의 성분을 갖는다.
 좌표축을 바꾸면 같은 벡터도 성분값이 달라질 수 있지만, 벡터의 크기와 물리적 의미는 유지된다.
-이 강의의 길이·내적 공식은 **같은 직교정규 기저에서 표현한 실수 성분**에 적용한다.
+이 강의의 길이·내적 공식은 **같은 직교정규 기저(orthonormal basis)에서 표현한 실수 성분**에 적용한다.
 
 ![기저를 90도 회전하면 같은 벡터의 성분이 (3, 4)에서 (4, -3)으로 바뀌지만 벡터의 방향과 크기는 유지된다.](/assets/img/lecture_notes/data_mse/vector_basis_components.png){: style="width: 1000px; max-width: 100%; height: auto;"}
 
@@ -105,7 +110,7 @@ $$
 
 ## 2.2. 1차원 배열과 행·열 배열의 차이
 
-수학에서 열벡터로 표기해도 NumPy의 shape이 자동으로 열 배열이 되는 것은 아니다.
+수식에서 벡터를 세로로 쓰더라도, 코드에서 만든 배열이 자동으로 2차원 열 배열이 되는 것은 아니다.
 
 ~~~python
 vector = np.array([3.0, 4.0, 0.0])
@@ -119,6 +124,14 @@ print(vector.T.shape)
 1차원 배열의 <code>.T</code>는 shape을 바꾸지 않는다.
 특히 <code>vector + column</code>은 브로드캐스팅 때문에 <code>(3, 3)</code> 배열이 된다.
 성분별 덧셈을 의도했다면 두 배열을 모두 <code>(3,)</code>으로 맞춰야 한다.
+
+### 인덱싱에서 `None`의 역할
+
+[10장 6.1절과 8절]({% link assets/lecture_notes/1_2_data_mse/data_mse_10_NumPy기초2.md %})에서 배운 것처럼,
+<code>None</code>은 길이가 1인 새 축을 추가한다.
+<code>vector[:, None]</code>은 열 배열, <code>vector[None, :]</code>은 행 배열을 만든다.
+여기서는 벡터 계산에 사용할 배열의 shape을 구분하는 데 집중하자.
+수학적 벡터를 열벡터로 써도 NumPy에서는 <code>(3,)</code> 배열로 계산할 수 있다.
 
 # 3. 벡터의 합과 차
 
@@ -145,8 +158,8 @@ print(vector_sum)
 print(vector_difference)
 ~~~
 
-결과는 각각 $[6,-1,3]$과 $[0,9,7]$이다. 두 배열의 shape이 같아야 성분별로
-자연스럽게 더하고 뺄 수 있다 (Broadcasting 규칙에 따르는 것을 주의해야 한다).
+결과는 각각 $[6,-1,3]$과 $[0,9,7]$이다. 벡터의 대응 성분끼리 더하고 빼려면 두 입력을 같은 shape의 1차원 배열로 준비하자.
+shape이 다르면 브로드캐스팅에 의해 의도와 다른 결과가 나올 수 있다.
 
 ![벡터의 합은 끝점에 다음 벡터를 이어 구하고, 차는 반대 벡터를 더하거나 두 끝점을 연결하여 구하는 그림](/assets/img/lecture_notes/data_mse/vector_addition_subtraction.png){: style="width: 1000px; max-width: 100%; height: auto;"}
 
@@ -160,7 +173,7 @@ $\boldsymbol a-\boldsymbol b$를 나타낸다. 순서를 바꾸면 차의 방향
 
 # 4. 벡터의 크기
 
-벡터 $\boldsymbol a$의 크기(Euclidean norm)는
+벡터 $\boldsymbol a$의 크기, 즉 [유클리드 노름(Euclidean norm)](https://en.wikipedia.org/wiki/Norm_%28mathematics%29)은
 
 $$
 \|\boldsymbol a\|_2
@@ -240,7 +253,7 @@ $c=0$이면 영벡터가 되며 방향은 정의되지 않는다.
 # 6. 단위벡터
 
 크기가 1인 벡터를 단위벡터(unit vector)라고 한다. 0이 아닌 벡터를 그 크기로 나누면
-같은 방향의 단위벡터를 얻는다.
+같은 방향의 단위벡터를 얻는다. 이처럼 벡터의 크기를 1로 맞추는 것을 정규화(normalization)라고 한다.
 
 $$
 \widehat{\boldsymbol a}
@@ -283,9 +296,9 @@ $$
 
 이다.
 
-NumPy 배열은 인덱스가 0부터 시작하므로, 이의 수식을 0부터 시작하는 인덱스로 바꾸어야 한다.
-즉, $a_1b_1+a_2b_2+a_3b_3$ 는 NumPy에서는
-<code>a[0]*b[0]+a[1]*b[1]+a[2]*b[2]</code> 가 된다.
+수식의 성분 번호는 1부터, NumPy 배열의 인덱스는 0부터 시작하므로 둘을 구분해야 한다.
+즉, $a_1b_1+a_2b_2+a_3b_3$는 NumPy 코드에서
+<code>a[0]*b[0]+a[1]*b[1]+a[2]*b[2]</code>에 해당한다.
 
 ~~~python
 a = np.array([1.0, 2.0, 3.0])
@@ -312,7 +325,7 @@ print(a @ b)         # 내적
 반면 <code>a * b</code>만 계산하면 합을 하지 않으므로
 내적이 아니라 원소별 곱 배열 <code>[4., 10., 18.]</code>이 나온다.
 <code>@</code>를 항상 내적 연산자로 해석해서는 안 된다.
-두 배열이 2차원이면 행렬곱을 계산하며, 이는 다음 기회에 다루도록 하자.
+두 배열이 2차원이면 행렬곱을 계산한다. 이 경우는 다음 12장에서 다룬다.
 
 두 벡터가 모두 영벡터가 아니고 내적이 0이면 두 벡터는 서로 수직이다.
 
@@ -350,7 +363,7 @@ $$
 이다.
 
 ~~~python
-def angle_btwn(vect_a, vect_b):
+def angle_between(vect_a, vect_b):
     mag_a = np.linalg.norm(vect_a)
     mag_b = np.linalg.norm(vect_b)
 
@@ -370,23 +383,20 @@ def angle_btwn(vect_a, vect_b):
 a = np.array([1.0, 0.0, 0.0])
 b = np.array([0.0, 1.0, 0.0])
 
-print(angle_btwn(a, b))
+print(angle_between(a, b))
 ~~~
 
-결과는 90도이다. <code>np.arccos()</code>의 결과는 radian이고,
-<code>np.degrees()</code>가 degree로 변환한다. 부동소수점 계산 때문에 cosine이
-아주 조금 1보다 커지거나 -1보다 작아지는 것을 막기 위해 <code>np.clip()</code>을 사용했다.
+결과는 90도이다. <code>np.arccos()</code>는 각도를 라디안(radian) 단위로 반환하고,
+<code>np.degrees()</code>는 이를 도(degree) 단위로 바꾼다. 부동소수점 오차로
+코사인 값이 1을 조금 넘거나 -1보다 조금 작아질 수 있으므로,
+<code>np.clip()</code>으로 값을 $[-1,1]$ 범위 안으로 제한했다.
 
 # 9. 외적
 
-3차원 벡터의 외적(cross product)은 두 벡터에 모두 수직인 새로운 벡터이다. 두 벡터 $\boldsymbol a$와
-$\boldsymbol b$의 외적이 $\boldsymbol c$라 하자. 이때 각 성분 $c_i$는 다음과 같이 계산된다.
-
-$$c_i=\epsilon_{ijk} a_j b_k$$
-
-여기서 $\epsilon_{ijk}$는 레비치비타 기호(Levi-Civita symbol; 혹은 permutation symbol)로, $i,j,k$가 모두 다르면 1 또는 -1의 값을 갖고, 하나라도 같으면 0이 된다. 즉, 외적의 각 성분은 이 기호를 이용하여 계산할 수 있다.
-
-더욱 간략하게, 아래와 같이 3차원 벡터의 외적은 각 성분을 계산하여 새로운 벡터를 만든다고 생각할 수 있다.
+3차원 벡터의 외적(cross product)은 두 입력 벡터에 모두 수직인 벡터를 만든다.
+두 벡터가 평행하면 결과는 영벡터다. 먼저 성분을 직접 계산하는 식을 익히자.
+인덱스와 합산 기호를 이용한 표현은
+[13장 6.9절]({% link assets/lecture_notes/1_2_data_mse/data_mse_13_행렬벡터연산고급_Ein.md %}#cross-product-indices)에서 다룬다.
 
 $$
 [\boldsymbol a]\times[\boldsymbol b]
@@ -492,14 +502,14 @@ print(resultant_magnitude)
 
 ## 10.2. 입방정에서 결정방향 사이의 각
 
-입방정(cubic crystal)에서는 결정방향 $[uvw]$를 성분이 $(u,v,w)$인 벡터로
+입방정(cubic crystal system)에서는 결정방향 $[uvw]$를 성분이 $(u,v,w)$인 벡터로
 다룰 수 있다. $[100]$과 $[110]$ 사이의 각을 계산해 보자.
 
 ~~~python
 direction_1 = np.array([1.0, 0.0, 0.0])
 direction_2 = np.array([1.0, 1.0, 0.0])
 
-angle_deg = angle_btwn(
+angle_deg = angle_between(
     direction_1,
     direction_2,
 )
@@ -507,8 +517,8 @@ angle_deg = angle_btwn(
 print(angle_deg)
 ~~~
 
-결과는 45도이다. 비입방정(non-cubic)에서는 격자상수(lattice constants)를 고려해야
-하므로 같은 방법을 그대로 적용할 수 없다.
+결과는 45도이다. 비입방정(non-cubic)에서는 격자벡터의 길이와 축 사이 각도를 반영해야 하므로,
+방향 지수만으로 같은 계산을 할 수는 없다.
 
 ## 10.3. 평행사변형의 넓이
 
@@ -551,7 +561,7 @@ print(lengths)  # [5.0, 2.0, 3.0]
 - 두 벡터의 shape이 서로 다른데 성분별 연산을 시도한다.
 - $a * b$를 내적이라고 생각한다.
 - 영벡터를 크기로 나누어 단위벡터를 만들려고 한다.
-- radian과 degree를 구분하지 않는다.
+- 각도의 라디안(radian) 단위와 도(degree) 단위를 혼동한다.
 - 외적에서 벡터 순서를 바꾸어도 결과가 같다고 생각한다.
 - 배열 차원(<code>ndim</code>)과 물리학적 벡터 차원을 혼동한다.
 
@@ -563,8 +573,6 @@ print(lengths)  # [5.0, 2.0, 3.0]
 - 단위벡터는 벡터를 그 크기로 나누어 구한다.
 - 내적 결과는 스칼라이며 두 벡터의 끼인 각과 관계된다.
 - 외적 결과는 두 입력 벡터에 모두 수직인 벡터이다.
-
-## 12.1. 두 강의를 연결하는 종합 실습
 
 {% comment %}TODO: 파일 추가 후 복구
 [기울어진 격자와 원자 이동 실습]({% link assets/lecture_notes/1_2_data_mse/data_mse_supp_vector_matrix_lab.md %})에서 위치 변환, 변위, 투영, 넓이와 역변환을 함께 연습할 수 있다.
@@ -637,7 +645,7 @@ a cross b=(0,0,1)이다.
 
 <!--
 풀이와 해답:
-radian이다.
+라디안(radian)이다.
 -->
 
 ## 문제 8: 위치와 변위
@@ -654,6 +662,8 @@ length = np.linalg.norm(delta); direction = delta / length
 -->
 
 ## 문제 9: 배열의 shape과 브로드캐스팅
+
+2.2절의 <code>None</code>을 이용한 새 축 추가와 브로드캐스팅 설명을 참고하라.
 
 다음 코드에서 세 배열의 shape과 <code>a + column</code>의 결과를 예상한 뒤 실행하라.
 성분별 합 $(2,4,6)$을 얻으려면 어떻게 고쳐야 하는가?

@@ -17,14 +17,15 @@ authors:
       name: Changwon National University
 ---
 
-**Contents**
+**목차**
 
 * TOC
 {:toc}
 
 # 1. 학습 목표
 
-이 자료에서 $[\boldsymbol A]$, $[\boldsymbol x]$는 행렬·벡터의 성분 배열을 뜻하며, 배열의 행렬곱은 $[\boldsymbol A][\boldsymbol x]$처럼 붙여 쓴다. 물리적 벡터·텐서의 단일수축은 $\cdot$로 표시한다.
+이 자료에서 $[\boldsymbol A]$, $[\boldsymbol x]$는 행렬·벡터의 성분을 모은 배열을 뜻한다.
+수식에서는 행렬곱을 $[\boldsymbol A][\boldsymbol x]$처럼 붙여 쓰고, Python 코드에서는 <code>A @ x</code>로 쓴다.
 
 
 이번 강의가 끝나면 다음을 할 수 있어야 한다.
@@ -35,6 +36,10 @@ authors:
 - 행렬곱이 가능한 shape 조건을 판단할 수 있다.
 - 단위행렬, 전치행렬, 행렬식과 역행렬의 의미를 설명할 수 있다.
 - <code>np.linalg.solve()</code>로 간단한 연립방정식을 풀 수 있다.
+
+11장에서는 두 벡터의 내적으로 스칼라를 구했다. 이번 장에서는 행렬의 각 행과
+벡터의 내적을 모아 새로운 벡터를 만들고, 이를 행렬곱과 선형변환으로 확장한다.
+인덱스를 이용한 합산 규칙과 <code>np.einsum</code>은 다음 13장에서 다룬다.
 
 # 2. 행렬과 NumPy 배열
 
@@ -63,8 +68,9 @@ print(A.ndim)
 ~~~
 
 <code>A.shape</code>은 <code>(2, 3)</code>이고 <code>A.ndim</code>은 2이다.
-행렬 성분 $$A_{ij}$$는 Python에서 <code>A[i, j]</code>로 선택한다. 다만 수학에서 첨자는
-1부터, Python의 인덱스는 0부터 시작한다.
+이 장의 수식에서는 첨자를 1부터, Python에서는 인덱스를 0부터 센다.
+따라서 수식의 $A_{ij}$는 코드의 <code>A[i-1, j-1]</code>에 대응한다.
+예를 들어 수식의 $A_{12}$는 코드의 <code>A[0, 1]</code>이다.
 
 ~~~python
 print(A[0, 0])
@@ -171,7 +177,7 @@ $$
 $$
 
 벡터의 첫 성분 5는 첫 열의 가중치이고, 두 번째 성분 6은 두 번째 열의 가중치다.
-이처럼 벡터에 수를 곱한 뒤 더하는 것을 **선형결합(linear combination)**이라고 한다.
+이처럼 벡터에 수를 곱한 뒤 더하는 것을 **[선형결합(linear combination)](https://en.wikipedia.org/wiki/Linear_combination)**이라고 한다.
 행렬의 열을 서로 다른 격자벡터로 정하면, 행렬–벡터곱은 격자벡터의 조합으로 실제 위치를 만드는 연산이 된다.
 
 ~~~python
@@ -183,6 +189,7 @@ print(np.allclose(A @ x, by_columns))  # True
 
 ## 4.2. 행렬을 선형변환으로 읽기
 
+행렬로 나타낸 [선형변환(linear transformation)](https://en.wikipedia.org/wiki/Linear_map)을 이용해
 평면의 점을 $$[\boldsymbol y]=[\boldsymbol A][\boldsymbol x]$$로 옮긴다고 생각하자.
 첫 번째 단위벡터 $$(1,0)^T$$는 행렬의 첫 열로, 두 번째 단위벡터 $$(0,1)^T$$는 둘째 열로 옮겨진다.
 따라서 두 열을 보면 기본 방향이 어디로 가는지 알 수 있다.
@@ -197,7 +204,8 @@ $$
 
 에서 $$[\boldsymbol S]$$는 첫 번째 방향을 2배 늘리고,
 $$[\boldsymbol Q]$$는 **고정된 좌표계 안에서 벡터를 반시계방향으로 90° 회전**시킨다.
-여기서는 좌표축을 고정한 채 벡터를 옮기며, 같은 벡터의 좌표축을 바꾸는 변환과 구분한다.
+여기서는 좌표축을 고정한 채 벡터의 크기나 방향을 바꾼다.
+벡터는 그대로 두고 좌표축을 바꾸어 성분을 다시 표현하는 경우와 구분하자.
 
 $$
 [\boldsymbol x]=\begin{bmatrix}1\\1\end{bmatrix}
@@ -274,7 +282,7 @@ C_{ij}
 \sum_{k=1}^{m}A_{ik}B_{kj}
 $$
 
-이고 결과 $$C$$의 크기는 $$(l,n)$$이다.
+이고 결과 $$C$$는 $$l$$행 $$n$$열, 즉 shape이 $$(l,n)$$인 행렬이다.
 
 $$
 C_{ij}
@@ -302,11 +310,13 @@ print(C_loop)
 print(np.allclose(C, C_loop))
 ~~~
 
-실제 계산에서는 반복문보다 <code>A @ B</code>를 사용한다. 연산 속도가 더 빠르다.
+실제 계산에서는 보통 최적화된 행렬곱 <code>A @ B</code>를 사용한다.
+<code>np.allclose()</code>는 작은 부동소수점 오차를 허용하여 두 결과가 같은지 확인한다.
 
 # 6. 행렬곱의 shape
 
-행렬곱에서는 안쪽 크기가 같아야 한다.
+행렬곱에서는 앞 행렬의 **열 개수**와 뒤 행렬의 **행 개수**가 같아야 한다.
+shape을 나란히 적었을 때 안쪽의 두 수가 같아야 한다는 뜻이다.
 
 $$
 (l,m)(m,n)\rightarrow(l,n)
@@ -370,6 +380,10 @@ $$
 
 <code>()</code>는 스칼라의 shape이다. 마지막 두 곱은 원소 수와 결과 차원이 다르므로 구별해야 한다.
 
+위의 <code>x[:, None] @ x[None, :]</code>는
+11장에서 언급한 <code>np.outer(x, x)</code>와 같다.
+행렬곱의 안쪽 크기 조건은 10장의 원소별 연산에 대한 브로드캐스팅 조건과 구분한다.
+
 # 7. 단위행렬과 전치행렬
 
 ## 7.1. 단위행렬
@@ -423,7 +437,7 @@ $$[\boldsymbol A]$$가 $$2\times3$$, $$[\boldsymbol B]$$가 $$3\times4$$이면
 
 ## 8.1. 행렬식
 
-행렬식(determinant)은 정사각행렬에 대해 정의되는 스칼라이다. 2×2 행렬에서는
+[행렬식(determinant)](https://ko.wikipedia.org/wiki/행렬식)은 정사각행렬에 대해 정의되는 스칼라이다. 2×2 행렬에서는
 
 $$
 \det
@@ -449,7 +463,7 @@ print(determinant)
 
 ## 8.2. 역행렬
 
-역행렬은 다음 관계를 만족한다.
+역행렬(inverse matrix)은 다음 관계를 만족한다.
 
 $$
 [\boldsymbol A]^{-1}[\boldsymbol A]
@@ -576,7 +590,7 @@ print(np.allclose(A @ x, b))       # True
 
 ## 10.1. 격자 좌표를 실제 위치로 변환하기
 
-직교하는 격자축의 길이가 $$a=2$$, $$b=3$$, $$c=4$$라고 하자. 격자 좌표
+직교하는 격자벡터의 길이가 $$a=2$$, $$b=3$$, $$c=4$$라고 하자. [분율좌표(fractional coordinates)](https://en.wikipedia.org/wiki/Fractional_coordinates)
 $$\boldsymbol p=(0.5,0.5,0.25)$$를 실제 위치로 바꾸는 행렬은
 
 $$
@@ -639,7 +653,8 @@ $$
 
 이다. $$p=q=0.5$$이면 실제 위치는 $$(1.5,1.5)\,\mathrm{nm}$$다.
 분율좌표의 성분 $$p,q$$는 무차원이며, 격자벡터에 곱해 실제 위치를 만든다.
-기울어진 격자에서는 분율좌표에 직접 Euclidean norm을 적용해 실제 거리를 구할 수 없다.
+기울어진 격자에서는 분율좌표의 성분을 제곱해 더한 뒤 제곱근을 구해도 실제 거리가 되지 않는다.
+먼저 격자행렬로 실제 직교좌표 성분을 구한 뒤 벡터의 크기를 계산해야 한다.
 
 여러 점을 **행마다 하나씩** 저장했다면 <code>L @ P</code> 대신 <code>P @ L.T</code>를 쓴다.
 한 점에 대한 식을 전치하면 $$([\boldsymbol L][\boldsymbol p])^T=[\boldsymbol p]^T[\boldsymbol L]^T$$이기 때문이다.
@@ -674,8 +689,6 @@ print(np.allclose(positions[1], L @ P[1]))  # True
 - <code>A.T</code>는 전치행렬이다.
 - <code>np.linalg.det()</code>와 <code>np.linalg.inv()</code>로 행렬식과 역행렬을 계산한다.
 - 연립방정식은 <code>np.linalg.solve()</code>로 푼다.
-
-## 12.1. 두 강의를 연결하는 종합 실습
 
 {% comment %}TODO: 파일 추가 후 복구
 [기울어진 격자와 원자 이동 실습]({% link assets/lecture_notes/1_2_data_mse/data_mse_supp_vector_matrix_lab.md %})에서 위치 변환, 변위, 투영, 넓이와 역변환을 함께 연습할 수 있다.

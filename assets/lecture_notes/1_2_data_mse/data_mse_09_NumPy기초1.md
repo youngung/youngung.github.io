@@ -17,7 +17,7 @@ authors:
       name: Changwon National University
 ---
 
-**Contents**
+**목차**
 
 * TOC
 {:toc}
@@ -31,6 +31,21 @@ authors:
 - <code>shape</code>, <code>ndim</code>, <code>size</code>, <code>dtype</code>을 확인할 수 있다.
 - 배열의 원소별 사칙연산을 수행할 수 있다.
 - 배열의 합계, 평균, 최솟값과 최댓값을 계산할 수 있다.
+
+## 1.1. 9–13장의 학습 흐름
+
+이 다섯 강의에서는 배열을 다루는 방법을 익힌 뒤, 벡터·행렬의 수학적 연산으로 연결한다.
+
+| 강의 | 중심 질문 | 다음 강의로 이어지는 개념 |
+|---|---|---|
+| 9장: NumPy 배열 기초 | 수치 데이터를 어떻게 저장하고 계산하는가? | shape, 원소별 연산, 집계 |
+| 10장: NumPy 배열 활용 | 어느 원소와 축에 연산을 적용하는가? | 인덱싱, axis, 브로드캐스팅 |
+| 11장: 벡터 연산 기초 | 배열로 나타낸 벡터에 어떤 연산을 하는가? | 크기, 내적, 외적 |
+| 12장: 행렬 연산 기초 | 행렬로 벡터를 어떻게 변환하는가? | 행렬곱, 전치, 연립방정식 |
+| 13장: Einstein 표기법 | 어떤 인덱스를 남기고 어떤 인덱스를 합산하는가? | 수축, einsum, 브로드캐스팅의 인덱스 해석 |
+
+새 강의의 예제는 해당 장의 처음부터 순서대로 실행한다.
+각 장에서 <code>import numpy as np</code>를 실행하고, 탭으로 나뉜 예제는 공통 준비 코드를 실행한 뒤 비교한다.
 
 # 2. NumPy가 필요한 이유
 
@@ -101,7 +116,7 @@ print(matrix)
 
 ## 4.2. 일정한 값으로 채우기
 
-배열의 형태(shape)는 튜플로 전달한다.
+배열의 형태(shape), 즉 각 축의 길이를 튜플로 전달한다.
 
 ~~~python
 zeros = np.zeros((2, 3))
@@ -155,13 +170,32 @@ print(array.size)
 print(array.dtype)
 ~~~
 
-- <code>shape</code>: 각 축의 원소 개수. 위 배열에서는 <code>(2, 3)</code>
+- <code>shape</code>: 각 축의 길이를 나열한 튜플. 위 배열에서는 2행 3열이므로 <code>(2, 3)</code>
 - <code>ndim</code>: 배열 축의 개수. 위 배열에서는 2
 - <code>size</code>: 전체 원소 개수. 위 배열에서는 6
-- <code>dtype</code>: 배열 원소의 자료형
+- <code>dtype</code>: 배열 원소의 자료형(data type)
 
-NumPy의 배열 차원(<code>ndim</code>)과 물리학에서 사용하는 텐서의 rank는 같은
-개념이 아니므로 구분한다.
+이 자료에서 **배열의 차원 수**는 축의 개수(<code>ndim</code>)를 뜻한다.
+공간상의 벡터가 몇 개의 성분을 갖는지와는 구분해야 한다.
+예를 들어 3차원 공간의 벡터 $(1,2,3)$을 <code>np.array([1, 2, 3])</code>으로 저장하면,
+성분은 3개지만 배열은 축이 하나인 1차원 배열이다.
+
+## 5.1. 축이 세 개 이상인 배열
+
+배열의 축은 행과 열 두 개로 제한되지 않는다. 예를 들어 두 시편을 세 시점에서 측정하고,
+각 측정에 센서 네 개를 사용하면 다음처럼 저장할 수 있다.
+
+~~~python
+measurements = np.zeros((2, 3, 4))
+print(measurements.shape)  # (2, 3, 4)
+print(measurements.ndim)   # 3
+print(measurements.size)   # 24
+~~~
+
+여기서 첫째 축은 시편, 둘째 축은 시점, 셋째 축은 센서를 뜻하도록 정했다.
+각 축의 의미는 NumPy가 정하는 것이 아니라 데이터를 저장하는 사람이 정한다.
+축 번호는 0부터 세므로 각각 <code>axis=0</code>, <code>axis=1</code>, <code>axis=2</code>에 대응한다.
+10장에서는 이 축을 선택하거나 축별 평균을 계산한다.
 
 # 6. 자료형
 
@@ -199,7 +233,7 @@ print(measurements)
 
 # 7. 원소별 연산 (element-wise operation)
 
-크기가 같은 두 배열에 사칙연산을 적용하면 같은 위치의 원소끼리 계산한다.
+shape이 같은 두 배열에 사칙연산을 적용하면 같은 위치의 원소끼리 계산한다.
 
 ~~~python
 a = np.array([1.0, 2.0, 3.0])
@@ -238,7 +272,9 @@ print(values.max())
 print(values.std())
 ~~~
 
-위 결과는 각각 합계, 평균, 최솟값, 최댓값과 모집단 표준편차이다.
+위 결과는 각각 합계, 평균, 최솟값, 최댓값과 [표준편차(standard deviation)](https://ko.wikipedia.org/wiki/표준편차)이다.
+여기서 <code>std()</code>의 기본값은 <code>ddof=0</code>이며, 제곱편차 합을 원소 개수로 나누어 계산한다.
+이를 모집단 표준편차(population standard deviation)를 구하는 방식이라고 한다. 반복 측정에서 표본 표준편차를 구하는 방법은 15장에서 다룬다.
 
 함수 형태로도 같은 계산을 할 수 있다.
 
