@@ -1,0 +1,37 @@
+\documentclass[tikz,border=12pt]{standalone}
+\usepackage{amsmath}
+\usepackage{kotex}
+\usetikzlibrary{arrows.meta}
+\definecolor{yield}{RGB}{225,130,30}
+\definecolor{plastic}{RGB}{195,70,45}
+\definecolor{elastic}{RGB}{35,100,175}
+\begin{document}
+\begin{tikzpicture}[>=Latex,font=\sffamily,line cap=round,line join=round]
+% 1 cm = 0.25 sigma^Y. 평면응력(sigma_3=0)의 von Mises 항복궤적: s1^2 - s1 s2 + s2^2 = 1.
+\def\k{4}
+\node[font=\large\bfseries] at (0.5,6.4) {연관 유동법칙: 소성변형률 증분은 항복면에 수직};
+\draw[->,thick] (-5.4,0)--(5.6,0) node[right] {$\sigma_1/\sigma^Y$};
+\draw[->,thick] (0,-5.0)--(0,5.0) node[above] {$\sigma_2/\sigma^Y$};
+\draw[yield,very thick,rotate=45] (0,0) ellipse ({\k*1.41421} and {\k*0.81650});
+\node[yield,font=\small,align=left] at (-4.9,3.9) {항복면 $f=0$\\(평면응력 단면)};
+\node[font=\small,gray!70!black] at (-1.6,-1.4) {$f<0$: 탄성 영역};
+% 네 응력 상태에서 d epsilon^pl 방향을 같은 길이로 표시한다.
+% 방향은 von Mises 기울기 (2s1-s2, 2s2-s1)이다.
+\newcommand{\pt}[5]{% x y dx dy label
+  \pgfmathsetmacro{\nx}{#3/sqrt(#3*#3+#4*#4)}
+  \pgfmathsetmacro{\ny}{#4/sqrt(#3*#3+#4*#4)}
+  \fill[yield] (\k*#1,\k*#2) circle (2.6pt);
+  \draw[plastic,->,very thick] (\k*#1,\k*#2)--++({1.7*\nx},{1.7*\ny});
+}
+\pt{1}{0}{2}{-1}{}
+\pt{1}{0.5}{1.5}{0}{}
+\pt{1}{1}{1}{1}{}
+\pt{0.57735}{-0.57735}{1}{-1}{}
+\node[anchor=north west,font=\small,align=left] at (4.5,-0.9) {일축 인장 $A$\\$d\boldsymbol\varepsilon^{pl}\propto(1,-\tfrac12,-\tfrac12)$};
+\node[anchor=west,font=\small,align=left] at (6.0,1.9) {평면변형 $B$\\$d\varepsilon_2^{pl}=0$};
+\node[anchor=east,font=\small,align=right] at (3.9,5.4) {등2축 인장 $C$\\$d\boldsymbol\varepsilon^{pl}\propto(\tfrac12,\tfrac12,-1)$};
+\node[anchor=west,font=\small,align=left] at (3.9,-4.4) {순수전단 $D$\\$\sigma_1=-\sigma_2$, $d\varepsilon_1^{pl}=-d\varepsilon_2^{pl}$};
+\node[plastic,font=\small,align=left,anchor=west] at (-5.6,-3.0) {빨간 화살표: $d\boldsymbol\varepsilon^{pl}$의 방향\\(항복면에 수직인 바깥쪽)};
+\node[align=center,text=gray!80!black,font=\small] at (0.5,-6.0) {화살표는 $d\lambda$에 비례하는 크기를 나타내지 않고 방향만 표시했다.\\변형률 증분은 응력 좌표축 위에 겹쳐 그렸으며, 단위가 같다는 뜻은 아니다.};
+\end{tikzpicture}
+\end{document}

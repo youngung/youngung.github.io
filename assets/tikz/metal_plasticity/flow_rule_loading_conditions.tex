@@ -1,0 +1,35 @@
+\documentclass[tikz,border=12pt]{standalone}
+\usepackage{amsmath}
+\usepackage{kotex}
+\usetikzlibrary{arrows.meta}
+\definecolor{yield}{RGB}{225,130,30}
+\definecolor{plastic}{RGB}{195,70,45}
+\definecolor{elastic}{RGB}{35,100,175}
+\definecolor{loading}{RGB}{30,130,95}
+\begin{document}
+\begin{tikzpicture}[>=Latex,font=\sffamily,line cap=round,line join=round]
+\def\k{4}
+\node[font=\large\bfseries] at (0.5,6.3) {항복면 내부·위·외부와 소성승수 $d\lambda$};
+\draw[->,thick] (-5.2,0)--(5.4,0) node[right] {$\sigma_1/\sigma^Y$};
+\draw[->,thick] (0,-4.4)--(0,5.0) node[above] {$\sigma_2/\sigma^Y$};
+\draw[yield,very thick,rotate=45] (0,0) ellipse ({\k*1.41421} and {\k*0.81650});
+\node[yield,font=\small] at (-4.4,-2.3) {$f=0$};
+% 내부 점 P
+\fill[elastic] (1.2,-0.8) circle (2.6pt);
+\node[elastic,font=\small,align=left,anchor=north] at (1.3,-1.0) {$P$: $f<0$\\$d\lambda=0$ (탄성)};
+\draw[elastic,->,thick] (1.2,-0.8)--(0.2,0.7);
+% 항복면 위에서 소성변형 진행: 점 Q=(1,1)
+\fill[plastic] (4,4) circle (2.6pt);
+\node[plastic,font=\small,align=left,anchor=west] at (4.3,4.15) {$Q$: $f=0$, $d\lambda>0$\\소성변형 진행};
+\draw[plastic,->,very thick] (4,4)--++(1.0,1.0);
+\node[plastic,font=\small,anchor=west] at (5.1,5.35) {$d\boldsymbol\varepsilon^{pl}$};
+% 항복면 위에서 하중을 줄임: 점 R=(0,1)
+\fill[loading] (0,4) circle (2.6pt);
+\draw[loading,->,very thick] (0,4)--(0.35,2.0);
+\node[loading,font=\small,align=right,anchor=east] at (-0.3,4.15) {$R$: $f=0$, $d\lambda=0$\\하중을 줄임};
+\node[loading,font=\small,align=left,anchor=west] at (0.5,2.6) {항복면 내부로\\이동};
+% 항복면 외부
+\node[gray!70!black,font=\small,align=center] at (-4.2,3.7) {$f>0$\\허용되지 않음};
+\node[align=center,text=gray!80!black,font=\small] at (0.5,-5.4) {$Q$와 $R$ 모두 항복면 위에 있지만, 하중을 어떻게 바꾸느냐에 따라 소성변형 진행 여부가 달라진다.\\ $f\le0$, $d\lambda\ge0$, $f\,d\lambda=0$ 세 조건을 함께 만족해야 한다.};
+\end{tikzpicture}
+\end{document}

@@ -1,0 +1,59 @@
+\documentclass[tikz,border=12pt]{standalone}
+\usepackage{amsmath}
+\usepackage{kotex}
+\usetikzlibrary{arrows.meta,patterns.meta,decorations.pathreplacing}
+
+\definecolor{barblue}{RGB}{48,112,176}
+\definecolor{forcecolor}{RGB}{196,64,48}
+\definecolor{displacement}{RGB}{29,139,94}
+
+\begin{document}
+\begin{tikzpicture}[
+  >=Latex,
+  font=\sffamily,
+  line cap=round,
+  line join=round
+]
+  \node[font=\large\bfseries] at (4.5,3.0)
+    {힘에 의한 끝단의 미소 위치 변화};
+
+  % Fixed support
+  \fill[pattern={Lines[angle=45,distance=4pt]},pattern color=gray!65]
+    (-0.45,-1.05) rectangle (0,1.05);
+  \draw[very thick] (0,-1.1)--(0,1.1);
+  \node[align=center,anchor=east] at (-0.55,0) {고정단};
+
+  % Initial configuration and displaced configuration
+  \fill[gray!16] (0,-0.55) rectangle (6.1,0.55);
+  \draw[gray!75,dashed,thick] (0,-0.55) rectangle (6.1,0.55);
+  \fill[barblue!18] (0,-0.42) rectangle (7.0,0.42);
+  \draw[barblue,very thick] (0,-0.42) rectangle (7.0,0.42);
+
+  \draw[gray!75,dashed] (6.1,-1.25)--(6.1,1.75);
+  \draw[barblue!75,dashed] (7.0,-1.25)--(7.0,1.75);
+  \node[gray!75!black,align=right,anchor=east] at (5.85,1.05)
+    {변형 전\\끝단 위치 $x$};
+  \node[barblue!85!black,align=left,anchor=west] at (7.25,1.05)
+    {변형 후\\끝단 위치 $x+dx$};
+
+  % Applied force and displacement
+  \draw[forcecolor,->,ultra thick] (7.0,0)--(9.0,0)
+    node[right,font=\large] {$F$};
+  \node[forcecolor,above] at (8.0,0.12) {가해진 힘};
+
+  \draw[displacement,<->,very thick] (6.1,1.75)--(7.0,1.75)
+    node[midway,above,font=\large] {$dx$};
+
+  % Original length and cross-sectional area
+  \draw[<->,thick] (0,-1.25)--(6.1,-1.25)
+    node[midway,below] {초기 길이 $L$};
+  \draw[decorate,decoration={brace,amplitude=5pt,mirror},thick]
+    (3.8,-0.45)--(3.8,0.45)
+    node[midway,right=7pt,align=left] {단면적 $A$};
+
+  \node[align=center,font=\large] at (4.5,-2.35)
+    {$d\mathcal W=F\,dx$};
+  \node[align=center,text=gray!75!black,font=\small] at (4.5,-2.9)
+    {힘과 미소변위의 방향이 같은 일축 인장 상태};
+\end{tikzpicture}
+\end{document}
