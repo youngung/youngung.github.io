@@ -858,54 +858,54 @@ von Mises에서 200/sqrt(4800)=2.887이다.
 -->
 
 [^j2-derivation]: **편차응력의 두 번째 불변량 유도.** 일반적인 2계 텐서
-    $\boldsymbol A$의 두 번째 불변량은
+  $\boldsymbol A$ 의 두 번째 불변량은
 
-    $$
-    I_2(\boldsymbol A)
-    =\frac12\left[(\operatorname{tr}\boldsymbol A)^2
-    -\operatorname{tr}(\boldsymbol A^2)\right]
-    $$
+  $$
+  I_2(\boldsymbol A)
+  =\frac12\left[(\operatorname{tr}\boldsymbol A)^2
+  -\operatorname{tr}(\boldsymbol A^2)\right]
+  $$
 
-    이다. 여기에 편차응력 $\boldsymbol s$를 대입하면
-    $\operatorname{tr}\boldsymbol s=0$이므로
+  이다. 여기에 편차응력 $\boldsymbol s$를 대입하면
+  $\operatorname{tr}\boldsymbol s=0$이므로
 
-    $$
-    I_2(\boldsymbol s)=-\frac12\operatorname{tr}(\boldsymbol s^2).
-    $$
+  $$
+  I_2(\boldsymbol s)=-\frac12\operatorname{tr}(\boldsymbol s^2).
+  $$
 
-    응력텐서는 대칭이므로 $s_{ij}=s_{ji}$이고,
+  응력텐서는 대칭이므로 $s_{ij}=s_{ji}$이고,
 
-    $$
-    \operatorname{tr}(\boldsymbol s^2)
-    =\sum_{i=1}^{3}\sum_{j=1}^{3}s_{ij}s_{ji}
-    =\sum_{i=1}^{3}\sum_{j=1}^{3}s_{ij}^2
-    =\boldsymbol s:\boldsymbol s.
-    $$
+  $$
+  \operatorname{tr}(\boldsymbol s^2)
+  =\sum_{i=1}^{3}\sum_{j=1}^{3}s_{ij}s_{ji}
+  =\sum_{i=1}^{3}\sum_{j=1}^{3}s_{ij}^2
+  =\boldsymbol s:\boldsymbol s.
+  $$
 
-    따라서 편차응력의 두 번째 불변량 자체는
-    $I_2(\boldsymbol s)=-\boldsymbol s:\boldsymbol s/2$이다.
-    소성역학에서는 양수가 되도록 부호를 바꾼 양을 $J_2$로 정의하여
+  따라서 편차응력의 두 번째 불변량 자체는
+  $I_2(\boldsymbol s)=-\boldsymbol s:\boldsymbol s/2$이다.
+  소성역학에서는 양수가 되도록 부호를 바꾼 양을 $J_2$로 정의하여
 
-    $$
-    J_2\equiv-I_2(\boldsymbol s)
-    =\frac12\boldsymbol s:\boldsymbol s
-    $$
+  $$
+  J_2\equiv-I_2(\boldsymbol s)
+  =\frac12\boldsymbol s:\boldsymbol s
+  $$
 
-    로 사용한다. 또한 $I_1=\operatorname{tr}\boldsymbol\sigma$와
-    전체 응력의 두 번째 불변량 $I_2$를 사용하면
+  로 사용한다. 또한 $I_1=\operatorname{tr}\boldsymbol\sigma$와
+  전체 응력의 두 번째 불변량 $I_2$를 사용하면
 
-    $$
-    J_2=\frac13I_1^2-I_2
-    $$
+  $$
+  J_2=\frac13I_1^2-I_2
+  $$
 
-    이며, 주축에서는
+  이며, 주축에서는
 
-    $$
-    J_2=\frac16\left[
-    (\sigma_1-\sigma_2)^2+(\sigma_2-\sigma_3)^2
-    +(\sigma_3-\sigma_1)^2\right]
-    $$
+  $$
+  J_2=\frac16\left[
+  (\sigma_1-\sigma_2)^2+(\sigma_2-\sigma_3)^2
+  +(\sigma_3-\sigma_1)^2\right]
+  $$
 
-    을 얻는다.
+  을 얻는다.
 
 [이전 강의]({% link assets/lecture_notes/3_1_metal_plasticity/metal_plasticity_11_stress_transformation.md %}) | [강의 목록]({% link _lectures/3_1_metal_plasticity.md %}) | [다음 강의]({% link assets/lecture_notes/3_1_metal_plasticity/metal_plasticity_13_flow_rule.md %})

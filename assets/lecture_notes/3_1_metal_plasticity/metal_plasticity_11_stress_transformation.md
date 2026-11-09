@@ -405,8 +405,6 @@ $[\boldsymbol\sigma]_{\mathrm{principal}}=\operatorname{diag}(90,40)\,\mathrm{MP
 
 ![좌표축이 회전하면서 사각형 요소 면의 수직응력과 전단응력이 변하고, 주축에서 전단응력이 0이 되어 두 주응력으로 표현되는 과정](/assets/img/lecture_notes/coordinate_transformation/stress_transformation_to_principal_animation.gif){: style="width: 1200px; max-width: 100%; height: auto;"}
 
-[애니메이션 생성 Python 코드](/assets/tikz/metal_plasticity/stress_transformation_to_principal_animation.py)
-
 평면 내 두 주응력이 서로 다르면 주축 방향은 $90^\circ$ 차이로 두 개 존재한다. 탄젠트 식만으로는 어느 축이 최대 주응력 방향인지 정해지지 않으므로,
 구한 각도를 변환식에 대입해 확인한다. 최대 평면 내 주응력에 해당하는 축의 각도는
 
