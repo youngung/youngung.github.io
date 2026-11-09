@@ -59,8 +59,7 @@ authors:
 압연 방향으로 투영한 접촉길이이다. 오른쪽 확대 개념도에서 빨간 화살표는
 **롤이 소재에 가하는 마찰력**의 방향이다.
 
-<!-- [TikZ 소스 다운로드](/assets/tikz/metal_plasticity/rolling_geometry.tex) ·
-[벡터 PDF 다운로드](/output/pdf/rolling_geometry.pdf) -->
+<!-- [벡터 PDF 다운로드](/output/pdf/rolling_geometry.pdf) -->
 
 압연 전후의 두께를 각각 $h_0$와 $h_f$라 하자. 한 패스(pass)에서 감소한 두께를
 압하량이라 한다.

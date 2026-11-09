@@ -2,7 +2,7 @@
 layout: distill
 title: 소성 항복
 description: 항복응력과 Tresca, von Mises 및 Hosford 항복조건
-target: 학부 고학년
+target: 대학원
 permalink:
 featured: true
 prerequisite: 선형 탄성, 주응력과 편차응력, Mohr 원
@@ -41,6 +41,17 @@ $$
 $$
 
 - 소성 변형이 발생하기 시작하는 조건 (yield condition; yield criterion)을 '항복 조건'이라 한다.
+
+전체 변형률은 탄성변형률과 소성변형률의 합으로 분해한다.
+
+$$
+\boldsymbol\varepsilon
+=\boldsymbol\varepsilon^e+\boldsymbol\varepsilon^p.
+$$
+
+항복 이후에도 $\boldsymbol\varepsilon^e$는 존재한다. 하중을 제거하면 탄성분은 회복되지만
+$\boldsymbol\varepsilon^p$는 잔류한다. 또한 항복은 소성변형의 시작이고 파괴는 균열이나
+분리에 의해 하중전달능력을 잃는 현상이므로 서로 구분해야 한다.
 
 # 2. 항복 응력 (yield stress)
 
@@ -92,6 +103,30 @@ $$
   - $f(\boldsymbol\sigma)=0$: 응력상태가 항복면 위에 있다.
   - $f(\boldsymbol\sigma)>0$: 속도 비의존 모델에서는 허용되지 않으며 소성보정이 필요하다.
 
+## 5.1. 응력공간, 항복면과 하중경로
+
+대칭 응력텐서는 여섯 개의 독립성분을 가지므로 하나의 응력상태를 6차원 응력공간의
+점으로 볼 수 있다. 주응력으로 표현하면 $(\sigma_1,\sigma_2,\sigma_3)$의 3차원
+주응력 공간을 사용한다. $f=0$은 항복면, $f<0$은 탄성영역이다.
+
+응력상태가 시간에 따라 이동하는 궤적을 하중경로(stress path)라 한다. 같은 최종
+응력점이라도 재료의 경화와 이력에 따라 소성변형은 달라질 수 있다. 특히
+$f=0$이라는 사실만으로 소성변형률이 반드시 증가하는 것은 아니다. 항복면에서
+안쪽으로 향하는 제하(unloading)는 탄성일 수 있고, 바깥쪽으로 진행하려는 하중은
+소성보정과 경화를 요구한다.
+
+비례하중 $\boldsymbol\sigma=\alpha\boldsymbol\sigma_0$에서는 von Mises와 Tresca처럼
+응력에 대해 1차 동차인 등가응력에 대해
+
+$$
+\sigma_{eq}(\alpha\boldsymbol\sigma_0)
+=\alpha\sigma_{eq}(\boldsymbol\sigma_0),
+\qquad
+\alpha_Y=\frac{\sigma^Y}{\sigma_{eq}(\boldsymbol\sigma_0)}
+$$
+
+이므로 최초 항복 배율을 바로 구할 수 있다.
+
 # 6. 등가 응력 (equivalent stress)
 
 - 재료가 겪는 응력 상태(stress state)는 응력 텐서 물리량으로 표현되어야 한다. 이는 응력의 방향성과 세기를 모두 표현하기 위해서이다. 그런데 만약 응력의 '세기'만이 항복 조건으로 활용될 수 있다면, 응력의 세기를 표현하는 '스칼라'로 환산된 값을 활용해 항복함수를 표현할 수 있겠다.
@@ -100,8 +135,26 @@ $$
 
 # 7. Tresca 항복 조건
 
-- 최대 전단 응력값이 임계값에 도달하는 조건
-- 이해를 위해 주응력(principal stress)과 좌표변환을 이해할 필요가 있다.
+Tresca 조건은 최대 전단응력이 임계값에 도달할 때 항복한다고 본다. 주응력을
+$\sigma_1\ge\sigma_2\ge\sigma_3$으로 정렬하면
+
+$$
+\tau_{\max}=\frac{\sigma_1-\sigma_3}{2}.
+$$
+
+일축 인장 $(\sigma^Y,0,0)$으로 보정하면 $\tau_{\max}=\sigma^Y/2$이므로
+
+$$
+\boxed{\sigma^{T}
+=\max\{\lvert\sigma_1-\sigma_2\rvert,
+\lvert\sigma_2-\sigma_3\rvert,
+\lvert\sigma_3-\sigma_1\rvert\}},
+\qquad
+f_T=\sigma^T-\sigma^Y
+$$
+
+로 쓸 수 있다. 순수전단의 주응력은 $(\tau,0,-\tau)$이므로 Tresca의 전단
+항복응력은 $\tau^Y=\sigma^Y/2$이다.
 
 # 8. Von Mises 항복 조건
 
@@ -115,7 +168,41 @@ $$
   - $\sigma^{VM}<\sigma^Y$: 재료가 탄성 거동을 한다.
   - $\sigma^{VM}=\sigma^Y$: 재료가 소성 변형도 한다.
 
-## 항복에서 평균응력과 편차응력의 역할
+주응력 또는 편차응력으로는 같은 값을 다음처럼 쓸 수 있다.
+
+$$
+\sigma^{VM}
+=\sqrt{\frac{(\sigma_1-\sigma_2)^2+(\sigma_2-\sigma_3)^2
++(\sigma_3-\sigma_1)^2}{2}}
+=\sqrt{\frac32\boldsymbol s:\boldsymbol s}
+=\sqrt{3J_2}.
+$$
+
+일축 인장에서 $\sigma^{VM}=\lvert\sigma\rvert$가 되도록 계수가 정해져 있다.
+순수전단에서는 $\sigma^{VM}=\sqrt3\tau$이므로
+$\tau^Y=\sigma^Y/\sqrt3\approx0.577\sigma^Y$이다. 따라서 같은 일축 항복응력으로
+보정했을 때 Tresca가 순수전단 항복을 더 이르게 예측한다.
+
+## 8.1. 다축 응력 판정 예제
+
+주응력이 $(120,40,-20)\,\mathrm{MPa}$이고 $\sigma^Y=100\,\mathrm{MPa}$라 하자.
+Tresca와 von Mises 등가응력은 각각
+
+$$
+\sigma^T=120-(-20)=140\,\mathrm{MPa},
+$$
+
+$$
+\sigma^{VM}
+=\sqrt{\frac{(120-40)^2+(40+20)^2+(-20-120)^2}{2}}
+=\sqrt{14800}\approx121.7\,\mathrm{MPa}
+$$
+
+이다. 두 조건 모두 초기 항복면 밖의 시험 응력상태라고 판정한다. 속도 비의존
+탄소성 계산에서는 이 상태를 그대로 허용하는 것이 아니라 항복면으로 되돌리는
+소성보정이 필요하다.
+
+## 8.2. 항복에서 평균응력과 편차응력의 역할
 
 응력은 $\boldsymbol\sigma=\sigma_m\boldsymbol I+\boldsymbol s$로 분해할 수 있다.
 연성금속의 von Mises 항복은 형상변화를 일으키는 편차응력 $\boldsymbol s$에만 의존한다.
@@ -267,6 +354,27 @@ Tresca 항복조건이 사용하는 주응력의 조합을 설명하라.
 <!--
 풀이와 해답:
 최대 주응력과 최소 주응력의 차이, 즉 최대전단응력에 해당하는 값을 사용한다.
+-->
+
+## 문제 5
+
+기준 응력상태의 von Mises 등가응력이 $80\,\mathrm{MPa}$이고 일축 항복응력이
+$120\,\mathrm{MPa}$일 때, 비례하중의 최초 항복 배율을 구하라.
+
+<!--
+풀이와 해답:
+alpha_Y=120/80=1.5이다.
+-->
+
+## 문제 6
+
+일축 항복응력이 $100\,\mathrm{MPa}$인 재료에 순수전단
+$\tau=55\,\mathrm{MPa}$가 작용한다. Tresca와 von Mises 조건의 항복 여부를 비교하라.
+
+<!--
+풀이와 해답:
+Tresca 등가응력은 2 tau=110 MPa이므로 항복한다.
+von Mises 등가응력은 sqrt(3) tau 약 95.3 MPa이므로 탄성영역이다.
 -->
 
 [이전 강의]({% link assets/lecture_notes/5_1_polycrystalline_plasticity/metal_plasticity_11_Mohr_circle.md %}) | [강의 목록]({% link _lectures/5_1_polycrystalline_Plasticity.md %}) | [다음 강의]({% link assets/lecture_notes/5_1_polycrystalline_plasticity/metal_plasticity_13_flow_rule.md %})

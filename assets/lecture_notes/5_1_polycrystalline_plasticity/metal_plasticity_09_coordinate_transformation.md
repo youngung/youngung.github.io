@@ -2,7 +2,7 @@
 layout: distill
 title: 좌표변환
 description: 방향코사인과 Euler 각, 벡터와 텐서 성분의 좌표변환
-target: 학부 고학년
+target: 대학원
 permalink:
 featured: true
 prerequisite: 벡터와 행렬, 응력 텐서
@@ -65,11 +65,10 @@ $$
 ## 1.1. 좌표변환 행렬과 방향코사인 (direction cosine)
 
 두 단위벡터의 내적은 두 벡터 사이 각도의 코사인이다.
-새 축 $\tilde{\boldsymbol e}_i$와 기존 축 $\boldsymbol e_j$ 사이의 각도를
-$\theta_{ij}$라 하면
+새 축과 기존 축 사이의 각도를 아래 식의 $\theta_{ij}$로 나타내면
 
 $$
-\boxed{R_{ij}=\tilde{\boldsymbol e}_i\cdot\boldsymbol e_j
+\boxed{R_{ij}=\tilde{\boldsymbol e}_i\cdot{\boldsymbol e}_j
 =\cos\theta_{ij}}
 $$
 
@@ -86,14 +85,14 @@ Euler 각은 같은 행렬을 세 각도로 매개화한다.
 Euler 각은 아홉 개의 $\theta_{ij}$ 중 세 개를 단순히 고른 값이 아니다.
 
 여기서는 결정방위 표현에 널리 쓰이는 **Bunge 관례**
-$(\varphi_1,\Phi,\varphi_2)$를 사용한다. 기존 기저에서 시작하여 기저를
+$(\phi_1,\Phi,\phi_2)$를 사용한다. 기존 기저에서 시작하여 기저를
 오른손 법칙의 양의 방향으로 다음 순서로 회전시킨다.
 
-1. 기존 $z$축 둘레로 $\varphi_1$만큼 회전한다.
-2. 첫 회전 후의 $x'$축 둘레로 $\Phi$만큼 회전한다.
-3. 두 번째 회전 후의 $z''$축 둘레로 $\varphi_2$만큼 회전한다.
+1. 기존 $z$축 둘레로 $\phi_1$만큼 회전한다.
+2. 첫 회전 후의 $x^{\prime}$축 둘레로 $\Phi$만큼 회전한다.
+3. 두 번째 회전 후의 $z^{\prime\prime}$축 둘레로 $\phi_2$만큼 회전한다.
 
-즉, 회전축도 앞선 회전을 따라 움직이는 $z$–$x'$–$z''$ 순서이다.
+즉, 회전축도 앞선 회전을 따라 움직이는 $z$–$x^{\prime}$–$z^{\prime\prime}$ 순서이다.
 
 ![Bunge Euler 각 애니메이션: z축, 회전 후 x축, 다시 회전 후 z축 둘레의 순차적인 기저 회전](/assets/img/lecture_notes/coordinate_transformation/bunge_euler_angles_animation.gif){: style="max-width: 900px; width: 100%; height: auto;"}
 
@@ -101,7 +100,6 @@ $(\varphi_1,\Phi,\varphi_2)$를 사용한다. 기존 기저에서 시작하여 �
 회색 점선은 각 단계 시작 시의 기저이고, 주황색 축은 해당 단계의 회전축이다.
 표시되는 각도는 현재까지 진행된 회전각이며, 최종값은 $(35^\circ,50^\circ,30^\circ)$이다.
 물리적 벡터를 회전시키는 것이 아니라 좌표기저를 회전시키는 과정이다.
-[GIF 생성 코드](/assets/tikz/metal_plasticity/bunge_euler_animation.py)
 
 세 단계의 최종 기저를 정지 그림으로 비교하면 다음과 같다.
 
@@ -110,9 +108,8 @@ $(\varphi_1,\Phi,\varphi_2)$를 사용한다. 기존 기저에서 시작하여 �
 그림에서 회색 점선은 각 단계 직전의 기저, 파란 실선은 회전 후의 기저이며,
 주황색은 해당 단계의 회전축과 회전각이다. 회전축 자체는 그 단계에서 변하지 않는다.
 세 패널은 동일한 시점에서 본 그림이며, 예시 각도는
-$(\varphi_1,\Phi,\varphi_2)=(35^\circ,50^\circ,30^\circ)$이다.
+$(\phi_1,\Phi,\phi_2)=(35^\circ,50^\circ,30^\circ)$이다.
 아래 식의 $\boldsymbol v^{(1)},\boldsymbol v^{(2)}$는 각 단계의 **성분 열벡터**를 뜻한다.
-[TikZ 소스](/assets/tikz/metal_plasticity/bunge_euler_angles.tex)
 
 각 단계에서 성분을 새 기저로 바꾸는 수동 변환 행렬은
 
@@ -135,14 +132,14 @@ $$
 
 $$
 \boxed{[\boldsymbol R]
-=[\boldsymbol P_z(\varphi_2)]
+=[\boldsymbol P_z(\phi_2)]
 [\boldsymbol P_x(\Phi)]
-[\boldsymbol P_z(\varphi_1)]}
+[\boldsymbol P_z(\phi_1)]}
 $$
 
 을 얻는다. 행렬곱은 오른쪽부터 작용한다.
-$c_1=\cos\varphi_1$, $s_1=\sin\varphi_1$,
-$c_2=\cos\varphi_2$, $s_2=\sin\varphi_2$,
+$c_1=\cos\phi_1$, $s_1=\sin\phi_1$,
+$c_2=\cos\phi_2$, $s_2=\sin\phi_2$,
 $c=\cos\Phi$, $s=\sin\Phi$로 줄여 쓰면
 
 $$
@@ -156,10 +153,15 @@ $$
 
 이 행렬의 각 원소가 바로 $\cos\theta_{ij}$이다.
 기존 기저를 시편 기저, 새 기저를 결정 기저로 선택하면
-$[\boldsymbol v]_{\mathrm{crystal}}=[\boldsymbol R][\boldsymbol v]_{\mathrm{sample}}$이며,
-반대 방향의 변환에는 $[\boldsymbol R]^T$를 쓴다.
 
-### 예: $(\varphi_1,\Phi,\varphi_2)=(90^\circ,90^\circ,0^\circ)$
+$$
+[\boldsymbol v]_{\mathrm{crystal}}
+=[\boldsymbol R][\boldsymbol v]_{\mathrm{sample}}
+$$
+
+이며, 반대 방향의 변환에는 $[\boldsymbol R]^T$를 쓴다.
+
+### 예: $(\phi_1,\Phi,\phi_2)=(90^\circ,90^\circ,0^\circ)$
 
 이 경우 $c_1=c=0$, $s_1=s=c_2=1$, $s_2=0$이므로
 
@@ -183,11 +185,21 @@ $$
 크기는 두 표현에서 모두 $\sqrt{14}$이다.
 
 Euler 각은 유일하지 않다. 특히 $\Phi=0$에서는
-$[\boldsymbol R]=[\boldsymbol P_z(\varphi_1+\varphi_2)]$이므로
+$[\boldsymbol R]=[\boldsymbol P_z(\phi_1+\phi_2)]$이므로[^angle-addition]
 두 각을 개별적으로 구분할 수 없다.
 또한 회전축 순서, 능동·수동 관례, 시편→결정인지 결정→시편인지,
 각도의 단위(degree 또는 radian)를 확인해야 다른 자료의 식과 비교할 수 있다.
 단순히 “Euler 각”이라는 이름만 같다고 동일한 행렬이 되는 것은 아니다.
+
+[^angle-addition]: $\Phi=0$이면 가운데 $x$축 회전은 단위행렬이 되어 $[\boldsymbol R]=[\boldsymbol P_z(\phi_2)][\boldsymbol P_z(\phi_1)]$이다. 두 행렬을 곱할 때 다음 **삼각함수 덧셈정리(angle-sum identities)**를 사용한다.
+
+  $$
+  \cos(a+b)=\cos a\cos b-\sin a\sin b,
+  \qquad
+  \sin(a+b)=\sin a\cos b+\cos a\sin b.
+  $$
+
+  따라서 곱행렬의 첫 행은 $[\cos(\phi_1+\phi_2),\,\sin(\phi_1+\phi_2),\,0]$이 되고, 전체 행렬이 $[\boldsymbol P_z(\phi_1+\phi_2)]$로 정리된다. 부호를 포함한 합각·차각 공식은 [Wikipedia의 angle sum and difference identities](https://en.wikipedia.org/wiki/List_of_trigonometric_identities#Angle_sum_and_difference_identities)를 참고한다.
 
 <!--
 참고: [pymicro의 Bunge Euler 각과 방위행렬 설명](https://pymicro.readthedocs.io/en/latest/cookbook/euler_angles.html),
@@ -290,6 +302,23 @@ $$
 
 로 변환한다.
 
+## 3.1. 왜 2계 텐서에는 변환행렬이 두 번 작용하는가?
+
+벡터는 방향 첨자가 하나이므로 좌표변환 행렬이 한 번 작용한다. 반면 2계 텐서는
+두 방향 사이의 관계를 나타내므로 두 첨자를 각각 새 기저로 투영해야 한다. 응력텐서의
+첫 번째 첨자는 면력의 성분 방향, 두 번째 첨자는 면의 법선 방향과 연결된다. 따라서
+
+$$
+\tilde\sigma_{ij}=R_{ik}R_{jl}\sigma_{kl},
+\qquad
+[\boldsymbol\sigma]_{\mathrm{new}}
+=[\boldsymbol R][\boldsymbol\sigma]_{\mathrm{old}}[\boldsymbol R]^T
+$$
+
+가 된다. 왼쪽의 변환행렬은 면력 성분을, 오른쪽 전치행렬은 법선 성분을 새 기저로
+표현한다. 물리적 응력상태가 회전하는 것이 아니라 같은 응력을 다른 기저에서 나타내는
+수동적 변환이라는 점에 유의한다.
+
 일반적인 $n$차 텐서의 각 첨자에는 좌표변환 행렬이 한 번씩 작용한다.
 
 $$
@@ -311,8 +340,22 @@ $$
 
 로 변환된다.
 
-좌표변환 뒤에도 2계 텐서의 trace, determinant, 고유값은 변하지 않는다. 이는
-좌표변환 계산을 검산하는 유용한 기준이다.
+## 3.2. 좌표변환 계산의 검산
+
+직교 좌표변환 뒤에도 2계 텐서의 trace, determinant, 고유값은 변하지 않는다.
+대칭 응력텐서라면 변환 뒤에도 대칭성이 유지된다. 따라서
+
+$$
+\operatorname{tr}(\tilde{\boldsymbol\sigma})
+=\operatorname{tr}(\boldsymbol\sigma),
+\qquad
+\det(\tilde{\boldsymbol\sigma})=\det(\boldsymbol\sigma),
+\qquad
+\tilde\sigma_{ij}=\tilde\sigma_{ji}
+$$
+
+를 확인하면 행렬의 부호, 전치 위치 또는 회전 관례를 잘못 적용했는지 찾을 수 있다.
+고유값인 주응력 역시 좌표계와 무관하다.
 
 # 4. 2차원 계산 예제
 
@@ -399,8 +442,8 @@ $\det(\boldsymbol A)=3600$으로 같으므로 계산 결과를 검산할 수 있
 | 대상 | 좌표변환 |
 |---|---|
 | 스칼라 $a$ | $\tilde a=a$ |
-| 벡터 $\boldsymbol v$ | $[\boldsymbol v]_{\tilde {\boldsymbol e}}=[\boldsymbol R][\boldsymbol v]_{\boldsymbol e}$ |
-| 2계 텐서 $\boldsymbol A$ | $[\boldsymbol A]_{\tilde {\boldsymbol e}}=[\boldsymbol R][\boldsymbol A]_{\boldsymbol e}[\boldsymbol R]^T$ |
+| 벡터 $\boldsymbol v$ | 성분 열벡터는 식 (4)에 따라 변환 |
+| 2계 텐서 $\boldsymbol A$ | 성분행렬은 식 (5)에 따라 변환 |
 | $n$계 텐서 $\boldsymbol T$ | 각 첨자에 $R_{ij}$가 한 번씩 작용 (예: $\tilde T_{i_1i_2\cdots i_n}=\sum_{j_1=1}^3\cdots\sum_{j_n=1}^3 R_{i_1j_1}\cdots R_{i_nj_n}T_{j_1j_2\cdots j_n}$) |
 | 직교행렬의 성질 | $[\boldsymbol R]^{-1}=[\boldsymbol R]^T$ |
 | 좌표변환 불변량 | 벡터의 크기, 2계 텐서의 trace, determinant, 고유값 |
@@ -448,8 +491,13 @@ cos(90 deg)=0, sin(90 deg)=1이므로
 
 ## 문제 5
 
-$\theta=90^\circ$이고 $[\boldsymbol v]_e=(3,4)^T$일 때
-$[\boldsymbol v]_{\tilde e}$를 구하고, 변환 전후의 벡터 크기를 비교하시오.
+$\theta=90^\circ$이고 기존 기저에서 벡터의 성분이
+
+$$
+[\boldsymbol v]_{\boldsymbol e}=\begin{bmatrix}3\\4\end{bmatrix}
+$$
+
+일 때 새 기저에서의 성분을 구하고, 변환 전후의 벡터 크기를 비교하시오.
 
 <!--
 풀이와 해답:

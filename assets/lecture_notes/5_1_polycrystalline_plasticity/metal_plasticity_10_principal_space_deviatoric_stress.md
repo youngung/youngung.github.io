@@ -2,7 +2,7 @@
 layout: distill
 title: 주응력과 편차응력
 description: 주응력 공간, 편차응력과 von Mises 등가응력
-target: 학부 고학년
+target: 대학원
 permalink:
 featured: true
 prerequisite: 좌표변환, 응력 텐서
@@ -95,13 +95,72 @@ $$
 
 # 3. 주 응력 값 구하기
 
-- 주 응력값은 고유값(eigenvalue)이며 아래를 풀이하여 얻을 수 있다.
+주축의 단위벡터를 $\boldsymbol n$, 그 면에 작용하는 주응력을 $\lambda$라 하면
+면력은 법선과 평행하므로
+
+$$
+\boldsymbol\sigma\boldsymbol n=\lambda\boldsymbol n,
+\qquad
+(\boldsymbol\sigma-\lambda\boldsymbol I)\boldsymbol n=\boldsymbol0
+$$
+
+이다. 따라서 주응력은 응력텐서의 고유값(eigenvalue), 주축은 대응하는 정규화된
+고유벡터(eigenvector)이다. $\boldsymbol n\ne\boldsymbol0$인 해가 있으려면 계수행렬이
+특이행렬이어야 하므로
 
 $$
 \det(\boldsymbol \sigma - \lambda \boldsymbol I)=0
 $$
 
-- 위에서 $\lambda$는 eigenvalue이며, 위 식의 해가 주 응력값이 된다.
+이어야 한다. 행렬식이 0이 아니면 역행렬을 곱해 $\boldsymbol n=\boldsymbol0$만 얻기 때문이다.
+
+## 3.1. 3차 특성방정식과 응력 불변량
+
+대칭인 3차원 응력텐서에 대해 행렬식을 전개하면
+
+$$
+\boxed{\lambda^3-I_1\lambda^2+I_2\lambda-I_3=0}
+$$
+
+을 얻는다. 계수는 응력 불변량(stress invariants)이며
+
+$$
+\begin{aligned}
+I_1&=\operatorname{tr}(\boldsymbol\sigma),\\
+I_2&=\frac12\left[(\operatorname{tr}\boldsymbol\sigma)^2
+-\operatorname{tr}(\boldsymbol\sigma^2)\right],\\
+I_3&=\det\boldsymbol\sigma
+\end{aligned}
+$$
+
+이다. 세 근이 $\sigma_1,\sigma_2,\sigma_3$이며, 좌표축을 회전해도 이 값들과
+$I_1,I_2,I_3$는 변하지 않는다. 실수 대칭행렬이므로 세 고유값은 모두 실수이고,
+서로 다른 고유값에 대응하는 주축은 서로 직교한다.
+
+## 3.2. 계산 예제와 최대 전단응력
+
+다음 응력상태를 생각하자.
+
+$$
+[\boldsymbol\sigma]=
+\begin{bmatrix}80&20&0\\20&50&0\\0&0&-30\end{bmatrix}\,\mathrm{MPa}.
+$$
+
+특성방정식은
+
+$$
+(\lambda-90)(\lambda-40)(\lambda+30)=0
+$$
+
+으로 분해되므로 주응력은 $(90,40,-30)\,\mathrm{MPa}$이다. 부호를 포함해
+$\sigma_1\ge\sigma_2\ge\sigma_3$으로 정렬하면 3차원 최대 전단응력은
+
+$$
+\boxed{\tau_{\max}=\frac{\sigma_1-\sigma_3}{2}}
+=60\,\mathrm{MPa}
+$$
+
+이다. 평면 내 두 주응력만 사용한 $(90-40)/2=25\,\mathrm{MPa}$와 구분해야 한다.
 
 # 4. 편차 응력(deviatoric stress)
 
@@ -129,6 +188,29 @@ $$
 \boldsymbol s = \boldsymbol \sigma - \sigma_m \boldsymbol I
 $$
 
+따라서 $\operatorname{tr}(\boldsymbol s)=0$이다. 주응력 좌표계에서는 편차 주응력이
+
+$$
+s_i=\sigma_i-\sigma_m,
+\qquad
+s_1+s_2+s_3=0
+$$
+
+을 만족한다. 평균응력은 정수압축 방향 $(1,1,1)$의 성분이고, 편차응력은 그 축에
+수직인 편차응력 평면 위의 성분으로 해석할 수 있다.
+
+## 4.1. 평면응력에서의 주의점
+
+평면응력은 $\sigma_{33}=\sigma_{13}=\sigma_{23}=0$인 **3차원 응력상태**다.
+따라서 평균응력은 면내 성분만 더해 2로 나누는 것이 아니라
+
+$$
+\sigma_m=\frac{\sigma_{11}+\sigma_{22}+0}{3}
+$$
+
+으로 계산한다. 이때 $s_{33}=-\sigma_m$이므로 평면응력이라도 편차응력의 면외
+성분은 일반적으로 0이 아니다.
+
 # 5. Von Mises 등가 응력
 
 이후 절에서는 주응력과 편차응력의 활용을 미리 살펴본다. 항복 조건의 물리적 의미는
@@ -153,13 +235,15 @@ $$
 $$
 
 
-# 7. 항복면 (yield surface)
+# 7. 항복면으로 이어지는 기하학
 
-- 항복 조건을 만족하는 응력 상태의 모임이 '면'을 이룬다.
+- 항복 조건을 만족하는 응력 상태의 모임이 응력공간에서 '면'을 이룬다.
 
-- 항복 면 내부는 탄성 변형만이 가능하고, 항복 면 위의 응력에 도달하여야 소성 변형도 발생한다.
+- 이 장에서는 주공간과 편차응력 공간의 기하학까지만 다룬다. 항복면 내부·표면과
+  하중경로에 따른 탄성·소성 판정은 다음의
+  [소성 항복]({% link assets/lecture_notes/5_1_polycrystalline_plasticity/metal_plasticity_12_plastic_yield.md %})에서 다룬다.
 
-## 응력 불변량과의 연결
+## 7.1. 응력 불변량과의 연결
 
 $$
 I_1=\operatorname{tr}(\boldsymbol\sigma)=3\sigma_m,
@@ -221,6 +305,28 @@ sigma_m=(sigma_1+sigma_2+sigma_3)/3이다.
 <!--
 풀이와 해답:
 von Mises 등가응력은 편차응력에만 의존하고 정수압 응력은 편차응력을 바꾸지 않기 때문이다.
+-->
+
+## 문제 5
+
+주응력이 $(90,40,-30)\,\mathrm{MPa}$일 때 평균응력, 편차 주응력과 최대
+전단응력을 구하라.
+
+<!--
+풀이와 해답:
+평균응력은 100/3 MPa이다. 편차 주응력은 (170/3, 20/3, -190/3) MPa이고,
+최대 전단응력은 [90-(-30)]/2=60 MPa이다.
+-->
+
+## 문제 6
+
+평면응력 상태에서 $\sigma_{11}=80\,\mathrm{MPa}$,
+$\sigma_{22}=20\,\mathrm{MPa}$이고 나머지 성분이 0일 때 $\sigma_m$과
+$s_{33}$을 구하라.
+
+<!--
+풀이와 해답:
+평균응력은 (80+20+0)/3=100/3 MPa이고, s_33=-100/3 MPa이다.
 -->
 
 [이전 강의]({% link assets/lecture_notes/5_1_polycrystalline_plasticity/metal_plasticity_09_coordinate_transformation.md %}) | [강의 목록]({% link _lectures/5_1_polycrystalline_Plasticity.md %}) | [다음 강의]({% link assets/lecture_notes/5_1_polycrystalline_plasticity/metal_plasticity_11_Mohr_circle.md %})
