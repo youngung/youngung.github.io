@@ -16,6 +16,7 @@ vendor
 *.aux
 *.fdb_latexmk
 *.gif
+!assets/img/lecture_notes/coordinate_transformation/stress_transformation_to_principal_animation.gif
 *.gz
 *.log
 *midterm*

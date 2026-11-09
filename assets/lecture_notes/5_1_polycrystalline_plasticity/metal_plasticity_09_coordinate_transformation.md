@@ -168,9 +168,17 @@ $$
 \begin{bmatrix}0&1&0\\0&0&1\\1&0&0\end{bmatrix}.
 $$
 
-행을 읽으면 $\tilde{\boldsymbol e}_1=\boldsymbol e_2$,
-$\tilde{\boldsymbol e}_2=\boldsymbol e_3$,
-$\tilde{\boldsymbol e}_3=\boldsymbol e_1$이다.
+행을 읽으면 새 기저벡터의 기존 좌표성분은
+
+$$
+[\tilde{\boldsymbol e}_1]_{\mathrm{old}}=\begin{bmatrix}0\\1\\0\end{bmatrix},
+\qquad
+[\tilde{\boldsymbol e}_2]_{\mathrm{old}}=\begin{bmatrix}0\\0\\1\end{bmatrix},
+\qquad
+[\tilde{\boldsymbol e}_3]_{\mathrm{old}}=\begin{bmatrix}1\\0\\0\end{bmatrix}
+$$
+
+이다.
 따라서 기존 성분이 $(1,2,3)^T$인 벡터의 새 성분은 $(2,3,1)^T$이고,
 크기는 두 표현에서 모두 $\sqrt{14}$이다.
 
@@ -308,17 +316,26 @@ $$
 
 # 4. 2차원 계산 예제
 
-새 기저가 기존 기저에 대해 반시계방향으로 $\theta$만큼 회전했다고 하자.
+기존 기저벡터의 기존 좌표성분은
 
 $$
-\tilde{\boldsymbol e}_1
-=\cos\theta\,\boldsymbol e_1+\sin\theta\,\boldsymbol e_2,
+[\boldsymbol e_1]_{\mathrm{old}}=\begin{bmatrix}1\\0\end{bmatrix},
 \qquad
-\tilde{\boldsymbol e}_2
-=-\sin\theta\,\boldsymbol e_1+\cos\theta\,\boldsymbol e_2
+[\boldsymbol e_2]_{\mathrm{old}}=\begin{bmatrix}0\\1\end{bmatrix}
 $$
 
-이 강의에서 정의한 수동 변환 행렬(passive transformation matrix; 혹은 coordinate transformation matrix)은
+이다. 새 기저가 기존 기저에 대해 반시계방향으로 $\theta$만큼 회전하면
+
+$$
+[\tilde{\boldsymbol e}_1]_{\mathrm{old}}
+=\begin{bmatrix}\cos\theta\\\sin\theta\end{bmatrix},
+\qquad
+[\tilde{\boldsymbol e}_2]_{\mathrm{old}}
+=\begin{bmatrix}-\sin\theta\\\cos\theta\end{bmatrix}.
+$$
+
+두 성분 열벡터를 전치하여 행으로 배치하면, 이 강의에서 정의한 수동 변환 행렬
+(passive transformation matrix; 혹은 coordinate transformation matrix)은
 
 $$
 [\boldsymbol R]=
