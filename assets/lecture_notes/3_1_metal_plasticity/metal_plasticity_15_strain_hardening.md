@@ -365,4 +365,6 @@ Hollomon 식을 로그 형태의 직선식으로 바꾸고, 직선의 기울기�
 ln(sigma) = ln(K) + n ln(epsilon_pl)이다. 직선의 기울기는 n이다.
 -->
 
+---
+
 [이전 강의]({% link assets/lecture_notes/3_1_metal_plasticity/metal_plasticity_14_plastic_work.md %}) | [강의 목록]({% link _lectures/3_1_metal_plasticity.md %}) | [다음 강의]({% link assets/lecture_notes/3_1_metal_plasticity/metal_plasticity_16_necking.md %})

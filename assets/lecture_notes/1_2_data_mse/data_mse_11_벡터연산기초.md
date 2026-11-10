@@ -746,4 +746,6 @@ normal = cross / magnitude
 실제 측정값에서 거의 평행한지 판정할 때는 데이터의 크기와 오차에 맞는 허용오차가 필요하다.
 -->
 
+---
+
 [이전 강의]({% link assets/lecture_notes/1_2_data_mse/data_mse_10_NumPy기초2.md %}) | [강의 목록]({% link _lectures/1_2_data_mse.md %}) | [다음 강의]({% link assets/lecture_notes/1_2_data_mse/data_mse_12_행렬연산기초.md %})

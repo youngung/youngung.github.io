@@ -453,4 +453,6 @@ $$ a_{ijk} b_{ijk} $$
 
 [링크]({% link assets/lecture_notes/3_1_metal_plasticity/metal_plasticity_supp_01_vector_matrix_exercises.md %})를 활용하세요
 
+---
+
 [이전 강의]({% link assets/lecture_notes/3_1_metal_plasticity/metal_plasticity_04_vector_matrix.md %}) | [강의 목록]({% link _lectures/3_1_metal_plasticity.md %}) | [다음 강의]({% link assets/lecture_notes/3_1_metal_plasticity/metal_plasticity_06_displacement_strain.md %})

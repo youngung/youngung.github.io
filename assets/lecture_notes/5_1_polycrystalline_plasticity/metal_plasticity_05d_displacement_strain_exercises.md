@@ -289,4 +289,6 @@ $\boldsymbol u^{new}(\boldsymbol X)=\boldsymbol u(\boldsymbol X)+\boldsymbol c$�
 변형률은 절대변위가 아니라 위치에 따른 상대변위 변화로 결정된다.
 -->
 
+---
+
 [이전 강의]({% link assets/lecture_notes/5_1_polycrystalline_plasticity/metal_plasticity_05_displacement_strain.md %}) | [강의 목록]({% link _lectures/5_1_polycrystalline_Plasticity.md %}) | [다음 강의]({% link assets/lecture_notes/5_1_polycrystalline_plasticity/metal_plasticity_05b_descriptions_finite_strain.md %})

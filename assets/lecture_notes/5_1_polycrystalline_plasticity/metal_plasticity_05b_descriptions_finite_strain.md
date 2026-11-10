@@ -823,4 +823,6 @@ $E_{22}=0.125$다. 초기 선분 $\ell_0(0,1)^T$는 $\ell_0(\gamma,1)^T$가 되�
 면적 보존은 모든 방향의 길이 보존을 뜻하지 않는다.
 -->
 
+---
+
 [이전 강의]({% link assets/lecture_notes/5_1_polycrystalline_plasticity/metal_plasticity_05d_displacement_strain_exercises.md %}) | [강의 목록]({% link _lectures/5_1_polycrystalline_Plasticity.md %}) | [다음 강의]({% link assets/lecture_notes/5_1_polycrystalline_plasticity/metal_plasticity_05c_material_derivative_ale.md %})

@@ -514,4 +514,6 @@ print("Halley:", root_halley, n_halley)
     이 결과는 초기값이 단순근에 충분히 가까울 때 적용된다. 중근에서는 일반적으로
     이차수렴하지 않는다.
 
+---
+
 [이전 강의]({% link assets/lecture_notes/2_1_numerical_analysis/numerical_analysis_05_NewtonRaphson1.md %}) | [강의 목록]({% link _lectures/2_1_numerical_analysis.md %}) | [다음 강의]({% link assets/lecture_notes/2_1_numerical_analysis/numerical_analysis_07_linearEq_system.md %})

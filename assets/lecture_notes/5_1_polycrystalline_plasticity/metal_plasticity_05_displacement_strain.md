@@ -526,4 +526,6 @@ $$
 
 [유한변형률 각주: 이차형식의 계산]({% link assets/lecture_notes/5_1_polycrystalline_plasticity/metal_plasticity_05b_descriptions_finite_strain.md %}#fn:line-element-quadratic-form)
 
+---
+
 [이전 강의]({% link assets/lecture_notes/5_1_polycrystalline_plasticity/metal_plasticity_04b_matrix_tensor_operations.md %}) | [강의 목록]({% link _lectures/5_1_polycrystalline_Plasticity.md %}) | [다음 강의]({% link assets/lecture_notes/5_1_polycrystalline_plasticity/metal_plasticity_05d_displacement_strain_exercises.md %})

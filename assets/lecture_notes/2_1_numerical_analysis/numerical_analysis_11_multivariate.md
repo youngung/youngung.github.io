@@ -489,4 +489,6 @@ print(root)
    영벡터가 되는 근을 찾는다.
    -->
 
+---
+
 [이전 강의]({% link assets/lecture_notes/2_1_numerical_analysis/numerical_analysis_10_GradientDescent.md %}) | [강의 목록]({% link _lectures/2_1_numerical_analysis.md %}) | [다음 강의]({% link assets/lecture_notes/2_1_numerical_analysis/numerical_analysis_12_multivariate_geometric_interpretation.md %})

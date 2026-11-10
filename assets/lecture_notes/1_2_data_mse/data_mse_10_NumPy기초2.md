@@ -650,4 +650,6 @@ centered = data - data.mean(axis=1, keepdims=True)
 평균 배열의 shape은 (2, 1, 4), 결과의 shape은 (2, 3, 4)이다.
 -->
 
+---
+
 [이전 강의]({% link assets/lecture_notes/1_2_data_mse/data_mse_09_NumPy기초1.md %}) | [강의 목록]({% link _lectures/1_2_data_mse.md %}) | [다음 강의]({% link assets/lecture_notes/1_2_data_mse/data_mse_11_벡터연산기초.md %})

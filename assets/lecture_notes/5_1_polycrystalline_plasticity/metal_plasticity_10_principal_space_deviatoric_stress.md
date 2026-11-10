@@ -329,4 +329,6 @@ $s_{33}$을 구하라.
 평균응력은 (80+20+0)/3=100/3 MPa이고, s_33=-100/3 MPa이다.
 -->
 
+---
+
 [이전 강의]({% link assets/lecture_notes/5_1_polycrystalline_plasticity/metal_plasticity_09_coordinate_transformation.md %}) | [강의 목록]({% link _lectures/5_1_polycrystalline_Plasticity.md %}) | [다음 강의]({% link assets/lecture_notes/5_1_polycrystalline_plasticity/metal_plasticity_11_Mohr_circle.md %})

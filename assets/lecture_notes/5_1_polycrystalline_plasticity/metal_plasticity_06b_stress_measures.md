@@ -114,4 +114,6 @@ $$
 미소변위구배, 즉 $\boldsymbol F\approx\boldsymbol I$, $J\approx1$이면 네 척도의 차이를 무시할 수 있다.
 작은 변형률이라도 큰 강체회전이 있으면 이들의 성분이 모두 같다고 할 수는 없다.
 
+---
+
 [이전 강의]({% link assets/lecture_notes/5_1_polycrystalline_plasticity/metal_plasticity_06_force_stress.md %}) | [강의 목록]({% link _lectures/5_1_polycrystalline_Plasticity.md %}) | [다음 강의]({% link assets/lecture_notes/5_1_polycrystalline_plasticity/metal_plasticity_07_elasticity.md %})

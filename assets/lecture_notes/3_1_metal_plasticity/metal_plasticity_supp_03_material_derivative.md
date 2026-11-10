@@ -349,4 +349,6 @@ v=0.5 곱하기 4=2 m/s이다.
 
 [^mesh-inverse]: 격자 사상 $\boldsymbol x=\boldsymbol\psi(\boldsymbol\xi,t)$의 역변환 $\boldsymbol\xi=\boldsymbol\psi^{-1}(\boldsymbol x,t)$는 같은 시각의 공간 위치에서 격자좌표를 찾는 것이다. 예를 들어 일정한 격자 속도 $w_1$에 대해 $x_1=\xi_1+w_1t$, $x_2=\xi_2$이면 $\xi_1=x_1-w_1t$, $\xi_2=x_2$이다. 이는 물질점의 이름표 $\boldsymbol X$를 구하는 것과 다르다. 미분 가능한 국소 역변환에는 $\det(\partial\boldsymbol\psi/\partial\boldsymbol\xi)\ne0$이 필요하며, 전체 영역에서는 격자가 겹치지 않는 일대일 대응도 확보해야 한다.
 
+---
+
 [강의 목록]({% link _lectures/3_1_metal_plasticity.md %})

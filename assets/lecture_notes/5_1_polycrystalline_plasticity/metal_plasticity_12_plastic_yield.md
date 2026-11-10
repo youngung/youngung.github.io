@@ -377,4 +377,6 @@ Tresca 등가응력은 2 tau=110 MPa이므로 항복한다.
 von Mises 등가응력은 sqrt(3) tau 약 95.3 MPa이므로 탄성영역이다.
 -->
 
+---
+
 [이전 강의]({% link assets/lecture_notes/5_1_polycrystalline_plasticity/metal_plasticity_11_Mohr_circle.md %}) | [강의 목록]({% link _lectures/5_1_polycrystalline_Plasticity.md %}) | [다음 강의]({% link assets/lecture_notes/5_1_polycrystalline_plasticity/metal_plasticity_13_flow_rule.md %})

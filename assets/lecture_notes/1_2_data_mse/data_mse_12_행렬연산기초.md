@@ -714,7 +714,7 @@ $$
 
 <!--
 풀이와 해답:
-결과는 (3,8)^T이다.
+결과는 $\begin{bmatrix}3\\8\end{bmatrix}$이다.
 -->
 
 ## 문제 4
@@ -737,9 +737,9 @@ I x=x이므로 원래 벡터 x이다.
 
 ## 문제 6
 
-다음 2×2 행렬
+다음 $2\times2$ 행렬
 
-$\begin{bmatrix}2&1\\1&3\end{bmatrix}$
+$$\begin{bmatrix}2&1\\1&3\end{bmatrix}$$
 
 의 행렬식을 구하라.
 
@@ -756,5 +756,7 @@ $\begin{bmatrix}2&1\\1&3\end{bmatrix}$
 풀이와 해답:
 np.linalg.solve(A, b)를 사용한다.
 -->
+
+---
 
 [이전 강의]({% link assets/lecture_notes/1_2_data_mse/data_mse_11_벡터연산기초.md %}) | [강의 목록]({% link _lectures/1_2_data_mse.md %}) | [다음 강의]({% link assets/lecture_notes/1_2_data_mse/data_mse_13_행렬벡터연산고급_Ein.md %})

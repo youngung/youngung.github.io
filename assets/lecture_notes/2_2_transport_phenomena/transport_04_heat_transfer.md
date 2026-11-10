@@ -165,4 +165,6 @@ $$
 - [제5강: 열전도 방정식]({% link assets/lecture_notes/2_2_transport_phenomena/transport_05_heat_equation.md %})
 - [제9강: 정상상태 확산]({% link assets/lecture_notes/2_2_transport_phenomena/transport_09_steady_diffusion.md %})
 
+---
+
 [이전 강의]({% link assets/lecture_notes/2_2_transport_phenomena/transport_03_newtonian_viscosity.md %}) | [강의 목록]({% link _lectures/2_2_transport.md %}) | [다음 강의]({% link assets/lecture_notes/2_2_transport_phenomena/transport_05_heat_equation.md %})

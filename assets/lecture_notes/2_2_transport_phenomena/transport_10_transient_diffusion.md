@@ -257,4 +257,6 @@ $$
 - [제6강: 열전도의 유한차분해석]({% link assets/lecture_notes/2_2_transport_phenomena/transport_06_heat_fdm.md %})
 - [제7강: 비정상 열전도]({% link assets/lecture_notes/2_2_transport_phenomena/transport_07_transient_heat.md %})
 
+---
+
 [이전 강의]({% link assets/lecture_notes/2_2_transport_phenomena/transport_09_steady_diffusion.md %}) | [강의 목록]({% link _lectures/2_2_transport.md %})

@@ -445,4 +445,6 @@ a cross b=(0,0,1)이다.
 
 -->
 
+---
+
 [이전 강의]({% link assets/lecture_notes/3_1_metal_plasticity/metal_plasticity_03_stress_strain.md %}) | [강의 목록]({% link _lectures/3_1_metal_plasticity.md %}) | [다음 강의]({% link assets/lecture_notes/3_1_metal_plasticity/metal_plasticity_05_matrix_tensor_operations.md %})

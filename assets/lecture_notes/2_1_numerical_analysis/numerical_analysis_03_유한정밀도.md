@@ -575,4 +575,6 @@ print(1.0 + eps/2 == 1.0)
     표현하고 일반적으로 반올림 오차도 더 작다.
     -->
 
+---
+
 [이전 강의]({% link assets/lecture_notes/2_1_numerical_analysis/numerical_analysis_02_수와오차.md %}) | [강의 목록]({% link _lectures/2_1_numerical_analysis.md %}) | [다음 강의]({% link assets/lecture_notes/2_1_numerical_analysis/numerical_analysis_04_bisect.md %})

@@ -353,4 +353,6 @@ von Mises 소성에서 정수압 응력이 소성일에 직접 기여하지 않�
     변형률속도에 따라 달라질 수 있다. 따라서 별도의 실험값이나 모델 없이
     일정한 열전환율을 가정하지 않는다.
 
+---
+
 [이전 강의]({% link assets/lecture_notes/3_1_metal_plasticity/metal_plasticity_13_flow_rule.md %}) | [강의 목록]({% link _lectures/3_1_metal_plasticity.md %}) | [다음 강의]({% link assets/lecture_notes/3_1_metal_plasticity/metal_plasticity_15_strain_hardening.md %})

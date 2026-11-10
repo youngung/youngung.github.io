@@ -434,4 +434,6 @@ n=e3인 면에서 t=sigma e3=(sigma_13,sigma_23,sigma_33)^T이다.
 수 있으며 필요하면 3차원 해석을 사용해야 한다.
 -->
 
+---
+
 [이전 강의]({% link assets/lecture_notes/3_1_metal_plasticity/metal_plasticity_09_elasticity.md %}) | [강의 목록]({% link _lectures/3_1_metal_plasticity.md %}) | [다음 강의]({% link assets/lecture_notes/3_1_metal_plasticity/metal_plasticity_11_stress_transformation.md %})

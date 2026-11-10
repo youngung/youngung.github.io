@@ -726,4 +726,6 @@ G=80.7692 GPa, lambda=121.1538 GPa이므로 K=175 GPa이다.
   를 쓰면 $a+b=1/E$, $b=-\nu/E$ 가 되어 방법 1의 결과와 일치한다.
 
 
+---
+
 [이전 강의]({% link assets/lecture_notes/5_1_polycrystalline_plasticity/metal_plasticity_06b_stress_measures.md %}) | [강의 목록]({% link _lectures/5_1_polycrystalline_Plasticity.md %}) | [다음 강의]({% link assets/lecture_notes/5_1_polycrystalline_plasticity/metal_plasticity_08_plane_condition.md %})

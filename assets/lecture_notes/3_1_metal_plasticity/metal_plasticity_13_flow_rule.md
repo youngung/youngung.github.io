@@ -880,4 +880,6 @@ tr m=n·b=0이므로 슬립에 의한 소성변형률은 부피를 바꾸지 않
     즉 변형률 속도(strain rate)다. 반면 $d\boldsymbol\varepsilon$는 짧은 과정에서
     발생한 변형률 증분을 나타내며, 시간미분 자체를 뜻하지 않는다.
 
+---
+
 [이전 강의]({% link assets/lecture_notes/3_1_metal_plasticity/metal_plasticity_12_plastic_yield.md %}) | [강의 목록]({% link _lectures/3_1_metal_plasticity.md %}) | [다음 강의]({% link assets/lecture_notes/3_1_metal_plasticity/metal_plasticity_14_plastic_work.md %})

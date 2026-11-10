@@ -91,4 +91,6 @@ pip이다.
 Google Colab을 사용할 수 있다.
 -->
 
+---
+
 [강의 목록]({% link _lectures/2_1_numerical_analysis.md %}) | [다음 강의]({% link assets/lecture_notes/2_1_numerical_analysis/numerical_analysis_02_수와오차.md %})

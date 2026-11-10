@@ -471,4 +471,6 @@ fig.savefig("result.png", dpi=150)
 y=120인 점은 표시 범위 밖에서 잘리지만 원본 배열의 값은 바뀌지 않는다.
 -->
 
+---
+
 [이전 강의]({% link assets/lecture_notes/1_2_data_mse/data_mse_13_행렬벡터연산고급_Ein.md %}) | [강의 목록]({% link _lectures/1_2_data_mse.md %}) | [다음 강의]({% link assets/lecture_notes/1_2_data_mse/data_mse_15_기초_matplotlib2.md %})

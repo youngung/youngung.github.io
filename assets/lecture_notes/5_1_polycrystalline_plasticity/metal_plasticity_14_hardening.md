@@ -199,4 +199,6 @@ $$
 
 평균화와 secant 선형화는 [평균장 다결정 소성 모델]({% link assets/lecture_notes/5_1_polycrystalline_plasticity/metal_plasticity_17_mean_field_polycrystal.md %})로 분리했다. Eshelby inclusion 이후에 읽는다.
 
+---
+
 [이전 강의]({% link assets/lecture_notes/5_1_polycrystalline_plasticity/metal_plasticity_13_flow_rule.md %}) | [강의 목록]({% link _lectures/5_1_polycrystalline_Plasticity.md %}) | [다음 강의]({% link assets/lecture_notes/5_1_polycrystalline_plasticity/metal_plasticity_16_eshelby_inclusion.md %})

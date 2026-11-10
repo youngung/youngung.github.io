@@ -199,4 +199,6 @@ $$
 항복강도는 소성변형이 시작되는 응력이고, 인장강도는 공칭 응력-변형률 곡선에서의 최대 응력이다.
 -->
 
+---
+
 [이전 강의]({% link assets/lecture_notes/5_1_polycrystalline_plasticity/metal_plasticity_02_forming_processes.md %}) | [강의 목록]({% link _lectures/5_1_polycrystalline_Plasticity.md %}) | [다음 강의]({% link assets/lecture_notes/5_1_polycrystalline_plasticity/metal_plasticity_04_vector_matrix.md %})

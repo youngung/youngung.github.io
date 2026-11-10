@@ -632,4 +632,6 @@ with open('hardness_input.txt', 'r', encoding='utf-8') as input_file:
 빈 줄은 시편으로 세지 않으며, 유효값이 없으면 나누기를 수행하지 않는다.
 -->
 
+---
+
 [이전 강의]({% link assets/lecture_notes/1_2_data_mse/data_mse_07_함수모듈클래스3.md %}) | [강의 목록]({% link _lectures/1_2_data_mse.md %}) | [다음 강의]({% link assets/lecture_notes/1_2_data_mse/data_mse_09_NumPy기초1.md %})

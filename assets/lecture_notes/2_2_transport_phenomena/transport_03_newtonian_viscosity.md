@@ -197,4 +197,6 @@ $b$는 액막의 폭이다. 자유표면의 전단응력을 0으로 둔 것은 �
 - [제1강: 이동현상 개요]({% link assets/lecture_notes/2_2_transport_phenomena/transport_01_orientation.md %})
 - [제4강: 열전달 기초]({% link assets/lecture_notes/2_2_transport_phenomena/transport_04_heat_transfer.md %})
 
+---
+
 [이전 강의]({% link assets/lecture_notes/2_2_transport_phenomena/transport_02_fluid_statics.md %}) | [강의 목록]({% link _lectures/2_2_transport.md %}) | [다음 강의]({% link assets/lecture_notes/2_2_transport_phenomena/transport_04_heat_transfer.md %})

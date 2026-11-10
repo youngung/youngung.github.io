@@ -206,4 +206,6 @@ $$
 - [제5강: 열전도 방정식]({% link assets/lecture_notes/2_2_transport_phenomena/transport_05_heat_equation.md %})
 - [제8강: 확산 기초]({% link assets/lecture_notes/2_2_transport_phenomena/transport_08_diffusion_basics.md %})
 
+---
+
 [강의 목록]({% link _lectures/2_2_transport.md %}) | [다음 강의]({% link assets/lecture_notes/2_2_transport_phenomena/transport_02_fluid_statics.md %})

@@ -390,4 +390,6 @@ epsilon^e=epsilon^c-epsilon^*=(0.001111-0.002)I=-0.000889I이다.
 2. T. Mura, *Micromechanics of Defects in Solids*, 2nd ed., Martinus Nijhoff
    Publishers (1987).
 
+---
+
 [이전 강의]({% link assets/lecture_notes/5_1_polycrystalline_plasticity/metal_plasticity_14_hardening.md %}) | [강의 목록]({% link _lectures/5_1_polycrystalline_Plasticity.md %}) | [다음 강의]({% link assets/lecture_notes/5_1_polycrystalline_plasticity/metal_plasticity_17_mean_field_polycrystal.md %})

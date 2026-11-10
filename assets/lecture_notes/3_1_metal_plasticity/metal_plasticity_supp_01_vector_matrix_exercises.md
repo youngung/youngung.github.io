@@ -442,4 +442,6 @@ sigma:epsilon=200(0.001)+100(0.0005)=0.25 MPa이다.
 따라서 W=0.5(0.25)=0.125 MPa=0.125 MJ/m^3이다.
 -->
 
+---
+
 [강의 목록]({% link _lectures/3_1_metal_plasticity.md %})

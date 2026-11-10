@@ -72,4 +72,6 @@ $$
 
 대괄호 안은 현재 응력상태에 의존하는 4차 secant compliance 역할을 한다.
 
+---
+
 [이전 강의]({% link assets/lecture_notes/5_1_polycrystalline_plasticity/metal_plasticity_16_eshelby_inclusion.md %}) | [강의 목록]({% link _lectures/5_1_polycrystalline_Plasticity.md %}) | [다음 강의]({% link assets/lecture_notes/5_1_polycrystalline_plasticity/metal_plasticity_15_kinematics.md %})

@@ -191,4 +191,6 @@ $$F_B=(p_{bottom}-p_{top})A=\rho_f gHA=\rho_f gV$$
 - [제1강: 이동현상 개요]({% link assets/lecture_notes/2_2_transport_phenomena/transport_01_orientation.md %})
 - [제3강: 뉴턴 유체와 운동량 전달]({% link assets/lecture_notes/2_2_transport_phenomena/transport_03_newtonian_viscosity.md %})
 
+---
+
 [이전 강의]({% link assets/lecture_notes/2_2_transport_phenomena/transport_01_orientation.md %}) | [강의 목록]({% link _lectures/2_2_transport.md %}) | [다음 강의]({% link assets/lecture_notes/2_2_transport_phenomena/transport_03_newtonian_viscosity.md %})

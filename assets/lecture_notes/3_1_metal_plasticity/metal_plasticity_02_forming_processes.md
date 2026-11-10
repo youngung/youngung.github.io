@@ -143,4 +143,6 @@ authors:
 딥 드로잉(deep drawing)이다.
 -->
 
+---
+
 [이전 강의]({% link assets/lecture_notes/3_1_metal_plasticity/metal_plasticity_01_orientation.md %}) | [강의 목록]({% link _lectures/3_1_metal_plasticity.md %}) | [다음 강의]({% link assets/lecture_notes/3_1_metal_plasticity/metal_plasticity_03_stress_strain.md %})

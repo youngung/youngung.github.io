@@ -656,4 +656,6 @@ for weight in [0.0, 0.2, 1.0, 5.0]:
 [^norm2]: **2-norm:** 벡터 $\boldsymbol x$의 2-norm은
     $\|\boldsymbol x\|_2=\sqrt{x_1^2+x_2^2+\cdots+x_n^2}$로 정의된다. 2-norm은 벡터의 길이를 나타내며, $\|\boldsymbol x\|_2=0$이면 $\boldsymbol x=\boldsymbol 0$이다.
 
+---
+
 [이전 강의]({% link assets/lecture_notes/2_1_numerical_analysis/numerical_analysis_09_LU.md %}) | [강의 목록]({% link _lectures/2_1_numerical_analysis.md %}) | [다음 강의]({% link assets/lecture_notes/2_1_numerical_analysis/numerical_analysis_11_multivariate.md %})

@@ -607,4 +607,6 @@ $$
     소거법은 피벗의 위와 아래를 모두 소거하여 기약 행 사다리꼴을 만든다.
     -->
 
+---
+
 [이전 강의]({% link assets/lecture_notes/2_1_numerical_analysis/numerical_analysis_07_linearEq_system.md %}) | [강의 목록]({% link _lectures/2_1_numerical_analysis.md %}) | [다음 강의]({% link assets/lecture_notes/2_1_numerical_analysis/numerical_analysis_09_LU.md %})

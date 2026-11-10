@@ -186,4 +186,6 @@ $$q_{in}''(t)=\frac{k(T_s-T_i)}{\sqrt{\pi\alpha t}}$$
 - [제5강: 열전도 방정식]({% link assets/lecture_notes/2_2_transport_phenomena/transport_05_heat_equation.md %})
 - [제10강: 비정상 확산]({% link assets/lecture_notes/2_2_transport_phenomena/transport_10_transient_diffusion.md %})
 
+---
+
 [이전 강의]({% link assets/lecture_notes/2_2_transport_phenomena/transport_06_heat_fdm.md %}) | [강의 목록]({% link _lectures/2_2_transport.md %}) | [다음 강의]({% link assets/lecture_notes/2_2_transport_phenomena/transport_08_diffusion_basics.md %})
