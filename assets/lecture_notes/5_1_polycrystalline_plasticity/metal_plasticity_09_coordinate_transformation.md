@@ -522,4 +522,4 @@ $$
 
 ---
 
-[이전 강의]({% link assets/lecture_notes/5_1_polycrystalline_plasticity/metal_plasticity_08_plane_condition.md %}) | [강의 목록]({% link _lectures/5_1_polycrystalline_Plasticity.md %}) | [다음 강의]({% link assets/lecture_notes/5_1_polycrystalline_plasticity/metal_plasticity_10_principal_space_deviatoric_stress.md %})
+[이전 강의](/assets/lecture_notes/5_1_polycrystalline_plasticity/metal_plasticity_08_plane_condition.md) · [강의 목록](/_lectures/5_1_polycrystalline_Plasticity.md) · [다음 강의](/assets/lecture_notes/5_1_polycrystalline_plasticity/metal_plasticity_10_principal_space_deviatoric_stress.md)

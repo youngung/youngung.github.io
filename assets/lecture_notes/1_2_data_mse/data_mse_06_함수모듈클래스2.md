@@ -606,4 +606,4 @@ else:
 
 ---
 
-[이전 강의]({% link assets/lecture_notes/1_2_data_mse/data_mse_05_함수모듈클래스1.md %}) | [강의 목록]({% link _lectures/1_2_data_mse.md %}) | [다음 강의]({% link assets/lecture_notes/1_2_data_mse/data_mse_07_함수모듈클래스3.md %})
+[이전 강의](/assets/lecture_notes/1_2_data_mse/data_mse_05_함수모듈클래스1.md) · [강의 목록](/_lectures/1_2_data_mse.md) · [다음 강의](/assets/lecture_notes/1_2_data_mse/data_mse_07_함수모듈클래스3.md)

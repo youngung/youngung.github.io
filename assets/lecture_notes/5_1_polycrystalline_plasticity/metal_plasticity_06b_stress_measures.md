@@ -116,4 +116,4 @@ $$
 
 ---
 
-[이전 강의]({% link assets/lecture_notes/5_1_polycrystalline_plasticity/metal_plasticity_06_force_stress.md %}) | [강의 목록]({% link _lectures/5_1_polycrystalline_Plasticity.md %}) | [다음 강의]({% link assets/lecture_notes/5_1_polycrystalline_plasticity/metal_plasticity_07_elasticity.md %})
+[이전 강의](/assets/lecture_notes/5_1_polycrystalline_plasticity/metal_plasticity_06_force_stress.md) · [강의 목록](/_lectures/5_1_polycrystalline_Plasticity.md) · [다음 강의](/assets/lecture_notes/5_1_polycrystalline_plasticity/metal_plasticity_07_elasticity.md)

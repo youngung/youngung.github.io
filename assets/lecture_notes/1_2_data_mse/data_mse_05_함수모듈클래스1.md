@@ -515,4 +515,4 @@ return으로 문자열을 돌려주면 호출한 곳에서 저장하거나 출�
 
 ---
 
-[이전 강의]({% link assets/lecture_notes/1_2_data_mse/data_mse_04_조건문과_반복문.md %}) | [강의 목록]({% link _lectures/1_2_data_mse.md %}) | [다음 강의]({% link assets/lecture_notes/1_2_data_mse/data_mse_06_함수모듈클래스2.md %})
+[이전 강의](/assets/lecture_notes/1_2_data_mse/data_mse_04_조건문과_반복문.md) · [강의 목록](/_lectures/1_2_data_mse.md) · [다음 강의](/assets/lecture_notes/1_2_data_mse/data_mse_06_함수모듈클래스2.md)

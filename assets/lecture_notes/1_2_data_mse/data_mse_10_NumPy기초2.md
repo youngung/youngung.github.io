@@ -652,4 +652,4 @@ centered = data - data.mean(axis=1, keepdims=True)
 
 ---
 
-[이전 강의]({% link assets/lecture_notes/1_2_data_mse/data_mse_09_NumPy기초1.md %}) | [강의 목록]({% link _lectures/1_2_data_mse.md %}) | [다음 강의]({% link assets/lecture_notes/1_2_data_mse/data_mse_11_벡터연산기초.md %})
+[이전 강의](/assets/lecture_notes/1_2_data_mse/data_mse_09_NumPy기초1.md) · [강의 목록](/_lectures/1_2_data_mse.md) · [다음 강의](/assets/lecture_notes/1_2_data_mse/data_mse_11_벡터연산기초.md)

@@ -351,4 +351,4 @@ v=0.5 곱하기 4=2 m/s이다.
 
 ---
 
-[강의 목록]({% link _lectures/3_1_metal_plasticity.md %})
+[강의 목록](/_lectures/3_1_metal_plasticity.md)

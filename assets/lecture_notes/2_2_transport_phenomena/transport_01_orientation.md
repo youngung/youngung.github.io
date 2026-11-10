@@ -208,4 +208,4 @@ $$
 
 ---
 
-[강의 목록]({% link _lectures/2_2_transport.md %}) | [다음 강의]({% link assets/lecture_notes/2_2_transport_phenomena/transport_02_fluid_statics.md %})
+[강의 목록](/_lectures/2_2_transport.md) · [다음 강의](/assets/lecture_notes/2_2_transport_phenomena/transport_02_fluid_statics.md)

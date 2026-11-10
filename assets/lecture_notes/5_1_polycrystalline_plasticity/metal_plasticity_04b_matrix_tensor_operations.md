@@ -455,4 +455,4 @@ $$ a_{ijk} b_{ijk} $$
 
 ---
 
-[이전 강의]({% link assets/lecture_notes/5_1_polycrystalline_plasticity/metal_plasticity_04_vector_matrix.md %}) | [강의 목록]({% link _lectures/5_1_polycrystalline_Plasticity.md %}) | [다음 강의]({% link assets/lecture_notes/5_1_polycrystalline_plasticity/metal_plasticity_05_displacement_strain.md %})
+[이전 강의](/assets/lecture_notes/5_1_polycrystalline_plasticity/metal_plasticity_04_vector_matrix.md) · [강의 목록](/_lectures/5_1_polycrystalline_Plasticity.md) · [다음 강의](/assets/lecture_notes/5_1_polycrystalline_plasticity/metal_plasticity_05_displacement_strain.md)

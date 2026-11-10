@@ -514,4 +514,4 @@ NumPy 변환 결과가 올바른지 확인할 수 있는 방법을 두 가지 �
 
 ---
 
-[이전 강의]({% link assets/lecture_notes/1_2_data_mse/data_mse_17_응력변형률분석.md %}) | [강의 목록]({% link _lectures/1_2_data_mse.md %}) | [다음 강의]({% link assets/lecture_notes/1_2_data_mse/data_mse_19_SEM_Image분석.md %})
+[이전 강의](/assets/lecture_notes/1_2_data_mse/data_mse_17_응력변형률분석.md) · [강의 목록](/_lectures/1_2_data_mse.md) · [다음 강의](/assets/lecture_notes/1_2_data_mse/data_mse_19_SEM_Image분석.md)

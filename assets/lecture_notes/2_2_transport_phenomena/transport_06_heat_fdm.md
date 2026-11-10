@@ -215,4 +215,4 @@ $$
 
 ---
 
-[이전 강의]({% link assets/lecture_notes/2_2_transport_phenomena/transport_05_heat_equation.md %}) | [강의 목록]({% link _lectures/2_2_transport.md %}) | [다음 강의]({% link assets/lecture_notes/2_2_transport_phenomena/transport_07_transient_heat.md %})
+[이전 강의](/assets/lecture_notes/2_2_transport_phenomena/transport_05_heat_equation.md) · [강의 목록](/_lectures/2_2_transport.md) · [다음 강의](/assets/lecture_notes/2_2_transport_phenomena/transport_07_transient_heat.md)

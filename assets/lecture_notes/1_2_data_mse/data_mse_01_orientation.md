@@ -261,4 +261,4 @@ Jupyter Notebook을 사용할 수 있다.
 -->
 ---
 
-[강의 목록]({% link _lectures/1_2_data_mse.md %}) | [다음 강의]({% link assets/lecture_notes/1_2_data_mse/data_mse_02_기초조작실습.md %})
+[강의 목록](/_lectures/1_2_data_mse.md) · [다음 강의](/assets/lecture_notes/1_2_data_mse/data_mse_02_기초조작실습.md)

@@ -658,4 +658,4 @@ for weight in [0.0, 0.2, 1.0, 5.0]:
 
 ---
 
-[이전 강의]({% link assets/lecture_notes/2_1_numerical_analysis/numerical_analysis_09_LU.md %}) | [강의 목록]({% link _lectures/2_1_numerical_analysis.md %}) | [다음 강의]({% link assets/lecture_notes/2_1_numerical_analysis/numerical_analysis_11_multivariate.md %})
+[이전 강의](/assets/lecture_notes/2_1_numerical_analysis/numerical_analysis_09_LU.md) · [강의 목록](/_lectures/2_1_numerical_analysis.md) · [다음 강의](/assets/lecture_notes/2_1_numerical_analysis/numerical_analysis_11_multivariate.md)

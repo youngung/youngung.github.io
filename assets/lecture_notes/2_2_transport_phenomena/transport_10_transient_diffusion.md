@@ -259,4 +259,4 @@ $$
 
 ---
 
-[이전 강의]({% link assets/lecture_notes/2_2_transport_phenomena/transport_09_steady_diffusion.md %}) | [강의 목록]({% link _lectures/2_2_transport.md %})
+[이전 강의](/assets/lecture_notes/2_2_transport_phenomena/transport_09_steady_diffusion.md) · [강의 목록](/_lectures/2_2_transport.md)

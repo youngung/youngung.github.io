@@ -524,4 +524,4 @@ $$
 
 ---
 
-[이전 강의]({% link assets/lecture_notes/3_1_metal_plasticity/metal_plasticity_05_matrix_tensor_operations.md %}) | [강의 목록]({% link _lectures/3_1_metal_plasticity.md %}) | [다음 강의]({% link assets/lecture_notes/3_1_metal_plasticity/metal_plasticity_07_displacement_strain_exercises.md %})
+[이전 강의](/assets/lecture_notes/3_1_metal_plasticity/metal_plasticity_05_matrix_tensor_operations.md) · [강의 목록](/_lectures/3_1_metal_plasticity.md) · [다음 강의](/assets/lecture_notes/3_1_metal_plasticity/metal_plasticity_07_displacement_strain_exercises.md)

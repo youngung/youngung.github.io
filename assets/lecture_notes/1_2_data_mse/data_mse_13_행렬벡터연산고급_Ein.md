@@ -1155,4 +1155,4 @@ i와 k에 대해 같은 b_j를 사용하며, 합산은 하지 않는다.
 
 ---
 
-[이전 강의]({% link assets/lecture_notes/1_2_data_mse/data_mse_12_행렬연산기초.md %}) | [강의 목록]({% link _lectures/1_2_data_mse.md %}) | [다음 강의]({% link assets/lecture_notes/1_2_data_mse/data_mse_14_기초_matplotlib1.md %})
+[이전 강의](/assets/lecture_notes/1_2_data_mse/data_mse_12_행렬연산기초.md) · [강의 목록](/_lectures/1_2_data_mse.md) · [다음 강의](/assets/lecture_notes/1_2_data_mse/data_mse_14_기초_matplotlib1.md)

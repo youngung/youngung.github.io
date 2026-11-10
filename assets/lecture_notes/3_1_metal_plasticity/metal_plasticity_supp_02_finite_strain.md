@@ -828,4 +828,4 @@ $E_{22}=0.125$다. 초기 선분 $\ell_0(0,1)^T$는 $\ell_0(\gamma,1)^T$가 되�
 
 ---
 
-[강의 목록]({% link _lectures/3_1_metal_plasticity.md %})
+[강의 목록](/_lectures/3_1_metal_plasticity.md)

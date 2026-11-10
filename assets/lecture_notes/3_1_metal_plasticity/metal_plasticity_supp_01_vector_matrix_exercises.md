@@ -444,4 +444,4 @@ sigma:epsilon=200(0.001)+100(0.0005)=0.25 MPa이다.
 
 ---
 
-[강의 목록]({% link _lectures/3_1_metal_plasticity.md %})
+[강의 목록](/_lectures/3_1_metal_plasticity.md)

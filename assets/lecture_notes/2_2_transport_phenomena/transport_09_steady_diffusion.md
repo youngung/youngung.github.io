@@ -193,4 +193,4 @@ $k_m$의 단위는 $\mathrm{m/s}$이며 $D\ [\mathrm{m^2/s}]$와 구분한다.
 
 ---
 
-[이전 강의]({% link assets/lecture_notes/2_2_transport_phenomena/transport_08_diffusion_basics.md %}) | [강의 목록]({% link _lectures/2_2_transport.md %}) | [다음 강의]({% link assets/lecture_notes/2_2_transport_phenomena/transport_10_transient_diffusion.md %})
+[이전 강의](/assets/lecture_notes/2_2_transport_phenomena/transport_08_diffusion_basics.md) · [강의 목록](/_lectures/2_2_transport.md) · [다음 강의](/assets/lecture_notes/2_2_transport_phenomena/transport_10_transient_diffusion.md)

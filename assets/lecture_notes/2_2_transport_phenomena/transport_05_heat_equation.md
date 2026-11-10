@@ -183,4 +183,4 @@ $T_s-T_\infty=\dot q'''L/h$가 추가되어 중심온도가 더 높아진다.
 
 ---
 
-[이전 강의]({% link assets/lecture_notes/2_2_transport_phenomena/transport_04_heat_transfer.md %}) | [강의 목록]({% link _lectures/2_2_transport.md %}) | [다음 강의]({% link assets/lecture_notes/2_2_transport_phenomena/transport_06_heat_fdm.md %})
+[이전 강의](/assets/lecture_notes/2_2_transport_phenomena/transport_04_heat_transfer.md) · [강의 목록](/_lectures/2_2_transport.md) · [다음 강의](/assets/lecture_notes/2_2_transport_phenomena/transport_06_heat_fdm.md)

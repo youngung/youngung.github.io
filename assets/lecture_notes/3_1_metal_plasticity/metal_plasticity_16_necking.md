@@ -405,4 +405,4 @@ d sigma / d epsilon > sigma일 때 하중이 증가한다.
 
 ---
 
-[이전 강의]({% link assets/lecture_notes/3_1_metal_plasticity/metal_plasticity_15_strain_hardening.md %}) | [강의 목록]({% link _lectures/3_1_metal_plasticity.md %}) | [다음 강의]({% link assets/lecture_notes/3_1_metal_plasticity/metal_plasticity_18_rolling.md %})
+[이전 강의](/assets/lecture_notes/3_1_metal_plasticity/metal_plasticity_15_strain_hardening.md) · [강의 목록](/_lectures/3_1_metal_plasticity.md) · [다음 강의](/assets/lecture_notes/3_1_metal_plasticity/metal_plasticity_18_rolling.md)

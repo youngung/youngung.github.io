@@ -547,4 +547,4 @@ x는 차례로 약 1.666667, 1.166667, 1.019608, 1.001996이다.
 
 ---
 
-[이전 강의]({% link assets/lecture_notes/2_1_numerical_analysis/numerical_analysis_13_integration.md %}) | [강의 목록]({% link _lectures/2_1_numerical_analysis.md %})
+[이전 강의](/assets/lecture_notes/2_1_numerical_analysis/numerical_analysis_13_integration.md) · [강의 목록](/_lectures/2_1_numerical_analysis.md)

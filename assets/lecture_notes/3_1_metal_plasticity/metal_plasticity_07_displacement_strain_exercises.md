@@ -291,4 +291,4 @@ $\boldsymbol u^{new}(\boldsymbol X)=\boldsymbol u(\boldsymbol X)+\boldsymbol c$�
 
 ---
 
-[이전 강의]({% link assets/lecture_notes/3_1_metal_plasticity/metal_plasticity_06_displacement_strain.md %}) | [강의 목록]({% link _lectures/3_1_metal_plasticity.md %}) | [다음 강의]({% link assets/lecture_notes/3_1_metal_plasticity/metal_plasticity_08_force_stress.md %})
+[이전 강의](/assets/lecture_notes/3_1_metal_plasticity/metal_plasticity_06_displacement_strain.md) · [강의 목록](/_lectures/3_1_metal_plasticity.md) · [다음 강의](/assets/lecture_notes/3_1_metal_plasticity/metal_plasticity_08_force_stress.md)

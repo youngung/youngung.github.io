@@ -558,4 +558,4 @@ plt.show()
 
 ---
 
-[이전 강의]({% link assets/lecture_notes/2_1_numerical_analysis/numerical_analysis_01_orientation.md %}) | [강의 목록]({% link _lectures/2_1_numerical_analysis.md %}) | [다음 강의]({% link assets/lecture_notes/2_1_numerical_analysis/numerical_analysis_03_유한정밀도.md %})
+[이전 강의](/assets/lecture_notes/2_1_numerical_analysis/numerical_analysis_01_orientation.md) · [강의 목록](/_lectures/2_1_numerical_analysis.md) · [다음 강의](/assets/lecture_notes/2_1_numerical_analysis/numerical_analysis_03_유한정밀도.md)

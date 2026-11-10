@@ -910,4 +910,4 @@ von Mises에서 200/sqrt(4800)=2.887이다.
 
 ---
 
-[이전 강의]({% link assets/lecture_notes/3_1_metal_plasticity/metal_plasticity_11_stress_transformation.md %}) | [강의 목록]({% link _lectures/3_1_metal_plasticity.md %}) | [다음 강의]({% link assets/lecture_notes/3_1_metal_plasticity/metal_plasticity_13_flow_rule.md %})
+[이전 강의](/assets/lecture_notes/3_1_metal_plasticity/metal_plasticity_11_stress_transformation.md) · [강의 목록](/_lectures/3_1_metal_plasticity.md) · [다음 강의](/assets/lecture_notes/3_1_metal_plasticity/metal_plasticity_13_flow_rule.md)
