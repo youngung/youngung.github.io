@@ -1,0 +1,21 @@
+// Separate the lesson, its endnotes, and the final navigation in both themes.
+.lecture-footnotes,
+.lecture-navigation {
+  border-top: 2px solid var(--global-divider-color);
+  margin-top: 2.5rem;
+  padding-top: 1.25rem;
+}
+
+.lecture-footnotes-label {
+  font-weight: 600;
+  color: var(--global-text-color);
+}
+
+.lecture-navigation {
+  padding-bottom: 1rem;
+
+  table,
+  p {
+    margin-bottom: 0;
+  }
+}
