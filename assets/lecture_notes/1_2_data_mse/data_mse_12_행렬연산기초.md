@@ -176,14 +176,8 @@ $[\boldsymbol y]=[\boldsymbol A][\boldsymbol x]$를 얻는다. 이를 입력 벡
 첫 번째와 두 번째 열이다. 따라서 행렬의 열을 보면 기본 두 방향이 어디로
 이동하는지 알 수 있다.
 
-<p class="text-center">
-  <img
-    src="../../img/lecture_notes/data_mse/linear_transformation_matrix_vector.gif"
-    onerror="this.onerror=null; this.src='/assets/img/lecture_notes/data_mse/linear_transformation_matrix_vector.gif';"
-    alt="행렬이 격자와 벡터를 연속적으로 선형변환하는 과정"
-    style="width: 680px; max-width: 100%; height: auto;"
-  >
-</p>
+![행렬이 격자와 벡터를 연속적으로 선형변환하는 과정](/assets/img/lecture_notes/data_mse/linear_transformation_matrix_vector.gif)
+{: style="width: 680px; max-width: 100%; height: auto; display: block; margin: auto;" }
 
 *그림: $[\boldsymbol A(t)]=(1-t)[\boldsymbol I]+t[\boldsymbol A]$로 행렬을 서서히 바꾸면
 격자, 기본 벡터, 입력 벡터가 같은 변환을 따라 연속적으로 변한다.*
@@ -479,14 +473,8 @@ print(
 행렬식의 부호는 변환이 방향을 뒤집는지를 나타낸다.
 $\det[\boldsymbol A]=0$이면 넓이가 0으로 줄어 역행렬이 존재하지 않으며, 이런 행렬을 **특이행렬(singular matrix)**이라 한다.
 
-<p class="text-center">
-  <img
-    src="../../img/lecture_notes/data_mse/determinant_geometry.png"
-    onerror="this.onerror=null; this.src='/assets/img/lecture_notes/data_mse/determinant_geometry.png';"
-    alt="행렬식의 절대값과 부호, 특이행렬의 기하학적 의미"
-    style="width: 900px; max-width: 100%; height: auto;"
-  >
-</p>
+![행렬식의 절대값과 부호, 특이행렬의 기하학적 의미](/assets/img/lecture_notes/data_mse/determinant_geometry.png)
+{: style="width: 900px; max-width: 100%; height: auto; display: block; margin: auto;" }
 
 *그림: 두 열벡터가 만드는 넓이는 $\lvert\det[\boldsymbol A]\rvert$이다. 부호가 바뀌면 방향이 뒤집히고, 행렬식이 0이면 평행사변형이 선으로 줄어든다.*
 
@@ -582,14 +570,8 @@ $$
 
 이다.
 
-<p class="text-center">
-  <img
-    src="../../img/lecture_notes/data_mse/orthorhombic_unit_cell_fractional_coordinate.png"
-    onerror="this.onerror=null; this.src='/assets/img/lecture_notes/data_mse/orthorhombic_unit_cell_fractional_coordinate.png';"
-    alt="직교 단위격자의 분율좌표와 실제 위치"
-    style="width: 760px; max-width: 100%; height: auto;"
-  >
-</p>
+![직교 단위격자의 분율좌표와 실제 위치](/assets/img/lecture_notes/data_mse/orthorhombic_unit_cell_fractional_coordinate.png)
+{: style="width: 760px; max-width: 100%; height: auto; display: block; margin: auto;" }
 
 *그림: 분율좌표 $(0.5,0.5,0.25)$는 각 격자벡터 $\boldsymbol a$, $\boldsymbol b$, $\boldsymbol c$의 0.5, 0.5, 0.25배를 더한 위치를 뜻한다.*
 
@@ -640,14 +622,8 @@ $$
 =p\begin{bmatrix}2\\0\end{bmatrix}+q\begin{bmatrix}1\\3\end{bmatrix}
 $$
 
-<p class="text-center">
-  <img
-    src="../../img/lecture_notes/data_mse/skew_lattice_fractional_coordinate.png"
-    onerror="this.onerror=null; this.src='/assets/img/lecture_notes/data_mse/skew_lattice_fractional_coordinate.png';"
-    alt="기울어진 격자의 분율좌표와 실제 위치"
-    style="width: 820px; max-width: 100%; height: auto;"
-  >
-</p>
+![기울어진 격자의 분율좌표와 실제 위치](/assets/img/lecture_notes/data_mse/skew_lattice_fractional_coordinate.png)
+{: style="width: 820px; max-width: 100%; height: auto; display: block; margin: auto;" }
 
 *그림: 분율좌표 $(p,q)=(0.5,0.5)$는 직교좌표축이 아니라 기울어진 격자벡터 $\boldsymbol a$, $\boldsymbol b$를 각각 0.5배한 뒤 더한다.*
 
