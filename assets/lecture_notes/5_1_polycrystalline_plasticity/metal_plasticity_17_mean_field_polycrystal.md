@@ -27,9 +27,9 @@ authors:
 * TOC
 {:toc}
 
-이 자료는 [Eshelby inclusion]({% link assets/lecture_notes/5_1_polycrystalline_plasticity/metal_plasticity_16_eshelby_inclusion.md %}) 이후에 읽는다.
+이 자료는 [Eshelby inclusion](/assets/lecture_notes/5_1_polycrystalline_plasticity/metal_plasticity_16_eshelby_inclusion.md) 이후에 읽는다.
 결정립의 국소 거동과 다결정의 평균 거동을 연결하고, secant 선형화를 소개한다.
-결정립의 형상과 방위 갱신은 [VPSC의 운동학]({% link assets/lecture_notes/5_1_polycrystalline_plasticity/metal_plasticity_15_kinematics.md %})에서 이어서 다룬다.
+결정립의 형상과 방위 갱신은 [VPSC의 운동학](/assets/lecture_notes/5_1_polycrystalline_plasticity/metal_plasticity_15_kinematics.md)에서 이어서 다룬다.
 
 # 1. 평균장 다결정 소성 모델
 

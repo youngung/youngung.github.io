@@ -29,8 +29,8 @@ authors:
 
 관련 자료는 다음 순서로 읽을 수 있다.
 
-- [벡터와 좌표계]({% link assets/lecture_notes/5_1_polycrystalline_plasticity/metal_plasticity_04_vector_matrix.md %})
-- [행렬과 텐서 연산]({% link assets/lecture_notes/5_1_polycrystalline_plasticity/metal_plasticity_04b_matrix_tensor_operations.md %})
+- [벡터와 좌표계](/assets/lecture_notes/5_1_polycrystalline_plasticity/metal_plasticity_04_vector_matrix.md)
+- [행렬과 텐서 연산](/assets/lecture_notes/5_1_polycrystalline_plasticity/metal_plasticity_04b_matrix_tensor_operations.md)
 
 # 1. 물리량의 종류
 
@@ -379,67 +379,67 @@ a cross b=(0,0,1)이다.
 
 <span id="6-매트릭스-연산"></span>
 
-[6. 매트릭스 연산]({% link assets/lecture_notes/5_1_polycrystalline_plasticity/metal_plasticity_04b_matrix_tensor_operations.md %}#6-매트릭스-연산)
+[6. 매트릭스 연산](/assets/lecture_notes/5_1_polycrystalline_plasticity/metal_plasticity_04b_matrix_tensor_operations.md#6-매트릭스-연산)
 
 <span id="61-더하기-빼기"></span>
 
-[6.1. 더하기, 빼기]({% link assets/lecture_notes/5_1_polycrystalline_plasticity/metal_plasticity_04b_matrix_tensor_operations.md %}#61-더하기-빼기)
+[6.1. 더하기, 빼기](/assets/lecture_notes/5_1_polycrystalline_plasticity/metal_plasticity_04b_matrix_tensor_operations.md#61-더하기-빼기)
 
 <span id="62-스칼라-곱하기"></span>
 
-[6.2. 스칼라 곱하기]({% link assets/lecture_notes/5_1_polycrystalline_plasticity/metal_plasticity_04b_matrix_tensor_operations.md %}#62-스칼라-곱하기)
+[6.2. 스칼라 곱하기](/assets/lecture_notes/5_1_polycrystalline_plasticity/metal_plasticity_04b_matrix_tensor_operations.md#62-스칼라-곱하기)
 
 <span id="63-매트릭스-곱하기1-single-contraction"></span>
 
-[6.3. 매트릭스 곱하기1 (single contraction)]({% link assets/lecture_notes/5_1_polycrystalline_plasticity/metal_plasticity_04b_matrix_tensor_operations.md %}#63-매트릭스-곱하기1-single-contraction)
+[6.3. 매트릭스 곱하기1 (single contraction)](/assets/lecture_notes/5_1_polycrystalline_plasticity/metal_plasticity_04b_matrix_tensor_operations.md#63-매트릭스-곱하기1-single-contraction)
 
 <span id="64-매트릭스-곱하기2-double-contraction"></span>
 
-[6.4. 매트릭스 곱하기2 (double contraction)]({% link assets/lecture_notes/5_1_polycrystalline_plasticity/metal_plasticity_04b_matrix_tensor_operations.md %}#64-매트릭스-곱하기2-double-contraction)
+[6.4. 매트릭스 곱하기2 (double contraction)](/assets/lecture_notes/5_1_polycrystalline_plasticity/metal_plasticity_04b_matrix_tensor_operations.md#64-매트릭스-곱하기2-double-contraction)
 
 <span id="65-매트릭스-전치-transpose"></span>
 
-[6.5. 매트릭스 전치 (transpose)]({% link assets/lecture_notes/5_1_polycrystalline_plasticity/metal_plasticity_04b_matrix_tensor_operations.md %}#65-매트릭스-전치-transpose)
+[6.5. 매트릭스 전치 (transpose)](/assets/lecture_notes/5_1_polycrystalline_plasticity/metal_plasticity_04b_matrix_tensor_operations.md#65-매트릭스-전치-transpose)
 
 <span id="66-매트릭스-trace"></span>
 
-[6.6. 매트릭스 trace]({% link assets/lecture_notes/5_1_polycrystalline_plasticity/metal_plasticity_04b_matrix_tensor_operations.md %}#66-매트릭스-trace)
+[6.6. 매트릭스 trace](/assets/lecture_notes/5_1_polycrystalline_plasticity/metal_plasticity_04b_matrix_tensor_operations.md#66-매트릭스-trace)
 
 <span id="67-역행렬-inverse-matrix"></span>
 
-[6.7. 역행렬 (inverse matrix)]({% link assets/lecture_notes/5_1_polycrystalline_plasticity/metal_plasticity_04b_matrix_tensor_operations.md %}#67-역행렬-inverse-matrix)
+[6.7. 역행렬 (inverse matrix)](/assets/lecture_notes/5_1_polycrystalline_plasticity/metal_plasticity_04b_matrix_tensor_operations.md#67-역행렬-inverse-matrix)
 
 <span id="7-determinant"></span>
 
-[7. Determinant]({% link assets/lecture_notes/5_1_polycrystalline_plasticity/metal_plasticity_04b_matrix_tensor_operations.md %}#7-determinant)
+[7. Determinant](/assets/lecture_notes/5_1_polycrystalline_plasticity/metal_plasticity_04b_matrix_tensor_operations.md#7-determinant)
 
 <span id="71-2times2-행렬"></span>
 
-[7.1. $2\times2$ 행렬]({% link assets/lecture_notes/5_1_polycrystalline_plasticity/metal_plasticity_04b_matrix_tensor_operations.md %}#71-2times2-행렬)
+[7.1. $2\times2$ 행렬](/assets/lecture_notes/5_1_polycrystalline_plasticity/metal_plasticity_04b_matrix_tensor_operations.md#71-2times2-행렬)
 
 <span id="72-3times3-행렬"></span>
 
-[7.2. $3\times3$ 행렬]({% link assets/lecture_notes/5_1_polycrystalline_plasticity/metal_plasticity_04b_matrix_tensor_operations.md %}#72-3times3-행렬)
+[7.2. $3\times3$ 행렬](/assets/lecture_notes/5_1_polycrystalline_plasticity/metal_plasticity_04b_matrix_tensor_operations.md#72-3times3-행렬)
 
 <span id="8-랭크의-증감"></span>
 
-[8. 랭크의 증감]({% link assets/lecture_notes/5_1_polycrystalline_plasticity/metal_plasticity_04b_matrix_tensor_operations.md %}#8-랭크의-증감)
+[8. 랭크의 증감](/assets/lecture_notes/5_1_polycrystalline_plasticity/metal_plasticity_04b_matrix_tensor_operations.md#8-랭크의-증감)
 
 <span id="9-einstein-표기법"></span>
 
-[9. Einstein 표기법]({% link assets/lecture_notes/5_1_polycrystalline_plasticity/metal_plasticity_04b_matrix_tensor_operations.md %}#9-einstein-표기법)
+[9. Einstein 표기법](/assets/lecture_notes/5_1_polycrystalline_plasticity/metal_plasticity_04b_matrix_tensor_operations.md#9-einstein-표기법)
 
 <span id="텐서와-행렬-표현을-구분하기"></span>
 
-[텐서와 행렬 표현을 구분하기]({% link assets/lecture_notes/5_1_polycrystalline_plasticity/metal_plasticity_04b_matrix_tensor_operations.md %}#텐서와-행렬-표현을-구분하기)
+[텐서와 행렬 표현을 구분하기](/assets/lecture_notes/5_1_polycrystalline_plasticity/metal_plasticity_04b_matrix_tensor_operations.md#텐서와-행렬-표현을-구분하기)
 
 <span id="문제-4"></span>
 
-[문제 4]({% link assets/lecture_notes/5_1_polycrystalline_plasticity/metal_plasticity_04b_matrix_tensor_operations.md %}#문제-4)
+[문제 4](/assets/lecture_notes/5_1_polycrystalline_plasticity/metal_plasticity_04b_matrix_tensor_operations.md#문제-4)
 
 <span id="추가-연습문제"></span>
 
-[추가 연습문제]({% link assets/lecture_notes/5_1_polycrystalline_plasticity/metal_plasticity_04b_matrix_tensor_operations.md %}#추가-연습문제)
+[추가 연습문제](/assets/lecture_notes/5_1_polycrystalline_plasticity/metal_plasticity_04b_matrix_tensor_operations.md#추가-연습문제)
 
 </details>
 

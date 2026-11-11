@@ -136,7 +136,7 @@ $$
 R_{cyl}=\frac{\ln(r_2/r_1)}{2\pi kL_z}
 $$
 
-이다. 이것은 [제9강의 원통 확산]({% link assets/lecture_notes/2_2_transport_phenomena/transport_09_steady_diffusion.md %})과
+이다. 이것은 [제9강의 원통 확산](/assets/lecture_notes/2_2_transport_phenomena/transport_09_steady_diffusion.md)과
 동일한 적분 구조를 갖는다.
 
 # 6. 연습 문제
@@ -162,8 +162,8 @@ $$
 
 - [MIT OCW 3.185: Heat Conduction](https://ocw.mit.edu/courses/3-185-transport-phenomena-in-materials-engineering-fall-2003/resources/chap3/): PDF의 multilayer wall 및 radiation 부분을 연결해 읽는다.
 
-- [제5강: 열전도 방정식]({% link assets/lecture_notes/2_2_transport_phenomena/transport_05_heat_equation.md %})
-- [제9강: 정상상태 확산]({% link assets/lecture_notes/2_2_transport_phenomena/transport_09_steady_diffusion.md %})
+- [제5강: 열전도 방정식](/assets/lecture_notes/2_2_transport_phenomena/transport_05_heat_equation.md)
+- [제9강: 정상상태 확산](/assets/lecture_notes/2_2_transport_phenomena/transport_09_steady_diffusion.md)
 
 ---
 

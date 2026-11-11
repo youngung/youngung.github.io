@@ -178,8 +178,8 @@ $T_s-T_\infty=\dot q'''L/h$가 추가되어 중심온도가 더 높아진다.
 
 - [MIT OCW 3.185: Heat Conduction](https://ocw.mit.edu/courses/3-185-transport-phenomena-in-materials-engineering-fall-2003/resources/chap3/): 에너지 수지와 경계조건을 비교하면서 읽을 열전도 보충자료이다.
 
-- [제4강: 열전달 기초]({% link assets/lecture_notes/2_2_transport_phenomena/transport_04_heat_transfer.md %})
-- [제6강: 열전도의 유한차분해석]({% link assets/lecture_notes/2_2_transport_phenomena/transport_06_heat_fdm.md %})
+- [제4강: 열전달 기초](/assets/lecture_notes/2_2_transport_phenomena/transport_04_heat_transfer.md)
+- [제6강: 열전도의 유한차분해석](/assets/lecture_notes/2_2_transport_phenomena/transport_06_heat_fdm.md)
 
 ---
 

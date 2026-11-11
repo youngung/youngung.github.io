@@ -29,8 +29,8 @@ authors:
 
 관련 자료는 다음 순서로 읽을 수 있다.
 
-- [제4강 벡터와 좌표계]({% link assets/lecture_notes/3_1_metal_plasticity/metal_plasticity_04_vector_matrix.md %})
-- [제5강 행렬과 텐서 연산]({% link assets/lecture_notes/3_1_metal_plasticity/metal_plasticity_05_matrix_tensor_operations.md %})
+- [제4강 벡터와 좌표계](/assets/lecture_notes/3_1_metal_plasticity/metal_plasticity_04_vector_matrix.md)
+- [제5강 행렬과 텐서 연산](/assets/lecture_notes/3_1_metal_plasticity/metal_plasticity_05_matrix_tensor_operations.md)
 
 # 1. 매트릭스 연산
 
@@ -451,7 +451,7 @@ $$ a_{ijk} b_{ijk} $$
 
 # 연습문제
 
-[링크]({% link assets/lecture_notes/3_1_metal_plasticity/metal_plasticity_supp_01_vector_matrix_exercises.md %})를 활용하세요
+[링크](/assets/lecture_notes/3_1_metal_plasticity/metal_plasticity_supp_01_vector_matrix_exercises.md)를 활용하세요
 
 ---
 

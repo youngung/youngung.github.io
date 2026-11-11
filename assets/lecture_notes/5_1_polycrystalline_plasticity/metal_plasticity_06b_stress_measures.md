@@ -29,10 +29,10 @@ authors:
 
 # 1. 왜 서로 다른 응력 척도를 사용하는가?
 
-[힘과 응력]({% link assets/lecture_notes/5_1_polycrystalline_plasticity/metal_plasticity_06_force_stress.md %})에서는 현재 변형된 면에 작용하는 Cauchy 응력을 사용했다.
+[힘과 응력](/assets/lecture_notes/5_1_polycrystalline_plasticity/metal_plasticity_06_force_stress.md)에서는 현재 변형된 면에 작용하는 Cauchy 응력을 사용했다.
 유한변형에서는 면적·방향·체적이 변하므로, 같은 힘도 어느 배치를 기준으로 표현하는지에 따라 응력 척도(stress measure)가 달라진다.
 
-[유한변형의 운동학]({% link assets/lecture_notes/5_1_polycrystalline_plasticity/metal_plasticity_05b_descriptions_finite_strain.md %})의
+[유한변형의 운동학](/assets/lecture_notes/5_1_polycrystalline_plasticity/metal_plasticity_05b_descriptions_finite_strain.md)의
 변형구배 $\boldsymbol F=\partial\boldsymbol x/\partial\boldsymbol X$와 체적비 $J=\det\boldsymbol F>0$를 사용한다.
 $\boldsymbol N$, $dA$는 기준 배치의 단위 법선과 면적이고, $\boldsymbol n$, $da$는 대응하는 현재 배치의 값이다.
 

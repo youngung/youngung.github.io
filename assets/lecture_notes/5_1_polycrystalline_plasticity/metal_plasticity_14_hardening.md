@@ -197,7 +197,7 @@ $$
 
 <span id="4-평균장-다결정-소성-모델"></span>
 
-평균화와 secant 선형화는 [평균장 다결정 소성 모델]({% link assets/lecture_notes/5_1_polycrystalline_plasticity/metal_plasticity_17_mean_field_polycrystal.md %})로 분리했다. Eshelby inclusion 이후에 읽는다.
+평균화와 secant 선형화는 [평균장 다결정 소성 모델](/assets/lecture_notes/5_1_polycrystalline_plasticity/metal_plasticity_17_mean_field_polycrystal.md)로 분리했다. Eshelby inclusion 이후에 읽는다.
 
 ---
 

@@ -149,7 +149,7 @@ plt.show()
 
 교정점을 전압 순서로 정렬하지 않아도 산점도와 직선 적합은 가능하다. 측정점을 선으로
 연결하려면 먼저 전압을 기준으로 정렬해야 선이 뒤엉키지 않는다. 직선 적합에는 앞서 배운
-[제16강 최소자승법]({% link assets/lecture_notes/1_2_data_mse/data_mse_16_최소자승법.md %})의
+[제16강 최소자승법](/assets/lecture_notes/1_2_data_mse/data_mse_16_최소자승법.md)의
 최소제곱 원리와 <code>np.polyfit(x, y, 1)</code>을 사용한다.
 
 # 4. 공칭응력과 공칭변형률

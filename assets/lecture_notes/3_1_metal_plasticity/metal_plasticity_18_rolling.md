@@ -153,7 +153,7 @@ $$
 \varepsilon_3=-\varepsilon_1
 $$
 
-로 나타낼 수 있다. 이때 [von Mises 동등변형률]({% link assets/lecture_notes/3_1_metal_plasticity/metal_plasticity_14_plastic_work.md %})은
+로 나타낼 수 있다. 이때 [von Mises 동등변형률](/assets/lecture_notes/3_1_metal_plasticity/metal_plasticity_14_plastic_work.md)은
 
 $$
 \boxed{

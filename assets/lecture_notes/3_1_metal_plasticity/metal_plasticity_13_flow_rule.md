@@ -29,7 +29,7 @@ authors:
 
 # 1. 12장에서 13장으로
 
-[12장]({% link assets/lecture_notes/3_1_metal_plasticity/metal_plasticity_12_plastic_yield.md %})에서는
+[12장](/assets/lecture_notes/3_1_metal_plasticity/metal_plasticity_12_plastic_yield.md)에서는
 항복함수 $f(\boldsymbol\sigma)=\sigma_{eq}(\boldsymbol\sigma)-\sigma^Y$를 정의하고,
 $f<0$이면 탄성 영역, $f=0$이면 항복면 위라고 구분했다.
 그러나 12장의 5.4절에서 강조했듯이 항복조건은 **소성변형이 가능한 경계**만 정해 줄 뿐,
@@ -87,7 +87,7 @@ $$
 
 # 3. Hooke 법칙: 응력은 탄성변형률에서만 나온다
 
-응력은 전체 변형률이 아니라 **탄성** 변형률에만 Hooke 법칙([9장]({% link assets/lecture_notes/3_1_metal_plasticity/metal_plasticity_09_elasticity.md %}))으로 연결된다.
+응력은 전체 변형률이 아니라 **탄성** 변형률에만 Hooke 법칙([9장](/assets/lecture_notes/3_1_metal_plasticity/metal_plasticity_09_elasticity.md))으로 연결된다.
 
 $$
 \boldsymbol{\sigma} = \boldsymbol{E}:\boldsymbol{\varepsilon}^{el}
@@ -481,7 +481,7 @@ $$
 구분하기 위해 슬립계의 양에는 위첨자 $s$를 붙인다.
 
 외부 응력 $\boldsymbol\sigma$가 가해졌을 때 슬립계 $s$에 전달되는 **분해전단응력**은 다음과 같다.
-[8장]({% link assets/lecture_notes/3_1_metal_plasticity/metal_plasticity_08_force_stress.md %})의 면 위 견인력 $\boldsymbol\sigma\cdot\boldsymbol n^s$를 슬립방향 $\boldsymbol b^s$로 투영한 값이다.
+[8장](/assets/lecture_notes/3_1_metal_plasticity/metal_plasticity_08_force_stress.md)의 면 위 견인력 $\boldsymbol\sigma\cdot\boldsymbol n^s$를 슬립방향 $\boldsymbol b^s$로 투영한 값이다.
 
 $$
 \tau^s=({\boldsymbol\sigma}\cdot {\boldsymbol n}^s)\cdot \boldsymbol b^s=\sum_{i=1}^3\sum_{j=1}^3\sigma_{ij}n_i^sb_j^s
@@ -637,7 +637,7 @@ $d\boldsymbol\varepsilon^{pl}=\sum_s d\gamma^s\,\boldsymbol m^s$의 꼴이 되�
 
 항복조건, 유동법칙, 경화법칙은 각각 다른 역할을 한다.
 이 강의에서는 소성변형률의 방향과 크기($d\lambda$)가 어떻게 정해지는지 다루었다.
-다음 [소성일]({% link assets/lecture_notes/3_1_metal_plasticity/metal_plasticity_14_plastic_work.md %})에서는 소성변형 중에 소모되는 일과 등가 변형률을 다루고,
+다음 [소성일](/assets/lecture_notes/3_1_metal_plasticity/metal_plasticity_14_plastic_work.md)에서는 소성변형 중에 소모되는 일과 등가 변형률을 다루고,
 15장에서는 소성변형이 진행됨에 따라 $\sigma^Y$가 어떻게 변하는지(경화)를 다룬다.
 
 # 13. 연습 문제

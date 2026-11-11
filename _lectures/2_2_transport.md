@@ -13,16 +13,16 @@ toc: false
 * TOC
 {:toc}
 
-- [제1강 이동현상 개요]({% link assets/lecture_notes/2_2_transport_phenomena/transport_01_orientation.md %})
-- [제2강 유체정역학]({% link assets/lecture_notes/2_2_transport_phenomena/transport_02_fluid_statics.md %})
-- [제3강 뉴턴 유체와 운동량 전달]({% link assets/lecture_notes/2_2_transport_phenomena/transport_03_newtonian_viscosity.md %})
-- [제4강 열전달 기초]({% link assets/lecture_notes/2_2_transport_phenomena/transport_04_heat_transfer.md %})
-- [제5강 열전도 방정식]({% link assets/lecture_notes/2_2_transport_phenomena/transport_05_heat_equation.md %})
-- [제6강 열전도의 유한차분해석]({% link assets/lecture_notes/2_2_transport_phenomena/transport_06_heat_fdm.md %})
-- [제7강 비정상 열전도]({% link assets/lecture_notes/2_2_transport_phenomena/transport_07_transient_heat.md %})
-- [제8강 확산 기초]({% link assets/lecture_notes/2_2_transport_phenomena/transport_08_diffusion_basics.md %})
-- [제9강 정상상태 확산]({% link assets/lecture_notes/2_2_transport_phenomena/transport_09_steady_diffusion.md %})
-- [제10강 비정상 확산]({% link assets/lecture_notes/2_2_transport_phenomena/transport_10_transient_diffusion.md %})
+- [제1강 이동현상 개요](/assets/lecture_notes/2_2_transport_phenomena/transport_01_orientation.md)
+- [제2강 유체정역학](/assets/lecture_notes/2_2_transport_phenomena/transport_02_fluid_statics.md)
+- [제3강 뉴턴 유체와 운동량 전달](/assets/lecture_notes/2_2_transport_phenomena/transport_03_newtonian_viscosity.md)
+- [제4강 열전달 기초](/assets/lecture_notes/2_2_transport_phenomena/transport_04_heat_transfer.md)
+- [제5강 열전도 방정식](/assets/lecture_notes/2_2_transport_phenomena/transport_05_heat_equation.md)
+- [제6강 열전도의 유한차분해석](/assets/lecture_notes/2_2_transport_phenomena/transport_06_heat_fdm.md)
+- [제7강 비정상 열전도](/assets/lecture_notes/2_2_transport_phenomena/transport_07_transient_heat.md)
+- [제8강 확산 기초](/assets/lecture_notes/2_2_transport_phenomena/transport_08_diffusion_basics.md)
+- [제9강 정상상태 확산](/assets/lecture_notes/2_2_transport_phenomena/transport_09_steady_diffusion.md)
+- [제10강 비정상 확산](/assets/lecture_notes/2_2_transport_phenomena/transport_10_transient_diffusion.md)
 
 # 교과목 목표
 

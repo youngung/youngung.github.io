@@ -129,7 +129,7 @@ $$
 Eshelby의 절단 사고실험에 등장하는 계면 분포력과 같은 역할을 한다.
 
 이 등가 체적력의 도출 과정, Navier 방정식과의 관계, 특성함수의 분포미분 및 계면력의
-의미는 [Eigenstrain의 등가 체적력 유도 보충자료]({% link assets/lecture_notes/5_1_polycrystalline_plasticity/metal_plasticity_16b_eigenstrain_equivalent_body_force.md %})에서
+의미는 [Eigenstrain의 등가 체적력 유도 보충자료](/assets/lecture_notes/5_1_polycrystalline_plasticity/metal_plasticity_16b_eigenstrain_equivalent_body_force.md)에서
 자세히 설명한다.
 
 # 4. Kelvin Green 함수
@@ -151,7 +151,7 @@ $\mu$는 전단탄성계수다. 이 함수는 무한영역 Navier 연산자의 �
 체적력과 convolution하면 변위장을 얻는다.
 
 Navier 방정식에서 식 (3)을 직접 유도하는 과정과 각 텐서 항의 의미는
-[Kelvin Green 함수의 유도와 해석 보충자료]({% link assets/lecture_notes/5_1_polycrystalline_plasticity/metal_plasticity_16c_kelvin_green_function_derivation.md %})에서
+[Kelvin Green 함수의 유도와 해석 보충자료](/assets/lecture_notes/5_1_polycrystalline_plasticity/metal_plasticity_16c_kelvin_green_function_derivation.md)에서
 자세히 설명한다.
 
 고유변형률이 inclusion 내부에서 일정하므로 부분적분을 수행하면 체적적분을 inclusion
@@ -185,7 +185,7 @@ $$
 대칭화에서 나온다.
 
 Green 함수 convolution에서 식 (4)를 얻는 전체 과정은
-[Hill polarization tensor의 표면적분 유도 보충자료]({% link assets/lecture_notes/5_1_polycrystalline_plasticity/metal_plasticity_16d_hill_polarization_surface_integral.md %})에서
+[Hill polarization tensor의 표면적분 유도 보충자료](/assets/lecture_notes/5_1_polycrystalline_plasticity/metal_plasticity_16d_hill_polarization_surface_integral.md)에서
 자세히 설명한다.
 
 구형 inclusion의 반지름을 $a$라 하고 구의 중심을 원점으로 둔다. 계면 위의 source
@@ -284,7 +284,7 @@ $$
 $$
 
 Kelvin Green 함수의 미분, \(a^{-2}\)의 소거, 회전 불변성을 이용한 식 (5)–(6)의
-유도는 [Kelvin Green 함수 미분과 구면 모멘트 적분 보충자료]({% link assets/lecture_notes/5_1_polycrystalline_plasticity/metal_plasticity_16e_kelvin_spherical_moment_derivation.md %})에서
+유도는 [Kelvin Green 함수 미분과 구면 모멘트 적분 보충자료](/assets/lecture_notes/5_1_polycrystalline_plasticity/metal_plasticity_16e_kelvin_spherical_moment_derivation.md)에서
 자세히 설명한다.
 
 식 (5)–(6)을 대입해 정리하면 구형 inclusion의 polarization tensor는
@@ -550,4 +550,4 @@ s_D=2(4-5x0.30)/[15(1-0.30)]=0.47619이다.
 2. T. Mura, *Micromechanics of Defects in Solids*, 2nd ed., Martinus Nijhoff
    Publishers (1987).
 
-[주 강의로 돌아가기]({% link assets/lecture_notes/5_1_polycrystalline_plasticity/metal_plasticity_16_eshelby_inclusion.md %})
+[주 강의로 돌아가기](/assets/lecture_notes/5_1_polycrystalline_plasticity/metal_plasticity_16_eshelby_inclusion.md)

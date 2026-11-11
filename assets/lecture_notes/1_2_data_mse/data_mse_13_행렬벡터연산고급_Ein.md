@@ -967,7 +967,7 @@ print(np.allclose(C_ones, 36))  # True: 각 성분은 1을 36번 더한 값
 
 # 8. 브로드캐스팅을 인덱스로 이해하기
 
-[10장 8절]({% link assets/lecture_notes/1_2_data_mse/data_mse_10_NumPy기초2.md %})에서 배운
+[10장 8절](/assets/lecture_notes/1_2_data_mse/data_mse_10_NumPy기초2.md)에서 배운
 브로드캐스팅을 인덱스로 다시 해석해 보자. 앞에서 다룬 수축 연산과 달리,
 브로드캐스팅 자체는 특정 축을 합산하지 않는다.
 

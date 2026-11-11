@@ -88,7 +88,7 @@ $$
 로 나눌 수 있다. 첫 항은 유동에 의한 전달, 둘째 항은 그 평균 운동에 대한
 상대 확산이다. 정지한 고체에서는 고체에 고정된 좌표계를 사용하여 확산만
 고려하는 경우가 많다. 확산과 이류를 더 자세히 구분하는 내용은
-[제8강]({% link assets/lecture_notes/2_2_transport_phenomena/transport_08_diffusion_basics.md %})에서 다룬다.
+[제8강](/assets/lecture_notes/2_2_transport_phenomena/transport_08_diffusion_basics.md)에서 다룬다.
 
 이 강의의 $\tau_{yx}$는 **$+y$ 방향으로 전달되는 $x$ 운동량의 점성 플럭스**로
 정의한다. 고체역학의 면에 작용하는 전단응력과는 부호 관례가 다를 수 있다.[^momentum-sign]
@@ -203,8 +203,8 @@ $$
 - [MIT OCW 3.185 강의노트 목록](https://ocw.mit.edu/courses/3-185-transport-phenomena-in-materials-engineering-fall-2003/pages/lecture-notes/): 운동량·열·물질 전달을 함께 공부할 때 사용할 공개 강의자료이다. 확산, 열전도, 유체 유동 순으로 나뉘어 있다.
 - [MIT OCW 3.205 강의노트 목록](https://ocw.mit.edu/courses/3-205-thermodynamics-and-kinetics-of-materials-fall-2006/pages/lecture-notes/): 심화 학습에서는 L1의 장·구배·플럭스·연속방정식 항목을 살펴본다.
 
-- [제5강: 열전도 방정식]({% link assets/lecture_notes/2_2_transport_phenomena/transport_05_heat_equation.md %})
-- [제8강: 확산 기초]({% link assets/lecture_notes/2_2_transport_phenomena/transport_08_diffusion_basics.md %})
+- [제5강: 열전도 방정식](/assets/lecture_notes/2_2_transport_phenomena/transport_05_heat_equation.md)
+- [제8강: 확산 기초](/assets/lecture_notes/2_2_transport_phenomena/transport_08_diffusion_basics.md)
 
 ---
 

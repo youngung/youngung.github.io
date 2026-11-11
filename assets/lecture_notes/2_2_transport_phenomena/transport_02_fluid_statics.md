@@ -188,8 +188,8 @@ $$F_B=(p_{bottom}-p_{top})A=\rho_f gHA=\rho_f gV$$
 - [OpenStax: Fluids, Density, and Pressure](https://openstax.org/books/university-physics-volume-1/pages/14-1-fluids-density-and-pressure): 압력과 깊이의 관계를 복습할 수 있다.
 - [OpenStax: Archimedes’ Principle and Buoyancy](https://openstax.org/books/university-physics-volume-1/pages/14-4-archimedes-principle-and-buoyancy): 부력과 잠긴 부피의 관계를 예제와 함께 확인한다.
 
-- [제1강: 이동현상 개요]({% link assets/lecture_notes/2_2_transport_phenomena/transport_01_orientation.md %})
-- [제3강: 뉴턴 유체와 운동량 전달]({% link assets/lecture_notes/2_2_transport_phenomena/transport_03_newtonian_viscosity.md %})
+- [제1강: 이동현상 개요](/assets/lecture_notes/2_2_transport_phenomena/transport_01_orientation.md)
+- [제3강: 뉴턴 유체와 운동량 전달](/assets/lecture_notes/2_2_transport_phenomena/transport_03_newtonian_viscosity.md)
 
 ---
 

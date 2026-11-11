@@ -210,8 +210,8 @@ $$
 
 - [MIT OCW 3.185: Heat Conduction](https://ocw.mit.edu/courses/3-185-transport-phenomena-in-materials-engineering-fall-2003/resources/chap3/): PDF의 Finite Differences 부분에서 미분방정식을 절점 방정식으로 바꾸는 방법을 비교한다.
 
-- [제5강: 열전도 방정식]({% link assets/lecture_notes/2_2_transport_phenomena/transport_05_heat_equation.md %})
-- [제10강: 비정상 확산]({% link assets/lecture_notes/2_2_transport_phenomena/transport_10_transient_diffusion.md %})
+- [제5강: 열전도 방정식](/assets/lecture_notes/2_2_transport_phenomena/transport_05_heat_equation.md)
+- [제10강: 비정상 확산](/assets/lecture_notes/2_2_transport_phenomena/transport_10_transient_diffusion.md)
 
 ---
 

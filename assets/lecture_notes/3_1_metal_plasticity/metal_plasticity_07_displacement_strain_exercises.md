@@ -29,10 +29,10 @@ authors:
 
 관련 자료는 다음 순서로 읽을 수 있다.
 
-- [변위와 미소변형률]({% link assets/lecture_notes/3_1_metal_plasticity/metal_plasticity_06_displacement_strain.md %})
-- [변위와 미소변형률 연습문제]({% link assets/lecture_notes/3_1_metal_plasticity/metal_plasticity_07_displacement_strain_exercises.md %})
-- [유한변형의 운동학]({% link assets/lecture_notes/3_1_metal_plasticity/metal_plasticity_supp_02_finite_strain.md %})
-- [물질미분]({% link assets/lecture_notes/3_1_metal_plasticity/metal_plasticity_supp_03_material_derivative.md %})
+- [변위와 미소변형률](/assets/lecture_notes/3_1_metal_plasticity/metal_plasticity_06_displacement_strain.md)
+- [변위와 미소변형률 연습문제](/assets/lecture_notes/3_1_metal_plasticity/metal_plasticity_07_displacement_strain_exercises.md)
+- [유한변형의 운동학](/assets/lecture_notes/3_1_metal_plasticity/metal_plasticity_supp_02_finite_strain.md)
+- [물질미분](/assets/lecture_notes/3_1_metal_plasticity/metal_plasticity_supp_03_material_derivative.md)
 
 <span id="14-연습-문제"></span>
 

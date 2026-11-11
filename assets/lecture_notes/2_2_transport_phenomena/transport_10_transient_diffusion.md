@@ -154,7 +154,7 @@ D, x = 1.0e-11, 0.5e-3
 print("time [h]:", x**2 / (4.0 * D * eta**2) / 3600.0)
 ```
 
-이는 [수치해석의 이분법]({% link assets/lecture_notes/2_1_numerical_analysis/numerical_analysis_04_bisect.md %})을
+이는 [수치해석의 이분법](/assets/lecture_notes/2_1_numerical_analysis/numerical_analysis_04_bisect.md)을
 확산 문제에 적용한 예이다. $\beta$가 0이나 1이면 위 역산의 유한한 양의 시간
 해석을 별도로 살펴야 한다.
 
@@ -254,8 +254,8 @@ $$
 - [MIT OCW 3.205: 확산·열방정식 해법](https://ocw.mit.edu/courses/3-205-thermodynamics-and-kinetics-of-materials-fall-2006/pages/lecture-notes/): L3의 Fick 제2법칙 해법을 심화 학습에 활용한다.
 - [Python 공식 문서: math.erf와 math.erfc](https://docs.python.org/3/library/math.html#math.erf): 예제에서 사용한 오차함수의 정의와 함수 사용법을 확인한다.
 
-- [제6강: 열전도의 유한차분해석]({% link assets/lecture_notes/2_2_transport_phenomena/transport_06_heat_fdm.md %})
-- [제7강: 비정상 열전도]({% link assets/lecture_notes/2_2_transport_phenomena/transport_07_transient_heat.md %})
+- [제6강: 열전도의 유한차분해석](/assets/lecture_notes/2_2_transport_phenomena/transport_06_heat_fdm.md)
+- [제7강: 비정상 열전도](/assets/lecture_notes/2_2_transport_phenomena/transport_07_transient_heat.md)
 
 ---
 

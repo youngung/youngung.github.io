@@ -184,7 +184,7 @@ $$
 
 # 5. 경사하강법으로 풀기
 
-위 벌점함수를 [경사하강법]({% link assets/lecture_notes/2_1_numerical_analysis/numerical_analysis_10_GradientDescent.md %})으로 최소화해 보자. 반복식은
+위 벌점함수를 [경사하강법](/assets/lecture_notes/2_1_numerical_analysis/numerical_analysis_10_GradientDescent.md)으로 최소화해 보자. 반복식은
 
 $$
 x^{(k+1)}

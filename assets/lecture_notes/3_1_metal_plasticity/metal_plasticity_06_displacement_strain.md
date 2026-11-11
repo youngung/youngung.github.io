@@ -29,10 +29,10 @@ authors:
 
 관련 자료는 다음 순서로 읽을 수 있다.
 
-- [변위와 미소변형률]({% link assets/lecture_notes/3_1_metal_plasticity/metal_plasticity_06_displacement_strain.md %})
-- [변위와 미소변형률 연습문제]({% link assets/lecture_notes/3_1_metal_plasticity/metal_plasticity_07_displacement_strain_exercises.md %})
-- [유한변형의 운동학]({% link assets/lecture_notes/3_1_metal_plasticity/metal_plasticity_supp_02_finite_strain.md %})
-- [물질미분]({% link assets/lecture_notes/3_1_metal_plasticity/metal_plasticity_supp_03_material_derivative.md %})
+- [변위와 미소변형률](/assets/lecture_notes/3_1_metal_plasticity/metal_plasticity_06_displacement_strain.md)
+- [변위와 미소변형률 연습문제](/assets/lecture_notes/3_1_metal_plasticity/metal_plasticity_07_displacement_strain_exercises.md)
+- [유한변형의 운동학](/assets/lecture_notes/3_1_metal_plasticity/metal_plasticity_supp_02_finite_strain.md)
+- [물질미분](/assets/lecture_notes/3_1_metal_plasticity/metal_plasticity_supp_03_material_derivative.md)
 
 # 1. 위치 (position)와 변위 (displacement)
 
@@ -74,7 +74,7 @@ $\boldsymbol X$와 $\boldsymbol x$는 서로 다른 두 점이 아니라 그 점
 
 뒤에서 배우는 **미소변형률 (infinitesimal strain)**은 변위구배가 작다는 근사에 기초한다.
 따라서 강체회전도 회전각이 작을 때만 올바르게 처리한다.
-큰 회전에서도 변형률이 0이 되는 이유는 [유한변형률]({% link assets/lecture_notes/3_1_metal_plasticity/metal_plasticity_supp_02_finite_strain.md %}#11-유한변형률-finite-strain)에서 확인한다.
+큰 회전에서도 변형률이 0이 되는 이유는 [유한변형률](/assets/lecture_notes/3_1_metal_plasticity/metal_plasticity_supp_02_finite_strain.md#11-유한변형률-finite-strain)에서 확인한다.
 
 # 4. 변위장 (displacement field)
 
@@ -89,7 +89,7 @@ $$
 
 이 식은 기준 위치가 $\boldsymbol X$인 물질점의 현재 위치를 알려 준다.
 5–9절의 변위장은 모두 이 기준 좌표를 사용하며, 특정 시점의 변형을 다루므로 시간 변수($t$)는 생략한다.
-현재 위치 $\boldsymbol x$를 기준으로 표현하는 방법은 [Lagrangian과 Eulerian 기술법]({% link assets/lecture_notes/3_1_metal_plasticity/metal_plasticity_supp_02_finite_strain.md %})에서 비교한다.
+현재 위치 $\boldsymbol x$를 기준으로 표현하는 방법은 [Lagrangian과 Eulerian 기술법](/assets/lecture_notes/3_1_metal_plasticity/metal_plasticity_supp_02_finite_strain.md)에서 비교한다.
 
 # 5. 1차원 공간에서의 변위와 변형률
 
@@ -252,7 +252,7 @@ $$
 점선은 기준 형상, 실선은 $\boldsymbol x=\boldsymbol X+\boldsymbol u(\boldsymbol X)$로 계산한 현재 형상이다.
 빨간 화살표는 기준 형상 오른쪽 위 꼭짓점의 변위다.
 형상 차이를 보기 쉽게 계수를 크게 잡았으므로, 이 예제에서 미소변형률 공식으로 구한 값은
-정확한 유한변형률과 구분해야 한다. 정확한 길이 변화는 [유한변형률 자료]({% link assets/lecture_notes/3_1_metal_plasticity/metal_plasticity_supp_02_finite_strain.md %})에서 다룬다.
+정확한 유한변형률과 구분해야 한다. 정확한 길이 변화는 [유한변형률 자료](/assets/lecture_notes/3_1_metal_plasticity/metal_plasticity_supp_02_finite_strain.md)에서 다룬다.
 
 [^reference-gradient]: $\nabla_X$는 변형 전 기준좌표에 대한 공간미분 연산자다. 기준좌표와 연산자는
 
@@ -270,7 +270,7 @@ $$
     (\nabla_X\boldsymbol u)_{ij}=\frac{\partial u_i}{\partial X_j}
     $$
 
-    로 정의한다. 따라서 행 $i$는 변위 성분, 열 $j$는 미분하는 기준좌표 방향을 나타낸다. 아래첨자 $X$는 벡터의 성분 첨자가 아니라 **미분에 사용하는 좌표**를 표시한다. 현재좌표에 대한 연산자 $\nabla_x$와는 구분하며, 두 구배의 차이는 [Lagrangian과 Eulerian 기술법]({% link assets/lecture_notes/3_1_metal_plasticity/metal_plasticity_supp_02_finite_strain.md %})에서 설명한다. 2차원 문제에서는 두 기준좌표 방향의 미분만 사용한다.
+    로 정의한다. 따라서 행 $i$는 변위 성분, 열 $j$는 미분하는 기준좌표 방향을 나타낸다. 아래첨자 $X$는 벡터의 성분 첨자가 아니라 **미분에 사용하는 좌표**를 표시한다. 현재좌표에 대한 연산자 $\nabla_x$와는 구분하며, 두 구배의 차이는 [Lagrangian과 Eulerian 기술법](/assets/lecture_notes/3_1_metal_plasticity/metal_plasticity_supp_02_finite_strain.md)에서 설명한다. 2차원 문제에서는 두 기준좌표 방향의 미분만 사용한다.
 
 
 # 8. 변위구배의 대칭부분과 반대칭부분
@@ -292,7 +292,7 @@ $$
 이 additive 분해 자체는 정확한 행렬 항등식이다. 다만 대칭부분을 변형률, 반대칭부분을 회전으로
 해석하는 것은 작은 변위구배를 가정한 근사다. 그 근사에서 $\boldsymbol\varepsilon$은
 길이와 각도의 변화를, $\boldsymbol\omega$는 **미소회전 (infinitesimal rotation)**을 나타낸다.
-유한회전(finite rotation)과 신장(stretch)의 분리는 [극분해(polar decomposition)]({% link assets/lecture_notes/3_1_metal_plasticity/metal_plasticity_supp_02_finite_strain.md %}#12-극분해-polar-decomposition)로 다룬다.
+유한회전(finite rotation)과 신장(stretch)의 분리는 [극분해(polar decomposition)](/assets/lecture_notes/3_1_metal_plasticity/metal_plasticity_supp_02_finite_strain.md#12-극분해-polar-decomposition)로 다룬다.
 
 **공학전단변형률 (engineering shear strain)**과 텐서 전단변형률의 관계는
 
@@ -384,143 +384,143 @@ $$
 
 <span id="10-lagrangian과-eulerian-기술법"></span>
 
-[10. Lagrangian과 Eulerian 기술법]({% link assets/lecture_notes/3_1_metal_plasticity/metal_plasticity_supp_02_finite_strain.md %}#10-lagrangian과-eulerian-기술법)
+[10. Lagrangian과 Eulerian 기술법](/assets/lecture_notes/3_1_metal_plasticity/metal_plasticity_supp_02_finite_strain.md#10-lagrangian과-eulerian-기술법)
 
 <span id="101-같은-물질점과-같은-공간-위치"></span>
 
-[10.1. 같은 물질점과 같은 공간 위치]({% link assets/lecture_notes/3_1_metal_plasticity/metal_plasticity_supp_02_finite_strain.md %}#101-같은-물질점과-같은-공간-위치)
+[10.1. 같은 물질점과 같은 공간 위치](/assets/lecture_notes/3_1_metal_plasticity/metal_plasticity_supp_02_finite_strain.md#101-같은-물질점과-같은-공간-위치)
 
 <span id="102-앞의-1차원-인장을-두-기술법으로-표현하기"></span>
 
-[10.2. 앞의 1차원 인장을 두 기술법으로 표현하기]({% link assets/lecture_notes/3_1_metal_plasticity/metal_plasticity_supp_02_finite_strain.md %}#102-앞의-1차원-인장을-두-기술법으로-표현하기)
+[10.2. 앞의 1차원 인장을 두 기술법으로 표현하기](/assets/lecture_notes/3_1_metal_plasticity/metal_plasticity_supp_02_finite_strain.md#102-앞의-1차원-인장을-두-기술법으로-표현하기)
 
 <span id="11-유한변형률-finite-strain"></span>
 
-[11. 유한변형률 (finite strain)]({% link assets/lecture_notes/3_1_metal_plasticity/metal_plasticity_supp_02_finite_strain.md %}#11-유한변형률-finite-strain)
+[11. 유한변형률 (finite strain)](/assets/lecture_notes/3_1_metal_plasticity/metal_plasticity_supp_02_finite_strain.md#11-유한변형률-finite-strain)
 
 <span id="111-변형구배-deformation-gradient"></span>
 
-[11.1. 변형구배 (deformation gradient)]({% link assets/lecture_notes/3_1_metal_plasticity/metal_plasticity_supp_02_finite_strain.md %}#111-변형구배-deformation-gradient)
+[11.1. 변형구배 (deformation gradient)](/assets/lecture_notes/3_1_metal_plasticity/metal_plasticity_supp_02_finite_strain.md#111-변형구배-deformation-gradient)
 
 <span id="112-길이-변화로부터-정의하는-유한변형률"></span>
 
-[11.2. 길이 변화로부터 정의하는 유한변형률]({% link assets/lecture_notes/3_1_metal_plasticity/metal_plasticity_supp_02_finite_strain.md %}#112-길이-변화로부터-정의하는-유한변형률)
+[11.2. 길이 변화로부터 정의하는 유한변형률](/assets/lecture_notes/3_1_metal_plasticity/metal_plasticity_supp_02_finite_strain.md#112-길이-변화로부터-정의하는-유한변형률)
 
 <span id="113-1차원-인장과-강체회전의-비교"></span>
 
-[11.3. 1차원 인장과 강체회전의 비교]({% link assets/lecture_notes/3_1_metal_plasticity/metal_plasticity_supp_02_finite_strain.md %}#113-1차원-인장과-강체회전의-비교)
+[11.3. 1차원 인장과 강체회전의 비교](/assets/lecture_notes/3_1_metal_plasticity/metal_plasticity_supp_02_finite_strain.md#113-1차원-인장과-강체회전의-비교)
 
 <span id="12-극분해-polar-decomposition"></span>
 
-[12. 극분해 (polar decomposition)]({% link assets/lecture_notes/3_1_metal_plasticity/metal_plasticity_supp_02_finite_strain.md %}#12-극분해-polar-decomposition)
+[12. 극분해 (polar decomposition)](/assets/lecture_notes/3_1_metal_plasticity/metal_plasticity_supp_02_finite_strain.md#12-극분해-polar-decomposition)
 
 <span id="121-회전과-신장의-분리"></span>
 
-[12.1. 회전과 신장의 분리]({% link assets/lecture_notes/3_1_metal_plasticity/metal_plasticity_supp_02_finite_strain.md %}#121-회전과-신장의-분리)
+[12.1. 회전과 신장의 분리](/assets/lecture_notes/3_1_metal_plasticity/metal_plasticity_supp_02_finite_strain.md#121-회전과-신장의-분리)
 
 <span id="122-신장-후-회전하는-예제"></span>
 
-[12.2. 신장 후 회전하는 예제]({% link assets/lecture_notes/3_1_metal_plasticity/metal_plasticity_supp_02_finite_strain.md %}#122-신장-후-회전하는-예제)
+[12.2. 신장 후 회전하는 예제](/assets/lecture_notes/3_1_metal_plasticity/metal_plasticity_supp_02_finite_strain.md#122-신장-후-회전하는-예제)
 
 <span id="14-연습-문제"></span>
 
-[14. 연습 문제]({% link assets/lecture_notes/3_1_metal_plasticity/metal_plasticity_07_displacement_strain_exercises.md %}#14-연습-문제)
+[14. 연습 문제](/assets/lecture_notes/3_1_metal_plasticity/metal_plasticity_07_displacement_strain_exercises.md#14-연습-문제)
 
 <span id="문제-1"></span>
 
-[문제 1]({% link assets/lecture_notes/3_1_metal_plasticity/metal_plasticity_07_displacement_strain_exercises.md %}#문제-1)
+[문제 1](/assets/lecture_notes/3_1_metal_plasticity/metal_plasticity_07_displacement_strain_exercises.md#문제-1)
 
 <span id="문제-2"></span>
 
-[문제 2]({% link assets/lecture_notes/3_1_metal_plasticity/metal_plasticity_07_displacement_strain_exercises.md %}#문제-2)
+[문제 2](/assets/lecture_notes/3_1_metal_plasticity/metal_plasticity_07_displacement_strain_exercises.md#문제-2)
 
 <span id="문제-3"></span>
 
-[문제 3]({% link assets/lecture_notes/3_1_metal_plasticity/metal_plasticity_07_displacement_strain_exercises.md %}#문제-3)
+[문제 3](/assets/lecture_notes/3_1_metal_plasticity/metal_plasticity_07_displacement_strain_exercises.md#문제-3)
 
 <span id="문제-4"></span>
 
-[문제 4]({% link assets/lecture_notes/3_1_metal_plasticity/metal_plasticity_07_displacement_strain_exercises.md %}#문제-4)
+[문제 4](/assets/lecture_notes/3_1_metal_plasticity/metal_plasticity_07_displacement_strain_exercises.md#문제-4)
 
 <span id="문제-5"></span>
 
-[문제 5]({% link assets/lecture_notes/3_1_metal_plasticity/metal_plasticity_07_displacement_strain_exercises.md %}#문제-5)
+[문제 5](/assets/lecture_notes/3_1_metal_plasticity/metal_plasticity_07_displacement_strain_exercises.md#문제-5)
 
 <span id="문제-6"></span>
 
-[문제 6]({% link assets/lecture_notes/3_1_metal_plasticity/metal_plasticity_07_displacement_strain_exercises.md %}#문제-6)
+[문제 6](/assets/lecture_notes/3_1_metal_plasticity/metal_plasticity_07_displacement_strain_exercises.md#문제-6)
 
 <span id="문제-7"></span>
 
-[문제 7]({% link assets/lecture_notes/3_1_metal_plasticity/metal_plasticity_07_displacement_strain_exercises.md %}#문제-7)
+[문제 7](/assets/lecture_notes/3_1_metal_plasticity/metal_plasticity_07_displacement_strain_exercises.md#문제-7)
 
 <span id="문제-8"></span>
 
-[문제 8]({% link assets/lecture_notes/3_1_metal_plasticity/metal_plasticity_07_displacement_strain_exercises.md %}#문제-8)
+[문제 8](/assets/lecture_notes/3_1_metal_plasticity/metal_plasticity_07_displacement_strain_exercises.md#문제-8)
 
 <span id="문제-9"></span>
 
-[문제 9]({% link assets/lecture_notes/3_1_metal_plasticity/metal_plasticity_07_displacement_strain_exercises.md %}#문제-9)
+[문제 9](/assets/lecture_notes/3_1_metal_plasticity/metal_plasticity_07_displacement_strain_exercises.md#문제-9)
 
 <span id="문제-10"></span>
 
-[문제 10]({% link assets/lecture_notes/3_1_metal_plasticity/metal_plasticity_07_displacement_strain_exercises.md %}#문제-10)
+[문제 10](/assets/lecture_notes/3_1_metal_plasticity/metal_plasticity_07_displacement_strain_exercises.md#문제-10)
 
 <span id="문제-11"></span>
 
-[문제 11]({% link assets/lecture_notes/3_1_metal_plasticity/metal_plasticity_07_displacement_strain_exercises.md %}#문제-11)
+[문제 11](/assets/lecture_notes/3_1_metal_plasticity/metal_plasticity_07_displacement_strain_exercises.md#문제-11)
 
 <span id="문제-12"></span>
 
-[문제 12]({% link assets/lecture_notes/3_1_metal_plasticity/metal_plasticity_07_displacement_strain_exercises.md %}#문제-12)
+[문제 12](/assets/lecture_notes/3_1_metal_plasticity/metal_plasticity_07_displacement_strain_exercises.md#문제-12)
 
 <span id="문제-13"></span>
 
-[문제 13]({% link assets/lecture_notes/3_1_metal_plasticity/metal_plasticity_07_displacement_strain_exercises.md %}#문제-13)
+[문제 13](/assets/lecture_notes/3_1_metal_plasticity/metal_plasticity_07_displacement_strain_exercises.md#문제-13)
 
 <span id="문제-14"></span>
 
-[문제 14]({% link assets/lecture_notes/3_1_metal_plasticity/metal_plasticity_07_displacement_strain_exercises.md %}#문제-14)
+[문제 14](/assets/lecture_notes/3_1_metal_plasticity/metal_plasticity_07_displacement_strain_exercises.md#문제-14)
 
 <span id="문제-15"></span>
 
-[문제 15]({% link assets/lecture_notes/3_1_metal_plasticity/metal_plasticity_07_displacement_strain_exercises.md %}#문제-15)
+[문제 15](/assets/lecture_notes/3_1_metal_plasticity/metal_plasticity_07_displacement_strain_exercises.md#문제-15)
 
 <span id="문제-16"></span>
 
-[문제 16]({% link assets/lecture_notes/3_1_metal_plasticity/metal_plasticity_07_displacement_strain_exercises.md %}#문제-16)
+[문제 16](/assets/lecture_notes/3_1_metal_plasticity/metal_plasticity_07_displacement_strain_exercises.md#문제-16)
 
 <span id="부록-a-물질미분-material-derivative"></span>
 
-[부록 A. 물질미분 (material derivative)]({% link assets/lecture_notes/3_1_metal_plasticity/metal_plasticity_supp_03_material_derivative.md %}#부록-a-물질미분-material-derivative)
+[부록 A. 물질미분 (material derivative)](/assets/lecture_notes/3_1_metal_plasticity/metal_plasticity_supp_03_material_derivative.md#부록-a-물질미분-material-derivative)
 
 <span id="a1-물질점을-따라-관찰하는-변화율"></span>
 
-[A.1. 물질점을 따라 관찰하는 변화율]({% link assets/lecture_notes/3_1_metal_plasticity/metal_plasticity_supp_03_material_derivative.md %}#a1-물질점을-따라-관찰하는-변화율)
+[A.1. 물질점을 따라 관찰하는 변화율](/assets/lecture_notes/3_1_metal_plasticity/metal_plasticity_supp_03_material_derivative.md#a1-물질점을-따라-관찰하는-변화율)
 
 <span id="a2-시간에-따라-변하지-않는-온도장에서의-물질미분"></span>
 
-[A.2. 시간에 따라 변하지 않는 온도장에서의 물질미분]({% link assets/lecture_notes/3_1_metal_plasticity/metal_plasticity_supp_03_material_derivative.md %}#a2-시간에-따라-변하지-않는-온도장에서의-물질미분)
+[A.2. 시간에 따라 변하지 않는 온도장에서의 물질미분](/assets/lecture_notes/3_1_metal_plasticity/metal_plasticity_supp_03_material_derivative.md#a2-시간에-따라-변하지-않는-온도장에서의-물질미분)
 
 <span id="a3-공간과-시간에-모두-의존하는-온도장"></span>
 
-[A.3. 공간과 시간에 모두 의존하는 온도장]({% link assets/lecture_notes/3_1_metal_plasticity/metal_plasticity_supp_03_material_derivative.md %}#a3-공간과-시간에-모두-의존하는-온도장)
+[A.3. 공간과 시간에 모두 의존하는 온도장](/assets/lecture_notes/3_1_metal_plasticity/metal_plasticity_supp_03_material_derivative.md#a3-공간과-시간에-모두-의존하는-온도장)
 
 <span id="a4-속도의-물질미분과-가속도"></span>
 
-[A.4. 속도의 물질미분과 가속도]({% link assets/lecture_notes/3_1_metal_plasticity/metal_plasticity_supp_03_material_derivative.md %}#a4-속도의-물질미분과-가속도)
+[A.4. 속도의 물질미분과 가속도](/assets/lecture_notes/3_1_metal_plasticity/metal_plasticity_supp_03_material_derivative.md#a4-속도의-물질미분과-가속도)
 
 </details>
 
 <span id="fn:squared-length"></span>
 <span id="fnref:squared-length"></span>
 
-[유한변형률 설명: 선분의 제곱 길이]({% link assets/lecture_notes/3_1_metal_plasticity/metal_plasticity_supp_02_finite_strain.md %}#fn:squared-length)
+[유한변형률 설명: 선분의 제곱 길이](/assets/lecture_notes/3_1_metal_plasticity/metal_plasticity_supp_02_finite_strain.md#fn:squared-length)
 
 <span id="fn:line-element-quadratic-form"></span>
 <span id="fnref:line-element-quadratic-form"></span>
 
-[유한변형률 설명: 이차형식의 계산]({% link assets/lecture_notes/3_1_metal_plasticity/metal_plasticity_supp_02_finite_strain.md %}#fn:line-element-quadratic-form)
+[유한변형률 설명: 이차형식의 계산](/assets/lecture_notes/3_1_metal_plasticity/metal_plasticity_supp_02_finite_strain.md#fn:line-element-quadratic-form)
 
 ---
 

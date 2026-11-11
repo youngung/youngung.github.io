@@ -29,20 +29,20 @@ authors:
 
 이 자료는 연속체의 좌표 기술법, 변형구배, 유한변형률과 극분해를 다룬다.
 VPSC에 적용하는 속도구배와 결정립의 운동은
-[VPSC의 운동학]({% link assets/lecture_notes/5_1_polycrystalline_plasticity/metal_plasticity_15_kinematics.md %})에서 다룬다.
+[VPSC의 운동학](/assets/lecture_notes/5_1_polycrystalline_plasticity/metal_plasticity_15_kinematics.md)에서 다룬다.
 
 관련 자료는 다음 순서로 읽을 수 있다.
 
-- [변위와 미소변형률]({% link assets/lecture_notes/5_1_polycrystalline_plasticity/metal_plasticity_05_displacement_strain.md %})
-- [변위와 미소변형률 연습문제]({% link assets/lecture_notes/5_1_polycrystalline_plasticity/metal_plasticity_05d_displacement_strain_exercises.md %})
-- [유한변형의 운동학]({% link assets/lecture_notes/5_1_polycrystalline_plasticity/metal_plasticity_05b_descriptions_finite_strain.md %})
-- [물질미분과 ALE 기술법]({% link assets/lecture_notes/5_1_polycrystalline_plasticity/metal_plasticity_05c_material_derivative_ale.md %})
+- [변위와 미소변형률](/assets/lecture_notes/5_1_polycrystalline_plasticity/metal_plasticity_05_displacement_strain.md)
+- [변위와 미소변형률 연습문제](/assets/lecture_notes/5_1_polycrystalline_plasticity/metal_plasticity_05d_displacement_strain_exercises.md)
+- [유한변형의 운동학](/assets/lecture_notes/5_1_polycrystalline_plasticity/metal_plasticity_05b_descriptions_finite_strain.md)
+- [물질미분과 ALE 기술법](/assets/lecture_notes/5_1_polycrystalline_plasticity/metal_plasticity_05c_material_derivative_ale.md)
 
 <span id="10-lagrangian과-eulerian-기술법"></span>
 
 # 1. Lagrangian과 Eulerian 기술법
 
-[변위와 미소변형률 자료]({% link assets/lecture_notes/5_1_polycrystalline_plasticity/metal_plasticity_05_displacement_strain.md %})에서는 변형 전 위치($\boldsymbol X$)를 기준으로 변위를 표현했다. 이제 같은
+[변위와 미소변형률 자료](/assets/lecture_notes/5_1_polycrystalline_plasticity/metal_plasticity_05_displacement_strain.md)에서는 변형 전 위치($\boldsymbol X$)를 기준으로 변위를 표현했다. 이제 같은
 운동을 현재 위치($\boldsymbol x$)를 기준으로 표현하면 무엇이 달라지는지
 살펴보자.
 
@@ -76,7 +76,7 @@ $$
 
 두 기술법은 같은 운동을 서로 다른 독립변수로 표현한다. 변위값은 같은 물질점에서
 같지만, $\nabla_X\boldsymbol u_L$과 $\nabla_x\boldsymbol u_E$는 일반적으로 다르다.
-[변위와 미소변형률 자료의 5–9절]({% link assets/lecture_notes/5_1_polycrystalline_plasticity/metal_plasticity_05_displacement_strain.md %})은 기준 좌표 구배를 사용했다. 변위구배가 작을 때에는 현재 좌표 구배와
+[변위와 미소변형률 자료의 5–9절](/assets/lecture_notes/5_1_polycrystalline_plasticity/metal_plasticity_05_displacement_strain.md)은 기준 좌표 구배를 사용했다. 변위구배가 작을 때에는 현재 좌표 구배와
 거의 같지만, 유한변형에서는 두 구배를 구분해야 한다.
 
 두 기술법의 차이를 요약하면 다음과 같다.
@@ -94,7 +94,7 @@ $$
 
 ## 1.2. 앞의 1차원 인장을 두 기술법으로 표현하기
 
-[기본 자료 6절]({% link assets/lecture_notes/5_1_polycrystalline_plasticity/metal_plasticity_05_displacement_strain.md %}#6-1차원-예제)의 $u(X)=0.01X$를 다시 생각하자. 이 예제를 일반화하기 위해
+[기본 자료 6절](/assets/lecture_notes/5_1_polycrystalline_plasticity/metal_plasticity_05_displacement_strain.md#6-1차원-예제)의 $u(X)=0.01X$를 다시 생각하자. 이 예제를 일반화하기 위해
 **신장비 (stretch ratio)**를 먼저 정의한다.
 
 $$
@@ -103,7 +103,7 @@ $$
 
 여기서 $l_0$는 초기 길이, $l$은 변형 후 길이이며, $\Lambda$는 무차원이다.
 $\Lambda=1$이면 길이 변화가 없고, $\Lambda>1$이면 인장, $0<\Lambda<1$이면 압축이다.
-[기본 자료 6절]({% link assets/lecture_notes/5_1_polycrystalline_plasticity/metal_plasticity_05_displacement_strain.md %}#6-1차원-예제)의 예제는 $\Lambda=1.01$에 해당한다.
+[기본 자료 6절](/assets/lecture_notes/5_1_polycrystalline_plasticity/metal_plasticity_05_displacement_strain.md#6-1차원-예제)의 예제는 $\Lambda=1.01$에 해당한다.
 이 기호를 사용하면 작은 변형과 큰 변형에서 두 기술법을 같은 식으로 비교할 수 있다.
 
 평행이동 없이 원점을 고정한 균일 변형 $x=\Lambda X$에서
@@ -121,13 +121,13 @@ $$
 \qquad \frac{du_E}{dx}=1-\frac1\Lambda.
 $$
 
-[기본 자료 6절]({% link assets/lecture_notes/5_1_polycrystalline_plasticity/metal_plasticity_05_displacement_strain.md %}#6-1차원-예제)처럼 $\Lambda=1.01$이면 두 값은 $0.01$과 약 $0.009901$로 가깝다.
+[기본 자료 6절](/assets/lecture_notes/5_1_polycrystalline_plasticity/metal_plasticity_05_displacement_strain.md#6-1차원-예제)처럼 $\Lambda=1.01$이면 두 값은 $0.01$과 약 $0.009901$로 가깝다.
 반면 $\Lambda=1.5$이면 $0.5$와 약 $0.3333$으로 차이가 커진다.
 두 기술법이 다른 변형을 뜻하는 것이 아니라, **미분에 사용하는 좌표가 다르기 때문**이다.
 
 이 구분을 바탕으로 다음 절에서는 기준 배치의 선분이 현재 배치로 어떻게 변환되는지 다룬다.
-물질점을 따라 관찰하는 시간 변화율은 [물질미분 자료]({% link assets/lecture_notes/5_1_polycrystalline_plasticity/metal_plasticity_05c_material_derivative_ale.md %}),
-계산 격자의 운동까지 구분하는 ALE 기술법은 [ALE 기술법]({% link assets/lecture_notes/5_1_polycrystalline_plasticity/metal_plasticity_05c_material_derivative_ale.md %}#부록-b-ale-기술법)에서 설명한다.
+물질점을 따라 관찰하는 시간 변화율은 [물질미분 자료](/assets/lecture_notes/5_1_polycrystalline_plasticity/metal_plasticity_05c_material_derivative_ale.md),
+계산 격자의 운동까지 구분하는 ALE 기술법은 [ALE 기술법](/assets/lecture_notes/5_1_polycrystalline_plasticity/metal_plasticity_05c_material_derivative_ale.md#부록-b-ale-기술법)에서 설명한다.
 
 <span id="11-유한변형률-finite-strain"></span>
 
@@ -204,6 +204,8 @@ $$
 
 기준 배치의 미소 선분을 $d\boldsymbol X$, 변형 후 선분을 $d\boldsymbol x$라 하자.
 각 선분의 길이를 $\ell_0=\|d\boldsymbol X\|$, $\ell=\|d\boldsymbol x\|$라 하면,
+<span id="fn:squared-length"></span>
+
 벡터와 자기 자신의 내적은 길이의 제곱이므로
 
 $$
@@ -247,6 +249,8 @@ $$
 $$
 \boxed{\boldsymbol E=\frac12(\boldsymbol F^T\cdot\boldsymbol F-\boldsymbol I)}.
 $$
+
+<span id="fn:line-element-quadratic-form"></span>
 
 따라서 제곱 길이 차이는 다음과 같이 쓸 수 있다.
 
@@ -336,7 +340,7 @@ $$
 \end{aligned}
 $$
 
-[기본 자료]({% link assets/lecture_notes/5_1_polycrystalline_plasticity/metal_plasticity_05_displacement_strain.md %})에서
+[기본 자료](/assets/lecture_notes/5_1_polycrystalline_plasticity/metal_plasticity_05_displacement_strain.md)에서
 정의한 미소변형률은 변위구배의 대칭부분이므로
 
 $$
@@ -654,7 +658,7 @@ $\boldsymbol R$은 $\boldsymbol R^T\cdot \boldsymbol R=\boldsymbol I$, $\det\bol
 회전하는 표현이고, $\boldsymbol V\cdot \boldsymbol R$는 회전한 뒤 현재 배치 방향에서 신장하는 표현이다.
 이는 같은 국소 변형을 나타내는 두 수학적 표현이며 실제 변형의 시간 순서를 뜻하지 않는다.
 
-[기본 자료 8절]({% link assets/lecture_notes/5_1_polycrystalline_plasticity/metal_plasticity_05_displacement_strain.md %}#8-변위구배의-대칭부분과-반대칭부분)의 $\nabla_X\boldsymbol u=\boldsymbol\varepsilon+\boldsymbol\omega$는
+[기본 자료 8절](/assets/lecture_notes/5_1_polycrystalline_plasticity/metal_plasticity_05_displacement_strain.md#8-변위구배의-대칭부분과-반대칭부분)의 $\nabla_X\boldsymbol u=\boldsymbol\varepsilon+\boldsymbol\omega$는
 작은 변형·회전의 **가법적 분해**이고, 극분해는 유한변형의 **곱셈적 분해**다.
 극분해의 회전·신장은 탄성·소성 성분을 분리하는 $\boldsymbol F=\boldsymbol F_e\cdot \boldsymbol F_p$와는
 다른 구분이다.

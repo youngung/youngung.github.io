@@ -195,8 +195,8 @@ $$
 - [MIT OCW 3.205: 확산 관련 강의](https://ocw.mit.edu/courses/3-205-thermodynamics-and-kinetics-of-materials-fall-2006/pages/lecture-notes/): L2의 확산계수 구분, L4의 원자 이동기구와 온도 의존성, L6의 미세조직에 따른 확산을 심화자료로 활용한다.
 - [MIT OCW 3.185: Diffusion](https://ocw.mit.edu/courses/3-185-transport-phenomena-in-materials-engineering-fall-2003/resources/chap2/): 평판·원통 확산과 경계조건을 다음 두 강의와 함께 공부한다.
 
-- [제1강: 이동현상 개요]({% link assets/lecture_notes/2_2_transport_phenomena/transport_01_orientation.md %})
-- [제9강: 정상상태 확산]({% link assets/lecture_notes/2_2_transport_phenomena/transport_09_steady_diffusion.md %})
+- [제1강: 이동현상 개요](/assets/lecture_notes/2_2_transport_phenomena/transport_01_orientation.md)
+- [제9강: 정상상태 확산](/assets/lecture_notes/2_2_transport_phenomena/transport_09_steady_diffusion.md)
 
 ---
 

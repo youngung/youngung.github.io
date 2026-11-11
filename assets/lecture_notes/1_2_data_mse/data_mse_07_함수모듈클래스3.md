@@ -362,7 +362,7 @@ python density_cli.py 27 10
 # 12. 프로젝트형 연습문제: 이진수 변환 모듈과 CLI 만들기
 
 
-[5장 함수 기초]({% link assets/lecture_notes/1_2_data_mse/data_mse_05_함수모듈클래스1.md %})에서 작성한
+[5장 함수 기초](/assets/lecture_notes/1_2_data_mse/data_mse_05_함수모듈클래스1.md)에서 작성한
 `decimal_to_binary(number)` 함수를 **별도 모듈**로 옮기고, 명령행에서 호출하는 프로그램을 작성하시오.
 5장에서는 함수의 재사용을, 이번에는 파일 사이의 재사용과 명령행 입력 처리를 연습한다.
 

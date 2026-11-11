@@ -183,8 +183,8 @@ $$q_{in}''(t)=\frac{k(T_s-T_i)}{\sqrt{\pi\alpha t}}$$
 - [MIT OCW 3.185: Heat Conduction](https://ocw.mit.edu/courses/3-185-transport-phenomena-in-materials-engineering-fall-2003/resources/chap3/): Newtonian cooling 부분을 본문의 집중용량 에너지 수지와 연결해 읽는다.
 - [MIT OCW 3.205: 확산·열방정식 해법](https://ocw.mit.edu/courses/3-205-thermodynamics-and-kinetics-of-materials-fall-2006/pages/lecture-notes/): L3의 Solutions to the Diffusion/Heat Equation은 해법을 더 공부하기 위한 심화자료이다.
 
-- [제5강: 열전도 방정식]({% link assets/lecture_notes/2_2_transport_phenomena/transport_05_heat_equation.md %})
-- [제10강: 비정상 확산]({% link assets/lecture_notes/2_2_transport_phenomena/transport_10_transient_diffusion.md %})
+- [제5강: 열전도 방정식](/assets/lecture_notes/2_2_transport_phenomena/transport_05_heat_equation.md)
+- [제10강: 비정상 확산](/assets/lecture_notes/2_2_transport_phenomena/transport_10_transient_diffusion.md)
 
 ---
 

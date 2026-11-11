@@ -558,6 +558,6 @@ u_1=(3-4nu)F/[16 pi mu(1-nu)r]이다.
 3. L. D. Landau and E. M. Lifshitz, *Theory of Elasticity*, 3rd ed.,
    Butterworth-Heinemann (1986).
 
-[구형 Eshelby tensor 유도 자료로 돌아가기]({% link assets/lecture_notes/5_1_polycrystalline_plasticity/metal_plasticity_16a_eshelby_sphere_derivation.md %})
+[구형 Eshelby tensor 유도 자료로 돌아가기](/assets/lecture_notes/5_1_polycrystalline_plasticity/metal_plasticity_16a_eshelby_sphere_derivation.md)
 
-[Eigenstrain의 등가 체적력 유도 자료 보기]({% link assets/lecture_notes/5_1_polycrystalline_plasticity/metal_plasticity_16b_eigenstrain_equivalent_body_force.md %})
+[Eigenstrain의 등가 체적력 유도 자료 보기](/assets/lecture_notes/5_1_polycrystalline_plasticity/metal_plasticity_16b_eigenstrain_equivalent_body_force.md)

@@ -127,7 +127,7 @@ print(vector.T.shape)
 
 ### 인덱싱에서 `None`의 역할
 
-[10장 6.1절과 8절]({% link assets/lecture_notes/1_2_data_mse/data_mse_10_NumPy기초2.md %})에서 배운 것처럼,
+[10장 6.1절과 8절](/assets/lecture_notes/1_2_data_mse/data_mse_10_NumPy기초2.md)에서 배운 것처럼,
 <code>None</code>은 길이가 1인 새 축을 추가한다.
 <code>vector[:, None]</code>은 열 배열, <code>vector[None, :]</code>은 행 배열을 만든다.
 여기서는 벡터 계산에 사용할 배열의 shape을 구분하는 데 집중하자.
@@ -396,7 +396,7 @@ print(angle_between(a, b))
 3차원 벡터의 외적(cross product)은 두 입력 벡터에 모두 수직인 벡터를 만든다.
 두 벡터가 평행하면 결과는 영벡터다. 먼저 성분을 직접 계산하는 식을 익히자.
 인덱스와 합산 기호를 이용한 표현은
-[13장 6.9절]({% link assets/lecture_notes/1_2_data_mse/data_mse_13_행렬벡터연산고급_Ein.md %}#cross-product-indices)에서 다룬다.
+[13장 6.9절](/assets/lecture_notes/1_2_data_mse/data_mse_13_행렬벡터연산고급_Ein.md#cross-product-indices)에서 다룬다.
 
 $$
 [\boldsymbol a]\times[\boldsymbol b]
@@ -575,7 +575,7 @@ print(lengths)  # [5.0, 2.0, 3.0]
 - 외적 결과는 두 입력 벡터에 모두 수직인 벡터이다.
 
 {% comment %}TODO: 파일 추가 후 복구
-[기울어진 격자와 원자 이동 실습]({% link assets/lecture_notes/1_2_data_mse/data_mse_supp_vector_matrix_lab.md %})에서 위치 변환, 변위, 투영, 넓이와 역변환을 함께 연습할 수 있다.
+[기울어진 격자와 원자 이동 실습](/assets/lecture_notes/1_2_data_mse/data_mse_supp_vector_matrix_lab.md)에서 위치 변환, 변위, 투영, 넓이와 역변환을 함께 연습할 수 있다.
 {% endcomment %}
 
 # 13. 연습 문제

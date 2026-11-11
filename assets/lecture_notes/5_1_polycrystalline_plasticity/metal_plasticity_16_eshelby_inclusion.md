@@ -179,7 +179,7 @@ S_{ijkl}
 \tag{4}
 $$
 
-[식 (4)의 상세 유도: 구형 inclusion의 Eshelby tensor]({% link assets/lecture_notes/5_1_polycrystalline_plasticity/metal_plasticity_16a_eshelby_sphere_derivation.md %})
+[식 (4)의 상세 유도: 구형 inclusion의 Eshelby tensor](/assets/lecture_notes/5_1_polycrystalline_plasticity/metal_plasticity_16a_eshelby_sphere_derivation.md)
 
 이다. 체적 투영텐서와 편차 투영텐서(전체에서 체적을 제외한 부분)를 각각
 

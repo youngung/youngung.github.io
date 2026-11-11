@@ -326,7 +326,7 @@ B:     (   3, 1, 5)
 NumPy가 길이 3인 축을 찾아 자동으로 연결해 주는 것은 아니다.
 
 인덱스 수식을 이용한 해석은
-[13장 8절: 브로드캐스팅을 인덱스로 이해하기]({% link assets/lecture_notes/1_2_data_mse/data_mse_13_행렬벡터연산고급_Ein.md %}#broadcasting-indices)에서 다룬다.
+[13장 8절: 브로드캐스팅을 인덱스로 이해하기](/assets/lecture_notes/1_2_data_mse/data_mse_13_행렬벡터연산고급_Ein.md#broadcasting-indices)에서 다룬다.
 
 ## 8.4. 측정 데이터의 축에 맞추어 `None` 넣기
 

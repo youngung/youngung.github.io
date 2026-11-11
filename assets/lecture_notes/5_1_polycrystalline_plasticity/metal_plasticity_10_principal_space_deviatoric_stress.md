@@ -214,7 +214,7 @@ $$
 # 5. Von Mises 등가 응력
 
 이후 절에서는 주응력과 편차응력의 활용을 미리 살펴본다. 항복 조건의 물리적 의미는
-[소성 항복]({% link assets/lecture_notes/5_1_polycrystalline_plasticity/metal_plasticity_12_plastic_yield.md %})에서 이어서 설명한다.
+[소성 항복](/assets/lecture_notes/5_1_polycrystalline_plasticity/metal_plasticity_12_plastic_yield.md)에서 이어서 설명한다.
 
 - Von Mises 등가 응력을 편차 응력에 대한 함수로 아래와 같이 표현할 수 있다.
 
@@ -241,7 +241,7 @@ $$
 
 - 이 장에서는 주공간과 편차응력 공간의 기하학까지만 다룬다. 항복면 내부·표면과
   하중경로에 따른 탄성·소성 판정은 다음의
-  [소성 항복]({% link assets/lecture_notes/5_1_polycrystalline_plasticity/metal_plasticity_12_plastic_yield.md %})에서 다룬다.
+  [소성 항복](/assets/lecture_notes/5_1_polycrystalline_plasticity/metal_plasticity_12_plastic_yield.md)에서 다룬다.
 
 ## 7.1. 응력 불변량과의 연결
 

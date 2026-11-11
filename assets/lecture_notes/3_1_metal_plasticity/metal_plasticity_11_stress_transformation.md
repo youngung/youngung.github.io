@@ -802,7 +802,7 @@ $[\boldsymbol t]_{\mathrm{new}}=\begin{bmatrix}90\\0\end{bmatrix}\,\mathrm{MPa}$
 새 첫 번째 축이 최대 주응력 90 MPa에 해당하는 주축이므로 본문의 결과와 일치한다.
 -->
 
-다음 자료: [소성 항복]({% link assets/lecture_notes/3_1_metal_plasticity/metal_plasticity_12_plastic_yield.md %})
+다음 자료: [소성 항복](/assets/lecture_notes/3_1_metal_plasticity/metal_plasticity_12_plastic_yield.md)
 
 ---
 

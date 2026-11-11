@@ -20,8 +20,8 @@ authors:
 
 # 1. 실습 목표와 입력 데이터
 
-[제11강 벡터 연산]({% link assets/lecture_notes/1_2_data_mse/data_mse_11_벡터연산기초.md %})과
-[제12강 행렬 연산]({% link assets/lecture_notes/1_2_data_mse/data_mse_12_행렬연산기초.md %})을 함께 사용해 보자.
+[제11강 벡터 연산](/assets/lecture_notes/1_2_data_mse/data_mse_11_벡터연산기초.md)과
+[제12강 행렬 연산](/assets/lecture_notes/1_2_data_mse/data_mse_12_행렬연산기초.md)을 함께 사용해 보자.
 아래 코드를 위에서부터 순서대로 실행한다. 각 배열의 shape, 각 행과 열의 의미, 단위를 먼저 예상한 다음 결과를 확인하자.
 
 세 격자벡터를 다음과 같이 정한다. 길이 단위는 nm다.
@@ -199,4 +199,4 @@ z=0 평면의 위치를 표현하는 분율좌표는 무한히 많다.
 - [NumPy: cross product](https://numpy.org/doc/stable/reference/generated/numpy.cross.html)
 - [NumPy: 연립방정식 solve](https://numpy.org/doc/stable/reference/generated/numpy.linalg.solve.html)
 
-[벡터 강의]({% link assets/lecture_notes/1_2_data_mse/data_mse_11_벡터연산기초.md %}) | [강의 목록]({% link _lectures/1_2_data_mse.md %}) | [행렬 강의]({% link assets/lecture_notes/1_2_data_mse/data_mse_12_행렬연산기초.md %})
+[벡터 강의](/assets/lecture_notes/1_2_data_mse/data_mse_11_벡터연산기초.md) | [강의 목록](/_lectures/1_2_data_mse.md) | [행렬 강의](/assets/lecture_notes/1_2_data_mse/data_mse_12_행렬연산기초.md)

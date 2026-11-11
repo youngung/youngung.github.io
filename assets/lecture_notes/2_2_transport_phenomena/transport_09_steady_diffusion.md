@@ -160,7 +160,7 @@ $K=1$일 때만 앞의 단순한 $R_1+R_2$ 식으로 돌아간다. 계면에서 
 처음 균일했던 평판 양면의 농도를 갑자기 바꾸면 즉시 선형 농도분포가 되는
 것은 아니다. 대표 완화시간 $L^2/D$에 비해 충분히 긴 시간이 지나고 경계농도가
 유지될 때 정상해에 가까워진다. 시간이 짧으면
-[제10강의 비정상 확산식]({% link assets/lecture_notes/2_2_transport_phenomena/transport_10_transient_diffusion.md %})을
+[제10강의 비정상 확산식](/assets/lecture_notes/2_2_transport_phenomena/transport_10_transient_diffusion.md)을
 사용해야 한다. 표면 공급이 느리면 일정 표면농도 대신
 $N_A=k_m(c_{bulk}-c_s)$ 같은 표면 전달조건이 필요하다. 이때
 $k_m$의 단위는 $\mathrm{m/s}$이며 $D\ [\mathrm{m^2/s}]$와 구분한다.
@@ -188,8 +188,8 @@ $k_m$의 단위는 $\mathrm{m/s}$이며 $D\ [\mathrm{m^2/s}]$와 구분한다.
 
 - [MIT OCW 3.185: Diffusion](https://ocw.mit.edu/courses/3-185-transport-phenomena-in-materials-engineering-fall-2003/resources/chap2/): PDF의 2.1절에서 평판과 원통의 정상 확산을 비교한다.
 
-- [제4강: 열전달 기초]({% link assets/lecture_notes/2_2_transport_phenomena/transport_04_heat_transfer.md %})
-- [제10강: 비정상 확산]({% link assets/lecture_notes/2_2_transport_phenomena/transport_10_transient_diffusion.md %})
+- [제4강: 열전달 기초](/assets/lecture_notes/2_2_transport_phenomena/transport_04_heat_transfer.md)
+- [제10강: 비정상 확산](/assets/lecture_notes/2_2_transport_phenomena/transport_10_transient_diffusion.md)
 
 ---
 

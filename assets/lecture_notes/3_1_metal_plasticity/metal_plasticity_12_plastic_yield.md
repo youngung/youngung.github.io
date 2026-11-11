@@ -274,7 +274,7 @@ $1,2$는 평면 내 두 주축을 구분하는 첨자이며, 이 그림에서는
 
 ## 6.1. 같은 응력 상태에는 같은 등가응력
 
-[11장]({% link assets/lecture_notes/3_1_metal_plasticity/metal_plasticity_11_stress_transformation.md %})에서 보았듯이 좌표축을 회전하면 응력성분은 바뀌지만 물리적 응력 상태는 같다.
+[11장](/assets/lecture_notes/3_1_metal_plasticity/metal_plasticity_11_stress_transformation.md)에서 보았듯이 좌표축을 회전하면 응력성분은 바뀌지만 물리적 응력 상태는 같다.
 따라서 같은 상태를 다른 기저로 표현했다는 이유만으로 항복 여부가 달라져서는 안 된다.
 Tresca와 von Mises 등가응력은 모두 이 조건을 만족한다.
 
@@ -291,7 +291,7 @@ $$
 \sigma_{\min}=\min(\sigma_1,\sigma_2,\sigma_3)
 $$
 
-을 정한다. [11장]({% link assets/lecture_notes/3_1_metal_plasticity/metal_plasticity_11_stress_transformation.md %})의 크기순 정렬과 같은 계산이지만, 여기서는 정렬 결과를 최대·최소 첨자로 명시한다.
+을 정한다. [11장](/assets/lecture_notes/3_1_metal_plasticity/metal_plasticity_11_stress_transformation.md)의 크기순 정렬과 같은 계산이지만, 여기서는 정렬 결과를 최대·최소 첨자로 명시한다.
 평면응력 상태에서도 면외 주응력 0을 포함한 **세 주응력**을 사용한다.
 
 ## 6.2. 등가응력은 어떤 종류의 세기인가?
@@ -321,7 +321,7 @@ $$
 ## 7.1. 최대 전단응력에서 출발하기
 
 Tresca 조건은 **최대 전단응력이 임계값에 도달하면 항복한다**는 가정에서 출발한다.
-강의자료 [11장(좌표축 회전에 따른 응력성분 변환)]({% link assets/lecture_notes/3_1_metal_plasticity/metal_plasticity_11_stress_transformation.md %})의 결과를 사용하면
+강의자료 [11장(좌표축 회전에 따른 응력성분 변환)](/assets/lecture_notes/3_1_metal_plasticity/metal_plasticity_11_stress_transformation.md)의 결과를 사용하면
 
 $$
 \tau_{\max}=\frac{\sigma_{\max}-\sigma_{\min}}{2}.
@@ -396,7 +396,7 @@ $$
 
 ## 8.1. 평균응력과 편차응력
 
-[11장]({% link assets/lecture_notes/3_1_metal_plasticity/metal_plasticity_11_stress_transformation.md %})에서 응력을 평균응력과 편차응력으로 분해했다.
+[11장](/assets/lecture_notes/3_1_metal_plasticity/metal_plasticity_11_stress_transformation.md)에서 응력을 평균응력과 편차응력으로 분해했다.
 
 $$
 \sigma_m=\frac{\operatorname{tr}(\boldsymbol\sigma)}{3},
@@ -618,7 +618,7 @@ $$
 =\begin{bmatrix}80&30&0\\30&0&0\\0&0&0\end{bmatrix}\,\mathrm{MPa}.
 $$
 
-평면 내 주응력은 [11장]({% link assets/lecture_notes/3_1_metal_plasticity/metal_plasticity_11_stress_transformation.md %})의 식으로
+평면 내 주응력은 [11장](/assets/lecture_notes/3_1_metal_plasticity/metal_plasticity_11_stress_transformation.md)의 식으로
 
 $$
 \sigma_{\pm}=40\pm\sqrt{40^2+30^2}=40\pm50
@@ -727,7 +727,7 @@ $$
 - von Mises 등가응력은 $\sigma^{VM}=\sqrt{3J_2}$다.
 
 이 강의에서는 “어떤 응력 상태에서 항복하는가?”를 정했다.
-다음 [유동 법칙]({% link assets/lecture_notes/3_1_metal_plasticity/metal_plasticity_13_flow_rule.md %})에서는
+다음 [유동 법칙](/assets/lecture_notes/3_1_metal_plasticity/metal_plasticity_13_flow_rule.md)에서는
 항복조건을 바탕으로 소성변형률 증가의 방향과 크기를 기술한다.
 항복조건, 유동법칙, 경화법칙은 각각 다른 역할을 하므로 구분해서 이해해야 한다.
 

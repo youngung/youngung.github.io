@@ -738,4 +738,4 @@ sigma*_ij=lambda epsilon*_kk delta_ij+2mu epsilon*_ij
 2. T. Mura, *Micromechanics of Defects in Solids*, 2nd ed., Martinus Nijhoff
    Publishers (1987).
 
-[구형 Eshelby tensor 유도 자료로 돌아가기]({% link assets/lecture_notes/5_1_polycrystalline_plasticity/metal_plasticity_16a_eshelby_sphere_derivation.md %})
+[구형 Eshelby tensor 유도 자료로 돌아가기](/assets/lecture_notes/5_1_polycrystalline_plasticity/metal_plasticity_16a_eshelby_sphere_derivation.md)

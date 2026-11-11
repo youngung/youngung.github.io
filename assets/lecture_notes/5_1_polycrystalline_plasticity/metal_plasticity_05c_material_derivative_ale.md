@@ -29,10 +29,10 @@ authors:
 
 관련 자료는 다음 순서로 읽을 수 있다.
 
-- [변위와 미소변형률]({% link assets/lecture_notes/5_1_polycrystalline_plasticity/metal_plasticity_05_displacement_strain.md %})
-- [변위와 미소변형률 연습문제]({% link assets/lecture_notes/5_1_polycrystalline_plasticity/metal_plasticity_05d_displacement_strain_exercises.md %})
-- [유한변형의 운동학]({% link assets/lecture_notes/5_1_polycrystalline_plasticity/metal_plasticity_05b_descriptions_finite_strain.md %})
-- [물질미분과 ALE 기술법]({% link assets/lecture_notes/5_1_polycrystalline_plasticity/metal_plasticity_05c_material_derivative_ale.md %})
+- [변위와 미소변형률](/assets/lecture_notes/5_1_polycrystalline_plasticity/metal_plasticity_05_displacement_strain.md)
+- [변위와 미소변형률 연습문제](/assets/lecture_notes/5_1_polycrystalline_plasticity/metal_plasticity_05d_displacement_strain_exercises.md)
+- [유한변형의 운동학](/assets/lecture_notes/5_1_polycrystalline_plasticity/metal_plasticity_05b_descriptions_finite_strain.md)
+- [물질미분과 ALE 기술법](/assets/lecture_notes/5_1_polycrystalline_plasticity/metal_plasticity_05c_material_derivative_ale.md)
 
 <span id="부록-a-물질미분-material-derivative"></span>
 
@@ -289,7 +289,7 @@ $$
 
 # 2. ALE 기술법
 
-[Lagrangian과 Eulerian 기술법]({% link assets/lecture_notes/5_1_polycrystalline_plasticity/metal_plasticity_05b_descriptions_finite_strain.md %})과 1절의 물질미분을 바탕으로, 계산 격자의 운동을 별도로 다루는
+[Lagrangian과 Eulerian 기술법](/assets/lecture_notes/5_1_polycrystalline_plasticity/metal_plasticity_05b_descriptions_finite_strain.md)과 1절의 물질미분을 바탕으로, 계산 격자의 운동을 별도로 다루는
 방법을 살펴보자.
 
 **ALE (Arbitrary Lagrangian–Eulerian, 임의 Lagrangian–Eulerian) 기술법**에서는

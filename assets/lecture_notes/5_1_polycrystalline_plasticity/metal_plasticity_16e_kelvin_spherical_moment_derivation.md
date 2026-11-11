@@ -29,7 +29,7 @@ authors:
 
 # 1. 이 보충자료의 목표
 
-[구형 inclusion의 Eshelby tensor 유도 자료]({% link assets/lecture_notes/5_1_polycrystalline_plasticity/metal_plasticity_16a_eshelby_sphere_derivation.md %})의
+[구형 inclusion의 Eshelby tensor 유도 자료](/assets/lecture_notes/5_1_polycrystalline_plasticity/metal_plasticity_16a_eshelby_sphere_derivation.md)의
 6절에서는 Kelvin Green 함수를 미분한 결과와 구면 모멘트 적분 공식을 사용한다.
 이 보충자료에서는 다음 두 계산을 자세히 유도한다.
 
@@ -276,4 +276,4 @@ $$
     $\delta_{ji}\delta_{lk}=\delta_{ij}\delta_{kl}$인데, 이는 Kronecker delta가
     대칭이고 스칼라 곱의 순서는 결과에 영향을 주지 않기 때문이다.
 
-[구형 Eshelby tensor 유도 자료로 돌아가기]({% link assets/lecture_notes/5_1_polycrystalline_plasticity/metal_plasticity_16a_eshelby_sphere_derivation.md %})
+[구형 Eshelby tensor 유도 자료로 돌아가기](/assets/lecture_notes/5_1_polycrystalline_plasticity/metal_plasticity_16a_eshelby_sphere_derivation.md)

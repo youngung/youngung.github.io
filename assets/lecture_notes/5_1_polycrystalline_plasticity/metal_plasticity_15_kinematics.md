@@ -29,7 +29,7 @@ authors:
 
 이 자료는 VPSC (Visco-Plastic Self-Consistent)에서 사용하는 속도구배, 결정립 형상 변화와 격자 회전을 다룬다.
 기본적인 유한변형의 정의는
-[유한변형의 운동학]({% link assets/lecture_notes/5_1_polycrystalline_plasticity/metal_plasticity_05b_descriptions_finite_strain.md %})을 참고한다.
+[유한변형의 운동학](/assets/lecture_notes/5_1_polycrystalline_plasticity/metal_plasticity_05b_descriptions_finite_strain.md)을 참고한다.
 
 # 1. 운동학 개요
 

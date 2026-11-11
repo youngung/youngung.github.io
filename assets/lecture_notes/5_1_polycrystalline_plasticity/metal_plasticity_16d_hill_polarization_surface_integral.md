@@ -299,8 +299,8 @@ Surface delta는 하중의 위치를 inclusion 계면으로 제한하고, Green 
 점하중의 변위응답을 제공한다. 이후 $i,j$와 $k,l$을 각각 대칭화하면 대칭 변형률과 대칭
 응력 사이를 연결하는 4차 polarization tensor가 얻어진다.
 
-[구형 Eshelby tensor 유도 자료로 돌아가기]({% link assets/lecture_notes/5_1_polycrystalline_plasticity/metal_plasticity_16a_eshelby_sphere_derivation.md %})
+[구형 Eshelby tensor 유도 자료로 돌아가기](/assets/lecture_notes/5_1_polycrystalline_plasticity/metal_plasticity_16a_eshelby_sphere_derivation.md)
 
-[Eigenstrain의 등가 체적력 유도 자료 보기]({% link assets/lecture_notes/5_1_polycrystalline_plasticity/metal_plasticity_16b_eigenstrain_equivalent_body_force.md %})
+[Eigenstrain의 등가 체적력 유도 자료 보기](/assets/lecture_notes/5_1_polycrystalline_plasticity/metal_plasticity_16b_eigenstrain_equivalent_body_force.md)
 
-[Kelvin Green 함수 유도 자료 보기]({% link assets/lecture_notes/5_1_polycrystalline_plasticity/metal_plasticity_16c_kelvin_green_function_derivation.md %})
+[Kelvin Green 함수 유도 자료 보기](/assets/lecture_notes/5_1_polycrystalline_plasticity/metal_plasticity_16c_kelvin_green_function_derivation.md)

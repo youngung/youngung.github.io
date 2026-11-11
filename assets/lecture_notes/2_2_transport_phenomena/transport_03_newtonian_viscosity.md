@@ -37,7 +37,7 @@ $$\boxed{\tau_{yx}=-\mu\frac{dv_x}{dy}}$$
 $dv_x/dy>0$이면 위쪽 유체층이 더 빠르다. 분자 운동은 위쪽의 큰 $x$ 운동량을
 아래쪽으로 전달하므로 $+y$ 방향 운동량 플럭스 $\tau_{yx}$는 음수이다.
 반면 위층이 아래층에 가하는 $+x$ 방향 전단력은 양수로 표현할 수 있다.
-[제1강의 부호 정의]({% link assets/lecture_notes/2_2_transport_phenomena/transport_01_orientation.md %})와
+[제1강의 부호 정의](/assets/lecture_notes/2_2_transport_phenomena/transport_01_orientation.md)와
 함께 읽으면 플럭스와 면에 작용하는 힘을 구분할 수 있다.
 
 뉴턴 유체라는 말은 주어진 온도·압력에서 전단응력이 전단률에 선형 비례한다는
@@ -194,8 +194,8 @@ $b$는 액막의 폭이다. 자유표면의 전단응력을 0으로 둔 것은 �
 - [MIT OCW 3.185: Fluid Dynamics](https://ocw.mit.edu/courses/3-185-transport-phenomena-in-materials-engineering-fall-2003/resources/chap4/): PDF의 Newtonian fluids와 simple Newtonian flows 부분을 읽고, 교재의 응력 부호 정의를 본문과 비교한다.
 - [OpenStax: Viscosity and Turbulence](https://openstax.org/books/university-physics-volume-1/pages/14-7-viscosity-and-turbulence): 점도, Poiseuille 유동, Reynolds 수를 복습할 수 있다.
 
-- [제1강: 이동현상 개요]({% link assets/lecture_notes/2_2_transport_phenomena/transport_01_orientation.md %})
-- [제4강: 열전달 기초]({% link assets/lecture_notes/2_2_transport_phenomena/transport_04_heat_transfer.md %})
+- [제1강: 이동현상 개요](/assets/lecture_notes/2_2_transport_phenomena/transport_01_orientation.md)
+- [제4강: 열전달 기초](/assets/lecture_notes/2_2_transport_phenomena/transport_04_heat_transfer.md)
 
 ---
 
