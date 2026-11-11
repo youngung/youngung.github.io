@@ -391,7 +391,12 @@ ninja.data = [{
           section: "News",},{id: "news-대한금속재료학회-청웅상-수상-beers",
           title: '대한금속재료학회 청웅상 수상 :beers:',
           description: "",
-          section: "News",},{id: "projects-vpsc-evpsc-기반-마그네슘-이원계-합금의-전위활성도-평가",
+          section: "News",},{id: "news-소성가공-중간고사-성적",
+          title: '소성가공 중간고사 성적',
+          description: "",
+          section: "News",handler: () => {
+              window.location.href = "/news/announcement_06/";
+            },},{id: "projects-vpsc-evpsc-기반-마그네슘-이원계-합금의-전위활성도-평가",
           title: 'VPSC/EVPSC 기반 마그네슘 이원계 합금의 전위활성도 평가',
           description: "",
           section: "Projects",handler: () => {
