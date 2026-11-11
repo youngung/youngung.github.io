@@ -396,6 +396,11 @@ ninja.data = [{
           description: "",
           section: "News",handler: () => {
               window.location.href = "/news/announcement_06/";
+            },},{id: "news-데이터재료과학-중간고사-성적",
+          title: '데이터재료과학 중간고사 성적',
+          description: "",
+          section: "News",handler: () => {
+              window.location.href = "/news/announcement_07/";
             },},{id: "projects-vpsc-evpsc-기반-마그네슘-이원계-합금의-전위활성도-평가",
           title: 'VPSC/EVPSC 기반 마그네슘 이원계 합금의 전위활성도 평가',
           description: "",
