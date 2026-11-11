@@ -32,7 +32,7 @@ authors:
 [12장](/assets/lecture_notes/3_1_metal_plasticity/metal_plasticity_12_plastic_yield.md)에서는
 항복함수 $f(\boldsymbol\sigma)=\sigma_{eq}(\boldsymbol\sigma)-\sigma^Y$를 정의하고,
 $f<0$이면 탄성 영역, $f=0$이면 항복면 위라고 구분했다.
-그러나 12장의 5.4절에서 강조했듯이 항복조건은 **소성변형이 가능한 경계**만 정해 줄 뿐,
+그러나 12장의 7.3절에서 강조했듯이 항복조건은 **소성변형이 가능한 경계**만 정해 줄 뿐,
 항복면 위의 응력 상태에서 소성변형률이 어느 방향으로 얼마나 생기는지는 알려 주지 않는다.
 이 강의의 목적은 바로 그 빈칸을 채우는 것이다.
 
@@ -195,7 +195,7 @@ $d\boldsymbol\varepsilon^{pl}$이 변형률(무차원)이 되려면 $d\lambda$�
 
 ## 4.2. 기하학적 의미: 항복면에 수직인 방향
 
-12장의 5.3절에서 항복면 $f=0$을 응력 공간에서 탄성 영역의 경계로 정의했다.
+12장의 7.2절에서 항복면 $f=0$을 응력 공간에서 탄성 영역의 경계로 정의했다.
 응력공간에서 스칼라 함수 $f$의 응력에 대한 그래디언트
 $\partial f/\partial\boldsymbol\sigma$는 $f$가 가장 빨리 증가하는 방향이다.
 따라서 항복면에 수직이면서 바깥쪽을 향하는 법선방향이 된다.
@@ -205,7 +205,7 @@ $\partial f/\partial\boldsymbol\sigma$는 $f$가 가장 빨리 증가하는 방�
 
 ![평면응력 주응력 공간의 von Mises 항복면과 일축 인장, 평면변형, 등2축 인장, 순수전단 상태에서 항복면에 수직인 바깥쪽을 가리키는 소성변형률 증분 방향](/assets/img/lecture_notes/metal_plasticity/flow_rule_normality.png){: style="width: 1000px; max-width: 100%; height: auto;"}
 
-그림은 12장 5.3절과 같이 $\sigma_3=0$인 평면응력 단면을 보여 준다.
+그림은 12장 7.2절과 같이 $\sigma_3=0$인 평면응력 단면을 보여 준다.
 일축 인장 $A$에서는 $d\boldsymbol\varepsilon^{pl}\propto(1,-\tfrac12,-\tfrac12)$이므로 가로 방향이 줄어든다.
 평면변형 $B$에서는 방향 2의 소성변형률이 0이다.
 등2축 인장 $C$에서는 평면 내 두 방향이 늘어나고 두께가 줄어들며,
@@ -225,15 +225,15 @@ $$
 f\leq0,\qquad d\lambda\geq0,\qquad f\,d\lambda=0
 $$
 
-첫째 조건은 12장 5.3절에서 $f>0$을 "허용되지 않는 상태"라고 한 것을 수식으로 쓴 것이다.
+첫째 조건은 12장 7.2절에서 $f>0$을 "허용되지 않는 상태"라고 한 것을 수식으로 쓴 것이다.
 셋째 조건은 $f<0$이면 $d\lambda=0$이고, $d\lambda>0$이면 반드시 $f=0$이라는 뜻이다.
 즉 소성변형은 응력이 항복면 위에 있을 때만 진행된다.
 세 경우를 정리하면 다음과 같다.
 
 | 상태 | $f$ | $d\lambda$ | 거동 |
 |---|---|---|---|
-| 탄성 영역 | $f<0$ | $0$ | 탄성 (12장 5.3절의 "항복면 내부") |
-| 항복면 위, 소성변형 없음 | $f=0$ | $0$ | 응력이 항복면에 머무르거나, 하중을 줄여 항복면 내부로 이동 (12장 5.4절) |
+| 탄성 영역 | $f<0$ | $0$ | 탄성 (12장 7.2절의 "항복면 내부") |
+| 항복면 위, 소성변형 없음 | $f=0$ | $0$ | 응력이 항복면에 머무르거나, 하중을 줄여 항복면 내부로 이동 (12장 7.3절) |
 | 항복면 위, 소성변형 진행 | $f=0$ | $>0$ | 하중을 계속 증가시켜 소성변형이 진행됨 |
 
 ![항복면 내부의 점 P, 항복면 위에서 소성변형이 진행되는 점 Q, 항복면 위에서 하중을 줄이는 점 R의 응력 경로와 소성승수](/assets/img/lecture_notes/metal_plasticity/flow_rule_loading_conditions.png){: style="width: 1000px; max-width: 100%; height: auto;"}
@@ -333,7 +333,7 @@ $$
 \end{bmatrix}
 $$
 
-이면 12장 8.2절에서 $\sigma_m=\sigma/3$, $\sigma^{VM}=\sigma$이고,
+이면 12장 9.2절에서 $\sigma_m=\sigma/3$, $\sigma^{VM}=\sigma$이고,
 
 $$
 [\boldsymbol s]=
@@ -379,7 +379,7 @@ $\sigma_3=0$이라고 해서 $d\varepsilon_3^{pl}=0$인 것은 아니다.
 
 ### 예제 3. 순수전단 $\sigma_{12}=\tau$
 
-12장 8.5절에서 $\sigma^{VM}=\sqrt3\,\tau$였고, 순수전단에서는 $\boldsymbol s=\boldsymbol\sigma$이므로
+12장 9.5절에서 $\sigma^{VM}=\sqrt3\,\tau$였고, 순수전단에서는 $\boldsymbol s=\boldsymbol\sigma$이므로
 
 $$
 d\varepsilon_{12}^{pl}=d\lambda\frac32\frac{\tau}{\sqrt3\tau}=\frac{\sqrt3}{2}d\lambda,
@@ -669,7 +669,7 @@ d lambda는 소성변형률 증분의 크기를 정한다.
 ## 문제 3
 
 세 조건 $f\le0,\ d\lambda\ge0,\ f\,d\lambda=0$에 따라
-(a) $f<0$, (b) $f=0$이고 하중을 계속 증가시키는 경우, (c) $f=0$에서 하중을 줄이는 경우 $d\lambda$의 값을 쓰고 12장 5.4절과 연결하여 설명하라.
+(a) $f<0$, (b) $f=0$이고 하중을 계속 증가시키는 경우, (c) $f=0$에서 하중을 줄이는 경우 $d\lambda$의 값을 쓰고 12장 7.3절과 연결하여 설명하라.
 
 <!--
 풀이와 해답:

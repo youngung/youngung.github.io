@@ -70,7 +70,22 @@ $\boldsymbol\varepsilon^p$는 잔류한다. 또한 항복은 소성변형의 시
 
 - 응력과 변형률이 스칼라 물리량이라면 항복의 표현은 매우 간단해진다.
 
-# 4. 항복 조건 (스칼라 응력 환경)
+# 4. 등가 응력 (equivalent stress)
+
+일반적인 응력 상태는 방향과 세기를 함께 담은 응력텐서 $\boldsymbol\sigma$로 표현한다.
+이를 선택한 항복모델에 따라 일축 항복응력과 비교할 수 있는 **스칼라 값**으로 환산한 것이
+**등가응력** $\sigma_{eq}(\boldsymbol\sigma)$이다. 등가응력은 응력텐서 자체가 아니며,
+단순히 가장 큰 응력성분을 고른 값도 아니다.
+
+이 장에서 다룰 Tresca와 von Mises 등가응력은 일축 응력 $\sigma$에 대해
+$\sigma_{eq}=\lvert\sigma\rvert$가 되도록 정의한다.
+따라서 일축시험에서 얻은 항복응력 $\sigma^Y$를 다축 응력 상태의 판정에도 사용할 수 있다.
+같은 응력 상태라도 선택한 모델에 따라 등가응력 값은 달라질 수 있지만,
+좌표축만 바꾸었다는 이유로 그 값이 달라져서는 안 된다.
+
+이제 일축 상태에서의 항복 조건을 먼저 확인한 뒤, 등가응력을 이용해 다축 상태로 확장한다.
+
+# 5. 항복 조건 (스칼라 응력 환경)
 - 항복 강도가 100 MPa이라면, 항복이 발생하는 조건은 아래 등식으로 표현될 수 있다.
 
 $$
@@ -89,9 +104,10 @@ $$
 |\sigma|<\sigma^Y
 $$
 
-# 5. 항복 조건
+# 6. 항복 조건
 
-- 하지만 앞서 다루었던 응력은 스칼라 물리량으로 충분히 표현되지 않는다. 일반적인 텐서 응력환경에서 항복 조건은 따라서, 응력 텐서를 활용해서 아래와 같이 표현되어야 겠다.
+하지만 앞서 다루었던 응력은 스칼라 물리량으로 충분히 표현되지 않는다. 일반적인 텐서
+응력환경에서 항복 조건은 응력 텐서를 활용해서 아래와 같이 표현되어야 겠다.
 
 $$
 \boxed{f(\boldsymbol\sigma)=\sigma_{eq}(\boldsymbol\sigma)-\sigma^Y}
@@ -103,7 +119,7 @@ $$
   - $f(\boldsymbol\sigma)=0$: 응력상태가 항복면 위에 있다.
   - $f(\boldsymbol\sigma)>0$: 속도 비의존 모델에서는 허용되지 않으며 소성보정이 필요하다.
 
-## 5.1. 응력공간, 항복면과 하중경로
+# 7. 응력공간, 항복면과 하중경로
 
 대칭 응력텐서는 여섯 개의 독립성분을 가지므로 하나의 응력상태를 6차원 응력공간의
 점으로 볼 수 있다. 주응력으로 표현하면 $(\sigma_1,\sigma_2,\sigma_3)$의 3차원
@@ -116,7 +132,7 @@ $f=0$이라는 사실만으로 소성변형률이 반드시 증가하는 것은 
 소성보정과 경화를 요구한다.
 
 비례하중 $\boldsymbol\sigma=\alpha\boldsymbol\sigma_0$에서는 von Mises와 Tresca처럼
-응력에 대해 1차 동차인 등가응력에 대해
+응력에 대해 1차 동차인 등가응력에 대해[^degree-one-homogeneity]
 
 $$
 \sigma_{eq}(\alpha\boldsymbol\sigma_0)
@@ -127,13 +143,7 @@ $$
 
 이므로 최초 항복 배율을 바로 구할 수 있다.
 
-# 6. 등가 응력 (equivalent stress)
-
-- 재료가 겪는 응력 상태(stress state)는 응력 텐서 물리량으로 표현되어야 한다. 이는 응력의 방향성과 세기를 모두 표현하기 위해서이다. 그런데 만약 응력의 '세기'만이 항복 조건으로 활용될 수 있다면, 응력의 세기를 표현하는 '스칼라'로 환산된 값을 활용해 항복함수를 표현할 수 있겠다.
-
-- 이렇게 응력의 세기를 표현한 스칼라 값을 '등가 응력'이라 부른다.
-
-# 7. Tresca 항복 조건
+# 8. Tresca 항복 조건
 
 Tresca 조건은 최대 전단응력이 임계값에 도달할 때 항복한다고 본다. 주응력을
 $\sigma_1\ge\sigma_2\ge\sigma_3$으로 정렬하면
@@ -156,7 +166,7 @@ $$
 로 쓸 수 있다. 순수전단의 주응력은 $(\tau,0,-\tau)$이므로 Tresca의 전단
 항복응력은 $\tau^Y=\sigma^Y/2$이다.
 
-# 8. Von Mises 항복 조건
+# 9. Von Mises 항복 조건
 
 - Von Mises의 등가 응력, $\sigma^{VM}$은 아래와 같이 정의된다.
 
@@ -183,7 +193,7 @@ $$
 $\tau^Y=\sigma^Y/\sqrt3\approx0.577\sigma^Y$이다. 따라서 같은 일축 항복응력으로
 보정했을 때 Tresca가 순수전단 항복을 더 이르게 예측한다.
 
-## 8.1. 다축 응력 판정 예제
+## 9.1. 다축 응력 판정 예제
 
 주응력이 $(120,40,-20)\,\mathrm{MPa}$이고 $\sigma^Y=100\,\mathrm{MPa}$라 하자.
 Tresca와 von Mises 등가응력은 각각
@@ -202,16 +212,16 @@ $$
 탄소성 계산에서는 이 상태를 그대로 허용하는 것이 아니라 항복면으로 되돌리는
 소성보정이 필요하다.
 
-## 8.2. 항복에서 평균응력과 편차응력의 역할
+## 9.2. 항복에서 평균응력과 편차응력의 역할
 
 응력은 $\boldsymbol\sigma=\sigma_m\boldsymbol I+\boldsymbol s$로 분해할 수 있다.
 연성금속의 von Mises 항복은 형상변화를 일으키는 편차응력 $\boldsymbol s$에만 의존한다.
 따라서 모든 주응력에 같은 정수압 응력을 더해도 von Mises 등가응력은 변하지 않는다.
 다만 정수압 응력은 연성파괴, 공극 성장과 압력 의존 재료의 항복에는 영향을 줄 수 있다.
 
-# 9. Hosford 항복 함수
+# 10. Hosford 항복 함수
 
-## 9.1. 정의와 지수의 의미
+## 10.1. 정의와 지수의 의미
 
 von Mises 항복조건은 여러 응력상태를 하나의 등가응력으로 표현하지만, 항복면의
 형태가 정해져 있다. Hosford 항복함수는 **지수 $a$로 항복면의 형태를 조절하는
@@ -245,7 +255,7 @@ $$
 주응력의 순서나 응력의 부호를 모두 바꾸어도 값이 같다.
 따라서 이 모델은 등방성이며 인장과 압축의 항복강도가 같다.
 
-## 9.2. von Mises 및 Tresca 조건과의 관계
+## 10.2. von Mises 및 Tresca 조건과의 관계
 
 $a=2$를 대입하면
 
@@ -283,7 +293,7 @@ BCC에는 $a=6$, FCC에는 $a=8$이 흔히 사용된다.
 실제 적용에서는 다축 항복 데이터와 비교해야 한다.
 집합조직에 의한 방향별 항복강도 차이는 이 등방성 식만으로 표현할 수 없다.
 
-## 9.3. 순수전단에서의 수치 비교
+## 10.3. 순수전단에서의 수치 비교
 
 순수전단 $\sigma_{12}=\sigma_{21}=\tau$이고 나머지 성분이 0이면,
 주응력은 $(\tau,0,-\tau)$이다 ($\tau\geq0$).
@@ -318,7 +328,7 @@ $\sqrt{3}\times56\approx97.0\ \mathrm{MPa}$이므로 항복면 내부이다.
 참고: [Hosford (1972), *A Generalized Isotropic Yield Criterion*](https://doi.org/10.1115/1.3422732),
 [Sandia Sierra/SM 사용자 설명서의 Hosford 모델](https://www.sandia.gov/files/sierra/SM_Users_5_30/user_manual/materials/materials.html).
 
-# 10. 연습 문제
+# 11. 연습 문제
 
 ## 문제 1
 
@@ -376,6 +386,23 @@ $\tau=55\,\mathrm{MPa}$가 작용한다. Tresca와 von Mises 조건의 항복 �
 Tresca 등가응력은 2 tau=110 MPa이므로 항복한다.
 von Mises 등가응력은 sqrt(3) tau 약 95.3 MPa이므로 탄성영역이다.
 -->
+
+[^degree-one-homogeneity]: **1차 동차함수 (homogeneous function of degree one).**
+    함수 $g$가 양의 배율 $\alpha>0$에 대해
+$g(\alpha\boldsymbol x)=\alpha g(\boldsymbol x)$를 만족하면
+양의 배율에 대한 1차 동차함수라고 한다. 즉 입력을 같은 배수로 늘리면 출력도 그 배수만큼 증가한다.
+Tresca와 von Mises 등가응력에서는 응력텐서의 모든 성분을 $\alpha$배 하면
+$\sigma_{eq}(\alpha\boldsymbol\sigma)=\alpha\sigma_{eq}(\boldsymbol\sigma)$가 된다.
+예를 들어 모든 응력성분을 2배 하면 등가응력도 2배가 된다.
+여기서 1차 동차인 것은 **등가응력**이며, 항복함수
+$f(\boldsymbol\sigma)=\sigma_{eq}(\boldsymbol\sigma)-\sigma^Y$는
+고정된 상수항 $-\sigma^Y$ 때문에 일반적으로 1차 동차함수가 아니다.
+실제로 $f(\alpha\boldsymbol\sigma)=\alpha\sigma_{eq}(\boldsymbol\sigma)-\sigma^Y$인 반면,
+$\alpha f(\boldsymbol\sigma)=\alpha\sigma_{eq}(\boldsymbol\sigma)-\alpha\sigma^Y$이다.
+또한 두 등가응력은 음의 배율까지 포함하면
+$\sigma_{eq}(\alpha\boldsymbol\sigma)=\lvert\alpha\rvert\sigma_{eq}(\boldsymbol\sigma)$를 만족하므로,
+위의 1차 동차 관계에서는 $\alpha>0$이라는 조건을 명시한다.
+
 
 ---
 
