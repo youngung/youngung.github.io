@@ -6,6 +6,17 @@ inline: false
 related_posts: false
 ---
 
+## 성적 분포
+
+총 **41명**의 평균 점수는 **52.23점**입니다.
+
+![소성가공 중간고사 점수 분포: 10점 간격의 학생 수와 평균 52.23점을 나타낸 그래프](/assets/img/news/plastic_forming_scores_2026.png){: width="600" style="max-width: 100%; height: auto; display: block; margin: 0 auto;" }
+
+점수 구간은 10점 간격이며, 각 구간은 하한 이상·상한 미만입니다(마지막 구간은 상한 포함).
+빨간 점선은 평균 점수를 나타냅니다.
+
+## 학번별 성적
+
 | 학번 | 중간고사 |
 | --- | ---: |
 | 20225019 | 14.5 |

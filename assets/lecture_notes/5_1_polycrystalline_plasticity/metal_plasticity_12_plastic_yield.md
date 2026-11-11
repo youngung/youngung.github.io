@@ -29,7 +29,7 @@ authors:
 
 # 1. 탄성 한계와 항복(yielding)
 
-- 'to yield' means 'to surrender', 'to stop resisting a force'.
+- 'to yield' means 'to stop resisting a force'.
 
 - 더이상 탄성변형으로만 변형을 모두 수용하지 못하게 될 때, 소성 변형이 발생하기 시작한다.
 
