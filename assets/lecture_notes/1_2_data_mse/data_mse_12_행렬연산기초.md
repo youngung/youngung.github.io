@@ -171,13 +171,14 @@ $(m,n)$ 행렬과 shape이 $(n,)$인 벡터를 곱하면 shape이 $(m,)$인 벡�
 $[\boldsymbol y]=[\boldsymbol A][\boldsymbol x]$를 얻는다. 이를 입력 벡터 $\boldsymbol x$를
 출력 벡터 $\boldsymbol y$로 보내는 **선형변환(linear transformation)**으로 해석할 수 있다.
 같은 행렬을 평면의 모든 벡터에 적용하면 격자와 그 안의 벡터가 함께 변한다.
+[칸아카데미 한국어: 행렬–벡터곱을 선형변환으로 해석하기](https://ko.khanacademy.org/math/linear-algebra/matrix-transformations/linear-transformations/v/matrix-vector-products-as-linear-transformations)에서
+같은 관점을 영상으로 복습할 수 있다.
 
 두 기본 벡터 $[1,0]^T$, $[0,1]^T$의 변환 결과는 각각 행렬 $[\boldsymbol A]$의
 첫 번째와 두 번째 열이다. 따라서 행렬의 열을 보면 기본 두 방향이 어디로
 이동하는지 알 수 있다.
 
-![행렬이 격자와 벡터를 연속적으로 선형변환하는 과정](/assets/img/lecture_notes/data_mse/linear_transformation_matrix_vector.gif)
-{: style="width: 680px; max-width: 100%; height: auto; display: block; margin: auto;" }
+![행렬이 격자와 벡터를 연속적으로 선형변환하는 과정](/assets/img/lecture_notes/data_mse/linear_transformation_matrix_vector.gif){: style="width: 680px; max-width: 100%; height: auto; display: block; margin: auto;" }
 
 *그림: $[\boldsymbol A(t)]=(1-t)[\boldsymbol I]+t[\boldsymbol A]$로 행렬을 서서히 바꾸면
 격자, 기본 벡터, 입력 벡터가 같은 변환을 따라 연속적으로 변한다.*
@@ -199,6 +200,10 @@ $\boldsymbol A(c\boldsymbol u+d\boldsymbol v)=c\boldsymbol A\boldsymbol u+d\bold
 를 만족한다.
 
 # 5. 행렬곱
+
+행렬곱을 두 선형변환의 연속 적용으로 해석하는 과정은
+[3Blue1Brown 한국어: 선형변환의 합성과 행렬의 곱셈](https://www.youtube.com/watch?v=gXjCxYuEybQ)을
+참고할 수 있다.
 
 두 행렬
 
@@ -414,7 +419,9 @@ print(np.allclose(left, right))
 
 ## 8.1. 행렬식
 
-[행렬식(determinant)](https://ko.wikipedia.org/wiki/행렬식)은 정사각행렬에 대해 정의되는 스칼라이다. 2×2 행렬에서는
+[행렬식(determinant)](https://www.youtube.com/watch?v=15VOaSeHYeY)은 정사각행렬에 대해 정의되는 스칼라이다.
+연결된 3Blue1Brown 한국어 영상은 행렬식을 선형변환에 따른 넓이·부피의 변화로 설명한다.
+2×2 행렬에서는
 
 $$
 \det
@@ -440,7 +447,8 @@ print(determinant)
 
 ## 8.2. 역행렬
 
-역행렬(inverse matrix)은 다음 관계를 만족한다.
+[역행렬(inverse matrix)](https://www.youtube.com/watch?v=bvB5uQXX7WY)은 다음 관계를 만족한다.
+연결된 3Blue1Brown 한국어 영상에서는 역행렬을 연립방정식의 기하학적 해석과 함께 설명한다.
 
 $$
 [\boldsymbol A]^{-1}[\boldsymbol A]
@@ -473,8 +481,7 @@ print(
 행렬식의 부호는 변환이 방향을 뒤집는지를 나타낸다.
 $\det[\boldsymbol A]=0$이면 넓이가 0으로 줄어 역행렬이 존재하지 않으며, 이런 행렬을 **특이행렬(singular matrix)**이라 한다.
 
-![행렬식의 절대값과 부호, 특이행렬의 기하학적 의미](/assets/img/lecture_notes/data_mse/determinant_geometry.png)
-{: style="width: 900px; max-width: 100%; height: auto; display: block; margin: auto;" }
+![행렬식의 절대값과 부호, 특이행렬의 기하학적 의미](/assets/img/lecture_notes/data_mse/determinant_geometry.png){: style="width: 400px; max-width: 100%; height: auto; display: block; margin: auto;" }
 
 *그림: 두 열벡터가 만드는 넓이는 $\lvert\det[\boldsymbol A]\rvert$이다. 부호가 바뀌면 방향이 뒤집히고, 행렬식이 0이면 평행사변형이 선으로 줄어든다.*
 
@@ -570,8 +577,7 @@ $$
 
 이다.
 
-![직교 단위격자의 분율좌표와 실제 위치](/assets/img/lecture_notes/data_mse/orthorhombic_unit_cell_fractional_coordinate.png)
-{: style="width: 760px; max-width: 100%; height: auto; display: block; margin: auto;" }
+![직교 단위격자의 분율좌표와 실제 위치](/assets/img/lecture_notes/data_mse/orthorhombic_unit_cell_fractional_coordinate.png){: style="width: 400px; max-width: 100%; height: auto; display: block; margin: auto;" }
 
 *그림: 분율좌표 $(0.5,0.5,0.25)$는 각 격자벡터 $\boldsymbol a$, $\boldsymbol b$, $\boldsymbol c$의 0.5, 0.5, 0.25배를 더한 위치를 뜻한다.*
 
@@ -622,8 +628,7 @@ $$
 =p\begin{bmatrix}2\\0\end{bmatrix}+q\begin{bmatrix}1\\3\end{bmatrix}
 $$
 
-![기울어진 격자의 분율좌표와 실제 위치](/assets/img/lecture_notes/data_mse/skew_lattice_fractional_coordinate.png)
-{: style="width: 820px; max-width: 100%; height: auto; display: block; margin: auto;" }
+![기울어진 격자의 분율좌표와 실제 위치](/assets/img/lecture_notes/data_mse/skew_lattice_fractional_coordinate.png){: style="width: 820px; max-width: 100%; height: auto; display: block; margin: auto;" }
 
 *그림: 분율좌표 $(p,q)=(0.5,0.5)$는 직교좌표축이 아니라 기울어진 격자벡터 $\boldsymbol a$, $\boldsymbol b$를 각각 0.5배한 뒤 더한다.*
 
@@ -700,7 +705,10 @@ NumPy에서 원소별 곱과 행렬곱에 사용하는 연산자를 각각 쓰�
 
 ## 문제 3
 
-다음 행렬–벡터곱을 계산하라.
+다음 행렬–벡터곱을 아래 두 가지 방법으로 모두 계산하라.
+
+1. 각 행과 벡터의 내적을 손으로 계산한다.
+2. NumPy 배열을 만들고 `for` 반복문을 사용하여 행렬–벡터곱을 수행한다. `@`와 `np.dot()`은 사용하지 않는다.
 
 $$
 \begin{bmatrix}
@@ -714,7 +722,22 @@ $$
 
 <!--
 풀이와 해답:
-결과는 $\begin{bmatrix}3\\8\end{bmatrix}$이다.
+손으로 계산하면
+$y_1=1\times3+0\times4=3$, $y_2=0\times3+2\times4=8$이므로
+$\begin{bmatrix}3\\8\end{bmatrix}$이다.
+
+```python
+A = np.array([[1, 0],
+              [0, 2]])
+x = np.array([3, 4])
+y = np.zeros(A.shape[0], dtype=int)
+
+for i in range(A.shape[0]):
+    for j in range(A.shape[1]):
+        y[i] += A[i, j] * x[j]
+
+print(y)  # [3 8]
+```
 -->
 
 ## 문제 4
@@ -750,11 +773,73 @@ $$\begin{bmatrix}2&1\\1&3\end{bmatrix}$$
 
 ## 문제 7
 
-행렬 $A$와 벡터 $b$로 이루어진 연립방정식 $Ax=b$를 푸는 NumPy 함수를 쓰시오.
+다음 두 연립방정식 $A\boldsymbol x=\boldsymbol b$를 각각 푸시오.
+각 행렬과 벡터를 NumPy 배열로 만들고 `np.linalg.solve(A, b)`를 사용하여
+$\boldsymbol x$를 구한 뒤, `A @ x`가 $\boldsymbol b$와 같은지도 확인하시오.
+
+### (1) $3\times3$ 연립방정식
+
+$$
+A=
+\begin{bmatrix}
+2&1&-1\\
+-3&-1&2\\
+-2&1&2
+\end{bmatrix},
+\qquad
+\boldsymbol b=
+\begin{bmatrix}
+8\\-11\\-3
+\end{bmatrix}
+$$
+
+### (2) $5\times5$ 연립방정식
+
+$$
+A=
+\begin{bmatrix}
+2&1&0&0&0\\
+0&3&-1&0&0\\
+0&0&2&1&0\\
+1&0&0&2&-1\\
+0&1&0&0&2
+\end{bmatrix},
+\qquad
+\boldsymbol b=
+\begin{bmatrix}
+4\\3\\10\\4\\12
+\end{bmatrix}
+$$
 
 <!--
 풀이와 해답:
-np.linalg.solve(A, b)를 사용한다.
+(1)의 해는 $\boldsymbol x=\begin{bmatrix}2&3&-1\end{bmatrix}^T$이다.
+
+```python
+A3 = np.array([[ 2,  1, -1],
+               [-3, -1,  2],
+               [-2,  1,  2]])
+b3 = np.array([8, -11, -3])
+x3 = np.linalg.solve(A3, b3)
+
+print(x3)                       # [ 2.  3. -1.]
+print(np.allclose(A3 @ x3, b3)) # True
+```
+
+(2)의 해는 $\boldsymbol x=\begin{bmatrix}1&2&3&4&5\end{bmatrix}^T$이다.
+
+```python
+A5 = np.array([[2, 1, 0, 0,  0],
+               [0, 3, -1, 0, 0],
+               [0, 0, 2, 1,  0],
+               [1, 0, 0, 2, -1],
+               [0, 1, 0, 0,  2]])
+b5 = np.array([4, 3, 10, 4, 12])
+x5 = np.linalg.solve(A5, b5)
+
+print(x5)                       # [1. 2. 3. 4. 5.]
+print(np.allclose(A5 @ x5, b5)) # True
+```
 -->
 
 ---
