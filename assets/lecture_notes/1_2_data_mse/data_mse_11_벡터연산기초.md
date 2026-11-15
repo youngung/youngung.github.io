@@ -39,7 +39,10 @@ authors:
 
 # 2. 벡터와 NumPy 배열
 
-벡터(vector)는 크기(magnitude)와 방향(direction)을 함께 나타내는 물리량이다. 3차원 벡터
+벡터(vector)는 크기(magnitude)와 방향(direction)을 함께 나타내는 물리량이다.
+벡터의 기하학적 의미와 덧셈·스칼라곱은
+[3Blue1Brown 한국어: 벡터란 무엇인가?](https://www.youtube.com/watch?v=ArgTeYVuJUo)에서도
+시각적으로 살펴볼 수 있다. 3차원 벡터
 $\boldsymbol a$는 다음과 같이 세 성분으로 나타낼 수 있다.
 
 $$
@@ -280,6 +283,8 @@ print(np.linalg.norm(a_unit))
 # 7. 내적
 
 두 벡터의 내적(dot product)은 같은 위치의 성분을 곱한 뒤 모두 더한 값이다.
+내적을 투영과 연결한 기하학적 설명은
+[3Blue1Brown 한국어: 내적과 쌍대성](https://www.youtube.com/watch?v=zSd7jd2HGhM)을 참고할 수 있다.
 
 $$
 \boldsymbol a\mathbin{\cdot}\boldsymbol b
@@ -394,9 +399,9 @@ print(angle_between(a, b))
 # 9. 외적
 
 3차원 벡터의 외적(cross product)은 두 입력 벡터에 모두 수직인 벡터를 만든다.
+방향과 넓이의 의미는
+[3Blue1Brown 한국어: 외적](https://www.youtube.com/watch?v=U0iMJmx9GE8)에서 시각적으로 확인할 수 있다.
 두 벡터가 평행하면 결과는 영벡터다. 먼저 성분을 직접 계산하는 식을 익히자.
-인덱스와 합산 기호를 이용한 표현은
-[13장 6.9절](/assets/lecture_notes/1_2_data_mse/data_mse_13_행렬벡터연산고급_Ein.md#cross-product-indices)에서 다룬다.
 
 $$
 [\boldsymbol a]\times[\boldsymbol b]
