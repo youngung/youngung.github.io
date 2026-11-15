@@ -401,6 +401,11 @@ ninja.data = [{
           description: "",
           section: "News",handler: () => {
               window.location.href = "/news/announcement_07/";
+            },},{id: "news-황경원-학생-논문-게재수락",
+          title: '황경원 학생 논문 게재수락',
+          description: "",
+          section: "News",handler: () => {
+              window.location.href = "/news/announcement_08/";
             },},{id: "projects-vpsc-evpsc-기반-마그네슘-이원계-합금의-전위활성도-평가",
           title: 'VPSC/EVPSC 기반 마그네슘 이원계 합금의 전위활성도 평가',
           description: "",
