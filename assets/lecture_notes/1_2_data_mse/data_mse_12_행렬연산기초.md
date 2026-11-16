@@ -448,7 +448,6 @@ print(determinant)
 ## 8.2. 역행렬
 
 [역행렬(inverse matrix)](https://www.youtube.com/watch?v=bvB5uQXX7WY)은 다음 관계를 만족한다.
-연결된 3Blue1Brown 한국어 영상에서는 역행렬을 연립방정식의 기하학적 해석과 함께 설명한다.
 
 $$
 [\boldsymbol A]^{-1}[\boldsymbol A]
