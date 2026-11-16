@@ -1,0 +1,55 @@
+\documentclass[tikz,border=12pt]{standalone}
+\usepackage{amsmath}
+\usepackage{kotex}
+\usetikzlibrary{arrows.meta,calc,positioning}
+
+\definecolor{mean}{RGB}{40,105,175}
+\definecolor{dev}{RGB}{198,68,54}
+\definecolor{body}{RGB}{225,235,244}
+\definecolor{edge}{RGB}{55,70,85}
+
+\begin{document}
+\begin{tikzpicture}[>=Latex,font=\sffamily,line cap=round,line join=round]
+  \node[font=\Large\bfseries] at (7.25,6.55) {평균응력과 편차응력의 역할};
+  \node[font=\small,text=gray!75!black] at (7.25,6.05) {등방 선형탄성의 미소변형 개념도};
+
+  % 가운데: 초기 상태
+  \node[font=\large\bfseries] at (7.25,5.25) {초기 형상};
+  \fill[body] (6.05,1.85) rectangle (8.45,4.25);
+  \draw[edge,very thick] (6.05,1.85) rectangle (8.45,4.25);
+  \draw[edge!55,dashed] (6.05,3.05)--(8.45,3.05);
+  \draw[edge!55,dashed] (7.25,1.85)--(7.25,4.25);
+  \node[font=\small] at (7.25,1.25) {기준 크기와 형상};
+
+  % 왼쪽: 평균응력만 작용한 결과
+  \draw[->,very thick,mean] (5.75,3.05) -- (4.55,3.05);
+  \node[mean,font=\small,align=center] at (5.15,3.55) {$\sigma_m\boldsymbol I$};
+  \node[font=\large\bfseries,mean] at (2.2,5.25) {평균응력};
+  \fill[mean!12] (0.55,1.4) rectangle (3.85,4.7);
+  \draw[mean,very thick] (0.55,1.4) rectangle (3.85,4.7);
+  \draw[mean!60,dashed] (0.55,3.05)--(3.85,3.05);
+  \draw[mean!60,dashed] (2.2,1.4)--(2.2,4.7);
+  \draw[mean,very thick,->] (0.55,3.05)--(-0.15,3.05);
+  \draw[mean,very thick,->] (3.85,3.05)--(4.35,3.05);
+  \draw[mean,very thick,->] (2.2,1.4)--(2.2,0.8);
+  \draw[mean,very thick,->] (2.2,4.7)--(2.2,5.05);
+  \node[mean,font=\small,align=center] at (2.2,0.15)
+    {크기(3차원에서는 부피) 변화\\형상은 유지};
+
+  % 오른쪽: 편차응력만 작용한 결과
+  \draw[->,very thick,dev] (8.75,3.05) -- (9.95,3.05);
+  \node[dev,font=\small] at (9.35,3.55) {$\boldsymbol s$};
+  \node[font=\large\bfseries,dev] at (12.3,5.25) {편차응력};
+  \fill[dev!12] (10.55,1.85) -- (12.95,1.85) -- (13.95,4.25) -- (11.55,4.25) -- cycle;
+  \draw[dev,very thick] (10.55,1.85) -- (12.95,1.85) -- (13.95,4.25) -- (11.55,4.25) -- cycle;
+  \draw[dev!60,dashed] (11.05,3.05)--(13.45,3.05);
+  \draw[dev!60,dashed] (11.75,1.85)--(12.75,4.25);
+  \draw[dev,very thick,->] (11.55,4.25)--++(0.65,0);
+  \draw[dev,very thick,->] (12.95,1.85)--++(-0.65,0);
+  \node[dev,font=\small,align=center] at (12.3,0.15)
+    {형상 변화\\$\operatorname{tr}(\boldsymbol s)=0$: 체적변형 없음};
+
+  \node[align=center,text=gray!80!black,font=\small] at (7.25,-0.62)
+    {$\boldsymbol\sigma=\sigma_m\boldsymbol I+\boldsymbol s$. von Mises 항복조건은 평균응력이 아니라 편차응력의 크기로 항복을 판단한다.};
+\end{tikzpicture}
+\end{document}

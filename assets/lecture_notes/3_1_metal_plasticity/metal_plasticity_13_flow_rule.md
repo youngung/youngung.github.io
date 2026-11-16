@@ -29,16 +29,18 @@ authors:
 
 # 1. 12장에서 13장으로
 
-[12장](/assets/lecture_notes/3_1_metal_plasticity/metal_plasticity_12_plastic_yield.md)에서는
-항복함수 $f(\boldsymbol\sigma)=\sigma_{eq}(\boldsymbol\sigma)-\sigma^Y$를 정의하고,
+[12-1장](/assets/lecture_notes/3_1_metal_plasticity/metal_plasticity_12_plastic_yield.md)에서는
+항복함수 $f(\boldsymbol\sigma)=\sigma_{eq}(\boldsymbol\sigma)-\sigma^Y$의 일반적인 틀을 정의하고,
+[12-2장](/assets/lecture_notes/3_1_metal_plasticity/metal_plasticity_12_yield_criteria.md)에서는
+이를 Tresca와 von Mises 항복조건에 적용했다.
 $f<0$이면 탄성 영역, $f=0$이면 항복면 위라고 구분했다.
-그러나 12장의 7.3절에서 강조했듯이 항복조건은 **소성변형이 가능한 경계**만 정해 줄 뿐,
+그러나 12-1장의 7.3절에서 강조했듯이 항복조건은 **소성변형이 가능한 경계**만 정해 줄 뿐,
 항복면 위의 응력 상태에서 소성변형률이 어느 방향으로 얼마나 생기는지는 알려 주지 않는다.
 이 강의의 목적은 바로 그 빈칸을 채우는 것이다.
 
 | 질문 | 답하는 법칙 | 다루는 곳 |
 |---|---|---|
-| 어떤 응력 상태에서 소성변형이 시작되는가? | 항복조건 | 12장 |
+| 어떤 응력 상태에서 소성변형이 시작되는가? | 항복조건 | 12-1·12-2장 |
 | 소성변형률은 **어느 방향**으로 생기는가? | **유동법칙** | 4–5절 |
 | 소성변형률은 **얼마나** 생기는가? | 소성승수 $d\lambda$ | 6절 |
 | 소성변형이 진행되면 항복응력은 어떻게 달라지는가? | 경화법칙 | 15장 |
@@ -882,4 +884,4 @@ tr m=n·b=0이므로 슬립에 의한 소성변형률은 부피를 바꾸지 않
 
 ---
 
-[이전 강의](/assets/lecture_notes/3_1_metal_plasticity/metal_plasticity_12_plastic_yield.md) · [강의 목록](/_lectures/3_1_metal_plasticity.md) · [다음 강의](/assets/lecture_notes/3_1_metal_plasticity/metal_plasticity_14_plastic_work.md)
+[이전 강의](/assets/lecture_notes/3_1_metal_plasticity/metal_plasticity_12_yield_criteria.md) · [강의 목록](/_lectures/3_1_metal_plasticity.md) · [다음 강의](/assets/lecture_notes/3_1_metal_plasticity/metal_plasticity_14_plastic_work.md)
