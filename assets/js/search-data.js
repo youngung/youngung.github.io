@@ -406,13 +406,13 @@ ninja.data = [{
           description: "",
           section: "News",handler: () => {
               window.location.href = "/news/announcement_08/";
-            },},{id: "news-전보혜-박사-논문-수락-thumbsup",
-          title: '전보혜 박사 논문 수락 :thumbsup:',
+            },},{id: "news-전보혜-박사-논문-게재수락-thumbsup",
+          title: '전보혜 박사 논문 게재수락 :thumbsup:',
           description: "",
           section: "News",handler: () => {
               window.location.href = "/news/announcement_09/";
             },},{id: "news-한국연구재단-우수연구-핵심연구-글로벌-매칭형-선정-clap",
-          title: '한국연구재단 우수연구-핵심연구(글로벌 매칭형) 선정 :clap:',
+          title: '한국연구재단 우수연구-핵심연구 (글로벌 매칭형) 선정 :clap:',
           description: "",
           section: "News",handler: () => {
               window.location.href = "/news/announcement_10/";
@@ -446,6 +446,11 @@ ninja.data = [{
           description: "",
           section: "Projects",handler: () => {
               window.location.href = "/projects/26_Seah/";
+            },},{id: "projects-연구재단-우수핵심연구-글로벌-매칭형",
+          title: '연구재단 우수핵심연구 (글로벌 매칭형))',
+          description: "",
+          section: "Projects",handler: () => {
+              window.location.href = "/projects/27_%EC%9A%B0%EC%88%98%ED%95%B5%EC%8B%AC%EC%97%B0%EA%B5%AC/";
             },},{
         id: 'social-email',
         title: 'email',
