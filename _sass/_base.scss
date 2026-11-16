@@ -538,6 +538,74 @@ footer.sticky-bottom {
 
 // Repositories
 
+.repositories {
+  .repo {
+    width: 100%;
+  }
+
+  .repository-card {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    min-height: 10rem;
+    height: 100%;
+    padding: 1.25rem;
+    color: var(--global-text-color);
+    background: var(--global-card-bg-color);
+    border: 1px solid var(--global-divider-color);
+    border-radius: 0.5rem;
+    transition:
+      border-color 0.2s ease,
+      transform 0.2s ease;
+
+    &:hover {
+      color: var(--global-text-color);
+      border-color: var(--global-theme-color);
+      transform: translateY(-2px);
+    }
+  }
+
+  .repository-card-heading {
+    display: flex;
+    align-items: baseline;
+    gap: 0.35rem;
+    color: var(--global-theme-color);
+  }
+
+  .repository-card-owner,
+  .repository-card-label {
+    color: var(--global-text-color-light);
+  }
+
+  .repository-card-description {
+    flex: 1;
+    line-height: 1.5;
+  }
+
+  .repository-card-link {
+    color: var(--global-theme-color);
+    font-size: 0.9rem;
+  }
+
+  .repository-profile-card {
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .repository-card-icon {
+    color: var(--global-theme-color);
+    font-size: 3.5rem;
+    line-height: 1;
+  }
+
+  .repository-card-content {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    gap: 0.35rem;
+  }
+}
+
 @media (min-width: 768px) {
   .repo {
     max-width: 50%;

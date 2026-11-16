@@ -1,10 +1,12 @@
 github_users:
   - youngung
 
-repo_description_lines_max: 2
-
 github_repos:
-  - youngung/EVPSC-public
-  - youngung/texture3
-  - lanl/VPSC_code
-  - mtex-toolbox/mtex
+  - repository: youngung/EVPSC-public
+    description: "Delta-EVPSC: an elasto-visco-plastic self-consistent polycrystal plasticity code."
+  - repository: youngung/texture3
+    description: "Texture-analysis scripts compatible with Python 3."
+  - repository: lanl/VPSC_code
+    description: "The Los Alamos Visco-Plastic Self-Consistent code."
+  - repository: mtex-toolbox/mtex
+    description: "A free MATLAB toolbox for quantitative crystallographic texture analysis."
