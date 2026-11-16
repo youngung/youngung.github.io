@@ -437,6 +437,53 @@ $$
 변환 전후에 $\operatorname{tr}(\boldsymbol A)=140$,
 $\det(\boldsymbol A)=3600$으로 같으므로 계산 결과를 검산할 수 있다.
 
+## 4.1. 응력성분 변환과 다음 장의 주축
+
+평면응력
+
+$$
+[\boldsymbol\sigma]_{\mathrm{old}}
+=\begin{bmatrix}
+\sigma_{11}&\sigma_{12}\\
+\sigma_{12}&\sigma_{22}
+\end{bmatrix}
+$$
+
+에 같은 수동 좌표변환을 적용하면
+
+$$
+\begin{aligned}
+\tilde\sigma_{11}
+&=\frac{\sigma_{11}+\sigma_{22}}{2}
++\frac{\sigma_{11}-\sigma_{22}}{2}\cos2\theta
++\sigma_{12}\sin2\theta,\\
+\tilde\sigma_{22}
+&=\frac{\sigma_{11}+\sigma_{22}}{2}
+-\frac{\sigma_{11}-\sigma_{22}}{2}\cos2\theta
+-\sigma_{12}\sin2\theta,\\
+\tilde\sigma_{12}
+&=-\frac{\sigma_{11}-\sigma_{22}}{2}\sin2\theta
++\sigma_{12}\cos2\theta
+\end{aligned}
+$$
+
+을 얻는다. 좌표축을 회전하면 수직응력과 전단응력의 성분값은 달라지지만,
+물리적 응력상태 자체는 변하지 않는다. 특히 $\tilde\sigma_{12}=0$이 되는 각도를
+선택하면 응력행렬이 대각행렬이 된다. 이때의 축이 **주축**이고 대각성분이
+**주응력**이다. 따라서 주응력 계산은 새로운 응력을 만드는 과정이 아니라,
+같은 응력상태를 전단성분이 사라지는 특별한 기저에서 표현하는 과정이다.
+
+예를 들어
+
+$$
+[\boldsymbol\sigma]_{\mathrm{old}}
+=\begin{bmatrix}100&50\\50&0\end{bmatrix}\,\mathrm{MPa}
+$$
+
+이면 $\tan2\theta=2\sigma_{12}/(\sigma_{11}-\sigma_{22})=1$이므로
+$\theta=22.5^\circ$에서 전단성분이 0이 된다. 다음 장에서는 이 주축과 주응력을
+고유값 문제로 일반화하고, 평균응력과 편차응력으로 응력상태를 분해한다.
+
 # 5. 요약
 
 | 대상 | 좌표변환 |
@@ -518,6 +565,102 @@ $$
 풀이와 해답:
 [\boldsymbol R]=\begin{bmatrix}0&1\\-1&0\end{bmatrix}을 사용하면 [\boldsymbol A]_{\tilde {\boldsymbol e}}=\begin{bmatrix}4&-2\\-2&10\end{bmatrix}이다.
 두 행렬의 trace는 모두 14이고 determinant는 모두 36이다.
+-->
+
+## 문제 7
+
+$\theta=30^\circ$이고 기존 기저에서 벡터의 성분이
+
+$$
+[\boldsymbol v]_{\boldsymbol e}
+=\begin{bmatrix}\sqrt3\\1\end{bmatrix}
+$$
+
+일 때 새 기저에서의 성분을 구하라. 이어서 역변환으로 원래 성분을 복원하고,
+변환 전후의 벡터 크기가 같은지 확인하라.
+
+<!--
+풀이와 해답:
+R=[[sqrt(3)/2,1/2],[-1/2,sqrt(3)/2]]이므로
+[v]_new=R[v]_old=(2,0)^T이다.
+역변환 R^T(2,0)^T=(sqrt(3),1)^T로 원래 성분을 복원한다.
+두 성분벡터의 크기는 모두 2이다.
+-->
+
+## 문제 8
+
+기존 기저에서 다음 일축 응력상태가 주어졌다.
+
+$$
+[\boldsymbol\sigma]_{\boldsymbol e}
+=\begin{bmatrix}120&0\\0&0\end{bmatrix}\,\mathrm{MPa}.
+$$
+
+좌표축을 반시계방향으로 $\theta=45^\circ$ 회전한 새 기저에서
+$[\boldsymbol\sigma]_{\tilde{\boldsymbol e}}$를 구하라.
+새 좌표계에서 전단응력이 나타나는 이유를 설명하고 trace와 determinant를 확인하라.
+
+<!--
+풀이와 해답:
+이 강의의 수동변환 R=[[c,s],[-s,c]]에서 c=s=1/sqrt(2)이다.
+R sigma R^T=[[60,-60],[-60,60]] MPa이다.
+같은 일축 응력상태를 기울어진 면에서 보았기 때문에 수직응력과 전단응력이 함께 나타난다.
+변환 전후 trace는 120 MPa이고 determinant는 0이다.
+전단응력의 부호는 이 강의에서 정한 수동변환과 양의 회전방향에 따른다.
+-->
+
+## 문제 9: Pure shear의 주축 변환
+
+기존 기저에서 pure shear 응력상태가
+
+$$
+[\boldsymbol\sigma]_{\boldsymbol e}
+=\begin{bmatrix}0&\tau\\\tau&0\end{bmatrix},
+\qquad \tau=50\,\mathrm{MPa}
+$$
+
+로 주어졌다. 좌표축을 반시계방향으로 $\theta=45^\circ$ 회전한 새 기저에서
+응력성분을 구하라. 이 좌표계가 주축인지 판단하고 두 주응력을 쓰라.
+또한 변환 전후의 trace와 determinant를 비교하라.
+
+<!--
+풀이와 해답:
+R=[[1/sqrt(2),1/sqrt(2)],[-1/sqrt(2),1/sqrt(2)]]을 사용하면
+R sigma R^T=[[tau,0],[0,-tau]]=[[50,0],[0,-50]] MPa이다.
+전단성분이 0이므로 새 좌표계는 주축이며 주응력은 50 MPa와 -50 MPa이다.
+변환 전후 trace는 모두 0이고 determinant는 모두 -tau^2=-2500 MPa^2이다.
+즉 pure shear는 45도 회전한 주축에서 크기가 같고 부호가 반대인 두 수직응력으로 나타난다.
+-->
+
+## 문제 10
+
+1.2절의 Euler 각 예제에서 얻은
+
+$$
+[\boldsymbol R]
+=\begin{bmatrix}0&1&0\\0&0&1\\1&0&0\end{bmatrix}
+$$
+
+과 다음 대칭 2계 텐서를 사용한다.
+
+$$
+[\boldsymbol A]_{\boldsymbol e}
+=\begin{bmatrix}
+10&1&2\\
+1&20&3\\
+2&3&30
+\end{bmatrix}.
+$$
+
+$[\boldsymbol A]_{\tilde{\boldsymbol e}}
+=[\boldsymbol R][\boldsymbol A]_{\boldsymbol e}[\boldsymbol R]^T$를 계산하라.
+변환된 텐서가 대칭인지 확인하고 trace가 보존되는지도 확인하라.
+
+<!--
+풀이와 해답:
+[A]_new=[[20,3,1],[3,30,2],[1,2,10]]이다.
+행과 열의 순서가 같은 방식으로 순환 이동했으며 변환 뒤에도 대칭이다.
+변환 전후 trace는 모두 10+20+30=60이다.
 -->
 
 ---

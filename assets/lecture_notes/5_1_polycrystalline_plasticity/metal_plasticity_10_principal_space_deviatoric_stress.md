@@ -93,6 +93,16 @@ $$
 
 - 주 공간에서 얻어진 응력 값 $\sigma_1,\sigma_2,\sigma_3$로 이루어진 공간을 '주 응력 공간' (principal stress space)라 부른다.
 
+좌표축을 연속적으로 회전하면 같은 물리적 응력상태를 나타내는 수직응력과
+전단응력의 성분이 계속 달라진다. 주축에 도달하면 모든 전단성분이 0이 되고
+세 주응력만 남는다.
+
+![좌표축이 회전하면서 사각형 요소 면의 수직응력과 전단응력이 변하고, 주축에서 전단응력이 0이 되어 두 주응력으로 표현되는 과정](/assets/img/lecture_notes/coordinate_transformation/stress_transformation_to_principal_animation.gif){: style="width: 1200px; max-width: 100%; height: auto;"}
+
+그림에서 물체와 응력상태는 고정되어 있고 좌표축만 회전한다. 따라서 주응력은
+새롭게 생기는 응력이 아니라, 같은 응력텐서를 전단성분이 없는 기저로 표현했을 때의
+대각성분이다.
+
 # 3. 주 응력 값 구하기
 
 주축의 단위벡터를 $\boldsymbol n$, 그 면에 작용하는 주응력을 $\lambda$라 하면
@@ -187,6 +197,16 @@ $$
 $$
 \boldsymbol s = \boldsymbol \sigma - \sigma_m \boldsymbol I
 $$
+
+평균응력과 편차응력은 물체의 변형에 서로 다른 역할을 한다. 평균응력 성분은
+세 방향에 같은 크기로 작용하여 주로 부피변화를 만들고, 편차응력 성분은 방향별
+응력 차이를 만들어 형상변화를 유발한다.
+
+![초기 형상에 평균응력과 편차응력이 각각 작용할 때의 크기와 형상 변화를 비교한 그림](/assets/img/lecture_notes/metal_plasticity/hydrostatic_deviatoric_shape_effect.png){: style="width: 900px; max-width: 100%; height: auto; display: block; margin: 0 auto;" }
+
+이 구분은 연성금속의 von Mises 항복조건이 평균응력이 아니라 편차응력에
+의존하는 이유를 이해하는 데 중요하다. 다만 정수압 응력이 파괴나 공극 성장에도
+영향이 없다는 뜻은 아니다.
 
 따라서 $\operatorname{tr}(\boldsymbol s)=0$이다. 주응력 좌표계에서는 편차 주응력이
 

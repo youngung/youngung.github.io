@@ -53,6 +53,12 @@ $$
 $\boldsymbol\varepsilon^p$는 잔류한다. 또한 항복은 소성변형의 시작이고 파괴는 균열이나
 분리에 의해 하중전달능력을 잃는 현상이므로 서로 구분해야 한다.
 
+![원점에서 상태 A까지 하중을 증가시킨 뒤, 응력 300 MPa와 전체 변형률 0.010인 상태 A에서 하중을 제거하면 탄성변형률 0.0015가 회복되고 소성변형률 0.0085가 남는 응력–변형률 그림](/assets/img/lecture_notes/metal_plasticity/elastic_plastic_unloading.png){: style="width: 1000px; max-width: 100%; height: auto;"}
+
+그림의 상태 A에서 $E=200\,\mathrm{GPa}$라면 탄성변형률은
+$300/200000=0.0015$이고, 전체 변형률 $0.010$ 가운데 나머지 $0.0085$가
+소성변형률이다. 추가 소성변형 없이 제하하면 탄성분만 회복되어 $0.0085$가 남는다.
+
 # 2. 항복 응력 (yield stress)
 
 - 항복(plastic yielding)은 소성변형이 발생하기 시작하는 현상이다. 소성변형이 생긴
@@ -61,6 +67,15 @@ $\boldsymbol\varepsilon^p$는 잔류한다. 또한 항복은 소성변형의 시
 - 보통 응력이 임계값에 도달하면 소성변형이 나타나기 시작한다.
 
 - 따라서, 항복 조건을 주로 '응력' 기준으로 표현한다. 소성 변형이 발생하기 시작하는 응력값을 '항복응력'(yield stress)라 부른다.
+
+명확한 항복점이 나타나지 않는 재료에서는 보통 $0.2\%$ 오프셋 내력을 사용한다.
+탄성구간과 같은 기울기의 직선을 변형률축에서 $0.002$만큼 옮기고,
+응력–변형률 곡선과 만나는 응력을 항복강도로 정한다.
+
+![일축 인장시험과 응력–변형률 곡선에서 0.2퍼센트 오프셋 내력을 정하는 방법](/assets/img/lecture_notes/metal_plasticity/yield_stress_offset_method.png){: style="width: 900px; max-width: 100%; height: auto; display: block; margin: 0 auto;" }
+
+항복응력은 재료상수처럼 쓰이지만 온도, 변형률속도, 결정립 크기, 열처리와
+가공이력 등에 따라 달라질 수 있으므로 시험 조건과 함께 해석해야 한다.
 
 # 3. 항복 응력의 중요성
 
@@ -83,6 +98,24 @@ $\sigma_{eq}=\lvert\sigma\rvert$가 되도록 정의한다.
 같은 응력 상태라도 선택한 모델에 따라 등가응력 값은 달라질 수 있지만,
 좌표축만 바꾸었다는 이유로 그 값이 달라져서는 안 된다.
 
+![다축 응력텐서를 Tresca 또는 von Mises 항복모델에 입력하여 등가응력을 계산하고 일축 항복응력과 비교하는 과정](/assets/img/lecture_notes/metal_plasticity/equivalent_stress_mapping.png){: style="width: 900px; max-width: 100%; height: auto; display: block; margin: 0 auto;" }
+
+등가응력은 단순한 “응력텐서의 크기”가 아니라, 선택한 항복모델의 관점에서
+현재 다축 응력상태를 일축시험과 비교하기 위한 스칼라다. 면력이나 주축처럼
+방향정보가 필요할 때에는 등가응력이 아니라 원래 응력텐서를 사용해야 한다.
+
+## 4.1. 응력상태를 응력공간의 점으로 나타내기
+
+물리공간에서 점 $P$는 물체 안의 위치를 뜻하지만, 응력공간의 점은 그 위치에서의
+응력 **상태**를 뜻한다. 예를 들어 $P$에서
+$(\sigma_{11},\sigma_{12})=(80,30)\,\mathrm{MPa}$이면 이를 두 응력성분을
+좌표로 하는 공간의 점 $(80,30)\,\mathrm{MPa}$로 나타낼 수 있다.
+
+![실제 물체의 고정된 관심점에서 얻은 응력성분을 응력공간의 한 점으로 나타내는 과정](/assets/img/lecture_notes/metal_plasticity/physical_point_to_stress_space.png){: style="width: 900px; max-width: 100%; height: auto; display: block; margin: 0 auto;" }
+
+일반적인 대칭 응력텐서는 여섯 독립성분을 가지므로 전체 응력공간은 6차원이다.
+세 주응력을 좌표로 사용하면 3차원 주응력 공간에서 항복면을 살펴볼 수 있다.
+
 이제 일축 상태에서의 항복 조건을 먼저 확인한 뒤, 등가응력을 이용해 다축 상태로 확장한다.
 
 # 5. 항복 조건 (스칼라 응력 환경)
@@ -103,6 +136,14 @@ $$
 $$
 |\sigma|<\sigma^Y
 $$
+
+![가로축은 일축 응력, 세로축은 응력의 절댓값이다. 압축과 인장 영역에서 응력의 절댓값이 항복응력보다 작은 탄성 범위, 항복응력과 같은 항복의 경계, 초기 항복 기준을 넘는 영역을 구분한 그림](/assets/img/lecture_notes/metal_plasticity/uniaxial_yield_boundary.png){: style="width: 900px; max-width: 100%; height: auto; display: block; margin: 0 auto;" }
+
+$|\sigma|=\sigma^Y$는 초기 항복의 경계다. 완전소성 모델에서는 항복 뒤에도
+응력이 이 값에 머물지만, 변형경화 모델에서는 소성변형이 누적되면서 현재의
+항복 수준이 증가한다.
+
+![강체–완전소성, 탄성–완전소성, 탄성–선형경화, 탄성–비선형경화 모델의 응력–변형률 곡선을 비교한 그림](/assets/img/lecture_notes/metal_plasticity/idealized_material_models.png){: style="width: 900px; max-width: 100%; height: auto; display: block; margin: 0 auto;" }
 
 # 6. 항복 조건
 
@@ -130,6 +171,12 @@ $$
 $f=0$이라는 사실만으로 소성변형률이 반드시 증가하는 것은 아니다. 항복면에서
 안쪽으로 향하는 제하(unloading)는 탄성일 수 있고, 바깥쪽으로 진행하려는 하중은
 소성보정과 경화를 요구한다.
+
+![평면응력의 주응력 공간에서 비례하중과 비례하지 않는 하중 경로가 항복 경계에 도달하는 모습. P는 내부, B와 Q는 경계, C는 외부의 응력 상태이다.](/assets/img/lecture_notes/metal_plasticity/yield_surface_stress_paths.png){: style="width: 1100px; max-width: 100%; height: auto;"}
+
+그림의 $P$는 탄성영역 내부, $B$와 $Q$는 항복면 위, $C$는 현재 항복면 밖의
+시험 응력상태다. 비례하중에서는 응력점이 원점에서 뻗는 직선을 따라 이동하지만,
+성분비가 달라지는 비비례하중에서는 경로가 꺾이거나 휘어질 수 있다.
 
 비례하중 $\boldsymbol\sigma=\alpha\boldsymbol\sigma_0$에서는 von Mises와 Tresca처럼
 응력에 대해 1차 동차인 등가응력에 대해[^degree-one-homogeneity]
@@ -218,6 +265,56 @@ $$
 연성금속의 von Mises 항복은 형상변화를 일으키는 편차응력 $\boldsymbol s$에만 의존한다.
 따라서 모든 주응력에 같은 정수압 응력을 더해도 von Mises 등가응력은 변하지 않는다.
 다만 정수압 응력은 연성파괴, 공극 성장과 압력 의존 재료의 항복에는 영향을 줄 수 있다.
+
+## 9.3. 주응력 공간의 von Mises 항복면
+
+von Mises 조건은 주응력 차이에만 의존하므로 모든 주응력에 같은 값을 더해도
+등가응력이 변하지 않는다. 따라서 3차원 주응력 공간의 항복면은
+$\sigma_1=\sigma_2=\sigma_3$인 정수압 축을 중심으로 하는 원기둥이다.
+
+![von Mises 항복 원통과 정수압 축, 보라색 pi-plane의 원형 교선 및 주황색 sigma_3=0 평면의 타원형 교선. B와 Q는 앞의 평면응력 그림과 같은 응력 상태이다.](/assets/img/lecture_notes/metal_plasticity/von_mises_yield_surface_3d.png){: style="width: 1100px; max-width: 100%; height: auto;"}
+
+정수압 축에 수직이고 원점을 지나는 평면을 $\pi$-plane이라 한다. von Mises
+항복원통과 이 평면의 교선은 원이며, 정수압 축 방향에서 바라보면 세 주응력 축의
+투영 방향이 서로 $120^\circ$를 이룬다.
+
+![정수압 축의 양의 방향에서 원점을 바라본 pi-plane. 보라색 원과 주황색 평면응력 교선의 투영이 겹치고, 세 주응력 축의 투영 방향은 서로 120도를 이룬다.](/assets/img/lecture_notes/metal_plasticity/von_mises_pi_plane_view.png){: style="width: 1100px; max-width: 100%; height: auto;"}
+
+## 9.4. 인장과 전단이 함께 있는 평면응력 예제
+
+$\sigma^Y=100\,\mathrm{MPa}$이고
+
+$$
+[\boldsymbol\sigma]
+=\begin{bmatrix}80&30&0\\30&0&0\\0&0&0\end{bmatrix}\,\mathrm{MPa}
+$$
+
+라 하자. 평면 내 고유값은 $40\pm\sqrt{40^2+30^2}$이므로 세 주응력은
+$(90,0,-10)\,\mathrm{MPa}$이다. 따라서
+
+$$
+\sigma^T=90-(-10)=100\,\mathrm{MPa},
+$$
+
+$$
+\sigma^{VM}=\sqrt{80^2+3(30)^2}
+=\sqrt{9100}\simeq95.39\,\mathrm{MPa}
+$$
+
+이다. 같은 응력상태가 Tresca 항복면 위에 있지만 von Mises 항복면 안에 있으므로,
+항복 판정은 선택한 모델에 따라 달라질 수 있다.
+
+평면응력도 3차원 응력상태이므로 평균응력은 $80/3\,\mathrm{MPa}$이고
+$s_{33}=-80/3\,\mathrm{MPa}$이다. 편차응력으로 von Mises 값을 계산할 때
+$s_{33}$을 버리거나 평균응력을 2로 나누어서는 안 된다.
+
+계산할 때에는 다음 순서를 따르면 실수를 줄일 수 있다.
+
+1. 응력행렬, 단위와 평면응력 여부를 확인한다.
+2. 사용할 항복조건과 같은 시험 조건의 $\sigma^Y$를 정한다.
+3. Tresca에서는 세 주응력을 부호까지 포함해 정렬한다.
+4. von Mises에서는 주응력 식 또는 일반 성분 식으로 등가응력을 계산한다.
+5. $\sigma_{eq}$와 $\sigma^Y$를 비교하여 항복면 내부·위·외부를 구분한다.
 
 # 10. Hosford 항복 함수
 
