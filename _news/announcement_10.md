@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "한국연구재단 우수연구-핵심연구(글로벌 매칭형) 선정"
+title: "한국연구재단 우수연구-핵심연구(글로벌 매칭형) 선정 :clap: "
 date: 2026-11-16
 inline: false
 related_posts: false

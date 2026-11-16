@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "황경원 학생 논문 게재수락"
+title: "황경원 학생 논문 게재수락 :thumbsup:"
 date: 2026-11-11
 inline: false
 related_posts: false
