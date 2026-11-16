@@ -1,0 +1,46 @@
+\documentclass[tikz,border=12pt]{standalone}
+\usepackage{amsmath}
+\usepackage{kotex}
+\usetikzlibrary{arrows.meta,calc}
+\definecolor{curve}{RGB}{35,100,175}
+\definecolor{offset}{RGB}{198,68,54}
+\definecolor{specimen}{RGB}{210,220,230}
+\begin{document}
+\begin{tikzpicture}[>=Latex,font=\sffamily,line cap=round,line join=round]
+  \node[font=\Large\bfseries] at (7.0,6.2) {일축 인장시험에서 항복 기준값 정하기};
+
+  \node[font=\large\bfseries] at (2.25,5.35) {일축 인장시험};
+  \fill[specimen] (1.3,1.4) -- (1.3,2.2) -- (1.7,2.55) -- (1.7,4.05) --
+    (1.3,4.4) -- (1.3,5.0) -- (3.2,5.0) -- (3.2,4.4) -- (2.8,4.05) --
+    (2.8,2.55) -- (3.2,2.2) -- (3.2,1.4) -- cycle;
+  \draw[thick] (1.3,1.4) -- (1.3,2.2) -- (1.7,2.55) -- (1.7,4.05) --
+    (1.3,4.4) -- (1.3,5.0) -- (3.2,5.0) -- (3.2,4.4) -- (2.8,4.05) --
+    (2.8,2.55) -- (3.2,2.2) -- (3.2,1.4) -- cycle;
+  \draw[offset,very thick,->] (2.25,5.0)--(2.25,5.85) node[above] {$F$};
+  \draw[offset,very thick,->] (2.25,1.4)--(2.25,0.55) node[below] {$F$};
+  \draw[<->,thick] (1.45,2.55)--(1.45,4.05);
+  \node[font=\small,rotate=90,fill=white,inner sep=1pt] at (1.45,3.3) {표점 거리};
+  \node[align=center,font=\small] at (2.25,-0.05)
+    {$\sigma=F/A_0$, $\varepsilon=\Delta L/L_0$\\응력--변형률 곡선으로 환산};
+
+  \draw[->,very thick] (3.65,3.2)--(4.75,3.2);
+
+  \node[font=\large\bfseries] at (9.0,5.35) {0.2\% 오프셋 내력};
+  \draw[->,thick] (5.1,0.7)--(12.8,0.7) node[right] {변형률 $\varepsilon$};
+  \draw[->,thick] (5.1,0.7)--(5.1,5.0) node[above] {응력 $\sigma$};
+  \draw[curve,very thick] (5.1,0.7)--(6.5,3.5)
+    .. controls (7.0,4.25) and (8.3,4.55) .. (12.0,4.75);
+  \node[curve,font=\small] at (10.7,4.35) {측정 곡선};
+  \draw[gray!70,dashed,thick] (5.1,0.7)--(7.0,4.5);
+  \node[gray!70!black,font=\small] at (5.95,2.55) {탄성 기울기 $E$};
+  \draw[offset,dashed,very thick] (6.0,0.7)--(7.9,4.5);
+  \node[offset,font=\small,align=left] at (8.45,2.25) {$E$와 평행한 직선\\$\varepsilon=0.002$만큼 이동};
+  \fill[offset] (7.55,4.03) circle (2.8pt);
+  \draw[offset,dashed] (5.1,4.03)--(7.55,4.03);
+  \node[offset,left] at (5.1,4.03) {$\sigma^Y_{0.2}$};
+  \draw[offset] (6.0,0.62)--(6.0,0.78);
+  \node[offset,below] at (6.0,0.62) {$0.002$};
+  \node[align=center,text=gray!80!black,font=\small] at (9.0,-0.95)
+    {곡선과 오프셋 직선의 교점에서 얻은 규약값을 다축 항복 판정의 기준으로 사용한다.};
+\end{tikzpicture}
+\end{document}

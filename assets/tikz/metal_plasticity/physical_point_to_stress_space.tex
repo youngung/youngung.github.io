@@ -1,0 +1,43 @@
+\documentclass[tikz,border=12pt]{standalone}
+\usepackage{amsmath}
+\usepackage{kotex}
+\usetikzlibrary{arrows.meta,calc}
+\definecolor{physical}{RGB}{35,100,175}
+\definecolor{stress}{RGB}{198,68,54}
+\definecolor{body}{RGB}{225,235,244}
+\begin{document}
+\begin{tikzpicture}[>=Latex,font=\sffamily,line cap=round,line join=round]
+  \node[font=\Large\bfseries] at (7.0,6.2) {실제 물체의 한 점을 응력공간의 한 점으로 나타내기};
+
+  \node[font=\large\bfseries,physical] at (2.1,5.25) {1. 실제 물체};
+  \fill[body] (0.3,1.45) rectangle (3.9,4.55);
+  \draw[physical,very thick] (0.3,1.45) rectangle (3.9,4.55);
+  \fill[stress] (2.45,3.1) circle (3pt);
+  \node[stress,above right] at (2.45,3.1) {관심점 $P$};
+  \draw[stress,very thick,->] (2.45,3.1)--(3.55,3.1) node[right] {$\sigma_{11}$};
+  \draw[stress,very thick,->] (2.45,3.1)--(2.45,4.15) node[above] {$\sigma_{12}$};
+  \node[align=center,font=\small] at (2.1,0.82) {물체 안의 위치 $P$를 고정하고\\그 점의 응력 상태를 읽는다.};
+
+  \draw[->,very thick] (4.15,3.0)--(5.0,3.0);
+  \node[font=\large\bfseries] at (7.0,5.25) {2. 성분값};
+  \node[draw,rounded corners=3pt,very thick,fill=gray!6,minimum width=3.3cm,minimum height=2.5cm,align=center] at (7.0,3.05)
+    {$\sigma_{11}=80\,\mathrm{MPa}$\\[5pt]
+     $\sigma_{12}=30\,\mathrm{MPa}$\\[8pt]
+     나머지 성분은 $0$};
+
+  \draw[->,very thick] (8.95,3.0)--(9.75,3.0);
+  \node[font=\large\bfseries,stress] at (11.9,5.25) {3. 응력공간};
+  \draw[->,thick] (9.85,1.25)--(14.0,1.25) node[right] {$\sigma_{11}$ (MPa)};
+  \draw[->,thick] (9.85,1.25)--(9.85,4.8) node[above] {$\sigma_{12}$ (MPa)};
+  \draw[gray!55,dashed] (9.85,3.65)--(13.05,3.65)--(13.05,1.25);
+  \fill[stress] (13.05,3.65) circle (3.2pt);
+  \node[stress,above right,align=left] at (13.05,3.65) {응력 상태\\$(80,30)$ MPa};
+  \node[below] at (13.05,1.25) {$80$};
+  \node[left] at (9.85,3.65) {$30$};
+  \node[align=center,font=\small] at (11.9,0.55)
+    {이 점의 좌표는 물체 안의 위치가 아니라\\점 $P$에서의 응력성분이다.};
+
+  \node[align=center,text=gray!80!black,font=\small] at (7.0,-0.2)
+    {하중이 변하면 실제 위치 $P$는 그대로여도 응력공간의 점은 이동하며, 그 이동 궤적이 응력 경로이다.};
+\end{tikzpicture}
+\end{document}
