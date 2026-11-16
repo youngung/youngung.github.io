@@ -1,0 +1,63 @@
+\documentclass[tikz,border=12pt]{standalone}
+\usepackage{amsmath}
+\usepackage{kotex}
+\usetikzlibrary{arrows.meta,patterns}
+\definecolor{elastic}{RGB}{35,100,175}
+\definecolor{boundary}{RGB}{205,105,25}
+\definecolor{tension}{RGB}{30,130,95}
+\definecolor{compression}{RGB}{125,75,165}
+\definecolor{outside}{RGB}{195,70,45}
+\begin{document}
+\begin{tikzpicture}[>=Latex,font=\sffamily,line cap=round,line join=round]
+% 일축 응력 sigma (가로축)와 그 크기 |sigma| (세로축).
+% 1 sigma^Y = 3 cm. 인장·압축 항복강도가 같은 경우이다.
+\def\sy{3}
+\node[font=\large\bfseries] at (0,6.25) {일축 응력 상태의 탄성 범위와 항복의 경계};
+% 인장/압축 영역 배경
+\fill[compression!8] (-5.4,0) rectangle (0,5.2);
+\fill[tension!8] (0,0) rectangle (5.4,5.2);
+\node[compression!80!black,font=\bfseries] at (-2.7,5.65) {압축 ($\sigma<0$)};
+\node[tension!80!black,font=\bfseries] at (2.7,5.65) {인장 ($\sigma>0$)};
+% 초기 항복 기준을 넘는 영역
+\fill[pattern=north east lines,pattern color=outside!45] (-5.4,\sy) rectangle (5.4,5.2);
+\node[outside,fill=white,rounded corners=2pt,inner sep=3pt,align=center,font=\small]
+ at (0,4.35) {$\lvert\sigma\rvert>\sigma^Y$: 초기 항복 기준을 넘는 영역};
+% 탄성 범위 띠
+\fill[elastic!12] (-\sy,0) rectangle (\sy,\sy);
+% 축
+\draw[->,thick] (-5.6,0)--(5.8,0) node[right] {$\sigma$};
+\draw[->,thick] (0,-.1)--(0,5.4) node[above] {$\lvert\sigma\rvert$};
+% 항복 수준
+\draw[boundary,thick,dashed] (-5.4,\sy)--(5.4,\sy);
+\node[boundary,anchor=east,font=\small] at (-5.45,\sy) {$\sigma^Y$};
+% |sigma| 그래프
+\draw[elastic,very thick] (-\sy,\sy)--(0,0)--(\sy,\sy);
+\draw[outside,very thick,dash pattern=on 4pt off 3pt] (-\sy,\sy)--(-5.0,5.0);
+\draw[outside,very thick,dash pattern=on 4pt off 3pt] (\sy,\sy)--(5.0,5.0);
+% 경계점
+\draw[boundary!70!black,densely dotted] (-\sy,\sy)--(-\sy,0);
+\draw[boundary!70!black,densely dotted] (\sy,\sy)--(\sy,0);
+\fill[boundary] (-\sy,\sy) circle (3.2pt);
+\fill[boundary] (\sy,\sy) circle (3.2pt);
+\fill[boundary] (-\sy,0) circle (2.6pt);
+\fill[boundary] (\sy,0) circle (2.6pt);
+\node[below=4pt] at (-\sy,0) {$-\sigma^Y$};
+\node[below=4pt] at (\sy,0) {$\sigma^Y$};
+\node[below left] at (0,0) {$0$};
+% 탄성 범위 표시
+\node[elastic!85!black,align=center,font=\small] at (-1.55,2.05) {탄성 범위\\$\lvert\sigma\rvert<\sigma^Y$};
+\draw[elastic,<->,very thick] (-\sy,-1.0)--(\sy,-1.0);
+\node[elastic!85!black,below=3pt,font=\small] at (0,-1.0) {탄성 범위: $-\sigma^Y<\sigma<\sigma^Y$};
+% 경계 설명
+\node[boundary!80!black,fill=white,rounded corners=2pt,inner sep=2pt,align=center,font=\small,anchor=south] at (\sy-1.15,\sy+0.12)
+ {인장 항복\\$\sigma=\sigma^Y$};
+\node[boundary!80!black,fill=white,rounded corners=2pt,inner sep=2pt,align=center,font=\small,anchor=south] at (-\sy+1.15,\sy+0.12)
+ {압축 항복\\$\sigma=-\sigma^Y$};
+\node[boundary!80!black,align=center,font=\small] at (4.35,1.3)
+ {항복의 경계\\$\lvert\sigma\rvert=\sigma^Y$};
+\draw[boundary!80!black,->] (4.0,1.75)--(\sy+0.12,\sy-0.15);
+\draw[boundary!80!black,->] (4.0,0.85)--(\sy+0.12,0.1);
+\node[align=center,text=gray!80!black,font=\small] at (0,-2.25)
+ {인장과 압축의 항복강도가 같다고 가정한 경우이다. $\sigma^Y=100\,\mathrm{MPa}$이면 $\pm100\,\mathrm{MPa}$에서 항복한다.};
+\end{tikzpicture}
+\end{document}

@@ -1,0 +1,69 @@
+\documentclass[tikz,border=12pt]{standalone}
+\usepackage{amsmath}
+\usepackage{kotex}
+\usetikzlibrary{arrows.meta}
+\definecolor{elastic}{RGB}{35,100,175}
+\definecolor{plastic}{RGB}{195,70,45}
+\definecolor{boundary}{RGB}{205,105,25}
+\begin{document}
+\begin{tikzpicture}[>=Latex,font=\sffamily,line cap=round,line join=round]
+% 개념적인 재료 거동 모델 (일축 인장, 단조 하중).
+% 각 패널: 가로 5.2 cm, 세로 3.6 cm. 초기 항복응력 sigma^Y는 높이 2.2 cm.
+\def\sy{2.2}
+% 패널 틀: #1,#2 = 원점 위치, #3 = 제목
+\newcommand{\panel}[3]{%
+ \begin{scope}[shift={(#1,#2)}]
+  \draw[->,thick] (0,0)--(5.4,0) node[right] {$\varepsilon$};
+  \draw[->,thick] (0,0)--(0,3.8) node[above] {$\sigma$};
+  \draw[boundary,dashed] (0,\sy)--(5.1,\sy);
+  \node[boundary,left] at (0,\sy) {$\sigma^Y$};
+  \node[below left] at (0,0) {$0$};
+  \node[align=left,anchor=south west] at (-0.3,4.15) {#3};
+ \end{scope}}
+\node[font=\large\bfseries] at (6.4,11.7) {개념적인 재료 거동 모델의 응력–변형률 곡선};
+% (a) 강체–완전소성
+\panel{0}{5.9}{\textbf{(a) 강체–완전소성}\\{\small rigid–perfectly plastic}}
+\begin{scope}[shift={(0,5.9)}]
+ \draw[elastic,very thick] (0,0)--(0,\sy);
+ \draw[plastic,very thick] (0,\sy)--(4.9,\sy);
+ \node[elastic,align=left,anchor=west,font=\small] at (0.15,1.0) {항복 전 변형 없음 ($E\to\infty$)};
+ \node[plastic,align=center,font=\small,above] at (3.0,\sy) {$\sigma=\sigma^Y$ 유지};
+\end{scope}
+% (b) 탄성–완전소성
+\panel{7.6}{5.9}{\textbf{(b) 탄성–완전소성}\\{\small elastic–perfectly plastic}}
+\begin{scope}[shift={(7.6,5.9)}]
+ \draw[elastic,very thick] (0,0)--(1.0,\sy);
+ \draw[plastic,very thick] (1.0,\sy)--(4.9,\sy);
+ \fill[boundary] (1.0,\sy) circle (2.4pt);
+ \node[elastic,anchor=west,font=\small] at (0.75,1.0) {기울기 $E$};
+ \node[plastic,align=center,font=\small,above] at (3.0,\sy) {$\sigma=\sigma^Y$ 유지};
+\end{scope}
+% (c) 탄성–선형경화
+\panel{0}{0}{\textbf{(c) 탄성–선형경화}\\{\small elastic–linear hardening}}
+\begin{scope}[shift={(0,0)}]
+ \draw[elastic,very thick] (0,0)--(1.0,\sy);
+ \draw[plastic,very thick] (1.0,\sy)--(4.9,3.4);
+ \fill[boundary] (1.0,\sy) circle (2.4pt);
+ \node[elastic,anchor=west,font=\small] at (0.75,1.0) {기울기 $E$};
+ \draw[plastic,thin] (3.2,2.877)--(4.2,2.877)--(4.2,3.185);
+ \node[plastic,anchor=north west,font=\small] at (2.4,2.0) {기울기 $E_t<E$ (일정)};
+\end{scope}
+% (d) 탄성–비선형경화
+\panel{7.6}{0}{\textbf{(d) 탄성–비선형경화}\\{\small elastic–nonlinear hardening}}
+\begin{scope}[shift={(7.6,0)}]
+ \draw[elastic,very thick] (0,0)--(1.0,\sy);
+ \draw[plastic,very thick] (1.0,\sy) .. controls (1.6,2.85) and (2.8,3.25) .. (4.9,3.4);
+ \fill[boundary] (1.0,\sy) circle (2.4pt);
+ \node[elastic,anchor=west,font=\small] at (0.75,1.0) {기울기 $E$};
+ \node[plastic,align=center,font=\small,anchor=north] at (3.3,3.0) {경화율이 점차 감소};
+\end{scope}
+% 범례
+\begin{scope}[shift={(0.3,-1.3)}]
+ \draw[elastic,very thick] (0,0)--(0.7,0); \node[anchor=west,font=\small] at (0.8,0) {탄성 구간};
+ \draw[plastic,very thick] (3.1,0)--(3.8,0); \node[anchor=west,font=\small] at (3.9,0) {소성 구간};
+ \draw[boundary,dashed] (6.2,0)--(6.9,0); \node[anchor=west,font=\small] at (7.0,0) {초기 항복응력 $\sigma^Y$};
+\end{scope}
+\node[align=center,text=gray!80!black,font=\small] at (6.4,-2.15)
+ {(a), (b): 항복 이후 응력이 $\sigma^Y$에 머문다. (c), (d): 소성변형에 따라 현재의 항복 수준이 $\sigma^Y$보다 커진다.};
+\end{tikzpicture}
+\end{document}
