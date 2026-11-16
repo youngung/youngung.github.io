@@ -411,6 +411,11 @@ ninja.data = [{
           description: "",
           section: "News",handler: () => {
               window.location.href = "/news/announcement_09/";
+            },},{id: "news-한국연구재단-우수연구-핵심연구-글로벌-매칭형-선정",
+          title: '한국연구재단 우수연구-핵심연구(글로벌 매칭형) 선정',
+          description: "",
+          section: "News",handler: () => {
+              window.location.href = "/news/announcement_10/";
             },},{id: "projects-vpsc-evpsc-기반-마그네슘-이원계-합금의-전위활성도-평가",
           title: 'VPSC/EVPSC 기반 마그네슘 이원계 합금의 전위활성도 평가',
           description: "",
