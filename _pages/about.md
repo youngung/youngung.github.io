@@ -27,4 +27,18 @@ latest_posts:
   limit: 3 # leave blank to include all the blog posts
 ---
 
-[국립창원대학교](https://www.changwon.ac.kr) [재료금속공학과](https://www.changwon.ac.kr/msm/main.do) 재료역학 실험실 홈페이지 입니다.
+[재료금속공학과; Department of Materials Science and Metallurgy](https://www.changwon.ac.kr/msm/main.do)
+
+Welcome to the Mechanics of Materials Laboratory
+
+<figure class="text-center mt-4 mb-4">
+  <img
+    src="{{ '/assets/animations/crail_forming_springback.gif' | relative_url }}"
+    width="720"
+    height="852"
+    style="width: 100%; max-width: 440px; height: auto;"
+  />
+  <figcaption class="mt-2">
+Crystal plasticity finite element simulation of C-rail forming and springback using $\Delta$EVPSC model
+  </figcaption>
+</figure>
