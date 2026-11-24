@@ -556,7 +556,7 @@ print(np.allclose(A @ x, b))       # True
 <code>np.linalg.solve()</code>는 여기서 다루는 정사각이고 특이하지 않은 계수행렬에 사용한다.
 특이행렬의 연립방정식은 우변에 따라 해가 없거나 무한히 많을 수 있다.
 측정식 개수와 미지수 개수가 다른 최소제곱 문제는
-[제16강 최소자승법](/assets/lecture_notes/1_2_data_mse/data_mse_16_최소자승법.md)에서 다룬다.
+[제17강 최소자승법](/assets/lecture_notes/1_2_data_mse/data_mse_17_최소자승법.md)에서 다룬다.
 
 # 10. 재료공학 예제
 

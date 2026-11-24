@@ -43,13 +43,14 @@ authors:
 - 제15강 Matplotlib 시각화
   - [Matplotlib 기초 2 — 그래프 배치와 스칼라 분포](/assets/lecture_notes/1_2_data_mse/data_mse_15_기초_matplotlib2.md)
   - [Matplotlib 기초 3 — 벡터장과 결정격자](/assets/lecture_notes/1_2_data_mse/data_mse_15_기초_matplotlib3.md)
-- [제16강 최소자승법](/assets/lecture_notes/1_2_data_mse/data_mse_16_최소자승법.md)
-- [제17강 응력변형률분석](/assets/lecture_notes/1_2_data_mse/data_mse_17_응력변형률분석.md)
-- [제18강 무게비 원자비 변환](/assets/lecture_notes/1_2_data_mse/data_mse_18_무게비_원자비_변환.md)
-- [제19강 SEM image 분석](/assets/lecture_notes/1_2_data_mse/data_mse_19_SEM_Image분석.md)
-- [제20강 EBSD 분석](/assets/lecture_notes/1_2_data_mse/data_mse_20_EBSD_분석.md)
-- [제21강 고유값과 고유벡터](/assets/lecture_notes/1_2_data_mse/data_mse_21_고유값.md)
-- [제22강 Misc](/assets/lecture_notes/1_2_data_mse/data_mse_22_misc.md)
+- [제16강 Git과 GitHub](/assets/lecture_notes/1_2_data_mse/data_mse_16_git_github.md)
+- [제17강 최소자승법](/assets/lecture_notes/1_2_data_mse/data_mse_17_최소자승법.md)
+- [제18강 응력변형률분석](/assets/lecture_notes/1_2_data_mse/data_mse_18_응력변형률분석.md)
+- [제19강 무게비 원자비 변환](/assets/lecture_notes/1_2_data_mse/data_mse_19_무게비_원자비_변환.md)
+- [제20강 SEM image 분석](/assets/lecture_notes/1_2_data_mse/data_mse_20_SEM_Image분석.md)
+- [제21강 EBSD 분석](/assets/lecture_notes/1_2_data_mse/data_mse_21_EBSD_분석.md)
+- [제22강 고유값과 고유벡터](/assets/lecture_notes/1_2_data_mse/data_mse_22_고유값.md)
+- [제23강 Misc](/assets/lecture_notes/1_2_data_mse/data_mse_23_misc.md)
 
 ## 보충 실습
 

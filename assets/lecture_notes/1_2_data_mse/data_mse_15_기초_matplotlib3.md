@@ -757,4 +757,4 @@ FCC 그림의 z축은 조밀충전 (111)면에 수직인 [111] 방향이다.
 
 ---
 
-[이전 강의](/assets/lecture_notes/1_2_data_mse/data_mse_15_기초_matplotlib2.md) · [강의 목록](/_lectures/1_2_data_mse.md) · [다음 강의](/assets/lecture_notes/1_2_data_mse/data_mse_16_최소자승법.md)
+[이전 강의](/assets/lecture_notes/1_2_data_mse/data_mse_15_기초_matplotlib2.md) · [강의 목록](/_lectures/1_2_data_mse.md) · [다음 강의](/assets/lecture_notes/1_2_data_mse/data_mse_16_git_github.md)
