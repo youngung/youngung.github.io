@@ -40,7 +40,9 @@ authors:
 - [제12강 행렬연산기초](/assets/lecture_notes/1_2_data_mse/data_mse_12_행렬연산기초.md)
 - [제13강 행렬벡터연산고급](/assets/lecture_notes/1_2_data_mse/data_mse_13_행렬벡터연산고급_Ein.md)
 - [제14강 기초 matplotlib 1](/assets/lecture_notes/1_2_data_mse/data_mse_14_기초_matplotlib1.md)
-- [제15강 기초 matplotlib 2](/assets/lecture_notes/1_2_data_mse/data_mse_15_기초_matplotlib2.md)
+- 제15강 Matplotlib 시각화
+  - [Matplotlib 기초 2 — 그래프 배치와 스칼라 분포](/assets/lecture_notes/1_2_data_mse/data_mse_15_기초_matplotlib2.md)
+  - [Matplotlib 기초 3 — 벡터장과 결정격자](/assets/lecture_notes/1_2_data_mse/data_mse_15_기초_matplotlib3.md)
 - [제16강 최소자승법](/assets/lecture_notes/1_2_data_mse/data_mse_16_최소자승법.md)
 - [제17강 응력변형률분석](/assets/lecture_notes/1_2_data_mse/data_mse_17_응력변형률분석.md)
 - [제18강 무게비 원자비 변환](/assets/lecture_notes/1_2_data_mse/data_mse_18_무게비_원자비_변환.md)

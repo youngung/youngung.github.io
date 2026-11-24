@@ -33,7 +33,7 @@ authors:
 [12-1장](/assets/lecture_notes/3_1_metal_plasticity/metal_plasticity_12_plastic_yield.md)에서는
 다축 응력텐서를 등가응력 $\sigma_{eq}$으로 환산하고, 이를 일축 항복응력 $\sigma^Y$와
 비교하여 항복을 판정하는 일반적인 틀을 배웠다. 이 장에서는 연성금속에 널리 사용하는
-Tresca와 von Mises 항복조건을 각각 정의하고, 같은 응력 상태에 대한 두 예측을 비교한다.
+[Tresca](https://en.wikipedia.org/wiki/Henri_Tresca)와 [von Mises](https://en.wikipedia.org/wiki/Richard_von_Mises) 항복조건을 각각 정의하고, 같은 응력 상태에 대한 두 예측을 비교한다.
 
 # 2. Tresca 항복 조건
 
@@ -111,7 +111,7 @@ $$
 \boxed{\tau_Y^{\mathrm{Tresca}}=\frac{\sigma^Y}{2}}.
 $$
 
-# 3. Von Mises 항복 조건
+# 3. [Von Mises 항복 조건](https://en.wikipedia.org/wiki/von_Mises_yield_criterion)
 
 ## 3.1. 평균응력과 편차응력
 
