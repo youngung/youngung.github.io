@@ -1,0 +1,22 @@
+\documentclass[tikz,border=6pt]{standalone}
+\usepackage{kotex}
+\usetikzlibrary{arrows.meta,positioning}
+\begin{document}
+\begin{tikzpicture}[
+  font=\sffamily,
+  state/.style={draw=blue!65!black, fill=blue!5, rounded corners=3pt,
+    minimum width=69mm, minimum height=12mm, align=center},
+  command/.style={font=\ttfamily\small, fill=white, inner sep=2pt},
+  flow/.style={-{Stealth[length=2.5mm]}, thick, draw=black!75},
+  node distance=11mm
+]
+\node[state] (work) {\textbf{작업 폴더}\\[-1pt]\small 편집한 파일};
+\node[state, below=of work] (stage) {\textbf{스테이징 영역}\\[-1pt]\small 다음 커밋에 담을 파일 내용};
+\node[state, below=of stage] (local) {\textbf{로컬 저장소}\\[-1pt]\small 내 컴퓨터에 기록된 커밋};
+\node[state, draw=teal!65!black, fill=teal!6, below=of local] (remote)
+  {\textbf{GitHub 원격 저장소}\\[-1pt]\small 온라인에 올라간 커밋};
+\draw[flow] (work) -- node[command] {git add} (stage);
+\draw[flow] (stage) -- node[command] {git commit} (local);
+\draw[flow] (local) -- node[command] {git push} (remote);
+\end{tikzpicture}
+\end{document}
