@@ -55,6 +55,17 @@ git config --get user.email
 
 따옴표 안의 값은 자신의 이름과 이메일로 바꾼다. `--global`은 이 컴퓨터의 현재 사용자 계정에 기본값을 저장한다. 수업용 컴퓨터에서 프로젝트별로 설정하려면 아래의 `git init`을 먼저 실행한 뒤 해당 폴더에서 `--global` 대신 `--local`을 사용한다. 이 이름과 이메일은 작성자 정보다. GitHub 로그인은 원격 저장소 연결 단계에서 별도로 진행한다.
 
+## VS Code에서 Git을 확인하고 GitHub 확장 설치하기
+
+수업에서는 VS Code의 **Source Control(소스 제어)** 패널에서 변경 사항을 확인하고 커밋한다. 이 패널은 VS Code에 내장되어 있으며, 앞에서 설치한 Git을 사용한다. **GitHub Pull Requests** 확장은 VS Code에서 Pull Request(PR)를 만들고 검토할 때 사용한다.
+
+1. 왼쪽 활동 표시줄에서 **Extensions(확장)**를 연다. 단축키는 Windows·Linux에서 `Ctrl+Shift+X`, macOS에서 `Cmd+Shift+X`다.
+2. 검색창에 `@id:GitHub.vscode-pull-request-github`를 입력한다. 게시자가 **GitHub**인 **GitHub Pull Requests** 확장을 선택하고 **Install(설치)**을 누른다.
+3. 확장 상세 화면에 **Uninstall(제거)** 버튼이 나타나면 설치된 상태다. 활동 표시줄에서 **GitHub** 보기를 열고 **Sign In**을 선택한다. 브라우저에서 방금 만든 계정으로 로그인하고, 승인 화면을 거쳐 VS Code로 돌아온다.
+4. **Source Control** 아이콘도 열어 본다. 실습 저장소를 열기 전에는 커밋할 파일이 표시되지 않아도 된다. Git을 찾을 수 없다는 안내가 나오면 VS Code를 완전히 닫았다가 다시 열고, 통합 터미널에서 `git --version`을 다시 확인한다.
+
+[GitHub Pull Requests 확장 설치 페이지](https://marketplace.visualstudio.com/items?itemName=GitHub.vscode-pull-request-github) · [VS Code의 GitHub 연동 안내](https://code.visualstudio.com/docs/sourcecontrol/github)
+
 # 3. 실습 1 — 그래프의 첫 버전 기록하기
 
 터미널에서 수업 파일을 저장하는 폴더로 이동한다. 그곳에 실습 폴더를 만들고 새 저장소를 시작한다. `-b main`은 기본 작업 줄기의 이름을 `main`으로 정하는 옵션이다.
@@ -97,8 +108,21 @@ Matplotlib이 설치된 Python 환경에서 `python plot_data.py`를 실행하�
 __pycache__/
 ```
 
+## VS Code에서 첫 커밋 만들기
+
+**File → Open Folder**에서 `data-mse-plot` 폴더를 열고, 통합 터미널에서 `python plot_data.py`를 실행한다. 환경에 따라 `python3` 또는 `py`를 사용할 수 있다. 이어서 **Source Control**에서 다음 순서로 작업한다.
+
+1. **Changes** 아래의 `plot_data.py`를 클릭해 커밋할 내용을 확인한다. 생성한 `plot.png`는 `.gitignore` 규칙 때문에 목록에 나타나지 않는다.
+2. `README.md`, `plot_data.py`, `.gitignore` 각각의 오른쪽에서 **+**를 눌러 **Staged Changes**로 옮긴다. 이 동작이 `git add`에 해당한다.
+3. **Staged Changes**에 세 파일이 있는지 확인한다. 메시지 입력란에 `Add measurement scatter plot`을 적고 **Commit**을 누른다. 작업을 마치면 **Source Control Graph** 또는 통합 터미널의 `git log --oneline`에서 첫 커밋을 확인한다.
+
+[VS Code의 스테이징과 커밋 안내](https://code.visualstudio.com/docs/sourcecontrol/staging-commits)
+
+## 같은 작업을 터미널에서 수행하기
+
+터미널만으로 첫 커밋을 만드는 경우 아래 명령을 실행한다. VS Code에서 커밋을 마쳤다면 마지막 두 확인 명령만 실행해도 된다.
+
 ```bash
-python plot_data.py
 git status --short
 git add README.md plot_data.py .gitignore
 git diff --staged
@@ -107,7 +131,7 @@ git status --short
 git log --oneline
 ```
 
-환경에 따라 `python` 명령은 `python3` 또는 `py`로 바꿔 실행한다. 처음 `git status --short`에서 새 파일 세 개 앞에 `??`가 보이고 `plot.png`는 목록에서 빠진다. 커밋 직후에는 `git status --short`의 출력이 비고, `git log --oneline`에는 커밋을 식별하는 짧은 ID와 메시지가 한 줄로 나타난다.
+커밋 전에는 `git status --short`에서 새 파일 세 개 앞에 `??`가 보이고 `plot.png`는 목록에서 빠진다. 커밋 직후에는 `git status --short`의 출력이 비고, `git log --oneline`에는 커밋을 식별하는 짧은 ID와 메시지가 한 줄로 나타난다.
 
 | 위치 | 이 실습에서 하는 일 |
 | --- | --- |
@@ -118,7 +142,23 @@ git log --oneline
 
 커밋(commit)은 그 시점에 선택한 프로젝트 상태를 남긴 기록이다. 파일을 스테이징한 뒤 편집하면 새 편집 내용은 작업 폴더에 남는다. `git diff`는 스테이징 이후 작업 폴더에 생긴 변경을, `git diff --staged`는 마지막 커밋과 비교해 다음 커밋에 들어갈 변경을 보여 준다.
 
+![git add로 파일 내용을 스테이징하고, git commit으로 로컬에 기록한 뒤 git push로 GitHub에 보내는 흐름](/assets/img/lecture_notes/data_mse/git_repository_workflow.png){: width="330" style="max-width: 100%; height: auto; display: block; margin: 0 auto;"}
+
 # 4. 실습 2 — GitHub에 첫 버전 올리기
+
+## VS Code에서 비공개 저장소로 게시하기
+
+아직 GitHub에 `data-mse-plot` 저장소를 만들지 않았다면, VS Code에서 로컬 저장소를 바로 게시할 수 있다.
+
+1. 명령 팔레트(Windows·Linux `Ctrl+Shift+P`, macOS `Cmd+Shift+P`)에서 **Publish to GitHub**를 실행한다.
+2. 로그인 요청이 나오면 브라우저에서 인증한다. 저장소 이름을 `data-mse-plot`으로 입력하고 **Private**을 선택한다.
+3. 게시가 끝나면 GitHub에서 파일 목록과 첫 커밋을 확인한다. VS Code가 원격 저장소를 연결하고 첫 커밋을 전송했는지는 통합 터미널에서 `git remote -v`와 `git status -sb`로도 확인할 수 있다.
+
+[VS Code의 저장소 게시 안내](https://code.visualstudio.com/docs/sourcecontrol/repos-remotes)
+
+## GitHub 웹에서 저장소를 만들고 터미널로 푸시하기
+
+터미널로 게시하려면 다음 절차를 사용한다. GitHub 웹에서 실습용 빈 저장소를 미리 만들었다면 저장소 생성 단계를 건너뛰고 3단계부터 진행한다.
 
 1. GitHub에 로그인해 **New repository**를 선택한다. 이름은 `data-mse-plot`, 공개 범위는 실습용으로 **Private**을 선택한다. 공개 저장소(Public)는 누구나 볼 수 있고 비공개 저장소는 권한을 가진 사용자가 볼 수 있다.
 2. 로컬에서 첫 커밋을 이미 만들었으므로 GitHub에서는 README, .gitignore, 라이선스 추가 옵션을 선택하지 않고 빈 저장소를 만든다.
@@ -138,6 +178,16 @@ git push -u origin main
 실제 분석 자료를 올리기 전에는 `git diff --staged`로 포함될 내용을 확인한다. 비밀번호, 토큰, 개인정보, 공개 권한이 없는 실험 데이터는 커밋 대상에서 제외한다. 이미 커밋한 파일을 이후 버전에서 삭제해도 앞선 커밋에는 내용이 남을 수 있다.
 
 # 5. 실습 3 — 브랜치에서 수정하고 Pull Request로 검토하기
+
+## VS Code에서 브랜치와 Pull Request 만들기
+
+1. VS Code 창 아래의 현재 브랜치 이름 `main`을 클릭하고 **Create new branch...**를 선택한다. 이름은 `add-grid`로 정하고, 상태 표시줄에 새 브랜치 이름이 보이는지 확인한다.
+2. `plot_data.py`에서 `fig.savefig(...)` 바로 위에 `ax.grid(True, alpha=0.3)`을 넣고 저장한다. 통합 터미널에서 스크립트를 실행해 격자가 추가됐는지 확인한다.
+3. **Source Control**에서 변경된 한 줄을 확인하고 **+**로 스테이징한다. `Add grid to measurement plot`이라는 메시지로 커밋한 뒤 **Publish Branch**를 눌러 `add-grid`를 GitHub에 올린다.
+4. 명령 팔레트에서 **GitHub Pull Requests: Create Pull Request**를 찾아 실행한다. 변경을 받을 저장소와 브랜치(base)가 자신의 `data-mse-plot`의 `main`인지, 변경을 보낼 브랜치(compare)가 `add-grid`인지 확인한다.
+5. 제목과 변경 내용을 입력하고 **Create**를 누른다. 열린 PR에서 수정된 파일을 열어 격자 코드 한 줄을 확인한다. GitHub 웹 또는 확장에서 PR을 병합한 뒤, VS Code에서 `main`으로 전환하고 **Source Control → … → Pull**로 변경을 가져온다.
+
+## 터미널과 GitHub 웹에서 같은 작업 수행하기
 
 **브랜치(branch)**는 커밋이 이어지는 작업 줄기다. 현재의 `main`에서 `add-grid` 브랜치를 만들면 첫 그래프 버전을 바탕으로 격자 추가를 시험할 수 있다.
 
@@ -168,6 +218,10 @@ git log --oneline -5
 ```
 
 [GitHub Flow 안내](https://docs.github.com/en/get-started/using-github/github-flow)
+
+아래 그림은 GitHub에서 **Create a merge commit** 방식으로 합친 경우다. 원은 커밋이고, 화살표는 이전 커밋에서 다음 커밋으로 이어지는 경로를 나타낸다. `main`의 첫 커밋에서 갈라져 나온 격자 추가 작업과 기존 `main` 이력이 병합 커밋에서 만난다.
+
+![main의 첫 그래프 커밋에서 add-grid가 갈라지고, 격자 추가 커밋을 Pull Request로 검토한 뒤 main에 병합하는 흐름](/assets/img/lecture_notes/data_mse/git_pull_request_merge.png){: width="580" style="max-width: 100%; height: auto; display: block; margin: 0 auto;"}
 
 다른 컴퓨터에서 처음 이어서 작업할 때는 실습 폴더 밖에서 `git clone https://github.com/USERNAME/data-mse-plot.git`을 실행한다. `clone`은 파일과 커밋 이력을 담은 새 로컬 저장소를 만들고, `pull`은 이미 가지고 있는 저장소의 현재 브랜치를 업데이트한다. 복제한 폴더에서 README대로 스크립트를 실행해 같은 그림을 재현한다.
 

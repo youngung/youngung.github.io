@@ -1,0 +1,26 @@
+\documentclass[tikz,border=7pt]{standalone}
+\usepackage{kotex}
+\usetikzlibrary{arrows.meta}
+\begin{document}
+\begin{tikzpicture}[
+  font=\sffamily,
+  mainline/.style={draw=blue!65!black, very thick, -{Stealth[length=2.6mm]}},
+  branchline/.style={draw=teal!65!black, very thick, -{Stealth[length=2.6mm]}},
+  commit/.style={circle, draw, thick, fill=white, minimum size=4.7mm, inner sep=0pt},
+  note/.style={font=\small, align=center}
+]
+\node[font=\ttfamily, anchor=east, text=blue!65!black] at (-0.55,0) {main};
+\node[font=\ttfamily, anchor=east, text=teal!65!black] at (-0.55,1.65) {add-grid};
+\node[commit, draw=blue!65!black] (first) at (0,0) {};
+\node[commit, draw=teal!65!black] (grid) at (3.05,1.65) {};
+\node[commit, draw=blue!65!black] (merge) at (6.2,0) {};
+\draw[mainline] (first) -- (merge);
+\draw[branchline] (first) to[out=52,in=180] (grid);
+\draw[branchline] (grid) to[out=0,in=130]
+  node[note, above right, pos=0.38] {Pull Request\\검토 후 병합}
+  (merge);
+\node[note, below=4pt] at (first.south) {첫 그래프 커밋};
+\node[note, above=4pt] at (grid.north) {격자 추가 커밋};
+\node[note, below=4pt] at (merge.south) {병합 커밋};
+\end{tikzpicture}
+\end{document}
