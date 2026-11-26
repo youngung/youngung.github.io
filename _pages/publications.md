@@ -5,8 +5,6 @@ title: publications
 description:
 nav: true
 nav_order: 2
-scholar:
-  exclude_publication_groups: [Submitted]
 ---
 
 <!-- _pages/publications.md -->
