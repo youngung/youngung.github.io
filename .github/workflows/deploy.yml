@@ -60,6 +60,8 @@ on:
       - "!INSTALL.md"
       - "!README.md"
   workflow_dispatch:
+  schedule:
+    - cron: "23 3 * * 1"
 
 permissions:
   contents: write
@@ -88,6 +90,17 @@ jobs:
           valueFile: "_config.yml"
           propertyPath: "giscus.repo"
           value: ${{ github.repository }}
+      - name: Refresh GitHub contribution calendar
+        if: github.event_name != 'pull_request'
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        run: |
+          if ! bundle exec ruby _scripts/update_github_contributions.rb; then
+            if [ "${{ github.event_name }}" = "schedule" ]; then
+              exit 1
+            fi
+            echo "::warning::GitHub contribution refresh failed. Using the committed snapshot."
+          fi
       - name: Install and Build 🔧
         run: |
           sudo apt-get update && sudo apt-get install -y imagemagick

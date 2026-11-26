@@ -31,9 +31,13 @@ latest_posts:
 
 Welcome to the Mechanics of Materials Laboratory
 
-<figure class="text-center mt-4 mb-4">
+<link rel="stylesheet" href="{{ '/assets/css/github-contributions.css' | relative_url }}">
+
+<div class="home-activity my-4">
+<figure class="text-center mb-0">
   <img
     src="{{ '/assets/animations/crail_forming_springback.gif' | relative_url }}"
+    alt="Finite element animation of C-rail forming and springback"
     width="720"
     height="852"
     style="width: 100%; max-width: 440px; height: auto;"
@@ -42,3 +46,5 @@ Welcome to the Mechanics of Materials Laboratory
 Crystal plasticity finite element simulation of C-rail forming and springback using $\Delta$EVPSC model
   </figcaption>
 </figure>
+{% include github_contributions.liquid %}
+</div>
