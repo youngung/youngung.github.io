@@ -1,0 +1,45 @@
+{% assign calendar = site.data.github_contributions %}
+<section class="github-contributions" aria-labelledby="github-contributions-heading">
+  <h2 id="github-contributions-heading" class="h5 mb-2">GitHub contributions</h2>
+  <p class="small mb-3">
+    <a href="https://github.com/{{ calendar.user }}">@{{ calendar.user }}</a> · Public profile activity through
+    {{ calendar.through | date: '%b %-d, %Y' }} (UTC)
+  </p>
+  {% for period in calendar.years %}
+    <div class="mb-3">
+      <h3 class="h6 mb-1">
+        {% if forloop.first %}
+          {{ period.year }}
+        {% else %}
+          <a href="https://github.com/{{ calendar.user }}?tab=overview&amp;from={{ period.year }}-12-01&amp;to={{ period.year }}-12-31">
+            {{- period.year -}}
+          </a>
+        {% endif %}
+        <span class="small">· {{ period.total }} contributions</span>
+      </h3>
+      <div class="github-calendar" aria-hidden="true">
+        <div class="github-calendar-months">
+          {% for label in period.months %}
+            <span style="grid-column: {{ label.column }};">{{ label.month }}</span>
+          {% endfor %}
+        </div>
+        <div class="github-calendar-days">
+          {% for day in period.days %}
+            {% if day %}
+              <span data-level="{{ day.level }}" title="{{ day.date }} · {{ day.count }} contributions"></span>
+            {% else %}
+              <span></span>
+            {% endif %}
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  {% endfor %}
+  <div class="github-calendar-legend small" aria-hidden="true">
+    Less
+    {% for level in (0..4) %}
+      <span data-level="{{ level }}"></span>
+    {% endfor %}
+    More
+  </div>
+</section>
